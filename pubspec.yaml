@@ -1,0 +1,20 @@
+name: viet_su_workspace
+publish_to: none
+
+# Root of the Việt Sử pub workspace (Dart pub workspaces + Melos).
+# Member packages set `resolution: workspace` and are listed below so a single
+# `dart pub get` resolves the whole monorepo against one lockfile.
+
+environment:
+  sdk: ^3.12.0
+
+workspace:
+  - packages/ui_kit
+  - packages/core_domain
+  - packages/core_content
+  - packages/experience
+  - apps/mobile
+
+dev_dependencies:
+  melos: ^6.3.0
+  json_schema: ^5.1.0

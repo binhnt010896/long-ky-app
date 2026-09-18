@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "id": "tu-duc",
+  "slug": "tu-duc",
+  "order": 25,
+  "period": "nguyen",
+  "title": { "vi": "Tự Đức – Mất Nam Kỳ", "en": "Tự Đức and the loss of the South" },
+  "kicker": { "vi": "Nhà Nguyễn · Thực dân Pháp xâm lược", "en": "The Nguyễn · the French invasion" },
+  "subtitle": { "vi": "Cơn bão phương Tây ập đến, giang sơn dần rơi vào tay giặc — và dân đứng lên.", "en": "The Western storm breaks, the land slips to the invader — and the people rise." },
+  "overview": {
+    "vi": "Giữa thế kỷ 19, khi phương Tây đã mạnh về công nghiệp và ráo riết đi tìm thuộc địa, thì Đại Nam dưới thời vua Tự Đức (lên ngôi 1847) vẫn khép mình trong khuôn phép cũ: bảo thủ, sùng Nho, cấm đạo, bế quan tỏa cảng, quân bị lạc hậu. Lấy cớ bênh vực giáo sĩ và giáo dân bị triều đình sát hại, năm Mậu Ngọ (1858), liên quân Pháp – Tây Ban Nha nổ súng đánh vào cửa biển Đà Nẵng, mở đầu cuộc xâm lược. Bị danh tướng Nguyễn Tri Phương chặn đánh, sa lầy ở Đà Nẵng, quân Pháp chuyển hướng đánh vào Gia Định (Sài Gòn). Năm 1861, đại đồn Chí Hòa thất thủ; năm Nhâm Tuất (1862), triều đình cử Phan Thanh Giản đứng ra ký hòa ước, cắt ba tỉnh miền Đông Nam Kỳ cùng đảo Côn Lôn cho Pháp — một sự nhượng bộ đắng cay. Nhưng nhân dân Nam Kỳ không chịu khuất phục: khắp nơi dấy lên phong trào kháng chiến oanh liệt — Trương Định xưng Bình Tây Đại nguyên soái, không tuân lệnh bãi binh, ở lại cùng dân đánh giặc; Nguyễn Trung Trực đốt cháy chiến hạm Pháp trên sông Nhật Tảo, hạ đồn Kiên Giang; nhà thơ mù Nguyễn Đình Chiểu dùng ngòi bút làm vũ khí. Dù vậy, thế nước ngày một suy: năm 1867, Pháp chiếm nốt ba tỉnh miền Tây, Phan Thanh Giản thất thế, tuẫn tiết; cả sáu tỉnh Nam Kỳ rơi vào tay giặc. Rồi họa lan ra Bắc: năm 1873 và 1882, quân Pháp hai lần đánh thành Hà Nội — Nguyễn Tri Phương rồi Hoàng Diệu lần lượt tuẫn tiết theo thành; nghĩa quân Cờ Đen giết được các tướng Pháp ở Cầu Giấy, nhưng không xoay chuyển được cục diện. Năm Quý Mùi (1883), vua Tự Đức mất giữa lúc nước nhà nguy khốn; ngay sau đó, triều đình phải ký hòa ước công nhận sự bảo hộ của Pháp. Một thời kỳ đen tối bắt đầu — nhưng cũng là lúc rực sáng tinh thần bất khuất của những người dân đứng lên giữ nước.",
+    "en": "In the mid-19th century, when the West had grown strong in industry and was hunting hard for colonies, Đại Nam under Emperor Tự Đức (enthroned 1847) still shut itself in the old ways: conservative, Confucian, banning Christianity, closing its ports, its armies outdated. On the pretext of defending missionaries and converts killed by the court, in the year Mậu Ngọ (1858) a joint French–Spanish force opened fire on the harbour of Đà Nẵng, beginning the invasion. Checked by the great general Nguyễn Tri Phương and bogged down at Đà Nẵng, the French turned to strike Gia Định (Saigon). In 1861 the great fort of Chí Hòa fell; in the year Nhâm Tuất (1862) the court had Phan Thanh Giản sign a treaty ceding the three eastern provinces of the South and the isle of Côn Lôn to France — a bitter concession. But the people of the South would not submit: everywhere a fierce resistance arose — Trương Định, styled Grand Marshal Pacifying the West, defied the order to disband and stayed to fight with the people; Nguyễn Trung Trực burned a French warship on the Nhật Tảo river and stormed the fort of Kiên Giang; the blind poet Nguyễn Đình Chiểu made his brush a weapon. Yet the nation weakened: in 1867 France seized the three western provinces too, Phan Thanh Giản, undone, took his own life, and all six provinces of the South were lost. Then the calamity spread north: in 1873 and 1882 the French twice stormed the citadel of Hà Nội — Nguyễn Tri Phương, then Hoàng Diệu, died with their walls; the Black Flag fighters killed the French commanders at Cầu Giấy, but could not turn the tide. In the year Quý Mùi (1883) Tự Đức died with the nation in peril; and immediately after, the court had to sign a treaty acknowledging the French protectorate. A dark age began — but so, too, blazed the unbowed spirit of a people rising to save their land."
+  },
+  "yearRange": {
+    "display": { "vi": "1847 – 1883 SCN", "en": "1847 – 1883 CE" },
+    "startYear": 1847,
+    "endYear": 1883
+  },
+  "palette": {
+    "accent": "#9c4a2c",
+    "particle": "#e0a878",
+    "scene": [
+      "#120806",
+      "#22100a",
+      "#3f1c11",
+      "#6b2f18",
+      "#93411f",
+      "#9c4a2c",
+      "#d99a68"
+    ]
+  },
+  "cover": {
+    "id": "tu-duc-cover",
+    "type": "image",
+    "role": "cover",
+    "flagship": "eras/tu-duc/cover.png",
+    "reduced": "eras/tu-duc/cover.png",
+    "placeholder": "era-scene",
+    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+  },
+  "scene": {
+    "layers": [
+      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/tu-duc/scene/sky.png", "reduced": "eras/tu-duc/scene/sky.png", "placeholder": "era-scene" },
+      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+    ]
+  },
+  "primarySource": {
+    "work": "Đại Nam thực lục",
+    "section": { "vi": "Chính biên · Đệ tứ kỷ", "en": "Primary Compilation · Fourth Reign" },
+    "author": "Quốc sử quán triều Nguyễn"
+  },
+  "characters": [
+    { "ref": "tu-duc" },
+    { "ref": "nguyen-tri-phuong" },
+    { "ref": "phan-thanh-gian" },
+    { "ref": "truong-dinh" },
+    { "ref": "nguyen-trung-truc" }
+  ],
+  "events": [
+    {
+      "id": "tu-duc-boi-canh",
+      "slug": "tu-duc-boi-canh",
+      "figureIds": ["tu-duc"],
+      "details": {
+        "vi": "Năm Đinh Mùi (1847), vua Tự Đức lên ngôi, nối một cơ đồ bề ngoài còn nguyên vẹn nhưng bên trong đã tiềm ẩn nguy cơ. Là bậc vua hay chữ, hiếu học, nhưng thể chất ốm yếu và tính tình bảo thủ, Tự Đức tiếp tục đường lối của các tiên đế: lấy Nho giáo làm gốc, giữ nền quân chủ tập quyền, nghiêm cấm đạo Thiên Chúa, và bế quan tỏa cảng, dè dặt tối đa với người phương Tây. Trong khi đó, thế giới đã sang một trang mới: các nước tư bản Âu – Mỹ, nhờ cách mạng công nghiệp, có tàu chạy bằng hơi nước, súng đạn tối tân, đang ráo riết xâm chiếm thuộc địa khắp châu Á. Triều đình Huế thì quân bị lạc hậu, tài chính eo hẹp, nội bộ lại chia rẽ giữa phe chủ chiến và phe chủ hòa; một số ít sĩ phu thức thời như Nguyễn Trường Tộ dâng điều trần xin canh tân, mở cửa, nhưng không được nghe theo. Cánh cửa khép kín và tư tưởng thủ cựu ấy khiến Đại Nam hoàn toàn bị động, không đủ sức đối phó khi cơn bão xâm lăng của thực dân phương Tây ập tới.",
+        "en": "In the year Đinh Mùi (1847) Tự Đức took the throne, inheriting a realm whole in appearance but already threatened within. A learned, studious ruler but frail and conservative, he kept the course of his forebears: Confucianism as the foundation, the centralised monarchy, a strict ban on Christianity, and closed ports with the utmost wariness of the West. Meanwhile the world had turned a page: the capitalist powers of Europe and America, by the Industrial Revolution, had steam-driven ships and modern guns, and were seizing colonies across Asia. The court of Huế had outdated arms, straitened finances, and an inner split between the war party and the peace party; a few far-sighted scholars like Nguyễn Trường Tộ submitted memorials urging reform and opening, but went unheeded. That closed door and conservative mind left Đại Nam wholly on the back foot, unable to meet the storm of Western colonial invasion when it broke."
+      },
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1847 – 1858 SCN", "en": "1847 – 1858 CE" },
+        "value": 1847,
+        "approximate": false
+      },
+      "title": { "vi": "Tự Đức lên ngôi, nước khép mình trước bão", "en": "Tự Đức's reign; a realm closed before the storm" },
+      "summary": {
+        "vi": "Vua Tự Đức bảo thủ, cấm đạo, bế quan; quân bị lạc hậu, khước từ canh tân — Đại Nam bị động trước họa Pháp.",
+        "en": "Conservative Tự Đức bans the faith and closes the ports; arms lag and reform is refused — Đại Nam caught unready."
+      },
+      "body": {
+        "vi": "Năm 1847, Tự Đức lên ngôi, tiếp tục đường lối bảo thủ của tiền triều: sùng Nho, cấm đạo, bế quan tỏa cảng, dè dặt với phương Tây. Trong khi các nước Âu – Mỹ nhờ công nghiệp có tàu hơi nước, súng tối tân, ráo riết chiếm thuộc địa, thì triều Huế quân bị lạc hậu, nội bộ chia rẽ, khước từ những lời xin canh tân (Nguyễn Trường Tộ). Đại Nam vì thế hoàn toàn bị động trước cơn bão xâm lăng sắp tới.",
+        "en": "In 1847 Tự Đức took the throne and kept the old conservative course: reverence for Confucianism, a ban on Christianity, closed ports, wariness of the West. While Europe and America, industrialised, wielded steamships and modern guns to seize colonies, the court of Huế had outdated arms, was split within, and refused calls for reform (Nguyễn Trường Tộ). So Đại Nam was wholly unready for the coming storm of invasion."
+      },
+      "pullQuote": {
+        "text": { "vi": "Người ta đã tàu sắt súng đồng, mình còn giáo mác thuyền nan; cửa đóng then cài mà bão đã tới ngoài khơi.", "en": "They had iron ships and bronze cannon while we still had spears and wicker boats; the door was barred, but the storm was already off the coast." },
+        "attribution": { "vi": "lời bàn của người đời sau", "en": "the judgment of later generations" }
+      },
+      "hero": {
+        "id": "tu-duc-boi-canh-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tu-duc/events/tu-duc-boi-canh.png",
+        "reduced": "eras/tu-duc/events/tu-duc-boi-canh.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Nam thực lục",
+        "section": { "vi": "Chính biên · Đệ tứ kỷ · Quyển 1", "en": "Primary Compilation · Fourth Reign · Book 1" },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    },
+    {
+      "id": "phap-danh-da-nang",
+      "slug": "phap-danh-da-nang",
+      "figureIds": ["nguyen-tri-phuong"],
+      "details": {
+        "vi": "Lấy cớ triều đình Huế giết hại giáo sĩ và cấm đạo, ngày 1 tháng 9 năm Mậu Ngọ (1858), liên quân Pháp – Tây Ban Nha do trung tướng Rigault de Genouilly chỉ huy, với nhiều tàu chiến và đại bác, nổ súng tấn công bán đảo Sơn Trà, cửa biển Đà Nẵng, mở đầu cuộc chiến tranh xâm lược Việt Nam. Chúng chiếm được các đồn ven biển, định đánh nhanh thắng nhanh, uy hiếp kinh đô Huế ở gần đó. Triều đình cử danh tướng Nguyễn Tri Phương làm Tổng chỉ huy mặt trận Đà Nẵng. Ông chủ trương không đánh trực diện với hỏa lực mạnh của địch, mà cho quân dân đắp lũy dài, lập phòng tuyến vững chắc, vây hãm, bao bọc quân Pháp trong vùng ven biển chật hẹp, cắt tiếp tế, khiến chúng sa lầy, bệnh tật, chết dần mòn mà không tiến sâu vào được. Kế 'vườn không nhà trống' và phòng thủ bền bỉ ấy khiến kế hoạch đánh nhanh của Pháp phá sản; sau nhiều tháng giậm chân tại chỗ, thiệt hại nặng, quân Pháp buộc phải để lại một lực lượng nhỏ rồi chuyển hướng, đem đại quân vào đánh Gia Định ở phương Nam.",
+        "en": "On the pretext that the court of Huế was killing missionaries and banning the faith, on the first day of the ninth month, Mậu Ngọ (1858), a joint French–Spanish force under Vice-Admiral Rigault de Genouilly, with many warships and cannon, opened fire on the Sơn Trà peninsula at the harbour of Đà Nẵng, beginning the war to conquer Vietnam. Taking the coastal forts, they meant to win quickly and threaten the nearby capital of Huế. The court made the great general Nguyễn Tri Phương supreme commander of the Đà Nẵng front. Rather than meet the enemy's heavy firepower head-on, he had the people and soldiers raise long ramparts and firm defensive lines, hemming the French into a narrow coastal strip, cutting their supplies, so that they bogged down, sickened and wasted away without penetrating inland. This 'empty gardens and bare houses' strategy and stubborn defence wrecked the French plan for a quick victory; after months at a standstill and heavy losses, they had to leave a small force and turn their main army south to strike Gia Định."
+      },
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1858 – 1860 SCN", "en": "1858 – 1860 CE" },
+        "value": 1858,
+        "approximate": false
+      },
+      "title": { "vi": "Pháp đánh Đà Nẵng, Nguyễn Tri Phương chặn giặc", "en": "The French strike Đà Nẵng; Nguyễn Tri Phương holds" },
+      "summary": {
+        "vi": "1858, liên quân Pháp – Tây Ban Nha đánh Đà Nẵng; Nguyễn Tri Phương đắp lũy vây hãm, phá kế đánh nhanh.",
+        "en": "In 1858 a French–Spanish force attacks Đà Nẵng; Nguyễn Tri Phương's ramparts pen them in, wrecking the quick-win plan."
+      },
+      "body": {
+        "vi": "Ngày 1-9-1858, liên quân Pháp – Tây Ban Nha do Rigault de Genouilly chỉ huy nổ súng đánh Đà Nẵng, mở đầu xâm lược. Nguyễn Tri Phương làm Tổng chỉ huy, không đánh trực diện mà đắp lũy dài, vây hãm, cắt tiếp tế, khiến quân Pháp sa lầy, bệnh tật, không tiến sâu được. Kế hoạch đánh nhanh của Pháp phá sản; chúng đành để lại ít quân, chuyển đại quân vào đánh Gia Định.",
+        "en": "On 1 September 1858 a French–Spanish force under Rigault de Genouilly attacked Đà Nẵng, beginning the invasion. As supreme commander, Nguyễn Tri Phương avoided a head-on fight, raised long ramparts, penned them in and cut their supplies, so the French bogged down and sickened without advancing. Their quick-win plan collapsed; leaving a small force, they turned their main army to strike Gia Định."
+      },
+      "pullQuote": {
+        "text": { "vi": "Không lấy ngắn chọi dài, không đem yếu địch mạnh — cứ đắp lũy bền, vây cho giặc mỏi, ấy là kế giữ nước lúc thế cô.", "en": "Do not pit the short against the long, nor the weak head-on against the strong — raise stout ramparts and wear the enemy down; such is the way to hold the land when one is outmatched." },
+        "attribution": { "vi": "về kế giữ Đà Nẵng của Nguyễn Tri Phương", "en": "on Nguyễn Tri Phương's defence of Đà Nẵng" }
+      },
+      "hero": {
+        "id": "phap-danh-da-nang-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tu-duc/events/phap-danh-da-nang.png",
+        "reduced": "eras/tu-duc/events/phap-danh-da-nang.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Nam thực lục",
+        "section": { "vi": "Chính biên · Đệ tứ kỷ · Quyển 19", "en": "Primary Compilation · Fourth Reign · Book 19" },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    },
+    {
+      "id": "mat-gia-dinh-hoa-uoc",
+      "slug": "mat-gia-dinh-hoa-uoc",
+      "figureIds": ["phan-thanh-gian", "tu-duc"],
+      "details": {
+        "vi": "Đầu năm 1859, quân Pháp bỏ Đà Nẵng, đem chiến thuyền vào đánh chiếm thành Gia Định (Sài Gòn) — vùng đất trù phú, vựa lúa của cả nước. Triều đình cử Nguyễn Tri Phương vào Nam, cho đắp đại đồn Chí Hòa (Kỳ Hòa) kiên cố để bao vây, kiềm chế quân Pháp. Nhưng đến tháng 2 năm Tân Dậu (1861), quân Pháp được tăng viện, dùng đại bác công phá dữ dội, hạ được đại đồn Chí Hòa; Nguyễn Tri Phương bị thương, quân ta thua to. Thừa thắng, quân Pháp đánh rộng ra, lần lượt chiếm các tỉnh Định Tường, Biên Hòa, Vĩnh Long. Triều đình Huế hoang mang, phái chủ hòa thắng thế, quyết định điều đình. Tháng 5 năm Nhâm Tuất (1862), triều đình cử Phan Thanh Giản và Lâm Duy Hiệp làm chánh, phó sứ, ký với Pháp bản hòa ước Nhâm Tuất: cắt hẳn ba tỉnh miền Đông Nam Kỳ (Gia Định, Định Tường, Biên Hòa) cùng đảo Côn Lôn cho Pháp, mở ba cửa biển cho Pháp buôn bán, bồi thường chiến phí, và cho tự do truyền đạo. Đây là hòa ước bán nước đầu tiên, mở đầu cho quá trình mất dần cả Nam Kỳ; Phan Thanh Giản mang tiếng nặng nề mà trong lòng đau xót khôn nguôi.",
+        "en": "Early in 1859 the French left Đà Nẵng and brought their fleet to take the citadel of Gia Định (Saigon) — the country's rich rice-basket. The court sent Nguyễn Tri Phương south to raise the great fort of Chí Hòa (Kỳ Hòa) to besiege and contain the French. But in the second month of Tân Dậu (1861), reinforced and pounding with cannon, the French stormed Chí Hòa; Nguyễn Tri Phương was wounded and our army badly beaten. Pressing on, the French spread out and seized the provinces of Định Tường, Biên Hòa and Vĩnh Long in turn. The court of Huế, dismayed and with the peace party ascendant, resolved to negotiate. In the fifth month of Nhâm Tuất (1862) it sent Phan Thanh Giản and Lâm Duy Hiệp as chief and deputy envoys to sign the Treaty of Nhâm Tuất with France: ceding outright the three eastern provinces of the South (Gia Định, Định Tường, Biên Hòa) and the isle of Côn Lôn, opening three ports to French trade, paying an indemnity, and permitting free preaching. It was the first treaty of surrender, the beginning of the gradual loss of the whole South; Phan Thanh Giản bore heavy blame with unending grief."
+      },
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1859 – 1862 SCN", "en": "1859 – 1862 CE" },
+        "value": 1862,
+        "approximate": false
+      },
+      "title": { "vi": "Mất Gia Định, hòa ước Nhâm Tuất 1862", "en": "Gia Định falls; the Treaty of 1862" },
+      "summary": {
+        "vi": "Pháp chiếm Gia Định, hạ đại đồn Chí Hòa (1861); triều đình cử Phan Thanh Giản ký hòa ước, cắt ba tỉnh miền Đông.",
+        "en": "The French take Gia Định and storm Chí Hòa (1861); the court has Phan Thanh Giản sign away the three eastern provinces."
+      },
+      "body": {
+        "vi": "Năm 1859, Pháp bỏ Đà Nẵng vào đánh chiếm Gia Định. Nguyễn Tri Phương đắp đại đồn Chí Hòa vây hãm, nhưng năm 1861 quân Pháp được tăng viện, công phá hạ được đồn, ông bị thương. Pháp chiếm rộng ra Định Tường, Biên Hòa, Vĩnh Long. Triều đình chủ hòa, năm 1862 cử Phan Thanh Giản ký hòa ước Nhâm Tuất, cắt ba tỉnh miền Đông Nam Kỳ và Côn Lôn cho Pháp — hòa ước mất đất đầu tiên, đắng cay.",
+        "en": "In 1859 the French left Đà Nẵng to seize Gia Định. Nguyễn Tri Phương built the great fort of Chí Hòa to besiege them, but in 1861, reinforced, the French stormed it and he was wounded. They spread to take Định Tường, Biên Hòa and Vĩnh Long. Turning to peace, in 1862 the court had Phan Thanh Giản sign the Treaty of Nhâm Tuất, ceding the three eastern provinces and Côn Lôn — the first bitter treaty of lost land."
+      },
+      "pullQuote": {
+        "text": { "vi": "Cắt đất cầu hòa, mang tiếng nghìn thu; nhưng thế cô lực kiệt, lòng người ký hòa ước cũng đau như cắt.", "en": "To cede land for peace brought a thousand years of blame; yet outmatched and spent, the heart that signed the treaty was itself cut through with pain." },
+        "attribution": { "vi": "về hòa ước Nhâm Tuất 1862", "en": "on the Treaty of Nhâm Tuất, 1862" }
+      },
+      "hero": {
+        "id": "mat-gia-dinh-hoa-uoc-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tu-duc/events/mat-gia-dinh-hoa-uoc.png",
+        "reduced": "eras/tu-duc/events/mat-gia-dinh-hoa-uoc.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Nam thực lục",
+        "section": { "vi": "Chính biên · Đệ tứ kỷ · Quyển 26", "en": "Primary Compilation · Fourth Reign · Book 26" },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    },
+    {
+      "id": "nghia-quan-nam-ky",
+      "slug": "nghia-quan-nam-ky",
+      "figureIds": ["truong-dinh", "nguyen-trung-truc"],
+      "details": {
+        "vi": "Trong khi triều đình chủ hòa, cắt đất cầu yên, thì nhân dân Nam Kỳ một lòng không chịu làm nô lệ, khắp nơi tự đứng lên kháng chiến. Tiêu biểu nhất là Trương Định: ông chiêu mộ nghĩa quân lập căn cứ ở Gò Công, đánh Pháp nhiều trận. Sau hòa ước 1862, triều đình ra lệnh bãi binh, điều ông đi nơi khác; nhưng nghĩa quân và dân chúng suy tôn ông làm 'Bình Tây Đại nguyên soái', ông quyết ở lại cùng dân đánh giặc, không tuân lệnh vua, nêu cao ngọn cờ 'phan lỗ' (chống giặc). Cùng lúc, người anh hùng chài lưới Nguyễn Trung Trực làm nên chiến công vang dội: năm 1861, ông dùng mưu đốt cháy và đánh chìm tiểu hạm Ét-pê-răng (Espérance) của Pháp trên vàm sông Nhật Tảo; năm 1868, lại đánh chiếm đồn Kiên Giang. Bên cạnh đó, nhà thơ mù Nguyễn Đình Chiểu dùng ngòi bút làm vũ khí, viết Văn tế nghĩa sĩ Cần Giuộc khóc thương những người dân áo vải bỏ mình vì nước. Dù các cuộc khởi nghĩa lần lượt bị đàn áp — Trương Định tuẫn tiết (1864), Nguyễn Trung Trực bị hành hình (1868) — nhưng tinh thần bất khuất 'thà chết vinh hơn sống nhục' của nhân dân Nam Kỳ đã sáng ngời, mở đầu cho truyền thống kháng Pháp bền bỉ của cả dân tộc.",
+        "en": "While the court sought peace and ceded land for quiet, the people of the South, refusing to be slaves, rose in resistance everywhere. Foremost was Trương Định: he raised a resistance army with its base at Gò Công and fought the French in many battles. After the 1862 treaty the court ordered him to disband and move elsewhere; but his men and the people honoured him as 'Grand Marshal Pacifying the West,' and he chose to stay and fight with the people, defying the emperor and lifting the banner of resistance. At the same time the fisherman-hero Nguyễn Trung Trực won a resounding feat: in 1861 he burned and sank the French gunboat Espérance at the mouth of the Nhật Tảo river, and in 1868 stormed the fort of Kiên Giang. Beside them, the blind poet Nguyễn Đình Chiểu made his brush a weapon, writing his 'Elegy for the Righteous of Cần Giuộc' for the homespun folk who died for their country. Though the risings were crushed one by one — Trương Định took his life (1864), Nguyễn Trung Trực was executed (1868) — the unbowed spirit of the southern people, 'a glorious death over a shameful life,' shone bright, opening the whole nation's enduring tradition of resistance to the French."
+      },
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1861 – 1868 SCN", "en": "1861 – 1868 CE" },
+        "value": 1864,
+        "approximate": false
+      },
+      "title": { "vi": "Nghĩa quân Nam Kỳ đứng lên đánh Pháp", "en": "The South rises: the resistance to the French" },
+      "summary": {
+        "vi": "Dân Nam Kỳ không chịu khuất: Trương Định giữ Gò Công, Nguyễn Trung Trực đốt tàu Nhật Tảo, Nguyễn Đình Chiểu cầm bút.",
+        "en": "The South will not submit: Trương Định holds Gò Công, Nguyễn Trung Trực burns a ship at Nhật Tảo, Nguyễn Đình Chiểu wields his brush."
+      },
+      "body": {
+        "vi": "Triều đình cầu hòa nhưng dân Nam Kỳ không chịu khuất, khắp nơi kháng chiến. Trương Định lập căn cứ Gò Công, được tôn 'Bình Tây Đại nguyên soái', không tuân lệnh bãi binh mà ở lại đánh giặc (tuẫn tiết 1864). Nguyễn Trung Trực đốt cháy tàu Ét-pê-răng ở Nhật Tảo (1861), hạ đồn Kiên Giang (1868), rồi bị hành hình. Nhà thơ mù Nguyễn Đình Chiểu lấy bút làm vũ khí. Tinh thần bất khuất ấy mở đầu truyền thống kháng Pháp của dân tộc.",
+        "en": "The court sought peace, but the South would not submit and resisted everywhere. Trương Định based himself at Gò Công, was honoured 'Grand Marshal Pacifying the West,' defied the order to disband and fought on (dying in 1864). Nguyễn Trung Trực burned the Espérance at Nhật Tảo (1861), took the fort of Kiên Giang (1868), and was executed. The blind poet Nguyễn Đình Chiểu made his brush a weapon. That unbowed spirit began the nation's tradition of resistance to the French."
+      },
+      "pullQuote": {
+        "text": { "vi": "Bao giờ người Tây nhổ hết cỏ nước Nam thì mới hết người Nam đánh Tây.", "en": "Only when the West has pulled up every last blade of grass in the South will there be no more men of the South to fight them." },
+        "attribution": { "vi": "tương truyền lời Nguyễn Trung Trực trước khi bị hành hình (1868)", "en": "attributed by tradition to Nguyễn Trung Trực before his execution (1868)" }
+      },
+      "hero": {
+        "id": "nghia-quan-nam-ky-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tu-duc/events/nghia-quan-nam-ky.png",
+        "reduced": "eras/tu-duc/events/nghia-quan-nam-ky.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Nam thực lục",
+        "section": { "vi": "Chính biên · Đệ tứ kỷ", "en": "Primary Compilation · Fourth Reign" },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    },
+    {
+      "id": "mat-luc-tinh-nam-ky",
+      "slug": "mat-luc-tinh-nam-ky",
+      "figureIds": ["phan-thanh-gian"],
+      "details": {
+        "vi": "Chưa thỏa mãn với ba tỉnh miền Đông, thực dân Pháp tìm cớ chiếm nốt ba tỉnh miền Tây Nam Kỳ (Vĩnh Long, An Giang, Hà Tiên). Tháng 6 năm Đinh Mão (1867), tướng Pháp De la Grandière đem quân bất ngờ áp sát, buộc quan Kinh lược sứ Phan Thanh Giản phải giao nộp các tỉnh thành. Phan Thanh Giản là người thanh liêm, yêu nước, nhưng bấy giờ thế cô, quân yếu, thành trì không thể chống nổi tàu súng của giặc; ông biết nếu kháng cự chỉ khiến dân chúng chết oan vô ích. Đau đớn và bất lực, ông quyết định giao thành để tránh cho trăm họ cảnh binh đao, rồi làm biểu tạ tội với vua, dặn dò con cháu tuyệt đối không được hợp tác với giặc Pháp, sau đó tuyệt thực nhiều ngày và uống thuốc độc quyên sinh để giữ tròn khí tiết. Cái chết bi tráng của ông là tấn bi kịch của cả một thế hệ sĩ phu yêu nước mà bất lực. Chỉ trong ít năm, toàn bộ sáu tỉnh Nam Kỳ đã rơi vào tay thực dân Pháp, trở thành thuộc địa đầu tiên của chúng ở nước ta.",
+        "en": "Not content with the three eastern provinces, the French sought a pretext to seize the three western ones too (Vĩnh Long, An Giang, Hà Tiên). In the sixth month of Đinh Mão (1867), the French general De la Grandière suddenly pressed in with his troops and forced the Pacification Commissioner Phan Thanh Giản to hand over the provincial citadels. Phan Thanh Giản was incorruptible and patriotic, but now outmatched, his troops weak and his walls unable to withstand the enemy's ships and guns; he knew that resistance would only bring needless death to the people. In grief and helplessness he chose to give up the citadels to spare the people from war, then wrote a memorial of apology to the emperor, charged his descendants never to serve the French, and afterward starved himself for days and took poison to keep his honour whole. His tragic death was the tragedy of a whole generation of patriotic scholars rendered powerless. In just a few years all six provinces of the South had fallen to the French, becoming their first colony in our land."
+      },
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1867 SCN", "en": "1867 CE" },
+        "value": 1867,
+        "approximate": false
+      },
+      "title": { "vi": "Mất ba tỉnh miền Tây, Phan Thanh Giản tuẫn tiết", "en": "The western provinces lost; Phan Thanh Giản's sacrifice" },
+      "summary": {
+        "vi": "1867, Pháp chiếm nốt ba tỉnh miền Tây; Phan Thanh Giản giao thành tránh cho dân đổ máu, rồi uống thuốc độc tuẫn tiết.",
+        "en": "In 1867 France takes the three western provinces; Phan Thanh Giản yields to spare the people, then takes poison."
+      },
+      "body": {
+        "vi": "Năm 1867, Pháp tìm cớ chiếm nốt ba tỉnh miền Tây (Vĩnh Long, An Giang, Hà Tiên). Kinh lược sứ Phan Thanh Giản thế cô sức yếu, biết kháng cự chỉ khiến dân chết oan, đành giao thành để tránh binh đao, làm biểu tạ tội, dặn con cháu không hợp tác với giặc, rồi tuyệt thực và uống thuốc độc tuẫn tiết. Cả sáu tỉnh Nam Kỳ mất về tay Pháp — thuộc địa đầu tiên của chúng ở nước ta.",
+        "en": "In 1867 France seized the three western provinces (Vĩnh Long, An Giang, Hà Tiên). Outmatched, and knowing resistance would only bring needless death, the commissioner Phan Thanh Giản yielded the citadels to spare the people, wrote a memorial of apology, bade his descendants never serve the enemy, then starved himself and took poison. All six southern provinces fell to France — their first colony in our land."
+      },
+      "pullQuote": {
+        "text": { "vi": "Giao thành để dân khỏi chết oan, rồi lấy cái chết của mình mà giữ tròn khí tiết — bi kịch của kẻ sĩ yêu nước mà bất lực.", "en": "He gave up the citadels to spare the people needless death, then kept his honour whole with his own death — the tragedy of a patriot rendered powerless." },
+        "attribution": { "vi": "về Phan Thanh Giản năm 1867", "en": "on Phan Thanh Giản, 1867" }
+      },
+      "hero": {
+        "id": "mat-luc-tinh-nam-ky-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tu-duc/events/mat-luc-tinh-nam-ky.png",
+        "reduced": "eras/tu-duc/events/mat-luc-tinh-nam-ky.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Nam thực lục",
+        "section": { "vi": "Chính biên · Đệ tứ kỷ · Quyển 37", "en": "Primary Compilation · Fourth Reign · Book 37" },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    },
+    {
+      "id": "ha-noi-that-thu",
+      "slug": "ha-noi-that-thu",
+      "figureIds": ["nguyen-tri-phuong", "tu-duc"],
+      "details": {
+        "vi": "Chiếm xong Nam Kỳ, thực dân Pháp dòm ngó ra Bắc Kỳ, nơi có sông Hồng thông sang Vân Nam (Trung Quốc). Năm Quý Dậu (1873), lấy cớ giải quyết vụ lái buôn Jean Dupuis, Pháp cử Francis Garnier đem quân ra Hà Nội, rồi bất ngờ nổ súng đánh thành. Tổng đốc Nguyễn Tri Phương — bấy giờ đã ngoài bảy mươi tuổi — cùng con là phò mã Nguyễn Lâm chỉ huy quân sĩ chống giữ. Thành vỡ, Nguyễn Lâm tử trận, Nguyễn Tri Phương bị trọng thương và bị bắt. Giặc dụ dỗ, muốn chữa trị cho ông, nhưng ông khảng khái cự tuyệt, không chịu ăn uống thuốc thang của giặc, để vết thương hành hạ mà chết, nêu cao khí tiết bậc lão thần trung liệt. Ít lâu sau, quân triều đình phối hợp với đội quân Cờ Đen của Lưu Vĩnh Phúc phục kích, giết được Francis Garnier ở Cầu Giấy. Nhưng triều đình Huế nhu nhược, năm Giáp Tuất (1874) lại ký hòa ước mới, chính thức thừa nhận cả sáu tỉnh Nam Kỳ thuộc Pháp. Đến năm 1882, Pháp lại sai Henri Rivière đánh Hà Nội lần thứ hai; Tổng đốc Hoàng Diệu chống giữ, thành mất, ông thắt cổ tự vẫn theo thành. Quân Cờ Đen lại giết được Rivière ở Cầu Giấy (1883). Giữa lúc nước sôi lửa bỏng ấy, tháng 7 năm Quý Mùi (1883), vua Tự Đức băng hà; và chỉ ít tháng sau, triều đình phải ký hòa ước công nhận sự bảo hộ của Pháp trên toàn cõi — nền độc lập của nước Đại Nam đến đây kể như chấm dứt.",
+        "en": "Having taken the South, the French eyed the North (Bắc Kỳ), where the Red River led into Yunnan in China. In the year Quý Dậu (1873), on the pretext of settling the affair of the trader Jean Dupuis, France sent Francis Garnier with troops to Hà Nội, then suddenly stormed the citadel. Governor Nguyễn Tri Phương — by then over seventy — with his son, the imperial son-in-law Nguyễn Lâm, led the defence. The walls fell, Nguyễn Lâm died in battle, and Nguyễn Tri Phương was gravely wounded and captured. The enemy coaxed him, offering to treat his wounds, but he sternly refused, taking no food or medicine from them, and let the wounds carry him off — the honour of a loyal old minister held high. Soon after, the court's troops with Lưu Vĩnh Phúc's Black Flag Army ambushed and killed Francis Garnier at Cầu Giấy. But the feeble court of Huế, in the year Giáp Tuất (1874), signed a new treaty formally acknowledging all six southern provinces as French. Then in 1882 France sent Henri Rivière to attack Hà Nội a second time; Governor Hoàng Diệu led the defence, the citadel fell, and he hanged himself with its walls. The Black Flags again killed Rivière at Cầu Giấy (1883). Amid this boiling crisis, in the seventh month of Quý Mùi (1883), Emperor Tự Đức died; and only months later the court had to sign a treaty acknowledging the French protectorate over the whole land — the independence of Đại Nam was, from here, at an end."
+      },
+      "order": 5,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1873 – 1883 SCN", "en": "1873 – 1883 CE" },
+        "value": 1873,
+        "approximate": false
+      },
+      "title": { "vi": "Hà Nội thất thủ, vua băng, nước vào vòng bảo hộ", "en": "Hà Nội falls; the emperor dies; the protectorate" },
+      "summary": {
+        "vi": "Pháp đánh Bắc Kỳ: Nguyễn Tri Phương tử tiết giữ Hà Nội (1873), Hoàng Diệu theo thành (1882); vua Tự Đức băng (1883), nước vào vòng bảo hộ.",
+        "en": "France attacks the North: Nguyễn Tri Phương dies holding Hà Nội (1873), Hoàng Diệu with its walls (1882); Tự Đức dies (1883), the protectorate begins."
+      },
+      "body": {
+        "vi": "Chiếm xong Nam Kỳ, Pháp đánh ra Bắc. Năm 1873, Francis Garnier đánh thành Hà Nội; Tổng đốc Nguyễn Tri Phương (hơn 70 tuổi) chống giữ, con là Nguyễn Lâm tử trận, ông bị thương, không chịu để giặc chữa mà chết. Quân Cờ Đen giết Garnier ở Cầu Giấy. Nhưng triều đình nhu nhược ký hòa ước 1874 nhận cả Nam Kỳ thuộc Pháp. Năm 1882, Henri Rivière đánh Hà Nội lần hai; Hoàng Diệu tự vẫn theo thành. Năm 1883, vua Tự Đức băng; nước rơi vào vòng bảo hộ của Pháp.",
+        "en": "Having taken the South, France attacked the North. In 1873 Francis Garnier stormed Hà Nội; Governor Nguyễn Tri Phương (over seventy) defended it, his son Nguyễn Lâm died in battle, and he, wounded, refused the enemy's care and died. The Black Flags killed Garnier at Cầu Giấy. But the feeble court signed the 1874 treaty acknowledging the whole South as French. In 1882 Henri Rivière attacked Hà Nội again; Hoàng Diệu hanged himself with its walls. In 1883 Tự Đức died, and the land fell under the French protectorate."
+      },
+      "pullQuote": {
+        "text": { "vi": "Ta thà chịu chết vì vết thương, chứ không để cho giặc cứu sống.", "en": "I would rather die of my wounds than let the enemy keep me alive." },
+        "attribution": { "vi": "tương truyền lời Nguyễn Tri Phương khi bị bắt (1873)", "en": "attributed by tradition to Nguyễn Tri Phương when captured (1873)" }
+      },
+      "hero": {
+        "id": "ha-noi-that-thu-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tu-duc/events/ha-noi-that-thu.png",
+        "reduced": "eras/tu-duc/events/ha-noi-that-thu.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Nam thực lục",
+        "section": { "vi": "Chính biên · Đệ tứ kỷ · Quyển 49", "en": "Primary Compilation · Fourth Reign · Book 49" },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    }
+  ]
+}

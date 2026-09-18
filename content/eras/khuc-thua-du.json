@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "id": "khuc-thua-du",
+  "slug": "khuc-thua-du",
+  "order": 8,
+  "period": "bac-thuoc",
+  "title": { "vi": "Họ Khúc", "en": "The Khúc Lords" },
+  "kicker": { "vi": "Kỷ tự chủ họ Khúc", "en": "The Khúc self-rule" },
+  "subtitle": { "vi": "Đặt nền tự chủ, mở lối độc lập.", "en": "The foundation of self-rule, the road to independence." },
+  "overview": {
+    "vi": "Cuối đời Đường, nhà Đường suy vi rồi sụp đổ, Trung Quốc bước vào thời Ngũ Đại loạn lạc. Nhân thế, năm 905 người Hồng Châu là Khúc Thừa Dụ đem dân chúng chiếm giữ phủ thành Đại La, tự xưng Tiết độ sứ; nhà Đường thế yếu đành công nhận. Không cần một trận đánh lớn, người Việt bắt đầu tự nắm lấy quyền cai trị đất mình sau gần một nghìn năm Bắc thuộc. Con ông là Khúc Hạo nối nghiệp, sửa sang chính sự, chia lại các đơn vị hành chính, khoan thư sức dân. Đến đời cháu là Khúc Thừa Mỹ, nước Nam Hán đem quân sang bắt đi, nền tự chủ họ Khúc tạm dứt. Ba đời họ Khúc tuy ngắn, nhưng đã đặt nền móng vững cho nền độc lập mà Dương Đình Nghệ rồi Ngô Quyền hoàn thành.",
+    "en": "At the close of the Tang, the dynasty declined and fell, and China entered the turmoil of the Five Dynasties. Seizing the moment, in 905 the Hồng Châu notable Khúc Thừa Dụ led the people to take the citadel of Đại La and styled himself Military Governor; too weak to resist, the Tang recognised him. Without a single great battle, the Việt began to hold the rule of their own land after nearly a thousand years under the North. His son Khúc Hạo succeeded him, ordering the state's affairs, reorganising the administrative units and easing the people's burdens. In his grandson Khúc Thừa Mỹ's time, the Southern Han carried him off captive, and the Khúc self-rule came to a pause. The three Khúc generations were brief, but they laid a firm foundation for the independence that Dương Đình Nghệ and then Ngô Quyền would complete."
+  },
+  "yearRange": {
+    "display": { "vi": "905 – 930 SCN", "en": "905 – 930 CE" },
+    "startYear": 905,
+    "endYear": 930
+  },
+  "palette": {
+    "accent": "#2f80c8",
+    "particle": "#e6c877",
+    "scene": [
+      "#050a0f",
+      "#081420",
+      "#0e2436",
+      "#173a54",
+      "#2a5578",
+      "#8a6f38",
+      "#5a4a28"
+    ]
+  },
+  "cover": {
+    "id": "khuc-thua-du-cover",
+    "type": "image",
+    "role": "cover",
+    "flagship": "eras/khuc-thua-du/cover.png",
+    "reduced": "eras/khuc-thua-du/cover.png",
+    "placeholder": "era-scene",
+    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+  },
+  "scene": {
+    "layers": [
+      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/khuc-thua-du/scene/sky.png", "reduced": "eras/khuc-thua-du/scene/sky.png", "placeholder": "era-scene" },
+      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+    ]
+  },
+  "primarySource": {
+    "work": "Đại Việt sử ký toàn thư",
+    "section": { "vi": "Ngoại kỷ", "en": "Outer Records" },
+    "author": "Ngô Sĩ Liên"
+  },
+  "characters": [
+    { "ref": "khuc-thua-du" },
+    { "ref": "khuc-hao" },
+    { "ref": "khuc-thua-my" }
+  ],
+  "events": [
+    {
+      "id": "nha-duong-suy-vong",
+      "slug": "nha-duong-suy-vong",
+      "figureIds": ["khuc-thua-du"],
+      "details": {
+        "vi": "Cuối thế kỷ thứ chín sang đầu thế kỷ thứ mười, nhà Đường suy vi, giặc giã nổi lên khắp nơi, rồi mất hẳn; Trung Quốc chia năm xẻ bảy trong thời Ngũ Đại. Chính quyền đô hộ ở An Nam vì thế cũng rối loạn, quan lại nhà Đường không còn đủ sức nắm giữ. Ở Hồng Châu có Khúc Thừa Dụ, dòng dõi hào phú, tính khoan hòa, được dân trong vùng tin phục; ông nhìn thấy đây là thời cơ nghìn năm có một để người Việt tự nắm lấy vận mệnh của mình.",
+        "en": "From the late ninth into the early tenth century the Tang declined, rebellions rose everywhere, and at last it fell; China split apart in the age of the Five Dynasties. The protectorate in An Nam fell into disorder with it, its Tang officials no longer able to keep their grip. In Hồng Châu lived Khúc Thừa Dụ, of a wealthy line, mild of temper and trusted by the people of his region; he saw that here was a chance in a thousand years for the Việt to take their own fate in hand."
+      },
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "≈ 905 SCN", "en": "≈ 905 CE" },
+        "value": 904,
+        "approximate": true
+      },
+      "title": { "vi": "Nhà Đường suy vong", "en": "The fall of the Tang" },
+      "summary": {
+        "vi": "Nhà Đường sụp đổ; đô hộ rối loạn, thời cơ đã đến.",
+        "en": "The Tang collapses; the protectorate falters, and the moment comes."
+      },
+      "body": {
+        "vi": "Cuối đời Đường, nhà Đường suy rồi mất, Trung Quốc loạn lạc thời Ngũ Đại. Chính quyền đô hộ ở An Nam rối loạn. Ở Hồng Châu có Khúc Thừa Dụ, hào phú, được dân tin phục, thấy thời cơ giành lại quyền tự chủ đã đến.",
+        "en": "At the close of the Tang the dynasty waned and fell, and China fractured in the Five Dynasties. The protectorate in An Nam fell into disorder. In Hồng Châu, Khúc Thừa Dụ — a wealthy notable trusted by the people — saw that the moment to win back self-rule had come."
+      },
+      "pullQuote": {
+        "text": { "vi": "Nghìn năm Bắc thuộc, thời cơ tự chủ chỉ đến một lần.", "en": "A thousand years under the North — and the chance for self-rule comes but once." }
+      },
+      "hero": {
+        "id": "nha-duong-suy-vong-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/khuc-thua-du/events/nha-duong-suy-vong.png",
+        "reduced": "eras/khuc-thua-du/events/nha-duong-suy-vong.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "khuc-thua-du-tu-chu",
+      "slug": "khuc-thua-du-tu-chu",
+      "figureIds": ["khuc-thua-du"],
+      "details": {
+        "vi": "Năm Ất Sửu (905), nhân chức đô hộ bỏ trống, Khúc Thừa Dụ được dân chúng ủng hộ, đem quân vào chiếm giữ phủ thành Đại La, tự xưng là Tiết độ sứ Tĩnh Hải quân. Nhà Đường (rồi nhà Hậu Lương nối sau) đang thời suy loạn, không đủ sức đánh dẹp, đành phải xuống chiếu công nhận ông. Từ đây, tuy trên danh nghĩa vẫn nhận chức tước phương Bắc, nhưng thực quyền cai trị đất Việt đã nằm trong tay người Việt — mở đầu thời kỳ tự chủ sau gần một nghìn năm Bắc thuộc.",
+        "en": "In the year Ất Sửu (905), the office of protector standing vacant, Khúc Thừa Dụ, borne up by the people, led troops into the citadel of Đại La and styled himself Military Governor of Tĩnh Hải quân. The Tang — and the Later Liang that followed — in their time of decline and disorder had no strength to put him down, and issued a decree recognising him. From then, though in name he still received a Northern title, the real rule of the Việt land lay in Việt hands — the beginning of the age of self-rule after nearly a thousand years under the North."
+      },
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "905 SCN", "en": "905 CE" },
+        "value": 905,
+        "approximate": false
+      },
+      "title": { "vi": "Khúc Thừa Dụ giành quyền tự chủ", "en": "Khúc Thừa Dụ wins self-rule" },
+      "summary": {
+        "vi": "Chiếm Đại La, xưng Tiết độ sứ; nhà Đường phải công nhận.",
+        "en": "Taking Đại La, he styles himself Governor; the Tang must recognise him."
+      },
+      "body": {
+        "vi": "Năm 905, Khúc Thừa Dụ được dân ủng hộ, chiếm phủ thành Đại La, tự xưng Tiết độ sứ Tĩnh Hải quân. Nhà Đường suy loạn phải công nhận. Thực quyền cai trị đất Việt từ đây về tay người Việt — mở đầu thời tự chủ.",
+        "en": "In 905, borne up by the people, Khúc Thừa Dụ seized the citadel of Đại La and styled himself Military Governor of Tĩnh Hải quân. The declining Tang had to recognise him, and the real rule of the Việt land passed into Việt hands — the dawn of self-rule."
+      },
+      "pullQuote": {
+        "text": { "vi": "Không một trận đánh lớn, mà giành lại quyền làm chủ đất mình.", "en": "With no great battle, they won back the rule of their own land." }
+      },
+      "hero": {
+        "id": "khuc-thua-du-tu-chu-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/khuc-thua-du/events/khuc-thua-du-tu-chu.png",
+        "reduced": "eras/khuc-thua-du/events/khuc-thua-du-tu-chu.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "khuc-hao-cai-cach",
+      "slug": "khuc-hao-cai-cach",
+      "figureIds": ["khuc-hao"],
+      "details": {
+        "vi": "Năm 907, Khúc Thừa Dụ mất, con là Khúc Hạo nối nghiệp làm Tiết độ sứ. Khúc Hạo là người có tài trị nước: ông chia đặt lại các đơn vị hành chính từ lộ, phủ, châu đến giáp, xã; đặt chức quan trông coi, làm sổ hộ khẩu; giảm nhẹ sưu dịch, tha bỏ thuế má phiền nhiễu, khoan thư sức dân. Nhờ vậy trong cõi yên ổn, nền tự chủ của người Việt được củng cố thêm một bước vững chắc. Những cải cách của Khúc Hạo được sử sách đời sau xem là khuôn mẫu của một chính quyền vì dân.",
+        "en": "In 907 Khúc Thừa Dụ died, and his son Khúc Hạo succeeded him as Military Governor. Khúc Hạo was gifted in governing: he reorganised the administrative units from circuits, prefectures and districts down to cantons and villages; appointed officers to oversee them and drew up household registers; lightened corvée, remitted vexatious taxes, and eased the people's burdens. By this the land grew calm and the Việt self-rule was strengthened a firm step further. Later histories have taken Khúc Hạo's reforms as the very model of a government that serves its people."
+      },
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "907 – 917 SCN", "en": "907 – 917 CE" },
+        "value": 907,
+        "approximate": false
+      },
+      "title": { "vi": "Khúc Hạo cải cách", "en": "The reforms of Khúc Hạo" },
+      "summary": {
+        "vi": "Chia lại hành chính, khoan thư sức dân, trong cõi yên ổn.",
+        "en": "He reorders the realm and eases the people; the land grows calm."
+      },
+      "body": {
+        "vi": "Năm 907, Khúc Hạo nối cha làm Tiết độ sứ. Ông chia đặt lại các đơn vị hành chính, làm sổ hộ khẩu, giảm sưu thuế, khoan thư sức dân, khiến trong cõi yên ổn — củng cố vững thêm nền tự chủ của người Việt.",
+        "en": "In 907 Khúc Hạo succeeded his father as Military Governor. He reorganised the administrative units, drew up household registers, lightened taxes and eased the people, so the land grew calm — strengthening the Việt self-rule a firm step further."
+      },
+      "pullQuote": {
+        "text": { "vi": "Chính sự cốt ở khoan thư sức dân, trong cõi nhờ đó yên vui.", "en": "Government rests on easing the people's strength — and by it the land was at peace." }
+      },
+      "hero": {
+        "id": "khuc-hao-cai-cach-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/khuc-thua-du/events/khuc-hao-cai-cach.png",
+        "reduced": "eras/khuc-thua-du/events/khuc-hao-cai-cach.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "khuc-thua-my-nam-han",
+      "slug": "khuc-thua-my-nam-han",
+      "figureIds": ["khuc-thua-my"],
+      "details": {
+        "vi": "Năm 917, Khúc Hạo mất, con là Khúc Thừa Mỹ nối nghiệp. Bấy giờ ở phương Nam Trung Quốc, họ Lưu dựng nước Nam Hán, nuôi ý dòm ngó đất Việt. Khúc Thừa Mỹ theo về nhà Hậu Lương, nhận chức Tiết độ sứ để dựa thế mà chống Nam Hán. Vua Nam Hán lấy cớ đó, sai tướng đem quân sang đánh; quân Nam Hán vây bắt được Khúc Thừa Mỹ đem về nước. Nền tự chủ ba đời họ Khúc đến đây tạm dứt; song hào kiệt đất Việt như Dương Đình Nghệ vẫn nối chí, chẳng bao lâu lại dấy lên đánh đuổi quân Nam Hán.",
+        "en": "In 917 Khúc Hạo died and his son Khúc Thừa Mỹ succeeded him. By then, in the south of China, the Lưu house had founded the state of Southern Han, coveting the Việt land. Khúc Thừa Mỹ submitted to the Later Liang, taking the Governor's title to lean on their strength against the Southern Han. Seizing the pretext, the Southern Han ruler sent a general with troops; they besieged and captured Khúc Thừa Mỹ and carried him home. The three-generation self-rule of the Khúc here came to a pause — yet Việt leaders such as Dương Đình Nghệ carried on the will, and before long rose again to drive the Southern Han out."
+      },
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "917 – 930 SCN", "en": "917 – 930 CE" },
+        "value": 923,
+        "approximate": true
+      },
+      "title": { "vi": "Khúc Thừa Mỹ và quân Nam Hán", "en": "Khúc Thừa Mỹ and the Southern Han" },
+      "summary": {
+        "vi": "Nam Hán đem quân sang, bắt Khúc Thừa Mỹ; tự chủ tạm dứt.",
+        "en": "The Southern Han come and take Khúc Thừa Mỹ; the self-rule pauses."
+      },
+      "body": {
+        "vi": "Năm 917, Khúc Thừa Mỹ nối nghiệp, theo nhà Hậu Lương để chống Nam Hán. Vua Nam Hán sai quân sang đánh, bắt được ông đem về. Nền tự chủ họ Khúc tạm dứt, nhưng Dương Đình Nghệ nối chí, chẳng bao lâu lại dấy lên.",
+        "en": "In 917 Khúc Thừa Mỹ succeeded and submitted to the Later Liang against the Southern Han. The Southern Han ruler sent troops, captured him and carried him off. The Khúc self-rule paused — but Dương Đình Nghệ carried on the will and before long rose again."
+      },
+      "pullQuote": {
+        "text": { "vi": "Một nhà tạm khuất, nhưng chí tự chủ thì không dứt.", "en": "One house was brought low, but the will to self-rule did not die." }
+      },
+      "hero": {
+        "id": "khuc-thua-my-nam-han-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/khuc-thua-du/events/khuc-thua-my-nam-han.png",
+        "reduced": "eras/khuc-thua-du/events/khuc-thua-my-nam-han.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    }
+  ]
+}

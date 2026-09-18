@@ -1,0 +1,19 @@
+# Shared lint baseline for the whole workspace.
+# Individual packages `include:` this file from their own analysis_options.yaml.
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  language:
+    strict-casts: true
+    strict-raw-types: true
+  errors:
+    # Design tokens carry provenance comments; keep docs honest but non-fatal.
+    todo: ignore
+
+linter:
+  rules:
+    - prefer_const_constructors
+    - prefer_const_declarations
+    - prefer_final_locals
+    - sort_child_properties_last
+    - unnecessary_late

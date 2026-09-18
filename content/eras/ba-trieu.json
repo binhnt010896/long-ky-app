@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "id": "ba-trieu",
+  "slug": "ba-trieu",
+  "order": 4,
+  "period": "bac-thuoc",
+  "title": { "vi": "Bà Triệu", "en": "Lady Triệu" },
+  "kicker": { "vi": "Kỷ thuộc Ngô", "en": "The age under Wu" },
+  "subtitle": { "vi": "Thà cưỡi gió đạp sóng, quyết không khom lưng.", "en": "Sooner ride the wind and waves than ever stoop and bow." },
+  "overview": {
+    "vi": "Sau khi Hai Bà Trưng thất bại, người Việt lại chìm trong hơn hai trăm năm Bắc thuộc, trải các đời Hán, rồi Sĩ Nhiếp, rồi thuộc về nhà Đông Ngô. Giữa thế kỷ thứ ba, ách sưu thuế lao dịch của nhà Ngô đè nặng đất Cửu Chân. Năm Mậu Thìn (248), người con gái Cửu Chân là Triệu Thị Trinh cùng anh là Triệu Quốc Đạt dấy binh, họp quân trong núi đánh phá thành ấp, các bộ đều theo như bóng theo hình. Cuộc khởi nghĩa bị Thứ sử Lục Dận đàn áp, Bà Triệu tuẫn tiết trên núi Tùng khi mới ngoài hai mươi. Sử chép về bà tuy ngắn, nhưng khí phách 'cưỡi gió đạp sóng' của người nữ tướng đất Cửu Chân thì lưu mãi trong lòng dân — phần nhiều nhờ dã sử và truyền tụng dân gian đời sau.",
+    "en": "After the Trưng Sisters fell, the Việt sank again into more than two centuries under the North — through the Han, then Sĩ Nhiếp, then the dominion of Eastern Wu. By the mid-third century the levies and forced labour of Wu bore hard on Cửu Chân. In the year Mậu Thìn (248), the Cửu Chân woman Triệu Thị Trinh and her brother Triệu Quốc Đạt raised troops, gathered in the mountains and stormed the citadels, the regions following her like a shadow follows a form. The Inspector Lục Dận crushed the revolt, and Lady Triệu took her own life on Mount Tùng, barely past twenty. The chronicle's record of her is brief, but the 'ride the wind and waves' defiance of the woman-general of Cửu Chân endures in the people's memory — carried in large part by later folk histories and tradition."
+  },
+  "yearRange": {
+    "display": { "vi": "248 SCN", "en": "248 CE" },
+    "startYear": 248,
+    "endYear": 248
+  },
+  "palette": {
+    "accent": "#c9a227",
+    "particle": "#e6c877",
+    "scene": [
+      "#0a0a06",
+      "#14130a",
+      "#242010",
+      "#3d3416",
+      "#5f5326",
+      "#8a6f38",
+      "#5a4a28"
+    ]
+  },
+  "cover": {
+    "id": "ba-trieu-cover",
+    "type": "image",
+    "role": "cover",
+    "flagship": "eras/ba-trieu/cover.png",
+    "reduced": "eras/ba-trieu/cover.png",
+    "placeholder": "era-scene",
+    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+  },
+  "scene": {
+    "layers": [
+      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/ba-trieu/scene/sky.png", "reduced": "eras/ba-trieu/scene/sky.png", "placeholder": "era-scene" },
+      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+    ]
+  },
+  "primarySource": {
+    "work": "Đại Việt sử ký toàn thư",
+    "section": { "vi": "Ngoại kỷ", "en": "Outer Records" },
+    "author": "Ngô Sĩ Liên"
+  },
+  "characters": [
+    { "ref": "ba-trieu" },
+    { "ref": "trieu-quoc-dat" },
+    { "ref": "luc-dan" }
+  ],
+  "events": [
+    {
+      "id": "ach-do-ho-nha-ngo",
+      "slug": "ach-do-ho-nha-ngo",
+      "figureIds": [],
+      "details": {
+        "vi": "Từ khi cuộc khởi nghĩa Hai Bà Trưng thất bại năm 43, người Việt chịu ách Bắc thuộc lần thứ hai kéo dài hơn hai trăm năm. Nhà Hán suy, đất Giao Châu qua tay Sĩ Nhiếp cai quản, rồi khi họ Sĩ mất thì thuộc hẳn về nhà Đông Ngô. Nhà Ngô đặt quan lại, vơ vét sản vật, bắt phu phen thuế khóa nặng nề; riêng đất Cửu Chân, Giao Chỉ nhiều phen dân nổi lên chống lại. Đến năm Mậu Thìn (248), người Cửu Chân lại đánh phá thành ấp, châm ngòi cho một cuộc khởi nghĩa lớn.",
+        "en": "After the Trưng uprising failed in 43, the Việt bore a second Northern domination lasting more than two centuries. As the Han declined, Giao Châu passed under the rule of Sĩ Nhiếp, and when his house ended it fell wholly to Eastern Wu. Wu set its officials, stripped the land of its goods, and pressed heavy levies and forced labour; in Cửu Chân and Giao Chỉ the people rose against it time and again. By the year Mậu Thìn (248), the people of Cửu Chân once more stormed the citadels — the spark of a great revolt."
+      },
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "≈ 240 SCN", "en": "≈ 240 CE" },
+        "value": 240,
+        "approximate": true
+      },
+      "title": { "vi": "Ách đô hộ nhà Ngô", "en": "Under the Wu yoke" },
+      "summary": {
+        "vi": "Hơn hai trăm năm Bắc thuộc; đất Cửu Chân sục sôi.",
+        "en": "Two centuries under the North; Cửu Chân seethes."
+      },
+      "body": {
+        "vi": "Sau Hai Bà Trưng, người Việt chịu Bắc thuộc lần thứ hai. Nhà Hán suy, Giao Châu qua tay Sĩ Nhiếp rồi thuộc về Đông Ngô. Ách sưu thuế lao dịch của nhà Ngô đè nặng, đất Cửu Chân nhiều phen nổi dậy — dọn đường cho cuộc khởi nghĩa năm 248.",
+        "en": "After the Trưng Sisters, the Việt bore a second domination. The Han waned, Giao Châu passed to Sĩ Nhiếp and then to Eastern Wu. The levies and forced labour of Wu pressed hard, and Cửu Chân rose again and again — clearing the way for the revolt of 248."
+      },
+      "pullQuote": {
+        "text": { "vi": "Trăm năm lại trăm năm, lòng dân chưa từng phục.", "en": "Century upon century — the people's heart never yielded." }
+      },
+      "hero": {
+        "id": "ach-do-ho-nha-ngo-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ba-trieu/events/ach-do-ho-nha-ngo.png",
+        "reduced": "eras/ba-trieu/events/ach-do-ho-nha-ngo.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Ngoại kỷ · Quyển 4", "en": "Outer Records · Book 4" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "nguoi-con-gai-cuu-chan",
+      "slug": "nguoi-con-gai-cuu-chan",
+      "figureIds": ["ba-trieu", "trieu-quoc-dat"],
+      "details": {
+        "vi": "Người con gái ấy tên là Triệu Thị Trinh, sử nhà Ngô chép là Triệu Ẩu, quê ở quận Cửu Chân. Mồ côi cha mẹ từ sớm, bà ở với anh là Triệu Quốc Đạt, một hào trưởng trong vùng. Tương truyền bà có sức khỏe và chí khí hơn người, giỏi võ nghệ; khi có người khuyên bà lấy chồng yên phận, bà đáp lời khảng khái, quyết không chịu cúi mình làm tì thiếp. Câu nói 'cưỡi cơn gió mạnh, đạp luồng sóng dữ' của bà được chép trong dã sử đời sau — không thấy trong chính sử xưa — nhưng đã thành lời tuyên ngôn bất hủ về khí phách người phụ nữ Việt.",
+        "en": "The woman's name was Triệu Thị Trinh — recorded in the Wu histories as Triệu Ẩu — of Cửu Chân commandery. Orphaned young, she lived with her elder brother Triệu Quốc Đạt, a chieftain of the region. Tradition holds she had strength and spirit beyond the common and great skill in arms; when urged to marry and settle, she answered defiantly that she would never stoop to be any man's concubine. Her saying — 'to ride the fierce wind and trample the raging waves' — is recorded in later folk histories, not in the old chronicles, yet it has become an immortal declaration of the spirit of Việt womanhood."
+      },
+      "order": 1,
+      "kind": "legend",
+      "year": {
+        "display": { "vi": "Trước 248 SCN", "en": "Before 248 CE" },
+        "value": 247,
+        "approximate": true
+      },
+      "title": { "vi": "Người con gái Cửu Chân", "en": "The woman of Cửu Chân" },
+      "summary": {
+        "vi": "Triệu Thị Trinh nuôi chí lớn, quyết không khom lưng.",
+        "en": "Triệu Thị Trinh nurses a great will — and will not bow."
+      },
+      "body": {
+        "vi": "Triệu Thị Trinh, người Cửu Chân, mồ côi sớm, ở với anh là Triệu Quốc Đạt. Tương truyền bà khỏe mạnh, gan dạ, giỏi võ; quyết không chịu lấy chồng làm tì thiếp mà nuôi chí đánh đuổi giặc Ngô, cởi ách nô lệ cho dân.",
+        "en": "Triệu Thị Trinh of Cửu Chân, orphaned young, lived with her brother Triệu Quốc Đạt. Tradition holds she was strong, daring and skilled in arms; refusing to marry and be a concubine, she nursed instead the will to drive out the Wu and lift the yoke of servitude from her people."
+      },
+      "pullQuote": {
+        "text": { "vi": "Tôi muốn cưỡi cơn gió mạnh, đạp luồng sóng dữ… chứ không chịu khom lưng làm tì thiếp người ta.", "en": "I would ride the fierce wind and trample the raging waves… rather than bow my back as any man's concubine." },
+        "attribution": { "vi": "Bà Triệu · theo dã sử (Thanh Hóa kỷ thắng)", "en": "Lady Triệu · per later folk record (Thanh Hóa kỷ thắng)" }
+      },
+      "hero": {
+        "id": "nguoi-con-gai-cuu-chan-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ba-trieu/events/nguoi-con-gai-cuu-chan.png",
+        "reduced": "eras/ba-trieu/events/nguoi-con-gai-cuu-chan.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Ngoại kỷ · Quyển 4", "en": "Outer Records · Book 4" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "khoi-nghia-mau-thin",
+      "slug": "khoi-nghia-mau-thin",
+      "figureIds": ["ba-trieu", "trieu-quoc-dat"],
+      "details": {
+        "vi": "Năm Mậu Thìn (248), Triệu Quốc Đạt cùng em gái dấy binh ở Cửu Chân. Sử chép: người con gái ở Cửu Chân là Triệu Ẩu họp quân trong núi, đánh phá thành ấp, các bộ đều theo như bóng theo hình, dễ hơn trở bàn tay. Sau khi Triệu Quốc Đạt mất, nghĩa quân tôn Bà Triệu lên làm chủ tướng. Tương truyền bà mặc áo giáp vàng, cài trâm vàng, cưỡi voi ra trận, tự xưng là Nhụy Kiều tướng quân; quân Ngô nghe tiếng đều khiếp sợ. Thanh thế nghĩa quân vang khắp Giao Châu, khiến nhà Ngô phải cấp tốc đưa quân sang cứu.",
+        "en": "In the year Mậu Thìn (248), Triệu Quốc Đạt and his sister rose in arms in Cửu Chân. The chronicle records: the woman of Cửu Chân, Triệu Ẩu, gathered troops in the mountains and stormed the citadels, the regions following her like a shadow follows a form — easier than turning one's hand. After Triệu Quốc Đạt died, the rebels raised Lady Triệu to command. Tradition holds she wore golden armour and a golden hairpin and rode to battle on an elephant, styling herself the Lady General; the Wu soldiers dreaded her name. The revolt's fame rang through Giao Châu, forcing Wu to rush an army south."
+      },
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "248 SCN", "en": "248 CE" },
+        "value": 248,
+        "approximate": false
+      },
+      "title": { "vi": "Khởi nghĩa năm Mậu Thìn", "en": "The revolt of Mậu Thìn (248)" },
+      "summary": {
+        "vi": "Họp quân trong núi, đánh phá thành ấp, các bộ hưởng ứng.",
+        "en": "Troops gathered in the hills storm the citadels; the regions rally."
+      },
+      "body": {
+        "vi": "Năm 248, hai anh em họ Triệu dấy binh ở Cửu Chân. Nghĩa quân họp trong núi, đánh phá thành ấp nhà Ngô, các bộ theo về như bóng theo hình. Triệu Quốc Đạt mất, Bà Triệu lên cầm quân — tương truyền mặc giáp vàng, cưỡi voi, xưng Nhụy Kiều tướng quân — làm rung động cả Giao Châu.",
+        "en": "In 248 the Triệu siblings rose in Cửu Chân. The rebels gathered in the mountains and stormed the Wu citadels, the regions rallying like a shadow to a form. When Triệu Quốc Đạt died, Lady Triệu took command — by tradition in golden armour on an elephant, styled the Lady General — and shook all Giao Châu."
+      },
+      "pullQuote": {
+        "text": { "vi": "Họp quân trong núi… các bộ đều theo như bóng theo hình, dễ hơn trở bàn tay.", "en": "Gathering troops in the mountains… the regions followed her like a shadow follows a form, easier than turning one's hand." },
+        "attribution": { "vi": "Ngô Sĩ Liên", "en": "Ngô Sĩ Liên" }
+      },
+      "hero": {
+        "id": "khoi-nghia-mau-thin-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ba-trieu/events/khoi-nghia-mau-thin.png",
+        "reduced": "eras/ba-trieu/events/khoi-nghia-mau-thin.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Ngoại kỷ · Quyển 4", "en": "Outer Records · Book 4" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "luc-dan-ba-trieu-tuan-tiet",
+      "slug": "luc-dan-ba-trieu-tuan-tiet",
+      "figureIds": ["ba-trieu", "luc-dan"],
+      "details": {
+        "vi": "Trước thanh thế cuộc khởi nghĩa, vua Ngô là Tôn Quyền sai Lục Dận — cháu danh tướng Lục Tốn — làm Thứ sử Giao Châu, đem tám nghìn quân sang đàn áp. Lục Dận vừa dùng binh vừa dùng của cải, tước lộc mua chuộc, chia rẽ các bộ. Nghĩa quân của Bà Triệu chống cự kịch liệt hơn nửa năm trời; song thế cô lương cạn, cuối cùng thất bại. Không chịu sa vào tay giặc, Bà Triệu tuẫn tiết trên núi Tùng (nay thuộc Thanh Hóa) khi mới ngoài hai mươi tuổi. Cuộc khởi nghĩa tuy thất bại, nhưng sử thần Ngô Sĩ Liên khen bà tuy chưa giữ được đất như Trưng Vương, cũng là bậc hùng tài trong nữ giới; đời sau lập đền thờ, tôn bà là Lệ Hải Bà Vương.",
+        "en": "Faced with the force of the revolt, the Wu ruler Tôn Quyền (Sun Quan) made Lục Dận — a kinsman of the great commander Lục Tốn — Inspector of Giao Châu and sent him with eight thousand troops to crush it. Lục Dận used arms and riches together, buying men with rank and reward and dividing the regions. Lady Triệu's forces resisted fiercely for more than half a year; but alone and out of supply, they were at last defeated. Rather than fall into enemy hands, Lady Triệu took her own life on Mount Tùng (in today's Thanh Hóa), barely past twenty. Though the revolt failed, the historian Ngô Sĩ Liên praised her: though she did not hold the land as the Trưng Queen did, she too was a heroine among women. Later ages raised shrines and honoured her as the Lady Queen of Lệ Hải."
+      },
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "248 SCN", "en": "248 CE" },
+        "value": 248,
+        "approximate": false
+      },
+      "title": { "vi": "Lục Dận đàn áp, Bà Triệu tuẫn tiết", "en": "Lục Dận crushes the revolt; Lady Triệu falls" },
+      "summary": {
+        "vi": "Chống cự hơn nửa năm, Bà Triệu tuẫn tiết trên núi Tùng.",
+        "en": "After half a year's resistance, Lady Triệu dies on Mount Tùng."
+      },
+      "body": {
+        "vi": "Vua Ngô sai Lục Dận đem quân sang, vừa đánh vừa mua chuộc chia rẽ. Nghĩa quân Bà Triệu chống cự hơn nửa năm rồi thất bại; bà tuẫn tiết trên núi Tùng khi mới ngoài hai mươi. Cuộc khởi nghĩa thất bại, nhưng khí phách của bà thì còn mãi — Ngô Sĩ Liên khen là bậc hùng tài trong nữ giới.",
+        "en": "The Wu ruler sent Lục Dận, who fought and bribed and divided by turns. Lady Triệu's forces held out more than half a year before breaking; she took her own life on Mount Tùng, barely past twenty. The revolt failed, but her defiance endures — Ngô Sĩ Liên praised her as a heroine among women."
+      },
+      "pullQuote": {
+        "text": { "vi": "Chưa chiếm giữ được đất như Trưng Vương, nhưng cũng là bậc hùng tài trong nữ giới.", "en": "She did not hold the land as the Trưng Queen did, yet she too was a heroine among women." },
+        "attribution": { "vi": "Ngô Sĩ Liên", "en": "Ngô Sĩ Liên" }
+      },
+      "hero": {
+        "id": "luc-dan-ba-trieu-tuan-tiet-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ba-trieu/events/ba-trieu-tuan-tiet.png",
+        "reduced": "eras/ba-trieu/events/ba-trieu-tuan-tiet.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Ngoại kỷ · Quyển 4", "en": "Outer Records · Book 4" },
+        "author": "Ngô Sĩ Liên"
+      }
+    }
+  ]
+}

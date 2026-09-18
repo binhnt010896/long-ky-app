@@ -1,0 +1,43 @@
+name: ui_kit
+description: Việt Sử design tokens, palettes, typography and theme (the visual system layer).
+version: 0.1.0
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.12.0
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+# Fonts are bundled (not runtime-fetched) so every Vietnamese diacritic renders
+# offline. Drop the OFL binaries into fonts/ — see fonts/README.md for the exact
+# files and weights. The family names must match VSType.familyDisplay/familyBody.
+flutter:
+  fonts:
+    # Playfair Display ships as variable fonts (wght axis); VSType sets the exact
+    # weight via fontVariations, so one roman + one italic file covers 500–700.
+    - family: Playfair Display
+      fonts:
+        - asset: fonts/PlayfairDisplay-Variable.ttf
+        - asset: fonts/PlayfairDisplay-Italic-Variable.ttf
+          style: italic
+    - family: Be Vietnam Pro
+      fonts:
+        - asset: fonts/BeVietnamPro-ExtraLight.ttf
+          weight: 200
+        - asset: fonts/BeVietnamPro-Light.ttf
+          weight: 300
+        - asset: fonts/BeVietnamPro-Regular.ttf
+          weight: 400
+        - asset: fonts/BeVietnamPro-Medium.ttf
+          weight: 500
+        - asset: fonts/BeVietnamPro-SemiBold.ttf
+          weight: 600

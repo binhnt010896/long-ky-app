@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "id": "tran-thai-tong",
+  "slug": "tran-thai-tong",
+  "order": 15,
+  "period": "nha-tran",
+  "title": { "vi": "Trần Thái Tông", "en": "Trần Thái Tông" },
+  "kicker": { "vi": "Kỷ nhà Trần", "en": "The Trần dynasty" },
+  "subtitle": { "vi": "Lý nhường ngôi Trần, đánh tan giặc Mông Cổ lần đầu.", "en": "The Lý yield to the Trần, and the first Mongol invasion is broken." },
+  "overview": {
+    "vi": "Cuối đời Lý, vua Huệ Tông không con trai, truyền ngôi cho con gái là Chiêu Hoàng mới bảy tuổi; quyền bính trong nước dần về tay họ Trần. Năm Ất Dậu (1225), Điện tiền chỉ huy sứ Trần Thủ Độ sắp đặt cho Lý Chiêu Hoàng nhường ngôi cho chồng là Trần Cảnh — tức Trần Thái Tông, mở ra nhà Trần, đặt niên hiệu Kiến Trung, khép lại triều Lý hơn hai trăm năm. Buổi đầu, Thái sư Trần Thủ Độ nắm giữ mọi quyền, ra tay tàn khốc dứt tuyệt tôn thất nhà Lý để giữ vững cơ nghiệp, lại đặt phép hộ tịch, chỉnh quân đội, dựng lệ Thái thượng hoàng. Năm 1237, vì việc ép đổi hoàng hậu, Thái Tông bỏ lên núi Yên Tử toan đi tu, Trần Thủ Độ đem cả triều đình lên đón, nói 'xa giá ở đâu thì triều đình ở đó', buộc vua trở về. Đến năm Mậu Ngọ (1258), quân Mông Cổ hung hãn tràn sang; vua tôi nhà Trần dùng kế vườn không nhà trống, rút khỏi Thăng Long rồi phản công, đại thắng ở Đông Bộ Đầu, đuổi giặc ra khỏi bờ cõi — lần đầu người Việt chặn được vó ngựa Mông Cổ đang làm cỏ cả thế giới. Vua vốn mộ đạo Thiền, soạn Khóa hư lục; sau chiến thắng, nhường ngôi cho con, lên làm Thái thượng hoàng.",
+    "en": "At the end of the Lý, the sonless Huệ Tông passed the throne to his daughter Chiêu Hoàng, only seven years old, while power drifted into the hands of the Trần. In the year Ất Dậu (1225), the Palace Guard Commander Trần Thủ Độ arranged for Lý Chiêu Hoàng to cede the throne to her husband Trần Cảnh — Trần Thái Tông — founding the Trần under the era name Kiến Trung and closing more than two centuries of the Lý. In the early years the Grand Preceptor Trần Thủ Độ held all power, ruthlessly wiping out the Lý clan to secure the enterprise, while fixing household registers, ordering the army, and creating the institution of the Retired Emperor. In 1237, over a forced change of empress, Thái Tông fled to Mount Yên Tử meaning to become a monk; Trần Thủ Độ brought the whole court up to fetch him, saying 'wherever the emperor is, there is the court,' and made him return. Then in the year Mậu Ngọ (1258) the fierce Mongols poured in; the Trần emptied Thăng Long of all use, withdrew, and counterattacked to a great victory at Đông Bộ Đầu, driving the enemy from the land — the first time the Việt halted the Mongol cavalry that was overrunning the world. The king, devoted to Zen, composed the Khóa hư lục; after the victory he passed the throne to his son and became Retired Emperor."
+  },
+  "yearRange": {
+    "display": { "vi": "1225 – 1258 SCN", "en": "1225 – 1258 CE" },
+    "startYear": 1225,
+    "endYear": 1258
+  },
+  "palette": {
+    "accent": "#9e3b34",
+    "particle": "#e8c98a",
+    "scene": [
+      "#120605",
+      "#241009",
+      "#3c1a10",
+      "#5a2a1a",
+      "#833f28",
+      "#b98a44",
+      "#7a5a2e"
+    ]
+  },
+  "cover": {
+    "id": "tran-thai-tong-cover",
+    "type": "image",
+    "role": "cover",
+    "flagship": "eras/tran-thai-tong/cover.png",
+    "reduced": "eras/tran-thai-tong/cover.png",
+    "placeholder": "era-scene",
+    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+  },
+  "scene": {
+    "layers": [
+      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/tran-thai-tong/scene/sky.png", "reduced": "eras/tran-thai-tong/scene/sky.png", "placeholder": "era-scene" },
+      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+    ]
+  },
+  "primarySource": {
+    "work": "Đại Việt sử ký toàn thư",
+    "section": { "vi": "Bản kỷ", "en": "Basic Records" },
+    "author": "Ngô Sĩ Liên"
+  },
+  "characters": [
+    { "ref": "tran-thai-tong" },
+    { "ref": "tran-thu-do" },
+    { "ref": "ly-chieu-hoang" }
+  ],
+  "events": [
+    {
+      "id": "ly-chieu-hoang-nhuong-ngoi",
+      "slug": "ly-chieu-hoang-nhuong-ngoi",
+      "figureIds": ["tran-thai-tong", "ly-chieu-hoang", "tran-thu-do"],
+      "details": {
+        "vi": "Vua Lý Huệ Tông không có con trai, năm Giáp Thân (1224) truyền ngôi cho con gái thứ là Chiêu Thánh mới bảy tuổi, tức Lý Chiêu Hoàng — nữ hoàng duy nhất trong sử Việt. Bấy giờ Điện tiền chỉ huy sứ Trần Thủ Độ nắm giữ binh quyền, đưa cháu là Trần Cảnh, cũng chừng ấy tuổi, vào cung hầu cận nữ vương. Hai trẻ thân nhau, Thủ Độ nhân đó sắp đặt cho Chiêu Hoàng lấy Trần Cảnh rồi nhường ngôi cho chồng. Mùa đông, tháng chạp năm Ất Dậu (1225), Trần Cảnh nhận thiện vị của Chiêu Hoàng, lên ngôi Hoàng đế — tức Trần Thái Tông, đổi niên hiệu là Kiến Trung. Triều Lý hơn hai trăm năm đến đây chấm dứt, cơ nghiệp chuyển sang họ Trần một cách êm thấm, không phải đổ máu.",
+        "en": "The Lý king Huệ Tông, having no son, in the year Giáp Thân (1224) passed the throne to his second daughter Chiêu Thánh, only seven — Lý Chiêu Hoàng, the sole reigning empress in Việt history. By then the Palace Guard Commander Trần Thủ Độ held the military power, and he brought his kinsman Trần Cảnh, a boy of about the same age, into the palace to attend the young queen. The two children grew close, and Thủ Độ arranged for Chiêu Hoàng to wed Trần Cảnh and then cede him the throne. In the winter, twelfth month of the year Ất Dậu (1225), Trần Cảnh received the abdication of Chiêu Hoàng and took the imperial throne — Trần Thái Tông — changing the era name to Kiến Trung. More than two centuries of the Lý thus ended, and the realm passed to the Trần smoothly, without bloodshed."
+      },
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1225 SCN", "en": "1225 CE" },
+        "value": 1225,
+        "approximate": false
+      },
+      "title": { "vi": "Lý Chiêu Hoàng nhường ngôi", "en": "Lý Chiêu Hoàng cedes the throne" },
+      "summary": {
+        "vi": "Nữ hoàng nhà Lý nhường ngôi cho chồng Trần Cảnh; nhà Trần mở ra.",
+        "en": "The Lý empress yields the throne to her husband Trần Cảnh; the Trần begins."
+      },
+      "body": {
+        "vi": "Lý Huệ Tông không con trai, truyền ngôi cho con gái bảy tuổi là Lý Chiêu Hoàng. Trần Thủ Độ đưa cháu Trần Cảnh vào hầu, sắp đặt cho hai trẻ lấy nhau rồi Chiêu Hoàng nhường ngôi. Năm 1225, Trần Cảnh lên ngôi (Trần Thái Tông), đặt niên hiệu Kiến Trung — nhà Lý hơn hai trăm năm chấm dứt, cơ nghiệp về họ Trần.",
+        "en": "Sonless, Lý Huệ Tông passed the throne to his seven-year-old daughter Lý Chiêu Hoàng. Trần Thủ Độ brought his kinsman Trần Cảnh to attend her, arranged their marriage, and had Chiêu Hoàng cede the throne. In 1225 Trần Cảnh took the throne as Trần Thái Tông under the era name Kiến Trung — ending two centuries of the Lý and passing the realm to the Trần."
+      },
+      "pullQuote": {
+        "text": { "vi": "Mùa đông, tháng chạp, nhận thiện vị của Chiêu Hoàng, lên ngôi hoàng đế, đổi niên hiệu là Kiến Trung.", "en": "In winter, the twelfth month, he received the abdication of Chiêu Hoàng, took the imperial throne, and changed the era name to Kiến Trung." },
+        "attribution": { "vi": "theo Đại Việt sử ký toàn thư", "en": "per Đại Việt sử ký toàn thư" }
+      },
+      "hero": {
+        "id": "ly-chieu-hoang-nhuong-ngoi-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tran-thai-tong/events/ly-chieu-hoang-nhuong-ngoi.png",
+        "reduced": "eras/tran-thai-tong/events/ly-chieu-hoang-nhuong-ngoi.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 5", "en": "Basic Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "tran-thu-do-dung-nen",
+      "slug": "tran-thu-do-dung-nen",
+      "figureIds": ["tran-thu-do", "tran-thai-tong"],
+      "details": {
+        "vi": "Vua còn nhỏ, mọi việc lớn trong nước đều do Thái sư Trần Thủ Độ quyết định. Ông là người quyết đoán mà tàn nhẫn: để dứt mối lo phục Lý, năm Bính Tuất (1226) ông bức thượng hoàng Lý Huệ Tông (đã đi tu) phải tự tận ở chùa Chân Giáo, rồi tìm cách trừ khử tôn thất họ Lý — việc mà đời sau lấy làm ghê sợ, song cũng nhờ đó mà cơ nghiệp Trần không bị lung lay. Về mặt dựng nước, ông có công lớn: lập sổ hộ tịch để nắm dân đinh, chỉnh đốn quân đội, định lại quan chế và phép tắc, đặt lệ vua cha nhường ngôi sớm cho con mà lên làm Thái thượng hoàng cùng coi việc nước — một cách giữ cho ngôi báu vững vàng, tránh cảnh tranh giành. Nhờ bàn tay sắt của ông, buổi đầu nhà Trần nhanh chóng đi vào quy củ.",
+        "en": "The king being young, all great matters of state were decided by the Grand Preceptor Trần Thủ Độ. He was resolute and ruthless: to end any Lý restoration, in the year Bính Tuất (1226) he forced the retired Lý king Huệ Tông, by then a monk, to take his own life at Chân Giáo temple, and set about destroying the Lý clan — a deed later ages held in horror, yet by which the Trần enterprise was kept from being shaken. In building the state his merit was great: he drew up household registers to number the people, ordered the army, revised the offices and statutes, and instituted the practice of a king abdicating early to his son and ruling on as Retired Emperor alongside him — a way to keep the throne secure and forestall succession strife. By his iron hand the early Trần swiftly came into good order."
+      },
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1226 – 1230 SCN", "en": "1226 – 1230 CE" },
+        "value": 1226,
+        "approximate": true
+      },
+      "title": { "vi": "Trần Thủ Độ dựng nền", "en": "Trần Thủ Độ builds the foundation" },
+      "summary": {
+        "vi": "Thái sư nắm quyền, tàn khốc dứt họ Lý; lập hộ tịch, đặt lệ Thái thượng hoàng.",
+        "en": "The Preceptor seizes power, ends the Lý; sets registers and the Retired-Emperor rule."
+      },
+      "body": {
+        "vi": "Vua còn nhỏ, Thái sư Trần Thủ Độ nắm mọi quyền. Ông tàn khốc dứt tuyệt tôn thất nhà Lý để giữ cơ nghiệp — việc đời sau ghê sợ; song có công lập sổ hộ tịch, chỉnh quân, định quan chế và đặt lệ Thái thượng hoàng, đưa buổi đầu nhà Trần vào quy củ.",
+        "en": "With the king young, the Grand Preceptor Trần Thủ Độ held all power. He ruthlessly wiped out the Lý clan to secure the enterprise — a deed later ages abhorred — yet drew up household registers, ordered the army, revised the offices and set the Retired-Emperor rule, bringing the early Trần into order."
+      },
+      "pullQuote": {
+        "text": { "vi": "Thủ Độ tuy làm tể tướng mà quyền át cả vua; buổi đầu nhà Trần vững được, phần nhiều là sức ông.", "en": "Though but chief minister, Thủ Độ's power overshadowed the king's; that the early Trần held firm was largely his doing." },
+        "attribution": { "vi": "theo Ngô Sĩ Liên", "en": "per Ngô Sĩ Liên" }
+      },
+      "hero": {
+        "id": "tran-thu-do-dung-nen-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tran-thai-tong/events/tran-thu-do-dung-nen.png",
+        "reduced": "eras/tran-thai-tong/events/tran-thu-do-dung-nen.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 5", "en": "Basic Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "vua-len-yen-tu",
+      "slug": "vua-len-yen-tu",
+      "figureIds": ["tran-thai-tong", "tran-thu-do"],
+      "details": {
+        "vi": "Năm Đinh Dậu (1237), vì hoàng hậu Chiêu Thánh (tức Lý Chiêu Hoàng) lấy nhau đã lâu mà chưa có con nối dõi, Trần Thủ Độ cùng công chúa Thiên Cực ép vua phải giáng Chiêu Thánh, lập chị bà là Thuận Thiên — vốn là vợ của anh vua, Trần Liễu, khi ấy đang có mang — làm hoàng hậu. Vua Thái Tông đau lòng vì việc trái luân thường, một đêm lặng lẽ bỏ kinh thành, lên núi Yên Tử toan cắt tóc đi tu. Trần Thủ Độ đem cả triều đình đi tìm, đến chân núi tâu rằng 'bệ hạ ở đâu thì triều đình ở đó', lại nói nếu vua không về thì xin dựng đô ngay tại núi này. Vua bất đắc dĩ phải trở về. Trần Liễu vì mất vợ mà oán hận, dấy binh chống lại rồi phải hàng; ông chính là cha của Hưng Đạo Vương Trần Quốc Tuấn sau này.",
+        "en": "In the year Đinh Dậu (1237), because Empress Chiêu Thánh (Lý Chiêu Hoàng) had long been married without bearing an heir, Trần Thủ Độ and the Princess Thiên Cực pressed the king to demote her and raise her elder sister Thuận Thiên — then the pregnant wife of the king's own brother Trần Liễu — as empress. Grieved at so unnatural a deed, one night Thái Tông slipped from the capital and climbed Mount Yên Tử, meaning to shave his head and become a monk. Trần Thủ Độ led the whole court to seek him, and at the foot of the mountain declared 'wherever Your Majesty is, there is the court,' vowing to raise the capital on that very mountain if the king would not return. Unwillingly the king went back. Trần Liễu, robbed of his wife, nursed a lasting grievance, rose in revolt and then submitted — he was the father of the future Hưng Đạo Prince, Trần Quốc Tuấn."
+      },
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1237 SCN", "en": "1237 CE" },
+        "value": 1237,
+        "approximate": false
+      },
+      "title": { "vi": "Vua lên Yên Tử", "en": "The king flees to Yên Tử" },
+      "summary": {
+        "vi": "Bị ép đổi hoàng hậu, vua bỏ lên Yên Tử đi tu; Trần Thủ Độ đón về.",
+        "en": "Forced to change empress, the king flees to Yên Tử; Trần Thủ Độ fetches him back."
+      },
+      "body": {
+        "vi": "Năm 1237, vì Chiêu Thánh chưa có con, Trần Thủ Độ ép vua giáng bà, lập chị bà là Thuận Thiên (vợ anh vua Trần Liễu, đang có mang) làm hoàng hậu. Đau lòng, Thái Tông bỏ lên Yên Tử toan đi tu; Trần Thủ Độ đem triều đình lên đón, nói 'bệ hạ ở đâu thì triều đình ở đó', buộc vua về. Trần Liễu oán hận — ông là cha Trần Hưng Đạo.",
+        "en": "In 1237, as Chiêu Thánh was childless, Trần Thủ Độ forced the king to demote her and make her sister Thuận Thiên — the pregnant wife of the king's brother Trần Liễu — empress. Grieved, Thái Tông fled to Yên Tử to become a monk; Trần Thủ Độ brought the court to fetch him, saying 'wherever Your Majesty is, there is the court,' and made him return. Trần Liễu nursed a grievance — he was the father of Trần Hưng Đạo."
+      },
+      "pullQuote": {
+        "text": { "vi": "Bệ hạ ở đâu thì triều đình ở đó; nếu bệ hạ không về, xin dựng đô ngay dưới núi này.", "en": "Wherever Your Majesty is, there is the court; if you will not return, we shall raise the capital at the foot of this very mountain." },
+        "attribution": { "vi": "Trần Thủ Độ, theo Đại Việt sử ký toàn thư", "en": "Trần Thủ Độ, per Đại Việt sử ký toàn thư" }
+      },
+      "hero": {
+        "id": "vua-len-yen-tu-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tran-thai-tong/events/vua-len-yen-tu.png",
+        "reduced": "eras/tran-thai-tong/events/vua-len-yen-tu.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 5", "en": "Basic Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "khang-chien-mong-co-lan-mot",
+      "slug": "khang-chien-mong-co-lan-mot",
+      "figureIds": ["tran-thai-tong", "tran-thu-do"],
+      "details": {
+        "vi": "Năm Mậu Ngọ (1258), quân Mông Cổ — đạo quân đang giày xéo khắp Á, Âu — do tướng Ngột Lương Hợp Thai cầm đầu từ Vân Nam tràn vào nước ta theo đường sông Thao. Thế giặc rất mạnh, quân ta đánh chặn ở Bình Lệ Nguyên không cản nổi. Vua Trần Thái Tông thân ra trận, liệu chưa thể thắng ngay bèn quyết định lui, bỏ trống kinh thành Thăng Long, dời dân đi nơi khác, thực hiện kế 'vườn không nhà trống' khiến giặc vào thành mà không cướp được gì, lại thiếu lương, mỏi mệt. Giữa lúc nguy nan, vua ngự thuyền hỏi Thái sư Trần Thủ Độ nên đánh hay hàng; ông khảng khái tâu: 'Đầu thần chưa rơi xuống đất, xin bệ hạ đừng lo'. Lời ấy làm vững lòng vua tôi. Chờ giặc đã núng, đêm cuối năm quân Trần từ sông phản công, đại phá quân Mông Cổ ở bến Đông Bộ Đầu ngay cửa ngõ kinh thành; giặc tan chạy về Bắc. Đây là lần đầu tiên vó ngựa Mông Cổ bị chặn đứng trên đất Việt.",
+        "en": "In the year Mậu Ngọ (1258), the Mongols — the host then trampling across Asia and Europe — under the general Uriyangqadai poured in from Yunnan down the Thao River. Their force was overwhelming, and our stand at Bình Lệ Nguyên could not hold. King Trần Thái Tông took the field himself and, judging that he could not yet win, resolved to withdraw: he abandoned the capital Thăng Long, moved the people away, and carried out the 'empty-garden, bare-house' plan, so the enemy entered a city with nothing to seize, short of food and weary. In the crisis, aboard his boat, the king asked the Grand Preceptor Trần Thủ Độ whether to fight or submit; boldly he answered, 'While my head has not yet fallen to the ground, let Your Majesty not worry.' Those words steadied king and court. When the enemy had weakened, on the last night of the year the Trần counterattacked from the river and shattered the Mongols at the Đông Bộ Đầu landing at the very gate of the capital; the enemy fled north. It was the first time the Mongol cavalry was halted on Việt soil."
+      },
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1258 SCN", "en": "1258 CE" },
+        "value": 1258,
+        "approximate": false
+      },
+      "title": { "vi": "Phá quân Mông Cổ ở Đông Bộ Đầu", "en": "The Mongols broken at Đông Bộ Đầu" },
+      "summary": {
+        "vi": "Mông Cổ tràn sang; vua bỏ trống Thăng Long rồi phản công thắng ở Đông Bộ Đầu.",
+        "en": "The Mongols pour in; the king empties Thăng Long, then wins at Đông Bộ Đầu."
+      },
+      "body": {
+        "vi": "Năm 1258, quân Mông Cổ của Ngột Lương Hợp Thai tràn vào. Vua Trần Thái Tông thân chinh, liệu chưa thắng bèn bỏ trống Thăng Long, dùng kế vườn không nhà trống. Trần Thủ Độ tâu 'Đầu thần chưa rơi xuống đất, xin bệ hạ đừng lo'. Chờ giặc núng, quân Trần phản công, đại phá Mông Cổ ở Đông Bộ Đầu — lần đầu chặn được vó ngựa Mông Cổ.",
+        "en": "In 1258 the Mongols under Uriyangqadai invaded. Trần Thái Tông took the field and, unable yet to win, emptied Thăng Long by the bare-house plan. Trần Thủ Độ counselled, 'While my head has not yet fallen, let Your Majesty not worry.' When the enemy weakened, the Trần counterattacked and shattered the Mongols at Đông Bộ Đầu — the first halting of the Mongol cavalry."
+      },
+      "pullQuote": {
+        "text": { "vi": "Đầu thần chưa rơi xuống đất, xin bệ hạ đừng lo.", "en": "While my head has not yet fallen to the ground, let Your Majesty not worry." },
+        "attribution": { "vi": "Trần Thủ Độ, theo Đại Việt sử ký toàn thư", "en": "Trần Thủ Độ, per Đại Việt sử ký toàn thư" }
+      },
+      "hero": {
+        "id": "khang-chien-mong-co-lan-mot-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tran-thai-tong/events/khang-chien-mong-co-lan-mot.png",
+        "reduced": "eras/tran-thai-tong/events/khang-chien-mong-co-lan-mot.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 5", "en": "Basic Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "sung-thien-nhuong-ngoi",
+      "slug": "sung-thien-nhuong-ngoi",
+      "figureIds": ["tran-thai-tong"],
+      "details": {
+        "vi": "Trần Thái Tông không chỉ là bậc vua giỏi việc nước mà còn là người sâu về đạo Thiền. Thuở trẻ, khi chán cảnh ràng buộc mà lên Yên Tử, ông được vị quốc sư trên núi khuyên rằng trong núi vốn không có Phật, Phật ở ngay trong tâm mình; lòng lặng mà hiểu thì đó chính là chân Phật. Lời ấy theo ông suốt đời. Ông chăm tham thiền, học đạo, tự tay soạn sách Khóa hư lục bàn về lẽ sống chết, vô thường và phép tu tâm — một trong những trước tác Phật học đầu tiên và sâu sắc của người Việt. Sau khi đánh tan giặc Mông Cổ, năm Mậu Ngọ (1258) vua nhường ngôi cho con là Trần Hoảng — tức Trần Thánh Tông — rồi lui về làm Thái thượng hoàng, vừa dạy con trị nước vừa chuyên tâm tu Thiền, nêu tấm gương một ông vua cầm quân giữ nước mà lòng vẫn hướng về cửa thiền.",
+        "en": "Trần Thái Tông was not only an able ruler but a man deep in Zen. In his youth, when he fled his bonds up Mount Yên Tử, the mountain's National Preceptor counselled him that in the mountains there is no Buddha — the Buddha is within one's own mind; understand it in a stilled heart and that is the true Buddha. Those words stayed with him all his life. He practiced meditation and study, and composed with his own hand the Khóa hư lục on life and death, impermanence, and the cultivation of the mind — one of the first and most profound Buddhist works by a Vietnamese. After breaking the Mongols, in the year Mậu Ngọ (1258) he passed the throne to his son Trần Hoảng — Trần Thánh Tông — and withdrew to be Retired Emperor, guiding his son in rule while devoting himself to Zen: the model of a king who commanded armies yet kept his heart turned to the gate of meditation."
+      },
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1258 SCN", "en": "1258 CE" },
+        "value": 1258,
+        "approximate": false
+      },
+      "title": { "vi": "Sùng Thiền, nhường ngôi Thái thượng hoàng", "en": "Zen, and abdication to Retired Emperor" },
+      "summary": {
+        "vi": "Vua mộ Thiền, soạn Khóa hư lục; nhường ngôi cho con, làm Thái thượng hoàng.",
+        "en": "Devoted to Zen, he writes the Khóa hư lục; he abdicates as Retired Emperor."
+      },
+      "body": {
+        "vi": "Trần Thái Tông mộ đạo Thiền, tự soạn Khóa hư lục bàn về vô thường và phép tu tâm — trước tác Phật học sâu sắc của người Việt. Sau khi phá giặc Mông Cổ, năm 1258 vua nhường ngôi cho con Trần Hoảng (Trần Thánh Tông), lui làm Thái thượng hoàng, vừa dạy con trị nước vừa chuyên tâm tu Thiền.",
+        "en": "Devoted to Zen, Trần Thái Tông composed the Khóa hư lục on impermanence and cultivating the mind — a profound Buddhist work by a Vietnamese. After breaking the Mongols, in 1258 he passed the throne to his son Trần Hoảng (Trần Thánh Tông) and withdrew as Retired Emperor, guiding his son while devoting himself to Zen."
+      },
+      "pullQuote": {
+        "text": { "vi": "Trong núi vốn không có Phật; Phật ở ngay trong tâm. Tâm lặng mà biết, đó chính là chân Phật.", "en": "In the mountains there is no Buddha; the Buddha is within the mind. The heart stilled yet aware — that is the true Buddha." },
+        "attribution": { "vi": "lời quốc sư khuyên Trần Thái Tông (Thiền tông chỉ nam tự)", "en": "the National Preceptor's counsel to Trần Thái Tông (preface to Thiền tông chỉ nam)" }
+      },
+      "hero": {
+        "id": "sung-thien-nhuong-ngoi-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tran-thai-tong/events/sung-thien-nhuong-ngoi.png",
+        "reduced": "eras/tran-thai-tong/events/sung-thien-nhuong-ngoi.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 5", "en": "Basic Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viet-su.app/schema/period.schema.json",
+  "title": "Việt Sử Period Registry",
+  "description": "The ordered registry of dynasties / historical periods (triều đại · thời kỳ). Each era references one period by id via its `period` field; the app groups eras under these for the dynasty hub (vertical = period, horizontal = eras within it). Vietnamese (vi) is canonical; English (en) is an optional toggle.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "periods"],
+  "properties": {
+    "schemaVersion": {
+      "description": "Contract version this file targets.",
+      "type": "integer",
+      "const": 1
+    },
+    "periods": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/period" }
+    }
+  },
+  "$defs": {
+    "period": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "order", "title", "kicker", "yearRange", "accent"],
+      "properties": {
+        "id": {
+          "description": "Stable unique id; an era's `period` field references this.",
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "order": {
+          "description": "Position in the vertical dynasty stack (0-based).",
+          "type": "integer",
+          "minimum": 0
+        },
+        "title": { "$ref": "#/$defs/localizedText" },
+        "kicker": {
+          "description": "Eyebrow above the dynasty title, e.g. \"HÀO KHÍ ĐÔNG A\".",
+          "$ref": "#/$defs/localizedText"
+        },
+        "subtitle": {
+          "description": "Chronicle tagline for the dynasty. Optional.",
+          "$ref": "#/$defs/localizedText"
+        },
+        "yearRange": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["display"],
+          "properties": {
+            "display": { "$ref": "#/$defs/localizedText" },
+            "startYear": { "type": "integer" },
+            "endYear": { "type": "integer" }
+          }
+        },
+        "accent": {
+          "description": "Signature accent colour for the dynasty, `#RRGGBB`.",
+          "$ref": "#/$defs/hexColor"
+        },
+        "cover": {
+          "description": "Dynasty cover art (a single signature image; scenes derive from the accent).",
+          "$ref": "#/$defs/assetRef"
+        }
+      }
+    },
+    "localizedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vi"],
+      "properties": {
+        "vi": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 }
+      }
+    },
+    "hexColor": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "assetRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": {
+          "type": "string",
+          "enum": ["image", "rive", "particles", "gradient"]
+        },
+        "role": {
+          "type": "string",
+          "enum": ["cover", "hero", "sky", "mid", "foreground", "overlay", "particles"]
+        },
+        "flagship": { "type": "string" },
+        "reduced": { "type": "string" },
+        "placeholder": { "type": "string" },
+        "caption": { "$ref": "#/$defs/localizedText" },
+        "credit": { "type": "string" }
+      }
+    }
+  }
+}

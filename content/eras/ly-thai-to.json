@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "id": "ly-thai-to",
+  "slug": "ly-thai-to",
+  "order": 12,
+  "period": "nha-ly",
+  "title": { "vi": "Lý Thái Tổ", "en": "Lý Thái Tổ" },
+  "kicker": { "vi": "Kỷ nhà Lý", "en": "The Lý dynasty" },
+  "subtitle": { "vi": "Dời đô về Thăng Long, mở nền văn hiến.", "en": "The capital moved to Thăng Long, a civilisation opened." },
+  "overview": {
+    "vi": "Nhà Tiền Lê suy, Lê Ngọa Triều mất, con còn thơ ấu. Bấy giờ ở Cổ Pháp có Lý Công Uẩn, thuở nhỏ được nuôi ở chùa, theo học thiền sư Vạn Hạnh, khoan hậu mà có chí lớn, làm quan nhà Lê đến chức Điện tiền chỉ huy sứ. Năm Kỷ Dậu (1009), triều thần cùng Đào Cam Mộc và sư Vạn Hạnh suy tôn ông lên ngôi Hoàng đế — tức Lý Thái Tổ, đặt niên hiệu Thuận Thiên, mở ra nhà Lý. Thấy đất Hoa Lư chật hẹp, chỉ hợp phòng thủ, mùa thu năm Canh Tuất (1010) vua xuống Chiếu dời đô, dời từ Hoa Lư ra thành Đại La. Thuyền vua đến chân thành, có rồng vàng hiện lên, nhân đó đổi tên là thành Thăng Long. Vua dựng cung điện, chia đặt lộ phủ, định phép tắc, khoan thư sức dân, tha giảm thuế khóa; lại sùng đạo Phật, dựng chùa, đúc chuông, độ dân làm sư. Từ đó nước Việt bước vào một thời văn trị lâu dài. Năm Mậu Thìn (1028) vua băng, ba vương tranh ngôi, tướng Lê Phụng Hiểu dẹp loạn, giữ ngôi cho thái tử Lý Phật Mã nối nghiệp — tức Lý Thái Tông.",
+    "en": "The Early Lê declined; Lê the Recumbent-Court died leaving a child heir. At Cổ Pháp there lived Lý Công Uẩn, raised in a temple in his youth and taught by the Zen master Vạn Hạnh — generous of heart yet great of purpose, who had risen under the Lê to Palace Guard Commander. In the year Kỷ Dậu (1009) the court, with Đào Cam Mộc and the monk Vạn Hạnh, raised him to the imperial throne — Lý Thái Tổ — under the era name Thuận Thiên, founding the Lý. Seeing Hoa Lư cramped and fit only for defence, in the autumn of the year Canh Tuất (1010) he issued the Edict on Moving the Capital and shifted it from Hoa Lư to Đại La. As the royal boat reached the walls a golden dragon appeared, and for this he renamed the city Thăng Long — the Soaring Dragon. He raised palaces, divided the realm into circuits and prefectures, fixed its laws, eased the people's burdens and remitted taxes; and honouring the Buddha's way he built temples, cast bells and ordained monks. From then the Việt entered a long age of civil rule. In the year Mậu Thìn (1028) the emperor died; three princes fought for the throne, but the general Lê Phụng Hiểu quelled the revolt and secured it for the heir Lý Phật Mã — Lý Thái Tông."
+  },
+  "yearRange": {
+    "display": { "vi": "1009 – 1028 SCN", "en": "1009 – 1028 CE" },
+    "startYear": 1009,
+    "endYear": 1028
+  },
+  "palette": {
+    "accent": "#e0a92e",
+    "particle": "#f4e3a6",
+    "scene": [
+      "#0a1020",
+      "#111a33",
+      "#1b2b52",
+      "#2a4680",
+      "#3f6bb0",
+      "#c9a23e",
+      "#8a6f2c"
+    ]
+  },
+  "cover": {
+    "id": "ly-thai-to-cover",
+    "type": "image",
+    "role": "cover",
+    "flagship": "eras/ly-thai-to/cover.png",
+    "reduced": "eras/ly-thai-to/cover.png",
+    "placeholder": "era-scene",
+    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+  },
+  "scene": {
+    "layers": [
+      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/ly-thai-to/scene/sky.png", "reduced": "eras/ly-thai-to/scene/sky.png", "placeholder": "era-scene" },
+      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+    ]
+  },
+  "primarySource": {
+    "work": "Đại Việt sử ký toàn thư",
+    "section": { "vi": "Bản kỷ", "en": "Basic Records" },
+    "author": "Ngô Sĩ Liên"
+  },
+  "characters": [
+    { "ref": "ly-thai-to" },
+    { "ref": "van-hanh" },
+    { "ref": "dao-cam-moc" },
+    { "ref": "le-phung-hieu" }
+  ],
+  "events": [
+    {
+      "id": "ly-cong-uan-len-ngoi",
+      "slug": "ly-cong-uan-len-ngoi",
+      "figureIds": ["ly-thai-to", "dao-cam-moc", "van-hanh"],
+      "details": {
+        "vi": "Lê Ngọa Triều làm vua bạo ngược, mất sớm, con nối ngôi còn thơ ấu, lòng người trong nước đã lìa. Bấy giờ Điện tiền chỉ huy sứ Lý Công Uẩn, người châu Cổ Pháp, vốn được nuôi ở chùa, theo học thiền sư Vạn Hạnh, là người khoan hậu, nhân từ, được lòng quân sĩ. Quan Chi hậu Đào Cam Mộc dò biết ý ông, bèn cùng sư Vạn Hạnh và các quan bàn định, suy tôn ông lên ngôi. Năm Kỷ Dậu (1009), Lý Công Uẩn lên ngôi Hoàng đế ở Hoa Lư, tức Lý Thái Tổ, đặt niên hiệu Thuận Thiên, giữ quốc hiệu Đại Cồ Việt — nhà Lý mở ra từ đấy, khởi đầu một triều đại dài hơn hai trăm năm.",
+        "en": "Lê the Recumbent-Court had ruled cruelly and died young, his heir a mere child, and the hearts of the realm had already turned away. Now the Palace Guard Commander Lý Công Uẩn, a man of Cổ Pháp raised in a temple and taught by the Zen master Vạn Hạnh, was generous and humane and beloved of the soldiery. The official Đào Cam Mộc, sensing his mind, took counsel with the monk Vạn Hạnh and the court and moved to raise him up. In the year Kỷ Dậu (1009) Lý Công Uẩn took the imperial throne at Hoa Lư as Lý Thái Tổ, under the era name Thuận Thiên, keeping the state's name Đại Cồ Việt — and so the Lý began, opening a dynasty of more than two hundred years."
+      },
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1009 SCN", "en": "1009 CE" },
+        "value": 1009,
+        "approximate": false
+      },
+      "title": { "vi": "Lý Công Uẩn lên ngôi", "en": "Lý Công Uẩn takes the throne" },
+      "summary": {
+        "vi": "Tiền Lê suy; Đào Cam Mộc và sư Vạn Hạnh suy tôn Lý Công Uẩn, mở nhà Lý.",
+        "en": "The Early Lê fades; Đào Cam Mộc and Vạn Hạnh raise Lý Công Uẩn — the Lý begins."
+      },
+      "body": {
+        "vi": "Nhà Tiền Lê suy, Lê Ngọa Triều mất, con nối còn nhỏ. Quan Đào Cam Mộc cùng thiền sư Vạn Hạnh và triều thần suy tôn Điện tiền chỉ huy sứ Lý Công Uẩn lên ngôi. Năm 1009, ông lên ngôi Hoàng đế ở Hoa Lư, tức Lý Thái Tổ, đặt niên hiệu Thuận Thiên — mở ra nhà Lý.",
+        "en": "The Early Lê declined, Lê the Recumbent-Court died and his heir was a child. The official Đào Cam Mộc, the Zen master Vạn Hạnh and the court raised the Palace Guard Commander Lý Công Uẩn. In 1009 he took the imperial throne at Hoa Lư as Lý Thái Tổ, under the era name Thuận Thiên — founding the Lý."
+      },
+      "pullQuote": {
+        "text": { "vi": "Lý Công Uẩn khoan từ nhân thứ, lòng người quy phụ — không phải nhờ binh khí mà nên nghiệp lớn.", "en": "Lý Công Uẩn was generous, humane and forbearing, and men's hearts turned to him — no weapon won him the throne." },
+        "attribution": { "vi": "theo Ngô Sĩ Liên", "en": "per Ngô Sĩ Liên" }
+      },
+      "hero": {
+        "id": "ly-cong-uan-len-ngoi-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ly-thai-to/events/ly-cong-uan-len-ngoi.png",
+        "reduced": "eras/ly-thai-to/events/ly-cong-uan-len-ngoi.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 2", "en": "Basic Records · Book 2" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "chieu-doi-do",
+      "slug": "chieu-doi-do",
+      "figureIds": ["ly-thai-to"],
+      "details": {
+        "vi": "Lên ngôi rồi, Lý Thái Tổ thấy đất Hoa Lư ẩm thấp chật hẹp, núi non hiểm trở, chỉ hợp việc phòng thủ mà không đủ cho nghiệp đế vương muôn đời. Mùa thu năm Canh Tuất (1010), vua tự tay viết Chiếu dời đô, tỏ ý dời về thành Đại La — nơi ở giữa trời đất, được thế rồng cuộn hổ ngồi, đất rộng mà bằng phẳng, muôn vật tươi tốt, thật là chốn hội tụ trọng yếu của bốn phương. Vua đem quần thần rời Hoa Lư ra Đại La. Thuyền vua vừa đỗ dưới chân thành thì có rồng vàng bay hiện lên trên thuyền; cho là điềm lành, vua nhân đó đặt tên kinh đô mới là thành Thăng Long — nghĩa là rồng bay lên.",
+        "en": "Enthroned, Lý Thái Tổ found Hoa Lư low and cramped among its guardian mountains, fit only for defence and not for an imperial seat of ten thousand generations. In the autumn of the year Canh Tuất (1010) he wrote with his own hand the Edict on Moving the Capital, declaring his will to move to Đại La — set at the centre of heaven and earth, holding the posture of a coiling dragon and a crouching tiger, its ground broad and level and its life abundant, truly the meeting-place of the four quarters. He led his court from Hoa Lư to Đại La. As the royal boat moored beneath the walls a golden dragon rose soaring above it; taking it for an auspicious omen, the emperor named his new capital Thăng Long — the Soaring Dragon."
+      },
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1010 SCN", "en": "1010 CE" },
+        "value": 1010,
+        "approximate": false
+      },
+      "title": { "vi": "Chiếu dời đô, định đô Thăng Long", "en": "The Edict on Moving the Capital, and Thăng Long" },
+      "summary": {
+        "vi": "Vua viết Chiếu dời đô, rời Hoa Lư ra Đại La; rồng vàng hiện, đặt tên Thăng Long.",
+        "en": "The king's edict moves the seat to Đại La; a golden dragon rises — named Thăng Long."
+      },
+      "body": {
+        "vi": "Thấy Hoa Lư chật hẹp, chỉ hợp phòng thủ, mùa thu năm 1010 Lý Thái Tổ xuống Chiếu dời đô, dời từ Hoa Lư ra thành Đại La — nơi rồng cuộn hổ ngồi, giữa bốn phương đất nước. Thuyền vua đến chân thành có rồng vàng hiện lên, nhân đó đặt tên là thành Thăng Long.",
+        "en": "Finding Hoa Lư cramped and fit only for defence, in autumn 1010 Lý Thái Tổ issued the Edict on Moving the Capital and shifted it to Đại La — a place of coiling dragon and crouching tiger at the centre of the realm. As his boat reached the walls a golden dragon appeared, and he named the city Thăng Long."
+      },
+      "pullQuote": {
+        "text": { "vi": "Ở giữa khu vực trời đất, được thế rồng cuộn hổ ngồi… thật là chốn kinh đô bậc nhất của đế vương muôn đời.", "en": "At the centre of heaven and earth, holding the posture of coiling dragon and crouching tiger… truly the first capital for emperors of ten thousand generations." },
+        "attribution": { "vi": "Chiếu dời đô · Lý Thái Tổ", "en": "Edict on Moving the Capital · Lý Thái Tổ" }
+      },
+      "hero": {
+        "id": "chieu-doi-do-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ly-thai-to/events/chieu-doi-do.png",
+        "reduced": "eras/ly-thai-to/events/chieu-doi-do.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 2", "en": "Basic Records · Book 2" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "dung-kinh-dinh-che",
+      "slug": "dung-kinh-dinh-che",
+      "figureIds": ["ly-thai-to"],
+      "details": {
+        "vi": "Về Thăng Long, vua lo dựng kinh đô và đặt nền cai trị. Trong thành, vua cho dựng chính điện và các cung điện làm nơi coi chầu và ở, ngoài thành đắp lũy, mở chợ, dựng chùa quán. Vua chia lại cả nước thành các lộ, phủ, châu để tiện việc cai quản, đặt quan coi giữ, định phép thuế khóa. Lại lo cho dân được yên nghiệp, vua nhiều lần xuống chiếu tha giảm thuế, có năm tha thuế cho cả nước tới ba năm. Nhờ vậy, buổi đầu nhà Lý trong nước yên ổn, mùa màng được mùa, nền văn trị bắt đầu mở mang.",
+        "en": "Returned to Thăng Long, the emperor set about building the capital and laying the ground of government. Within the walls he raised the great hall of audience and the palaces for court and residence; without, he built ramparts, opened markets and founded temples. He redivided the realm into circuits, prefectures and districts for easier rule, set officials over them and fixed the taxes. Caring that the people might live at peace in their callings, he issued edicts again and again remitting taxes — one year forgiving the whole realm's taxes for three years together. So in the dawn of the Lý the land lay quiet, the harvests were full, and the age of civil rule began to unfold."
+      },
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "≈ 1010 – 1013 SCN", "en": "≈ 1010 – 1013 CE" },
+        "value": 1011,
+        "approximate": true
+      },
+      "title": { "vi": "Dựng kinh, định chế độ", "en": "Building the capital and the state" },
+      "summary": {
+        "vi": "Dựng cung điện Thăng Long, chia lộ phủ, định thuế, tha giảm sức dân.",
+        "en": "Palaces raised at Thăng Long, circuits set, taxes fixed and eased."
+      },
+      "body": {
+        "vi": "Về Thăng Long, Lý Thái Tổ dựng chính điện và cung điện, đắp thành, mở chợ. Vua chia nước làm các lộ phủ châu, đặt quan, định thuế khóa, nhiều lần tha giảm thuế cho dân — có năm tha cả nước ba năm. Buổi đầu nhà Lý nước yên, mùa màng được mùa.",
+        "en": "At Thăng Long Lý Thái Tổ raised the hall of audience and the palaces, built walls and opened markets. He divided the realm into circuits and prefectures, set officials, fixed taxes and often remitted them — one year for three years across the whole land. In the early Lý the country lay at peace and the harvests were full."
+      },
+      "pullQuote": {
+        "text": { "vi": "Nhiều lần xuống chiếu tha giảm thuế khóa, khoan thư sức dân — lấy lòng dân làm gốc dựng nước.", "en": "Again and again he remitted taxes and eased the people's burdens — making the people's hearts the root of the realm." }
+      },
+      "hero": {
+        "id": "dung-kinh-dinh-che-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ly-thai-to/events/dung-kinh-dinh-che.png",
+        "reduced": "eras/ly-thai-to/events/dung-kinh-dinh-che.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 2", "en": "Basic Records · Book 2" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "sung-phat-an-dan",
+      "slug": "sung-phat-an-dan",
+      "figureIds": ["ly-thai-to", "van-hanh"],
+      "details": {
+        "vi": "Vốn xuất thân cửa Phật, Lý Thái Tổ hết lòng sùng mộ đạo Phật, lấy từ bi làm gốc trị nước. Vua sai dựng nhiều chùa quán ở kinh đô và quê nhà Cổ Pháp, phát của kho đúc chuông lớn, cho sứ sang nhà Tống thỉnh kinh Tam tạng đem về tàng trữ, độ cho hàng nghìn người trong nước làm sư. Vua lại tỏ lòng khoan nhân: đốt bỏ hình cụ tra tấn, giảm nhẹ hình phạt, thả bớt tù, chuộng đức mà bớt uy. Sử thần đời sau tuy chê việc dựng chùa hao phí, song cũng ghi nhận buổi ấy lòng người thuần hậu, nước nhà yên trị.",
+        "en": "Come himself from the Buddha's gate, Lý Thái Tổ revered the Buddha's way with all his heart, taking compassion as the root of rule. He had many temples raised in the capital and in his native Cổ Pháp, drew on the treasury to cast great bells, sent envoys to the Song to request the Tripitaka scriptures to keep at home, and ordained a thousand of his people as monks. He showed too a merciful nature: he burned the instruments of torture, lightened punishments, freed prisoners, and prized virtue above force. Later historians, though they faulted the cost of his temple-building, still recorded that in those days men's hearts were honest and the nation lay at peace."
+      },
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "≈ 1010 – 1028 SCN", "en": "≈ 1010 – 1028 CE" },
+        "value": 1018,
+        "approximate": true
+      },
+      "title": { "vi": "Sùng Phật, khoan thư sức dân", "en": "Devotion to the Buddha, mercy to the people" },
+      "summary": {
+        "vi": "Dựng chùa, đúc chuông, thỉnh kinh, độ tăng; đốt hình cụ, chuộng đức.",
+        "en": "Temples, bells, scriptures and monks; the torture-tools burned, virtue prized."
+      },
+      "body": {
+        "vi": "Xuất thân cửa Phật, Lý Thái Tổ sùng mộ đạo Phật: dựng nhiều chùa, đúc chuông lớn, sai sang Tống thỉnh kinh Tam tạng, độ hàng nghìn người làm sư. Vua đốt bỏ hình cụ, giảm hình phạt, chuộng đức mà bớt uy — buổi đầu nhà Lý lòng người thuần hậu, nước nhà yên trị.",
+        "en": "Come from the Buddha's gate, Lý Thái Tổ revered the faith: he raised many temples, cast great bells, sent to the Song for the Tripitaka, and ordained a thousand monks. He burned the torture-tools, lightened punishments and prized virtue over force — in the early Lý men's hearts were honest and the realm at peace."
+      },
+      "pullQuote": {
+        "text": { "vi": "Vua sai đốt bỏ hình cụ tra tấn, giảm nhẹ hình phạt — lấy từ bi mà trị nước.", "en": "The king had the instruments of torture burned and punishments lightened — ruling the realm by compassion." },
+        "attribution": { "vi": "theo Đại Việt sử ký toàn thư", "en": "per Đại Việt sử ký toàn thư" }
+      },
+      "hero": {
+        "id": "sung-phat-an-dan-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ly-thai-to/events/sung-phat-an-dan.png",
+        "reduced": "eras/ly-thai-to/events/sung-phat-an-dan.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 2", "en": "Basic Records · Book 2" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "vua-bang-loan-tam-vuong",
+      "slug": "vua-bang-loan-tam-vuong",
+      "figureIds": ["ly-thai-to", "le-phung-hieu"],
+      "details": {
+        "vi": "Năm Mậu Thìn (1028), Lý Thái Tổ băng ở điện Long An, ở ngôi mười chín năm, thọ năm mươi lăm tuổi. Vua đã lập con là Khai Thiên Vương Lý Phật Mã làm thái tử, song khi vua vừa mất, ba người con khác là Đông Chinh Vương, Dực Thánh Vương và Vũ Đức Vương đem quân vây thành tranh ngôi, sử gọi là loạn tam vương. Giữa lúc nguy cấp, tướng Lê Phụng Hiểu tuốt gươm, hô lớn rồi một mình xông thẳng vào chém chết Vũ Đức Vương; quân ba vương tan vỡ, loạn dẹp yên. Thái tử Lý Phật Mã lên ngôi, tức Lý Thái Tông, nối giữ cơ nghiệp nhà Lý mà cha đã dựng.",
+        "en": "In the year Mậu Thìn (1028) Lý Thái Tổ died in the Long An hall, after nineteen years on the throne, aged fifty-five. He had made his son the Khai Thiên King Lý Phật Mã heir, yet the moment he died three other sons — the Đông Chinh, Dực Thánh and Vũ Đức Kings — brought troops to besiege the palace and seize the throne, in what the chronicle calls the Revolt of the Three Princes. In the crisis the general Lê Phụng Hiểu drew his sword, gave a great shout, and charging alone cut down the Vũ Đức King; the princes' troops scattered and the revolt was quelled. The heir Lý Phật Mã took the throne as Lý Thái Tông, carrying on the Lý enterprise his father had built."
+      },
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1028 SCN", "en": "1028 CE" },
+        "value": 1028,
+        "approximate": false
+      },
+      "title": { "vi": "Vua băng, loạn tam vương", "en": "The king dies; the Revolt of the Three Princes" },
+      "summary": {
+        "vi": "Lý Thái Tổ băng; ba vương tranh ngôi, Lê Phụng Hiểu dẹp loạn, giữ ngôi cho thái tử.",
+        "en": "Lý Thái Tổ dies; three princes revolt, Lê Phụng Hiểu quells them for the heir."
+      },
+      "body": {
+        "vi": "Năm 1028, Lý Thái Tổ băng, ở ngôi 19 năm, thọ 55. Vua vừa mất, ba vương đem quân tranh ngôi với thái tử (loạn tam vương). Tướng Lê Phụng Hiểu tuốt gươm xông vào chém chết Vũ Đức Vương, dẹp yên loạn. Thái tử Lý Phật Mã lên ngôi, tức Lý Thái Tông.",
+        "en": "In 1028 Lý Thái Tổ died after 19 years on the throne, aged 55. At his death three princes brought troops against the heir (the Revolt of the Three Princes). The general Lê Phụng Hiểu charged in and cut down the Vũ Đức King, quelling the revolt. The heir Lý Phật Mã took the throne as Lý Thái Tông."
+      },
+      "pullQuote": {
+        "text": { "vi": "Lê Phụng Hiểu tuốt gươm, một mình xông vào chém chết Vũ Đức Vương — dẹp yên loạn tam vương.", "en": "Lê Phụng Hiểu drew his sword and, charging alone, cut down the Vũ Đức King — quelling the Revolt of the Three Princes." },
+        "attribution": { "vi": "theo Đại Việt sử ký toàn thư", "en": "per Đại Việt sử ký toàn thư" }
+      },
+      "hero": {
+        "id": "vua-bang-loan-tam-vuong-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ly-thai-to/events/vua-bang-loan-tam-vuong.png",
+        "reduced": "eras/ly-thai-to/events/vua-bang-loan-tam-vuong.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 2", "en": "Basic Records · Book 2" },
+        "author": "Ngô Sĩ Liên"
+      }
+    }
+  ]
+}

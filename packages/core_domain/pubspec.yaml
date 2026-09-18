@@ -1,0 +1,15 @@
+name: core_domain
+description: Pure-Dart domain models for Việt Sử (Era, HistoryEvent, AssetRef, …), mirroring era.schema.json.
+version: 0.1.0
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.12.0
+
+dependencies:
+  meta: ^1.15.0
+
+dev_dependencies:
+  test: ^1.25.0
+  flutter_lints: ^5.0.0

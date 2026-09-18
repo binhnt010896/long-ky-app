@@ -1,0 +1,67 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Nested build artifacts (the root /build/ rule above only matches the repo
+# root; the Flutter app builds into apps/mobile/build, ~8 GB — ignore build
+# output and tool caches at ANY depth).
+build/
+.gradle/
+.dart_tool/
+.flutter-plugins
+**/android/local.properties
+**/android/key.properties
+**/ios/Pods/
+**/ios/.symlinks/
+**/macos/Pods/
+**/.symlinks/
+*.iml
+
+# Media lives outside git — served locally in dev and via CDN per the content
+# architecture. Keep the content-as-data JSON; ignore era/period imagery.
+content/**/*.png
+content/**/*.jpg
+content/**/*.jpeg
+content/**/*.webp

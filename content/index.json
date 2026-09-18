@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "eras": [
+    "hong-bang-van-lang",
+    "au-lac",
+    "nha-trieu",
+    "hai-ba-trung",
+    "ba-trieu",
+    "van-xuan",
+    "mai-hac-de",
+    "phung-hung",
+    "khuc-thua-du",
+    "ngo-quyen",
+    "dinh-tien-hoang",
+    "tien-le",
+    "ly-thai-to",
+    "ly-thai-tong",
+    "ly-nhan-tong",
+    "tran-thai-tong",
+    "tran-hung-dao",
+    "le-loi",
+    "le-thanh-tong",
+    "nam-bac-trieu",
+    "trinh-nguyen",
+    "tay-son",
+    "gia-long",
+    "minh-mang",
+    "thieu-tri",
+    "tu-duc",
+    "can-vuong"
+  ]
+}

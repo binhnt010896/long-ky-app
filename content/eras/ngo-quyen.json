@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 1,
+  "id": "ngo-quyen",
+  "slug": "ngo-quyen",
+  "order": 9,
+  "period": "ngo-dinh-tien-le",
+  "title": { "vi": "Ngô Quyền", "en": "Ngô Quyền" },
+  "kicker": { "vi": "Kỷ nhà Ngô", "en": "The Ngô dynasty" },
+  "subtitle": { "vi": "Bạch Đằng một trận, dứt nghìn năm Bắc thuộc.", "en": "One battle on the Bạch Đằng ends a thousand years under the North." },
+  "overview": {
+    "vi": "Sau họ Khúc, tướng cũ là Dương Đình Nghệ đánh đuổi quân Nam Hán, giành lại quyền tự chủ, nhưng rồi bị nha tướng Kiều Công Tiễn giết để cướp ngôi. Ngô Quyền — người Đường Lâm, con rể Dương Đình Nghệ — từ Châu Ái đem quân ra hỏi tội; Kiều Công Tiễn sợ hãi cầu cứu nước Nam Hán. Vua Nam Hán sai con là Lưu Hoằng Tháo đem thủy quân sang. Ngô Quyền giết Kiều Công Tiễn, rồi sai đóng cọc lớn bịt sắt ngầm dưới sông Bạch Đằng; nhân nước triều lên nhử thuyền giặc vào, đợi triều rút mà đánh, thuyền Nam Hán mắc cọc vỡ tan, Hoằng Tháo tử trận. Năm 939, Ngô Quyền xưng vương, đóng đô Cổ Loa, chấm dứt hơn một nghìn năm Bắc thuộc — mở ra kỷ nguyên độc lập lâu dài của người Việt. Sử thần Lê Văn Hưu khen ông 'mưu giỏi mà đánh cũng giỏi'.",
+    "en": "After the Khúc, their old general Dương Đình Nghệ drove out the Southern Han and won back self-rule, but was then murdered by his own officer Kiều Công Tiễn, who seized his place. Ngô Quyền — a man of Đường Lâm and son-in-law of Dương Đình Nghệ — marched from Châu Ái to bring him to account; in fear, Kiều Công Tiễn called on the Southern Han. Their ruler sent his son Lưu Hoằng Tháo with a fleet. Ngô Quyền killed Kiều Công Tiễn, then had great iron-tipped stakes driven into the bed of the Bạch Đằng; at high tide he lured the enemy fleet in, and when the tide fell he struck — the Southern Han ships caught on the stakes and broke apart, and Hoằng Tháo fell in battle. In 939 Ngô Quyền took the title of king and set his capital at Cổ Loa, ending more than a thousand years under the North — and opening the age of lasting Việt independence. The historian Lê Văn Hưu praised him: his 'strategy was as fine as his fighting'."
+  },
+  "yearRange": {
+    "display": { "vi": "931 – 944 SCN", "en": "931 – 944 CE" },
+    "startYear": 931,
+    "endYear": 944
+  },
+  "palette": {
+    "accent": "#1f9e6b",
+    "particle": "#e6c877",
+    "scene": [
+      "#04100a",
+      "#071a10",
+      "#0d2c1c",
+      "#164a30",
+      "#1f6e46",
+      "#8a6f38",
+      "#5a4a28"
+    ]
+  },
+  "cover": {
+    "id": "ngo-quyen-cover",
+    "type": "image",
+    "role": "cover",
+    "flagship": "eras/ngo-quyen/cover.png",
+    "reduced": "eras/ngo-quyen/cover.png",
+    "placeholder": "era-scene",
+    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+  },
+  "scene": {
+    "layers": [
+      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/ngo-quyen/scene/sky.png", "reduced": "eras/ngo-quyen/scene/sky.png", "placeholder": "era-scene" },
+      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+    ]
+  },
+  "primarySource": {
+    "work": "Đại Việt sử ký toàn thư",
+    "section": { "vi": "Ngoại kỷ", "en": "Outer Records" },
+    "author": "Ngô Sĩ Liên"
+  },
+  "characters": [
+    { "ref": "ngo-quyen" },
+    { "ref": "duong-dinh-nghe" },
+    { "ref": "kieu-cong-tien" },
+    { "ref": "luu-hoang-thao" }
+  ],
+  "events": [
+    {
+      "id": "duong-dinh-nghe-bi-hai",
+      "slug": "duong-dinh-nghe-bi-hai",
+      "figureIds": ["duong-dinh-nghe", "kieu-cong-tien"],
+      "details": {
+        "vi": "Sau khi Nam Hán bắt Khúc Thừa Mỹ, tướng cũ của họ Khúc là Dương Đình Nghệ người Châu Ái chiêu tập quân sĩ, đem quân đánh đuổi quân Nam Hán, khôi phục quyền tự chủ và tự xưng Tiết độ sứ. Ông cầm quyền được ít năm, trong nhà nuôi ba nghìn 'con nuôi' làm nanh vuốt. Nào ngờ chính nha tướng thân tín là Kiều Công Tiễn, vì tham quyền, năm Đinh Dậu (937) đang tay giết hại chủ tướng để cướp lấy chức Tiết độ sứ. Lòng người oán giận, các hào kiệt bốn phương đều muốn hỏi tội kẻ phản nghịch.",
+        "en": "After the Southern Han took Khúc Thừa Mỹ, the Khúc's old general Dương Đình Nghệ, a man of Châu Ái, mustered troops, drove out the Southern Han army, restored self-rule and styled himself Military Governor. He held power a few years, keeping three thousand 'adopted sons' as his claws and teeth. Yet his own trusted officer Kiều Công Tiễn, greedy for power, in the year Đinh Dậu (937) raised his hand against his commander and killed him to seize the Governor's office. The people seethed, and the brave of every quarter longed to bring the traitor to account."
+      },
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "931 – 937 SCN", "en": "931 – 937 CE" },
+        "value": 937,
+        "approximate": false
+      },
+      "title": { "vi": "Dương Đình Nghệ bị hại", "en": "Dương Đình Nghệ is murdered" },
+      "summary": {
+        "vi": "Dương Đình Nghệ giành lại tự chủ, rồi bị Kiều Công Tiễn giết.",
+        "en": "Dương Đình Nghệ restores self-rule, then is killed by Kiều Công Tiễn."
+      },
+      "body": {
+        "vi": "Dương Đình Nghệ đánh đuổi quân Nam Hán, khôi phục tự chủ, tự xưng Tiết độ sứ. Được ít năm, nha tướng Kiều Công Tiễn vì tham quyền giết ông để cướp ngôi (937). Lòng người oán giận, chỉ chờ người ra hỏi tội kẻ phản nghịch.",
+        "en": "Dương Đình Nghệ drove out the Southern Han, restored self-rule and styled himself Military Governor. A few years on, his officer Kiều Công Tiễn, greedy for power, murdered him to seize his place (937). The people seethed, waiting only for someone to bring the traitor to account."
+      },
+      "pullQuote": {
+        "text": { "vi": "Nuôi ba nghìn con nuôi làm nanh vuốt, nào ngờ họa lại từ trong nhà.", "en": "He kept three thousand adopted sons as claws and teeth — yet the ruin came from within his own house." }
+      },
+      "hero": {
+        "id": "duong-dinh-nghe-bi-hai-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ngo-quyen/events/duong-dinh-nghe-bi-hai.png",
+        "reduced": "eras/ngo-quyen/events/duong-dinh-nghe-bi-hai.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "ngo-quyen-hoi-toi",
+      "slug": "ngo-quyen-hoi-toi",
+      "figureIds": ["ngo-quyen", "kieu-cong-tien"],
+      "details": {
+        "vi": "Ngô Quyền là người Đường Lâm, tướng giỏi và là con rể của Dương Đình Nghệ, bấy giờ đang trấn giữ Châu Ái. Nghe tin cha vợ bị hại, ông đem quân ra bắc hỏi tội Kiều Công Tiễn. Kiều Công Tiễn liệu thế không chống nổi, bèn sai người sang cầu cứu vua Nam Hán, xin đem quân sang giúp — một việc 'cõng rắn cắn gà nhà' mà đời sau chê trách. Vua Nam Hán mừng vì có cớ, phong con là Lưu Hoằng Tháo làm Tĩnh Hải quân Tiết độ sứ, thống lĩnh thủy quân sang xâm lược nước ta.",
+        "en": "Ngô Quyền was a man of Đường Lâm, an able general and son-in-law of Dương Đình Nghệ, then holding Châu Ái. Hearing that his father-in-law had been murdered, he led his army north to bring Kiều Công Tiễn to account. Judging he could not resist, Kiều Công Tiễn sent to the Southern Han ruler, begging him to send troops — an act of 'carrying the snake home to bite one's own hen' that later ages condemned. Glad of the pretext, the Southern Han ruler made his son Lưu Hoằng Tháo Military Governor of Tĩnh Hải quân and set him at the head of a fleet to invade our land."
+      },
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "938 SCN", "en": "938 CE" },
+        "value": 938,
+        "approximate": false
+      },
+      "title": { "vi": "Ngô Quyền ra hỏi tội", "en": "Ngô Quyền marches to avenge" },
+      "summary": {
+        "vi": "Ngô Quyền đem quân hỏi tội; Kiều Công Tiễn cầu cứu Nam Hán.",
+        "en": "Ngô Quyền marches on the traitor; Kiều Công Tiễn calls in the Southern Han."
+      },
+      "body": {
+        "vi": "Ngô Quyền, người Đường Lâm, con rể Dương Đình Nghệ, từ Châu Ái đem quân ra bắc hỏi tội Kiều Công Tiễn. Kẻ phản nghịch sợ hãi, sai người cầu cứu Nam Hán. Vua Nam Hán sai con là Lưu Hoằng Tháo đem thủy quân sang.",
+        "en": "Ngô Quyền, a man of Đường Lâm and son-in-law of Dương Đình Nghệ, marched north from Châu Ái to bring Kiều Công Tiễn to account. In terror the traitor called on the Southern Han, whose ruler sent his son Lưu Hoằng Tháo with a fleet."
+      },
+      "pullQuote": {
+        "text": { "vi": "Cõng rắn cắn gà nhà — kẻ phản nghịch rước giặc phương Bắc vào cõi.", "en": "Carrying the snake home to bite one's own hen — the traitor drew the North into the land." }
+      },
+      "hero": {
+        "id": "ngo-quyen-hoi-toi-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ngo-quyen/events/ngo-quyen-hoi-toi.png",
+        "reduced": "eras/ngo-quyen/events/ngo-quyen-hoi-toi.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "ke-dong-coc-bach-dang",
+      "slug": "ke-dong-coc-bach-dang",
+      "figureIds": ["ngo-quyen"],
+      "details": {
+        "vi": "Ngô Quyền tiến quân ra bắc, giết Kiều Công Tiễn, rồi lo việc chống quân Nam Hán. Ông bàn với các tướng: Hoằng Tháo là đứa trẻ dại, đem quân từ xa đến, quân lính mỏi mệt, lại nghe Công Tiễn đã chết, không có nội ứng, đã mất vía trước rồi; song giặc có lợi ở chiến thuyền, nếu ta không phòng bị thì được thua chưa biết ra sao. Ông bèn sai người đem cọc lớn đẽo nhọn đầu bịt sắt đóng ngầm ở cửa sông Bạch Đằng, tính kế nhân nước triều lên nhử thuyền giặc vào bãi cọc, đợi triều rút mà đánh.",
+        "en": "Ngô Quyền advanced north, killed Kiều Công Tiễn, and turned to the matter of the Southern Han. He counselled his generals: Hoằng Tháo is a foolish child, bringing troops from afar, his men weary; hearing that Công Tiễn is dead and that there is no one within to aid him, he has already lost his nerve. Yet the enemy's advantage is his warships, and if we make no preparation the issue is uncertain. So he had great stakes cut, their heads sharpened and shod with iron, driven hidden into the mouth of the Bạch Đằng, planning to lure the enemy ships over the stake-field on the rising tide and strike as it fell."
+      },
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "938 SCN", "en": "938 CE" },
+        "value": 938,
+        "approximate": false
+      },
+      "title": { "vi": "Kế đóng cọc Bạch Đằng", "en": "The stakes of Bạch Đằng" },
+      "summary": {
+        "vi": "Giết Kiều Công Tiễn; đóng cọc bịt sắt ngầm nơi cửa sông.",
+        "en": "He kills the traitor and sinks iron-tipped stakes at the river mouth."
+      },
+      "body": {
+        "vi": "Ngô Quyền giết Kiều Công Tiễn, rồi bàn kế chống Nam Hán. Ông sai đóng cọc lớn vạt nhọn bịt sắt ngầm ở cửa sông Bạch Đằng, định nhân nước triều lên nhử thuyền giặc vào bãi cọc, đợi triều rút mà đánh.",
+        "en": "Ngô Quyền killed Kiều Công Tiễn, then laid his plan against the Southern Han. He had great iron-tipped stakes sunk in the mouth of the Bạch Đằng, meaning to lure the enemy ships over them on the rising tide and strike as it fell."
+      },
+      "pullQuote": {
+        "text": { "vi": "Sai đem cọc lớn vạt nhọn đầu bịt sắt đóng ngầm ở cửa biển, đợi nước triều lên.", "en": "He had great stakes, sharpened and shod with iron, sunk at the river mouth, and waited for the rising tide." },
+        "attribution": { "vi": "Ngô Sĩ Liên", "en": "Ngô Sĩ Liên" }
+      },
+      "hero": {
+        "id": "ke-dong-coc-bach-dang-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ngo-quyen/events/ke-dong-coc-bach-dang.png",
+        "reduced": "eras/ngo-quyen/events/ke-dong-coc-bach-dang.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "chien-thang-bach-dang",
+      "slug": "chien-thang-bach-dang",
+      "figureIds": ["ngo-quyen", "luu-hoang-thao"],
+      "details": {
+        "vi": "Mùa đông năm Mậu Tuất (938), thuyền Nam Hán do Lưu Hoằng Tháo cầm đầu tiến vào cửa Bạch Đằng. Ngô Quyền cho thuyền nhẹ ra khiêu chiến rồi giả thua nhử giặc đuổi theo, vượt qua bãi cọc đang chìm dưới nước triều lên. Đợi khi nước triều rút mạnh, Ngô Quyền tung toàn quân đánh trở lại. Thuyền lớn của Nam Hán rút không kịp, đâm phải cọc nhọn bịt sắt, vỡ đắm gần hết; quân giặc phần chết đuối, phần bị giết, hơn quá nửa. Chủ tướng Lưu Hoằng Tháo tử trận. Vua Nam Hán đóng quân ở ngoài, nghe tin con chết và quân tan, thương khóc thu tàn quân rút về. Trận Bạch Đằng toàn thắng.",
+        "en": "In the winter of the year Mậu Tuất (938), the Southern Han fleet under Lưu Hoằng Tháo pushed into the mouth of the Bạch Đằng. Ngô Quyền sent light boats to provoke them, then feigned flight to draw them on, over the stake-field then hidden beneath the risen tide. When the tide turned and fell hard, he threw his whole force back upon them. The Southern Han's great ships could not withdraw in time and struck the iron-shod stakes; nearly all were holed and sank, and above half the host was drowned or slain. Their commander Lưu Hoằng Tháo fell in battle. The Southern Han ruler, encamped beyond and hearing that his son was dead and his army broken, wept and withdrew the remnant home. The Bạch Đằng was a total victory."
+      },
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "938 SCN", "en": "938 CE" },
+        "value": 938,
+        "approximate": false
+      },
+      "title": { "vi": "Chiến thắng Bạch Đằng", "en": "The victory at Bạch Đằng" },
+      "summary": {
+        "vi": "Nhử thuyền qua bãi cọc; triều rút, thuyền vỡ, Hoằng Tháo chết.",
+        "en": "Lured over the stakes; the tide falls, the ships break, Hoằng Tháo dies."
+      },
+      "body": {
+        "vi": "Năm 938, thuyền Nam Hán tiến vào Bạch Đằng. Ngô Quyền giả thua nhử giặc qua bãi cọc lúc triều lên; đợi triều rút, tung quân đánh. Thuyền lớn mắc cọc vỡ đắm, quân giặc chết quá nửa, Lưu Hoằng Tháo tử trận. Bạch Đằng toàn thắng.",
+        "en": "In 938 the Southern Han fleet entered the Bạch Đằng. Ngô Quyền feigned flight to draw them over the stakes at high tide; as it fell he loosed his whole force. The great ships caught and sank, above half the host died, and Lưu Hoằng Tháo fell. Bạch Đằng was a total victory."
+      },
+      "pullQuote": {
+        "text": { "vi": "Nước triều rút, thuyền giặc vướng cọc mà lật, quá nửa chết đuối.", "en": "The tide fell, the enemy ships caught on the stakes and capsized, and above half were drowned." }
+      },
+      "hero": {
+        "id": "chien-thang-bach-dang-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ngo-quyen/events/chien-thang-bach-dang.png",
+        "reduced": "eras/ngo-quyen/events/chien-thang-bach-dang.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "ngo-quyen-xung-vuong",
+      "slug": "ngo-quyen-xung-vuong",
+      "figureIds": ["ngo-quyen"],
+      "details": {
+        "vi": "Đánh tan quân Nam Hán, năm Kỷ Hợi (939) Ngô Quyền xưng vương, bỏ chức Tiết độ sứ của phương Bắc, đóng đô ở Cổ Loa — nơi đô cũ của An Dương Vương. Ông đặt trăm quan, chế định triều nghi, dựng nền nếp của một nước tự chủ có vua có nước. Hơn một nghìn năm Bắc thuộc từ khi Triệu Đà, rồi nhà Hán, đến đây chấm dứt; người Việt bước vào kỷ nguyên độc lập lâu dài. Sử thần Lê Văn Hưu khen: Tiền Ngô Vương lấy quân mới họp của nước Việt ta mà phá được trăm vạn quân của Lưu Hoằng Tháo, mở nước xưng vương, khiến người phương Bắc không dám lại sang — thật là 'mưu giỏi mà đánh cũng giỏi'.",
+        "en": "Having shattered the Southern Han, in the year Kỷ Hợi (939) Ngô Quyền took the title of king, cast off the Northern office of Military Governor, and set his capital at Cổ Loa — the old seat of An Dương Vương. He appointed his hundred officers, fixed the rites of court, and raised the order of a self-ruling state with its own king and realm. The thousand years and more under the North — from Triệu Đà and the Han onward — here came to an end, and the Việt entered the age of lasting independence. The historian Lê Văn Hưu praised him: the First Ngô King, with the newly gathered troops of our Việt land, broke the vast host of Lưu Hoằng Tháo, founded a realm and took the kingship, and made the men of the North not dare come again — truly one whose 'strategy was as fine as his fighting'."
+      },
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "939 SCN", "en": "939 CE" },
+        "value": 939,
+        "approximate": false
+      },
+      "title": { "vi": "Ngô Quyền xưng vương", "en": "Ngô Quyền takes the throne" },
+      "summary": {
+        "vi": "Xưng vương, đóng đô Cổ Loa; dứt hơn nghìn năm Bắc thuộc.",
+        "en": "He takes the kingship at Cổ Loa, ending a thousand years under the North."
+      },
+      "body": {
+        "vi": "Năm 939, Ngô Quyền xưng vương, bỏ chức Tiết độ sứ, đóng đô ở Cổ Loa, đặt trăm quan, chế định triều nghi. Hơn một nghìn năm Bắc thuộc đến đây chấm dứt, mở ra kỷ nguyên độc lập lâu dài của người Việt.",
+        "en": "In 939 Ngô Quyền took the kingship, cast off the Governor's office, set his capital at Cổ Loa, and appointed his officers and court. A thousand years and more under the North here ended, opening the age of lasting Việt independence."
+      },
+      "pullQuote": {
+        "text": { "vi": "Một cơn giận mà yên được dân, mưu giỏi mà đánh cũng giỏi vậy.", "en": "One righteous wrath that brought the people peace — his strategy as fine as his fighting." },
+        "attribution": { "vi": "Lê Văn Hưu", "en": "Lê Văn Hưu" }
+      },
+      "hero": {
+        "id": "ngo-quyen-xung-vuong-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/ngo-quyen/events/ngo-quyen-xung-vuong.png",
+        "reduced": "eras/ngo-quyen/events/ngo-quyen-xung-vuong.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "author": "Ngô Sĩ Liên"
+      }
+    }
+  ]
+}

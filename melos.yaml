@@ -1,0 +1,26 @@
+name: viet_su
+
+packages:
+  - packages/**
+  - apps/**
+
+command:
+  bootstrap:
+    # Use Dart pub workspaces for resolution; Melos drives scripts.
+    usePubspecOverrides: true
+
+scripts:
+  analyze:
+    description: Statically analyze every package (each in its own context).
+    # Per-package (like `test`) so each analyzes against its own pubspec —
+    # a single workspace-root analysis mis-resolves the app entrypoint's
+    # package:flutter import (a known analyzer quirk with pub workspaces).
+    run: dart run melos exec --concurrency=1 -- dart analyze --fatal-infos .
+
+  test:
+    description: Run all package tests (each package that has a test/ dir).
+    run: dart run melos exec --dir-exists=test --concurrency=1 --fail-fast -- flutter test
+
+  validate:content:
+    description: Validate content/eras/*.json against era.schema.json.
+    run: dart run tool/validate_content.dart

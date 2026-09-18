@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viet-su.app/schema/era.schema.json",
+  "title": "Việt Sử Era",
+  "description": "One historical era of Việt Sử. Content is data, not code — every historian-authored string, citation and asset reference lives here, never in Dart. Vietnamese (vi) is canonical and required with full diacritics; English (en) is an optional toggle.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "slug",
+    "order",
+    "period",
+    "title",
+    "kicker",
+    "subtitle",
+    "yearRange",
+    "palette",
+    "primarySource",
+    "events"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "description": "Contract version this file targets.",
+      "type": "integer",
+      "const": 1
+    },
+    "id": {
+      "description": "Stable unique id for the era.",
+      "type": "string",
+      "minLength": 1
+    },
+    "slug": {
+      "description": "URL/asset-safe kebab-case key. Also the base filename.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "order": {
+      "description": "Position in the vertical era stack / global timeline (0-based).",
+      "type": "integer",
+      "minimum": 0
+    },
+    "period": {
+      "description": "Id of the dynasty / period this era belongs to (see content/periods.json). The dynasty hub groups eras under their period.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "flagship": {
+      "description": "Marks this era as a rare \"peak\" — a high point of the chronicle given a distinguished UI treatment (a badge and warmer aura on Home, a dominant node on the global timeline). Optional; defaults to false. Reserve for a handful of true peaks.",
+      "type": "boolean"
+    },
+    "title": { "$ref": "#/$defs/localizedText" },
+    "kicker": {
+      "description": "Eyebrow above the hero, e.g. \"Kỷ nguyên khởi thủy\".",
+      "$ref": "#/$defs/localizedText"
+    },
+    "subtitle": {
+      "description": "Italic chronicle tagline, e.g. \"Buổi bình minh dựng nước.\".",
+      "$ref": "#/$defs/localizedText"
+    },
+    "overview": {
+      "description": "Editorial intro paragraph for the Era Hub — a chronicle-grounded framing of the era. Optional.",
+      "$ref": "#/$defs/localizedText"
+    },
+    "yearRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["display"],
+      "properties": {
+        "display": {
+          "description": "Human label, e.g. \"2879 – 258 TCN\".",
+          "$ref": "#/$defs/localizedText"
+        },
+        "startYear": {
+          "description": "Numeric start for sorting/scrubbing. Negative = BCE (TCN).",
+          "type": "integer"
+        },
+        "endYear": {
+          "description": "Numeric end. Negative = BCE (TCN).",
+          "type": "integer"
+        }
+      }
+    },
+    "palette": {
+      "description": "Era colour identity. Drives VSEraPalette; the app derives the sơn mài scene from the accent.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["accent"],
+      "properties": {
+        "accent": { "$ref": "#/$defs/hexColor" },
+        "particle": { "$ref": "#/$defs/hexColor" },
+        "scene": {
+          "description": "Optional explicit scene gradient stops (top → bottom). Omit to derive from accent.",
+          "type": "array",
+          "items": { "$ref": "#/$defs/hexColor" },
+          "minItems": 2
+        }
+      }
+    },
+    "cover": {
+      "description": "Home-stack card art.",
+      "$ref": "#/$defs/assetRef"
+    },
+    "scene": {
+      "description": "Parallax layer slots (back → front). Placeholder gradients now; real sơn mài PNGs/Rive drop in later.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "layers": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/assetRef" }
+        }
+      }
+    },
+    "primarySource": {
+      "description": "The single chronicle this era is drawn from (the grant's single-source rule).",
+      "$ref": "#/$defs/citation"
+    },
+    "characters": {
+      "description": "This era's roster: references into content/people.json by `ref`, each with optional per-era overrides (a figure's name/role/look can differ by era, but it is still one person). Events reference them by that same `ref` id via `figureIds`.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/characterRef" }
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/historyEvent" }
+    }
+  },
+  "$defs": {
+    "localizedText": {
+      "description": "Localized string. vi is canonical and required; en is an optional toggle.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vi"],
+      "properties": {
+        "vi": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 }
+      }
+    },
+    "hexColor": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "citation": {
+      "description": "A visible source citation. Rendered on every event — a feature, not fine print.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["work"],
+      "properties": {
+        "work": {
+          "description": "Title of the chronicle/work, e.g. \"Đại Việt sử ký toàn thư\".",
+          "type": "string",
+          "minLength": 1
+        },
+        "section": {
+          "description": "Locus within the work, e.g. \"Ngoại kỷ · Quyển 1\".",
+          "$ref": "#/$defs/localizedText"
+        },
+        "author": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "note": { "$ref": "#/$defs/localizedText" }
+      }
+    },
+    "yearRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["display"],
+      "properties": {
+        "display": {
+          "description": "Label as shown, e.g. \"≈ 2879 TCN\", \"Huyền sử\".",
+          "$ref": "#/$defs/localizedText"
+        },
+        "value": {
+          "description": "Numeric year for sorting/placement. Negative = BCE (TCN). null for pure legend with no fixed date.",
+          "type": ["integer", "null"]
+        },
+        "approximate": {
+          "description": "True when the date is circa (≈).",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "assetRef": {
+      "description": "A tier-aware asset. flagship may be Rive/animated; reduced is the static fallback; placeholder names a built-in stand-in (e.g. era gradient) until real art lands.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": {
+          "type": "string",
+          "enum": ["image", "rive", "particles", "gradient"]
+        },
+        "role": {
+          "description": "Semantic slot for parallax/composition.",
+          "type": "string",
+          "enum": ["cover", "hero", "sky", "mid", "foreground", "overlay", "particles"]
+        },
+        "depth": {
+          "description": "Parallax depth 0 (far) → 1 (near).",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "flagship": { "type": "string" },
+        "reduced": { "type": "string" },
+        "placeholder": { "type": "string" },
+        "caption": { "$ref": "#/$defs/localizedText" },
+        "credit": { "type": "string" }
+      }
+    },
+    "historyEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "order", "kind", "year", "title", "summary", "citation"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "order": { "type": "integer", "minimum": 0 },
+        "kind": {
+          "description": "Historiographic status.",
+          "type": "string",
+          "enum": ["legend", "semi-historical", "historical"]
+        },
+        "year": { "$ref": "#/$defs/yearRef" },
+        "title": { "$ref": "#/$defs/localizedText" },
+        "summary": {
+          "description": "One-line timeline subtitle.",
+          "$ref": "#/$defs/localizedText"
+        },
+        "body": {
+          "description": "Long-form event text for the detail screen.",
+          "$ref": "#/$defs/localizedText"
+        },
+        "details": {
+          "description": "Fuller account revealed under \"read more\", drawn from the chronicle.",
+          "$ref": "#/$defs/localizedText"
+        },
+        "relatedEventIds": {
+          "description": "Ids of other events in this era that relate to this one.",
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "pullQuote": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["text"],
+          "properties": {
+            "text": { "$ref": "#/$defs/localizedText" },
+            "attribution": { "$ref": "#/$defs/localizedText" }
+          }
+        },
+        "hero": { "$ref": "#/$defs/assetRef" },
+        "citation": { "$ref": "#/$defs/citation" },
+        "figureIds": {
+          "description": "Ids (into the era's `characters`) of the figures appearing in this event.",
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "characterRef": {
+      "description": "A reference to a person in content/people.json, with optional per-era overrides. `ref` is the person id (also what `figureIds` use); any of name/epithet/bio/portrait/avatar/fullBody override the canonical value for this era only.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ref"],
+      "properties": {
+        "ref": {
+          "description": "Id of a person in content/people.json.",
+          "type": "string",
+          "minLength": 1
+        },
+        "name": { "$ref": "#/$defs/localizedText" },
+        "epithet": { "$ref": "#/$defs/localizedText" },
+        "bio": { "$ref": "#/$defs/localizedText" },
+        "portrait": { "$ref": "#/$defs/assetRef" },
+        "avatar": { "$ref": "#/$defs/assetRef" },
+        "fullBody": { "$ref": "#/$defs/assetRef" }
+      }
+    }
+  }
+}

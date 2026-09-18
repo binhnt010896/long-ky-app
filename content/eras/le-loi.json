@@ -1,0 +1,320 @@
+{
+  "schemaVersion": 1,
+  "id": "le-loi",
+  "slug": "le-loi",
+  "order": 17,
+  "period": "hau-le",
+  "flagship": true,
+  "title": { "vi": "Lê Lợi", "en": "Lê Lợi" },
+  "kicker": { "vi": "Kỷ nhà Hậu Lê · Khởi nghĩa Lam Sơn", "en": "The Later Lê dynasty · the Lam Sơn uprising" },
+  "subtitle": { "vi": "Mười năm bình Ngô, dựng lại nước Đại Việt.", "en": "Ten years to pacify the Ngô, and Đại Việt raised anew." },
+  "overview": {
+    "vi": "Nhà Hồ cướp ngôi nhà Trần rồi nhanh chóng để mất nước: năm Đinh Hợi (1407), quân Minh lấy cớ 'phù Trần diệt Hồ' sang xâm lược, bắt cha con Hồ Quý Ly, biến Đại Việt thành quận Giao Chỉ. Suốt hai mươi năm, giặc Minh cai trị hà khắc, vơ vét của cải, bắt lính, phu, lại thiêu hủy sách vở, phá đền chùa, cố đồng hóa dân ta; các cuộc khởi nghĩa của Hậu Trần đều bị dập tắt. Trong cảnh nước mất nhà tan, năm Mậu Tuất (1418), người hào trưởng đất Lam Sơn là Lê Lợi dấy binh, xưng Bình Định Vương, cùng mưu thần Nguyễn Trãi nêu cờ đại nghĩa. Buổi đầu muôn vàn gian khổ — có phen bị vây ở Chí Linh, tướng Lê Lai phải đổi áo bào liều mình cứu chúa. Nghe kế Nguyễn Chích, nghĩa quân tiến vào Nghệ An lập căn cứ, từ đó lớn mạnh, 'lấy đại nghĩa thắng hung tàn, lấy chí nhân thay cường bạo'. Năm Bính Ngọ (1426) đại thắng ở Tốt Động – Chúc Động; năm Đinh Mùi (1427) chém Liễu Thăng ở Chi Lăng, diệt viện binh ở Xương Giang, vây Vương Thông ở Đông Quan. Lê Lợi mở lượng hiếu sinh, cho quân Minh thề ở Đông Quan rồi cấp lương, cấp thuyền ngựa cho về nước. Năm Mậu Thân (1428), Nguyễn Trãi thay lời vua viết Bình Ngô đại cáo tuyên bố độc lập; Lê Lợi lên ngôi Hoàng đế, khôi phục quốc hiệu Đại Việt, đóng đô Đông Kinh, mở ra nhà Hậu Lê.",
+    "en": "The Hồ seized the throne from the Trần and swiftly lost the country: in the year Đinh Hợi (1407) the Ming invaded on the pretext of 'restoring the Trần, destroying the Hồ,' captured Hồ Quý Ly and his son, and turned Đại Việt into the province of Giao Chỉ. For twenty years the Ming ruled harshly — plundering wealth, seizing soldiers and labourers, burning books, destroying temples, striving to assimilate the people; the risings of the Later Trần were all crushed. In this ruin, in the year Mậu Tuất (1418), the Lam Sơn lord Lê Lợi rose in arms, styled himself the Pacification King, and with the strategist Nguyễn Trãi raised the banner of a righteous cause. The early days were bitter — once surrounded at Chí Linh, the general Lê Lai traded robes and gave his life to save his lord. On Nguyễn Chích's counsel the insurgents moved into Nghệ An to build a base, and from there grew strong, 'with great righteousness overcoming savagery, with humane benevolence replacing tyranny.' In 1426 came the great victory at Tốt Động–Chúc Động; in 1427 they cut down Liễu Thăng at Chi Lăng, destroyed the relief army at Xương Giang, and besieged Vương Thông at Đông Quan. Lê Lợi, in mercy, let the Ming swear an oath at Đông Quan, then gave them provisions, boats and horses to go home. In the year Mậu Thân (1428) Nguyễn Trãi wrote, in the king's name, the Bình Ngô đại cáo proclaiming independence; Lê Lợi took the imperial throne, restored the name Đại Việt, set his capital at Đông Kinh, and founded the Later Lê."
+  },
+  "yearRange": {
+    "display": { "vi": "1418 – 1433 SCN", "en": "1418 – 1433 CE" },
+    "startYear": 1418,
+    "endYear": 1433
+  },
+  "palette": {
+    "accent": "#1c7a54",
+    "particle": "#ecd28a",
+    "scene": [
+      "#06140d",
+      "#0b2417",
+      "#123a25",
+      "#1a5738",
+      "#227e52",
+      "#c2a24a",
+      "#7d6630"
+    ]
+  },
+  "cover": {
+    "id": "le-loi-cover",
+    "type": "image",
+    "role": "cover",
+    "flagship": "eras/le-loi/cover.png",
+    "reduced": "eras/le-loi/cover.png",
+    "placeholder": "era-scene",
+    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+  },
+  "scene": {
+    "layers": [
+      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/le-loi/scene/sky.png", "reduced": "eras/le-loi/scene/sky.png", "placeholder": "era-scene" },
+      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+    ]
+  },
+  "primarySource": {
+    "work": "Đại Việt sử ký toàn thư",
+    "section": { "vi": "Bản kỷ", "en": "Basic Records" },
+    "author": "Ngô Sĩ Liên"
+  },
+  "characters": [
+    { "ref": "le-loi" },
+    { "ref": "nguyen-trai" },
+    { "ref": "le-lai" },
+    { "ref": "nguyen-chich" },
+    { "ref": "lieu-thang" }
+  ],
+  "events": [
+    {
+      "id": "thuoc-minh",
+      "slug": "thuoc-minh",
+      "figureIds": [],
+      "details": {
+        "vi": "Cuối đời Trần, Hồ Quý Ly cướp ngôi lập nhà Hồ (1400), lòng người chưa phục. Nhà Minh nhân đó, năm Đinh Hợi (1407) lấy cớ 'phù Trần diệt Hồ' đem đại quân sang xâm lược, bắt cha con Hồ Quý Ly đem về Trung Quốc, xóa tên nước ta, đặt làm quận Giao Chỉ. Suốt hơn hai mươi năm Bắc thuộc lần này, giặc Minh cai trị vô cùng hà khắc: đặt sưu cao thuế nặng, bắt dân xuống biển mò ngọc, lên rừng tìm ngà voi, vàng bạc; lại bắt lính, bắt phu, đàn áp đẫm máu. Tàn độc hơn cả, chúng tịch thu, thiêu hủy sách vở, bia đá, hòng xóa sạch văn hiến nước Việt để dễ bề đồng hóa. Các cuộc khởi nghĩa của con cháu nhà Trần (Hậu Trần) như Giản Định, Trùng Quang nổi lên rồi đều bị dập tắt. Nước Đại Việt lâm vào một trong những thời kỳ đen tối nhất của lịch sử.",
+        "en": "At the end of the Trần, Hồ Quý Ly usurped the throne and founded the Hồ (1400) with the people not yet reconciled. Seizing the moment, in the year Đinh Hợi (1407) the Ming invaded on the pretext of 'restoring the Trần and destroying the Hồ,' carried Hồ Quý Ly and his son off to China, erased our country's name, and made it the province of Giao Chỉ. Through more than twenty years of this renewed northern rule the Ming governed with utmost harshness: crushing taxes and levies, driving the people to dive for pearls and comb the forests for ivory, gold and silver; conscripting soldiers and labourers and suppressing them in blood. Cruellest of all, they confiscated and burned the books and stone steles, seeking to wipe out the civilisation of the Việt and make assimilation easy. The risings of the Trần scions — the Later Trần of Giản Định and Trùng Quang — flared and were snuffed out. Đại Việt fell into one of the darkest ages of its history."
+      },
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1407 – 1417 SCN", "en": "1407 – 1417 CE" },
+        "value": 1407,
+        "approximate": false
+      },
+      "title": { "vi": "Thuộc Minh — nước mất nhà tan", "en": "The Ming occupation" },
+      "summary": {
+        "vi": "Nhà Hồ mất nước; giặc Minh đô hộ hà khắc, thiêu hủy sách vở, đồng hóa dân Việt.",
+        "en": "The Hồ lose the realm; the Ming rule cruelly, burning books to assimilate the Việt."
+      },
+      "body": {
+        "vi": "Nhà Hồ cướp ngôi Trần (1400) rồi để mất nước. Năm 1407, quân Minh mượn cớ 'phù Trần diệt Hồ' sang xâm lược, biến Đại Việt thành quận Giao Chỉ. Hơn hai mươi năm, giặc cai trị hà khắc, vơ vét, bắt lính phu, thiêu hủy sách vở nhằm đồng hóa dân ta; các cuộc khởi nghĩa Hậu Trần đều bị dập tắt.",
+        "en": "The Hồ usurped the Trần (1400) then lost the country. In 1407 the Ming invaded under the pretext of 'restoring the Trần, destroying the Hồ,' making Đại Việt the province of Giao Chỉ. For over twenty years they ruled harshly, plundered, conscripted, and burned books to assimilate the people; the Later Trần risings were all crushed."
+      },
+      "pullQuote": {
+        "text": { "vi": "Nướng dân đen trên ngọn lửa hung tàn, vùi con đỏ xuống dưới hầm tai vạ — độc ác thay, trúc Nam Sơn không ghi hết tội.", "en": "They roasted the black-haired folk on cruel flames, buried the innocent in pits of calamity — so wicked that all the bamboo of the Southern Mountains could not record their crimes." },
+        "attribution": { "vi": "Bình Ngô đại cáo · Nguyễn Trãi (nói về tội quân Minh)", "en": "Bình Ngô đại cáo · Nguyễn Trãi (on the crimes of the Ming)" }
+      },
+      "hero": {
+        "id": "thuoc-minh-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/le-loi/events/thuoc-minh.png",
+        "reduced": "eras/le-loi/events/thuoc-minh.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 9", "en": "Basic Records · Book 9" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "dung-co-lam-son",
+      "slug": "dung-co-lam-son",
+      "figureIds": ["le-loi", "nguyen-trai"],
+      "details": {
+        "vi": "Ở đất Lam Sơn, châu Thanh Hóa, có Lê Lợi là hào trưởng có uy tín, nuôi chí cứu nước, ngầm chiêu tập hào kiệt, tích trữ lương thảo. Ngày mồng hai tháng giêng năm Mậu Tuất (1418), ông chính thức dựng cờ khởi nghĩa, tự xưng Bình Định Vương, truyền hịch đi các nơi kể tội giặc Minh và kêu gọi dân chúng đứng lên. Bậc danh sĩ Nguyễn Trãi, ôm mối thù nhà nợ nước, tìm đến dâng Bình Ngô sách — sách lược đánh giặc lấy 'tâm công', đánh vào lòng người làm gốc. Từ đó ông thành mưu thần bên cạnh Lê Lợi, giúp bày mưu định kế. Nghĩa quân Lam Sơn tuy còn ít ỏi, vũ khí thô sơ, nhưng nhờ chính nghĩa mà lòng người theo về mỗi lúc một đông.",
+        "en": "At Lam Sơn in Thanh Hóa lived Lê Lợi, a lord of standing who nursed a purpose to save the country, secretly gathering men of valour and storing provisions. On the second day of the first month of the year Mậu Tuất (1418) he formally raised the standard of revolt, styling himself the Pacification King, and sent out proclamations recounting the Ming's crimes and calling the people to rise. The renowned scholar Nguyễn Trãi, bearing the grief of family and country, came to offer the 'Strategy for Pacifying the Ngô' — a way of war rooted in 'attacking hearts,' winning men's minds first. He became the strategist at Lê Lợi's side. The Lam Sơn insurgents were still few and poorly armed, yet by the justice of their cause more and more hearts turned to them."
+      },
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1418 SCN", "en": "1418 CE" },
+        "value": 1418,
+        "approximate": false
+      },
+      "title": { "vi": "Dựng cờ khởi nghĩa Lam Sơn", "en": "The Lam Sơn standard is raised" },
+      "summary": {
+        "vi": "Lê Lợi xưng Bình Định Vương, dấy nghĩa; Nguyễn Trãi dâng Bình Ngô sách.",
+        "en": "Lê Lợi rises as the Pacification King; Nguyễn Trãi offers his strategy."
+      },
+      "body": {
+        "vi": "Năm 1418, hào trưởng Lam Sơn là Lê Lợi dựng cờ khởi nghĩa, xưng Bình Định Vương, truyền hịch kêu gọi dân chúng đánh giặc Minh. Danh sĩ Nguyễn Trãi tìm đến dâng Bình Ngô sách, chủ trương 'tâm công' đánh vào lòng người, làm mưu thần bên cạnh Lê Lợi. Nghĩa quân tuy ít mà lòng người theo về ngày một đông.",
+        "en": "In 1418 the Lam Sơn lord Lê Lợi raised the standard of revolt as the Pacification King, calling the people to fight the Ming. The scholar Nguyễn Trãi came with his 'Strategy for Pacifying the Ngô,' championing the 'attack on hearts,' and became his strategist. Few as they were, ever more hearts rallied to them."
+      },
+      "pullQuote": {
+        "text": { "vi": "Ta đây núi Lam Sơn dấy nghĩa, chốn hoang dã nương mình… ngẫm thù lớn há đội trời chung, căm giặc nước thề không cùng sống.", "en": "Here at Mount Lam Sơn I raised the righteous cause, taking refuge in the wilds… pondering a great enmity that cannot share the sky, hating the invader and swearing not to live alongside him." },
+        "attribution": { "vi": "Bình Ngô đại cáo · Nguyễn Trãi", "en": "Bình Ngô đại cáo · Nguyễn Trãi" }
+      },
+      "hero": {
+        "id": "dung-co-lam-son-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/le-loi/events/dung-co-lam-son.png",
+        "reduced": "eras/le-loi/events/dung-co-lam-son.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 10", "en": "Basic Records · Book 10" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "le-lai-cuu-chua",
+      "slug": "le-lai-cuu-chua",
+      "figureIds": ["le-loi", "le-lai"],
+      "details": {
+        "vi": "Buổi đầu khởi nghĩa, thế giặc mạnh, nghĩa quân nhiều phen lâm nguy. Có lần bị quân Minh vây chặt ở núi Chí Linh, lương hết, đường cùng, tính mạng chủ tướng Lê Lợi ngàn cân treo sợi tóc. Giữa lúc ấy, tướng Lê Lai khảng khái xin đổi áo bào, đóng vai chúa Lam Sơn, đem một toán quân cảm tử xông thẳng vào giặc mà hô lớn rằng mình là Bình Định Vương. Quân Minh tưởng thật, dồn cả sức vây bắt, giết Lê Lai; nhờ đó Lê Lợi cùng nghĩa quân thoát khỏi vòng vây, bảo toàn được lực lượng để mưu nghiệp lớn về sau. Về sau nhớ ơn ấy, Lê Lợi dặn con cháu đời đời cúng giỗ Lê Lai trước ngày giỗ mình một hôm — trong dân gian gọi là 'hăm mốt Lê Lai, hăm hai Lê Lợi'.",
+        "en": "In the early days the enemy was strong and the insurgents were often in peril. Once, hemmed in on Mount Chí Linh with provisions gone and no way out, the life of the lord Lê Lợi hung by a thread. At that moment the general Lê Lai boldly asked to exchange robes, play the lord of Lam Sơn, and lead a band of death-defying men straight at the enemy, crying that he was the Pacification King. The Ming, taking it for truth, threw all their strength into seizing and killing Lê Lai — and so Lê Lợi and his men slipped the encirclement and preserved their force for the great enterprise to come. Remembering this, Lê Lợi bade his descendants forever make offerings to Lê Lai the day before his own memorial — in folk saying, 'the twenty-first for Lê Lai, the twenty-second for Lê Lợi.'"
+      },
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "≈ 1419 SCN", "en": "≈ 1419 CE" },
+        "value": 1419,
+        "approximate": true
+      },
+      "title": { "vi": "Lê Lai đổi áo cứu chúa", "en": "Lê Lai trades robes to save his lord" },
+      "summary": {
+        "vi": "Bị vây ở Chí Linh, Lê Lai khoác áo bào liều mình để Lê Lợi thoát nạn.",
+        "en": "Surrounded at Chí Linh, Lê Lai dons the royal robe and dies so Lê Lợi may escape."
+      },
+      "body": {
+        "vi": "Buổi đầu gian nan, nghĩa quân bị vây khốn ở núi Chí Linh, tính mạng Lê Lợi nguy cấp. Tướng Lê Lai xin đổi áo bào, đóng vai chúa Lam Sơn, đem quân cảm tử xông ra hút giặc rồi bị bắt giết; nhờ đó Lê Lợi thoát vây, bảo toàn lực lượng. Lê Lợi cảm nghĩa, dặn cúng giỗ Lê Lai trước ngày giỗ mình.",
+        "en": "In the hard early days the insurgents were surrounded on Mount Chí Linh and Lê Lợi's life was in danger. The general Lê Lai asked to trade robes, played the lord of Lam Sơn, drew the enemy off with a suicide charge and was killed; by this Lê Lợi escaped and saved his force. In gratitude he bade offerings be made to Lê Lai before his own memorial day."
+      },
+      "pullQuote": {
+        "text": { "vi": "Tôi xin đem thân thay chúa công. Nếu sau này lấy được nước, xin đừng quên công lao của tôi.", "en": "Let me take his place with my own body. If one day the country is won, do not forget what I have done." },
+        "attribution": { "vi": "lời Lê Lai, theo sử chép", "en": "Lê Lai's words, per the histories" }
+      },
+      "hero": {
+        "id": "le-lai-cuu-chua-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/le-loi/events/le-lai-cuu-chua.png",
+        "reduced": "eras/le-loi/events/le-lai-cuu-chua.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 10", "en": "Basic Records · Book 10" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "tien-vao-nghe-an",
+      "slug": "tien-vao-nghe-an",
+      "figureIds": ["le-loi", "nguyen-chich"],
+      "details": {
+        "vi": "Mấy năm đầu, nghĩa quân quẩn quanh nơi rừng núi Thanh Hóa, nhiều phen phải rút lên núi Chí Linh chịu đói khổ, khó bề lớn mạnh. Tướng Nguyễn Chích hiến kế: nên đem quân vào Nghệ An — nơi đất rộng người đông, hiểm yếu mà xa trung tâm binh lực quân Minh — lấy đó làm chỗ đứng chân, rồi từ đấy đánh ra thu phục các nơi. Lê Lợi khen phải, nghe theo. Từ năm Giáp Thìn (1424), nghĩa quân tiến vào giải phóng Nghệ An, Tân Bình, Thuận Hóa, thanh thế lừng lẫy, quân số ngày một đông, lương thảo dồi dào. Cuộc kháng chiến từ đó chuyển hẳn sang thế tiến công; nghĩa quân giương cao ngọn cờ nhân nghĩa: 'đem đại nghĩa để thắng hung tàn, lấy chí nhân để thay cường bạo', khiến lòng dân khắp nơi hướng về.",
+        "en": "For the first years the insurgents circled the mountains of Thanh Hóa, again and again driven up Mount Chí Linh to hunger, unable to grow. The general Nguyễn Chích offered a plan: march into Nghệ An — broad and populous, rugged yet far from the Ming's main forces — make it a foothold, and from there strike out to win the country back. Lê Lợi praised it and followed. From the year Giáp Thìn (1424) the insurgents advanced and liberated Nghệ An, Tân Bình and Thuận Hóa; their fame rang out, their numbers swelled, their stores grew full. From then the war turned wholly to the offensive, and they raised high the banner of righteousness — 'with great righteousness overcoming savagery, with humane benevolence replacing tyranny' — so that hearts everywhere turned to them."
+      },
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1424 SCN", "en": "1424 CE" },
+        "value": 1424,
+        "approximate": false
+      },
+      "title": { "vi": "Tiến vào Nghệ An", "en": "The march into Nghệ An" },
+      "summary": {
+        "vi": "Nghe kế Nguyễn Chích, nghĩa quân vào Nghệ An lập căn cứ, chuyển sang thế công.",
+        "en": "On Nguyễn Chích's plan, the army bases in Nghệ An and turns to the offensive."
+      },
+      "body": {
+        "vi": "Quẩn quanh rừng núi khó lớn mạnh, Lê Lợi nghe kế Nguyễn Chích, năm 1424 đưa quân vào Nghệ An, Tân Bình, Thuận Hóa lập căn cứ. Nghĩa quân từ đó thanh thế lừng lẫy, quân đông lương đủ, chuyển sang thế tiến công, giương cao ngọn cờ 'đem đại nghĩa thắng hung tàn, lấy chí nhân thay cường bạo'.",
+        "en": "Unable to grow amid the mountains, Lê Lợi took Nguyễn Chích's plan and in 1424 moved into Nghệ An, Tân Bình and Thuận Hóa to make a base. From there the insurgents' fame rang out, their army and stores grew, and they turned to the offensive under the banner 'with great righteousness overcoming savagery, with humane benevolence replacing tyranny.'"
+      },
+      "pullQuote": {
+        "text": { "vi": "Đem đại nghĩa để thắng hung tàn, / Lấy chí nhân để thay cường bạo.", "en": "With great righteousness we overcame savagery; / with humane benevolence we replaced tyranny." },
+        "attribution": { "vi": "Bình Ngô đại cáo · Nguyễn Trãi", "en": "Bình Ngô đại cáo · Nguyễn Trãi" }
+      },
+      "hero": {
+        "id": "tien-vao-nghe-an-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/le-loi/events/tien-vao-nghe-an.png",
+        "reduced": "eras/le-loi/events/tien-vao-nghe-an.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 10", "en": "Basic Records · Book 10" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "chi-lang-xuong-giang",
+      "slug": "chi-lang-xuong-giang",
+      "figureIds": ["le-loi", "lieu-thang"],
+      "details": {
+        "vi": "Thế nghĩa quân ngày một mạnh. Cuối năm Bính Ngọ (1426), trong trận Tốt Động – Chúc Động, nghĩa quân dùng mưu phục kích, đại phá mấy vạn quân của Tổng binh Vương Thông, khiến giặc phải rút vào cố thủ ở thành Đông Quan. Vua Minh sai hai đạo viện binh lớn sang cứu, đạo chính do Liễu Thăng thống lĩnh hơn mười vạn quân tiến vào cửa ải Chi Lăng. Tháng mười năm Đinh Mùi (1427), nghĩa quân bố trí mai phục hiểm hóc; Liễu Thăng kiêu ngạo, khinh địch thúc quân tiến gấp, lọt vào ổ phục kích ở núi Mã Yên và bị chém chết. Chủ tướng tử trận, viện binh mất tinh thần, bị nghĩa quân truy kích, đánh tan tác ở Xương Giang, mấy vạn quân giặc bị tiêu diệt hoặc bắt sống. Đạo viện binh còn lại nghe tin cũng tháo chạy. Vương Thông trong thành Đông Quan hết đường cứu viện, phải xin giảng hòa.",
+        "en": "The insurgents grew ever stronger. Late in the year Bính Ngọ (1426), at the battle of Tốt Động–Chúc Động, they ambushed and shattered the tens of thousands under the Ming commander Vương Thông, driving the enemy to hole up in the citadel of Đông Quan. The Ming emperor sent two great relief armies; the main one, over a hundred thousand strong under Liễu Thăng, advanced through the Chi Lăng pass. In the tenth month of the year Đinh Mùi (1427) the insurgents laid a deadly ambush; the arrogant Liễu Thăng, scorning the foe, drove his troops on in haste, fell into the trap at Mã Yên mountain, and was cut down. Its commander slain, the relief army lost heart, was pursued and smashed at Xương Giang, tens of thousands killed or taken. The other relief army, hearing the news, fled. Vương Thông, shut in Đông Quan with no rescue coming, was forced to sue for peace."
+      },
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1426 – 1427 SCN", "en": "1426 – 1427 CE" },
+        "value": 1427,
+        "approximate": false
+      },
+      "title": { "vi": "Chi Lăng – Xương Giang, chém Liễu Thăng", "en": "Chi Lăng–Xương Giang: Liễu Thăng slain" },
+      "summary": {
+        "vi": "Đại thắng Tốt Động; chém Liễu Thăng ở Chi Lăng, diệt viện binh ở Xương Giang.",
+        "en": "Victory at Tốt Động; Liễu Thăng killed at Chi Lăng, the relief army destroyed at Xương Giang."
+      },
+      "body": {
+        "vi": "Năm 1426, nghĩa quân đại phá Vương Thông ở Tốt Động – Chúc Động, dồn giặc cố thủ Đông Quan. Năm 1427, viện binh Minh do Liễu Thăng cầm đầu tiến vào Chi Lăng; nghĩa quân mai phục, chém Liễu Thăng, rồi diệt tan đại quân giặc ở Xương Giang. Vương Thông hết viện, phải xin giảng hòa.",
+        "en": "In 1426 the insurgents shattered Vương Thông at Tốt Động–Chúc Động, penning the enemy in Đông Quan. In 1427 the Ming relief army under Liễu Thăng entered Chi Lăng; the insurgents ambushed and killed him, then destroyed the host at Xương Giang. With no relief left, Vương Thông sued for peace."
+      },
+      "pullQuote": {
+        "text": { "vi": "Ngày mười tám, trận Chi Lăng, Liễu Thăng thất thế; ngày hai mươi, trận Mã Yên, Liễu Thăng cụt đầu.", "en": "On the eighteenth, at Chi Lăng, Liễu Thăng was undone; on the twentieth, at Mã Yên, Liễu Thăng lost his head." },
+        "attribution": { "vi": "Bình Ngô đại cáo · Nguyễn Trãi", "en": "Bình Ngô đại cáo · Nguyễn Trãi" }
+      },
+      "hero": {
+        "id": "chi-lang-xuong-giang-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/le-loi/events/chi-lang-xuong-giang.webp",
+        "reduced": "eras/le-loi/events/chi-lang-xuong-giang.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa động · phong cách sơn mài", "en": "Animated illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 10", "en": "Basic Records · Book 10" },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "binh-ngo-dai-cao",
+      "slug": "binh-ngo-dai-cao",
+      "figureIds": ["le-loi", "nguyen-trai"],
+      "details": {
+        "vi": "Quân Minh đã cùng đường, Lê Lợi và Nguyễn Trãi không muốn giết hại thêm để hả giận nhất thời, lại nghĩ kế lâu dài cho hai nước, bèn mở lượng hiếu sinh. Tháng chạp năm Đinh Mùi (1427), tại Đông Quan, Tổng binh Vương Thông cùng các tướng Minh làm lễ thề rút quân về nước; nghĩa quân không những tha cho mà còn cấp lương thảo, sửa cầu đường, cấp mấy trăm chiếc thuyền và hàng nghìn cỗ ngựa để chúng về cho yên — một cách ứng xử nhân nghĩa xưa nay hiếm có. Đất nước sạch bóng quân thù. Đầu năm Mậu Thân (1428), Nguyễn Trãi thừa mệnh Lê Lợi viết Bình Ngô đại cáo, bố cáo cho thiên hạ biết cuộc bình Ngô đã xong, dõng dạc khẳng định Đại Việt là một nước văn hiến, có cương vực, phong tục riêng. Lê Lợi lên ngôi Hoàng đế, tức Lê Thái Tổ, khôi phục quốc hiệu Đại Việt, đóng đô ở Đông Kinh (Thăng Long), mở ra triều Hậu Lê. Tương truyền, sau này vua dạo thuyền trên hồ Lục Thủy, rùa vàng nổi lên đòi lại thanh gươm thần từng giúp vua dẹp giặc; vua trả gươm, nhân đó hồ mang tên Hoàn Kiếm.",
+        "en": "The Ming were at the end of their road; Lê Lợi and Nguyễn Trãi, unwilling to kill more to sate a moment's anger and looking to a lasting peace between the two nations, showed mercy. In the twelfth month of the year Đinh Mùi (1427), at Đông Quan, the Ming commander Vương Thông and his officers swore an oath to withdraw; the insurgents not only spared them but gave them provisions, repaired the roads and bridges, and provided several hundred boats and thousands of horses to send them home safely — a magnanimity rare in any age. The land was cleared of the enemy. Early in the year Mậu Thân (1428), Nguyễn Trãi, at Lê Lợi's command, wrote the Bình Ngô đại cáo, proclaiming to all that the pacification of the Ngô was complete and declaring firmly that Đại Việt is a land of high culture, with its own borders and customs. Lê Lợi took the imperial throne as Lê Thái Tổ, restored the name Đại Việt, set his capital at Đông Kinh (Thăng Long), and founded the Later Lê. Tradition holds that later, boating on Lục Thủy lake, the king met a golden turtle that rose to reclaim the magic sword which had helped him drive out the enemy; he returned it, and so the lake took the name Hoàn Kiếm — the Lake of the Returned Sword."
+      },
+      "order": 5,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1428 SCN", "en": "1428 CE" },
+        "value": 1428,
+        "approximate": false
+      },
+      "title": { "vi": "Bình Ngô đại cáo, lập nhà Hậu Lê", "en": "The Bình Ngô đại cáo and the Later Lê" },
+      "summary": {
+        "vi": "Tha giặc về nước; Nguyễn Trãi viết Bình Ngô đại cáo; Lê Lợi lên ngôi, dựng Hậu Lê.",
+        "en": "The Ming are let home; the Bình Ngô đại cáo is written; Lê Lợi founds the Later Lê."
+      },
+      "body": {
+        "vi": "Cuối 1427, Lê Lợi mở lượng hiếu sinh, cho Vương Thông thề ở Đông Quan rồi cấp lương, thuyền, ngựa cho quân Minh về nước. Năm 1428, Nguyễn Trãi thay lời vua viết Bình Ngô đại cáo tuyên bố độc lập; Lê Lợi lên ngôi (Lê Thái Tổ), khôi phục quốc hiệu Đại Việt, đóng đô Đông Kinh, mở ra nhà Hậu Lê. Tương truyền vua trả gươm thần cho rùa vàng ở hồ Hoàn Kiếm.",
+        "en": "Late in 1427 Lê Lợi showed mercy, let Vương Thông swear at Đông Quan, then gave the Ming provisions, boats and horses to go home. In 1428 Nguyễn Trãi wrote the Bình Ngô đại cáo proclaiming independence; Lê Lợi took the throne as Lê Thái Tổ, restored the name Đại Việt, set his capital at Đông Kinh, and founded the Later Lê. Tradition holds he returned the magic sword to the golden turtle at Hoàn Kiếm lake."
+      },
+      "pullQuote": {
+        "text": { "vi": "Việc nhân nghĩa cốt ở yên dân, / Quân điếu phạt trước lo trừ bạo… Như nước Đại Việt ta từ trước, / Vốn xưng nền văn hiến đã lâu.", "en": "The essence of humanity and justice is to bring peace to the people; / the army of retribution must first root out cruelty… Our Đại Việt of old / has long been called a land of high culture." },
+        "attribution": { "vi": "Bình Ngô đại cáo · Nguyễn Trãi", "en": "Bình Ngô đại cáo · Nguyễn Trãi" }
+      },
+      "hero": {
+        "id": "binh-ngo-dai-cao-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/le-loi/events/binh-ngo-dai-cao.png",
+        "reduced": "eras/le-loi/events/binh-ngo-dai-cao.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": { "vi": "Bản kỷ · Quyển 10", "en": "Basic Records · Book 10" },
+        "author": "Ngô Sĩ Liên"
+      }
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "schemaVersion": 1,
+  "id": "tay-son",
+  "slug": "tay-son",
+  "order": 21,
+  "period": "tay-son",
+  "flagship": true,
+  "title": { "vi": "Quang Trung – Tây Sơn", "en": "Quang Trung and the Tây Sơn" },
+  "kicker": { "vi": "Áo vải cờ đào · Đại phá quân Thanh", "en": "The peasant banner · the Qing shattered" },
+  "subtitle": { "vi": "Người anh hùng áo vải, thống nhất sơn hà, quét sạch ngoại xâm.", "en": "A hero in homespun who reunited the land and swept the invaders away." },
+  "overview": {
+    "vi": "Cuối thế kỷ 18, cả hai miền đất nước đều rối loạn: ở Đàng Trong, quyền thần Trương Phúc Loan lộng hành, sưu thuế nặng nề; ở Đàng Ngoài, vua Lê chúa Trịnh suy đồi, kiêu binh làm loạn. Năm Tân Mão (1771), ba anh em Nguyễn Nhạc, Nguyễn Huệ, Nguyễn Lữ dấy binh ở đất Tây Sơn (Bình Định), nêu cờ 'lấy của nhà giàu chia cho dân nghèo', được muôn dân hưởng ứng. Phong trào lớn mạnh như vũ bão: quân Tây Sơn lần lượt diệt chúa Nguyễn ở phương Nam, rồi Nguyễn Huệ đem quân ra Bắc, lật đổ họ Trịnh, chấm dứt hơn hai trăm năm chia cắt Đàng Trong – Đàng Ngoài. Trong khi ấy, giặc ngoài hai lần kéo đến: năm Ất Tỵ (1785), Nguyễn Huệ đại phá năm vạn quân Xiêm ở Rạch Gầm – Xoài Mút; năm Mậu Thân (1788), khi Lê Chiêu Thống rước hai mươi chín vạn quân Thanh sang giày xéo Thăng Long, Nguyễn Huệ lên ngôi Hoàng đế, lấy hiệu Quang Trung, rồi hành quân thần tốc ra Bắc. Chỉ trong năm ngày Tết Kỷ Dậu (1789), ông quét sạch quân Thanh ở Ngọc Hồi – Đống Đa, làm nên một trong những chiến công hiển hách nhất của dân tộc. Lên ngôi, Quang Trung ôm hoài bão canh tân — đề cao chữ Nôm, chấn hưng học hành, chỉnh đốn kinh tế, còn định đòi lại đất Lưỡng Quảng — nhưng năm Nhâm Tý (1792) ông đột ngột băng hà khi mới bốn mươi tuổi. Nhà Tây Sơn suy yếu dần, rồi mất về tay Nguyễn Ánh; song sự nghiệp của người anh hùng áo vải mãi rạng ngời sử sách.",
+    "en": "At the end of the 18th century both regions were in turmoil: in Đàng Trong the overmighty minister Trương Phúc Loan tyrannised with crushing taxes; in Đàng Ngoài the Lê kings and Trịnh lords had decayed and the palace troops ran riot. In the year Tân Mão (1771) the three brothers Nguyễn Nhạc, Nguyễn Huệ and Nguyễn Lữ rose in arms at Tây Sơn in Bình Định under the banner 'take from the rich to share with the poor,' and the people flocked to them. The movement grew like a storm: the Tây Sơn destroyed the Nguyễn lords in the south, then Nguyễn Huệ marched north and toppled the Trịnh, ending more than two hundred years of the Đàng Trong–Đàng Ngoài division. Meanwhile foreign armies came twice: in Ất Tỵ (1785) Nguyễn Huệ annihilated fifty thousand Siamese at Rạch Gầm–Xoài Mút; in Mậu Thân (1788), when Lê Chiêu Thống brought two hundred and ninety thousand Qing troops to trample Thăng Long, Nguyễn Huệ took the imperial throne as Quang Trung and marched north with lightning speed. In just five days of the Kỷ Dậu New Year (1789) he swept the Qing away at Ngọc Hồi–Đống Đa — one of the most glorious feats in the nation's history. As emperor, Quang Trung nursed ambitions of renewal — exalting the Nôm script, reviving learning, ordering the economy, even planning to reclaim the Liangguang lands — but in the year Nhâm Tý (1792) he died suddenly at only forty. The Tây Sơn weakened and at last fell to Nguyễn Ánh; yet the peasant hero's achievement shines on in history."
+  },
+  "yearRange": {
+    "display": { "vi": "1771 – 1792 SCN", "en": "1771 – 1792 CE" },
+    "startYear": 1771,
+    "endYear": 1792
+  },
+  "palette": {
+    "accent": "#c0392b",
+    "particle": "#f2d06b",
+    "scene": [
+      "#160705",
+      "#2a0c08",
+      "#4a140d",
+      "#7d2117",
+      "#b23320",
+      "#d98b2b",
+      "#f2d06b"
+    ]
+  },
+  "cover": {
+    "id": "tay-son-cover",
+    "type": "image",
+    "role": "cover",
+    "flagship": "eras/tay-son/cover.png",
+    "reduced": "eras/tay-son/cover.png",
+    "placeholder": "era-scene",
+    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+  },
+  "scene": {
+    "layers": [
+      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/tay-son/scene/sky.png", "reduced": "eras/tay-son/scene/sky.png", "placeholder": "era-scene" },
+      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+    ]
+  },
+  "primarySource": {
+    "work": "Hoàng Lê nhất thống chí",
+    "section": { "vi": "Ngô gia văn phái", "en": "The Ngô Family School of Letters" },
+    "author": "Ngô gia văn phái",
+    "note": {
+      "vi": "Việc ở Bắc Hà (lật Trịnh, đại phá quân Thanh) chép theo Hoàng Lê nhất thống chí — bộ ký sự lịch sử đương thời của Ngô gia văn phái; buổi đầu dấy nghĩa và việc ở phương Nam dẫn theo Đại Nam chính biên liệt truyện của Quốc sử quán triều Nguyễn (vốn gọi Tây Sơn là 'ngụy', nay chép lại sự việc một cách công bằng).",
+      "en": "The northern events (toppling the Trịnh, crushing the Qing) follow the Hoàng Lê nhất thống chí — the contemporaneous historical record of the Ngô Family School; the early uprising and southern events are drawn from the Đại Nam chính biên liệt truyện of the Nguyễn dynasty's Historiography Institute (which called the Tây Sơn 'usurpers,' recounted here even-handedly)."
+    }
+  },
+  "characters": [
+    { "ref": "quang-trung" },
+    { "ref": "nguyen-nhac" },
+    { "ref": "ngo-thi-nham" },
+    { "ref": "nguyen-thiep" },
+    { "ref": "ton-si-nghi" }
+  ],
+  "events": [
+    {
+      "id": "dung-nghia-tay-son",
+      "slug": "dung-nghia-tay-son",
+      "figureIds": ["nguyen-nhac", "quang-trung"],
+      "details": {
+        "vi": "Giữa thế kỷ 18, xã hội Đàng Trong khủng hoảng: quyền thần Trương Phúc Loan chuyên quyền, vơ vét, sưu cao thuế nặng, dân tình đói khổ. Năm Tân Mão (1771), ba anh em Nguyễn Nhạc, Nguyễn Huệ, Nguyễn Lữ — người ấp Tây Sơn, đất Quy Nhơn — phất cờ khởi nghĩa. Nguyễn Nhạc làm thủ lĩnh, nêu danh nghĩa trừ khử quyền thần, lấy khẩu hiệu 'lấy của nhà giàu chia cho dân nghèo', mở kho phát chẩn, nên dân nghèo, người các sắc tộc miền núi, cả một số hào kiệt đều nô nức theo về. Nghĩa quân Tây Sơn từ chỗ nhỏ bé nhanh chóng làm chủ cả một vùng rộng lớn. Đến năm Đinh Dậu (1777), quân Tây Sơn đánh đổ chính quyền chúa Nguyễn ở Gia Định, chấm dứt gần hai trăm năm cai trị của các chúa Nguyễn ở Đàng Trong; con cháu họ Nguyễn là Nguyễn Ánh chạy thoát, ôm hận về sau.",
+        "en": "In the mid-18th century, society in Đàng Trong was in crisis: the overmighty minister Trương Phúc Loan hoarded power and plunder, taxes were crushing, and the people starved. In the year Tân Mão (1771) the three brothers Nguyễn Nhạc, Nguyễn Huệ and Nguyễn Lữ — of Tây Sơn hamlet near Quy Nhơn — raised the banner of revolt. Nguyễn Nhạc led, in the name of cutting down the tyrant minister, under the slogan 'take from the rich to share with the poor,' opening granaries to relieve the poor — so the destitute, the highland peoples, and many men of valour eagerly joined. From small beginnings the Tây Sơn swiftly mastered a wide region. By the year Đinh Dậu (1777) they overthrew the Nguyễn lords' government at Gia Định, ending nearly two centuries of Nguyễn rule in Đàng Trong; the Nguyễn scion Nguyễn Ánh escaped, to nurse his revenge."
+      },
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1771 SCN", "en": "1771 CE" },
+        "value": 1771,
+        "approximate": false
+      },
+      "title": { "vi": "Ba anh em dựng cờ Tây Sơn", "en": "The three brothers raise the Tây Sơn banner" },
+      "summary": {
+        "vi": "Ba anh em Tây Sơn dấy nghĩa (1771), 'lấy của nhà giàu chia cho dân nghèo'; đến 1777 diệt chúa Nguyễn.",
+        "en": "The three brothers rise (1771), 'taking from the rich for the poor'; by 1777 the Nguyễn lords fall."
+      },
+      "body": {
+        "vi": "Giữa cảnh Đàng Trong khủng hoảng vì quyền thần Trương Phúc Loan, năm 1771 ba anh em Nguyễn Nhạc, Nguyễn Huệ, Nguyễn Lữ dựng cờ khởi nghĩa ở đất Tây Sơn, nêu khẩu hiệu 'lấy của nhà giàu chia cho dân nghèo', được dân nghèo bốn phương theo về. Phong trào lớn mạnh như vũ bão; năm 1777 quân Tây Sơn diệt chính quyền chúa Nguyễn ở Gia Định, Nguyễn Ánh chạy thoát.",
+        "en": "Amid Đàng Trong's crisis under the tyrant Trương Phúc Loan, in 1771 the three brothers Nguyễn Nhạc, Nguyễn Huệ and Nguyễn Lữ raised revolt at Tây Sơn under the slogan 'take from the rich to share with the poor,' and the poor flocked to them. The movement grew like a storm; in 1777 the Tây Sơn destroyed the Nguyễn lords' government at Gia Định, and Nguyễn Ánh fled."
+      },
+      "pullQuote": {
+        "text": { "vi": "Lấy của nhà giàu chia cho dân nghèo.", "en": "Take from the houses of the rich, and share it with the poor." },
+        "attribution": { "vi": "khẩu hiệu của nghĩa quân Tây Sơn buổi đầu", "en": "the early slogan of the Tây Sơn insurgents" }
+      },
+      "hero": {
+        "id": "dung-nghia-tay-son-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tay-son/events/dung-nghia-tay-son.png",
+        "reduced": "eras/tay-son/events/dung-nghia-tay-son.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Nam chính biên liệt truyện",
+        "section": { "vi": "Sơ tập · Ngụy Tây liệt truyện", "en": "First Collection · Records of the Tây Sơn" },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    },
+    {
+      "id": "rach-gam-xoai-mut",
+      "slug": "rach-gam-xoai-mut",
+      "figureIds": ["quang-trung"],
+      "details": {
+        "vi": "Chúa Nguyễn mất nghiệp, Nguyễn Ánh chạy sang cầu cứu vua Xiêm (Thái Lan). Năm Giáp Thìn (1784), vua Xiêm sai hai tướng đem hai vạn thủy quân, ba vạn bộ binh cùng hàng trăm chiến thuyền tiến sang, chiếm giữ vùng Gia Định, cướp bóc tàn bạo khiến dân oán ghét. Nguyễn Huệ đem quân vào Nam đối phó. Ông chọn khúc sông Tiền hiểm yếu từ Rạch Gầm đến Xoài Mút (Mỹ Tho), bố trí mai phục thủy bộ, rồi dùng kế nhử quân Xiêm vào trận địa. Rạng sáng ngày 20 tháng Giêng năm Ất Tỵ (1785), thủy quân Tây Sơn bất ngờ đổ ra đánh, pháo hỏa công dồn dập, thuyền giặc bị chặn đầu khóa đuôi, tan tác. Chỉ trong một ngày, năm vạn quân Xiêm gần như bị tiêu diệt hoàn toàn, hai tướng Xiêm chỉ chạy thoát được vài nghìn tàn quân. Đây là một trong những trận thủy chiến lớn nhất và vang dội nhất trong lịch sử chống ngoại xâm của dân tộc.",
+        "en": "With the Nguyễn lords fallen, Nguyễn Ánh fled to beg aid from the king of Siam (Thailand). In the year Giáp Thìn (1784) the Siamese king sent two generals with twenty thousand marines, thirty thousand foot and hundreds of warships; they seized the Gia Định region and plundered so cruelly that the people came to hate them. Nguyễn Huệ marched south to meet them. He chose the treacherous stretch of the Tiền River from Rạch Gầm to Xoài Mút (near Mỹ Tho), set land-and-water ambushes, and lured the Siamese into the trap. At dawn on the twentieth of the first month, Ất Tỵ (1785), the Tây Sơn fleet burst out to attack with a storm of fire; the enemy ships, blocked head and tail, were shattered. In a single day nearly all fifty thousand Siamese were destroyed, the two generals escaping with only a few thousand survivors. It was one of the greatest and most resounding naval victories in the nation's history of resistance to invasion."
+      },
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1785 SCN", "en": "1785 CE" },
+        "value": 1785,
+        "approximate": false
+      },
+      "title": { "vi": "Rạch Gầm – Xoài Mút, đại phá quân Xiêm", "en": "Rạch Gầm–Xoài Mút: the Siamese destroyed" },
+      "summary": {
+        "vi": "Nguyễn Ánh rước năm vạn quân Xiêm; Nguyễn Huệ mai phục ở Rạch Gầm – Xoài Mút, diệt gọn trong một ngày.",
+        "en": "Nguyễn Ánh brings fifty thousand Siamese; Nguyễn Huệ ambushes at Rạch Gầm–Xoài Mút and destroys them in a day."
+      },
+      "body": {
+        "vi": "Nguyễn Ánh cầu viện vua Xiêm; năm vạn quân Xiêm sang chiếm Gia Định, cướp bóc tàn bạo. Nguyễn Huệ chọn khúc sông Tiền Rạch Gầm – Xoài Mút bố trí mai phục thủy bộ, nhử giặc vào rồi tổng công kích. Rạng sáng 20 tháng Giêng Ất Tỵ (1785), quân Xiêm bị đánh tan gần hết chỉ trong một ngày — một trận thủy chiến vang dội bậc nhất lịch sử.",
+        "en": "Nguyễn Ánh begged aid from Siam; fifty thousand Siamese seized Gia Định and plundered cruelly. Nguyễn Huệ chose the Rạch Gầm–Xoài Mút reach of the Tiền River for a land-and-water ambush, lured them in, and struck. At dawn on the twentieth of the first month, Ất Tỵ (1785), the Siamese were almost wholly destroyed in a single day — one of the most resounding naval victories in history."
+      },
+      "pullQuote": {
+        "text": { "vi": "Một trận mà năm vạn quân Xiêm gần như không còn một mống; từ đó giặc Xiêm sợ Tây Sơn như sợ cọp.", "en": "In one battle scarcely a man of the fifty thousand Siamese was left; thereafter they feared the Tây Sơn as they feared a tiger." },
+        "attribution": { "vi": "theo Đại Nam chính biên liệt truyện", "en": "per the Đại Nam chính biên liệt truyện" }
+      },
+      "hero": {
+        "id": "rach-gam-xoai-mut-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tay-son/events/rach-gam-xoai-mut.png",
+        "reduced": "eras/tay-son/events/rach-gam-xoai-mut.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Nam chính biên liệt truyện",
+        "section": { "vi": "Sơ tập · Ngụy Tây liệt truyện", "en": "First Collection · Records of the Tây Sơn" },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    },
+    {
+      "id": "phu-le-diet-trinh",
+      "slug": "phu-le-diet-trinh",
+      "figureIds": ["quang-trung"],
+      "details": {
+        "vi": "Ở Đàng Ngoài, chúa Trịnh ngày một suy đồi, kiêu binh (lính tam phủ) lộng hành, dân tình chán ghét. Năm Bính Ngọ (1786), Nguyễn Huệ lấy danh nghĩa 'phù Lê diệt Trịnh', đem quân vượt sông Gianh — cái ranh giới chia cắt đất nước gần hai trăm năm — tiến ra Bắc như thác đổ. Quân Trịnh tan vỡ nhanh chóng; chúa Trịnh Khải thua chạy rồi tự sát. Nguyễn Huệ vào thành Thăng Long, yết kiến vua Lê Hiển Tông, trả lại quyền chính cho nhà Lê, được vua gả công chúa Ngọc Hân. Thế là cơ đồ họ Trịnh nắm quyền suốt hơn hai thế kỷ sụp đổ, và lần đầu tiên sau bao năm, giang sơn Đàng Trong – Đàng Ngoài lại thu về một mối. Tuy Nguyễn Huệ tạm rút về Nam, nhưng thực quyền ở Bắc Hà từ đây do Tây Sơn chi phối.",
+        "en": "In Đàng Ngoài the Trịnh lords decayed ever further, the palace guards ran wild, and the people were sick of them. In the year Bính Ngọ (1786), Nguyễn Huệ, in the name of 'aiding the Lê and destroying the Trịnh,' led his army across the Gianh River — the border that had split the country for nearly two centuries — and swept north like a flood. The Trịnh forces collapsed; the Trịnh lord Trịnh Khải fled and killed himself. Nguyễn Huệ entered Thăng Long, paid homage to King Lê Hiển Tông, restored power to the Lê, and was given the princess Ngọc Hân in marriage. So the Trịnh dominion of more than two centuries fell, and for the first time in many years Đàng Trong and Đàng Ngoài were one again. Though Nguyễn Huệ withdrew south for a time, from then the real power in the North lay with the Tây Sơn."
+      },
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1786 SCN", "en": "1786 CE" },
+        "value": 1786,
+        "approximate": false
+      },
+      "title": { "vi": "Phù Lê diệt Trịnh, thu về một mối", "en": "Aiding the Lê, ending the Trịnh — the land made one" },
+      "summary": {
+        "vi": "Nguyễn Huệ vượt sông Gianh, lật đổ họ Trịnh (1786), thống nhất Đàng Trong – Đàng Ngoài sau 200 năm chia cắt.",
+        "en": "Nguyễn Huệ crosses the Gianh, topples the Trịnh (1786), and reunites the two regions after two centuries."
+      },
+      "body": {
+        "vi": "Họ Trịnh suy đồi, kiêu binh lộng hành. Năm 1786, Nguyễn Huệ lấy danh nghĩa 'phù Lê diệt Trịnh', vượt sông Gianh tiến ra Bắc như thác đổ; quân Trịnh tan vỡ, Trịnh Khải tự sát. Ông vào Thăng Long trả quyền cho vua Lê, được gả công chúa Ngọc Hân. Cơ đồ họ Trịnh hơn hai thế kỷ sụp đổ, đất nước lần đầu thu về một mối sau gần 200 năm chia cắt.",
+        "en": "The Trịnh decayed and their guards ran wild. In 1786 Nguyễn Huệ, 'aiding the Lê and destroying the Trịnh,' crossed the Gianh and swept north like a flood; the Trịnh collapsed and Trịnh Khải killed himself. He entered Thăng Long, restored power to the Lê, and wed the princess Ngọc Hân. The Trịnh dominion of two centuries fell, and the country was one again for the first time in nearly 200 years."
+      },
+      "pullQuote": {
+        "text": { "vi": "Vượt sông Gianh, một dải ranh giới chia cắt hai trăm năm, nay xóa nhòa dưới cờ Tây Sơn.", "en": "Across the Gianh — a border that had split the land two hundred years — now erased beneath the Tây Sơn banner." },
+        "attribution": { "vi": "theo Hoàng Lê nhất thống chí", "en": "per the Hoàng Lê nhất thống chí" }
+      },
+      "hero": {
+        "id": "phu-le-diet-trinh-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tay-son/events/phu-le-diet-trinh.png",
+        "reduced": "eras/tay-son/events/phu-le-diet-trinh.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Hoàng Lê nhất thống chí",
+        "section": { "vi": "Hồi thứ nhất – thứ năm", "en": "Chapters 1–5" },
+        "author": "Ngô gia văn phái"
+      }
+    },
+    {
+      "id": "len-ngoi-than-toc",
+      "slug": "len-ngoi-than-toc",
+      "figureIds": ["quang-trung", "ngo-thi-nham"],
+      "details": {
+        "vi": "Sau khi Nguyễn Huệ rút về, vua Lê Chiêu Thống hèn kém, không giữ nổi ngôi, bèn chạy sang cầu cứu nhà Thanh. Vua Thanh Càn Long nhân cơ hội, sai Tổng đốc Lưỡng Quảng là Tôn Sĩ Nghị đem hai mươi chín vạn quân sang, danh nghĩa 'phù Lê', thực chất mưu thôn tính nước ta. Cuối năm Mậu Thân (1788), quân Thanh chiếm Thăng Long; Tôn Sĩ Nghị kiêu ngạo, đóng quân rải rác, cho quân sĩ ăn Tết. Trước đó, các tướng Tây Sơn ở Bắc Hà nghe theo kế của mưu sĩ Ngô Thì Nhậm, tạm lui về giữ phòng tuyến Tam Điệp – Biện Sơn, bảo toàn lực lượng. Được tin cấp báo, ngày 25 tháng Chạp Mậu Thân, Nguyễn Huệ lên ngôi Hoàng đế ở Phú Xuân, lấy niên hiệu Quang Trung, rồi lập tức tự mình thống lĩnh đại quân, vừa đi vừa tuyển thêm binh, thần tốc tiến ra Bắc. Đến Nghệ An, Thanh Hóa, ông duyệt binh, khích lệ tướng sĩ bằng lời hịch đanh thép, hẹn ngày mồng bảy Tết sẽ vào Thăng Long mở tiệc khao quân.",
+        "en": "After Nguyễn Huệ withdrew, the feeble Lê Chiêu Thống could not hold the throne and fled to beg aid from the Qing. Seizing the chance, the Qing emperor Qianlong sent the Viceroy of Liangguang, Tôn Sĩ Nghị, with two hundred and ninety thousand troops, nominally to 'aid the Lê' but in truth to swallow our country. Late in the year Mậu Thân (1788) the Qing took Thăng Long; the arrogant Tôn Sĩ Nghị scattered his forces and let the men keep the New Year. Beforehand the Tây Sơn generals in the North had taken the strategist Ngô Thì Nhậm's counsel to withdraw and hold the Tam Điệp–Biện Sơn line, preserving their strength. On urgent news, on the twenty-fifth of the twelfth month, Nguyễn Huệ took the imperial throne at Phú Xuân under the era-name Quang Trung, then at once led the main army in person, recruiting more men as he went, and marched north with lightning speed. At Nghệ An and Thanh Hóa he reviewed the troops and roused them with a ringing address, promising to enter Thăng Long and feast the army on the seventh day of Tết."
+      },
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1788 SCN", "en": "1788 CE" },
+        "value": 1788,
+        "approximate": false
+      },
+      "title": { "vi": "Lên ngôi Quang Trung, thần tốc ra Bắc", "en": "Quang Trung enthroned, the lightning march north" },
+      "summary": {
+        "vi": "Lê Chiêu Thống rước 29 vạn quân Thanh; Nguyễn Huệ lên ngôi Quang Trung (1788), hành quân thần tốc ra Bắc.",
+        "en": "Lê Chiêu Thống brings 290,000 Qing; Nguyễn Huệ becomes Emperor Quang Trung (1788) and marches north at speed."
+      },
+      "body": {
+        "vi": "Lê Chiêu Thống cầu viện; vua Thanh sai Tôn Sĩ Nghị đem 29 vạn quân sang chiếm Thăng Long, kiêu ngạo cho quân ăn Tết. Tướng Tây Sơn nghe kế Ngô Thì Nhậm lui giữ Tam Điệp – Biện Sơn. Ngày 25 tháng Chạp Mậu Thân (1788), Nguyễn Huệ lên ngôi Hoàng đế, hiệu Quang Trung, tự thống lĩnh đại quân thần tốc ra Bắc, duyệt binh ở Nghệ An, hẹn mồng 7 Tết vào Thăng Long khao quân.",
+        "en": "Lê Chiêu Thống begged aid; the Qing sent Tôn Sĩ Nghị with 290,000 troops to take Thăng Long, arrogantly letting them keep Tết. On Ngô Thì Nhậm's counsel the Tây Sơn generals held the Tam Điệp–Biện Sơn line. On the 25th of the 12th month, Mậu Thân (1788), Nguyễn Huệ took the throne as Quang Trung, led the army north at lightning speed, reviewed his troops at Nghệ An, and vowed to feast them in Thăng Long on the 7th of Tết."
+      },
+      "pullQuote": {
+        "text": { "vi": "Đánh cho để dài tóc, đánh cho để đen răng, / đánh cho nó chích luân bất phản, đánh cho nó phiến giáp bất hoàn, / đánh cho sử tri Nam quốc anh hùng chi hữu chủ.", "en": "Fight to keep our long hair, fight to keep our blackened teeth; / fight so not a wheel of theirs rolls home, not a scrap of armour returns; / fight so history knows the South has heroes and a master." },
+        "attribution": { "vi": "lời hịch của vua Quang Trung, theo Hoàng Lê nhất thống chí", "en": "Emperor Quang Trung's address, per the Hoàng Lê nhất thống chí" }
+      },
+      "hero": {
+        "id": "len-ngoi-than-toc-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tay-son/events/len-ngoi-than-toc.png",
+        "reduced": "eras/tay-son/events/len-ngoi-than-toc.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Hoàng Lê nhất thống chí",
+        "section": { "vi": "Hồi thứ mười bốn", "en": "Chapter 14" },
+        "author": "Ngô gia văn phái"
+      }
+    },
+    {
+      "id": "ngoc-hoi-dong-da",
+      "slug": "ngoc-hoi-dong-da",
+      "figureIds": ["quang-trung", "ton-si-nghi"],
+      "details": {
+        "vi": "Đêm 30 Tết Kỷ Dậu (1789), đại quân Quang Trung vượt sông, mở màn cuộc tổng tấn công vào các đồn quân Thanh quanh Thăng Long, thần tốc và bí mật đến mức giặc hoàn toàn bất ngờ. Mồng 3 Tết, quân Tây Sơn hạ đồn Hà Hồi. Rạng sáng mồng 5 Tết, diễn ra trận Ngọc Hồi ác liệt: Quang Trung cho ghép ván làm mộc, quấn rơm ướt, đội quân cảm tử xông thẳng vào đồn giặc giữa mưa đạn, phá tan tuyến phòng thủ kiên cố nhất. Cùng lúc, cánh quân đô đốc Long (Đặng Tiến Đông) đánh úp đồn Đống Đa (Khương Thượng), tướng Thanh là Sầm Nghi Đống bị vây phải thắt cổ tự tử. Tôn Sĩ Nghị ở đại bản doanh nghe tin đại bại, hoảng loạn 'ngựa không kịp đóng yên, người không kịp mặc giáp', vội vượt cầu phao sông Nhị chạy trốn; cầu gãy, quân Thanh chết đuối vô số, xác nghẽn cả khúc sông. Đúng như lời hẹn, trưa mồng 5 Tết, vua Quang Trung áo bào xạm đen khói súng, tiến vào giải phóng kinh thành Thăng Long trong tiếng reo mừng của muôn dân. Hai mươi chín vạn quân Thanh bị quét sạch chỉ trong năm ngày.",
+        "en": "On New Year's Eve of Kỷ Dậu (1789), Quang Trung's main army crossed the rivers and opened a general assault on the Qing forts around Thăng Long — so swift and secret that the enemy was utterly caught off guard. On the third of Tết the Tây Sơn took the fort of Hà Hồi. At dawn on the fifth came the fierce battle of Ngọc Hồi: Quang Trung had planks bound into shields wrapped in wet straw, and a storming column charged straight into the fort through a hail of fire, breaking the strongest line. At the same time Commander Long (Đặng Tiến Đông) fell on the fort of Đống Đa (Khương Thượng); the Qing general Sầm Nghi Đống, surrounded, hanged himself. At his headquarters Tôn Sĩ Nghị, hearing of the rout, fled in panic — 'his horse unsaddled, himself unarmoured' — across the pontoon bridge over the Nhị (Hồng) River; the bridge broke, and countless Qing drowned, their bodies choking the river. True to his vow, at midday on the fifth of Tết, Emperor Quang Trung — his battle-robe blackened with gunsmoke — entered the freed capital of Thăng Long amid the people's cheers. Two hundred and ninety thousand Qing troops had been swept away in just five days."
+      },
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "Tết Kỷ Dậu 1789", "en": "Tết, Kỷ Dậu 1789" },
+        "value": 1789,
+        "approximate": false
+      },
+      "title": { "vi": "Ngọc Hồi – Đống Đa, đại phá quân Thanh", "en": "Ngọc Hồi–Đống Đa: the Qing shattered" },
+      "summary": {
+        "vi": "Năm ngày Tết Kỷ Dậu (1789), Quang Trung đại phá 29 vạn quân Thanh ở Ngọc Hồi – Đống Đa, giải phóng Thăng Long.",
+        "en": "In five days of Tết 1789, Quang Trung shatters 290,000 Qing at Ngọc Hồi–Đống Đa and frees Thăng Long."
+      },
+      "body": {
+        "vi": "Đêm 30 Tết Kỷ Dậu (1789), Quang Trung mở tổng tấn công thần tốc, bí mật. Mồng 3 hạ đồn Hà Hồi; rạng mồng 5 phá tan đồn Ngọc Hồi bằng đội cảm tử ghép ván làm mộc; cùng lúc đô đốc Long úp đồn Đống Đa, Sầm Nghi Đống thắt cổ chết. Tôn Sĩ Nghị hoảng loạn bỏ chạy, cầu phao sông Nhị gãy, quân Thanh chết đuối vô số. Trưa mồng 5, Quang Trung áo bào đen khói súng tiến vào giải phóng Thăng Long — 29 vạn quân Thanh bị quét sạch trong 5 ngày.",
+        "en": "On New Year's Eve of Kỷ Dậu (1789), Quang Trung launched a swift, secret general assault. On the 3rd he took Hà Hồi; at dawn on the 5th he broke Ngọc Hồi with a storming column shielded by straw-wrapped planks; at the same time Commander Long fell on Đống Đa and Sầm Nghi Đống hanged himself. Tôn Sĩ Nghị fled in panic, the pontoon bridge over the Nhị broke, and countless Qing drowned. At midday on the 5th, Quang Trung — robe blackened with gunsmoke — entered the freed Thăng Long. 290,000 Qing were swept away in five days."
+      },
+      "pullQuote": {
+        "text": { "vi": "Mây tạnh mù tan, trời lại sáng; / Đầy thành già trẻ mặt như hoa, / Chen vai khoác cánh cùng nhau nói: / Cố đô vẫn thuộc núi sông ta.", "en": "The mist clears, the sky is bright once more; / young and old fill the city, faces like flowers, / shoulder to shoulder they say to one another: / the old capital is our rivers and mountains still." },
+        "attribution": { "vi": "Ngô Ngọc Du, vịnh chiến thắng Kỷ Dậu", "en": "Ngô Ngọc Du, on the Kỷ Dậu victory" }
+      },
+      "hero": {
+        "id": "ngoc-hoi-dong-da-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tay-son/events/ngoc-hoi-dong-da.png",
+        "reduced": "eras/tay-son/events/ngoc-hoi-dong-da.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Hoàng Lê nhất thống chí",
+        "section": { "vi": "Hồi thứ mười bốn", "en": "Chapter 14" },
+        "author": "Ngô gia văn phái"
+      }
+    },
+    {
+      "id": "canh-tan-bang-ha",
+      "slug": "canh-tan-bang-ha",
+      "figureIds": ["quang-trung", "nguyen-thiep"],
+      "details": {
+        "vi": "Đại thắng quân Thanh, Quang Trung sai Ngô Thì Nhậm khéo léo dùng ngoại giao mềm dẻo, dâng biểu cầu phong, khiến nhà Thanh phải công nhận, giữ được hòa hiếu mà không mất thể diện, biên cương yên ổn. Trong nước, ông bắt tay canh tân đầy hoài bão: đề cao chữ Nôm, cho dịch kinh sách ra quốc âm, mời La Sơn phu tử Nguyễn Thiếp lập Sùng Chính viện chấn hưng học hành; ban chiếu khuyến nông, lập lại sổ đinh, mở mang công thương, chỉnh đốn quân đội. Ông còn nuôi chí lớn đòi lại đất Lưỡng Quảng và chuẩn bị đánh Nguyễn Ánh ở phương Nam. Nhưng vận nước không chiều lòng người: năm Nhâm Tý (1792), giữa lúc bao dự định còn dang dở, vua Quang Trung đột ngột lâm bệnh rồi băng hà, mới bốn mươi tuổi. Con là Quang Toản còn nhỏ nối ngôi, triều đình lục đục, nhà Tây Sơn suy yếu dần, rồi đến năm Nhâm Tuất (1802) mất về tay Nguyễn Ánh. Dẫu vậy, tên tuổi người anh hùng áo vải Quang Trung – Nguyễn Huệ vẫn sống mãi cùng non sông.",
+        "en": "After crushing the Qing, Quang Trung had Ngô Thì Nhậm deftly use supple diplomacy — sending tribute-memorials to seek investiture — so the Qing recognised him, and peace was kept without loss of face, the borders quiet. At home he set about renewal with great ambition: he exalted the Nôm script, had the classics translated into the vernacular, and invited the Sage of La Sơn, Nguyễn Thiếp, to found the Sùng Chính Academy and revive learning; he issued edicts to encourage farming, restored the census, promoted crafts and trade, and reformed the army. He also cherished a grand design to reclaim the Liangguang lands and to strike Nguyễn Ánh in the south. But fate did not favour him: in the year Nhâm Tý (1792), with so many plans unfinished, Emperor Quang Trung suddenly fell ill and died, at only forty. His young son Quang Toản succeeded, the court fell to discord, the Tây Sơn weakened, and in the year Nhâm Tuất (1802) it fell to Nguyễn Ánh. Yet the name of the peasant hero Quang Trung – Nguyễn Huệ lives on with the land forever."
+      },
+      "order": 5,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1789 – 1792 SCN", "en": "1789 – 1792 CE" },
+        "value": 1792,
+        "approximate": false
+      },
+      "title": { "vi": "Canh tân đất nước, vua đột ngột băng hà", "en": "The renewal, and the emperor's sudden death" },
+      "summary": {
+        "vi": "Quang Trung giữ hòa với Thanh, canh tân (chữ Nôm, Sùng Chính viện); năm 1792 đột ngột băng hà, mới 40 tuổi.",
+        "en": "Quang Trung keeps peace with the Qing and reforms (the Nôm script, the Sùng Chính Academy); in 1792 he dies suddenly at forty."
+      },
+      "body": {
+        "vi": "Sau chiến thắng, Quang Trung dùng ngoại giao khéo léo giữ hòa với nhà Thanh, biên cương yên ổn. Ông canh tân đầy hoài bão: đề cao chữ Nôm, mời La Sơn phu tử Nguyễn Thiếp lập Sùng Chính viện, khuyến nông, chỉnh đốn quân đội, còn định đòi đất Lưỡng Quảng. Nhưng năm Nhâm Tý (1792) ông đột ngột băng hà khi mới 40 tuổi; nhà Tây Sơn suy dần, đến 1802 mất về tay Nguyễn Ánh. Tên tuổi Quang Trung – Nguyễn Huệ vẫn sống mãi.",
+        "en": "After victory, Quang Trung kept peace with the Qing through deft diplomacy and quieted the borders. He reformed with ambition: exalting the Nôm script, inviting the Sage of La Sơn to found the Sùng Chính Academy, encouraging farming and the army, even planning to reclaim Liangguang. But in 1792 he died suddenly at only forty; the Tây Sơn weakened and by 1802 fell to Nguyễn Ánh. Yet the name of Quang Trung – Nguyễn Huệ lives on."
+      },
+      "pullQuote": {
+        "text": { "vi": "Mà nay áo vải cờ đào, / Giúp dân dựng nước xiết bao công trình.", "en": "And now, in homespun and the peach-red banner, / how great his labours to help the people and build the nation." },
+        "attribution": { "vi": "Ngọc Hân công chúa, Ai tư vãn (khóc vua Quang Trung)", "en": "Princess Ngọc Hân, 'Lament' for Emperor Quang Trung" }
+      },
+      "hero": {
+        "id": "canh-tan-bang-ha-hero",
+        "type": "image",
+        "role": "hero",
+        "flagship": "eras/tay-son/events/canh-tan-bang-ha.png",
+        "reduced": "eras/tay-son/events/canh-tan-bang-ha.png",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+      },
+      "citation": {
+        "work": "Đại Nam chính biên liệt truyện",
+        "section": { "vi": "Sơ tập · Ngụy Tây liệt truyện", "en": "First Collection · Records of the Tây Sơn" },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    }
+  ]
+}

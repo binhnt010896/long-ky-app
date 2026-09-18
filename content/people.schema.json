@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viet-su.app/schema/people.schema.json",
+  "title": "Việt Sử People Registry",
+  "description": "The single source of identity for every legendary/historical figure. Each person is defined once here; eras reference them by id (with optional per-era overrides). A figure who recurs across eras — Triệu Đà who later reigns as Triệu Vũ Đế — is ONE person here, never two.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "people"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 1 },
+    "people": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/person" }
+    }
+  },
+  "$defs": {
+    "person": {
+      "description": "A person's canonical identity: the default name, role, life summary and portrait art. Eras may override any of these for their own context. A figure carries EITHER a legacy `portrait` reference sheet (cropped by the app) OR dedicated `avatar` + `fullBody` images (rendered whole) — at least one image source is required.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name"],
+      "anyOf": [
+        { "required": ["portrait"] },
+        { "required": ["avatar"] },
+        { "required": ["fullBody"] }
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "name": { "$ref": "#/$defs/localizedText" },
+        "epithet": {
+          "description": "Short honorific/role, e.g. \"Bố Rồng\" / \"The Dragon Father\".",
+          "$ref": "#/$defs/localizedText"
+        },
+        "bio": {
+          "description": "Chronicle-grounded life summary for the character detail page.",
+          "$ref": "#/$defs/localizedText"
+        },
+        "portrait": {
+          "description": "Legacy three-panel reference sheet (full-body left, bust top-right, action pose bottom-right), cropped by the app.",
+          "$ref": "#/$defs/assetRef"
+        },
+        "avatar": {
+          "description": "Dedicated square headshot, rendered whole in figure tiles. Preferred over cropping `portrait`.",
+          "$ref": "#/$defs/assetRef"
+        },
+        "fullBody": {
+          "description": "Dedicated standing-figure image, rendered whole on the detail page. Preferred over cropping `portrait`.",
+          "$ref": "#/$defs/assetRef"
+        }
+      }
+    },
+    "localizedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vi"],
+      "properties": {
+        "vi": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 }
+      }
+    },
+    "assetRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": { "type": "string", "enum": ["image", "rive", "particles", "gradient"] },
+        "role": {
+          "type": "string",
+          "enum": ["cover", "hero", "sky", "mid", "foreground", "overlay", "particles"]
+        },
+        "depth": { "type": "number", "minimum": 0, "maximum": 1 },
+        "flagship": { "type": "string" },
+        "reduced": { "type": "string" },
+        "placeholder": { "type": "string" },
+        "caption": { "$ref": "#/$defs/localizedText" },
+        "credit": { "type": "string" }
+      }
+    }
+  }
+}
