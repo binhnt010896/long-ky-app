@@ -68,7 +68,19 @@ class EraHubScreen extends ConsumerWidget {
                         onTap: () =>
                             context.canPop() ? context.pop() : context.go('/'),
                       ),
-                      const LangToggle(),
+                      Row(
+                        children: <Widget>[
+                          CircleIconButton(
+                            icon: Icons.map_outlined,
+                            onTap: () {
+                              final y = era.yearRange.startYear;
+                              context.push(y == null ? '/map' : '/map?year=$y');
+                            },
+                          ),
+                          const SizedBox(width: VSSpacing.sm),
+                          const LangToggle(),
+                        ],
+                      ),
                     ],
                   ),
                 ),

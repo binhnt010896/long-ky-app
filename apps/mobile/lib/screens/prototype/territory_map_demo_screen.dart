@@ -4,60 +4,98 @@ import 'package:ui_kit/ui_kit.dart';
 
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/territory_map.dart';
+import '../../widgets/timeline_bar.dart';
+import 'territory_atlas_data.dart';
+import 'territory_atlas_model.dart';
 
-/// Prototype screen for the interactive [TerritoryMap], seeded with the
-/// Trịnh–Nguyễn division: tap the north (Đàng Ngoài) or south (Đàng Trong) to
-/// reveal which lordship held it, or tap the Hoàng Sa / Trường Sa groups.
-class TerritoryMapDemoScreen extends StatelessWidget {
-  const TerritoryMapDemoScreen({super.key});
+/// The territory atlas: an interactive map of Vietnam and its neighbours across
+/// history. A timeline scrubber picks the year; the map redraws with that year's
+/// polities (real simplified borders). Tap any region, island, or neighbour to
+/// see who held it.
+class TerritoryMapDemoScreen extends StatefulWidget {
+  const TerritoryMapDemoScreen({super.key, this.initialYear});
 
-  static const _trinh = TerritoryForce(
-    id: 'dang-ngoai',
-    name: 'Đàng Ngoài (chúa Trịnh)',
-    leader: 'Vua Lê · chúa Trịnh — Thăng Long',
-    color: Color(0xFF5F6B86),
-    region: <Offset>[
-      Offset(0.30, 0.03),
-      Offset(0.50, 0.02),
-      Offset(0.62, 0.06),
-      Offset(0.66, 0.14),
-      Offset(0.57, 0.22),
-      Offset(0.585, 0.30),
-      Offset(0.60, 0.37),
-      Offset(0.40, 0.37),
-      Offset(0.40, 0.30),
-      Offset(0.31, 0.25),
-      Offset(0.21, 0.15),
-      Offset(0.205, 0.09),
-    ],
-  );
+  final int? initialYear;
 
-  static const _nguyen = TerritoryForce(
-    id: 'dang-trong',
-    name: 'Đàng Trong (chúa Nguyễn)',
-    leader: 'Chúa Nguyễn — Phú Xuân · Nam tiến',
-    color: Color(0xFF4F7A70),
-    region: <Offset>[
-      Offset(0.40, 0.37),
-      Offset(0.60, 0.37),
-      Offset(0.665, 0.45),
-      Offset(0.72, 0.54),
-      Offset(0.68, 0.63),
-      Offset(0.585, 0.71),
-      Offset(0.55, 0.79),
-      Offset(0.475, 0.88),
-      Offset(0.40, 0.935),
-      Offset(0.31, 0.885),
-      Offset(0.365, 0.80),
-      Offset(0.425, 0.70),
-      Offset(0.44, 0.60),
-      Offset(0.405, 0.50),
-      Offset(0.45, 0.42),
-    ],
-  );
+  /// The snapshot year nearest [year] (used to map an era's date onto the atlas).
+  static int nearestYear(int year) {
+    var best = kAtlas.first.year;
+    var bestD = (best - year).abs();
+    for (final a in kAtlas) {
+      final d = (a.year - year).abs();
+      if (d < bestD) {
+        bestD = d;
+        best = a.year;
+      }
+    }
+    return best;
+  }
+
+  @override
+  State<TerritoryMapDemoScreen> createState() => _TerritoryMapDemoScreenState();
+}
+
+class _TerritoryMapDemoScreenState extends State<TerritoryMapDemoScreen> {
+  late int _year;
+
+  @override
+  void initState() {
+    super.initState();
+    _year = TerritoryMapDemoScreen.nearestYear(
+        widget.initialYear ?? kAtlas.first.year);
+  }
+
+  Offset _centroid(List<List<Offset>> rings) {
+    var sx = 0.0, sy = 0.0, n = 0;
+    for (final r in rings) {
+      for (final p in r) {
+        sx += p.dx;
+        sy += p.dy;
+        n++;
+      }
+    }
+    return n == 0 ? Offset.zero : Offset(sx / n, sy / n);
+  }
+
+  TerritoryRegion _toRegion(AtlasRegion r) => TerritoryRegion(
+        id: r.id,
+        name: r.name,
+        subtitle: r.subtitle,
+        color: Color(r.color),
+        rings: r.rings,
+        labelAt: r.labelAt,
+      );
 
   @override
   Widget build(BuildContext context) {
+    final snap = kAtlas.firstWhere((a) => a.year == _year, orElse: () => kAtlas.first);
+    final isModern = _year == kAtlas.last.year;
+    final forces = <TerritoryRegion>[
+      for (final r in snap.regions) if (r.bright) _toRegion(r),
+    ];
+    final neighbours = <TerritoryRegion>[
+      for (final r in snap.regions) if (!r.bright) _toRegion(r),
+    ];
+    const islandGreen = Color(0xFF4F7A70);
+    final islandLands = <TerritoryRegion>[
+      TerritoryRegion(
+        id: 'phu-quoc',
+        name: 'Phú Quốc',
+        subtitle: 'Đảo của Việt Nam',
+        color: islandGreen,
+        rings: kPhuQuoc,
+        labelAt: _centroid(kPhuQuoc),
+      ),
+      TerritoryRegion(
+        id: 'con-dao',
+        name: 'Côn Đảo',
+        subtitle: 'Đảo của Việt Nam',
+        color: islandGreen,
+        rings: kConDao,
+        labelAt: _centroid(kConDao),
+      ),
+    ];
+
     return Scaffold(
       backgroundColor: VSColors.lacquer,
       body: SafeArea(
@@ -82,7 +120,7 @@ class TerritoryMapDemoScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'BẢN ĐỒ THẾ LỰC',
+                          'BẢN ĐỒ LÃNH THỔ',
                           style: VSType.overline.copyWith(
                             color: VSColors.goldBright,
                             letterSpacing: VSType.track(0.3, 10),
@@ -90,7 +128,7 @@ class TerritoryMapDemoScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 2),
-                        Text('Trịnh – Nguyễn phân tranh',
+                        Text('Việt Nam qua các thời kỳ',
                             style: VSType.title.copyWith(fontSize: 18)),
                       ],
                     ),
@@ -102,25 +140,45 @@ class TerritoryMapDemoScreen extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(
                   VSSpacing.xl, 6, VSSpacing.xl, VSSpacing.sm),
               child: Text(
-                'Chạm vào một vùng để xem thế lực chiếm giữ.',
+                'Kéo thanh thời gian để đổi năm · chạm một vùng để xem thế lực. '
+                'Nét đứt là ranh giới Việt Nam ngày nay.',
                 style: TextStyle(color: VSColors.inkMuted, fontSize: 12.5),
               ),
             ),
-            const Expanded(
+            Expanded(
               child: TerritoryMap(
-                forces: <TerritoryForce>[_trinh, _nguyen],
-                boundary: <Offset>[Offset(0.40, 0.37), Offset(0.60, 0.37)],
-                boundaryLabel: 'Sông Gianh – Lũy Thầy',
-                islands: <TerritoryIslands>[
+                key: ValueKey<int>(_year),
+                forces: forces,
+                neighbours: neighbours,
+                islandLands: islandLands,
+                mapAspect: snap.mapAspect,
+                boundary: snap.boundary,
+                boundaryLabel: snap.boundaryLabel,
+                // The present-day outline, dashed, on every historical year —
+                // hidden only on the modern year where it would be redundant.
+                reference: isModern ? null : kModernVietnam,
+                referenceLabel: 'Ranh giới ngày nay',
+                islands: const <TerritoryIslands>[
                   TerritoryIslands(
-                      name: 'Hoàng Sa',
-                      center: Offset(0.85, 0.45),
-                      forceId: 'dang-trong'),
+                    name: 'Hoàng Sa',
+                    subtitle: 'Quần đảo của Việt Nam',
+                    center: Offset(0.722, 0.395),
+                  ),
                   TerritoryIslands(
-                      name: 'Trường Sa',
-                      center: Offset(0.82, 0.68),
-                      forceId: 'dang-trong'),
+                    name: 'Trường Sa',
+                    subtitle: 'Quần đảo của Việt Nam',
+                    center: Offset(0.833, 0.758),
+                  ),
                 ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+                  VSSpacing.md, 0, VSSpacing.md, VSSpacing.sm),
+              child: TimelineBar(
+                years: <int>[for (final a in kAtlas) a.year],
+                selected: _year,
+                onChanged: (y) => setState(() => _year = y),
               ),
             ),
           ],

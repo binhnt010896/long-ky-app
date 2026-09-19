@@ -284,6 +284,13 @@ class _Header extends StatelessWidget {
                 ),
               ),
               const Spacer(),
+              Builder(
+                builder: (context) => CircleIconButton(
+                  icon: Icons.map_outlined,
+                  onTap: () => context.push('/map'),
+                ),
+              ),
+              const SizedBox(width: VSSpacing.sm),
               const LangToggle(),
             ],
           ),

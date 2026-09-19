@@ -29,10 +29,13 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/timeline',
         builder: (context, state) => const GlobalTimelineScreen(),
       ),
-      // Prototype: interactive territory map (Trịnh–Nguyễn division).
+      // Territory atlas — the map across history. Optional ?year= snaps to the
+      // nearest snapshot (e.g. from an era's date).
       GoRoute(
-        path: '/prototype/territory',
-        builder: (context, state) => const TerritoryMapDemoScreen(),
+        path: '/map',
+        builder: (context, state) => TerritoryMapDemoScreen(
+          initialYear: int.tryParse(state.uri.queryParameters['year'] ?? ''),
+        ),
       ),
       GoRoute(
         path: '/era/:slug',

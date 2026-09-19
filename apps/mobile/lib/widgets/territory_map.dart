@@ -4,102 +4,175 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-/// One occupying force on a [TerritoryMap]: a name (already localized by the
-/// caller), an optional leader/subtitle, a colour, and the region it holds
-/// expressed as normalized polygon points (x,y each 0..1 within the map box,
-/// y increasing downward). The widget scales the points to the laid-out size,
-/// so the same shape drives both the painting and the tap hit-testing.
+/// A polity on a [TerritoryMap]: a name (already localized by the caller), an
+/// optional subtitle (leader / dates), a colour, and its shape as one or more
+/// normalized rings (each point x,y in 0..1 within the map's projected box, y
+/// increasing downward). Multiple rings support multi-part territories. The same
+/// rings drive both the painting and the tap hit-testing.
 @immutable
-class TerritoryForce {
-  const TerritoryForce({
+class TerritoryRegion {
+  const TerritoryRegion({
     required this.id,
     required this.name,
     required this.color,
-    required this.region,
-    this.leader,
+    required this.rings,
+    this.subtitle,
+    this.labelAt,
   });
 
   final String id;
   final String name;
-  final String? leader;
+  final String? subtitle;
   final Color color;
-  final List<Offset> region;
+  final List<List<Offset>> rings;
+
+  /// Where to draw the on-map label (normalized), for dim context neighbours.
+  final Offset? labelAt;
 }
 
-/// A small offshore island group that can be tapped to reveal which force
-/// administered it (e.g. Hoàng Sa / Trường Sa under the Nguyễn).
+/// A small offshore island group (Hoàng Sa / Trường Sa), drawn as a dotted
+/// cluster and tappable to show its own label.
 @immutable
 class TerritoryIslands {
   const TerritoryIslands({
     required this.name,
     required this.center,
-    required this.forceId,
-    this.radius = 0.055,
+    this.subtitle,
+    this.color = const Color(0xFF4F7A70),
+    this.radius = 0.03,
   });
 
   final String name;
+  final String? subtitle;
   final Offset center; // normalized 0..1
-  final String forceId; // which force administers it
-  final double radius; // normalized (of the shorter side) tap/enclosure radius
+  final Color color;
+  final double radius;
 }
 
-/// An interactive, stylized territory map. Tapping a force's region (or an
-/// island group) reveals who holds it. Deliberately *not* survey-accurate — the
-/// silhouette is a recognizable stylization drawn from normalized points, in
-/// the app's lacquer palette, so it reads as part of the experience rather than
-/// a foreign basemap.
+/// An interactive, historically-shaped territory map. [forces] are the bright,
+/// legend-listed polities in focus; [neighbours] are dim context polities
+/// labelled on the map. Tapping any region (or an island group) reveals who
+/// held it. Geometry is real (simplified historical borders) but rendered in the
+/// app's lacquer palette. [mapAspect] is the width/height of the projected box,
+/// so the map fits without distortion.
 class TerritoryMap extends StatefulWidget {
   const TerritoryMap({
     super.key,
     required this.forces,
+    required this.mapAspect,
+    this.neighbours = const <TerritoryRegion>[],
+    this.islandLands = const <TerritoryRegion>[],
     this.boundary,
     this.boundaryLabel,
     this.islands = const <TerritoryIslands>[],
+    this.reference,
+    this.referenceLabel,
   });
 
-  final List<TerritoryForce> forces;
+  final List<TerritoryRegion> forces;
+  final List<TerritoryRegion> neighbours;
 
-  /// Two normalized points naming the dividing line (e.g. the Gianh River).
+  /// Small filled island territories (Phú Quốc, Côn Đảo…): drawn bright like
+  /// forces but kept out of the legend, and tappable.
+  final List<TerritoryRegion> islandLands;
+  final double mapAspect;
   final List<Offset>? boundary;
   final String? boundaryLabel;
   final List<TerritoryIslands> islands;
+
+  /// Optional reference outline (present-day Vietnam) drawn as a faint dashed
+  /// hairline over the era's map, so the reader sees how the borders differ from
+  /// today. Purely a visual guide: never filled, never tappable, never legended.
+  final List<List<Offset>>? reference;
+  final String? referenceLabel;
 
   @override
   State<TerritoryMap> createState() => _TerritoryMapState();
 }
 
+/// A contain-fit of the projected map box inside the widget, shared by the
+/// painter and the hit-tester so taps land where things are drawn.
+class _Fit {
+  _Fit(Size size, double aspect) {
+    final availAspect = size.width / size.height;
+    if (availAspect > aspect) {
+      h = size.height;
+      w = h * aspect;
+    } else {
+      w = size.width;
+      h = w / aspect;
+    }
+    ox = (size.width - w) / 2;
+    oy = (size.height - h) / 2;
+  }
+  late final double w, h, ox, oy;
+  Offset p(Offset n) => Offset(ox + n.dx * w, oy + n.dy * h);
+  Path path(List<List<Offset>> rings) {
+    final path = Path();
+    for (final ring in rings) {
+      for (var i = 0; i < ring.length; i++) {
+        final q = p(ring[i]);
+        i == 0 ? path.moveTo(q.dx, q.dy) : path.lineTo(q.dx, q.dy);
+      }
+      path.close();
+    }
+    return path;
+  }
+}
+
 class _TerritoryMapState extends State<TerritoryMap> {
   String? _selectedId;
-  bool _selectedIsIslands = false;
 
-  TerritoryForce _forceById(String id) =>
-      widget.forces.firstWhere((f) => f.id == id);
-
-  Path _regionPath(TerritoryForce f, Size size) => _polyPath(f.region, size);
+  List<TerritoryRegion> get _all => <TerritoryRegion>[
+        ...widget.neighbours,
+        ...widget.forces,
+        ...widget.islandLands,
+      ];
 
   void _handleTap(Offset p, Size size) {
-    // Islands sit on top of the mainland fills, so test them first.
+    final fit = _Fit(size, widget.mapAspect);
+    // Islands sit on top of the fills, so test them first.
     for (final isl in widget.islands) {
-      final c = Offset(isl.center.dx * size.width, isl.center.dy * size.height);
-      final r = isl.radius * size.shortestSide;
-      if ((p - c).distance <= r * 1.4) {
-        setState(() {
-          _selectedId = isl.forceId;
-          _selectedIsIslands = true;
-        });
+      final c = fit.p(isl.center);
+      final r = isl.radius * fit.w;
+      if ((p - c).distance <= r + 10) {
+        setState(() => _selectedId = 'isl:${isl.name}');
         return;
       }
     }
+    for (final land in widget.islandLands) {
+      if (fit.path(land.rings).contains(p)) {
+        setState(() => _selectedId = land.id);
+        return;
+      }
+    }
+    // Forces first (they sit above neighbours), then neighbours.
     for (final f in widget.forces) {
-      if (_regionPath(f, size).contains(p)) {
-        setState(() {
-          _selectedId = f.id;
-          _selectedIsIslands = false;
-        });
+      if (fit.path(f.rings).contains(p)) {
+        setState(() => _selectedId = f.id);
+        return;
+      }
+    }
+    for (final n in widget.neighbours) {
+      if (fit.path(n.rings).contains(p)) {
+        setState(() => _selectedId = n.id);
         return;
       }
     }
     setState(() => _selectedId = null);
+  }
+
+  _CardData? _card() {
+    final sel = _selectedId;
+    if (sel == null) return null;
+    if (sel.startsWith('isl:')) {
+      final name = sel.substring(4);
+      final isl = widget.islands.firstWhere((i) => i.name == name);
+      return _CardData(
+          title: isl.name, subtitle: isl.subtitle, color: isl.color);
+    }
+    final r = _all.firstWhere((r) => r.id == sel);
+    return _CardData(title: r.name, subtitle: r.subtitle, color: r.color);
   }
 
   @override
@@ -107,7 +180,6 @@ class _TerritoryMapState extends State<TerritoryMap> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final size = Size(constraints.maxWidth, constraints.maxHeight);
-        final selected = _selectedId;
         return GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTapUp: (d) => _handleTap(d.localPosition, size),
@@ -118,28 +190,21 @@ class _TerritoryMapState extends State<TerritoryMap> {
                 size: size,
                 painter: _TerritoryPainter(
                   forces: widget.forces,
+                  neighbours: widget.neighbours,
+                  islandLands: widget.islandLands,
+                  mapAspect: widget.mapAspect,
                   boundary: widget.boundary,
                   boundaryLabel: widget.boundaryLabel,
                   islands: widget.islands,
-                  selectedId: selected,
-                  selectedIsIslands: _selectedIsIslands,
+                  reference: widget.reference,
+                  referenceLabel: widget.referenceLabel,
+                  selectedId: _selectedId,
                 ),
               ),
-              _Legend(forces: widget.forces, selectedId: selected),
+              _Legend(forces: widget.forces, selectedId: _selectedId),
               Align(
                 alignment: Alignment.bottomCenter,
-                child: _InfoCard(
-                  selection: selected == null
-                      ? null
-                      : _CardData(
-                          force: _forceById(selected),
-                          islands: _selectedIsIslands
-                              ? widget.islands
-                                  .firstWhere((i) => i.forceId == selected)
-                                  .name
-                              : null,
-                        ),
-                ),
+                child: _InfoCard(data: _card()),
               ),
             ],
           ),
@@ -154,130 +219,185 @@ class _TerritoryMapState extends State<TerritoryMap> {
 class _TerritoryPainter extends CustomPainter {
   _TerritoryPainter({
     required this.forces,
+    required this.neighbours,
+    required this.islandLands,
+    required this.mapAspect,
     required this.boundary,
     required this.boundaryLabel,
     required this.islands,
+    required this.reference,
+    required this.referenceLabel,
     required this.selectedId,
-    required this.selectedIsIslands,
   });
 
-  final List<TerritoryForce> forces;
+  final List<TerritoryRegion> forces;
+  final List<TerritoryRegion> neighbours;
+  final List<TerritoryRegion> islandLands;
+  final double mapAspect;
   final List<Offset>? boundary;
   final String? boundaryLabel;
   final List<TerritoryIslands> islands;
+  final List<List<Offset>>? reference;
+  final String? referenceLabel;
   final String? selectedId;
-  final bool selectedIsIslands;
 
   @override
   void paint(Canvas canvas, Size size) {
-    // Sea backdrop.
-    final sea = Paint()
-      ..shader = const LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: <Color>[Color(0xFF0B1512), Color(0xFF0A0F0E)],
-      ).createShader(Offset.zero & size);
-    canvas.drawRect(Offset.zero & size, sea);
+    final fit = _Fit(size, mapAspect);
 
-    // Each force's region.
-    for (final f in forces) {
-      final path = _polyPath(f.region, size);
-      final isSel = f.id == selectedId && !selectedIsIslands;
-      final fill = Paint()
-        ..style = PaintingStyle.fill
-        ..color = f.color.withValues(alpha: isSel ? 0.92 : 0.66);
-      canvas.drawPath(path, fill);
-      // Subtle inner sheen so the fill doesn't read flat.
+    // Sea backdrop across the whole widget (the map letterboxes into it).
+    canvas.drawRect(
+      Offset.zero & size,
+      Paint()
+        ..shader = const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: <Color>[Color(0xFF0C1714), Color(0xFF090F0D)],
+        ).createShader(Offset.zero & size),
+    );
+
+    // Neighbours: dim context, faint fill + border + label.
+    for (final n in neighbours) {
+      final path = fit.path(n.rings);
+      final sel = n.id == selectedId;
       canvas.drawPath(
-        path,
-        Paint()
-          ..style = PaintingStyle.fill
-          ..shader = LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: <Color>[
-              Colors.white.withValues(alpha: isSel ? 0.10 : 0.05),
-              Colors.transparent,
-            ],
-          ).createShader(path.getBounds()),
-      );
-      // Coastline.
+          path, Paint()..color = n.color.withValues(alpha: sel ? 0.55 : 0.30));
       canvas.drawPath(
         path,
         Paint()
           ..style = PaintingStyle.stroke
-          ..strokeWidth = isSel ? 2.4 : 1.2
-          ..color = isSel ? VSColors.goldBright : VSColors.goldBorder,
+          ..strokeWidth = 0.8
+          ..color = VSColors.goldBorder.withValues(alpha: sel ? 0.9 : 0.4),
       );
-      if (isSel) {
+      final at = n.labelAt;
+      if (at != null) {
+        _text(canvas, n.name, fit.p(at),
+            color: VSColors.inkMuted, size: 9, anchor: _Anchor.center);
+      }
+    }
+
+    // Forces: bright, in focus.
+    for (final f in forces) {
+      final path = fit.path(f.rings);
+      final sel = f.id == selectedId;
+      canvas.drawPath(
+          path, Paint()..color = f.color.withValues(alpha: sel ? 0.95 : 0.72));
+      canvas.drawPath(
+        path,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = sel ? 2.2 : 1.1
+          ..color = sel ? VSColors.goldBright : VSColors.goldBorder,
+      );
+      if (sel) {
         canvas.drawPath(
           path,
           Paint()
             ..style = PaintingStyle.stroke
             ..strokeWidth = 6
-            ..color = VSColors.goldGlow.withValues(alpha: 0.5)
+            ..color = VSColors.goldGlow.withValues(alpha: 0.45)
             ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 6),
         );
       }
     }
 
-    // Dividing line (e.g. the Gianh River).
+    // Small island lands (Phú Quốc, Côn Đảo): bright, with a tiny label.
+    for (final land in islandLands) {
+      final path = fit.path(land.rings);
+      final sel = land.id == selectedId;
+      canvas.drawPath(
+          path, Paint()..color = land.color.withValues(alpha: sel ? 0.95 : 0.8));
+      canvas.drawPath(
+        path,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = sel ? 1.6 : 1.0
+          ..color = sel ? VSColors.goldBright : VSColors.gold,
+      );
+      final at = land.labelAt;
+      if (at != null) {
+        _text(canvas, land.name, fit.p(at).translate(6, -4),
+            color: VSColors.gold, size: 8);
+      }
+    }
+
+    // Reference outline: present-day Vietnam as a faint dashed hairline, so the
+    // era's borders can be read against today's. A guide only — no fill.
+    final ref = reference;
+    if (ref != null && ref.isNotEmpty) {
+      final refPath = fit.path(ref);
+      _dashedPath(
+        canvas,
+        refPath,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.0
+          ..strokeCap = StrokeCap.round
+          ..color = VSColors.goldBright.withValues(alpha: 0.5),
+        dash: 3,
+        gap: 3.5,
+      );
+      if (referenceLabel != null) {
+        _text(canvas, referenceLabel!, Offset(fit.ox + 6, fit.oy + fit.h - 16),
+            color: VSColors.gold.withValues(alpha: 0.75), size: 8.5);
+      }
+    }
+
+    // Dividing line (the Gianh).
     final b = boundary;
     if (b != null && b.length == 2) {
-      final p1 = Offset(b[0].dx * size.width, b[0].dy * size.height);
-      final p2 = Offset(b[1].dx * size.width, b[1].dy * size.height);
-      _drawDashedLine(canvas, p1, p2,
+      final p1 = fit.p(b[0]);
+      final p2 = fit.p(b[1]);
+      _dashed(canvas, p1, p2,
           Paint()
             ..color = VSColors.goldBright
             ..strokeWidth = 2
             ..strokeCap = StrokeCap.round);
       if (boundaryLabel != null) {
-        _text(canvas, boundaryLabel!, Offset((p1.dx + p2.dx) / 2, p1.dy - 16),
-            color: VSColors.gold, size: 10.5, anchor: _Anchor.center);
+        _text(canvas, boundaryLabel!,
+            Offset((p1.dx + p2.dx) / 2, math.min(p1.dy, p2.dy) - 15),
+            color: VSColors.gold, size: 9.5, anchor: _Anchor.center);
       }
     }
 
     // Island groups.
     for (final isl in islands) {
-      final c = Offset(isl.center.dx * size.width, isl.center.dy * size.height);
-      final r = isl.radius * size.shortestSide;
-      final force = forces.where((f) => f.id == isl.forceId);
-      final tint = force.isEmpty ? VSColors.gold : force.first.color;
-      final isSel = selectedIsIslands && isl.forceId == selectedId;
-      // Dotted enclosure.
-      _drawDottedCircle(canvas, c, r,
-          VSColors.gold.withValues(alpha: isSel ? 0.9 : 0.5));
-      // A little archipelago of dots.
-      final dots = <Offset>[
-        c.translate(-r * 0.4, -r * 0.35),
-        c.translate(r * 0.1, -r * 0.5),
-        c.translate(r * 0.45, -r * 0.15),
-        c.translate(-r * 0.15, 0),
-        c.translate(r * 0.3, r * 0.3),
-        c.translate(-r * 0.35, r * 0.4),
-        c.translate(0, r * 0.15),
-      ];
-      for (final d in dots) {
-        canvas.drawCircle(
-            d, isSel ? 3.0 : 2.2, Paint()..color = tint.withValues(alpha: 0.95));
+      final c = fit.p(isl.center);
+      final r = isl.radius * fit.w;
+      final tint = isl.color;
+      final sel = selectedId == 'isl:${isl.name}';
+      _dottedCircle(canvas, c, r,
+          VSColors.gold.withValues(alpha: sel ? 0.95 : 0.55));
+      for (final dp in const <Offset>[
+        Offset(-0.4, -0.35),
+        Offset(0.15, -0.5),
+        Offset(0.45, -0.1),
+        Offset(-0.15, 0.05),
+        Offset(0.3, 0.35),
+        Offset(-0.35, 0.4),
+      ]) {
+        canvas.drawCircle(c + dp * r, sel ? 2.6 : 2.0,
+            Paint()..color = tint.withValues(alpha: 0.95));
       }
-      _text(canvas, isl.name, c.translate(0, r + 10),
-          color: VSColors.gold, size: 9.5, anchor: _Anchor.center);
+      _text(canvas, isl.name, c.translate(0, r + 9),
+          color: VSColors.gold, size: 8.5, anchor: _Anchor.center);
     }
   }
 
   @override
   bool shouldRepaint(_TerritoryPainter old) =>
       old.selectedId != selectedId ||
-      old.selectedIsIslands != selectedIsIslands ||
-      old.forces != forces;
+      old.forces != forces ||
+      old.neighbours != neighbours ||
+      old.islandLands != islandLands ||
+      old.reference != reference;
 }
 
 // ─────────────────────────── overlays ───────────────────────────
 
 class _Legend extends StatelessWidget {
   const _Legend({required this.forces, required this.selectedId});
-  final List<TerritoryForce> forces;
+  final List<TerritoryRegion> forces;
   final String? selectedId;
 
   @override
@@ -299,8 +419,8 @@ class _Legend extends StatelessWidget {
                     width: 12,
                     height: 12,
                     decoration: BoxDecoration(
-                      color: f.color.withValues(
-                          alpha: f.id == selectedId ? 1 : 0.7),
+                      color: f.color
+                          .withValues(alpha: f.id == selectedId ? 1 : 0.75),
                       borderRadius: BorderRadius.circular(3),
                       border: Border.all(
                         color: f.id == selectedId
@@ -327,34 +447,34 @@ class _Legend extends StatelessWidget {
 }
 
 class _CardData {
-  const _CardData({required this.force, this.islands});
-  final TerritoryForce force;
-  final String? islands;
+  const _CardData({required this.title, this.subtitle, required this.color});
+  final String title;
+  final String? subtitle;
+  final Color color;
 }
 
 class _InfoCard extends StatelessWidget {
-  const _InfoCard({required this.selection});
-  final _CardData? selection;
+  const _InfoCard({required this.data});
+  final _CardData? data;
 
   @override
   Widget build(BuildContext context) {
-    final sel = selection;
+    final d = data;
     return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 220),
+      duration: const Duration(milliseconds: 200),
       transitionBuilder: (child, anim) => FadeTransition(
         opacity: anim,
         child: SizeTransition(sizeFactor: anim, child: child),
       ),
-      child: sel == null
+      child: d == null
           ? const SizedBox.shrink(key: ValueKey<String>('none'))
           : Container(
-              key: ValueKey<String>(
-                  '${sel.force.id}${sel.islands ?? ''}'),
+              key: ValueKey<String>('${d.title}${d.subtitle ?? ''}'),
               margin: const EdgeInsets.all(VSSpacing.md),
               padding: const EdgeInsets.symmetric(
                   horizontal: VSSpacing.lg, vertical: VSSpacing.md),
               decoration: BoxDecoration(
-                color: VSColors.lacquerRaised.withValues(alpha: 0.94),
+                color: VSColors.lacquerRaised.withValues(alpha: 0.95),
                 borderRadius: VSRadii.cardAll,
                 border: Border.all(color: VSColors.goldBorder),
               ),
@@ -364,7 +484,7 @@ class _InfoCard extends StatelessWidget {
                     width: 16,
                     height: 16,
                     decoration: BoxDecoration(
-                      color: sel.force.color,
+                      color: d.color,
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
@@ -374,19 +494,13 @@ class _InfoCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Text(
-                          sel.islands == null
-                              ? sel.force.name
-                              : '${sel.force.name} · ${sel.islands}',
-                          style: VSType.cardTitle.copyWith(fontSize: 15),
-                        ),
-                        if (sel.force.leader != null) ...<Widget>[
+                        Text(d.title,
+                            style: VSType.cardTitle.copyWith(fontSize: 15)),
+                        if (d.subtitle != null) ...<Widget>[
                           const SizedBox(height: 2),
-                          Text(sel.force.leader!,
+                          Text(d.subtitle!,
                               style: VSType.caption.copyWith(
-                                color: VSColors.gold,
-                                fontSize: 11.5,
-                              )),
+                                  color: VSColors.gold, fontSize: 11.5)),
                         ],
                       ],
                     ),
@@ -400,40 +514,38 @@ class _InfoCard extends StatelessWidget {
 
 // ─────────────────────────── helpers ───────────────────────────
 
-Path _polyPath(List<Offset> pts, Size size) {
-  final path = Path();
-  for (var i = 0; i < pts.length; i++) {
-    final p = Offset(pts[i].dx * size.width, pts[i].dy * size.height);
-    if (i == 0) {
-      path.moveTo(p.dx, p.dy);
-    } else {
-      path.lineTo(p.dx, p.dy);
-    }
-  }
-  path.close();
-  return path;
-}
-
-void _drawDashedLine(Canvas canvas, Offset a, Offset b, Paint paint) {
-  const dash = 7.0, gap = 5.0;
+void _dashed(Canvas canvas, Offset a, Offset b, Paint paint) {
+  const dash = 6.0, gap = 4.0;
   final total = (b - a).distance;
+  if (total == 0) return;
   final dir = (b - a) / total;
   var t = 0.0;
   while (t < total) {
-    final start = a + dir * t;
-    final end = a + dir * (t + dash).clamp(0, total);
-    canvas.drawLine(start, end, paint);
+    canvas.drawLine(
+        a + dir * t, a + dir * (t + dash).clamp(0, total), paint);
     t += dash + gap;
   }
 }
 
-void _drawDottedCircle(Canvas canvas, Offset c, double r, Color color) {
+/// Dashes along an arbitrary [path] (used for the present-day reference outline).
+void _dashedPath(Canvas canvas, Path path, Paint paint,
+    {double dash = 4, double gap = 4}) {
+  for (final metric in path.computeMetrics()) {
+    var t = 0.0;
+    while (t < metric.length) {
+      final end = math.min(t + dash, metric.length);
+      canvas.drawPath(metric.extractPath(t, end), paint);
+      t += dash + gap;
+    }
+  }
+}
+
+void _dottedCircle(Canvas canvas, Offset c, double r, Color color) {
   final paint = Paint()..color = color;
-  const count = 28;
+  const count = 26;
   for (var i = 0; i < count; i++) {
     final a = (i / count) * 2 * math.pi;
-    canvas.drawCircle(
-        c + Offset(r * math.cos(a), r * math.sin(a)), 0.9, paint);
+    canvas.drawCircle(c + Offset(r * math.cos(a), r * math.sin(a)), 0.8, paint);
   }
 }
 
@@ -447,7 +559,7 @@ void _text(Canvas canvas, String text, Offset at,
         style: TextStyle(
             color: color,
             fontSize: size,
-            letterSpacing: 0.5,
+            letterSpacing: 0.4,
             fontWeight: FontWeight.w600)),
     textDirection: ui.TextDirection.ltr,
   )..layout();

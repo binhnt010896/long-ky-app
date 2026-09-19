@@ -1147,6 +1147,49 @@ void main() {
     });
   });
 
+  group('Territory atlas', () {
+    testWidgets('global timeline map button opens the atlas', (tester) async {
+      await _pumpAt(tester, '/timeline', ExperienceTier.reduced);
+
+      await tester.tap(find.byIcon(Icons.map_outlined));
+      await tester.pumpAndSettle();
+
+      expect(find.text('BẢN ĐỒ LÃNH THỔ'), findsOneWidget);
+      expect(find.text('Việt Nam qua các thời kỳ'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('atlas renders with snapshot years on the timeline',
+        (tester) async {
+      await _pumpAt(tester, '/map', ExperienceTier.reduced);
+
+      expect(find.text('BẢN ĐỒ LÃNH THỔ'), findsOneWidget);
+      expect(find.text('1650'), findsWidgets); // a snapshot tick label
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('era hub has a map button into the atlas', (tester) async {
+      await _pumpAt(tester, '/era/trinh-nguyen', ExperienceTier.reduced);
+
+      expect(find.byIcon(Icons.map_outlined), findsOneWidget);
+      await tester.tap(find.byIcon(Icons.map_outlined));
+      await tester.pumpAndSettle();
+      expect(find.text('BẢN ĐỒ LÃNH THỔ'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('shows the always-on present-day reference outline',
+        (tester) async {
+      await _pumpAt(tester, '/map', ExperienceTier.reduced);
+
+      // The dashed present-day outline is applied directly (no toggle), and the
+      // hint explains it. The old "Nay" chip must be gone.
+      expect(find.text('Nay'), findsNothing);
+      expect(find.textContaining('Nét đứt'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+  });
+
   group('Character Detail', () {
     testWidgets('renders portrait, epithet, bio and appearances', (tester) async {
       await _pumpAt(tester, '/era/au-lac/figure/cao-lo', ExperienceTier.reduced);
