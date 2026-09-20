@@ -169,3 +169,7 @@ flutter:
     - assets/content/eras/can-vuong/scene/
     - assets/content/eras/can-vuong/events/
     - assets/content/eras/can-vuong/characters/
+    - assets/content/eras/phong-trao-yeu-nuoc/
+    - assets/content/eras/phong-trao-yeu-nuoc/scene/
+    - assets/content/eras/phong-trao-yeu-nuoc/events/
+    - assets/content/eras/phong-trao-yeu-nuoc/characters/

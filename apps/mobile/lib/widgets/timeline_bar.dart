@@ -38,6 +38,14 @@ class TimelineBar extends StatelessWidget {
         final w = c.maxWidth;
         final selIdx = years.indexOf(selected).clamp(0, years.length - 1);
         void pick(double dx) => onChanged(years[_indexAt(dx, w)]);
+        // With many snapshots the labels crowd, so show only a sparse subset
+        // (plus the selected one); every tick still renders.
+        final labelStep = (years.length / 6).ceil().clamp(1, years.length);
+        bool showLabel(int i) {
+          if (i == selIdx) return true;
+          if ((i - selIdx).abs() < labelStep) return false;
+          return i % labelStep == 0 || i == years.length - 1;
+        }
         return GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTapDown: (d) => pick(d.localPosition.dx),
@@ -67,21 +75,22 @@ class TimelineBar extends StatelessWidget {
                           : VSColors.goldBorder,
                     ),
                   ),
-                  Positioned(
-                    left: _x(i, w) - 24,
-                    top: 44,
-                    width: 48,
-                    child: Text(
-                      _label(years[i]),
-                      textAlign: TextAlign.center,
-                      style: VSType.caption.copyWith(
-                        fontSize: 8.5,
-                        color: i == selIdx ? VSColors.gold : VSColors.inkMuted,
-                        fontWeight:
-                            i == selIdx ? FontWeight.w700 : FontWeight.w400,
+                  if (showLabel(i))
+                    Positioned(
+                      left: _x(i, w) - 24,
+                      top: 44,
+                      width: 48,
+                      child: Text(
+                        _label(years[i]),
+                        textAlign: TextAlign.center,
+                        style: VSType.caption.copyWith(
+                          fontSize: 8.5,
+                          color: i == selIdx ? VSColors.gold : VSColors.inkMuted,
+                          fontWeight:
+                              i == selIdx ? FontWeight.w700 : FontWeight.w400,
+                        ),
                       ),
                     ),
-                  ),
                 ],
                 // Thumb.
                 Positioned(

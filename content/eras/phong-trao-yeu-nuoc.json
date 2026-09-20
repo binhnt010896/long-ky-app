@@ -1,0 +1,546 @@
+{
+  "schemaVersion": 1,
+  "id": "phong-trao-yeu-nuoc",
+  "slug": "phong-trao-yeu-nuoc",
+  "order": 27,
+  "period": "phap-thuoc",
+  "title": {
+    "vi": "Phong trào yêu nước đầu thế kỷ XX",
+    "en": "The Patriotic Movements of the Early 20th Century"
+  },
+  "kicker": {
+    "vi": "Pháp thuộc · Đi tìm đường cứu nước",
+    "en": "French rule · the search for a path"
+  },
+  "subtitle": {
+    "vi": "Cần Vương tàn, kiếm cung gác lại — lớp sĩ phu mới cầm bút, mở trường, vượt biển đi tìm đường cứu nước.",
+    "en": "With Cần Vương spent and the sword laid down, a new generation of scholars took up the pen, opened schools and crossed the sea to seek a way to save the country."
+  },
+  "overview": {
+    "vi": "Phong trào Cần Vương lụi tàn (1896), khởi nghĩa Yên Thế cũng dần tắt (1913) — con đường cứu nước bằng gươm giáo của tầng lớp văn thân phong kiến coi như bế tắc. Trong khi đó, thực dân Pháp bắt tay vào cuộc khai thác thuộc địa quy mô lớn: Toàn quyền Paul Doumer lập bộ máy cai trị Liên bang Đông Dương, đặt đủ thứ sưu thuế nặng nề, độc quyền rượu – muối – thuốc phiện, mở đồn điền cao su, hầm mỏ, đường sắt, hải cảng. Xã hội Việt Nam biến đổi sâu sắc, xuất hiện những giai tầng mới. Cùng lúc, 'tân thư – tân văn' từ Trung Hoa, Nhật Bản tràn vào: tư tưởng dân quyền của Rousseau, Montesquieu qua ngòi bút Lương Khải Siêu, Khang Hữu Vi; tấm gương Minh Trị duy tân đưa Nhật Bản hùng cường, đánh bại cả nước Nga (1905). Một thế hệ sĩ phu yêu nước thức thời — Phan Bội Châu, Phan Châu Trinh — nhận ra phải cứu nước bằng con đường mới. Phan Bội Châu chủ trương bạo động, cầu ngoại viện, lập Duy Tân hội và dấy phong trào Đông Du đưa thanh niên sang Nhật học. Phan Châu Trinh thì đối lập: phản đối bạo động và cầu ngoại viện, chủ trương ôn hòa 'khai dân trí, chấn dân khí, hậu dân sinh', nâng cao dân trí mà tiến tới tự cường. Trên tinh thần ấy, Đông Kinh Nghĩa Thục mọc lên giữa Hà Nội (1907) dạy Quốc ngữ và tân học; phong trào chống sưu thuế bùng lên khắp Trung Kỳ (1908). Trong hoàng cung, hai vua trẻ Thành Thái và Duy Tân nuôi chí phục quốc, để rồi cùng bị phế và đày biệt xứ. Các phong trào lần lượt bị đàn áp, nhưng ngọn lửa không tắt: sang thập niên 1920, Nguyễn Thái Học và Việt Nam Quốc dân Đảng làm nên cuộc khởi nghĩa Yên Bái (1930) bi tráng — 'Không thành công cũng thành nhân'. Nửa đầu thế kỷ XX là đêm dài nô lệ, nhưng cũng là thời kỳ dân tộc trăn trở tìm đường, hun đúc cho một cuộc đổi thay lớn hơn ở phía trước.",
+    "en": "The Cần Vương movement had guttered out (1896) and the Yên Thế rising faded too (1913) — the scholar-gentry's path of the sword had reached a dead end. Meanwhile France set about a large-scale colonial exploitation: Governor-General Paul Doumer built the apparatus of the Indochinese Union, imposed crushing taxes and the salt–alcohol–opium monopolies, and opened rubber plantations, mines, railways and ports. Vietnamese society was transformed and new social classes appeared. At the same time 'new books and new writing' poured in from China and Japan: the democratic thought of Rousseau and Montesquieu through the pens of Liang Qichao and Kang Youwei, and the example of Meiji Japan, whose reforms had made it strong enough to defeat Russia (1905). A clear-eyed generation of patriotic scholars — Phan Bội Châu and Phan Châu Trinh — saw that the country must be saved by new means. Phan Bội Châu favoured armed struggle and foreign aid, founding the Modernization Society and launching the Đông Du ('Journey East') movement that sent youths to study in Japan. Phan Châu Trinh took the opposite view: opposing violence and reliance on foreigners, he preached a peaceful course — 'enlighten the people's minds, strengthen their spirit, secure their livelihood' — raising the people up toward self-reliance. In that spirit the Đông Kinh Free School rose in Hà Nội (1907) teaching the romanized script and new learning, and anti-tax risings swept Annam (1908). Within the palace the young emperors Thành Thái and Duy Tân nursed dreams of restoration, only to be deposed and exiled. The movements were suppressed one by one, but the flame did not die: in the 1920s Nguyễn Thái Học and the Vietnamese Nationalist Party mounted the tragic Yên Bái uprising (1930) — 'if we do not succeed, we die as heroes.' The first half of the 20th century was a long night of servitude, but also an age in which the nation searched painfully for its way, forging the ground for a greater change to come."
+  },
+  "yearRange": {
+    "display": {
+      "vi": "1897 – 1930 SCN",
+      "en": "1897 – 1930 CE"
+    },
+    "startYear": 1897,
+    "endYear": 1930
+  },
+  "palette": {
+    "accent": "#3f6d8c",
+    "particle": "#d9a44e",
+    "scene": [
+      "#070b0f",
+      "#0d1520",
+      "#16283a",
+      "#1f3a52",
+      "#2f5878",
+      "#5f86a8",
+      "#d9a44e"
+    ]
+  },
+  "cover": {
+    "id": "phong-trao-yeu-nuoc-cover",
+    "type": "image",
+    "role": "cover",
+    "placeholder": "era-scene",
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    },
+    "flagship": "eras/phong-trao-yeu-nuoc/cover.png",
+    "reduced": "eras/phong-trao-yeu-nuoc/cover.png"
+  },
+  "scene": {
+    "layers": [
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "placeholder": "era-scene",
+        "flagship": "eras/phong-trao-yeu-nuoc/scene/sky.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/scene/sky.png"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
+    ]
+  },
+  "primarySource": {
+    "work": "Việt Nam những sự kiện lịch sử (1858–1918)",
+    "section": {
+      "vi": "Phần đầu thế kỷ XX",
+      "en": "The early twentieth century"
+    },
+    "author": "Viện Sử học"
+  },
+  "characters": [
+    {
+      "ref": "phan-boi-chau"
+    },
+    {
+      "ref": "phan-chau-trinh"
+    },
+    {
+      "ref": "luong-van-can"
+    },
+    {
+      "ref": "thanh-thai"
+    },
+    {
+      "ref": "duy-tan"
+    },
+    {
+      "ref": "nguyen-thai-hoc"
+    }
+  ],
+  "events": [
+    {
+      "id": "khai-thac-thuoc-dia",
+      "slug": "khai-thac-thuoc-dia",
+      "figureIds": [],
+      "details": {
+        "vi": "Dập tắt xong phong trào Cần Vương, thực dân Pháp rảnh tay đặt nền cai trị và tiến hành cuộc khai thác thuộc địa lần thứ nhất. Toàn quyền Paul Doumer (1897–1902) kiện toàn bộ máy Liên bang Đông Dương gồm Bắc Kỳ, Trung Kỳ, Nam Kỳ, Cao Miên và Ai Lao, đặt dưới quyền một viên Toàn quyền người Pháp. Để vơ vét của cải và nuôi bộ máy, chính quyền thuộc địa đặt ra đủ thứ thuế khóa nặng nề — thuế thân, thuế điền, thuế chợ, thuế đò — cùng chính sách độc quyền ba mặt hàng rượu, muối, thuốc phiện, buộc dân phải mua theo định mức. Đồng thời, người Pháp bỏ vốn mở mang đồn điền cao su ở Nam Kỳ, hầm mỏ than ở Hòn Gai – Quảng Ninh, xây dựng hệ thống đường sắt (Hà Nội – Sài Gòn, các tuyến xuyên Đông Dương), cầu cống, hải cảng, đô thị — tất cả nhằm phục vụ việc bóc lột và cai trị. Xã hội Việt Nam từ một xứ nông nghiệp phong kiến dần biến đổi: bên cạnh địa chủ và nông dân, xuất hiện tầng lớp công nhân trong hầm mỏ – đồn điền, giai cấp tư sản, tiểu tư sản và trí thức tân học nơi thành thị. Chính trong lòng xã hội đang chuyển mình ấy, những mầm mống của một phong trào cứu nước theo khuynh hướng mới bắt đầu nảy nở.",
+        "en": "Having crushed the Cần Vương movement, France was free to fasten its rule and begin the first colonial exploitation. Governor-General Paul Doumer (1897–1902) consolidated the Indochinese Union — Tonkin, Annam, Cochinchina, Cambodia and Laos — under a single French Governor-General. To extract wealth and fund the machine, the colonial state imposed heavy taxes — the head tax, land tax, market and ferry dues — together with state monopolies on alcohol, salt and opium that forced the people to buy fixed quotas. At the same time the French sank capital into rubber plantations in the South, coal mines at Hòn Gai in Quảng Ninh, and a network of railways (Hà Nội–Sài Gòn and the trans-Indochina lines), bridges, ports and cities — all serving extraction and control. Vietnamese society, once agrarian and feudal, began to change: alongside landlords and peasants there now appeared a working class in the mines and plantations, and an urban bourgeoisie, petty bourgeoisie and new-learning intelligentsia. It was within this shifting society that the seeds of a new kind of salvation movement began to sprout."
+      },
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1897 – 1914 SCN",
+          "en": "1897 – 1914 CE"
+        },
+        "value": 1897,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Ách thực dân và cuộc khai thác thuộc địa",
+        "en": "Colonial rule and the great exploitation"
+      },
+      "summary": {
+        "vi": "Toàn quyền Doumer lập bộ máy Đông Dương, đặt sưu thuế nặng và độc quyền rượu – muối – thuốc phiện; mở đồn điền, hầm mỏ, đường sắt. Xã hội biến đổi, giai tầng mới ra đời.",
+        "en": "Governor-General Doumer builds the Indochina apparatus, imposes heavy taxes and the alcohol–salt–opium monopolies, and opens plantations, mines and railways. Society changes and new classes appear."
+      },
+      "body": {
+        "vi": "Dẹp xong Cần Vương, Pháp rảnh tay khai thác thuộc địa. Toàn quyền Paul Doumer (1897–1902) kiện toàn Liên bang Đông Dương, đặt sưu cao thuế nặng — thuế thân, thuế điền — và độc quyền rượu, muối, thuốc phiện. Người Pháp mở đồn điền cao su, hầm mỏ than Hòn Gai, xây đường sắt Hà Nội – Sài Gòn, cầu cống, hải cảng để bóc lột. Xã hội Việt Nam biến đổi: xuất hiện công nhân, tư sản, tiểu tư sản, trí thức tân học. Trong lòng xã hội chuyển mình, mầm mống phong trào cứu nước kiểu mới nảy nở.",
+        "en": "With Cần Vương crushed, France turned to colonial exploitation. Governor-General Doumer (1897–1902) consolidated the Indochinese Union, imposed heavy head and land taxes and the alcohol–salt–opium monopolies, and opened rubber plantations, the Hòn Gai coal mines, the Hà Nội–Sài Gòn railway, bridges and ports to extract wealth. Vietnamese society changed — a working class, bourgeoisie, petty bourgeoisie and new-learning intelligentsia emerged — and within it the seeds of a new salvation movement sprouted."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Gông cùm nô lệ khoác lên mình cả một xứ; sưu thuế nặng như núi, mà lòng người thì bắt đầu thức tỉnh.",
+          "en": "The yoke of servitude was laid upon a whole land; the taxes weighed like mountains — yet the people's minds began to wake."
+        },
+        "attribution": {
+          "vi": "về buổi đầu Pháp thuộc",
+          "en": "on the early colonial years"
+        }
+      },
+      "hero": {
+        "id": "khai-thac-thuoc-dia-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/phong-trao-yeu-nuoc/events/khai-thac-thuoc-dia.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/events/khai-thac-thuoc-dia.png"
+      },
+      "citation": {
+        "work": "Việt Nam những sự kiện lịch sử (1858–1918)",
+        "section": {
+          "vi": "Chính sách khai thác thuộc địa của Pháp",
+          "en": "France's policy of colonial exploitation"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "dong-du-phan-boi-chau",
+      "slug": "dong-du-phan-boi-chau",
+      "figureIds": [
+        "phan-boi-chau"
+      ],
+      "details": {
+        "vi": "Người mở đầu con đường cứu nước mới theo khuynh hướng bạo động là Phan Bội Châu — nhà nho xứ Nghệ, học rộng, chí lớn, nặng lòng với vận nước. Ông cho rằng muốn đánh đuổi giặc Pháp phải dùng bạo lực và tranh thủ ngoại viện. Năm 1904, ông cùng các đồng chí lập Duy Tân hội, tôn Kỳ Ngoại hầu Cường Để — dòng dõi hoàng tộc — làm minh chủ, nêu mục tiêu đánh Pháp, khôi phục nước Việt Nam, lập nền quân chủ lập hiến. Năm 1905, Phan Bội Châu bí mật sang Nhật Bản cầu viện; nghe lời khuyên của các chí sĩ Trung Hoa như Lương Khải Siêu, ông chuyển sang vận động đưa thanh niên sang Nhật du học để đào tạo nhân tài cứu nước — mở ra phong trào Đông Du. Trong vài năm, khoảng hai trăm thanh niên yêu nước đã vượt biển sang Nhật. Ông viết 'Việt Nam vong quốc sử', 'Hải ngoại huyết thư' bằng lời lẽ thống thiết, gửi về nước thức tỉnh lòng người. Nhưng năm 1908–1909, thực dân Pháp cấu kết với Nhật, chính phủ Nhật trục xuất du học sinh và trục xuất cả Phan Bội Châu; phong trào Đông Du tan rã. Không nản chí, năm 1912 ông cải tổ tổ chức, lập Việt Nam Quang Phục Hội, chuyển mục tiêu sang thành lập nước cộng hòa. Cuộc đời bôn ba của ông là tấm gương của một chí sĩ suốt đời vì nước, dù con đường bạo động chưa thành.",
+        "en": "The man who opened the new path of armed struggle was Phan Bội Châu — a learned scholar of Nghệ An, of great ambition and deep devotion to his country. He held that to drive out the French one must use force and seek foreign aid. In 1904 he and his comrades founded the Modernization Society (Duy Tân hội), honouring the royal prince Cường Để as its figurehead, with the aim of fighting France, restoring Vietnam and establishing a constitutional monarchy. In 1905 he went secretly to Japan for aid; heeding the advice of Chinese reformers like Liang Qichao, he turned instead to sending youths to study there and train talent for the cause — launching the Đông Du ('Journey East') movement. Within a few years some two hundred patriotic young men had crossed the sea to Japan. He wrote the 'History of the Loss of Vietnam' and the 'Letter of Blood from Overseas' in stirring words, sent home to rouse the people. But in 1908–1909 France colluded with Japan, whose government expelled the students and Phan Bội Châu himself, and the Đông Du movement dissolved. Undaunted, in 1912 he reorganized his followers into the Vietnam Restoration League, shifting the goal to a republic. His wandering life was the model of a patriot who gave his all for his country, though the path of armed struggle did not yet prevail."
+      },
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1904 – 1912 SCN",
+          "en": "1904 – 1912 CE"
+        },
+        "value": 1905,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Phan Bội Châu và phong trào Đông Du",
+        "en": "Phan Bội Châu and the Đông Du movement"
+      },
+      "summary": {
+        "vi": "Phan Bội Châu chủ trương bạo động, cầu ngoại viện; lập Duy Tân hội (1904), dấy phong trào Đông Du đưa thanh niên sang Nhật. Nhật trục xuất (1909), ông lập Việt Nam Quang Phục Hội (1912).",
+        "en": "Phan Bội Châu favours armed struggle and foreign aid; he founds the Modernization Society (1904) and the Đông Du movement sending youths to Japan. Expelled in 1909, he forms the Vietnam Restoration League (1912)."
+      },
+      "body": {
+        "vi": "Phan Bội Châu, nhà nho xứ Nghệ, chủ trương cứu nước bằng bạo động và ngoại viện. Năm 1904 lập Duy Tân hội, tôn Cường Để làm minh chủ. Năm 1905 sang Nhật, phát động phong trào Đông Du, đưa khoảng hai trăm thanh niên sang du học; viết 'Việt Nam vong quốc sử', 'Hải ngoại huyết thư' thức tỉnh đồng bào. Năm 1909, Pháp – Nhật câu kết, Nhật trục xuất du học sinh và cả ông, phong trào tan. Năm 1912 ông lập Việt Nam Quang Phục Hội, chuyển sang mục tiêu cộng hòa.",
+        "en": "Phan Bội Châu, a scholar of Nghệ An, sought to save the country by force and foreign aid. In 1904 he founded the Modernization Society under the prince Cường Để; in 1905 he went to Japan and launched the Đông Du movement, sending some two hundred youths to study, and wrote stirring works to rouse the people. In 1909 France and Japan colluded and Japan expelled the students and Phan Bội Châu himself, ending the movement. In 1912 he formed the Vietnam Restoration League, turning toward a republic."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Non sông đã chết, sống thêm nhục; hiền thánh còn đâu, học cũng hoài — chở bao nhiêu đạo thuyền không khẳm, đâm mấy thằng gian bút chẳng tà.",
+          "en": "The land being dead, to live on is shame; the sages gone, learning too seems vain — no boat is sunk by the weight of the Way it carries, and no pen turns crooked from striking down the treacherous."
+        },
+        "attribution": {
+          "vi": "thơ Phan Bội Châu",
+          "en": "verses of Phan Bội Châu"
+        }
+      },
+      "hero": {
+        "id": "dong-du-phan-boi-chau-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/phong-trao-yeu-nuoc/events/dong-du-phan-boi-chau.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/events/dong-du-phan-boi-chau.png"
+      },
+      "citation": {
+        "work": "Phan Bội Châu niên biểu (Tự phán)",
+        "section": {
+          "vi": "Hồi ký · phong trào Đông Du",
+          "en": "Memoir · the Đông Du years"
+        },
+        "author": "Phan Bội Châu"
+      }
+    },
+    {
+      "id": "duy-tan-phan-chau-trinh",
+      "slug": "duy-tan-phan-chau-trinh",
+      "figureIds": [
+        "phan-chau-trinh"
+      ],
+      "details": {
+        "vi": "Cùng thời với Phan Bội Châu nhưng đi con đường trái ngược là Phan Châu Trinh — nhà nho xứ Quảng, đỗ Phó bảng, sớm từ quan để dốc lòng vào việc canh tân. Ông kịch liệt phản đối cả hai điều mà Phan Bội Châu chủ trương: phản đối bạo động vì cho rằng dân trí còn thấp, lực còn yếu, manh động chỉ chuốc lấy thất bại; và phản đối việc cầu ngoại viện, vì trông cậy nước ngoài là dại dột, dễ rước voi giày mả tổ. Ông cũng phản đối chế độ quân chủ hủ bại, chủ trương tiến tới dân chủ. Con đường của ông là ôn hòa, cải cách từ gốc: 'khai dân trí, chấn dân khí, hậu dân sinh' — mở mang trí tuệ cho dân, chấn hưng ý chí của dân, làm cho đời sống của dân được no đủ. Ông cổ vũ học chữ Quốc ngữ, mở trường, lập hội buôn, phát triển thực nghiệp, bài trừ hủ tục, cắt tóc ngắn, mặc âu phục — tất cả để 'khai hóa' dân tộc mà tự cường. Năm 1906, ông công khai gửi thư cho Toàn quyền Beau, vạch trần sự thối nát của quan lại Nam triều và đòi chính quyền Pháp phải cải cách, nâng cao dân trí, dân quyền. Chủ trương duy tân của ông thổi một luồng gió mới, làm dấy lên phong trào Duy Tân sôi nổi khắp Trung Kỳ.",
+        "en": "A contemporary of Phan Bội Châu who took the opposite road was Phan Châu Trinh — a scholar of Quảng Nam who resigned office early to devote himself to reform. He fiercely opposed both of Phan Bội Châu's tenets: he rejected armed struggle, holding that with the people's understanding still low and their strength still weak, rash action could only end in failure; and he rejected the seeking of foreign aid, as leaning on outsiders was folly that risked inviting the elephant to trample the ancestors' graves. He also opposed the corrupt monarchy and looked toward democracy. His way was peaceful, reform from the root: 'enlighten the people's minds, strengthen their spirit, secure their livelihood.' He urged the study of the romanized script, the founding of schools and trading houses, the growth of industry, the ending of bad customs, short hair and Western dress — all to 'civilize' the nation into self-reliance. In 1906 he openly wrote to Governor-General Beau, exposing the rot of the Nguyễn court's officials and demanding that the French administration reform and raise the people's knowledge and rights. His reformist doctrine blew in a fresh wind, kindling the vigorous Duy Tân movement across Annam."
+      },
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1906 SCN",
+          "en": "1906 CE"
+        },
+        "value": 1906,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Phan Châu Trinh và tư tưởng Duy Tân",
+        "en": "Phan Châu Trinh and the reform ideal"
+      },
+      "summary": {
+        "vi": "Phan Châu Trinh chủ trương ôn hòa, phản đối bạo động và cầu ngoại viện: 'khai dân trí, chấn dân khí, hậu dân sinh'. Năm 1906 gửi thư cho Toàn quyền Beau đòi cải cách.",
+        "en": "Phan Châu Trinh preaches peaceful reform, opposing violence and foreign aid: 'enlighten minds, strengthen spirit, secure livelihood.' In 1906 he writes to Governor-General Beau demanding reform."
+      },
+      "body": {
+        "vi": "Trái với Phan Bội Châu, Phan Châu Trinh — nhà nho xứ Quảng — chủ trương ôn hòa, phản đối cả bạo động lẫn cầu ngoại viện, phản đối quân chủ hủ bại. Con đường của ông: 'khai dân trí, chấn dân khí, hậu dân sinh' — mở mang dân trí, chấn hưng dân khí, làm no ấm dân sinh. Ông cổ vũ học Quốc ngữ, mở trường, lập hội buôn, thực nghiệp, cắt tóc ngắn. Năm 1906 gửi thư cho Toàn quyền Beau, vạch nạn quan lại thối nát, đòi cải cách, dấy lên phong trào Duy Tân khắp Trung Kỳ.",
+        "en": "Unlike Phan Bội Châu, Phan Châu Trinh — a scholar of Quảng Nam — preached peaceful reform, opposing both violence and foreign aid and the corrupt monarchy. His way: 'enlighten the people's minds, strengthen their spirit, secure their livelihood.' He urged the romanized script, schools, trading houses, industry and short hair. In 1906 he wrote to Governor-General Beau exposing official corruption and demanding reform, kindling the Duy Tân movement across Annam."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Bất bạo động, bạo động tắc tử; bất vọng ngoại, vọng ngoại giả ngu. Chi bằng học.",
+          "en": "Do not resort to violence — violence brings death; do not look to foreigners — to look abroad is folly. Better to learn."
+        },
+        "attribution": {
+          "vi": "tương truyền chủ trương của Phan Châu Trinh",
+          "en": "attributed to Phan Châu Trinh's doctrine"
+        }
+      },
+      "hero": {
+        "id": "duy-tan-phan-chau-trinh-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/phong-trao-yeu-nuoc/events/duy-tan-phan-chau-trinh.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/events/duy-tan-phan-chau-trinh.png"
+      },
+      "citation": {
+        "work": "Việt Nam những sự kiện lịch sử (1858–1918)",
+        "section": {
+          "vi": "Phong trào Duy Tân",
+          "en": "The Duy Tân reform movement"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "dong-kinh-nghia-thuc",
+      "slug": "dong-kinh-nghia-thuc",
+      "figureIds": [
+        "luong-van-can"
+      ],
+      "details": {
+        "vi": "Hưởng ứng luồng tư tưởng duy tân, tháng 3 năm 1907, một nhóm sĩ phu tiến bộ ở Hà Nội — đứng đầu là cụ Lương Văn Can (được tôn làm Thục trưởng) cùng Nguyễn Quyền, Lê Đại, Hoàng Tăng Bí và nhiều người khác — lập ra trường Đông Kinh Nghĩa Thục tại phố Hàng Đào. Đây là một trường học kiểu mới, dạy học không lấy tiền ('nghĩa thục' nghĩa là trường vì nghĩa), lấy chữ Quốc ngữ làm nền tảng, dạy cả Hán văn, Pháp văn, cùng các môn toán, sử, địa, cách trí (khoa học thường thức), vệ sinh, thể dục. Nhà trường không chỉ dạy chữ mà còn là trung tâm cổ động cho tư tưởng mới: đề cao lòng yêu nước, tinh thần tự cường, bài trừ hủ tục, khuyến khích thực nghiệp và lối sống văn minh; tổ chức diễn thuyết, bình văn, in và phát tán sách báo tân học như 'Văn minh tân học sách'. Chỉ trong ít tháng, trường thu hút hàng nghìn học viên, ảnh hưởng lan rộng khắp Bắc Kỳ, trở thành ngọn cờ đầu của phong trào duy tân ở miền Bắc. Nhận thấy sức lan tỏa nguy hiểm ấy, cuối năm 1907 thực dân Pháp ra lệnh đóng cửa trường, bắt bớ nhiều người sáng lập. Đông Kinh Nghĩa Thục tồn tại chưa đầy một năm, nhưng đã gieo hạt giống cho việc truyền bá chữ Quốc ngữ và tư tưởng dân tộc, dân chủ trong quần chúng.",
+        "en": "Answering the reformist current, in March 1907 a group of progressive scholars in Hà Nội — led by Lương Văn Can (honoured as headmaster) with Nguyễn Quyền, Lê Đại, Hoàng Tăng Bí and others — founded the Đông Kinh Free School on Hàng Đào Street. It was a school of a new kind, teaching without fees ('nghĩa thục' means a school for the common good), built on the romanized script but also teaching Chinese and French, along with mathematics, history, geography, elementary science, hygiene and physical education. The school was not only a place of letters but a centre for the new ideas: it exalted patriotism and self-reliance, denounced backward customs, encouraged industry and a civilized way of life, and held public lectures and readings, printing and spreading new-learning tracts such as the 'Book of Civilization and New Learning.' Within months it drew thousands of students and its influence spread across Tonkin, becoming the banner of the reform movement in the North. Alarmed by its dangerous reach, in late 1907 the French ordered the school closed and arrested many of its founders. The Đông Kinh Free School lasted less than a year, but it sowed the seeds for the spread of the romanized script and of national and democratic thought among the people."
+      },
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1907 SCN",
+          "en": "1907 CE"
+        },
+        "value": 1907,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Đông Kinh Nghĩa Thục, trường học duy tân",
+        "en": "The Đông Kinh Free School"
+      },
+      "summary": {
+        "vi": "Tháng 3-1907, Lương Văn Can và các sĩ phu lập Đông Kinh Nghĩa Thục ở Hà Nội, dạy Quốc ngữ và tân học miễn phí, cổ vũ yêu nước. Cuối 1907 Pháp đóng cửa, bắt bớ.",
+        "en": "In March 1907 Lương Văn Can and fellow scholars found the Đông Kinh Free School in Hà Nội, teaching the romanized script and new learning free and preaching patriotism. In late 1907 France closes it and makes arrests."
+      },
+      "body": {
+        "vi": "Tháng 3-1907, cụ Lương Văn Can (Thục trưởng) cùng Nguyễn Quyền và các sĩ phu lập trường Đông Kinh Nghĩa Thục ở phố Hàng Đào, Hà Nội — dạy không lấy tiền, lấy chữ Quốc ngữ làm nền, dạy cả Hán văn, Pháp văn, toán, sử, địa, khoa học. Trường là trung tâm cổ vũ lòng yêu nước, tự cường, bài hủ tục, in sách tân học, diễn thuyết. Thu hút hàng nghìn học viên, lan khắp Bắc Kỳ. Cuối 1907, Pháp lo sợ ra lệnh đóng cửa, bắt bớ. Trường tồn tại chưa đầy năm nhưng gieo hạt cho Quốc ngữ và tư tưởng mới.",
+        "en": "In March 1907 Lương Văn Can as headmaster, with Nguyễn Quyền and others, founded the Đông Kinh Free School on Hàng Đào Street in Hà Nội — teaching free, built on the romanized script but also Chinese, French, mathematics, history, geography and science. It was a centre for patriotism and self-reliance, denounced bad customs, printed new-learning books and held lectures, drawing thousands and spreading across Tonkin. In late 1907 the alarmed French closed it and made arrests. It lasted less than a year but sowed the seeds of the romanized script and new thought."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Buổi diễn thuyết người đông như hội, kỳ bình văn khách đến như mưa — mở trường dạy chữ nước nhà, ấy cũng là một cách cứu nước.",
+          "en": "At the lectures the crowds gathered as at a festival; at the readings the guests came like rain — to open a school for the nation's own script was itself a way to save the country."
+        },
+        "attribution": {
+          "vi": "về Đông Kinh Nghĩa Thục (1907)",
+          "en": "on the Đông Kinh Free School (1907)"
+        }
+      },
+      "hero": {
+        "id": "dong-kinh-nghia-thuc-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/phong-trao-yeu-nuoc/events/dong-kinh-nghia-thuc.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/events/dong-kinh-nghia-thuc.png"
+      },
+      "citation": {
+        "work": "Việt Nam những sự kiện lịch sử (1858–1918)",
+        "section": {
+          "vi": "Đông Kinh Nghĩa Thục",
+          "en": "The Đông Kinh Free School"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "chong-thue-trung-ky",
+      "slug": "chong-thue-trung-ky",
+      "figureIds": [
+        "phan-chau-trinh"
+      ],
+      "details": {
+        "vi": "Tư tưởng duy tân thấm vào quần chúng, cộng với nỗi khổ sưu cao thuế nặng, đã bùng lên thành một cuộc dân biến lớn. Đầu năm 1908, nông dân tỉnh Quảng Nam nổi dậy đòi giảm sưu thuế, cắt tóc ngắn làm hiệu, kéo nhau về vây tỉnh đường. Phong trào 'chống sưu thuế' (còn gọi là phong trào 'cự sưu') nhanh chóng lan ra Quảng Ngãi, Bình Định, Phú Yên, Thừa Thiên, Hà Tĩnh — hàng vạn người tham gia, làm rung chuyển cả miền Trung. Thực dân Pháp và triều đình Huế thẳng tay đàn áp: bắn giết, bắt bớ, xử tử nhiều người; nhiều sĩ phu duy tân bị vu là cầm đầu. Phan Châu Trinh, Huỳnh Thúc Kháng, Trần Quý Cáp cùng nhiều người bị bắt. Trần Quý Cáp bị chém; Phan Châu Trinh bị kết án và đày ra Côn Đảo, sau nhờ Hội Nhân quyền Pháp can thiệp mới thoát án nặng. Cùng năm 1908, ở Hà Nội còn nổ ra vụ 'Hà thành đầu độc' — một số binh lính người Việt trong quân đội Pháp mưu bỏ thuốc độc đầu độc lính Pháp để làm binh biến, nhưng việc bại lộ, bị đàn áp đẫm máu. Qua các vụ này, thực dân Pháp giáng đòn nặng, khiến phong trào duy tân công khai bị dập tắt, nhiều chí sĩ phải vào tù hoặc lưu vong.",
+        "en": "The reform ideas seeping into the masses, together with the misery of heavy taxes, erupted into a great popular rising. Early in 1908 the peasants of Quảng Nam rose to demand tax relief, cutting their hair short as a sign and marching on the provincial office. The 'anti-tax' movement swiftly spread to Quảng Ngãi, Bình Định, Phú Yên, Thừa Thiên and Hà Tĩnh — tens of thousands took part, shaking all of central Vietnam. France and the court of Huế suppressed it ruthlessly: shooting, arresting and executing many, and blaming reformist scholars as ringleaders. Phan Châu Trinh, Huỳnh Thúc Kháng, Trần Quý Cáp and others were seized. Trần Quý Cáp was beheaded; Phan Châu Trinh was condemned and exiled to Côn Đảo, escaping a harsher sentence only through the intervention of the French League for Human Rights. In the same year, 1908, the 'Hà Nội poison plot' broke out — some Vietnamese soldiers in the French army schemed to poison the French troops and mutiny, but the plot was exposed and bloodily crushed. Through these events France struck hard, snuffing out the open reform movement and driving many patriots into prison or exile."
+      },
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1908 SCN",
+          "en": "1908 CE"
+        },
+        "value": 1908,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Dân biến chống thuế, phong trào bị đàn áp",
+        "en": "The anti-tax rising and its suppression"
+      },
+      "summary": {
+        "vi": "1908, nông dân Trung Kỳ nổi dậy chống sưu thuế, lan khắp Quảng Nam – Bình Định. Pháp đàn áp; Phan Châu Trinh bị đày Côn Đảo. Vụ Hà thành đầu độc cũng thất bại.",
+        "en": "In 1908 peasants across Annam rise against taxes, from Quảng Nam to Bình Định. France suppresses it; Phan Châu Trinh is exiled to Côn Đảo. The Hà Nội poison plot also fails."
+      },
+      "body": {
+        "vi": "Năm 1908, tư tưởng duy tân cùng nỗi khổ sưu thuế bùng thành dân biến. Nông dân Quảng Nam nổi dậy đòi giảm thuế, cắt tóc ngắn, vây tỉnh đường; phong trào chống sưu thuế lan khắp Quảng Ngãi, Bình Định, Thừa Thiên, Hà Tĩnh. Pháp và Nam triều đàn áp đẫm máu, vu sĩ phu cầm đầu: Trần Quý Cáp bị chém, Phan Châu Trinh bị đày Côn Đảo. Cùng năm, vụ Hà thành đầu độc lính Pháp cũng thất bại. Phong trào duy tân công khai bị dập tắt.",
+        "en": "In 1908 reform ideas and tax misery erupted into a popular rising. Quảng Nam peasants rose for tax relief, cut their hair short and besieged the provincial office; the anti-tax movement spread across Quảng Ngãi, Bình Định, Thừa Thiên and Hà Tĩnh. France and the court crushed it bloodily and blamed the scholars: Trần Quý Cáp was beheaded and Phan Châu Trinh exiled to Côn Đảo. The same year's Hà Nội plot to poison the French troops also failed. The open reform movement was snuffed out."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Dân đói kêu sưu, cắt tóc làm cờ; súng giặc nổ giữa chợ, mà chí duy tân đâu dễ tắt.",
+          "en": "The hungry cried out against the levies, cut their hair for a banner; the enemy's guns rang out in the marketplace — yet the will to reform was not so easily quenched."
+        },
+        "attribution": {
+          "vi": "về phong trào chống thuế Trung Kỳ 1908",
+          "en": "on the 1908 anti-tax movement in Annam"
+        }
+      },
+      "hero": {
+        "id": "chong-thue-trung-ky-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/phong-trao-yeu-nuoc/events/chong-thue-trung-ky.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/events/chong-thue-trung-ky.png"
+      },
+      "citation": {
+        "work": "Việt Nam những sự kiện lịch sử (1858–1918)",
+        "section": {
+          "vi": "Phong trào chống thuế ở Trung Kỳ (1908)",
+          "en": "The anti-tax movement in Annam (1908)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "vua-duy-tan-khoi-nghia",
+      "slug": "vua-duy-tan-khoi-nghia",
+      "figureIds": [
+        "thanh-thai",
+        "duy-tan"
+      ],
+      "details": {
+        "vi": "Ngay trong hoàng cung Huế, dưới ách bảo hộ, vẫn có những ông vua trẻ nuôi lòng yêu nước. Vua Thành Thái (lên ngôi 1889) là người thông minh, có tư tưởng chống Pháp, thường tỏ thái độ bất mãn với chế độ bảo hộ; người Pháp lấy cớ ông mắc bệnh tâm thần mà phế truất năm 1907, đưa đi quản thúc. Con ông là hoàng tử Vĩnh San được lập lên ngôi, tức vua Duy Tân, khi mới bảy tuổi; người Pháp tưởng lập vua nhỏ dễ sai khiến, nào ngờ lớn lên Duy Tân lại là người cương nghị, sớm ôm chí phục quốc. Năm 1916, giữa lúc Chiến tranh thế giới thứ nhất khiến Pháp bận rộn ở châu Âu, vua Duy Tân bí mật liên kết với hai chí sĩ Trần Cao Vân và Thái Phiên (thuộc Việt Nam Quang Phục Hội) mưu tính một cuộc khởi nghĩa ở Trung Kỳ, định rước vua ra ngoài phát động toàn dân. Nhưng cơ mưu bại lộ, vua Duy Tân rời khỏi kinh thành thì bị quân Pháp bắt lại. Trần Cao Vân, Thái Phiên bị đưa lên máy chém; vua Duy Tân bị phế và bị đày sang đảo Réunion tận Ấn Độ Dương, cùng nơi với vua cha Thành Thái. Hai vị vua yêu nước sống những năm dài nơi đất khách mà vẫn giữ trọn khí tiết, không chịu khuất phục thực dân.",
+        "en": "Even within the palace of Huế, under the protectorate, there were young emperors who nursed a love of country. Emperor Thành Thái (enthroned 1889) was intelligent and anti-French, often showing his displeasure with the protectorate; the French used the pretext of mental illness to depose him in 1907 and place him under guard. His son Prince Vĩnh San was set on the throne as Emperor Duy Tân at only seven — the French thought a child would be easy to command, but he grew into a man of firm will who early nursed a dream of restoration. In 1916, while the First World War kept France busy in Europe, Duy Tân secretly joined with two patriots, Trần Cao Vân and Thái Phiên of the Vietnam Restoration League, in a plot for a rising in central Vietnam, meaning to take the king out to rally the people. But the plot was betrayed, and as Duy Tân left the citadel he was recaptured by French troops. Trần Cao Vân and Thái Phiên were beheaded; Duy Tân was deposed and exiled to Réunion Island in the Indian Ocean, to the same place as his father Thành Thái. The two patriotic kings lived long years in that far land yet kept their honour whole, never submitting to the colonists."
+      },
+      "order": 5,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1907 – 1916 SCN",
+          "en": "1907 – 1916 CE"
+        },
+        "value": 1916,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Vua Thành Thái, Duy Tân và mưu khởi nghĩa 1916",
+        "en": "Thành Thái, Duy Tân and the 1916 plot"
+      },
+      "summary": {
+        "vi": "Vua Thành Thái chống Pháp bị phế (1907); con là Duy Tân lên ngôi, lớn lên mưu khởi nghĩa cùng Trần Cao Vân, Thái Phiên (1916). Việc bại lộ, hai vua bị đày sang Réunion.",
+        "en": "The anti-French emperor Thành Thái is deposed (1907); his son Duy Tân, grown, plots a rising with Trần Cao Vân and Thái Phiên (1916). Betrayed, both kings are exiled to Réunion."
+      },
+      "body": {
+        "vi": "Trong cung Huế, hai vua trẻ nuôi lòng yêu nước. Thành Thái (lên ngôi 1889) chống Pháp, bị vu bệnh tâm thần, phế năm 1907. Con là Duy Tân lên ngôi lúc bảy tuổi, lớn lên cương nghị, ôm chí phục quốc. Năm 1916, nhân Thế chiến thứ nhất, Duy Tân bí mật cùng Trần Cao Vân, Thái Phiên mưu khởi nghĩa ở Trung Kỳ. Việc bại lộ, vua bị bắt; Trần Cao Vân, Thái Phiên bị chém; vua Duy Tân bị phế, cùng cha Thành Thái bị đày sang đảo Réunion, giữ trọn khí tiết nơi lưu đày.",
+        "en": "In the palace of Huế two young emperors nursed a love of country. Thành Thái (enthroned 1889), anti-French, was deposed on a pretext of madness in 1907. His son Duy Tân took the throne at seven and grew firm-willed, dreaming of restoration. In 1916, amid the First World War, Duy Tân secretly plotted a rising in central Vietnam with Trần Cao Vân and Thái Phiên. Betrayed, the king was seized; the two patriots were beheaded; Duy Tân was deposed and exiled with his father to Réunion, keeping his honour in exile."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Tay dơ lấy nước mà rửa; nước dơ lấy máu mà rửa — vua tôi thà làm khách lưu đày còn hơn ngồi ngai vàng nô lệ.",
+          "en": "A dirty hand is washed with water; a defiled country is washed with blood — better a king in exile than a puppet on a golden throne."
+        },
+        "attribution": {
+          "vi": "tương truyền khí tiết vua Duy Tân",
+          "en": "attributed to Duy Tân's resolve"
+        }
+      },
+      "hero": {
+        "id": "vua-duy-tan-khoi-nghia-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/phong-trao-yeu-nuoc/events/vua-duy-tan-khoi-nghia.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/events/vua-duy-tan-khoi-nghia.png"
+      },
+      "citation": {
+        "work": "Việt Nam những sự kiện lịch sử (1858–1918)",
+        "section": {
+          "vi": "Vua Duy Tân và cuộc vận động 1916",
+          "en": "Emperor Duy Tân and the 1916 movement"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "khoi-nghia-yen-bai",
+      "slug": "khoi-nghia-yen-bai",
+      "figureIds": [
+        "nguyen-thai-hoc"
+      ],
+      "details": {
+        "vi": "Sang thập niên 1920, ngọn cờ cứu nước chuyển sang tay lớp trí thức, tiểu tư sản tân học. Năm 1927, Nguyễn Thái Học — một thanh niên giàu nhiệt huyết quê Vĩnh Yên — cùng các đồng chí như Phó Đức Chính, Nguyễn Khắc Nhu lập ra Việt Nam Quốc dân Đảng, noi gương Trung Hoa Quốc dân Đảng, chủ trương dùng bạo lực cách mạng đánh đổ thực dân, giành độc lập và lập nền dân chủ cộng hòa. Đảng phát triển nhanh trong binh lính và trí thức, nhưng sau vụ ám sát tên trùm mộ phu Bazin (1929), thực dân Pháp thẳng tay khủng bố, nhiều đảng viên bị bắt, tổ chức tổn thất nặng. Trước nguy cơ tan rã, Nguyễn Thái Học và ban lãnh đạo quyết định phát động tổng khởi nghĩa, với tinh thần bi tráng 'không thành công cũng thành nhân'. Đêm mồng 9 rạng mồng 10 tháng 2 năm 1930, khởi nghĩa nổ ra ở Yên Bái cùng một số nơi như Phú Thọ, Hải Dương, Thái Bình: binh lính người Việt và đảng viên đánh chiếm đồn Yên Bái, giết một số sĩ quan Pháp. Nhưng do lực lượng quá chênh lệch, chuẩn bị vội vàng và thiếu phối hợp, cuộc khởi nghĩa nhanh chóng thất bại. Thực dân Pháp đàn áp khốc liệt: ngày 17 tháng 6 năm 1930, Nguyễn Thái Học cùng mười hai đồng chí bị đưa lên máy chém ở Yên Bái, hiên ngang hô vang 'Việt Nam vạn tuế' trước khi hy sinh. Khởi nghĩa Yên Bái thất bại đánh dấu sự chấm dứt vai trò lịch sử của khuynh hướng cách mạng dân chủ tư sản; con đường cứu nước của dân tộc từ đây bước sang một trang mới.",
+        "en": "By the 1920s the banner of salvation passed to the new-learning intelligentsia and petty bourgeoisie. In 1927 Nguyễn Thái Học — an ardent young man of Vĩnh Yên — with comrades such as Phó Đức Chính and Nguyễn Khắc Nhu founded the Vietnamese Nationalist Party, modelled on the Chinese Kuomintang, aiming to overthrow the colonists by revolutionary force, win independence and establish a democratic republic. The party grew fast among soldiers and intellectuals, but after the assassination of the labour-recruiter Bazin (1929) France unleashed a fierce terror, arresting many members and gravely wounding the organization. Facing collapse, Nguyễn Thái Học and the leadership resolved on a general uprising, in the tragic spirit of 'if we do not succeed, we die as heroes.' On the night of 9–10 February 1930 the rising broke out at Yên Bái and places such as Phú Thọ, Hải Dương and Thái Bình: Vietnamese soldiers and party members stormed the Yên Bái garrison and killed several French officers. But hopelessly outmatched, hastily prepared and poorly coordinated, the rising quickly failed. France's reprisal was savage: on 17 June 1930 Nguyễn Thái Học and twelve comrades were sent to the guillotine at Yên Bái, crying out 'Long live Vietnam!' before they died. The failure of Yên Bái marked the end of the historic role of the bourgeois-democratic revolutionary current; from here the nation's search for salvation turned a new page."
+      },
+      "order": 6,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1927 – 1930 SCN",
+          "en": "1927 – 1930 CE"
+        },
+        "value": 1930,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Khởi nghĩa Yên Bái, không thành công cũng thành nhân",
+        "en": "The Yên Bái uprising"
+      },
+      "summary": {
+        "vi": "Nguyễn Thái Học lập Việt Nam Quốc dân Đảng (1927), phát động khởi nghĩa Yên Bái (2-1930). Thất bại, ông cùng 12 đồng chí lên máy chém, hô 'Việt Nam vạn tuế'.",
+        "en": "Nguyễn Thái Học founds the Vietnamese Nationalist Party (1927) and launches the Yên Bái uprising (Feb 1930). It fails, and he and twelve comrades go to the guillotine crying 'Long live Vietnam!'"
+      },
+      "body": {
+        "vi": "Thập niên 1920, lớp trí thức tiểu tư sản tiếp nối. Năm 1927 Nguyễn Thái Học lập Việt Nam Quốc dân Đảng, chủ trương bạo lực cách mạng đánh Pháp, lập dân chủ cộng hòa. Sau vụ ám sát Bazin (1929), Pháp khủng bố, đảng tổn thất. Nguyễn Thái Học quyết tổng khởi nghĩa 'không thành công cũng thành nhân'. Đêm 9–10-2-1930, khởi nghĩa nổ ra ở Yên Bái, Phú Thọ, Hải Dương, Thái Bình, nhưng nhanh chóng thất bại. Ngày 17-6-1930, ông cùng 12 đồng chí lên máy chém, hô 'Việt Nam vạn tuế'. Con đường cứu nước sang trang mới.",
+        "en": "In the 1920s the petty-bourgeois intelligentsia carried on. In 1927 Nguyễn Thái Học founded the Vietnamese Nationalist Party, aiming to overthrow France by force and found a republic. After the Bazin assassination (1929) France's terror gravely wounded the party. Nguyễn Thái Học resolved on a rising — 'if we do not succeed, we die as heroes.' On the night of 9–10 February 1930 it broke out at Yên Bái, Phú Thọ, Hải Dương and Thái Bình but quickly failed. On 17 June 1930 he and twelve comrades went to the guillotine crying 'Long live Vietnam!' The search for salvation turned a new page."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Không thành công cũng thành nhân.",
+          "en": "If we do not succeed, we die as heroes."
+        },
+        "attribution": {
+          "vi": "Nguyễn Thái Học, trước khởi nghĩa Yên Bái (1930)",
+          "en": "Nguyễn Thái Học, before the Yên Bái uprising (1930)"
+        }
+      },
+      "hero": {
+        "id": "khoi-nghia-yen-bai-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/phong-trao-yeu-nuoc/events/khoi-nghia-yen-bai.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/events/khoi-nghia-yen-bai.png"
+      },
+      "citation": {
+        "work": "Việt Nam Quốc dân Đảng",
+        "section": {
+          "vi": "Khởi nghĩa Yên Bái (1930)",
+          "en": "The Yên Bái uprising (1930)"
+        },
+        "author": "Hoàng Văn Đào"
+      }
+    }
+  ]
+}

@@ -3080,6 +3080,168 @@
         "flagship": "eras/can-vuong/characters/dong-khanh-full.png",
         "reduced": "eras/can-vuong/characters/dong-khanh-full.png"
       }
+    },
+    {
+      "id": "phan-boi-chau",
+      "name": {
+        "vi": "Phan Bội Châu",
+        "en": "Phan Bội Châu"
+      },
+      "epithet": {
+        "vi": "Chí sĩ Đông Du · Nhà cách mạng tiền bối",
+        "en": "Leader of Đông Du · pioneer revolutionary"
+      },
+      "bio": {
+        "vi": "Nhà nho yêu nước xứ Nghệ An (1867–1940), lãnh tụ tiêu biểu của khuynh hướng bạo động đầu thế kỷ XX. Ông chủ trương đánh Pháp bằng vũ lực và tranh thủ ngoại viện; năm 1904 lập Duy Tân hội, năm 1905 sang Nhật Bản dấy phong trào Đông Du, đưa hàng trăm thanh niên sang du học để đào tạo nhân tài cứu nước. Ông viết nhiều áng văn thơ nồng nàn như 'Việt Nam vong quốc sử', 'Hải ngoại huyết thư' để thức tỉnh quốc dân. Khi phong trào Đông Du bị Nhật – Pháp câu kết dập tắt (1909), ông lập Việt Nam Quang Phục Hội (1912) hướng tới cộng hòa. Năm 1925 ông bị Pháp bắt ở Thượng Hải, đưa về an trí ở Huế cho đến khi mất (1940). Cả đời bôn ba hải ngoại vì nước, ông được tôn là bậc chí sĩ tiền bối của cách mạng Việt Nam.",
+        "en": "A patriotic scholar of Nghệ An (1867–1940), the foremost figure of the early-20th-century current of armed struggle. He held that France must be fought by force and foreign aid; in 1904 he founded the Modernization Society, and in 1905 went to Japan to launch the Đông Du movement, sending hundreds of youths to study and train talent for the cause. He wrote fervent works such as the 'History of the Loss of Vietnam' and the 'Letter of Blood from Overseas' to rouse the nation. When Japan and France colluded to end Đông Du (1909), he formed the Vietnam Restoration League (1912) aiming at a republic. In 1925 the French seized him in Shanghai and confined him at Huế until his death (1940). Wandering abroad all his life for his country, he is honoured as a pioneer of Vietnam's revolution."
+      },
+      "avatar": {
+        "id": "phan-boi-chau-avatar",
+        "type": "image",
+        "flagship": "eras/phong-trao-yeu-nuoc/characters/phan-boi-chau-avatar.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/characters/phan-boi-chau-avatar.png"
+      },
+      "fullBody": {
+        "id": "phan-boi-chau-full",
+        "type": "image",
+        "flagship": "eras/phong-trao-yeu-nuoc/characters/phan-boi-chau-full.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/characters/phan-boi-chau-full.png"
+      }
+    },
+    {
+      "id": "phan-chau-trinh",
+      "name": {
+        "vi": "Phan Châu Trinh",
+        "en": "Phan Châu Trinh"
+      },
+      "epithet": {
+        "vi": "Nhà duy tân · Người khai dân trí",
+        "en": "The reformer · enlightener of the people"
+      },
+      "bio": {
+        "vi": "Nhà nho xứ Quảng Nam (1872–1926), đỗ Phó bảng, lãnh tụ tiêu biểu của khuynh hướng cải cách ôn hòa đầu thế kỷ XX. Trái với chủ trương bạo động của Phan Bội Châu, ông phản đối bạo động và cầu ngoại viện, phản đối chế độ quân chủ hủ bại; chủ trương 'khai dân trí, chấn dân khí, hậu dân sinh' — nâng cao dân trí, dân khí, dân sinh để tiến tới tự cường và dân chủ. Ông cổ vũ học chữ Quốc ngữ, mở trường, lập hội buôn, phát triển thực nghiệp, bài trừ hủ tục. Năm 1908, nhân phong trào chống thuế Trung Kỳ, ông bị Pháp bắt và đày ra Côn Đảo; sau được thả, sang Pháp hoạt động nhiều năm. Về nước năm 1925, ông mất năm 1926; đám tang của ông trở thành một cuộc vận động yêu nước rộng khắp cả nước.",
+        "en": "A scholar of Quảng Nam (1872–1926), a doctoral laureate and the foremost figure of the early-20th-century current of peaceful reform. Against Phan Bội Châu's call to arms, he opposed both violence and foreign aid and the corrupt monarchy, urging instead to 'enlighten the people's minds, strengthen their spirit, secure their livelihood' — raising the people toward self-reliance and democracy. He championed the romanized script, schools, trading houses, industry and the ending of bad customs. In 1908, amid the anti-tax rising in Annam, the French arrested and exiled him to Côn Đảo; released, he spent years active in France. Returning home in 1925, he died in 1926, and his funeral became a nationwide patriotic demonstration."
+      },
+      "avatar": {
+        "id": "phan-chau-trinh-avatar",
+        "type": "image",
+        "flagship": "eras/phong-trao-yeu-nuoc/characters/phan-chau-trinh-avatar.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/characters/phan-chau-trinh-avatar.png"
+      },
+      "fullBody": {
+        "id": "phan-chau-trinh-full",
+        "type": "image",
+        "flagship": "eras/phong-trao-yeu-nuoc/characters/phan-chau-trinh-full.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/characters/phan-chau-trinh-full.png"
+      }
+    },
+    {
+      "id": "luong-van-can",
+      "name": {
+        "vi": "Lương Văn Can",
+        "en": "Lương Văn Can"
+      },
+      "epithet": {
+        "vi": "Thục trưởng Đông Kinh Nghĩa Thục",
+        "en": "Headmaster of the Đông Kinh Free School"
+      },
+      "bio": {
+        "vi": "Nhà nho tiến bộ đất Hà Nội (1854–1927), một trong những người sáng lập và là Thục trưởng (hiệu trưởng) của trường Đông Kinh Nghĩa Thục năm 1907. Ông cùng các đồng chí mở trường dạy không lấy tiền, lấy chữ Quốc ngữ và tân học làm nền, cổ vũ lòng yêu nước, tinh thần tự cường và nếp sống văn minh, biến nhà trường thành trung tâm của phong trào duy tân ở Bắc Kỳ. Khi thực dân Pháp đóng cửa trường và đàn áp (cuối 1907), ông bị liên lụy, các con trai cũng bị tù đày vì hoạt động yêu nước. Suốt đời ông giữ khí tiết nhà nho, nêu gương về đạo làm người và tinh thần thực nghiệp, được hậu thế kính trọng như một nhà giáo dục yêu nước tiêu biểu.",
+        "en": "A progressive scholar of Hà Nội (1854–1927), a founder and the headmaster of the Đông Kinh Free School in 1907. With his comrades he opened a fee-free school built on the romanized script and new learning, promoting patriotism, self-reliance and a civilized way of life, and making it the centre of the reform movement in Tonkin. When the French closed the school and cracked down (late 1907) he was implicated, and his sons too were imprisoned for patriotic activity. All his life he kept a scholar's integrity and set an example of virtue and enterprise, honoured by later generations as a model patriotic educator."
+      },
+      "avatar": {
+        "id": "luong-van-can-avatar",
+        "type": "image",
+        "flagship": "eras/phong-trao-yeu-nuoc/characters/luong-van-can-avatar.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/characters/luong-van-can-avatar.png"
+      },
+      "fullBody": {
+        "id": "luong-van-can-full",
+        "type": "image",
+        "flagship": "eras/phong-trao-yeu-nuoc/characters/luong-van-can-full.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/characters/luong-van-can-full.png"
+      }
+    },
+    {
+      "id": "thanh-thai",
+      "name": {
+        "vi": "Thành Thái",
+        "en": "Thành Thái"
+      },
+      "epithet": {
+        "vi": "Hoàng đế chống Pháp bị phế",
+        "en": "The anti-French emperor deposed"
+      },
+      "bio": {
+        "vi": "Vị hoàng đế thứ mười nhà Nguyễn (1879–1954), lên ngôi năm 1889. Ông là người thông minh, có tư tưởng tiến bộ và tinh thần chống Pháp, thường tỏ thái độ bất mãn với chế độ bảo hộ và ngầm nuôi chí tự cường. Người Pháp lo ngại, lấy cớ ông mắc bệnh tâm thần mà ép thoái vị rồi phế truất năm 1907, đưa đi quản thúc; đến năm 1916, sau vụ khởi nghĩa của con trai ông là vua Duy Tân, cả hai cha con bị đày sang đảo Réunion ở Ấn Độ Dương. Ông sống nơi lưu đày nhiều năm, mãi đến năm 1947 mới được cho về nước, và mất năm 1954. Hậu thế nhìn nhận ông là một trong những ông vua yêu nước của triều Nguyễn thời mất nước.",
+        "en": "The tenth emperor of the Nguyễn dynasty (1879–1954), enthroned in 1889. Intelligent and progressive, with an anti-French spirit, he often showed displeasure with the protectorate and secretly nursed a will to self-strengthening. Alarmed, the French used a pretext of mental illness to force his abdication and depose him in 1907, placing him under guard; in 1916, after the uprising of his son Emperor Duy Tân, father and son were both exiled to Réunion Island in the Indian Ocean. He lived many years in exile, was allowed home only in 1947, and died in 1954. He is remembered as one of the patriotic emperors of the Nguyễn in the age of the country's loss."
+      },
+      "avatar": {
+        "id": "thanh-thai-avatar",
+        "type": "image",
+        "flagship": "eras/phong-trao-yeu-nuoc/characters/thanh-thai-avatar.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/characters/thanh-thai-avatar.png"
+      },
+      "fullBody": {
+        "id": "thanh-thai-full",
+        "type": "image",
+        "flagship": "eras/phong-trao-yeu-nuoc/characters/thanh-thai-full.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/characters/thanh-thai-full.png"
+      }
+    },
+    {
+      "id": "duy-tan",
+      "name": {
+        "vi": "Duy Tân",
+        "en": "Duy Tân"
+      },
+      "epithet": {
+        "vi": "Vua trẻ mưu phục quốc · Bị đày Réunion",
+        "en": "The young restoration king · exiled to Réunion"
+      },
+      "bio": {
+        "vi": "Vị hoàng đế thứ mười một nhà Nguyễn (1900–1945), tên thật Nguyễn Phúc Vĩnh San, con vua Thành Thái, được Pháp lập lên ngôi năm 1907 khi mới bảy tuổi. Người Pháp tưởng lập vua nhỏ dễ điều khiển, nhưng ông lớn lên lại cương nghị và giàu lòng yêu nước. Năm 1916, giữa Chiến tranh thế giới thứ nhất, ông bí mật liên kết với các chí sĩ Trần Cao Vân, Thái Phiên mưu một cuộc khởi nghĩa ở Trung Kỳ; việc bại lộ, ông bị Pháp bắt, phế truất và đày sang đảo Réunion cùng vua cha Thành Thái. Nơi đất khách, ông sống thanh bạch, giữ trọn khí tiết; trong Thế chiến thứ hai ông gia nhập quân Đồng minh chống phát xít, rồi mất trong một tai nạn máy bay năm 1945. Ông được ghi nhớ là một ông vua trẻ yêu nước, dám bỏ ngai vàng vì nghĩa lớn.",
+        "en": "The eleventh emperor of the Nguyễn dynasty (1900–1945), born Nguyễn Phúc Vĩnh San, son of Emperor Thành Thái, set on the throne by the French in 1907 at only seven. The French thought a child easy to control, but he grew firm-willed and deeply patriotic. In 1916, amid the First World War, he secretly joined the patriots Trần Cao Vân and Thái Phiên in a plot for a rising in central Vietnam; betrayed, he was seized by the French, deposed and exiled to Réunion Island with his father Thành Thái. In that far land he lived simply and kept his honour whole; during the Second World War he joined the Allied forces against fascism, then died in an air crash in 1945. He is remembered as a young patriotic king who dared give up his throne for the cause."
+      },
+      "avatar": {
+        "id": "duy-tan-avatar",
+        "type": "image",
+        "flagship": "eras/phong-trao-yeu-nuoc/characters/duy-tan-avatar.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/characters/duy-tan-avatar.png"
+      },
+      "fullBody": {
+        "id": "duy-tan-full",
+        "type": "image",
+        "flagship": "eras/phong-trao-yeu-nuoc/characters/duy-tan-full.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/characters/duy-tan-full.png"
+      }
+    },
+    {
+      "id": "nguyen-thai-hoc",
+      "name": {
+        "vi": "Nguyễn Thái Học",
+        "en": "Nguyễn Thái Học"
+      },
+      "epithet": {
+        "vi": "Lãnh tụ Việt Nam Quốc dân Đảng · Yên Bái",
+        "en": "Leader of the Nationalist Party · Yên Bái"
+      },
+      "bio": {
+        "vi": "Nhà cách mạng quê Vĩnh Yên (1902–1930), người sáng lập và lãnh tụ Việt Nam Quốc dân Đảng (1927). Noi gương Trung Hoa Quốc dân Đảng, ông chủ trương dùng bạo lực cách mạng đánh đổ thực dân Pháp, giành độc lập và lập nền dân chủ cộng hòa. Khi tổ chức bị khủng bố nặng nề sau năm 1929, ông quyết định phát động tổng khởi nghĩa với tinh thần bi tráng 'không thành công cũng thành nhân'. Đêm 9 rạng 10 tháng 2 năm 1930, khởi nghĩa Yên Bái bùng nổ nhưng nhanh chóng thất bại vì lực lượng chênh lệch. Ông bị Pháp bắt và bị đưa lên máy chém ngày 17 tháng 6 năm 1930 cùng mười hai đồng chí, hiên ngang hô vang 'Việt Nam vạn tuế' trước khi hy sinh khi mới hai mươi tám tuổi. Ông là biểu tượng bất khuất của khuynh hướng cách mạng dân tộc trước năm 1930.",
+        "en": "A revolutionary of Vĩnh Yên (1902–1930), founder and leader of the Vietnamese Nationalist Party (1927). Modelling it on the Chinese Kuomintang, he aimed to overthrow French colonial rule by revolutionary force and found a democratic republic. When his organization was gravely struck by repression after 1929, he resolved on a general uprising in the tragic spirit of 'if we do not succeed, we die as heroes.' On the night of 9–10 February 1930 the Yên Bái uprising broke out but quickly failed against overwhelming force. Captured by the French, he was sent to the guillotine on 17 June 1930 with twelve comrades, crying 'Long live Vietnam!' before he died at just twenty-eight. He stands as an unbowed symbol of the nationalist revolutionary current before 1930."
+      },
+      "avatar": {
+        "id": "nguyen-thai-hoc-avatar",
+        "type": "image",
+        "flagship": "eras/phong-trao-yeu-nuoc/characters/nguyen-thai-hoc-avatar.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/characters/nguyen-thai-hoc-avatar.png"
+      },
+      "fullBody": {
+        "id": "nguyen-thai-hoc-full",
+        "type": "image",
+        "flagship": "eras/phong-trao-yeu-nuoc/characters/nguyen-thai-hoc-full.png",
+        "reduced": "eras/phong-trao-yeu-nuoc/characters/nguyen-thai-hoc-full.png"
+      }
     }
   ]
 }

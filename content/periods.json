@@ -220,6 +220,28 @@
         "role": "cover",
         "reduced": "periods/nguyen.png"
       }
+    },
+    {
+      "id": "phap-thuoc",
+      "order": 10,
+      "title": { "vi": "Pháp thuộc & Phong trào yêu nước", "en": "French Rule & the Patriotic Movements" },
+      "kicker": { "vi": "ĐÊM TRƯỚC ĐỔI MỚI", "en": "THE COLONIAL NIGHT" },
+      "subtitle": {
+        "vi": "Mất nước dưới ách thực dân — sĩ phu và trí thức đi tìm đường cứu nước.",
+        "en": "A nation under colonial rule — scholars and intellectuals seek a way to save it."
+      },
+      "yearRange": {
+        "display": { "vi": "1897 – 1945", "en": "1897 – 1945 CE" },
+        "startYear": 1897,
+        "endYear": 1945
+      },
+      "accent": "#3f6d8c",
+      "cover": {
+        "id": "period-phap-thuoc-cover",
+        "type": "image",
+        "role": "cover",
+        "reduced": "periods/phap-thuoc.png"
+      }
     }
   ]
 }

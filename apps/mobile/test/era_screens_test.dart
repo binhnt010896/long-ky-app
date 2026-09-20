@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:viet_su/app_router.dart';
 import 'package:viet_su/state/providers.dart';
+import 'package:viet_su/widgets/timeline_bar.dart';
 
 /// Content source backed by the repo's real content/ directory on disk.
 class _DiskSource implements ContentSource {
@@ -41,6 +42,7 @@ class _DiskSource implements ContentSource {
         'thieu-tri',
         'tu-duc',
         'can-vuong',
+        'phong-trao-yeu-nuoc',
       ];
 
   @override
@@ -1033,7 +1035,7 @@ void main() {
 
       // Header reflects the full corpus; the top of the spine is the first era.
       expect(find.text('NIÊN BIỂU'), findsOneWidget);
-      expect(find.text('27 kỷ nguyên · 147 sự kiện'), findsOneWidget);
+      expect(find.text('28 kỷ nguyên · 154 sự kiện'), findsOneWidget);
       expect(find.text('Hồng Bàng & Văn Lang'), findsOneWidget);
       expect(find.text('Kinh Dương Vương lập nước'), findsOneWidget);
       // The one spine runs down through every era to the last — scroll all the
@@ -1114,7 +1116,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Kinh Dương Vương lập nước'), findsOneWidget);
-      expect(find.text('27 kỷ nguyên · 147 sự kiện'), findsOneWidget);
+      expect(find.text('28 kỷ nguyên · 154 sự kiện'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   });
@@ -1148,33 +1150,36 @@ void main() {
   });
 
   group('Territory atlas', () {
-    testWidgets('global timeline map button opens the atlas', (tester) async {
+    testWidgets('global timeline map button opens the atlas at the first era',
+        (tester) async {
       await _pumpAt(tester, '/timeline', ExperienceTier.reduced);
 
       await tester.tap(find.byIcon(Icons.map_outlined));
       await tester.pumpAndSettle();
 
       expect(find.text('BẢN ĐỒ LÃNH THỔ'), findsOneWidget);
-      expect(find.text('Việt Nam qua các thời kỳ'), findsOneWidget);
+      expect(find.text('Văn Lang'), findsWidgets); // first snapshot title
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('atlas renders with snapshot years on the timeline',
-        (tester) async {
+    testWidgets('atlas renders with the timeline scrubber', (tester) async {
       await _pumpAt(tester, '/map', ExperienceTier.reduced);
 
       expect(find.text('BẢN ĐỒ LÃNH THỔ'), findsOneWidget);
-      expect(find.text('1650'), findsWidgets); // a snapshot tick label
+      expect(find.byType(TimelineBar), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('era hub has a map button into the atlas', (tester) async {
+    testWidgets('era hub map button opens that era\'s dynasty snapshot',
+        (tester) async {
       await _pumpAt(tester, '/era/trinh-nguyen', ExperienceTier.reduced);
 
       expect(find.byIcon(Icons.map_outlined), findsOneWidget);
       await tester.tap(find.byIcon(Icons.map_outlined));
       await tester.pumpAndSettle();
-      expect(find.text('BẢN ĐỒ LÃNH THỔ'), findsOneWidget);
+      // The map opens on the Trịnh–Nguyễn snapshot, not the first era.
+      expect(find.text('Trịnh – Nguyễn'), findsWidgets);
+      expect(find.text('Đàng Ngoài'), findsWidgets); // legend force
       expect(tester.takeException(), isNull);
     });
 

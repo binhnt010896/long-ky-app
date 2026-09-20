@@ -34,7 +34,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/map',
         builder: (context, state) => TerritoryMapDemoScreen(
-          initialYear: int.tryParse(state.uri.queryParameters['year'] ?? ''),
+          initialEra: state.uri.queryParameters['era'],
         ),
       ),
       GoRoute(

@@ -116,6 +116,51 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('tapping a protectorate claim names it', (tester) async {
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: Center(
+            child: SizedBox(
+              width: 300,
+              height: 400,
+              child: TerritoryMap(
+                forces: <TerritoryRegion>[_north],
+                mapAspect: 0.75,
+                claims: <TerritoryRegion>[
+                  TerritoryRegion(
+                    id: 'tran-tay',
+                    name: 'Trấn Tây',
+                    subtitle: 'Nguyễn bảo hộ',
+                    color: Color(0xFF4F7A70),
+                    rings: <List<Offset>>[
+                      <Offset>[
+                        Offset(0.1, 0.55),
+                        Offset(0.9, 0.55),
+                        Offset(0.9, 1.0),
+                        Offset(0.1, 1.0),
+                      ],
+                    ],
+                    labelAt: Offset(0.5, 0.78),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    // Legend shows it as a protectorate.
+    expect(find.text('Trấn Tây (bảo hộ)'), findsOneWidget);
+
+    final o = tester.getTopLeft(find.byType(TerritoryMap));
+    await tester.tapAt(o + const Offset(150, 360));
+    await tester.pumpAndSettle();
+    expect(find.text('Nguyễn bảo hộ'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('reference outline renders and never steals a tap',
       (tester) async {
     await tester.pumpWidget(

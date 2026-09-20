@@ -9,26 +9,21 @@ import 'territory_atlas_data.dart';
 import 'territory_atlas_model.dart';
 
 /// The territory atlas: an interactive map of Vietnam and its neighbours across
-/// history. A timeline scrubber picks the year; the map redraws with that year's
-/// polities (real simplified borders). Tap any region, island, or neighbour to
-/// see who held it.
+/// history. A timeline scrubber picks the dynasty; the map redraws with that
+/// era's polities (real coastlines, authored borders). Tap any region, claim,
+/// island, or neighbour to see who held it. Opened for a specific era via
+/// `?era=<slug>`, or from the start when none is given.
 class TerritoryMapDemoScreen extends StatefulWidget {
-  const TerritoryMapDemoScreen({super.key, this.initialYear});
+  const TerritoryMapDemoScreen({super.key, this.initialEra});
 
-  final int? initialYear;
+  /// The era slug to open on (its dynasty snapshot). Null → the first snapshot.
+  final String? initialEra;
 
-  /// The snapshot year nearest [year] (used to map an era's date onto the atlas).
-  static int nearestYear(int year) {
-    var best = kAtlas.first.year;
-    var bestD = (best - year).abs();
-    for (final a in kAtlas) {
-      final d = (a.year - year).abs();
-      if (d < bestD) {
-        bestD = d;
-        best = a.year;
-      }
-    }
-    return best;
+  /// Index of the snapshot covering [era], or 0 if none/unknown.
+  static int snapshotIndexForEra(String? era) {
+    if (era == null) return 0;
+    final i = kAtlas.indexWhere((s) => s.eras.contains(era));
+    return i < 0 ? 0 : i;
   }
 
   @override
@@ -36,13 +31,12 @@ class TerritoryMapDemoScreen extends StatefulWidget {
 }
 
 class _TerritoryMapDemoScreenState extends State<TerritoryMapDemoScreen> {
-  late int _year;
+  late int _index;
 
   @override
   void initState() {
     super.initState();
-    _year = TerritoryMapDemoScreen.nearestYear(
-        widget.initialYear ?? kAtlas.first.year);
+    _index = TerritoryMapDemoScreen.snapshotIndexForEra(widget.initialEra);
   }
 
   Offset _centroid(List<List<Offset>> rings) {
@@ -68,13 +62,18 @@ class _TerritoryMapDemoScreenState extends State<TerritoryMapDemoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final snap = kAtlas.firstWhere((a) => a.year == _year, orElse: () => kAtlas.first);
-    final isModern = _year == kAtlas.last.year;
+    final snap = kAtlas[_index];
     final forces = <TerritoryRegion>[
-      for (final r in snap.regions) if (r.bright) _toRegion(r),
+      for (final r in snap.regions)
+        if (r.role == AtlasRole.core || r.role == AtlasRole.rival) _toRegion(r),
+    ];
+    final claims = <TerritoryRegion>[
+      for (final r in snap.regions)
+        if (r.role == AtlasRole.protectorate) _toRegion(r),
     ];
     final neighbours = <TerritoryRegion>[
-      for (final r in snap.regions) if (!r.bright) _toRegion(r),
+      for (final r in snap.regions)
+        if (r.role == AtlasRole.neighbour) _toRegion(r),
     ];
     const islandGreen = Color(0xFF4F7A70);
     final islandLands = <TerritoryRegion>[
@@ -128,8 +127,11 @@ class _TerritoryMapDemoScreenState extends State<TerritoryMapDemoScreen> {
                           ),
                         ),
                         const SizedBox(height: 2),
-                        Text('Việt Nam qua các thời kỳ',
-                            style: VSType.title.copyWith(fontSize: 18)),
+                        Text(snap.title, style: VSType.title.copyWith(fontSize: 18)),
+                        if (snap.subtitle != null)
+                          Text(snap.subtitle!,
+                              style: VSType.caption.copyWith(
+                                  color: VSColors.gold, fontSize: 12)),
                       ],
                     ),
                   ),
@@ -140,23 +142,22 @@ class _TerritoryMapDemoScreenState extends State<TerritoryMapDemoScreen> {
               padding: EdgeInsets.fromLTRB(
                   VSSpacing.xl, 6, VSSpacing.xl, VSSpacing.sm),
               child: Text(
-                'Kéo thanh thời gian để đổi năm · chạm một vùng để xem thế lực. '
+                'Kéo thanh thời gian để đổi thời kỳ · chạm một vùng để xem thế lực. '
                 'Nét đứt là ranh giới Việt Nam ngày nay.',
                 style: TextStyle(color: VSColors.inkMuted, fontSize: 12.5),
               ),
             ),
             Expanded(
               child: TerritoryMap(
-                key: ValueKey<int>(_year),
+                key: ValueKey<int>(_index),
                 forces: forces,
                 neighbours: neighbours,
+                claims: claims,
                 islandLands: islandLands,
                 mapAspect: snap.mapAspect,
                 boundary: snap.boundary,
                 boundaryLabel: snap.boundaryLabel,
-                // The present-day outline, dashed, on every historical year —
-                // hidden only on the modern year where it would be redundant.
-                reference: isModern ? null : kModernVietnam,
+                reference: kModernVietnam,
                 referenceLabel: 'Ranh giới ngày nay',
                 islands: const <TerritoryIslands>[
                   TerritoryIslands(
@@ -176,9 +177,12 @@ class _TerritoryMapDemoScreenState extends State<TerritoryMapDemoScreen> {
               padding: const EdgeInsets.fromLTRB(
                   VSSpacing.md, 0, VSSpacing.md, VSSpacing.sm),
               child: TimelineBar(
-                years: <int>[for (final a in kAtlas) a.year],
-                selected: _year,
-                onChanged: (y) => setState(() => _year = y),
+                years: <int>[for (final s in kAtlas) s.anchorYear],
+                selected: snap.anchorYear,
+                onChanged: (y) {
+                  final i = kAtlas.indexWhere((s) => s.anchorYear == y);
+                  if (i >= 0) setState(() => _index = i);
+                },
               ),
             ),
           ],

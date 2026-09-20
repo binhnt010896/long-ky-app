@@ -61,6 +61,7 @@ class TerritoryMap extends StatefulWidget {
     required this.forces,
     required this.mapAspect,
     this.neighbours = const <TerritoryRegion>[],
+    this.claims = const <TerritoryRegion>[],
     this.islandLands = const <TerritoryRegion>[],
     this.boundary,
     this.boundaryLabel,
@@ -71,6 +72,10 @@ class TerritoryMap extends StatefulWidget {
 
   final List<TerritoryRegion> forces;
   final List<TerritoryRegion> neighbours;
+
+  /// Protectorate / claimed lands (e.g. Minh Mạng over Cambodia & Laos, French
+  /// Annam–Tonkin): drawn faded + hatched, legend-listed, and tappable.
+  final List<TerritoryRegion> claims;
 
   /// Small filled island territories (Phú Quốc, Côn Đảo…): drawn bright like
   /// forces but kept out of the legend, and tappable.
@@ -125,6 +130,7 @@ class _TerritoryMapState extends State<TerritoryMap> {
 
   List<TerritoryRegion> get _all => <TerritoryRegion>[
         ...widget.neighbours,
+        ...widget.claims,
         ...widget.forces,
         ...widget.islandLands,
       ];
@@ -146,10 +152,16 @@ class _TerritoryMapState extends State<TerritoryMap> {
         return;
       }
     }
-    // Forces first (they sit above neighbours), then neighbours.
+    // Forces first (they sit above claims/neighbours), then claims, then neighbours.
     for (final f in widget.forces) {
       if (fit.path(f.rings).contains(p)) {
         setState(() => _selectedId = f.id);
+        return;
+      }
+    }
+    for (final c in widget.claims) {
+      if (fit.path(c.rings).contains(p)) {
+        setState(() => _selectedId = c.id);
         return;
       }
     }
@@ -191,6 +203,7 @@ class _TerritoryMapState extends State<TerritoryMap> {
                 painter: _TerritoryPainter(
                   forces: widget.forces,
                   neighbours: widget.neighbours,
+                  claims: widget.claims,
                   islandLands: widget.islandLands,
                   mapAspect: widget.mapAspect,
                   boundary: widget.boundary,
@@ -201,7 +214,10 @@ class _TerritoryMapState extends State<TerritoryMap> {
                   selectedId: _selectedId,
                 ),
               ),
-              _Legend(forces: widget.forces, selectedId: _selectedId),
+              _Legend(
+                  forces: widget.forces,
+                  claims: widget.claims,
+                  selectedId: _selectedId),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: _InfoCard(data: _card()),
@@ -220,6 +236,7 @@ class _TerritoryPainter extends CustomPainter {
   _TerritoryPainter({
     required this.forces,
     required this.neighbours,
+    required this.claims,
     required this.islandLands,
     required this.mapAspect,
     required this.boundary,
@@ -232,6 +249,7 @@ class _TerritoryPainter extends CustomPainter {
 
   final List<TerritoryRegion> forces;
   final List<TerritoryRegion> neighbours;
+  final List<TerritoryRegion> claims;
   final List<TerritoryRegion> islandLands;
   final double mapAspect;
   final List<Offset>? boundary;
@@ -273,6 +291,34 @@ class _TerritoryPainter extends CustomPainter {
       if (at != null) {
         _text(canvas, n.name, fit.p(at),
             color: VSColors.inkMuted, size: 9, anchor: _Anchor.center);
+      }
+    }
+
+    // Claims / protectorates: faded fill + diagonal hatch + dashed border.
+    for (final c in claims) {
+      final path = fit.path(c.rings);
+      final sel = c.id == selectedId;
+      canvas.drawPath(
+          path, Paint()..color = c.color.withValues(alpha: sel ? 0.42 : 0.28));
+      canvas.save();
+      canvas.clipPath(path);
+      _hatch(canvas, path.getBounds(),
+          c.color.withValues(alpha: sel ? 0.85 : 0.6));
+      canvas.restore();
+      _dashedPath(
+        canvas,
+        path,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.1
+          ..color = VSColors.goldBorder.withValues(alpha: sel ? 0.95 : 0.6),
+        dash: 5,
+        gap: 3,
+      );
+      final at = c.labelAt;
+      if (at != null) {
+        _text(canvas, c.name, fit.p(at),
+            color: VSColors.gold, size: 9, anchor: _Anchor.center);
       }
     }
 
@@ -389,6 +435,7 @@ class _TerritoryPainter extends CustomPainter {
       old.selectedId != selectedId ||
       old.forces != forces ||
       old.neighbours != neighbours ||
+      old.claims != claims ||
       old.islandLands != islandLands ||
       old.reference != reference;
 }
@@ -396,9 +443,41 @@ class _TerritoryPainter extends CustomPainter {
 // ─────────────────────────── overlays ───────────────────────────
 
 class _Legend extends StatelessWidget {
-  const _Legend({required this.forces, required this.selectedId});
+  const _Legend(
+      {required this.forces, required this.claims, required this.selectedId});
   final List<TerritoryRegion> forces;
+  final List<TerritoryRegion> claims;
   final String? selectedId;
+
+  Widget _row(TerritoryRegion r, {required bool claim}) {
+    final sel = r.id == selectedId;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 6),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Container(
+            width: 12,
+            height: 12,
+            decoration: BoxDecoration(
+              color: r.color.withValues(alpha: claim ? 0.3 : (sel ? 1 : 0.75)),
+              borderRadius: BorderRadius.circular(3),
+              border: Border.all(
+                color: sel ? VSColors.goldBright : VSColors.goldBorder,
+              ),
+            ),
+          ),
+          const SizedBox(width: 7),
+          Text(claim ? '${r.name} (bảo hộ)' : r.name,
+              style: VSType.caption.copyWith(
+                fontSize: 11,
+                fontStyle: claim ? FontStyle.italic : FontStyle.normal,
+                color: sel ? VSColors.inkPrimary : VSColors.inkMuted,
+              )),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -409,37 +488,8 @@ class _Legend extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          for (final f in forces)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 6),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Container(
-                    width: 12,
-                    height: 12,
-                    decoration: BoxDecoration(
-                      color: f.color
-                          .withValues(alpha: f.id == selectedId ? 1 : 0.75),
-                      borderRadius: BorderRadius.circular(3),
-                      border: Border.all(
-                        color: f.id == selectedId
-                            ? VSColors.goldBright
-                            : VSColors.goldBorder,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 7),
-                  Text(f.name,
-                      style: VSType.caption.copyWith(
-                        fontSize: 11,
-                        color: f.id == selectedId
-                            ? VSColors.inkPrimary
-                            : VSColors.inkMuted,
-                      )),
-                ],
-              ),
-            ),
+          for (final f in forces) _row(f, claim: false),
+          for (final c in claims) _row(c, claim: true),
         ],
       ),
     );
@@ -524,6 +574,19 @@ void _dashed(Canvas canvas, Offset a, Offset b, Paint paint) {
     canvas.drawLine(
         a + dir * t, a + dir * (t + dash).clamp(0, total), paint);
     t += dash + gap;
+  }
+}
+
+/// Diagonal hatch fill within [bounds] (caller clips to the region path). Used
+/// to mark protectorate / claimed land as distinct from full territory.
+void _hatch(Canvas canvas, Rect bounds, Color color) {
+  final paint = Paint()
+    ..color = color
+    ..strokeWidth = 0.8;
+  const step = 7.0;
+  for (var x = bounds.left - bounds.height; x < bounds.right; x += step) {
+    canvas.drawLine(
+        Offset(x, bounds.top), Offset(x + bounds.height, bounds.bottom), paint);
   }
 }
 
