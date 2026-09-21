@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import 'screens/chao_co/chao_co_screen.dart';
 import 'screens/character/character_detail_screen.dart';
 import 'screens/era/era_hub_screen.dart';
 import 'screens/era/era_timeline_screen.dart';
@@ -36,6 +37,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => TerritoryMapDemoScreen(
           initialEra: state.uri.queryParameters['era'],
         ),
+      ),
+      // Chào cờ — online flag salute (waving flag + Tiến quân ca + lyrics).
+      GoRoute(
+        path: '/chao-co',
+        builder: (context, state) => const ChaoCoScreen(),
       ),
       GoRoute(
         path: '/era/:slug',

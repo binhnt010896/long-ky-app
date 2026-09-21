@@ -65,3 +65,8 @@ content/**/*.png
 content/**/*.jpg
 content/**/*.jpeg
 content/**/*.webp
+content/**/*.gif
+content/**/*.mp3
+content/**/*.wav
+content/**/*.m4a
+content/**/*.mp4

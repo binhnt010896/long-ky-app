@@ -28,6 +28,8 @@ dependencies:
   go_router: ^14.6.2
   # Motion (timeline card entrances).
   flutter_animate: ^4.5.0
+  # Audio for the "Chào cờ" flag-salute page (Tiến quân ca).
+  just_audio: ^0.9.42
 
 dev_dependencies:
   flutter_test:
@@ -177,3 +179,4 @@ flutter:
     - assets/content/eras/cach-mang-thang-tam/scene/
     - assets/content/eras/cach-mang-thang-tam/events/
     - assets/content/eras/cach-mang-thang-tam/characters/
+    - assets/content/chao-co/

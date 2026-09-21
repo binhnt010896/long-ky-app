@@ -442,9 +442,54 @@ class _EventBody extends StatelessWidget {
           const SizedBox(height: VSSpacing.xl),
           EventFigures(figures: figures, slug: era.slug, lang: lang),
         ],
+        // The founding of the Democratic Republic (2-9-1945): an online flag
+        // salute — the waving flag + Tiến quân ca.
+        if (event.slug == 'cach-mang-thang-tam') ...<Widget>[
+          const SizedBox(height: VSSpacing.xl),
+          _ChaoCoButton(lang: lang),
+        ],
         const SizedBox(height: VSSpacing.xl),
         CitationCard(citation: event.citation, lang: lang),
       ],
+    );
+  }
+}
+
+/// Full-width gold CTA into the online flag salute (Chào cờ).
+class _ChaoCoButton extends StatelessWidget {
+  const _ChaoCoButton({required this.lang});
+  final Lang lang;
+
+  @override
+  Widget build(BuildContext context) {
+    final label = lang == Lang.en ? 'Salute the flag' : 'Chào cờ';
+    return GestureDetector(
+      onTap: () => context.push('/chao-co'),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(vertical: VSSpacing.md),
+        decoration: BoxDecoration(
+          color: VSColors.gold.withValues(alpha: 0.16),
+          borderRadius: VSRadii.cardAll,
+          border: Border.all(color: VSColors.goldBright),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Icon(Icons.flag, color: VSColors.goldBright, size: 20),
+            const SizedBox(width: VSSpacing.sm),
+            Text(
+              label,
+              style: VSType.label.copyWith(
+                color: VSColors.goldBright,
+                fontSize: 14,
+                letterSpacing: VSType.track(0.16, 14),
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
