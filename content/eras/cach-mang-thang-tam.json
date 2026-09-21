@@ -1,0 +1,604 @@
+{
+  "schemaVersion": 1,
+  "id": "cach-mang-thang-tam",
+  "slug": "cach-mang-thang-tam",
+  "order": 28,
+  "period": "phap-thuoc",
+  "title": {
+    "vi": "Cách mạng giải phóng dân tộc",
+    "en": "The National Liberation Revolution"
+  },
+  "kicker": {
+    "vi": "Pháp thuộc · Đảng lãnh đạo (1930 – 1945)",
+    "en": "French rule · under the Party (1930–1945)"
+  },
+  "subtitle": {
+    "vi": "Từ ngày Đảng ra đời đến mùa thu Tháng Tám — mười lăm năm đấu tranh giành lại nền độc lập.",
+    "en": "From the founding of the Party to the autumn of August — fifteen years of struggle to win back independence."
+  },
+  "overview": {
+    "vi": "Sau khi các phong trào yêu nước theo khuynh hướng phong kiến và tư sản lần lượt thất bại, ngày 3 tháng 2 năm 1930, lãnh tụ Nguyễn Ái Quốc chủ trì hợp nhất ba tổ chức cộng sản, thành lập Đảng Cộng sản Việt Nam — chấm dứt thời kỳ khủng hoảng về đường lối, mở ra một giai đoạn mới của cách mạng Việt Nam dưới sự lãnh đạo của giai cấp công nhân. Ngay năm đầu tiên, cao trào cách mạng 1930–1931 bùng lên mạnh mẽ, đỉnh cao là phong trào Xô viết Nghệ – Tĩnh, nơi lần đầu tiên chính quyền của nhân dân được lập ra ở nông thôn; thực dân Pháp thẳng tay đàn áp bằng 'khủng bố trắng'. Sau những năm tạm lắng, phong trào dân chủ 1936–1939 lại dấy lên sôi nổi dưới hình thức đấu tranh công khai đòi dân sinh, dân chủ. Chiến tranh thế giới thứ hai bùng nổ; năm 1940 phát xít Nhật kéo vào Đông Dương, nhân dân ta phải chịu cảnh 'một cổ hai tròng' Pháp – Nhật, các cuộc khởi nghĩa Bắc Sơn, Nam Kỳ nổ ra nhưng chưa thành. Năm 1941, sau ba mươi năm bôn ba, lãnh tụ Nguyễn Ái Quốc về nước, triệu tập Hội nghị Trung ương lần thứ tám, thành lập Mặt trận Việt Minh, giương cao ngọn cờ giải phóng dân tộc, xây dựng căn cứ địa và lực lượng vũ trang cách mạng. Trong khi đó, chính sách vơ vét thóc gạo của Nhật – Pháp cùng thiên tai đã gây ra nạn đói khủng khiếp cuối năm 1944 đầu năm 1945, cướp đi sinh mạng khoảng hai triệu đồng bào. Ngày 9 tháng 3 năm 1945, Nhật đảo chính Pháp; thời cơ cách mạng chín muồi, Đảng phát động cao trào kháng Nhật cứu nước, phá kho thóc cứu đói, lập khu giải phóng Việt Bắc. Khi phát xít Nhật đầu hàng Đồng minh, dưới sự lãnh đạo của Đảng và Mặt trận Việt Minh, nhân dân cả nước nhất tề đứng lên Tổng khởi nghĩa Tháng Tám năm 1945, giành chính quyền trong cả nước; vua Bảo Đại thoái vị, chấm dứt chế độ quân chủ. Ngày 2 tháng 9 năm 1945, tại Quảng trường Ba Đình, Chủ tịch Hồ Chí Minh đọc bản Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa — Nhà nước công nông đầu tiên ở Đông Nam Á, mở ra kỷ nguyên độc lập, tự do của dân tộc.",
+    "en": "After the patriotic movements of the feudal and bourgeois currents had failed one by one, on 3 February 1930 the leader Nguyễn Ái Quốc presided over the unification of three communist organizations to found the Communist Party of Vietnam — ending the crisis of direction and opening a new stage of the Vietnamese revolution under the leadership of the working class. In its very first year the revolutionary upsurge of 1930–1931 broke out, its high point the Nghệ–Tĩnh Soviet movement, where for the first time a people's authority was set up in the countryside; the French answered with a 'white terror.' After years of quiet, the democratic movement of 1936–1939 rose again through open struggle for livelihood and democratic rights. The Second World War broke out; in 1940 Japanese fascism entered Indochina and the people bore the 'double yoke' of France and Japan, while the Bắc Sơn and Nam Kỳ risings broke out but did not yet succeed. In 1941, after thirty years abroad, Nguyễn Ái Quốc returned home, convened the Eighth Plenum of the Central Committee, founded the Việt Minh Front, raised the banner of national liberation, and built base areas and revolutionary armed forces. Meanwhile the Japanese–French seizure of rice, together with natural disaster, caused a terrible famine in late 1944 and early 1945 that took the lives of some two million compatriots. On 9 March 1945 Japan overthrew the French; with the moment ripe, the Party launched the movement to resist Japan and save the nation, breaking open the rice stores against the famine and establishing the Việt Bắc liberated zone. When Japanese fascism surrendered to the Allies, under the leadership of the Party and the Việt Minh Front the whole people rose in the General Uprising of August 1945 and seized power across the country; Emperor Bảo Đại abdicated, ending the monarchy. On 2 September 1945, at Ba Đình Square, President Hồ Chí Minh read the Declaration of Independence, giving birth to the Democratic Republic of Vietnam — the first worker-peasant state in Southeast Asia — and opening an era of national independence and freedom."
+  },
+  "yearRange": {
+    "display": {
+      "vi": "1930 – 1945 SCN",
+      "en": "1930 – 1945 CE"
+    },
+    "startYear": 1930,
+    "endYear": 1945
+  },
+  "palette": {
+    "accent": "#a5312b",
+    "particle": "#e0b23e",
+    "scene": [
+      "#0c0605",
+      "#1c0a08",
+      "#3a120e",
+      "#661d16",
+      "#a5312b",
+      "#c9722f",
+      "#e0b23e"
+    ]
+  },
+  "cover": {
+    "id": "cach-mang-thang-tam-cover",
+    "type": "image",
+    "role": "cover",
+    "placeholder": "era-scene",
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    },
+    "flagship": "eras/cach-mang-thang-tam/cover.png",
+    "reduced": "eras/cach-mang-thang-tam/cover.png"
+  },
+  "scene": {
+    "layers": [
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "placeholder": "era-scene",
+        "flagship": "eras/cach-mang-thang-tam/scene/sky.png",
+        "reduced": "eras/cach-mang-thang-tam/scene/sky.png"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
+    ]
+  },
+  "primarySource": {
+    "work": "Việt Nam những sự kiện lịch sử (1919–1945)",
+    "section": {
+      "vi": "Từ khi Đảng ra đời đến Cách mạng Tháng Tám",
+      "en": "From the founding of the Party to the August Revolution"
+    },
+    "author": "Viện Sử học"
+  },
+  "characters": [
+    {
+      "ref": "ho-chi-minh"
+    },
+    {
+      "ref": "tran-phu"
+    },
+    {
+      "ref": "nguyen-thi-minh-khai"
+    },
+    {
+      "ref": "vo-nguyen-giap"
+    },
+    {
+      "ref": "bao-dai"
+    }
+  ],
+  "events": [
+    {
+      "id": "dang-cong-san-ra-doi",
+      "slug": "dang-cong-san-ra-doi",
+      "figureIds": [
+        "ho-chi-minh",
+        "tran-phu"
+      ],
+      "details": {
+        "vi": "Cuối những năm 1920, phong trào công nhân và phong trào yêu nước phát triển mạnh, chủ nghĩa Mác – Lênin được truyền bá sâu rộng, dẫn tới sự ra đời liên tiếp của ba tổ chức cộng sản: Đông Dương Cộng sản Đảng, An Nam Cộng sản Đảng và Đông Dương Cộng sản Liên đoàn. Ba tổ chức cùng hoạt động nhưng chia rẽ, công kích lẫn nhau, gây bất lợi cho cách mạng. Trước tình hình đó, với tư cách phái viên của Quốc tế Cộng sản, lãnh tụ Nguyễn Ái Quốc đã chủ trì Hội nghị hợp nhất tại Cửu Long (Hương Cảng, Trung Quốc), khai mạc ngày 6 tháng 1 và thống nhất lấy ngày 3 tháng 2 năm 1930 làm ngày thành lập Đảng Cộng sản Việt Nam. Hội nghị thông qua Chính cương vắn tắt, Sách lược vắn tắt do Nguyễn Ái Quốc soạn thảo, xác định đường lối cách mạng: đánh đổ đế quốc Pháp và phong kiến, làm cho nước Việt Nam hoàn toàn độc lập, tiến lên chủ nghĩa xã hội. Sự ra đời của Đảng chấm dứt thời kỳ khủng hoảng, bế tắc về đường lối cứu nước, khẳng định quyền lãnh đạo cách mạng thuộc về giai cấp công nhân và đội tiên phong của nó. Tháng 10 năm 1930, Hội nghị Trung ương đổi tên thành Đảng Cộng sản Đông Dương và bầu đồng chí Trần Phú làm Tổng Bí thư đầu tiên, thông qua Luận cương chính trị.",
+        "en": "In the late 1920s the workers' and patriotic movements grew strong and Marxism–Leninism spread widely, giving rise in quick succession to three communist organizations: the Indochinese Communist Party, the Annam Communist Party and the Indochinese Communist League. The three worked in parallel but were divided and attacked one another, harming the revolution. In these circumstances, as an agent of the Communist International, the leader Nguyễn Ái Quốc presided over the unification conference at Kowloon (Hong Kong), opened on 6 January, and 3 February 1930 was agreed as the founding day of the Communist Party of Vietnam. The conference adopted the brief Political Platform and Strategy drafted by Nguyễn Ái Quốc, setting the revolutionary line: overthrow French imperialism and feudalism, win Vietnam's complete independence, and advance to socialism. The Party's founding ended the crisis and deadlock over the path to save the country and affirmed that leadership of the revolution belonged to the working class and its vanguard. In October 1930 a Central Committee plenum renamed it the Indochinese Communist Party, elected comrade Trần Phú as its first General Secretary, and adopted the Political Theses."
+      },
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "3 tháng 2, 1930 SCN",
+          "en": "3 February 1930 CE"
+        },
+        "value": 1930,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Đảng Cộng sản Việt Nam ra đời",
+        "en": "The Communist Party of Vietnam is founded"
+      },
+      "summary": {
+        "vi": "3-2-1930, Nguyễn Ái Quốc chủ trì hợp nhất ba tổ chức cộng sản tại Hương Cảng, lập Đảng Cộng sản Việt Nam, chấm dứt khủng hoảng đường lối. Trần Phú làm Tổng Bí thư đầu tiên.",
+        "en": "On 3 Feb 1930 Nguyễn Ái Quốc unifies three communist groups at Hong Kong to found the Communist Party of Vietnam, ending the crisis of direction. Trần Phú becomes its first General Secretary."
+      },
+      "body": {
+        "vi": "Cuối thập niên 1920, ba tổ chức cộng sản ra đời nhưng chia rẽ. Ngày 3-2-1930, lãnh tụ Nguyễn Ái Quốc chủ trì Hội nghị hợp nhất tại Hương Cảng, thành lập Đảng Cộng sản Việt Nam, thông qua Chính cương, Sách lược vắn tắt: đánh đổ đế quốc và phong kiến, giành độc lập, tiến lên chủ nghĩa xã hội. Đảng ra đời chấm dứt khủng hoảng đường lối cứu nước. Tháng 10-1930, Đảng đổi tên thành Đảng Cộng sản Đông Dương, bầu Trần Phú làm Tổng Bí thư đầu tiên.",
+        "en": "In the late 1920s three communist groups arose but were divided. On 3 Feb 1930 Nguyễn Ái Quốc chaired the unification conference at Hong Kong, founding the Communist Party of Vietnam and adopting the brief Platform and Strategy: overthrow imperialism and feudalism, win independence, advance to socialism. Its founding ended the crisis over the path to save the country. In October 1930 it was renamed the Indochinese Communist Party and elected Trần Phú its first General Secretary."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Đảng ra đời là bước ngoặt vĩ đại, chấm dứt thời kỳ khủng hoảng về đường lối cứu nước của dân tộc.",
+          "en": "The Party's birth was a great turning point, ending the nation's crisis over the path to save the country."
+        },
+        "attribution": {
+          "vi": "về ý nghĩa thành lập Đảng (1930)",
+          "en": "on the significance of the Party's founding (1930)"
+        }
+      },
+      "hero": {
+        "id": "dang-cong-san-ra-doi-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/cach-mang-thang-tam/events/dang-cong-san-ra-doi.png",
+        "reduced": "eras/cach-mang-thang-tam/events/dang-cong-san-ra-doi.png"
+      },
+      "citation": {
+        "work": "Lịch sử Đảng Cộng sản Việt Nam",
+        "section": {
+          "vi": "Tập 1 · Thành lập Đảng (1930)",
+          "en": "Vol. 1 · The founding of the Party (1930)"
+        },
+        "author": "Viện Lịch sử Đảng"
+      }
+    },
+    {
+      "id": "xo-viet-nghe-tinh",
+      "slug": "xo-viet-nghe-tinh",
+      "figureIds": [
+        "tran-phu"
+      ],
+      "details": {
+        "vi": "Ngay sau khi Đảng ra đời, một cao trào cách mạng rộng lớn đã bùng lên trong hai năm 1930–1931, mà đỉnh cao là phong trào Xô viết Nghệ – Tĩnh. Hưởng ứng lời kêu gọi của Đảng, nhân dịp kỷ niệm Ngày Quốc tế Lao động 1-5-1930, công nhân và nông dân khắp nơi vùng lên đấu tranh. Tại hai tỉnh Nghệ An và Hà Tĩnh, phong trào phát triển mạnh mẽ nhất: hàng vạn nông dân biểu tình, tuần hành có tự vệ vũ trang đi đầu, kéo đến huyện đường đòi giảm sưu thuế, chia lại ruộng đất. Tiêu biểu là cuộc biểu tình khổng lồ ngày 12-9-1930 của nông dân huyện Hưng Nguyên, bị thực dân Pháp cho máy bay ném bom giết hại hàng trăm người. Trước khí thế cách mạng, chính quyền của địch ở nhiều nơi tan rã; các tổ chức Đảng và Nông hội đỏ đã đứng ra quản lý, điều hành mọi mặt đời sống theo kiểu các Xô viết — thực hiện các quyền tự do dân chủ, xóa bỏ sưu thuế vô lý, chia lại ruộng đất công, lập các đội tự vệ. Đây là lần đầu tiên nhân dân ta được làm chủ vận mệnh của mình. Hoảng sợ, thực dân Pháp tập trung lực lượng khủng bố cực kỳ tàn bạo — 'khủng bố trắng' — dìm phong trào trong biển máu; đến giữa năm 1931 phong trào tạm lắng. Dù bị dập tắt, Xô viết Nghệ – Tĩnh là cuộc tổng diễn tập đầu tiên của cách mạng, khẳng định đường lối đúng đắn và sức mạnh của khối liên minh công – nông.",
+        "en": "Immediately after the Party's founding, a broad revolutionary upsurge broke out across 1930–1931, its high point the Nghệ–Tĩnh Soviet movement. Answering the Party's call, on the occasion of International Workers' Day, 1 May 1930, workers and peasants rose everywhere. In the two provinces of Nghệ An and Hà Tĩnh the movement grew strongest: tens of thousands of peasants demonstrated and marched behind armed self-defence units, converging on the district offices to demand tax cuts and the redistribution of land. Emblematic was the vast demonstration of 12 September 1930 by the peasants of Hưng Nguyên district, on whom the French dropped bombs, killing hundreds. Before this momentum the enemy's authority collapsed in many places; Party cells and the Red Peasants' Associations stepped in to administer daily life in the manner of soviets — enacting democratic freedoms, abolishing unjust taxes, redistributing communal land and forming self-defence squads. It was the first time our people were masters of their own fate. In terror the French concentrated their forces in an utterly savage repression — the 'white terror' — drowning the movement in blood; by mid-1931 it subsided. Though crushed, the Nghệ–Tĩnh Soviet was the revolution's first general rehearsal, proving the correctness of the line and the strength of the worker–peasant alliance."
+      },
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1930 – 1931 SCN",
+          "en": "1930 – 1931 CE"
+        },
+        "value": 1930,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Cao trào Xô viết Nghệ – Tĩnh",
+        "en": "The Nghệ–Tĩnh Soviet upsurge"
+      },
+      "summary": {
+        "vi": "Cao trào 1930–1931 đỉnh cao là Xô viết Nghệ – Tĩnh: công nông biểu tình, lập chính quyền kiểu Xô viết, chia ruộng, xóa sưu thuế. Pháp 'khủng bố trắng' dìm trong máu.",
+        "en": "The 1930–1931 upsurge peaks in the Nghệ–Tĩnh Soviet: workers and peasants demonstrate, set up soviet-style authority, share land and abolish taxes. France drowns it in a 'white terror.'"
+      },
+      "body": {
+        "vi": "Sau khi Đảng ra đời, cao trào 1930–1931 bùng lên, đỉnh cao là Xô viết Nghệ – Tĩnh. Nhân ngày 1-5-1930, công nông vùng lên; ở Nghệ An, Hà Tĩnh hàng vạn nông dân biểu tình có tự vệ, kéo đến huyện đường đòi giảm sưu thuế (cuộc biểu tình Hưng Nguyên 12-9-1930 bị Pháp ném bom). Chính quyền địch tan rã, Đảng và Nông hội lập chính quyền kiểu Xô viết: chia ruộng, xóa sưu thuế, lập tự vệ. Pháp 'khủng bố trắng' tàn bạo, đến giữa 1931 phong trào tạm lắng. Đây là cuộc tổng diễn tập đầu tiên của cách mạng.",
+        "en": "After the Party's founding, the 1930–1931 upsurge broke out, peaking in the Nghệ–Tĩnh Soviet. On 1 May 1930 workers and peasants rose; in Nghệ An and Hà Tĩnh tens of thousands marched behind self-defence units on the district offices for tax relief (the Hưng Nguyên demonstration of 12 Sep 1930 was bombed by the French). The enemy's authority collapsed and the Party and Peasants' Associations set up soviet-style rule: land sharing, tax abolition, self-defence. France's savage 'white terror' subdued it by mid-1931. It was the revolution's first general rehearsal."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Kìa Bến Thủy đứng đầu dậy trước, Nọ Thanh Chương tiếp bước đứng lên — công nông mình đã vùng dậy làm chủ.",
+          "en": "There Bến Thủy rose up first, and Thanh Chương stepped up next — the workers and peasants have risen to be masters."
+        },
+        "attribution": {
+          "vi": "ca dao cách mạng về Xô viết Nghệ – Tĩnh",
+          "en": "revolutionary folk verse on the Nghệ–Tĩnh Soviet"
+        }
+      },
+      "hero": {
+        "id": "xo-viet-nghe-tinh-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/cach-mang-thang-tam/events/xo-viet-nghe-tinh.png",
+        "reduced": "eras/cach-mang-thang-tam/events/xo-viet-nghe-tinh.png"
+      },
+      "citation": {
+        "work": "Việt Nam những sự kiện lịch sử (1919–1945)",
+        "section": {
+          "vi": "Cao trào cách mạng 1930 – 1931",
+          "en": "The revolutionary upsurge of 1930–1931"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "phong-trao-dan-chu",
+      "slug": "phong-trao-dan-chu",
+      "figureIds": [],
+      "details": {
+        "vi": "Sau mấy năm bị địch khủng bố, đến giữa thập niên 1930 tình hình thế giới và trong nước có nhiều chuyển biến. Chủ nghĩa phát xít xuất hiện, đe dọa hòa bình; Đại hội VII Quốc tế Cộng sản (1935) chủ trương lập mặt trận nhân dân chống phát xít. Ở Pháp, Mặt trận Bình dân thắng cử và lên cầm quyền (1936), ban hành một số chính sách nới lỏng ở thuộc địa. Nắm bắt thời cơ, Đảng ta chuyển hướng chỉ đạo chiến lược, chủ trương tạm gác khẩu hiệu độc lập để tập trung vào mục tiêu trước mắt là chống phát xít, chống chiến tranh, đòi tự do, dân chủ, cơm áo và hòa bình. Đảng lập Mặt trận Dân chủ Đông Dương, kết hợp đấu tranh bí mật với đấu tranh công khai, hợp pháp và nửa hợp pháp. Một phong trào quần chúng rộng lớn dấy lên khắp cả nước: phong trào Đông Dương Đại hội, các cuộc mít tinh, biểu tình, bãi công đòi dân sinh dân chủ, đấu tranh trên báo chí và cả trong nghị trường. Đây là thời kỳ Đảng tập hợp được lực lượng chính trị hùng hậu, giác ngộ quần chúng, đào tạo cán bộ — một cuộc tổng diễn tập thứ hai chuẩn bị cho Cách mạng Tháng Tám. Đến năm 1939, khi Chiến tranh thế giới thứ hai bùng nổ, thực dân Pháp trở mặt đàn áp, phong trào dân chủ kết thúc.",
+        "en": "After years of enemy repression, by the mid-1930s much had changed at home and abroad. Fascism had arisen, threatening peace; the Seventh Congress of the Communist International (1935) called for popular fronts against fascism. In France the Popular Front won power (1936) and eased some colonial policies. Seizing the moment, the Party shifted its strategic direction, temporarily setting aside the slogan of independence to focus on the immediate goals of opposing fascism and war and demanding freedom, democracy, bread and peace. It formed the Indochinese Democratic Front, combining secret struggle with open, legal and semi-legal action. A vast mass movement rose across the country: the Indochina Congress movement, rallies, demonstrations and strikes for livelihood and democratic rights, and struggle in the press and even in the colonial assemblies. In this period the Party gathered a powerful political force, awakened the masses and trained cadres — a second general rehearsal for the August Revolution. When the Second World War broke out in 1939, the French turned to repression and the democratic movement ended."
+      },
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1936 – 1939 SCN",
+          "en": "1936 – 1939 CE"
+        },
+        "value": 1936,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Phong trào dân chủ, cuộc tổng diễn tập thứ hai",
+        "en": "The democratic movement, a second rehearsal"
+      },
+      "summary": {
+        "vi": "1936–1939, nhân Mặt trận Bình dân Pháp cầm quyền, Đảng lập Mặt trận Dân chủ Đông Dương, đấu tranh công khai đòi dân sinh, dân chủ, cơm áo, hòa bình — tổng diễn tập thứ hai.",
+        "en": "In 1936–1939, with the French Popular Front in power, the Party forms the Indochinese Democratic Front and struggles openly for livelihood, democracy, bread and peace — a second rehearsal."
+      },
+      "body": {
+        "vi": "Giữa thập niên 1930, phát xít đe dọa hòa bình; Quốc tế Cộng sản chủ trương lập mặt trận nhân dân, Mặt trận Bình dân Pháp cầm quyền (1936). Đảng chuyển hướng, tạm gác khẩu hiệu độc lập, lập Mặt trận Dân chủ Đông Dương, kết hợp đấu tranh bí mật và công khai đòi tự do, dân chủ, cơm áo, hòa bình. Phong trào quần chúng rộng lớn (Đông Dương Đại hội, mít tinh, bãi công, đấu tranh báo chí, nghị trường) giác ngộ quần chúng, đào tạo cán bộ — tổng diễn tập thứ hai. Năm 1939 chiến tranh nổ ra, Pháp đàn áp, phong trào kết thúc.",
+        "en": "By the mid-1930s fascism threatened peace; the Comintern urged popular fronts and the French Popular Front took power (1936). The Party shifted course, set aside the independence slogan and formed the Indochinese Democratic Front, combining secret and open struggle for freedom, democracy, bread and peace. A vast mass movement (the Indochina Congress, rallies, strikes, press and assembly struggle) awakened the masses and trained cadres — a second rehearsal. When war broke out in 1939 the French cracked down and the movement ended."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Tạm gác khẩu hiệu ruộng đất và độc lập, giương cao ngọn cờ tự do, dân chủ, cơm áo và hòa bình.",
+          "en": "Setting aside for now the slogans of land and independence, raising high the banner of freedom, democracy, bread and peace."
+        },
+        "attribution": {
+          "vi": "chủ trương của Đảng thời kỳ 1936 – 1939",
+          "en": "the Party's line in the 1936–1939 period"
+        }
+      },
+      "hero": {
+        "id": "phong-trao-dan-chu-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/cach-mang-thang-tam/events/phong-trao-dan-chu.png",
+        "reduced": "eras/cach-mang-thang-tam/events/phong-trao-dan-chu.png"
+      },
+      "citation": {
+        "work": "Việt Nam những sự kiện lịch sử (1919–1945)",
+        "section": {
+          "vi": "Phong trào dân chủ 1936 – 1939",
+          "en": "The democratic movement of 1936–1939"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "khoi-nghia-1940",
+      "slug": "khoi-nghia-1940",
+      "figureIds": [
+        "nguyen-thi-minh-khai"
+      ],
+      "details": {
+        "vi": "Chiến tranh thế giới thứ hai bùng nổ. Tháng 6 năm 1940, phát xít Đức đánh bại Pháp ở châu Âu; nhân cơ hội đó, tháng 9 năm 1940 phát xít Nhật kéo quân vào Đông Dương. Thực dân Pháp nhanh chóng đầu hàng, cấu kết với Nhật để cùng thống trị, bóc lột nhân dân ta — nhân dân Đông Dương phải chịu cảnh 'một cổ hai tròng'. Mâu thuẫn giữa dân tộc ta với đế quốc phát xít Pháp – Nhật trở nên gay gắt, làm bùng lên những cuộc khởi nghĩa. Tháng 9 năm 1940, đồng bào các dân tộc Bắc Sơn (Lạng Sơn) nổi dậy khởi nghĩa nhân lúc quân Pháp tan rã trước đòn tiến công của Nhật, lập nên đội du kích Bắc Sơn — tiền thân của lực lượng vũ trang cách mạng. Tháng 11 năm 1940, khởi nghĩa Nam Kỳ nổ ra rộng khắp các tỉnh Nam Bộ; lần đầu tiên lá cờ đỏ sao vàng xuất hiện. Đầu năm 1941, binh lính người Việt ở đồn Chợ Rạng, Đô Lương (Nghệ An) cũng nổi dậy. Do thời cơ chưa chín muồi và kế hoạch bị lộ, các cuộc khởi nghĩa lần lượt bị thực dân Pháp dìm trong máu; nhiều cán bộ, đảng viên ưu tú bị bắt và hy sinh, trong đó có đồng chí Nguyễn Thị Minh Khai. Tuy thất bại, các cuộc khởi nghĩa đã nêu cao tinh thần bất khuất và để lại những bài học quý báu về khởi nghĩa vũ trang.",
+        "en": "The Second World War broke out. In June 1940 German fascism defeated France in Europe; seizing the chance, in September 1940 Japanese fascism marched into Indochina. The French quickly capitulated and colluded with Japan to rule and exploit our people together — the peoples of Indochina bore a 'double yoke.' The conflict between our nation and the Franco-Japanese fascists grew sharp and set off uprisings. In September 1940 the peoples of Bắc Sơn (Lạng Sơn) rose up as French troops crumbled under the Japanese blow, forming the Bắc Sơn guerrilla unit — a forerunner of the revolutionary armed forces. In November 1940 the Nam Kỳ (Cochinchina) uprising broke out across the southern provinces, and the red flag with the gold star appeared for the first time. In early 1941 Vietnamese soldiers at the Chợ Rạng and Đô Lương posts in Nghệ An also rose. Because the moment was not yet ripe and the plans were exposed, the risings were each drowned in blood by the French; many fine cadres and Party members were seized and fell, among them comrade Nguyễn Thị Minh Khai. Though they failed, the risings raised high an indomitable spirit and left precious lessons for armed insurrection."
+      },
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1940 – 1941 SCN",
+          "en": "1940 – 1941 CE"
+        },
+        "value": 1940,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Nhật vào Đông Dương; Bắc Sơn, Nam Kỳ khởi nghĩa",
+        "en": "Japan enters Indochina; the Bắc Sơn and Nam Kỳ risings"
+      },
+      "summary": {
+        "vi": "1940, Nhật vào Đông Dương, Pháp đầu hàng cấu kết — dân ta 'một cổ hai tròng'. Khởi nghĩa Bắc Sơn, Nam Kỳ (cờ đỏ sao vàng lần đầu xuất hiện) nổ ra nhưng bị đàn áp.",
+        "en": "In 1940 Japan enters Indochina and France capitulates and colludes — the people bear a 'double yoke.' The Bắc Sơn and Nam Kỳ risings (the gold-star red flag first appears) break out but are suppressed."
+      },
+      "body": {
+        "vi": "Tháng 9-1940, Nhật kéo vào Đông Dương, Pháp đầu hàng và cấu kết cùng thống trị — dân ta 'một cổ hai tròng'. Mâu thuẫn dân tộc gay gắt làm bùng khởi nghĩa: Bắc Sơn (9-1940) lập đội du kích Bắc Sơn; Nam Kỳ (11-1940) nổ ra khắp Nam Bộ, cờ đỏ sao vàng lần đầu xuất hiện; binh biến Đô Lương (đầu 1941). Thời cơ chưa chín, kế hoạch bị lộ, các cuộc khởi nghĩa bị Pháp dìm trong máu; nhiều đảng viên hy sinh, có Nguyễn Thị Minh Khai. Thất bại nhưng để lại bài học quý về khởi nghĩa vũ trang.",
+        "en": "In September 1940 Japan entered Indochina, France capitulated and colluded in joint rule — the people bore a 'double yoke.' Sharp national conflict set off risings: Bắc Sơn (Sep 1940) formed its guerrilla unit; the Nam Kỳ rising (Nov 1940) spread across the South, where the gold-star red flag first appeared; the Đô Lương mutiny (early 1941). The moment unripe and plans exposed, the risings were drowned in blood; many Party members fell, including Nguyễn Thị Minh Khai. They failed but left precious lessons for armed insurrection."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Một cổ hai tròng, dân ta gánh chịu ách Pháp – Nhật; nhưng cờ đỏ sao vàng đã lần đầu tung bay.",
+          "en": "A double yoke — our people bore both the French and the Japanese; yet the gold-star red flag flew for the first time."
+        },
+        "attribution": {
+          "vi": "về các cuộc khởi nghĩa năm 1940",
+          "en": "on the risings of 1940"
+        }
+      },
+      "hero": {
+        "id": "khoi-nghia-1940-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/cach-mang-thang-tam/events/khoi-nghia-1940.png",
+        "reduced": "eras/cach-mang-thang-tam/events/khoi-nghia-1940.png"
+      },
+      "citation": {
+        "work": "Việt Nam những sự kiện lịch sử (1919–1945)",
+        "section": {
+          "vi": "Nhật vào Đông Dương; khởi nghĩa Bắc Sơn, Nam Kỳ (1940)",
+          "en": "Japan in Indochina; the Bắc Sơn and Nam Kỳ risings (1940)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "mat-tran-viet-minh",
+      "slug": "mat-tran-viet-minh",
+      "figureIds": [
+        "ho-chi-minh",
+        "vo-nguyen-giap"
+      ],
+      "details": {
+        "vi": "Ngày 28 tháng 1 năm 1941, sau ba mươi năm bôn ba tìm đường cứu nước, lãnh tụ Nguyễn Ái Quốc trở về Tổ quốc, đặt cơ quan chỉ đạo tại hang Pác Bó (Cao Bằng). Tháng 5 năm 1941, Người chủ trì Hội nghị lần thứ tám Ban Chấp hành Trung ương Đảng, đánh dấu bước chuyển hướng chỉ đạo chiến lược quan trọng: đặt nhiệm vụ giải phóng dân tộc lên hàng đầu, tạm gác khẩu hiệu cách mạng ruộng đất, chủ trương thành lập ở mỗi nước một mặt trận riêng. Hội nghị quyết định lập Việt Nam Độc lập Đồng minh, gọi tắt là Mặt trận Việt Minh, nhằm đoàn kết rộng rãi mọi tầng lớp nhân dân yêu nước, không phân biệt giai cấp, tôn giáo, đảng phái, để đánh Pháp đuổi Nhật, giành độc lập. Việt Minh nhanh chóng phát triển, xây dựng các đoàn thể cứu quốc và căn cứ địa cách mạng ở vùng rừng núi Cao – Bắc – Lạng. Lực lượng vũ trang cách mạng từng bước hình thành: từ đội du kích Bắc Sơn phát triển thành Cứu quốc quân, rồi ngày 22 tháng 12 năm 1944, theo chỉ thị của lãnh tụ Hồ Chí Minh, đồng chí Võ Nguyên Giáp thành lập Đội Việt Nam Tuyên truyền Giải phóng quân — tiền thân của Quân đội nhân dân Việt Nam. Đường lối giương cao ngọn cờ giải phóng dân tộc và việc xây dựng Mặt trận Việt Minh là sự chuẩn bị trực tiếp, có ý nghĩa quyết định dẫn tới thắng lợi của Cách mạng Tháng Tám.",
+        "en": "On 28 January 1941, after thirty years abroad seeking a path to save the country, the leader Nguyễn Ái Quốc returned to the homeland and set his headquarters at the Pác Bó cave in Cao Bằng. In May 1941 he chaired the Eighth Plenum of the Party Central Committee, a major strategic turn: placing national liberation first, setting aside the agrarian-revolution slogan and calling for a separate front in each country. The plenum decided to form the League for the Independence of Vietnam — the Việt Minh Front — to unite broadly all patriotic strata regardless of class, religion or party, to fight the French and drive out the Japanese and win independence. The Việt Minh grew fast, building national-salvation associations and revolutionary base areas in the mountain regions of Cao Bằng, Bắc Kạn and Lạng Sơn. Revolutionary armed forces took shape step by step: the Bắc Sơn guerrillas grew into the National Salvation Army, and on 22 December 1944, on the instruction of the leader Hồ Chí Minh, comrade Võ Nguyên Giáp founded the Vietnam Propaganda Liberation Army Unit — forerunner of the Vietnam People's Army. Raising high the banner of national liberation and building the Việt Minh Front was the direct, decisive preparation for the victory of the August Revolution."
+      },
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1941 – 1944 SCN",
+          "en": "1941 – 1944 CE"
+        },
+        "value": 1941,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Nguyễn Ái Quốc về nước, lập Mặt trận Việt Minh",
+        "en": "The return home and the founding of the Việt Minh"
+      },
+      "summary": {
+        "vi": "1941, Nguyễn Ái Quốc về nước (Pác Bó), chủ trì Hội nghị TW 8, đặt giải phóng dân tộc lên hàng đầu, lập Mặt trận Việt Minh; xây căn cứ Cao – Bắc – Lạng. 1944 lập Đội Tuyên truyền Giải phóng quân.",
+        "en": "In 1941 Nguyễn Ái Quốc returns (Pác Bó), chairs the 8th Plenum, puts national liberation first and founds the Việt Minh; builds bases in Cao–Bắc–Lạng. In 1944 the Propaganda Liberation Army Unit is formed."
+      },
+      "body": {
+        "vi": "Ngày 28-1-1941, sau ba mươi năm bôn ba, Nguyễn Ái Quốc về nước, đặt cơ quan tại Pác Bó (Cao Bằng). Tháng 5-1941, Người chủ trì Hội nghị Trung ương 8, đặt nhiệm vụ giải phóng dân tộc lên hàng đầu, lập Việt Nam Độc lập Đồng minh (Việt Minh) đoàn kết mọi tầng lớp đánh Pháp đuổi Nhật. Việt Minh xây các đoàn thể cứu quốc và căn cứ Cao – Bắc – Lạng; lực lượng vũ trang hình thành: Cứu quốc quân, rồi Đội Việt Nam Tuyên truyền Giải phóng quân (22-12-1944) do Võ Nguyên Giáp lập — tiền thân Quân đội nhân dân. Đây là sự chuẩn bị trực tiếp cho Cách mạng Tháng Tám.",
+        "en": "On 28 Jan 1941, after thirty years abroad, Nguyễn Ái Quốc returned home to Pác Bó (Cao Bằng). In May 1941 he chaired the 8th Plenum, putting national liberation first and founding the Việt Minh to unite all strata against France and Japan. The Việt Minh built salvation associations and bases in Cao–Bắc–Lạng; armed forces took shape: the National Salvation Army, then the Vietnam Propaganda Liberation Army Unit (22 Dec 1944) founded by Võ Nguyên Giáp — forerunner of the People's Army. This was the direct preparation for the August Revolution."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Trong lúc này quyền lợi giải phóng dân tộc cao hơn hết thảy. Chúng ta hãy đoàn kết lại đánh đổ bọn đế quốc và Việt gian.",
+          "en": "At this hour the cause of national liberation is above all else. Let us unite to overthrow the imperialists and the traitors."
+        },
+        "attribution": {
+          "vi": "Nguyễn Ái Quốc, Kính cáo đồng bào (1941)",
+          "en": "Nguyễn Ái Quốc, Letter to the compatriots (1941)"
+        }
+      },
+      "hero": {
+        "id": "mat-tran-viet-minh-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/cach-mang-thang-tam/events/mat-tran-viet-minh.png",
+        "reduced": "eras/cach-mang-thang-tam/events/mat-tran-viet-minh.png"
+      },
+      "citation": {
+        "work": "Việt Nam những sự kiện lịch sử (1919–1945)",
+        "section": {
+          "vi": "Hội nghị Trung ương 8 và Mặt trận Việt Minh (1941)",
+          "en": "The 8th Plenum and the Việt Minh Front (1941)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "nan-doi-at-dau",
+      "slug": "nan-doi-at-dau",
+      "figureIds": [],
+      "details": {
+        "vi": "Trong những năm cuối của ách thống trị Pháp – Nhật, nhân dân ta, nhất là ở đồng bằng Bắc Bộ và Bắc Trung Bộ, phải gánh chịu một thảm họa khủng khiếp: nạn đói năm Ất Dậu (cuối năm 1944 – đầu năm 1945). Nguyên nhân chính là chính sách vơ vét tàn bạo của phát xít Nhật và thực dân Pháp: bắt dân nhổ lúa, phá hoa màu để trồng đay, thầu dầu phục vụ chiến tranh; thu mua thóc tạ theo lối cưỡng bức với giá rẻ mạt; tích trữ, độc quyền lương thực. Thêm vào đó là thiên tai, mất mùa, vỡ đê, và việc quân Đồng minh ném bom cắt đứt đường vận chuyển gạo từ Nam ra Bắc. Hậu quả là trong khi ở Nam Kỳ thóc gạo ế thừa phải đem đốt thay than thì ở miền Bắc, người dân chết đói hàng loạt. Chỉ trong vài tháng, khoảng hai triệu đồng bào ta đã chết đói — những cảnh tượng thê thảm chưa từng có trong lịch sử dân tộc: người chết đầy đường, cả làng, cả gia đình chết không còn ai. Nạn đói làm phơi bày đến tận cùng bản chất tàn bạo của chế độ thực dân, phát xít; đồng thời càng thổi bùng lòng căm thù và ý chí vùng dậy của quần chúng. Đảng đã kịp thời đề ra khẩu hiệu 'Phá kho thóc, giải quyết nạn đói', biến phong trào cứu đói thành động lực trực tiếp thúc đẩy quần chúng đứng lên tổng khởi nghĩa.",
+        "en": "In the last years of Franco-Japanese rule our people, especially in the northern delta and north-central coast, suffered a terrible catastrophe: the famine of the year Ất Dậu (late 1944 to early 1945). Its chief cause was the savage requisition policy of the Japanese fascists and the French: forcing peasants to uproot rice and destroy crops to plant jute and castor for the war; buying up paddy by force at a pittance; and hoarding and monopolizing food. To this were added natural disaster, crop failure, broken dykes, and the Allied bombing that severed the rice transport from South to North. As a result, while in Cochinchina surplus rice was burned in place of coal, in the North people died of hunger en masse. In just a few months about two million of our compatriots starved to death — scenes of misery without precedent in the nation's history: the dead lay in the streets, whole villages and families died to the last. The famine laid utterly bare the brutal nature of the colonial-fascist regime and fanned the people's hatred and will to rise. The Party promptly raised the slogan 'Break open the rice stores, solve the famine,' turning the anti-famine movement into a direct force driving the masses toward the general uprising."
+      },
+      "order": 5,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1944 – 1945 SCN",
+          "en": "1944 – 1945 CE"
+        },
+        "value": 1945,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Nạn đói Ất Dậu, hai triệu đồng bào chết đói",
+        "en": "The Ất Dậu famine; two million perish"
+      },
+      "summary": {
+        "vi": "Cuối 1944 – đầu 1945, chính sách vơ vét của Nhật – Pháp cùng thiên tai và bom Đồng minh cắt đường gạo gây nạn đói Ất Dậu, khoảng hai triệu đồng bào chết đói. Đảng nêu 'phá kho thóc cứu đói'.",
+        "en": "In late 1944–early 1945, Franco-Japanese requisition, disaster and Allied bombing of the rice route caused the Ất Dậu famine; about two million compatriots starved. The Party raised 'break open the rice stores.'"
+      },
+      "body": {
+        "vi": "Cuối 1944 – đầu 1945, nhân dân miền Bắc và Bắc Trung Bộ chịu nạn đói Ất Dậu khủng khiếp. Nguyên nhân chính: Nhật – Pháp bắt dân nhổ lúa trồng đay, cưỡng bức thu thóc, độc quyền lương thực; cộng với thiên tai, vỡ đê và bom Đồng minh cắt đường chở gạo từ Nam ra Bắc. Khoảng hai triệu đồng bào chết đói, cảnh tượng thê thảm chưa từng có. Nạn đói phơi bày sự tàn bạo của thực dân, phát xít và thổi bùng ý chí vùng dậy; Đảng nêu khẩu hiệu 'phá kho thóc, giải quyết nạn đói'.",
+        "en": "In late 1944–early 1945 the people of the North and north-central coast suffered the terrible Ất Dậu famine. Its chief causes: the Japanese and French forced peasants to uproot rice for jute, requisitioned paddy and monopolized food; with disaster, broken dykes and Allied bombing that cut the rice route from South to North. About two million starved, in scenes of unprecedented misery. The famine exposed the brutality of the colonial-fascist regime and fanned the will to rise; the Party raised 'break open the rice stores, solve the famine.'"
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Người chết đói đầy đường, có làng chết không còn một ai; hai triệu đồng bào đã ngã xuống vì miếng cơm dưới ách Pháp – Nhật.",
+          "en": "The starved lay in the streets, whole villages dying to the last; two million compatriots fell for a mouthful of rice under the Franco-Japanese yoke."
+        },
+        "attribution": {
+          "vi": "về nạn đói năm Ất Dậu 1945",
+          "en": "on the Ất Dậu famine of 1945"
+        }
+      },
+      "hero": {
+        "id": "nan-doi-at-dau-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/cach-mang-thang-tam/events/nan-doi-at-dau.png",
+        "reduced": "eras/cach-mang-thang-tam/events/nan-doi-at-dau.png"
+      },
+      "citation": {
+        "work": "Việt Nam những sự kiện lịch sử (1919–1945)",
+        "section": {
+          "vi": "Nạn đói cuối 1944 – đầu 1945",
+          "en": "The famine of late 1944 to early 1945"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "nhat-dao-chinh-phap",
+      "slug": "nhat-dao-chinh-phap",
+      "figureIds": [],
+      "details": {
+        "vi": "Đầu năm 1945, Chiến tranh thế giới thứ hai bước vào giai đoạn kết thúc, phát xít Nhật lâm vào thế nguy khốn. Sợ Pháp trở mặt đánh sau lưng, đêm 9 tháng 3 năm 1945, Nhật làm cuộc đảo chính lật đổ Pháp trên toàn cõi Đông Dương; quân Pháp nhanh chóng tan rã và đầu hàng. Ngay đêm đó, Ban Thường vụ Trung ương Đảng họp và sau đó ra bản chỉ thị lịch sử 'Nhật – Pháp bắn nhau và hành động của chúng ta', nhận định kẻ thù chính của nhân dân ta lúc này là phát xít Nhật, quyết định phát động một cao trào kháng Nhật cứu nước mạnh mẽ làm tiền đề cho tổng khởi nghĩa. Khắp nơi, phong trào đấu tranh vũ trang và khởi nghĩa từng phần bùng lên; nổi bật là phong trào 'phá kho thóc của Nhật để giải quyết nạn đói', lôi cuốn hàng triệu quần chúng đói khổ vùng dậy. Lực lượng vũ trang cách mạng đẩy mạnh hoạt động; ngày 15 tháng 5 năm 1945, Việt Nam Giải phóng quân được thành lập trên cơ sở hợp nhất Cứu quốc quân và Việt Nam Tuyên truyền Giải phóng quân. Tháng 6 năm 1945, Khu giải phóng Việt Bắc ra đời, gồm sáu tỉnh, trở thành căn cứ địa và hình ảnh thu nhỏ của nước Việt Nam mới. Cả dân tộc nóng lòng chờ đợi thời cơ vùng dậy giành chính quyền.",
+        "en": "In early 1945 the Second World War entered its final phase and Japanese fascism was in dire straits. Fearing the French would turn and strike from behind, on the night of 9 March 1945 Japan staged a coup overthrowing the French throughout Indochina; the French quickly collapsed and surrendered. That very night the Party's Standing Committee met and soon issued the historic directive 'The Japanese and French fire on each other, and our action,' judging that the people's main enemy was now Japanese fascism and deciding to launch a strong movement to resist Japan and save the nation as the prelude to a general uprising. Everywhere armed struggle and partial risings broke out; foremost was the movement to 'break open the Japanese rice stores to solve the famine,' drawing millions of the starving masses to rise. The revolutionary armed forces stepped up their action; on 15 May 1945 the Vietnam Liberation Army was formed by uniting the National Salvation Army and the Propaganda Liberation Army Unit. In June 1945 the Việt Bắc Liberated Zone was born, comprising six provinces, becoming the base area and a miniature image of the new Vietnam. The whole nation waited eagerly for the moment to rise and seize power."
+      },
+      "order": 6,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "9 tháng 3, 1945 SCN",
+          "en": "9 March 1945 CE"
+        },
+        "value": 1945,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Nhật đảo chính Pháp, cao trào kháng Nhật",
+        "en": "Japan ousts France; the resist-Japan upsurge"
+      },
+      "summary": {
+        "vi": "Đêm 9-3-1945, Nhật đảo chính lật Pháp. Đảng ra chỉ thị 'Nhật – Pháp bắn nhau…', phát động cao trào kháng Nhật, phá kho thóc cứu đói; lập Việt Nam Giải phóng quân và Khu giải phóng Việt Bắc.",
+        "en": "On the night of 9 Mar 1945 Japan ousts France. The Party issues 'The Japanese and French fire on each other…', launching the resist-Japan upsurge and breaking open the rice stores; it forms the Liberation Army and the Việt Bắc Zone."
+      },
+      "body": {
+        "vi": "Đêm 9-3-1945, Nhật đảo chính lật đổ Pháp trên toàn Đông Dương, Pháp đầu hàng. Đảng ra chỉ thị 'Nhật – Pháp bắn nhau và hành động của chúng ta', xác định kẻ thù chính là phát xít Nhật, phát động cao trào kháng Nhật cứu nước. Phong trào 'phá kho thóc của Nhật giải quyết nạn đói' lôi cuốn hàng triệu người. Ngày 15-5-1945 lập Việt Nam Giải phóng quân; tháng 6-1945 lập Khu giải phóng Việt Bắc gồm sáu tỉnh — hình ảnh nước Việt Nam mới. Cả dân tộc chờ thời cơ giành chính quyền.",
+        "en": "On the night of 9 Mar 1945 Japan overthrew the French across Indochina and they surrendered. The Party issued 'The Japanese and French fire on each other, and our action,' naming Japanese fascism the main enemy and launching the resist-Japan upsurge. The movement to 'break open the Japanese rice stores' drew millions. On 15 May 1945 the Vietnam Liberation Army was formed; in June the Việt Bắc Liberated Zone of six provinces was born — an image of the new Vietnam. The whole nation awaited the moment to seize power."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Nhật – Pháp bắn nhau và hành động của chúng ta.",
+          "en": "The Japanese and French fire on each other, and our action."
+        },
+        "attribution": {
+          "vi": "Chỉ thị của Ban Thường vụ Trung ương Đảng, 12-3-1945",
+          "en": "Directive of the Party Standing Committee, 12 March 1945"
+        }
+      },
+      "hero": {
+        "id": "nhat-dao-chinh-phap-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/cach-mang-thang-tam/events/nhat-dao-chinh-phap.png",
+        "reduced": "eras/cach-mang-thang-tam/events/nhat-dao-chinh-phap.png"
+      },
+      "citation": {
+        "work": "Việt Nam những sự kiện lịch sử (1919–1945)",
+        "section": {
+          "vi": "Nhật đảo chính Pháp; cao trào kháng Nhật (1945)",
+          "en": "The Japanese coup; the resist-Japan upsurge (1945)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "cach-mang-thang-tam",
+      "slug": "cach-mang-thang-tam",
+      "figureIds": [
+        "ho-chi-minh",
+        "bao-dai"
+      ],
+      "details": {
+        "vi": "Giữa tháng 8 năm 1945, phát xít Nhật đầu hàng Đồng minh không điều kiện; quân Nhật ở Đông Dương hoang mang, tan rã, còn chính quyền tay sai thì rệu rã — thời cơ 'ngàn năm có một' để giành chính quyền đã đến. Nắm bắt thời cơ ấy, Đảng và lãnh tụ Hồ Chí Minh phát lệnh Tổng khởi nghĩa. Hội nghị toàn quốc của Đảng và Đại hội Quốc dân họp ở Tân Trào (Tuyên Quang) quyết định tổng khởi nghĩa, thành lập Ủy ban Dân tộc giải phóng do Hồ Chí Minh làm Chủ tịch. Người ra lời kêu gọi: 'Giờ quyết định cho vận mệnh dân tộc ta đã đến. Toàn quốc đồng bào hãy đứng dậy đem sức ta mà tự giải phóng cho ta.' Chỉ trong vòng nửa cuối tháng 8, nhân dân cả nước nhất tề vùng dậy: ngày 19-8 khởi nghĩa thắng lợi ở Hà Nội, ngày 23-8 ở Huế, ngày 25-8 ở Sài Gòn, rồi lan khắp các địa phương. Cuộc Tổng khởi nghĩa Tháng Tám thành công nhanh chóng và ít đổ máu. Ngày 30-8-1945, vua Bảo Đại thoái vị tại Huế, trao ấn kiếm cho đại diện Chính phủ cách mạng, chấm dứt chế độ quân chủ tồn tại hàng nghìn năm. Ngày 2 tháng 9 năm 1945, tại Quảng trường Ba Đình lịch sử, trước hàng chục vạn đồng bào, Chủ tịch Hồ Chí Minh thay mặt Chính phủ lâm thời đọc bản Tuyên ngôn Độc lập, trịnh trọng tuyên bố với quốc dân và thế giới: nước Việt Nam Dân chủ Cộng hòa ra đời. Kỷ nguyên độc lập, tự do của dân tộc Việt Nam bắt đầu.",
+        "en": "In mid-August 1945 Japanese fascism surrendered unconditionally to the Allies; the Japanese in Indochina wavered and fell apart and the puppet administration crumbled — the 'once-in-a-thousand-years' moment to seize power had come. Grasping it, the Party and the leader Hồ Chí Minh gave the order for a General Uprising. The Party's national conference and the People's Congress met at Tân Trào (Tuyên Quang), resolved on the uprising and formed the National Liberation Committee chaired by Hồ Chí Minh. He issued the appeal: 'The decisive hour for the destiny of our people has come. Compatriots across the land, rise up and use our own strength to liberate ourselves.' In just the second half of August the whole people rose as one: victory came at Hà Nội on 19 August, Huế on 23 August, Sài Gòn on 25 August, then across the land. The August General Uprising succeeded swiftly and with little bloodshed. On 30 August 1945 Emperor Bảo Đại abdicated at Huế, handing the seal and sword to the representatives of the revolutionary government and ending a monarchy of thousands of years. On 2 September 1945, at the historic Ba Đình Square, before hundreds of thousands, President Hồ Chí Minh, on behalf of the Provisional Government, read the Declaration of Independence and solemnly proclaimed to the nation and the world the birth of the Democratic Republic of Vietnam. The era of independence and freedom of the Vietnamese people had begun."
+      },
+      "order": 7,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "8 – 9, 1945 SCN",
+          "en": "Aug – Sep 1945 CE"
+        },
+        "value": 1945,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Cách mạng Tháng Tám và Tuyên ngôn Độc lập",
+        "en": "The August Revolution and the Declaration of Independence"
+      },
+      "summary": {
+        "vi": "Nhật đầu hàng, thời cơ đến; Đảng và Hồ Chí Minh phát lệnh Tổng khởi nghĩa. Cả nước giành chính quyền (19-8 Hà Nội…), Bảo Đại thoái vị. 2-9-1945, Hồ Chí Minh đọc Tuyên ngôn Độc lập, khai sinh nước VNDCCH.",
+        "en": "Japan surrenders; the moment comes. The Party and Hồ Chí Minh order the General Uprising. The nation seizes power (Hà Nội 19 Aug…), Bảo Đại abdicates. On 2 Sep 1945 Hồ Chí Minh reads the Declaration of Independence, founding the DRV."
+      },
+      "body": {
+        "vi": "Giữa tháng 8-1945, Nhật đầu hàng Đồng minh, thời cơ 'ngàn năm có một' đến. Hội nghị toàn quốc của Đảng và Đại hội Quốc dân ở Tân Trào quyết định Tổng khởi nghĩa, lập Ủy ban Dân tộc giải phóng do Hồ Chí Minh đứng đầu. Cả nước vùng dậy giành chính quyền: 19-8 Hà Nội, 23-8 Huế, 25-8 Sài Gòn. Ngày 30-8, Bảo Đại thoái vị, chấm dứt chế độ quân chủ. Ngày 2-9-1945, tại Ba Đình, Hồ Chí Minh đọc Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa — mở ra kỷ nguyên độc lập, tự do.",
+        "en": "In mid-August 1945 Japan surrendered and the 'once-in-a-thousand-years' moment came. The Party's national conference and the People's Congress at Tân Trào resolved on the General Uprising and formed the National Liberation Committee under Hồ Chí Minh. The nation rose to seize power: Hà Nội 19 Aug, Huế 23 Aug, Sài Gòn 25 Aug. On 30 Aug Bảo Đại abdicated, ending the monarchy. On 2 Sep 1945, at Ba Đình, Hồ Chí Minh read the Declaration of Independence, founding the Democratic Republic of Vietnam — opening an era of independence and freedom."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Nước Việt Nam có quyền hưởng tự do và độc lập, và sự thật đã thành một nước tự do độc lập.",
+          "en": "Vietnam has the right to enjoy freedom and independence, and in fact has become a free and independent country."
+        },
+        "attribution": {
+          "vi": "Hồ Chí Minh, Tuyên ngôn Độc lập, 2-9-1945",
+          "en": "Hồ Chí Minh, Declaration of Independence, 2 September 1945"
+        }
+      },
+      "hero": {
+        "id": "cach-mang-thang-tam-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/cach-mang-thang-tam/events/cach-mang-thang-tam.png",
+        "reduced": "eras/cach-mang-thang-tam/events/cach-mang-thang-tam.png"
+      },
+      "citation": {
+        "work": "Tuyên ngôn Độc lập (2-9-1945)",
+        "section": {
+          "vi": "Khai sinh nước Việt Nam Dân chủ Cộng hòa",
+          "en": "The birth of the Democratic Republic of Vietnam"
+        },
+        "author": "Hồ Chí Minh"
+      }
+    }
+  ]
+}

@@ -173,3 +173,7 @@ flutter:
     - assets/content/eras/phong-trao-yeu-nuoc/scene/
     - assets/content/eras/phong-trao-yeu-nuoc/events/
     - assets/content/eras/phong-trao-yeu-nuoc/characters/
+    - assets/content/eras/cach-mang-thang-tam/
+    - assets/content/eras/cach-mang-thang-tam/scene/
+    - assets/content/eras/cach-mang-thang-tam/events/
+    - assets/content/eras/cach-mang-thang-tam/characters/

@@ -3242,6 +3242,141 @@
         "flagship": "eras/phong-trao-yeu-nuoc/characters/nguyen-thai-hoc-full.png",
         "reduced": "eras/phong-trao-yeu-nuoc/characters/nguyen-thai-hoc-full.png"
       }
+    },
+    {
+      "id": "ho-chi-minh",
+      "name": {
+        "vi": "Chủ tịch Hồ Chí Minh",
+        "en": "President Hồ Chí Minh"
+      },
+      "epithet": {
+        "vi": "Lãnh tụ vĩ đại · Anh hùng giải phóng dân tộc",
+        "en": "Great leader · hero of national liberation"
+      },
+      "bio": {
+        "vi": "Lãnh tụ vĩ đại của cách mạng Việt Nam, Anh hùng giải phóng dân tộc, Danh nhân văn hóa kiệt xuất (1890–1969). Tên khai sinh là Nguyễn Sinh Cung, trong nhiều năm hoạt động lấy tên Nguyễn Ái Quốc. Năm 1911, Người ra đi tìm đường cứu nước; sau khi tiếp thu chủ nghĩa Mác – Lênin, Người sáng lập Đảng Cộng sản Việt Nam (1930), lập Mặt trận Việt Minh (1941), trực tiếp lãnh đạo Cách mạng Tháng Tám thành công và ngày 2-9-1945 đọc bản Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa. Trên cương vị Chủ tịch nước, Người lãnh đạo nhân dân ta tiến hành các cuộc kháng chiến giành và giữ nền độc lập cho đến khi qua đời năm 1969. Cả cuộc đời Người cống hiến trọn vẹn cho sự nghiệp giải phóng dân tộc và hạnh phúc của nhân dân.",
+        "en": "The great leader of the Vietnamese revolution, hero of national liberation and an eminent man of culture (1890–1969). Born Nguyễn Sinh Cung, for many years he used the name Nguyễn Ái Quốc. In 1911 he set out to seek a path to save the country; having embraced Marxism–Leninism, he founded the Communist Party of Vietnam (1930) and the Việt Minh Front (1941), directly led the successful August Revolution, and on 2 September 1945 read the Declaration of Independence founding the Democratic Republic of Vietnam. As President he led the people in the resistance wars to win and defend independence until his death in 1969. His whole life was devoted to the liberation of the nation and the happiness of the people."
+      },
+      "avatar": {
+        "id": "ho-chi-minh-avatar",
+        "type": "image",
+        "flagship": "eras/cach-mang-thang-tam/characters/ho-chi-minh-avatar.png",
+        "reduced": "eras/cach-mang-thang-tam/characters/ho-chi-minh-avatar.png"
+      },
+      "fullBody": {
+        "id": "ho-chi-minh-full",
+        "type": "image",
+        "flagship": "eras/cach-mang-thang-tam/characters/ho-chi-minh-full.png",
+        "reduced": "eras/cach-mang-thang-tam/characters/ho-chi-minh-full.png"
+      }
+    },
+    {
+      "id": "tran-phu",
+      "name": {
+        "vi": "Trần Phú",
+        "en": "Trần Phú"
+      },
+      "epithet": {
+        "vi": "Tổng Bí thư đầu tiên của Đảng",
+        "en": "The Party’s first General Secretary"
+      },
+      "bio": {
+        "vi": "Nhà cách mạng, Tổng Bí thư đầu tiên của Đảng Cộng sản Đông Dương (1904–1931). Quê ở Hà Tĩnh, sớm giác ngộ cách mạng, được cử đi học tại Liên Xô. Năm 1930, ông được bầu làm Tổng Bí thư và là người khởi thảo bản Luận cương chính trị của Đảng. Giữa lúc phong trào cách mạng đang lên, năm 1931 ông bị thực dân Pháp bắt, tra tấn dã man nhưng vẫn giữ vững khí tiết người cộng sản. Ông hy sinh trong nhà lao khi mới hai mươi bảy tuổi, để lại lời nhắn nổi tiếng: “Hãy giữ vững chí khí chiến đấu.”",
+        "en": "A revolutionary and the first General Secretary of the Indochinese Communist Party (1904–1931). Born in Hà Tĩnh, he took to the revolution early and was sent to study in the Soviet Union. In 1930 he was elected General Secretary and drafted the Party’s Political Theses. As the movement rose, in 1931 the French seized and savagely tortured him, but he kept a communist’s integrity. He died in prison at only twenty-seven, leaving the famous words: “Keep firm your fighting spirit.”"
+      },
+      "avatar": {
+        "id": "tran-phu-avatar",
+        "type": "image",
+        "flagship": "eras/cach-mang-thang-tam/characters/tran-phu-avatar.png",
+        "reduced": "eras/cach-mang-thang-tam/characters/tran-phu-avatar.png"
+      },
+      "fullBody": {
+        "id": "tran-phu-full",
+        "type": "image",
+        "flagship": "eras/cach-mang-thang-tam/characters/tran-phu-full.png",
+        "reduced": "eras/cach-mang-thang-tam/characters/tran-phu-full.png"
+      }
+    },
+    {
+      "id": "nguyen-thi-minh-khai",
+      "name": {
+        "vi": "Nguyễn Thị Minh Khai",
+        "en": "Nguyễn Thị Minh Khai"
+      },
+      "epithet": {
+        "vi": "Nữ chiến sĩ cộng sản kiên trung",
+        "en": "Steadfast woman revolutionary"
+      },
+      "bio": {
+        "vi": "Nữ chiến sĩ cộng sản kiên trung của cách mạng Việt Nam (1910–1941). Quê ở Nghệ An, tham gia hoạt động cách mạng từ khi còn trẻ, từng học tại Liên Xô và dự Đại hội VII Quốc tế Cộng sản. Về nước, bà là Bí thư Thành ủy Sài Gòn – Chợ Lớn, lãnh đạo phong trào và tham gia chuẩn bị khởi nghĩa Nam Kỳ. Bị thực dân Pháp bắt và kết án tử hình, bà hiên ngang giữ trọn khí tiết, hy sinh năm 1941. Bà là tấm gương tiêu biểu của người phụ nữ Việt Nam yêu nước, trung kiên.",
+        "en": "A steadfast woman communist of the Vietnamese revolution (1910–1941). Born in Nghệ An, she joined the movement young, studied in the Soviet Union and attended the Seventh Comintern Congress. Home again, she was Party secretary of Sài Gòn–Chợ Lớn, led the movement and helped prepare the Nam Kỳ uprising. Seized by the French and sentenced to death, she kept her honour whole and fell in 1941. She stands as a model of the patriotic, unwavering Vietnamese woman."
+      },
+      "avatar": {
+        "id": "nguyen-thi-minh-khai-avatar",
+        "type": "image",
+        "flagship": "eras/cach-mang-thang-tam/characters/nguyen-thi-minh-khai-avatar.png",
+        "reduced": "eras/cach-mang-thang-tam/characters/nguyen-thi-minh-khai-avatar.png"
+      },
+      "fullBody": {
+        "id": "nguyen-thi-minh-khai-full",
+        "type": "image",
+        "flagship": "eras/cach-mang-thang-tam/characters/nguyen-thi-minh-khai-full.png",
+        "reduced": "eras/cach-mang-thang-tam/characters/nguyen-thi-minh-khai-full.png"
+      }
+    },
+    {
+      "id": "vo-nguyen-giap",
+      "name": {
+        "vi": "Đại tướng Võ Nguyên Giáp",
+        "en": "General Võ Nguyên Giáp"
+      },
+      "epithet": {
+        "vi": "Đại tướng · Người anh cả của Quân đội nhân dân",
+        "en": "General · founder of the People’s Army"
+      },
+      "bio": {
+        "vi": "Đại tướng, Tổng Tư lệnh đầu tiên của Quân đội nhân dân Việt Nam (1911–2013), một trong những vị tướng kiệt xuất của lịch sử dân tộc. Quê ở Quảng Bình, vốn là thầy giáo dạy sử, ông sớm tham gia cách mạng. Ngày 22-12-1944, theo chỉ thị của lãnh tụ Hồ Chí Minh, ông thành lập Đội Việt Nam Tuyên truyền Giải phóng quân — tiền thân của Quân đội nhân dân Việt Nam. Ông là người chỉ huy làm nên chiến thắng Điện Biên Phủ (1954) và nhiều chiến dịch lớn trong hai cuộc kháng chiến, được nhân dân kính trọng gọi là “người anh cả” của quân đội.",
+        "en": "A general and the first Commander-in-Chief of the Vietnam People’s Army (1911–2013), one of the outstanding commanders in the nation’s history. Born in Quảng Bình, once a history teacher, he joined the revolution early. On 22 December 1944, on Hồ Chí Minh’s instruction, he founded the Vietnam Propaganda Liberation Army Unit — forerunner of the People’s Army. He commanded the victory at Điện Biên Phủ (1954) and many great campaigns of the two resistance wars, revered by the people as the army’s “elder brother.”"
+      },
+      "avatar": {
+        "id": "vo-nguyen-giap-avatar",
+        "type": "image",
+        "flagship": "eras/cach-mang-thang-tam/characters/vo-nguyen-giap-avatar.png",
+        "reduced": "eras/cach-mang-thang-tam/characters/vo-nguyen-giap-avatar.png"
+      },
+      "fullBody": {
+        "id": "vo-nguyen-giap-full",
+        "type": "image",
+        "flagship": "eras/cach-mang-thang-tam/characters/vo-nguyen-giap-full.png",
+        "reduced": "eras/cach-mang-thang-tam/characters/vo-nguyen-giap-full.png"
+      }
+    },
+    {
+      "id": "bao-dai",
+      "name": {
+        "vi": "Bảo Đại",
+        "en": "Bảo Đại"
+      },
+      "epithet": {
+        "vi": "Vị vua cuối cùng của nhà Nguyễn",
+        "en": "The last emperor of the Nguyễn"
+      },
+      "bio": {
+        "vi": "Vị hoàng đế thứ mười ba và cũng là vua cuối cùng của triều Nguyễn (1913–1997), tên thật Nguyễn Phúc Vĩnh Thụy. Lên ngôi năm 1926, ông ở ngai vàng dưới sự bảo hộ của thực dân Pháp. Trước khí thế của Cách mạng Tháng Tám, ngày 30-8-1945 ông tuyên bố thoái vị tại Huế, trao ấn kiếm cho đại diện Chính phủ cách mạng, chấm dứt chế độ quân chủ tồn tại hàng nghìn năm ở Việt Nam, với câu nói được nhắc lại: “thà làm dân một nước độc lập hơn làm vua một nước nô lệ.” Về sau ông sống lưu vong ở nước ngoài cho đến khi qua đời.",
+        "en": "The thirteenth and last emperor of the Nguyễn dynasty (1913–1997), born Nguyễn Phúc Vĩnh Thụy. Enthroned in 1926, he sat on the throne under the French protectorate. Before the momentum of the August Revolution, on 30 August 1945 he abdicated at Huế, handing the seal and sword to the revolutionary government and ending a monarchy of thousands of years in Vietnam, with the remembered words: “better to be the citizen of a free country than the king of an enslaved one.” He later lived in exile abroad until his death."
+      },
+      "avatar": {
+        "id": "bao-dai-avatar",
+        "type": "image",
+        "flagship": "eras/cach-mang-thang-tam/characters/bao-dai-avatar.png",
+        "reduced": "eras/cach-mang-thang-tam/characters/bao-dai-avatar.png"
+      },
+      "fullBody": {
+        "id": "bao-dai-full",
+        "type": "image",
+        "flagship": "eras/cach-mang-thang-tam/characters/bao-dai-full.png",
+        "reduced": "eras/cach-mang-thang-tam/characters/bao-dai-full.png"
+      }
     }
   ]
 }

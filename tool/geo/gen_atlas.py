@@ -233,7 +233,7 @@ SNAPSHOTS = [
         core("dai-nam", "Đại Nam", "Tự Đức", TEAL, VN(11.5, 24)),
         R("nam-ky", "Nam Kỳ", "Pháp thuộc", PHAP, "rival", VN(5, 11.5)),
         china("Nhà Thanh"), khmer("Cao Miên", "Pháp bảo hộ", False), *ctx()]),
-    S("phap", "Pháp thuộc", "Liên bang Đông Dương", 1888, ["can-vuong", "phong-trao-yeu-nuoc"], [
+    S("phap", "Pháp thuộc", "Liên bang Đông Dương", 1888, ["can-vuong", "phong-trao-yeu-nuoc", "cach-mang-thang-tam"], [
         R("nam-ky", "Nam Kỳ", "Thuộc địa Pháp", PHAP, "rival", VN(5, 11.5)),
         prot("trung-bac-ky", "Trung – Bắc Kỳ", "Pháp bảo hộ", PHAP, VN(11.5, 24)),
         china("Nhà Thanh"), khmer("Cao Miên", "Pháp bảo hộ", False), *ctx()]),
