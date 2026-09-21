@@ -27,21 +27,21 @@ class ChaoCoScreen extends StatefulWidget {
       'assets/content/chao-co/background.png';
 
   // Tiến quân ca, lời 1 (Quốc ca nước Cộng hòa xã hội chủ nghĩa Việt Nam).
-  // Timings calibrated to the bundled recording (~62s, with a ~1.5s intro
-  // before the first line). Approximate — a line's `at` is the second it
-  // becomes current; nudge these if a line leads or lags the singing.
+  // Timings hand-calibrated to the bundled recording via the tap-to-sync tool
+  // (the tune icon in the header). A line's `at` is the second it becomes
+  // current.
   static const List<AnthemLine> lyrics = <AnthemLine>[
-    AnthemLine(1.5, 'Đoàn quân Việt Nam đi'),
-    AnthemLine(6.5, 'Chung lòng cứu quốc'),
-    AnthemLine(10.5, 'Bước chân dồn vang trên đường gập ghềnh xa'),
-    AnthemLine(18.0, 'Cờ in máu chiến thắng mang hồn nước'),
-    AnthemLine(24.5, 'Súng ngoài xa chen khúc quân hành ca'),
-    AnthemLine(31.0, 'Đường vinh quang xây xác quân thù'),
-    AnthemLine(37.0, 'Thắng gian lao cùng nhau lập chiến khu'),
-    AnthemLine(43.5, 'Vì nhân dân chiến đấu không ngừng'),
-    AnthemLine(49.5, 'Tiến mau ra sa trường'),
-    AnthemLine(53.5, 'Tiến lên! Cùng tiến lên!'),
-    AnthemLine(57.5, 'Nước non Việt Nam ta vững bền'),
+    AnthemLine(1.9, 'Đoàn quân Việt Nam đi'),
+    AnthemLine(5.2, 'Chung lòng cứu quốc'),
+    AnthemLine(8.2, 'Bước chân dồn vang trên đường gập ghềnh xa'),
+    AnthemLine(13.2, 'Cờ in máu chiến thắng mang hồn nước'),
+    AnthemLine(18.9, 'Súng ngoài xa chen khúc quân hành ca'),
+    AnthemLine(24.6, 'Đường vinh quang xây xác quân thù'),
+    AnthemLine(30.4, 'Thắng gian lao cùng nhau lập chiến khu'),
+    AnthemLine(36.2, 'Vì nhân dân chiến đấu không ngừng'),
+    AnthemLine(41.8, 'Tiến mau ra sa trường'),
+    AnthemLine(46.1, 'Tiến lên! Cùng tiến lên!'),
+    AnthemLine(53.7, 'Nước non Việt Nam ta vững bền'),
   ];
 
   @override
@@ -58,6 +58,13 @@ class _ChaoCoScreenState extends State<ChaoCoScreen> {
   bool _failed = false;
   int _current = -1;
   StreamSubscription<Duration>? _posSub;
+  StreamSubscription<ProcessingState>? _stateSub;
+
+  // Calibration mode: play the anthem and tap once as each line begins; the
+  // captured seconds are printed as an AnthemLine list to paste back.
+  bool _calib = false;
+  double _posSec = 0;
+  final List<double> _caps = <double>[];
 
   @override
   void initState() {
@@ -69,6 +76,16 @@ class _ChaoCoScreenState extends State<ChaoCoScreen> {
     try {
       await _player.setAsset(ChaoCoScreen.audioAsset);
       _posSub = _player.positionStream.listen(_onPosition);
+      // When the anthem finishes, just_audio leaves the player parked at the
+      // end in the "completed" state, where a plain play() is a no-op. Reset it
+      // to a clean ready-at-zero so the Play button restarts the song.
+      _stateSub = _player.processingStateStream.listen((s) async {
+        if (s == ProcessingState.completed) {
+          await _player.pause();
+          await _player.seek(Duration.zero);
+          if (mounted) setState(() => _current = -1);
+        }
+      });
       if (mounted) setState(() => _ready = true);
     } catch (_) {
       if (mounted) setState(() => _failed = true);
@@ -77,6 +94,12 @@ class _ChaoCoScreenState extends State<ChaoCoScreen> {
 
   void _onPosition(Duration pos) {
     final s = pos.inMilliseconds / 1000.0;
+    // In calibration mode the highlight is driven by the user's taps, not the
+    // clock; we still track the live position for the readout.
+    if (_calib) {
+      setState(() => _posSec = s);
+      return;
+    }
     var idx = -1;
     for (var i = 0; i < ChaoCoScreen.lyrics.length; i++) {
       if (ChaoCoScreen.lyrics[i].at <= s) {
@@ -85,10 +108,37 @@ class _ChaoCoScreenState extends State<ChaoCoScreen> {
         break;
       }
     }
-    if (idx != _current) {
-      setState(() => _current = idx);
-      _scrollToCurrent();
+    if (idx != _current || s != _posSec) {
+      setState(() {
+        _current = idx;
+        _posSec = s;
+      });
+      if (idx != _current) _scrollToCurrent();
     }
+  }
+
+  // Records the current playback time for the next line and advances.
+  void _tapLine() {
+    if (_caps.length >= ChaoCoScreen.lyrics.length) return;
+    setState(() {
+      _caps.add(double.parse(_posSec.toStringAsFixed(2)));
+      _current = _caps.length - 1;
+    });
+    _scrollToCurrent();
+  }
+
+  void _resetCalib() => setState(() {
+        _caps.clear();
+        _current = -1;
+      });
+
+  String _capsList() {
+    final b = StringBuffer();
+    for (var i = 0; i < ChaoCoScreen.lyrics.length; i++) {
+      final t = i < _caps.length ? _caps[i].toStringAsFixed(1) : '?';
+      b.writeln("AnthemLine($t, '${ChaoCoScreen.lyrics[i].text}'),");
+    }
+    return b.toString();
   }
 
   void _scrollToCurrent() {
@@ -116,6 +166,7 @@ class _ChaoCoScreenState extends State<ChaoCoScreen> {
   @override
   void dispose() {
     _posSub?.cancel();
+    _stateSub?.cancel();
     _player.dispose();
     _lyricsCtrl.dispose();
     super.dispose();
@@ -168,6 +219,16 @@ class _ChaoCoScreenState extends State<ChaoCoScreen> {
                           style: VSType.title.copyWith(fontSize: 18)),
                     ],
                   ),
+                  const Spacer(),
+                  GestureDetector(
+                    onTap: () => setState(() {
+                      _calib = !_calib;
+                      _resetCalib();
+                    }),
+                    child: Icon(_calib ? Icons.close : Icons.tune,
+                        color: _calib ? VSColors.goldBright : VSColors.gold,
+                        size: 22),
+                  ),
                 ],
               ),
             ),
@@ -203,6 +264,68 @@ class _ChaoCoScreenState extends State<ChaoCoScreen> {
               onStop: _stop,
             ),
             const SizedBox(height: VSSpacing.sm),
+            // Calibration panel: play the anthem, tap TAP as each line begins.
+            if (_calib)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                    VSSpacing.xl, 0, VSSpacing.xl, VSSpacing.sm),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    GestureDetector(
+                      onTap: _tapLine,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        decoration: BoxDecoration(
+                          borderRadius: VSRadii.cardAll,
+                          color: VSColors.gold.withValues(alpha: 0.18),
+                          border: Border.all(color: VSColors.goldBright),
+                        ),
+                        child: Text(
+                          'TAP  ·  ${_posSec.toStringAsFixed(1)}s'
+                          '  ·  ${_caps.length}/${ChaoCoScreen.lyrics.length}',
+                          textAlign: TextAlign.center,
+                          style: VSType.title.copyWith(
+                              color: VSColors.goldBright, fontSize: 18),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: VSSpacing.xs),
+                    Row(
+                      children: <Widget>[
+                        TextButton(
+                          onPressed: _resetCalib,
+                          child: const Text('Reset',
+                              style: TextStyle(color: VSColors.gold)),
+                        ),
+                        const Spacer(),
+                        Text('Tap as each line starts, then copy below',
+                            style: VSType.body.copyWith(
+                                color: VSColors.inkMuted, fontSize: 11)),
+                      ],
+                    ),
+                    if (_caps.isNotEmpty)
+                      Container(
+                        width: double.infinity,
+                        margin: const EdgeInsets.only(top: VSSpacing.xs),
+                        padding: const EdgeInsets.all(VSSpacing.sm),
+                        decoration: BoxDecoration(
+                          borderRadius: VSRadii.cardAll,
+                          color: Colors.black.withValues(alpha: 0.35),
+                          border: Border.all(color: VSColors.goldBorder),
+                        ),
+                        child: SelectableText(
+                          _capsList(),
+                          style: const TextStyle(
+                              color: VSColors.inkSecondary,
+                              fontFamily: 'monospace',
+                              fontSize: 11,
+                              height: 1.4),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
             // Karaoke lyrics.
             Expanded(
               child: SingleChildScrollView(
