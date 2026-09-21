@@ -410,12 +410,16 @@ class _EventBody extends StatelessWidget {
               const SizedBox(width: VSSpacing.sm),
               Container(width: 20, height: 1, color: VSColors.goldBorder),
               const SizedBox(width: VSSpacing.sm),
-              Text(
-                section,
-                style: VSType.caption.copyWith(
-                  color: VSColors.inkMuted,
-                  letterSpacing: VSType.track(0.14, 11),
-                  fontSize: 11,
+              Expanded(
+                child: Text(
+                  section,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: VSType.caption.copyWith(
+                    color: VSColors.inkMuted,
+                    letterSpacing: VSType.track(0.14, 11),
+                    fontSize: 11,
+                  ),
                 ),
               ),
             ],

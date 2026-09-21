@@ -98,11 +98,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 },
               ),
               SafeArea(
-                child: _DynastyChrome(
-                  period: active,
-                  index: _dynastyIndex,
-                  total: dynasties.length,
-                ),
+                child: _DynastyChrome(period: active),
               ),
               Align(
                 alignment: Alignment.centerRight,
@@ -240,18 +236,9 @@ class _ErrorView extends StatelessWidget {
 /// Top chrome for the dynasty hub: the current dynasty's crest, name and span on
 /// the left; the global-timeline entry on the right.
 class _DynastyChrome extends StatelessWidget {
-  const _DynastyChrome({
-    required this.period,
-    required this.index,
-    required this.total,
-  });
+  const _DynastyChrome({required this.period});
 
   final Period period;
-  final int index;
-  final int total;
-
-  String get _counter =>
-      '${(index + 1).toString().padLeft(2, '0')} / ${total.toString().padLeft(2, '0')}';
 
   @override
   Widget build(BuildContext context) {
@@ -268,19 +255,6 @@ class _DynastyChrome extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Text(
-                      'TRIỀU $_counter',
-                      style: VSType.overline.copyWith(
-                        color: accent,
-                        letterSpacing: VSType.track(0.3, 10),
-                        fontSize: 9,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 3),
                 Text(
                   period.title.resolve(Lang.vi),
                   style: VSType.title.copyWith(fontSize: 17),
