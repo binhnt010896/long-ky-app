@@ -242,6 +242,28 @@
         "role": "cover",
         "reduced": "periods/phap-thuoc.png"
       }
+    },
+    {
+      "id": "khang-chien-chong-phap",
+      "order": 11,
+      "title": { "vi": "Kháng chiến chống Pháp", "en": "The Resistance War Against France" },
+      "kicker": { "vi": "CHÍN NĂM LÀM NÊN ĐIỆN BIÊN", "en": "NINE YEARS TO ĐIỆN BIÊN" },
+      "subtitle": {
+        "vi": "Từ nền độc lập non trẻ đến chiến thắng Điện Biên Phủ chấn động địa cầu.",
+        "en": "From a fragile new independence to the earth-shaking victory at Điện Biên Phủ."
+      },
+      "yearRange": {
+        "display": { "vi": "1945 – 1954", "en": "1945 – 1954 CE" },
+        "startYear": 1945,
+        "endYear": 1954
+      },
+      "accent": "#b23a2e",
+      "cover": {
+        "id": "period-khang-chien-chong-phap-cover",
+        "type": "image",
+        "role": "cover",
+        "reduced": "periods/khang-chien-chong-phap.png"
+      }
     }
   ]
 }

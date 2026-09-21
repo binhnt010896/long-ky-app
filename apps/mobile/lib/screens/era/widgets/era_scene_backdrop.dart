@@ -7,6 +7,7 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../../theme/content_assets.dart';
 import '../../home/widgets/particle_field.dart';
 import '../../home/widgets/scene_placeholders.dart';
+import 'scene_video_layer.dart';
 
 /// The layered sơn mài parallax backdrop for an era — the scene only, no copy.
 ///
@@ -20,6 +21,7 @@ class EraSceneBackdrop extends StatelessWidget {
     this.palette,
     this.vignette = true,
     this.foregroundVisible = false,
+    this.allowVideo = false,
     super.key,
   });
 
@@ -27,6 +29,11 @@ class EraSceneBackdrop extends StatelessWidget {
   final ValueListenable<Offset> pointer;
   final VSEraPalette? palette;
   final bool vignette;
+
+  /// When true, a scene slot that carries a `video` source plays it (looping,
+  /// muted) over its still image — used on the Era Hub so the cover animates.
+  /// Home and reading surfaces leave it false and stay static.
+  final bool allowVideo;
 
   /// When true, the bottom of the vignette is kept light so the foreground
   /// (ridge) layers read as a visible parallax silhouette — used on Home, where
@@ -57,7 +64,7 @@ class EraSceneBackdrop extends StatelessWidget {
                 role: slot.role?.name,
                 palette: p,
               )
-            : _SceneLayerImage(slot: slot),
+            : _SceneLayerImage(slot: slot, allowVideo: allowVideo),
       ));
     }
 
@@ -78,9 +85,10 @@ class EraSceneBackdrop extends StatelessWidget {
 
 /// Renders one art layer, fit and anchored by its semantic role.
 class _SceneLayerImage extends StatelessWidget {
-  const _SceneLayerImage({required this.slot});
+  const _SceneLayerImage({required this.slot, this.allowVideo = false});
 
   final AssetRef slot;
+  final bool allowVideo;
 
   @override
   Widget build(BuildContext context) {
@@ -107,6 +115,19 @@ class _SceneLayerImage extends StatelessWidget {
       // Missing art must never crash a screen — fall back to empty.
       errorBuilder: (_, __, ___) => const SizedBox.shrink(),
     );
+
+    // Animated cover: play the looping video over the still, which stays as the
+    // fade-in poster and the fallback if the video can't load.
+    final video = slot.video;
+    if (allowVideo && video != null) {
+      image = SceneVideoLayer(
+        assetKey: contentAssetKey(video),
+        fit: fit,
+        alignment: align,
+        poster: image,
+      );
+    }
+
     if (opacity < 1) image = Opacity(opacity: opacity, child: image);
     return image;
   }

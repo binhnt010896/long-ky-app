@@ -237,6 +237,12 @@ SNAPSHOTS = [
         R("nam-ky", "Nam Kỳ", "Thuộc địa Pháp", PHAP, "rival", VN(5, 11.5)),
         prot("trung-bac-ky", "Trung – Bắc Kỳ", "Pháp bảo hộ", PHAP, VN(11.5, 24)),
         china("Nhà Thanh"), khmer("Cao Miên", "Pháp bảo hộ", False), *ctx()]),
+    # Kháng chiến chống Pháp (1945–1954): the DRV claims the whole country.
+    # The 17th-parallel line comes only with Genève — it belongs to the next
+    # chapter (Kháng Mỹ), so no divider is drawn here.
+    S("khang-chien", "Kháng chiến chống Pháp", "Việt Nam Dân chủ Cộng hòa", 1950, ["dien-bien-phu"], [
+        core("vndcch", "Việt Nam Dân chủ Cộng hòa", "Độc lập · kháng chiến", TEAL, VN(5, 24)),
+        china("Trung Quốc"), khmer("Cao Miên", None, False), *ctx()]),
 ]
 
 # ---- emit Dart ----

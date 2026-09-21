@@ -25,6 +25,7 @@ class AssetRef {
     this.depth,
     this.flagship,
     this.reduced,
+    this.video,
     this.placeholder,
     this.caption,
     this.credit,
@@ -42,6 +43,10 @@ class AssetRef {
 
   /// Static fallback source for reduced/trailer tiers.
   final String? reduced;
+
+  /// Optional looping video source (e.g. an animated cover). When present and
+  /// the surface allows it, the widget layer plays this over the still image.
+  final String? video;
 
   /// Name of a built-in placeholder to render until real art exists.
   final String? placeholder;
@@ -62,6 +67,7 @@ class AssetRef {
       depth: depthRaw == null ? null : (depthRaw as num).toDouble(),
       flagship: json.strOrNull('flagship', at: at),
       reduced: json.strOrNull('reduced', at: at),
+      video: json.strOrNull('video', at: at),
       placeholder: json.strOrNull('placeholder', at: at),
       caption: caption == null
           ? null
@@ -79,6 +85,7 @@ class AssetRef {
       other.depth == depth &&
       other.flagship == flagship &&
       other.reduced == reduced &&
+      other.video == video &&
       other.placeholder == placeholder &&
       other.caption == caption &&
       other.credit == credit;
@@ -91,6 +98,7 @@ class AssetRef {
         depth,
         flagship,
         reduced,
+        video,
         placeholder,
         caption,
         credit,

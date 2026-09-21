@@ -1,0 +1,534 @@
+{
+  "schemaVersion": 1,
+  "id": "dien-bien-phu",
+  "slug": "dien-bien-phu",
+  "order": 29,
+  "period": "khang-chien-chong-phap",
+  "title": {
+    "vi": "Kháng chiến chống Pháp",
+    "en": "The Resistance War Against France"
+  },
+  "kicker": {
+    "vi": "Chín năm trường kỳ (1945 – 1954)",
+    "en": "Nine years of resistance (1945–1954)"
+  },
+  "subtitle": {
+    "vi": "Từ nền độc lập non trẻ giữa vòng vây thù trong giặc ngoài đến chiến thắng Điện Biên Phủ 'lừng lẫy năm châu, chấn động địa cầu'.",
+    "en": "From a fragile new independence, ringed by enemies within and without, to the victory at Điện Biên Phủ that 'shook the five continents and rocked the earth.'"
+  },
+  "overview": {
+    "vi": "Vừa ra đời, nước Việt Nam Dân chủ Cộng hòa đã phải đương đầu với muôn vàn khó khăn: nạn đói, nạn dốt, ngân khố trống rỗng, cùng lúc phải đối phó với 'thù trong giặc ngoài' — quân Tưởng ở miền Bắc, quân Anh dọn đường cho Pháp trở lại ở miền Nam. Dưới sự lãnh đạo của Đảng và Chủ tịch Hồ Chí Minh, nhân dân ta vừa diệt 'giặc đói, giặc dốt', vừa xây dựng và củng cố chính quyền cách mạng, khôn khéo dùng sách lược hòa hoãn (Hiệp định Sơ bộ 6-3-1946, Tạm ước 14-9-1946) để tranh thủ thời gian chuẩn bị lực lượng. Nhưng thực dân Pháp quyết cướp nước ta một lần nữa; đêm 19-12-1946, Chủ tịch Hồ Chí Minh ra Lời kêu gọi toàn quốc kháng chiến, mở đầu cuộc kháng chiến trường kỳ với đường lối 'toàn dân, toàn diện, trường kỳ, tự lực cánh sinh'. Qua chiến thắng Việt Bắc Thu – Đông 1947 đánh bại chiến lược 'đánh nhanh thắng nhanh', rồi Chiến dịch Biên giới 1950 giành quyền chủ động và khai thông biên giới, cuộc kháng chiến ngày càng lớn mạnh; Đại hội Đảng lần thứ II (1951) đưa Đảng ra hoạt động công khai, củng cố hậu phương. Đến Đông – Xuân 1953–1954, quân và dân ta mở cuộc tiến công chiến lược mà đỉnh cao là Chiến dịch Điện Biên Phủ: sau 56 ngày đêm 'khoét núi, ngủ hầm, mưa dầm, cơm vắt', ngày 7-5-1954 toàn bộ tập đoàn cứ điểm bị tiêu diệt, tướng De Castries cùng bộ chỉ huy bị bắt sống. Điện Biên Phủ là trận quyết chiến chiến lược lớn nhất, buộc Pháp phải ký Hiệp định Genève ngày 21-7-1954, công nhận độc lập, chủ quyền, thống nhất và toàn vẹn lãnh thổ của Việt Nam, chấm dứt gần một thế kỷ đô hộ của thực dân Pháp. Đây là lần đầu tiên một dân tộc thuộc địa đánh bại một đế quốc thực dân bằng chiến tranh, cổ vũ mạnh mẽ phong trào giải phóng dân tộc trên toàn thế giới.",
+    "en": "The newborn Democratic Republic of Vietnam at once faced immense hardship: famine, illiteracy, an empty treasury, and 'enemies within and without' — Chiang Kai-shek's troops in the North, and the British clearing the way for the French to return in the South. Under the leadership of the Party and President Hồ Chí Minh, the people fought the 'famine and illiteracy' while building and consolidating revolutionary power, shrewdly using a policy of conciliation (the Preliminary Accord of 6 March 1946, the Modus Vivendi of 14 September 1946) to gain time to prepare. But the French were determined to seize the country again; on the night of 19 December 1946 President Hồ Chí Minh issued the Appeal for National Resistance, opening a long resistance war on the line of 'the whole people, all-sided, protracted, self-reliant.' Through the Việt Bắc victory of Autumn–Winter 1947 that defeated the 'lightning war' strategy, and the Border Campaign of 1950 that seized the initiative and opened the frontier, the resistance grew stronger; the Party's Second Congress (1951) brought the Party into open activity and consolidated the rear. In the Winter–Spring of 1953–1954 our army and people launched the strategic offensive whose high point was the Điện Biên Phủ Campaign: after 56 days and nights of 'boring through mountains, sleeping in shelters, soaked by rain, eating cold rice,' on 7 May 1954 the entire fortified complex was destroyed and General De Castries and his staff were captured alive. Điện Biên Phủ was the greatest strategic decisive battle, forcing France to sign the Geneva Accords on 21 July 1954, recognizing Vietnam's independence, sovereignty, unity and territorial integrity and ending nearly a century of French colonial rule. It was the first time a colonial people defeated a colonial empire in war, powerfully inspiring national-liberation movements the world over."
+  },
+  "yearRange": {
+    "display": {
+      "vi": "1945 – 1954 SCN",
+      "en": "1945 – 1954 CE"
+    },
+    "startYear": 1945,
+    "endYear": 1954
+  },
+  "palette": {
+    "accent": "#b23a2e",
+    "particle": "#e0b23e",
+    "scene": [
+      "#0c0605",
+      "#1c0a08",
+      "#3a120e",
+      "#6b2016",
+      "#b23a2e",
+      "#c9722f",
+      "#e0b23e"
+    ]
+  },
+  "cover": {
+    "id": "dien-bien-phu-cover",
+    "type": "image",
+    "role": "cover",
+    "placeholder": "era-scene",
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    },
+    "flagship": "eras/dien-bien-phu/cover.png",
+    "reduced": "eras/dien-bien-phu/cover.png"
+  },
+  "scene": {
+    "layers": [
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "placeholder": "era-scene",
+        "flagship": "eras/dien-bien-phu/scene/sky.png",
+        "reduced": "eras/dien-bien-phu/scene/sky.png",
+        "video": "eras/dien-bien-phu/cover.mp4"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
+    ]
+  },
+  "primarySource": {
+    "work": "Lịch sử kháng chiến chống thực dân Pháp (1945–1954)",
+    "section": {
+      "vi": "Toàn quốc kháng chiến đến chiến thắng Điện Biên Phủ",
+      "en": "From the national resistance to the victory at Điện Biên Phủ"
+    },
+    "author": "Viện Lịch sử Quân sự Việt Nam"
+  },
+  "characters": [
+    { "ref": "ho-chi-minh" },
+    { "ref": "truong-chinh" },
+    { "ref": "vo-nguyen-giap" },
+    { "ref": "pham-van-dong" },
+    { "ref": "phan-dinh-giot" }
+  ],
+  "events": [
+    {
+      "id": "giac-doi-giac-dot",
+      "slug": "giac-doi-giac-dot",
+      "figureIds": ["ho-chi-minh"],
+      "details": {
+        "vi": "Ngay sau ngày 2-9-1945, nước Việt Nam Dân chủ Cộng hòa non trẻ đứng trước tình thế 'ngàn cân treo sợi tóc'. Nạn đói vừa cướp đi khoảng hai triệu người vẫn còn đe dọa; hơn 90% dân số mù chữ; ngân khố quốc gia gần như trống rỗng. Ở miền Bắc vĩ tuyến 16, gần 20 vạn quân Tưởng Giới Thạch kéo vào mang theo bọn tay sai phản động; ở miền Nam, được quân Anh dọn đường, ngày 23-9-1945 thực dân Pháp nổ súng đánh chiếm Sài Gòn, mở đầu cuộc xâm lược lần thứ hai. Trước cảnh 'thù trong giặc ngoài', Đảng và Chính phủ chủ trương phát động toàn dân diệt cả ba thứ giặc: giặc đói, giặc dốt và giặc ngoại xâm. Để cứu đói, Chủ tịch Hồ Chí Minh kêu gọi 'nhường cơm sẻ áo', lập 'hũ gạo cứu đói', tổ chức 'Ngày đồng tâm', đẩy mạnh tăng gia sản xuất với khẩu hiệu 'Tấc đất tấc vàng'; để có tài chính, phát động 'Tuần lễ vàng' và lập 'Quỹ độc lập', được nhân dân nhiệt liệt ủng hộ. Để diệt giặc dốt, Nha Bình dân học vụ được thành lập, phong trào xóa nạn mù chữ lan rộng khắp nơi. Ngày 6-1-1946, cuộc Tổng tuyển cử đầu tiên bầu ra Quốc hội, khẳng định tính hợp hiến của Nhà nước cách mạng. Những biện pháp kịp thời ấy đã đưa dân tộc vượt qua hiểm nghèo, củng cố chính quyền, chuẩn bị thực lực cho cuộc kháng chiến sắp tới.",
+        "en": "Right after 2 September 1945 the young Democratic Republic of Vietnam stood in a situation 'as precarious as a thread holding a thousand catties.' The famine that had just taken some two million lives still loomed; over 90% of the population was illiterate; the treasury was nearly empty. North of the 16th parallel some 200,000 of Chiang Kai-shek's troops poured in with reactionary followers; in the South, cleared by British forces, the French opened fire on 23 September 1945 to seize Sài Gòn, beginning their second invasion. Facing 'enemies within and without,' the Party and Government called on the whole people to destroy all three enemies: hunger, illiteracy and foreign aggression. To relieve famine, President Hồ Chí Minh urged 'sharing rice and clothing,' set up 'rice-saving jars' and 'days of common heart,' and drove production forward under the slogan 'an inch of land is an inch of gold'; for finances, the 'Gold Week' and 'Independence Fund' were launched to warm public support. To defeat illiteracy, the Popular Education Service was founded and the anti-illiteracy movement spread everywhere. On 6 January 1946 the first General Election chose a National Assembly, affirming the constitutional legitimacy of the revolutionary state. These timely measures carried the nation through mortal danger, consolidated its power and built up strength for the coming resistance."
+      },
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1945 – 1946 SCN", "en": "1945 – 1946 CE" },
+        "value": 1945,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Diệt giặc đói, giặc dốt, giặc ngoại xâm",
+        "en": "Destroying hunger, illiteracy and foreign aggression"
+      },
+      "summary": {
+        "vi": "Nước VNDCCH non trẻ ở thế 'ngàn cân treo sợi tóc': đói, dốt, ngân khố trống, thù trong giặc ngoài. Đảng và Hồ Chí Minh phát động diệt cả ba thứ giặc — Tuần lễ vàng, Bình dân học vụ, Tổng tuyển cử 6-1-1946.",
+        "en": "The young DRV hangs 'by a thread': famine, illiteracy, an empty treasury, enemies within and without. The Party and Hồ Chí Minh mobilize against all three — Gold Week, Popular Education, the General Election of 6 Jan 1946."
+      },
+      "body": {
+        "vi": "Sau 2-9-1945, nước VNDCCH ở thế 'ngàn cân treo sợi tóc': nạn đói đe dọa, hơn 90% dân mù chữ, ngân khố trống rỗng; miền Bắc có quân Tưởng, miền Nam thực dân Pháp nổ súng đánh Sài Gòn (23-9-1945). Đảng và Hồ Chí Minh phát động diệt ba thứ giặc: giặc đói ('nhường cơm sẻ áo', hũ gạo cứu đói, tăng gia sản xuất), giặc dốt (Nha Bình dân học vụ), và chuẩn bị chống giặc ngoại xâm. 'Tuần lễ vàng' gây quỹ; ngày 6-1-1946 Tổng tuyển cử bầu Quốc hội đầu tiên. Nhờ đó dân tộc vượt qua hiểm nghèo, củng cố chính quyền cách mạng.",
+        "en": "After 2 Sep 1945 the DRV hung 'by a thread': famine loomed, over 90% were illiterate, the treasury was empty; Chiang's troops held the North while the French opened fire on Sài Gòn in the South (23 Sep 1945). The Party and Hồ Chí Minh mobilized against three enemies: hunger ('share rice and clothing,' rice-saving jars, raising production), illiteracy (the Popular Education Service), and preparation against foreign aggression. 'Gold Week' raised funds; on 6 Jan 1946 the General Election chose the first National Assembly. Thus the nation passed through mortal danger and consolidated revolutionary power."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Một dân tộc dốt là một dân tộc yếu.",
+          "en": "An ignorant people is a weak people."
+        },
+        "attribution": {
+          "vi": "Hồ Chí Minh, chống nạn thất học (1945)",
+          "en": "Hồ Chí Minh, on fighting illiteracy (1945)"
+        }
+      },
+      "hero": {
+        "id": "giac-doi-giac-dot-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" },
+        "flagship": "eras/dien-bien-phu/events/giac-doi-giac-dot.png",
+        "reduced": "eras/dien-bien-phu/events/giac-doi-giac-dot.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam",
+        "section": {
+          "vi": "Tập 10 · Xây dựng và bảo vệ chính quyền cách mạng (1945–1946)",
+          "en": "Vol. 10 · Building and defending revolutionary power (1945–1946)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "hiep-dinh-so-bo",
+      "slug": "hiep-dinh-so-bo",
+      "figureIds": ["ho-chi-minh"],
+      "details": {
+        "vi": "Đầu năm 1946, tình thế đất nước hết sức hiểm nghèo khi cùng lúc phải đối phó với nhiều kẻ thù. Ngày 28-2-1946, Pháp và Tưởng ký Hiệp ước Hoa – Pháp, theo đó quân Tưởng rút về nước để quân Pháp ra miền Bắc thay thế — đặt nhân dân ta trước hai lựa chọn: hoặc cầm súng chống Pháp ngay khi lực lượng còn non yếu, hoặc tạm hòa hoãn để đẩy nhanh quân Tưởng về nước và tranh thủ thời gian chuẩn bị. Với sách lược mềm dẻo 'dĩ bất biến, ứng vạn biến', ngày 6-3-1946 Chủ tịch Hồ Chí Minh thay mặt Chính phủ ký với đại diện Pháp bản Hiệp định Sơ bộ: Pháp công nhận Việt Nam là một quốc gia tự do có chính phủ, nghị viện, quân đội và tài chính riêng, nằm trong Liên bang Đông Dương và khối Liên hiệp Pháp; ta đồng ý cho 15.000 quân Pháp ra Bắc thay quân Tưởng và sẽ rút dần trong năm năm. Nhờ đó ta đã đẩy được 20 vạn quân Tưởng cùng bọn tay sai ra khỏi đất nước, tránh được thế cùng lúc đánh nhiều kẻ thù. Khi quan hệ tiếp tục căng thẳng, Chủ tịch Hồ Chí Minh sang Pháp đàm phán; hội nghị Fontainebleau thất bại, nhưng để kéo dài thêm thời gian hòa bình, ngày 14-9-1946 Người ký với Pháp bản Tạm ước, nhân nhượng thêm một số quyền lợi kinh tế, văn hóa. Đó là những nhân nhượng có nguyên tắc, thể hiện thiện chí hòa bình và bản lĩnh 'hòa để tiến' của cách mạng Việt Nam.",
+        "en": "In early 1946 the country's plight was dire, facing several enemies at once. On 28 February 1946 France and Chiang's China signed the Sino-French Treaty by which Chiang's troops would withdraw and let French forces replace them in the North — confronting our people with two choices: take up arms against France while still weak, or reach a truce to speed Chiang's departure and gain time to prepare. With the supple maxim 'hold to the unchanging to meet the myriad changes,' on 6 March 1946 President Hồ Chí Minh, for the Government, signed the Preliminary Accord with France's envoy: France recognized Vietnam as a free state with its own government, parliament, army and finances, within the Indochinese Federation and the French Union; we agreed to admit 15,000 French troops to the North to replace Chiang's, to withdraw gradually over five years. This drove the 200,000 Chinese troops and their followers out and avoided fighting many foes at once. As tension rose again, President Hồ Chí Minh went to France to negotiate; the Fontainebleau talks failed, but to prolong the peace he signed the Modus Vivendi on 14 September 1946, conceding some further economic and cultural interests. These were principled concessions, showing goodwill for peace and the revolution's mettle in 'making peace to advance.'"
+      },
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "6 tháng 3, 1946 SCN", "en": "6 March 1946 CE" },
+        "value": 1946,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Hòa để tiến: Hiệp định Sơ bộ và Tạm ước",
+        "en": "Peace to advance: the Preliminary Accord and Modus Vivendi"
+      },
+      "summary": {
+        "vi": "Trước thế phải đánh nhiều kẻ thù, ta khôn khéo hòa hoãn: Hiệp định Sơ bộ 6-3-1946 đẩy 20 vạn quân Tưởng về nước, rồi Tạm ước 14-9-1946 — những nhân nhượng có nguyên tắc để tranh thủ thời gian chuẩn bị.",
+        "en": "Facing many enemies at once, we shrewdly conciliate: the Preliminary Accord of 6 Mar 1946 drives out 200,000 Chinese troops, then the Modus Vivendi of 14 Sep 1946 — principled concessions to gain time to prepare."
+      },
+      "body": {
+        "vi": "Đầu 1946, Hiệp ước Hoa – Pháp (28-2) buộc ta chọn giữa đánh Pháp lúc còn yếu hay tạm hòa. Với sách lược 'dĩ bất biến, ứng vạn biến', ngày 6-3-1946 Hồ Chí Minh ký Hiệp định Sơ bộ: Pháp công nhận Việt Nam là quốc gia tự do trong Liên hiệp Pháp, ta cho 15.000 quân Pháp ra Bắc thay quân Tưởng. Nhờ đó đẩy được 20 vạn quân Tưởng về nước, tránh cùng lúc đánh nhiều kẻ thù. Hội nghị Fontainebleau thất bại; để kéo dài hòa bình, ngày 14-9-1946 Người ký Tạm ước, nhân nhượng có nguyên tắc. Đó là bản lĩnh 'hòa để tiến'.",
+        "en": "In early 1946 the Sino-French Treaty (28 Feb) forced a choice between fighting France while weak or a truce. With 'hold the unchanging to meet all changes,' on 6 Mar 1946 Hồ Chí Minh signed the Preliminary Accord: France recognized Vietnam as a free state within the French Union, and we admitted 15,000 French troops to the North to replace Chiang's. This drove out 200,000 Chinese troops and avoided fighting many foes at once. Fontainebleau failed; to prolong peace, on 14 Sep 1946 he signed the Modus Vivendi, a principled concession — the mettle of 'peace to advance.'"
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Dĩ bất biến, ứng vạn biến.",
+          "en": "Hold to the unchanging to meet the myriad changes."
+        },
+        "attribution": {
+          "vi": "phương châm sách lược 'hòa để tiến' (1946)",
+          "en": "the maxim of 'peace to advance' (1946)"
+        }
+      },
+      "hero": {
+        "id": "hiep-dinh-so-bo-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" },
+        "flagship": "eras/dien-bien-phu/events/hiep-dinh-so-bo.png",
+        "reduced": "eras/dien-bien-phu/events/hiep-dinh-so-bo.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam",
+        "section": {
+          "vi": "Tập 10 · Sách lược hòa hoãn năm 1946",
+          "en": "Vol. 10 · The conciliation policy of 1946"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "toan-quoc-khang-chien",
+      "slug": "toan-quoc-khang-chien",
+      "figureIds": ["ho-chi-minh"],
+      "details": {
+        "vi": "Bất chấp thiện chí hòa bình của ta, thực dân Pháp ngày càng lấn tới, quyết cướp nước ta một lần nữa. Cuối năm 1946, Pháp liên tiếp gây hấn: chiếm Hải Phòng, Lạng Sơn, rồi khiêu khích ở Hà Nội, ngày 18-12-1946 gửi tối hậu thư đòi ta giải tán lực lượng tự vệ và giao quyền kiểm soát thủ đô. Nhân dân ta không còn con đường nào khác ngoài cầm vũ khí đứng lên bảo vệ nền độc lập. Đêm 19-12-1946, Ban Thường vụ Trung ương Đảng phát động toàn quốc kháng chiến; Chủ tịch Hồ Chí Minh ra 'Lời kêu gọi toàn quốc kháng chiến' với lời hịch bất hủ: 'Chúng ta thà hy sinh tất cả, chứ nhất định không chịu mất nước, nhất định không chịu làm nô lệ.' Ngay đêm đó, quân dân Hà Nội và các đô thị Bắc vĩ tuyến 16 nổ súng mở màn kháng chiến; Trung đoàn Thủ đô kiên cường chiến đấu suốt 60 ngày đêm giam chân địch trong lòng thành phố, tạo điều kiện cho cả nước chuyển vào kháng chiến lâu dài. Đường lối kháng chiến 'toàn dân, toàn diện, trường kỳ, tự lực cánh sinh' được xác định, sau này được đồng chí Trường Chinh trình bày hệ thống trong tác phẩm 'Kháng chiến nhất định thắng lợi'. Cuộc kháng chiến chống thực dân Pháp của dân tộc chính thức bắt đầu.",
+        "en": "Despite our goodwill for peace, the French pressed ever harder, bent on seizing the country again. In late 1946 they provoked one clash after another: taking Hải Phòng and Lạng Sơn, then provoking in Hà Nội, and on 18 December 1946 delivering an ultimatum demanding we disband our self-defence forces and hand over control of the capital. Our people had no path left but to take up arms for independence. On the night of 19 December 1946 the Party's Standing Committee launched the national resistance; President Hồ Chí Minh issued the 'Appeal for National Resistance' with the immortal words: 'We would rather sacrifice everything than lose our country and be enslaved.' That very night the army and people of Hà Nội and the cities north of the 16th parallel opened fire; the Capital Regiment fought on for 60 days and nights, pinning the enemy inside the city so the nation could shift to a protracted war. The resistance line — 'the whole people, all-sided, protracted, self-reliant' — was set, later systematized by comrade Trường Chinh in his work 'The Resistance Will Win.' The nation's resistance war against the French colonialists had formally begun."
+      },
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "19 tháng 12, 1946 SCN", "en": "19 December 1946 CE" },
+        "value": 1946,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Lời kêu gọi toàn quốc kháng chiến",
+        "en": "The Appeal for National Resistance"
+      },
+      "summary": {
+        "vi": "Pháp bội ước, gửi tối hậu thư đòi tước vũ khí. Đêm 19-12-1946, Hồ Chí Minh ra Lời kêu gọi toàn quốc kháng chiến: 'thà hy sinh tất cả chứ nhất định không chịu mất nước'. Trung đoàn Thủ đô giam chân địch 60 ngày đêm.",
+        "en": "France breaks faith and demands disarmament. On the night of 19 Dec 1946 Hồ Chí Minh issues the Appeal for National Resistance: 'rather sacrifice everything than lose our country.' The Capital Regiment pins the enemy for 60 days and nights."
+      },
+      "body": {
+        "vi": "Cuối 1946 Pháp lấn tới: chiếm Hải Phòng, Lạng Sơn, gửi tối hậu thư (18-12) đòi ta giải tán tự vệ, giao quyền kiểm soát Hà Nội. Đêm 19-12-1946, Đảng phát động toàn quốc kháng chiến; Hồ Chí Minh ra Lời kêu gọi bất hủ: 'Chúng ta thà hy sinh tất cả, chứ nhất định không chịu mất nước, nhất định không chịu làm nô lệ.' Quân dân Hà Nội nổ súng; Trung đoàn Thủ đô chiến đấu 60 ngày đêm giam chân địch. Đường lối 'toàn dân, toàn diện, trường kỳ, tự lực cánh sinh' được xác định — kháng chiến chống Pháp bắt đầu.",
+        "en": "In late 1946 France pressed on: taking Hải Phòng and Lạng Sơn and delivering an ultimatum (18 Dec) to disband our self-defence and hand over Hà Nội. On the night of 19 Dec 1946 the Party launched the national resistance; Hồ Chí Minh issued his immortal appeal: 'We would rather sacrifice everything than lose our country and be enslaved.' Hà Nội's army and people opened fire; the Capital Regiment fought 60 days and nights, pinning the enemy. The line of 'the whole people, all-sided, protracted, self-reliant' was set — the resistance against France had begun."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Chúng ta thà hy sinh tất cả, chứ nhất định không chịu mất nước, nhất định không chịu làm nô lệ.",
+          "en": "We would rather sacrifice everything than lose our country and be enslaved."
+        },
+        "attribution": {
+          "vi": "Hồ Chí Minh, Lời kêu gọi toàn quốc kháng chiến, 19-12-1946",
+          "en": "Hồ Chí Minh, Appeal for National Resistance, 19 December 1946"
+        }
+      },
+      "hero": {
+        "id": "toan-quoc-khang-chien-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" },
+        "flagship": "eras/dien-bien-phu/events/toan-quoc-khang-chien.png",
+        "reduced": "eras/dien-bien-phu/events/toan-quoc-khang-chien.png"
+      },
+      "citation": {
+        "work": "Hồ Chí Minh Toàn tập",
+        "section": {
+          "vi": "Lời kêu gọi toàn quốc kháng chiến (19-12-1946)",
+          "en": "The Appeal for National Resistance (19 December 1946)"
+        },
+        "author": "Hồ Chí Minh"
+      }
+    },
+    {
+      "id": "chien-dich-viet-bac",
+      "slug": "chien-dich-viet-bac",
+      "figureIds": ["vo-nguyen-giap"],
+      "details": {
+        "vi": "Sau một năm kháng chiến, thực dân Pháp muốn nhanh chóng kết thúc chiến tranh bằng chiến lược 'đánh nhanh thắng nhanh'. Thu – Đông năm 1947, chúng huy động hơn một vạn quân tinh nhuệ mở cuộc tấn công quy mô lớn lên căn cứ địa Việt Bắc, hòng tiêu diệt cơ quan đầu não kháng chiến và bộ đội chủ lực của ta, kết thúc chiến tranh. Ngày 7-10-1947, quân Pháp nhảy dù xuống Bắc Kạn, đồng thời tiến theo hai gọng kìm đường bộ và đường thủy dọc sông Lô, sông Gâm nhằm bao vây khu căn cứ. Trung ương Đảng ra chỉ thị 'Phải phá tan cuộc tấn công mùa đông của giặc Pháp'. Quân và dân ta bao vây, chặn đánh địch ở khắp các mặt trận: trên sông Lô, pháo binh ta bắn chìm nhiều tàu chiến (trận Đoan Hùng, Khe Lau); trên đường bộ, phục kích tiêu diệt địch ở đèo Bông Lau. Sau hơn hai tháng chiến đấu, đến ngày 19-12-1947 quân Pháp buộc phải rút chạy khỏi Việt Bắc, chịu thiệt hại nặng nề. Chiến thắng Việt Bắc Thu – Đông 1947 đã làm thất bại hoàn toàn chiến lược 'đánh nhanh thắng nhanh' của Pháp, bảo vệ vững chắc cơ quan đầu não và bộ đội chủ lực, buộc địch phải chuyển sang đánh lâu dài — điều bất lợi cho chúng và có lợi cho cuộc kháng chiến trường kỳ của ta.",
+        "en": "After a year of resistance, the French sought to end the war quickly by a 'lightning war' strategy. In the Autumn–Winter of 1947 they threw over ten thousand elite troops into a large-scale assault on the Việt Bắc base area, hoping to destroy the resistance's leading organs and main forces and finish the war. On 7 October 1947 French paratroopers dropped on Bắc Kạn while two pincers advanced by land and by water up the Lô and Gâm rivers to encircle the base. The Party Central Committee ordered: 'Smash the French winter offensive.' Our army and people surrounded and struck the enemy on every front: on the Lô River our artillery sank many warships (the battles of Đoan Hùng and Khe Lau); on land, ambushes destroyed the enemy at Bông Lau pass. After more than two months, by 19 December 1947 the French were forced to flee Việt Bắc with heavy losses. The Việt Bắc victory of Autumn–Winter 1947 utterly defeated France's 'lightning war,' firmly protected the leading organs and main forces, and forced the enemy into a protracted war — to their disadvantage and to the advantage of our long resistance."
+      },
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "Thu – Đông 1947 SCN", "en": "Autumn–Winter 1947 CE" },
+        "value": 1947,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Chiến thắng Việt Bắc Thu – Đông 1947",
+        "en": "The Việt Bắc victory of Autumn–Winter 1947"
+      },
+      "summary": {
+        "vi": "Thu – Đông 1947, Pháp đánh lớn lên Việt Bắc hòng 'đánh nhanh thắng nhanh', diệt đầu não kháng chiến. Ta chặn đánh trên sông Lô, đèo Bông Lau; sau hơn hai tháng địch phải tháo chạy — chiến lược đánh nhanh phá sản.",
+        "en": "In Autumn–Winter 1947 France strikes at Việt Bắc for a 'lightning war' to destroy the resistance's core. We fight back on the Lô River and at Bông Lau pass; after two months the enemy flees — the lightning-war strategy collapses."
+      },
+      "body": {
+        "vi": "Thu – Đông 1947, Pháp huy động hơn một vạn quân, nhảy dù xuống Bắc Kạn (7-10) và tiến hai gọng kìm dọc sông Lô, sông Gâm đánh lên Việt Bắc, hòng 'đánh nhanh thắng nhanh' và diệt đầu não kháng chiến. Trung ương chỉ thị 'phá tan cuộc tấn công mùa đông của giặc'. Ta bắn chìm tàu chiến trên sông Lô (Đoan Hùng, Khe Lau), phục kích ở đèo Bông Lau. Sau hơn hai tháng, ngày 19-12-1947 địch phải rút chạy, thiệt hại nặng. Chiến lược 'đánh nhanh thắng nhanh' của Pháp phá sản, chúng buộc phải đánh lâu dài.",
+        "en": "In Autumn–Winter 1947 France sent over ten thousand troops, dropped paratroopers on Bắc Kạn (7 Oct) and advanced in two pincers up the Lô and Gâm rivers into Việt Bắc for a 'lightning war' to destroy the resistance's core. The Center ordered 'smash the enemy's winter offensive.' We sank warships on the Lô (Đoan Hùng, Khe Lau) and ambushed at Bông Lau pass. After two months, on 19 Dec 1947 the enemy fled with heavy losses. France's 'lightning war' collapsed and they were forced into a protracted war."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Phải phá tan cuộc tấn công mùa đông của giặc Pháp.",
+          "en": "Smash the winter offensive of the French aggressors."
+        },
+        "attribution": {
+          "vi": "Chỉ thị của Trung ương Đảng, 1947",
+          "en": "Directive of the Party Central Committee, 1947"
+        }
+      },
+      "hero": {
+        "id": "chien-dich-viet-bac-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" },
+        "flagship": "eras/dien-bien-phu/events/chien-dich-viet-bac.png",
+        "reduced": "eras/dien-bien-phu/events/chien-dich-viet-bac.png"
+      },
+      "citation": {
+        "work": "Lịch sử kháng chiến chống thực dân Pháp (1945–1954)",
+        "section": {
+          "vi": "Chiến dịch Việt Bắc Thu – Đông 1947",
+          "en": "The Việt Bắc Campaign, Autumn–Winter 1947"
+        },
+        "author": "Viện Lịch sử Quân sự Việt Nam"
+      }
+    },
+    {
+      "id": "chien-dich-bien-gioi",
+      "slug": "chien-dich-bien-gioi",
+      "figureIds": ["ho-chi-minh", "vo-nguyen-giap"],
+      "details": {
+        "vi": "Bước sang năm 1950, cục diện kháng chiến chuyển biến có lợi cho ta: cách mạng Trung Quốc thành công (1949), nước Cộng hòa Nhân dân Trung Hoa và Liên Xô lần lượt công nhận và đặt quan hệ ngoại giao với nước Việt Nam Dân chủ Cộng hòa, phá thế bị bao vây cô lập. Để tranh thủ thời cơ, giành quyền chủ động trên chiến trường chính Bắc Bộ và khai thông đường liên lạc với các nước xã hội chủ nghĩa, tháng 6-1950 Trung ương Đảng quyết định mở Chiến dịch Biên giới. Đây là chiến dịch tiến công quy mô lớn đầu tiên do ta chủ động mở. Chủ tịch Hồ Chí Minh đã trực tiếp ra mặt trận theo dõi, chỉ đạo chiến dịch. Ngày 16-9-1950, quân ta nổ súng đánh cụm cứ điểm Đông Khê để 'điệu hổ ly sơn', cô lập Cao Bằng; sau đó phục kích, tiêu diệt hai binh đoàn địch rút chạy trên Đường số 4. Đến ngày 22-10-1950, chiến dịch toàn thắng: ta tiêu diệt và bắt sống nhiều tiểu đoàn địch, giải phóng một dải biên giới dài từ Cao Bằng đến Đình Lập, khai thông đường sang Trung Quốc. Chiến thắng Biên giới đánh dấu bước ngoặt của cuộc kháng chiến: quân đội ta trưởng thành, giành và giữ quyền chủ động chiến lược trên chiến trường chính, đẩy thực dân Pháp ngày càng lún sâu vào thế bị động, phòng ngự.",
+        "en": "In 1950 the war turned in our favor: the Chinese revolution had triumphed (1949), and the People's Republic of China and the Soviet Union in turn recognized and established diplomatic relations with the Democratic Republic of Vietnam, breaking the encirclement. To seize the moment, take the initiative on the main northern front and open communication with the socialist countries, in June 1950 the Party Central Committee decided to launch the Border Campaign — the first large offensive we mounted on our own initiative. President Hồ Chí Minh went to the front in person to observe and direct it. On 16 September 1950 our troops attacked the Đông Khê strongpoint to 'lure the tiger from the mountain' and isolate Cao Bằng; then ambushed and destroyed two enemy columns retreating on Route 4. By 22 October 1950 the campaign was fully won: we destroyed and captured many enemy battalions, liberated a long stretch of frontier from Cao Bằng to Đình Lập and opened the road to China. The Border victory marked a turning point: our army had matured, seized and held the strategic initiative on the main front, and pushed the French ever deeper into a passive, defensive posture."
+      },
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "9 – 10, 1950 SCN", "en": "Sep – Oct 1950 CE" },
+        "value": 1950,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Chiến dịch Biên giới, giành quyền chủ động",
+        "en": "The Border Campaign; seizing the initiative"
+      },
+      "summary": {
+        "vi": "1950, Trung Quốc và Liên Xô công nhận VNDCCH, phá thế bao vây. Ta chủ động mở Chiến dịch Biên giới, đánh Đông Khê, phục kích trên Đường số 4; khai thông biên giới, giành quyền chủ động chiến lược trên chiến trường chính.",
+        "en": "In 1950 China and the USSR recognize the DRV, breaking the encirclement. We mount the Border Campaign, storm Đông Khê and ambush on Route 4; the frontier opens and we seize the strategic initiative on the main front."
+      },
+      "body": {
+        "vi": "Năm 1950, Trung Quốc và Liên Xô công nhận VNDCCH, phá thế bị bao vây. Tháng 6-1950 ta chủ động mở Chiến dịch Biên giới; Hồ Chí Minh trực tiếp ra mặt trận. Ngày 16-9-1950 ta đánh Đông Khê 'điệu hổ ly sơn', cô lập Cao Bằng, rồi phục kích diệt hai binh đoàn địch trên Đường số 4. Ngày 22-10-1950 toàn thắng: giải phóng dải biên giới Cao Bằng – Đình Lập, khai thông đường sang Trung Quốc. Đây là bước ngoặt — quân ta giành và giữ quyền chủ động chiến lược, Pháp lún sâu vào thế phòng ngự.",
+        "en": "In 1950 China and the USSR recognized the DRV, breaking the encirclement. In June 1950 we mounted the Border Campaign on our own initiative; Hồ Chí Minh went to the front. On 16 Sep 1950 we stormed Đông Khê to 'lure the tiger from the mountain,' isolating Cao Bằng, then ambushed two enemy columns on Route 4. By 22 Oct 1950 it was fully won: the frontier from Cao Bằng to Đình Lập was freed and the road to China opened. It was a turning point — our army seized and held the strategic initiative while France sank into defense."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Chiến dịch này hết sức quan trọng, chỉ được thắng không được bại.",
+          "en": "This campaign is of the utmost importance; it may only be won, never lost."
+        },
+        "attribution": {
+          "vi": "Hồ Chí Minh, tại mặt trận Biên giới (1950)",
+          "en": "Hồ Chí Minh, at the Border front (1950)"
+        }
+      },
+      "hero": {
+        "id": "chien-dich-bien-gioi-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" },
+        "flagship": "eras/dien-bien-phu/events/chien-dich-bien-gioi.png",
+        "reduced": "eras/dien-bien-phu/events/chien-dich-bien-gioi.png"
+      },
+      "citation": {
+        "work": "Lịch sử kháng chiến chống thực dân Pháp (1945–1954)",
+        "section": {
+          "vi": "Chiến dịch Biên giới 1950",
+          "en": "The Border Campaign of 1950"
+        },
+        "author": "Viện Lịch sử Quân sự Việt Nam"
+      }
+    },
+    {
+      "id": "dai-hoi-dang-lan-hai",
+      "slug": "dai-hoi-dang-lan-hai",
+      "figureIds": ["truong-chinh", "ho-chi-minh"],
+      "details": {
+        "vi": "Sau chiến thắng Biên giới, cuộc kháng chiến chuyển sang giai đoạn mới, đòi hỏi phải tăng cường sự lãnh đạo của Đảng và củng cố hậu phương. Từ ngày 11 đến 19-2-1951, Đại hội đại biểu toàn quốc lần thứ II của Đảng họp tại xã Vinh Quang, huyện Chiêm Hóa (Tuyên Quang), giữa chiến khu Việt Bắc. Đại hội quyết định đưa Đảng ra hoạt động công khai với tên gọi Đảng Lao động Việt Nam, đề ra đường lối, nhiệm vụ của cách mạng Việt Nam trong giai đoạn mới. Đại hội thông qua Chính cương, Điều lệ mới, bầu Ban Chấp hành Trung ương do đồng chí Hồ Chí Minh làm Chủ tịch Đảng và đồng chí Trường Chinh làm Tổng Bí thư. Đại hội xác định nhiệm vụ chủ yếu trước mắt là 'tất cả cho tiền tuyến, tất cả để chiến thắng', đẩy mạnh kháng chiến đến thắng lợi hoàn toàn. Cùng thời gian, Mặt trận Liên Việt được thành lập, khối đại đoàn kết toàn dân được củng cố; hậu phương ra sức thi đua tăng gia sản xuất, thực hiện từng bước chính sách ruộng đất để bồi dưỡng sức dân. Đại hội II — 'Đại hội kháng chiến thắng lợi' — đánh dấu bước trưởng thành vượt bậc của Đảng, tạo nên sức mạnh chính trị và hậu phương vững chắc, chuẩn bị cho những đòn tiến công chiến lược quyết định.",
+        "en": "After the Border victory the resistance entered a new stage that demanded stronger Party leadership and a firmer rear. From 11 to 19 February 1951 the Party's Second National Congress met at Vinh Quang commune, Chiêm Hóa district (Tuyên Quang), in the heart of the Việt Bắc base. It decided to bring the Party into open activity under the name Vietnam Workers' Party and set the line and tasks of the revolution for the new stage. The Congress adopted a new Platform and Statutes and elected a Central Committee with comrade Hồ Chí Minh as Party Chairman and comrade Trường Chinh as General Secretary. Its foremost task was 'all for the front, all for victory,' driving the resistance to complete triumph. At the same time the Liên Việt Front was formed and the bloc of great national unity strengthened; the rear competed to raise production and carried out land policy step by step to nurture the people's strength. The Second Congress — the 'Congress of victorious resistance' — marked a great maturing of the Party, forged political strength and a solid rear, and prepared the way for the decisive strategic offensives."
+      },
+      "order": 5,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "2 tháng 2, 1951 SCN", "en": "February 1951 CE" },
+        "value": 1951,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Đại hội Đảng lần thứ II, củng cố hậu phương",
+        "en": "The Party's Second Congress; strengthening the rear"
+      },
+      "summary": {
+        "vi": "Tháng 2-1951, Đại hội II họp ở Việt Bắc, đưa Đảng ra công khai với tên Đảng Lao động Việt Nam; Hồ Chí Minh làm Chủ tịch Đảng, Trường Chinh làm Tổng Bí thư. 'Tất cả cho tiền tuyến, tất cả để chiến thắng' — củng cố hậu phương.",
+        "en": "In Feb 1951 the Second Congress meets in Việt Bắc, bringing the Party into the open as the Vietnam Workers' Party; Hồ Chí Minh becomes Chairman, Trường Chinh General Secretary. 'All for the front, all for victory' — the rear is consolidated."
+      },
+      "body": {
+        "vi": "Từ 11–19-2-1951, Đại hội đại biểu toàn quốc lần thứ II họp tại Chiêm Hóa (Tuyên Quang) giữa chiến khu Việt Bắc. Đại hội đưa Đảng ra hoạt động công khai với tên Đảng Lao động Việt Nam, thông qua Chính cương, Điều lệ mới; bầu Hồ Chí Minh làm Chủ tịch Đảng, Trường Chinh làm Tổng Bí thư. Nhiệm vụ trước mắt: 'tất cả cho tiền tuyến, tất cả để chiến thắng'. Mặt trận Liên Việt được lập, hậu phương thi đua tăng gia sản xuất, từng bước thực hiện chính sách ruộng đất. Đại hội II tạo sức mạnh chính trị và hậu phương vững chắc cho các đòn tiến công quyết định.",
+        "en": "From 11–19 Feb 1951 the Second National Congress met at Chiêm Hóa (Tuyên Quang) in the Việt Bắc base. It brought the Party into open activity as the Vietnam Workers' Party, adopted a new Platform and Statutes, and elected Hồ Chí Minh Chairman and Trường Chinh General Secretary. The immediate task: 'all for the front, all for victory.' The Liên Việt Front was formed, the rear competed to raise production and carried out land policy step by step. The Second Congress forged the political strength and solid rear for the decisive offensives to come."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Kháng chiến nhất định thắng lợi.",
+          "en": "The resistance will surely triumph."
+        },
+        "attribution": {
+          "vi": "Trường Chinh, tác phẩm về đường lối kháng chiến",
+          "en": "Trường Chinh, on the line of the resistance"
+        }
+      },
+      "hero": {
+        "id": "dai-hoi-dang-lan-hai-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" },
+        "flagship": "eras/dien-bien-phu/events/dai-hoi-dang-lan-hai.png",
+        "reduced": "eras/dien-bien-phu/events/dai-hoi-dang-lan-hai.png"
+      },
+      "citation": {
+        "work": "Lịch sử Đảng Cộng sản Việt Nam",
+        "section": {
+          "vi": "Đại hội đại biểu toàn quốc lần thứ II (1951)",
+          "en": "The Second National Congress (1951)"
+        },
+        "author": "Viện Lịch sử Đảng"
+      }
+    },
+    {
+      "id": "dien-bien-phu",
+      "slug": "dien-bien-phu",
+      "figureIds": ["vo-nguyen-giap", "phan-dinh-giot"],
+      "details": {
+        "vi": "Đông – Xuân 1953–1954, quân và dân ta mở cuộc tiến công chiến lược trên khắp các chiến trường, buộc khối cơ động của Pháp phải phân tán. Để cứu vãn tình thế, thực dân Pháp và can thiệp Mỹ xây dựng Điện Biên Phủ thành một tập đoàn cứ điểm mạnh nhất Đông Dương — 'pháo đài không thể công phá', gồm 49 cứ điểm với hơn một vạn sáu nghìn quân — nhằm nghiền nát chủ lực của ta. Bộ Chính trị quyết định chọn Điện Biên Phủ làm điểm quyết chiến chiến lược; Đại tướng Võ Nguyên Giáp được cử làm Tư lệnh kiêm Bí thư Đảng ủy Mặt trận. Sau khi cân nhắc, ông đưa ra quyết định lịch sử: thay đổi phương châm từ 'đánh nhanh, giải quyết nhanh' sang 'đánh chắc, tiến chắc'. Hàng vạn dân công, thanh niên xung phong ngày đêm mở đường, kéo pháo bằng sức người vượt núi cao, vực sâu vào trận địa. Chiều 13-3-1954, quân ta nổ súng mở màn. Qua ba đợt tiến công suốt 56 ngày đêm 'khoét núi, ngủ hầm, mưa dầm, cơm vắt', với biết bao tấm gương hy sinh anh dũng như Phan Đình Giót lấy thân mình lấp lỗ châu mai, Tô Vĩnh Diện lấy thân chèn pháo, đến 17 giờ 30 ngày 7-5-1954, lá cờ 'Quyết chiến quyết thắng' tung bay trên nóc hầm De Castries; toàn bộ tập đoàn cứ điểm bị tiêu diệt, tướng De Castries cùng bộ tham mưu bị bắt sống. Chiến thắng Điện Biên Phủ 'lừng lẫy năm châu, chấn động địa cầu' là đỉnh cao của cuộc kháng chiến, giáng đòn quyết định làm sụp đổ ý chí xâm lược của thực dân Pháp.",
+        "en": "In the Winter–Spring of 1953–1954 our army and people launched a strategic offensive across every front, forcing France's mobile forces to scatter. To retrieve the situation, the French and their American backers built Điện Biên Phủ into the strongest fortified complex in Indochina — an 'impregnable fortress' of 49 strongpoints with over sixteen thousand troops — to grind down our main forces. The Political Bureau chose Điện Biên Phủ as the strategic decisive point; General Võ Nguyên Giáp was appointed Commander and Front Party Secretary. After deliberation he made a historic decision: to change the maxim from 'strike fast, finish fast' to 'strike surely, advance surely.' Tens of thousands of laborers and youth volunteers opened roads day and night and hauled the guns by hand over high mountains and deep ravines into position. On the afternoon of 13 March 1954 our troops opened fire. Through three phases over 56 days and nights of 'boring through mountains, sleeping in shelters, soaked by rain, eating cold rice,' with countless feats of heroic sacrifice — Phan Đình Giót blocking a gun-slit with his body, Tô Vĩnh Diện shielding a cannon with his own — at 5:30 p.m. on 7 May 1954 the 'Resolve to Fight, Resolve to Win' flag flew over De Castries's bunker; the entire complex was destroyed and General De Castries and his staff captured alive. The Điện Biên Phủ victory, which 'shook the five continents and rocked the earth,' was the summit of the resistance, a decisive blow that broke the will of French colonial aggression."
+      },
+      "order": 6,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "13-3 – 7-5-1954 SCN", "en": "13 Mar – 7 May 1954 CE" },
+        "value": 1954,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Chiến thắng Điện Biên Phủ",
+        "en": "The victory at Điện Biên Phủ"
+      },
+      "summary": {
+        "vi": "Pháp – Mỹ xây Điện Biên Phủ thành 'pháo đài bất khả xâm phạm'. Đại tướng Võ Nguyên Giáp đổi phương châm sang 'đánh chắc, tiến chắc'; sau 56 ngày đêm, chiều 7-5-1954 ta bắt sống De Castries — chiến thắng 'chấn động địa cầu'.",
+        "en": "France and the US build Điện Biên Phủ into an 'impregnable fortress.' General Võ Nguyên Giáp switches to 'strike surely, advance surely'; after 56 days, on 7 May 1954 we capture De Castries — a victory that 'rocked the earth.'"
+      },
+      "body": {
+        "vi": "Đông – Xuân 1953–1954, ta tiến công khắp nơi, buộc Pháp phân tán. Pháp – Mỹ xây Điện Biên Phủ thành tập đoàn cứ điểm mạnh nhất Đông Dương (49 cứ điểm, hơn 1,6 vạn quân). Bộ Chính trị chọn đây làm điểm quyết chiến; Đại tướng Võ Nguyên Giáp làm Tư lệnh, quyết định đổi 'đánh nhanh' sang 'đánh chắc, tiến chắc'. Dân công kéo pháo bằng sức người. Chiều 13-3-1954 nổ súng; qua 56 ngày đêm với những tấm gương như Phan Đình Giót lấp lỗ châu mai, đến 17h30 ngày 7-5-1954 ta bắt sống De Castries, tiêu diệt toàn bộ cứ điểm. Điện Biên Phủ 'lừng lẫy năm châu, chấn động địa cầu' — đỉnh cao của kháng chiến.",
+        "en": "In Winter–Spring 1953–1954 we attacked everywhere, forcing France to scatter. France and the US built Điện Biên Phủ into Indochina's strongest complex (49 strongpoints, over 16,000 troops). The Political Bureau chose it as the decisive point; General Võ Nguyên Giáp as Commander switched from 'strike fast' to 'strike surely, advance surely.' Laborers hauled the guns by hand. Fire opened on the afternoon of 13 Mar 1954; over 56 days, with feats like Phan Đình Giót blocking a gun-slit with his body, at 5:30 p.m. on 7 May 1954 we captured De Castries and destroyed the whole complex. Điện Biên Phủ 'shook the five continents and rocked the earth' — the summit of the resistance."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Chín năm làm một Điện Biên, nên vành hoa đỏ, nên thiên sử vàng.",
+          "en": "Nine years made one Điện Biên — a wreath of red, a golden page of history."
+        },
+        "attribution": {
+          "vi": "Tố Hữu, 'Hoan hô chiến sĩ Điện Biên'",
+          "en": "Tố Hữu, 'Hail the Fighters of Điện Biên'"
+        }
+      },
+      "hero": {
+        "id": "dien-bien-phu-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" },
+        "flagship": "eras/dien-bien-phu/events/dien-bien-phu.png",
+        "reduced": "eras/dien-bien-phu/events/dien-bien-phu.png"
+      },
+      "citation": {
+        "work": "Lịch sử kháng chiến chống thực dân Pháp (1945–1954)",
+        "section": {
+          "vi": "Chiến dịch Điện Biên Phủ (13-3 – 7-5-1954)",
+          "en": "The Điện Biên Phủ Campaign (13 Mar – 7 May 1954)"
+        },
+        "author": "Viện Lịch sử Quân sự Việt Nam"
+      }
+    },
+    {
+      "id": "hiep-dinh-geneve",
+      "slug": "hiep-dinh-geneve",
+      "figureIds": ["pham-van-dong"],
+      "details": {
+        "vi": "Chiến thắng Điện Biên Phủ đã tạo cơ sở quyết định cho thắng lợi trên bàn hội nghị. Hội nghị Genève về Đông Dương khai mạc ngày 8-5-1954 — chỉ một ngày sau khi Điện Biên Phủ thất thủ — với sự tham dự của các cường quốc và các bên liên quan. Đoàn đại biểu Chính phủ Việt Nam Dân chủ Cộng hòa do Phó Thủ tướng kiêm Bộ trưởng Ngoại giao Phạm Văn Đồng dẫn đầu, bước vào bàn đàm phán với tư thế của người chiến thắng. Sau hơn hai tháng đấu tranh gay go, ngày 21-7-1954, Hiệp định Genève về đình chỉ chiến tranh, lập lại hòa bình ở Đông Dương được ký kết. Các nước tham dự cam kết tôn trọng độc lập, chủ quyền, thống nhất và toàn vẹn lãnh thổ của Việt Nam, Lào và Campuchia. Theo Hiệp định, ở Việt Nam lấy vĩ tuyến 17 (sông Bến Hải) làm giới tuyến quân sự tạm thời để hai bên tập kết, chuyển quân; giới tuyến này chỉ có tính chất tạm thời, hoàn toàn không phải là ranh giới về chính trị hay lãnh thổ. Hiệp định quy định sẽ tổ chức tổng tuyển cử tự do trong cả nước vào tháng 7-1956 để thống nhất đất nước. Hiệp định Genève cùng với chiến thắng Điện Biên Phủ đã chấm dứt cuộc chiến tranh xâm lược của thực dân Pháp kéo dài gần một thế kỷ; miền Bắc hoàn toàn giải phóng, bước vào thời kỳ xây dựng chủ nghĩa xã hội, làm hậu phương lớn cho cuộc đấu tranh thống nhất nước nhà.",
+        "en": "The Điện Biên Phủ victory laid the decisive basis for triumph at the negotiating table. The Geneva Conference on Indochina opened on 8 May 1954 — just one day after Điện Biên Phủ fell — with the great powers and the parties concerned. The delegation of the Democratic Republic of Vietnam, led by Deputy Prime Minister and Foreign Minister Phạm Văn Đồng, entered the talks as victors. After more than two months of hard struggle, on 21 July 1954 the Geneva Accords on ending the war and restoring peace in Indochina were signed. The participating states pledged to respect the independence, sovereignty, unity and territorial integrity of Vietnam, Laos and Cambodia. Under the Accords, in Vietnam the 17th parallel (the Bến Hải River) was taken as a provisional military demarcation line for regrouping and transferring forces; this line was purely temporary and in no way a political or territorial boundary. The Accords provided for free general elections throughout the country in July 1956 to reunify the nation. Together with the Điện Biên Phủ victory, the Geneva Accords ended nearly a century of French colonial war of aggression; the North was fully liberated and entered the era of building socialism as the great rear for the struggle to reunify the country."
+      },
+      "order": 7,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "21 tháng 7, 1954 SCN", "en": "21 July 1954 CE" },
+        "value": 1954,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Hiệp định Genève, hòa bình lập lại ở miền Bắc",
+        "en": "The Geneva Accords; peace restored in the North"
+      },
+      "summary": {
+        "vi": "Sau Điện Biên Phủ, đoàn VNDCCH do Phạm Văn Đồng dẫn đầu đàm phán ở Genève. Ngày 21-7-1954, Hiệp định được ký: các nước công nhận độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ Việt Nam; vĩ tuyến 17 chỉ là giới tuyến quân sự tạm thời.",
+        "en": "After Điện Biên Phủ, the DRV delegation led by Phạm Văn Đồng negotiates at Geneva. On 21 Jul 1954 the Accords are signed: the powers recognize Vietnam's independence, sovereignty, unity and territorial integrity; the 17th parallel is only a provisional military line."
+      },
+      "body": {
+        "vi": "Hội nghị Genève khai mạc 8-5-1954, một ngày sau Điện Biên Phủ. Đoàn VNDCCH do Phạm Văn Đồng dẫn đầu đàm phán ở thế người chiến thắng. Ngày 21-7-1954, Hiệp định Genève được ký: các nước cam kết tôn trọng độc lập, chủ quyền, thống nhất và toàn vẹn lãnh thổ Việt Nam, Lào, Campuchia. Vĩ tuyến 17 (sông Bến Hải) chỉ là giới tuyến quân sự tạm thời, không phải ranh giới chính trị hay lãnh thổ; sẽ tổng tuyển cử thống nhất vào 7-1956. Cùng Điện Biên Phủ, Hiệp định chấm dứt gần một thế kỷ đô hộ của Pháp; miền Bắc được giải phóng, làm hậu phương lớn cho sự nghiệp thống nhất.",
+        "en": "The Geneva Conference opened on 8 May 1954, a day after Điện Biên Phủ. The DRV delegation led by Phạm Văn Đồng negotiated as victors. On 21 Jul 1954 the Accords were signed: the states pledged to respect the independence, sovereignty, unity and territorial integrity of Vietnam, Laos and Cambodia. The 17th parallel (Bến Hải River) was only a provisional military line, not a political or territorial boundary; general elections to reunify were set for July 1956. With Điện Biên Phủ, the Accords ended nearly a century of French rule; the North was liberated and became the great rear for reunification."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Giới tuyến quân sự chỉ có tính chất tạm thời, hoàn toàn không phải là ranh giới về chính trị hay về lãnh thổ.",
+          "en": "The military demarcation line is provisional only, in no way a political or territorial boundary."
+        },
+        "attribution": {
+          "vi": "Tuyên bố cuối cùng, Hội nghị Genève 1954",
+          "en": "Final Declaration, Geneva Conference 1954"
+        }
+      },
+      "hero": {
+        "id": "hiep-dinh-geneve-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" },
+        "flagship": "eras/dien-bien-phu/events/hiep-dinh-geneve.png",
+        "reduced": "eras/dien-bien-phu/events/hiep-dinh-geneve.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam",
+        "section": {
+          "vi": "Tập 11 · Hiệp định Genève về Đông Dương (1954)",
+          "en": "Vol. 11 · The Geneva Accords on Indochina (1954)"
+        },
+        "author": "Viện Sử học"
+      }
+    }
+  ]
+}

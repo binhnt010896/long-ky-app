@@ -3377,6 +3377,87 @@
         "flagship": "eras/cach-mang-thang-tam/characters/bao-dai-full.png",
         "reduced": "eras/cach-mang-thang-tam/characters/bao-dai-full.png"
       }
+    },
+    {
+      "id": "truong-chinh",
+      "name": {
+        "vi": "Trường Chinh",
+        "en": "Trường Chinh"
+      },
+      "epithet": {
+        "vi": "Tổng Bí thư, nhà lý luận của cách mạng",
+        "en": "General Secretary, theorist of the revolution"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo kiệt xuất, một trong những học trò xuất sắc của Chủ tịch Hồ Chí Minh (1907–1988), tên thật Đặng Xuân Khu, quê ở Nam Định. Ông giữ cương vị Tổng Bí thư của Đảng trong thời kỳ kháng chiến chống Pháp, được bầu lại tại Đại hội lần thứ II (1951) khi Đảng ra hoạt động công khai với tên Đảng Lao động Việt Nam. Là nhà lý luận hàng đầu, ông đã hệ thống hóa đường lối kháng chiến 'toàn dân, toàn diện, trường kỳ, tự lực cánh sinh' qua tác phẩm 'Kháng chiến nhất định thắng lợi', góp phần quan trọng vào thắng lợi của cuộc kháng chiến.",
+        "en": "An outstanding leader and one of President Hồ Chí Minh's foremost disciples (1907–1988), born Đặng Xuân Khu in Nam Định. He served as the Party's General Secretary through the resistance against France, re-elected at the Second Congress (1951) when the Party emerged openly as the Vietnam Workers' Party. A leading theorist, he systematized the resistance line — 'the whole people, all-sided, protracted, self-reliant' — in his work 'The Resistance Will Win,' contributing greatly to the victory."
+      },
+      "avatar": {
+        "id": "truong-chinh-avatar",
+        "type": "image",
+        "flagship": "eras/dien-bien-phu/characters/truong-chinh-avatar.png",
+        "reduced": "eras/dien-bien-phu/characters/truong-chinh-avatar.png"
+      },
+      "fullBody": {
+        "id": "truong-chinh-full",
+        "type": "image",
+        "flagship": "eras/dien-bien-phu/characters/truong-chinh-full.png",
+        "reduced": "eras/dien-bien-phu/characters/truong-chinh-full.png"
+      }
+    },
+    {
+      "id": "pham-van-dong",
+      "name": {
+        "vi": "Phạm Văn Đồng",
+        "en": "Phạm Văn Đồng"
+      },
+      "epithet": {
+        "vi": "Trưởng đoàn đàm phán Genève 1954",
+        "en": "Head of the 1954 Geneva delegation"
+      },
+      "bio": {
+        "vi": "Nhà cách mạng, nhà ngoại giao lỗi lạc (1906–2000), quê ở Quảng Ngãi, một trong những học trò gần gũi của Chủ tịch Hồ Chí Minh. Năm 1954, trên cương vị Phó Thủ tướng kiêm Bộ trưởng Ngoại giao, ông dẫn đầu đoàn đại biểu Chính phủ Việt Nam Dân chủ Cộng hòa tại Hội nghị Genève về Đông Dương, đấu tranh buộc các nước công nhận độc lập, chủ quyền, thống nhất và toàn vẹn lãnh thổ của Việt Nam. Về sau ông giữ cương vị Thủ tướng Chính phủ trong nhiều năm, là một trong những nhà lãnh đạo có uy tín lớn của đất nước.",
+        "en": "A revolutionary and distinguished diplomat (1906–2000) from Quảng Ngãi, one of President Hồ Chí Minh's close disciples. In 1954, as Deputy Prime Minister and Foreign Minister, he led the delegation of the Democratic Republic of Vietnam at the Geneva Conference on Indochina, pressing the powers to recognize Vietnam's independence, sovereignty, unity and territorial integrity. He later served for many years as Prime Minister, one of the nation's most respected leaders."
+      },
+      "avatar": {
+        "id": "pham-van-dong-avatar",
+        "type": "image",
+        "flagship": "eras/dien-bien-phu/characters/pham-van-dong-avatar.png",
+        "reduced": "eras/dien-bien-phu/characters/pham-van-dong-avatar.png"
+      },
+      "fullBody": {
+        "id": "pham-van-dong-full",
+        "type": "image",
+        "flagship": "eras/dien-bien-phu/characters/pham-van-dong-full.png",
+        "reduced": "eras/dien-bien-phu/characters/pham-van-dong-full.png"
+      }
+    },
+    {
+      "id": "phan-dinh-giot",
+      "name": {
+        "vi": "Phan Đình Giót",
+        "en": "Phan Đình Giót"
+      },
+      "epithet": {
+        "vi": "Anh hùng lấy thân mình lấp lỗ châu mai",
+        "en": "The hero who blocked a gun-slit with his body"
+      },
+      "bio": {
+        "vi": "Anh hùng Lực lượng vũ trang nhân dân (1922–1954), quê ở Hà Tĩnh, chiến sĩ Quân đội nhân dân Việt Nam trong Chiến dịch Điện Biên Phủ. Xuất thân từ gia đình nông dân nghèo, ông tham gia bộ đội và chiến đấu dũng cảm. Trong trận mở màn đánh cứ điểm Him Lam ngày 13-3-1954, khi hỏa lực địch từ lô cốt bắn xối xả chặn bước tiến của đơn vị, ông đã lao lên lấy thân mình bịt kín lỗ châu mai, dập tắt hỏa điểm để đồng đội xung phong tiêu diệt cứ điểm. Sự hy sinh anh dũng của ông trở thành biểu tượng bất tử cho tinh thần 'quyết tử cho Tổ quốc quyết sinh' của bộ đội Điện Biên.",
+        "en": "A Hero of the People's Armed Forces (1922–1954) from Hà Tĩnh, a soldier of the Vietnam People's Army in the Điện Biên Phủ Campaign. Born to a poor peasant family, he joined the army and fought bravely. In the opening assault on the Him Lam strongpoint on 13 March 1954, as enemy fire from a bunker pinned down his unit, he hurled himself forward and sealed the gun-slit with his body, silencing the position so his comrades could storm and take the strongpoint. His heroic sacrifice became an immortal symbol of the Điện Biên soldiers' spirit of 'dying so the Fatherland may live.'"
+      },
+      "avatar": {
+        "id": "phan-dinh-giot-avatar",
+        "type": "image",
+        "flagship": "eras/dien-bien-phu/characters/phan-dinh-giot-avatar.png",
+        "reduced": "eras/dien-bien-phu/characters/phan-dinh-giot-avatar.png"
+      },
+      "fullBody": {
+        "id": "phan-dinh-giot-full",
+        "type": "image",
+        "flagship": "eras/dien-bien-phu/characters/phan-dinh-giot-full.png",
+        "reduced": "eras/dien-bien-phu/characters/phan-dinh-giot-full.png"
+      }
     }
   ]
 }

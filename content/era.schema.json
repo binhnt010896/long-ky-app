@@ -206,6 +206,10 @@
         },
         "flagship": { "type": "string" },
         "reduced": { "type": "string" },
+        "video": {
+          "description": "Optional looping video source (e.g. an animated cover mp4). Played on flagship where supported; reduced/flagship image remains the fallback.",
+          "type": "string"
+        },
         "placeholder": { "type": "string" },
         "caption": { "$ref": "#/$defs/localizedText" },
         "credit": { "type": "string" }

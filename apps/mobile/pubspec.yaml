@@ -30,6 +30,8 @@ dependencies:
   flutter_animate: ^4.5.0
   # Audio for the "Chào cờ" flag-salute page (Tiến quân ca).
   just_audio: ^0.9.42
+  # Looping video covers (e.g. the animated Điện Biên Phủ era cover).
+  video_player: ^2.9.2
 
 dev_dependencies:
   flutter_test:
@@ -179,4 +181,8 @@ flutter:
     - assets/content/eras/cach-mang-thang-tam/scene/
     - assets/content/eras/cach-mang-thang-tam/events/
     - assets/content/eras/cach-mang-thang-tam/characters/
+    - assets/content/eras/dien-bien-phu/
+    - assets/content/eras/dien-bien-phu/scene/
+    - assets/content/eras/dien-bien-phu/events/
+    - assets/content/eras/dien-bien-phu/characters/
     - assets/content/chao-co/

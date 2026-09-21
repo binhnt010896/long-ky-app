@@ -18,12 +18,17 @@ class TiltedBackdrop extends ConsumerStatefulWidget {
     required this.palette,
     required this.child,
     this.scrim = 0.0,
+    this.allowVideo = false,
     super.key,
   });
 
   final Era era;
   final VSEraPalette palette;
   final Widget child;
+
+  /// Passed to the backdrop: when true, a scene slot with a `video` source
+  /// animates (Era Hub). Home/Timeline keep it false.
+  final bool allowVideo;
 
   /// A flat black overlay (0–1) between the scene and [child]. Reading surfaces
   /// (the timeline) darken the bright dawn scene so light text stays legible;
@@ -62,6 +67,7 @@ class _TiltedBackdropState extends ConsumerState<TiltedBackdrop> {
           era: widget.era,
           pointer: _pointer,
           palette: widget.palette,
+          allowVideo: widget.allowVideo,
         ),
         if (widget.scrim > 0)
           IgnorePointer(

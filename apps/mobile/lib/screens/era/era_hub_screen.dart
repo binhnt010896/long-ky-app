@@ -35,6 +35,7 @@ class EraHubScreen extends ConsumerWidget {
         data: (era) => TiltedBackdrop(
           era: era,
           palette: paletteForEra(era),
+          allowVideo: true,
           child: SafeArea(
             bottom: false,
             child: Stack(
