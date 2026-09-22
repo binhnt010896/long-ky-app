@@ -62,7 +62,8 @@
         "depth": 0.0,
         "placeholder": "era-scene",
         "flagship": "eras/dai-thang-mua-xuan/scene/sky.png",
-        "reduced": "eras/dai-thang-mua-xuan/scene/sky.png"
+        "reduced": "eras/dai-thang-mua-xuan/scene/sky.png",
+        "video": "eras/dai-thang-mua-xuan/cover.mp4"
       },
       {
         "id": "motes",
