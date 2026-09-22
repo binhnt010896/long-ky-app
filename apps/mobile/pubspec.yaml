@@ -185,4 +185,8 @@ flutter:
     - assets/content/eras/dien-bien-phu/scene/
     - assets/content/eras/dien-bien-phu/events/
     - assets/content/eras/dien-bien-phu/characters/
+    - assets/content/eras/dai-thang-mua-xuan/
+    - assets/content/eras/dai-thang-mua-xuan/scene/
+    - assets/content/eras/dai-thang-mua-xuan/events/
+    - assets/content/eras/dai-thang-mua-xuan/characters/
     - assets/content/chao-co/

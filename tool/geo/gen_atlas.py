@@ -105,6 +105,7 @@ def centroid_norm(rs):
 RED, GOLD, TEAL, PURPLE = 0xFF7A4B45, 0xFFB5793F, 0xFF4F7A70, 0xFF6D5A7A
 THAI, LAO, BURMA, TRINH = 0xFF8A5A4A, 0xFF6B7A55, 0xFF7A7150, 0xFF5F6B86
 TAYSON, FUNAN, MAC, PHAP = 0xFFA85535, 0xFF5F8A72, 0xFF8C4A52, 0xFF41618C
+VNCH = 0xFFC17F3A  # Việt Nam Cộng hoà (South, 1954–1975) — distinct ochre, not TEAL
 
 # Shared neighbour geometries — identical every era, emitted once as consts.
 NEI = 0.05
@@ -145,6 +146,8 @@ def S(id, title, sub, anchor, eras, regs, boundary=None, boundary_label=None):
 
 # Sông Gianh dashed divider (lat, lon0, lon1)
 GIANH = (17.6, 106.0, 108.8)
+# Bến Hải river / 17th parallel — provisional military line, Genève 1954
+BEN_HAI = (17.0, 106.6, 107.4)
 
 SNAPSHOTS = [
     S("van-lang", "Văn Lang", "Hồng Bàng", -500, ["hong-bang-van-lang"], [
@@ -243,6 +246,15 @@ SNAPSHOTS = [
     S("khang-chien", "Kháng chiến chống Pháp", "Việt Nam Dân chủ Cộng hòa", 1950, ["dien-bien-phu"], [
         core("vndcch", "Việt Nam Dân chủ Cộng hòa", "Độc lập · kháng chiến", TEAL, VN(5, 24)),
         china("Trung Quốc"), khmer("Cao Miên", None, False), *ctx()]),
+    # Kháng chiến chống Mỹ (1954–1975): Genève's provisional line hardens into a
+    # real division — Bắc (VNDCCH) vs Nam (VNCH) — until reunification in 1975,
+    # a future chapter.
+    S("khang-chien-my", "Kháng chiến chống Mỹ", "Hai miền chia cắt", 1965, ["dai-thang-mua-xuan"], [
+        core("vndcch", "Việt Nam Dân chủ Cộng hòa", "Miền Bắc", TEAL, VN(17, 24)),
+        rival("vnch", "Việt Nam Cộng hoà", "Miền Nam", VNCH, VN(5, 17)),
+        china("Trung Quốc"), khmer("Cao Miên", None, False), *ctx()],
+      boundary=BEN_HAI,
+      boundary_label="Giới tuyến quân sự tạm thời (vĩ tuyến 17)"),
 ]
 
 # ---- emit Dart ----

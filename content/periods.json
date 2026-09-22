@@ -264,6 +264,28 @@
         "role": "cover",
         "reduced": "periods/khang-chien-chong-phap.png"
       }
+    },
+    {
+      "id": "khang-chien-chong-my",
+      "order": 12,
+      "title": { "vi": "Kháng chiến chống Mỹ, cứu nước", "en": "The Resistance War Against America" },
+      "kicker": { "vi": "BẮC – NAM SUM HỌP", "en": "NORTH AND SOUTH REUNITED" },
+      "subtitle": {
+        "vi": "Từ giới tuyến tạm thời đến Chiến dịch Hồ Chí Minh — hai mươi mốt năm giành lại một dải giang sơn.",
+        "en": "From a temporary line of division to the Hồ Chí Minh Campaign — twenty-one years to win back one land."
+      },
+      "yearRange": {
+        "display": { "vi": "1954 – 1975", "en": "1954 – 1975 CE" },
+        "startYear": 1954,
+        "endYear": 1975
+      },
+      "accent": "#8a2f2a",
+      "cover": {
+        "id": "period-khang-chien-chong-my-cover",
+        "type": "image",
+        "role": "cover",
+        "reduced": "periods/khang-chien-chong-my.png"
+      }
     }
   ]
 }
