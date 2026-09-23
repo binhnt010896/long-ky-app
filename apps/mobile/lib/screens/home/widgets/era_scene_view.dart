@@ -41,7 +41,7 @@ class EraSceneView extends StatelessWidget {
         // where _HeroScrim's gradient has already faded toward the brighter
         // art) stays legible too, not just the title lower in the scrim.
         const IgnorePointer(
-          child: ColoredBox(color: Color.fromRGBO(0, 0, 0, 0.1)),
+          child: ColoredBox(color: Color.fromRGBO(0, 0, 0, 0.5)),
         ),
         const IgnorePointer(child: _HeroScrim()),
         _EraHero(era: era, lang: lang),
@@ -101,9 +101,10 @@ class _EraHero extends StatelessWidget {
                   style: VSType.hero.copyWith(
                     shadows: const <Shadow>[
                       Shadow(
-                          color: Color(0x99000000),
-                          blurRadius: 24,
-                          offset: Offset(0, 2)),
+                        color: Color(0x99000000),
+                        blurRadius: 24,
+                        offset: Offset(0, 2),
+                      ),
                     ],
                   ),
                 ),
@@ -121,8 +122,10 @@ class _EraHero extends StatelessWidget {
             const SizedBox(height: VSSpacing.md),
             ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 280),
-              child: Text(era.subtitle.resolve(lang),
-                  style: VSType.subtitleItalic),
+              child: Text(
+                era.subtitle.resolve(lang),
+                style: VSType.subtitleItalic,
+              ),
             ),
           ],
         ),
