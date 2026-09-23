@@ -1,0 +1,446 @@
+{
+  "schemaVersion": 1,
+  "id": "bien-gioi-tay-nam",
+  "slug": "bien-gioi-tay-nam",
+  "order": 32,
+  "period": "chien-tranh-bien-gioi",
+  "title": {
+    "vi": "Chiến tranh biên giới Việt Nam – Campuchia",
+    "en": "The Vietnam–Cambodia Border War"
+  },
+  "kicker": {
+    "vi": "Chiến tranh bảo vệ Tổ quốc ở biên giới Tây Nam (1975 – 1989)",
+    "en": "Defending the Fatherland on the southwestern border (1975–1989)"
+  },
+  "subtitle": {
+    "vi": "Từ những cuộc tấn công của Khmer Đỏ đến ngày quân tình nguyện hoàn thành nghĩa vụ quốc tế, trở về nước.",
+    "en": "From Khmer Rouge attacks to the day the volunteer army completed its international duty and came home."
+  },
+  "overview": {
+    "vi": "Ngay sau khi lên nắm quyền ở Campuchia (4/1975), tập đoàn Pol Pot – Ieng Sary (Khmer Đỏ) đã thi hành một chế độ diệt chủng tàn khốc đối với chính nhân dân mình, đồng thời liên tiếp gây hấn, đánh chiếm các đảo Phú Quốc, Thổ Chu và tổ chức nhiều cuộc tấn công vũ trang vào lãnh thổ Việt Nam dọc tuyến biên giới Tây Nam, giết hại dân thường ở An Giang, Tây Ninh, Kiên Giang, Đồng Tháp. Đỉnh điểm là vụ thảm sát Ba Chúc (An Giang) trong 12 ngày cuối tháng 4 năm 1978, khi quân Khmer Đỏ giết hại 3.157 người dân vô tội. Trước hành động xâm lược và diệt chủng đó, quân và dân ta, dưới sự chỉ huy của các tướng lĩnh như Lê Đức Anh (Tư lệnh Quân khu 9) và Lê Trọng Tấn (Tư lệnh Mặt trận Tây Nam), đã kiên quyết chiến đấu bảo vệ biên giới, rồi mở cuộc tổng phản công trên toàn tuyến từ ngày 23 tháng 12 năm 1978. Đáp lời kêu gọi của Mặt trận Đoàn kết dân tộc cứu nước Campuchia, quân tình nguyện Việt Nam cùng lực lượng vũ trang cách mạng Campuchia đã tiến công như vũ bão, giải phóng Phnôm Pênh ngày 7 tháng 1 năm 1979, lật đổ chế độ diệt chủng Pol Pot, cứu nhân dân Campuchia thoát khỏi hoạ diệt chủng. Sau đó, quân tình nguyện Việt Nam tiếp tục ở lại làm nhiệm vụ quốc tế, giúp nhân dân Campuchia hồi sinh đất nước, truy quét tàn quân Khmer Đỏ, cho đến khi hoàn thành nghĩa vụ và rút quân hoàn toàn về nước vào tháng 9 năm 1989.",
+    "en": "Soon after seizing power in Cambodia (April 1975), the Pol Pot – Ieng Sary clique (the Khmer Rouge) carried out a brutal genocide against its own people, while repeatedly provoking Vietnam, seizing Phú Quốc and Thổ Chu islands and launching armed attacks into Vietnamese territory along the southwestern border, killing civilians in An Giang, Tây Ninh, Kiên Giang and Đồng Tháp. The climax was the Ba Chúc massacre (An Giang) over 12 days in late April 1978, when Khmer Rouge forces killed 3,157 innocent civilians. In the face of this aggression and genocide, Vietnamese forces and people, under commanders such as Lê Đức Anh (Commander, Military Region 9) and Lê Trọng Tấn (Commander of the Southwest Front), resolutely fought to defend the border, then launched a counter-offensive along the whole front from 23 December 1978. Answering the call of the Kampuchean National United Front for National Salvation, Vietnamese volunteer forces together with Cambodian revolutionary armed forces advanced like a storm, liberating Phnôm Pênh on 7 January 1979, overthrowing the Pol Pot genocidal regime and saving the Cambodian people from the genocide. Vietnamese volunteer forces then remained to carry out their international duty, helping Cambodia recover and hunting down remaining Khmer Rouge forces, until they completed their mission and withdrew fully in September 1989."
+  },
+  "yearRange": {
+    "display": {
+      "vi": "1975 – 1989 SCN",
+      "en": "1975 – 1989 CE"
+    },
+    "startYear": 1975,
+    "endYear": 1989
+  },
+  "palette": {
+    "accent": "#8a5a2b",
+    "particle": "#e0b23e",
+    "scene": [
+      "#0a0603",
+      "#170d06",
+      "#2e1a0c",
+      "#513015",
+      "#8a5a2b",
+      "#b8862f",
+      "#e0b23e"
+    ]
+  },
+  "cover": {
+    "id": "bien-gioi-tay-nam-cover",
+    "type": "image",
+    "role": "cover",
+    "placeholder": "era-scene",
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    },
+    "flagship": "eras/bien-gioi-tay-nam/cover.png",
+    "reduced": "eras/bien-gioi-tay-nam/cover.png"
+  },
+  "scene": {
+    "layers": [
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "placeholder": "era-scene",
+        "flagship": "eras/bien-gioi-tay-nam/scene/sky.png",
+        "reduced": "eras/bien-gioi-tay-nam/scene/sky.png"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
+    ]
+  },
+  "primarySource": {
+    "work": "Lịch sử Quân đội nhân dân Việt Nam",
+    "section": {
+      "vi": "Chiến tranh bảo vệ Tổ quốc ở biên giới Tây Nam và làm nhiệm vụ quốc tế ở Campuchia (1975–1989)",
+      "en": "Defending the Fatherland on the southwestern border and the international duty in Cambodia (1975–1989)"
+    },
+    "author": "Viện Lịch sử Quân sự Việt Nam"
+  },
+  "characters": [
+    { "ref": "le-duc-anh" },
+    { "ref": "le-trong-tan" },
+    {
+      "ref": "vo-nguyen-giap",
+      "epithet": {
+        "vi": "Bộ trưởng Bộ Quốc phòng (đến 1980)",
+        "en": "Minister of Defence (until 1980)"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "khmer-do-chiem-tho-chu",
+      "slug": "khmer-do-chiem-tho-chu",
+      "figureIds": [],
+      "details": {
+        "vi": "Chưa đầy một tuần sau khi lên nắm quyền ở Campuchia (17/4/1975), tập đoàn Pol Pot – Ieng Sary đã bộc lộ dã tâm xâm lược khi cho quân đổ bộ đánh chiếm đảo Phú Quốc (đầu tháng 5/1975), rồi đánh chiếm đảo Thổ Chu (10/5/1975), bắt đi hàng trăm dân thường trên đảo. Đây là những hành động gây hấn vũ trang đầu tiên của Khmer Đỏ đối với Việt Nam, xảy ra chỉ vài ngày sau khi đất nước Việt Nam vừa hoàn toàn giải phóng. Quân và dân ta đã kiên quyết đáp trả: lực lượng vũ trang nhanh chóng phản kích, giành lại đảo Phú Quốc và đảo Thổ Chu trong tháng 5/1975. Những cuộc tấn công này là dấu hiệu mở đầu cho một chuỗi hành động xâm lược, khiêu khích của tập đoàn Pol Pot – Ieng Sary nhằm vào Việt Nam trong những năm tiếp theo, xuất phát từ tư tưởng bành trướng, sô-vanh cực đoan và chủ trương diệt chủng mà chế độ này theo đuổi.",
+        "en": "Less than a week after seizing power in Cambodia (17 April 1975), the Pol Pot – Ieng Sary clique revealed its aggressive intent, landing forces that seized Phú Quốc island (early May 1975) and then Thổ Chu island (10 May 1975), abducting hundreds of civilians from the island. These were the first armed acts of aggression by the Khmer Rouge against Vietnam, coming only days after Vietnam's own full liberation. Vietnamese forces and people responded firmly: armed forces quickly counter-attacked, retaking both Phú Quốc and Thổ Chu within May 1975. These attacks were the opening signs of a chain of aggressive, provocative acts by the Pol Pot – Ieng Sary clique against Vietnam in the years that followed, rooted in the expansionist, extreme chauvinist ideology and the genocidal policy this regime pursued."
+      },
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "5/1975 SCN", "en": "May 1975 CE" },
+        "value": 1975,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Khmer Đỏ đánh chiếm Phú Quốc, Thổ Chu",
+        "en": "The Khmer Rouge seizes Phú Quốc and Thổ Chu"
+      },
+      "summary": {
+        "vi": "Đầu tháng 5/1975, Khmer Đỏ đổ bộ đánh chiếm Phú Quốc rồi Thổ Chu, bắt đi hàng trăm dân thường. Quân dân ta phản kích, giành lại cả hai đảo trong tháng 5/1975.",
+        "en": "In early May 1975 the Khmer Rouge lands and seizes Phú Quốc and then Thổ Chu, abducting hundreds of civilians. Vietnamese forces counter-attack, retaking both islands within May 1975."
+      },
+      "body": {
+        "vi": "Đầu tháng 5/1975, chưa đầy một tuần sau khi lên nắm quyền, Khmer Đỏ đổ bộ đánh chiếm đảo Phú Quốc, rồi ngày 10/5/1975 đánh chiếm đảo Thổ Chu, bắt đi hàng trăm dân thường. Đây là hành động gây hấn vũ trang đầu tiên của Pol Pot nhằm vào Việt Nam. Quân dân ta phản kích quyết liệt, giành lại cả hai đảo trong tháng 5/1975 — mở đầu chuỗi xung đột kéo dài do tư tưởng bành trướng, diệt chủng của chế độ Pol Pot.",
+        "en": "In early May 1975, less than a week after seizing power, the Khmer Rouge landed and seized Phú Quốc island, then on 10 May 1975 seized Thổ Chu, abducting hundreds of civilians. This was Pol Pot's first armed act of aggression against Vietnam. Vietnamese forces counter-attacked decisively, retaking both islands within May 1975 — the opening of a prolonged conflict rooted in the Pol Pot regime's expansionist, genocidal ideology."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Chỉ vài ngày sau khi đất nước vừa liền một dải, những phát súng đầu tiên của Khmer Đỏ đã nổ ra ở Phú Quốc, Thổ Chu.",
+          "en": "Only days after the country was made whole again, the Khmer Rouge's first shots rang out at Phú Quốc and Thổ Chu."
+        },
+        "attribution": {
+          "vi": "về các cuộc tấn công đầu tiên của Khmer Đỏ, 5/1975",
+          "en": "on the Khmer Rouge's first attacks, May 1975"
+        }
+      },
+      "hero": {
+        "id": "khmer-do-chiem-tho-chu-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/bien-gioi-tay-nam/events/khmer-do-chiem-tho-chu.png",
+        "reduced": "eras/bien-gioi-tay-nam/events/khmer-do-chiem-tho-chu.png"
+      },
+      "citation": {
+        "work": "Lịch sử Quân đội nhân dân Việt Nam",
+        "section": {
+          "vi": "Khmer Đỏ xâm phạm đảo Phú Quốc, Thổ Chu (5/1975)",
+          "en": "The Khmer Rouge's incursion at Phú Quốc and Thổ Chu (May 1975)"
+        },
+        "author": "Viện Lịch sử Quân sự Việt Nam"
+      }
+    },
+    {
+      "id": "tan-cong-bien-gioi-1977",
+      "slug": "tan-cong-bien-gioi-1977",
+      "figureIds": ["le-duc-anh"],
+      "details": {
+        "vi": "Từ năm 1977, tập đoàn Pol Pot – Ieng Sary leo thang các hoạt động quân sự chống Việt Nam, huy động nhiều sư đoàn tổ chức các cuộc tấn công quy mô lớn vào lãnh thổ Việt Nam dọc tuyến biên giới Tây Nam, đặc biệt là các tỉnh An Giang và Tây Ninh. Ngày 30 tháng 4 năm 1977 — đúng hai năm sau ngày giải phóng miền Nam — quân Khmer Đỏ bất ngờ tấn công nhiều xã biên giới An Giang, tàn sát dân thường. Đến tháng 9 năm 1977, chúng tiếp tục mở cuộc tấn công lớn vào Tây Ninh với lực lượng cấp sư đoàn, có pháo binh chi viện, tàn phá làng mạc, giết hại nhiều đồng bào. Trước tình hình đó, Quân khu 9 dưới sự chỉ huy của tướng Lê Đức Anh cùng các đơn vị bộ đội chủ lực đã tổ chức phòng ngự và phản công, đẩy lùi từng cuộc tấn công, nhưng các hành động khiêu khích của Khmer Đỏ ngày càng dồn dập, cho thấy rõ ý đồ chiến tranh xâm lược quy mô lớn của tập đoàn cầm quyền Pol Pot đối với Việt Nam.",
+        "en": "From 1977 the Pol Pot – Ieng Sary clique escalated its military actions against Vietnam, mobilizing several divisions to mount large-scale attacks into Vietnamese territory along the southwestern border, especially An Giang and Tây Ninh provinces. On 30 April 1977 — exactly two years after the liberation of the South — Khmer Rouge forces suddenly attacked several border communes in An Giang, massacring civilians. By September 1977 they launched a further major attack on Tây Ninh with division-strength forces backed by artillery, devastating villages and killing many civilians. In response, Military Region 9 under General Lê Đức Anh, together with main-force units, organized defense and counter-attacks, repelling each assault, but the Khmer Rouge's provocations grew ever more intense, making clear the Pol Pot leadership's intent to wage large-scale aggressive war against Vietnam."
+      },
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "1977 SCN", "en": "1977 CE" },
+        "value": 1977,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Khmer Đỏ tấn công dọc biên giới Tây Nam",
+        "en": "The Khmer Rouge attacks along the southwestern border"
+      },
+      "summary": {
+        "vi": "30/4/1977, Khmer Đỏ tấn công biên giới An Giang; 9/1977 tấn công lớn vào Tây Ninh cấp sư đoàn. Quân khu 9 (Lê Đức Anh chỉ huy) phòng ngự, phản công đẩy lùi từng cuộc tấn công.",
+        "en": "30 Apr 1977: the Khmer Rouge attacks the An Giang border; Sep 1977: a major division-strength attack on Tây Ninh. Military Region 9 (commanded by Lê Đức Anh) defends and counter-attacks, repelling each assault."
+      },
+      "body": {
+        "vi": "Từ 1977, Khmer Đỏ leo thang tấn công Việt Nam. Ngày 30/4/1977, chúng tấn công các xã biên giới An Giang, tàn sát dân thường. Tháng 9/1977, tấn công lớn vào Tây Ninh với lực lượng cấp sư đoàn, có pháo binh, tàn phá làng mạc. Quân khu 9 dưới chỉ huy của Lê Đức Anh cùng bộ đội chủ lực tổ chức phòng ngự, phản công đẩy lùi từng cuộc tấn công, nhưng khiêu khích của Khmer Đỏ ngày càng dồn dập, lộ rõ ý đồ xâm lược quy mô lớn.",
+        "en": "From 1977 the Khmer Rouge escalated attacks on Vietnam. On 30 Apr 1977 they attacked border communes in An Giang, massacring civilians. In Sep 1977 a major attack hit Tây Ninh with division-strength forces backed by artillery, devastating villages. Military Region 9, commanded by Lê Đức Anh, together with main-force units, organized defense and counter-attacks, repelling each assault, but the Khmer Rouge's provocations grew ever more intense, revealing the intent to wage large-scale aggression."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Từ những cuộc khiêu khích lẻ tẻ, Pol Pot đã chuyển sang những cuộc tấn công cấp sư đoàn vào lãnh thổ Việt Nam.",
+          "en": "From scattered provocations, Pol Pot had moved to division-strength attacks on Vietnamese territory."
+        },
+        "attribution": {
+          "vi": "về các cuộc tấn công của Khmer Đỏ, 1977",
+          "en": "on the Khmer Rouge's attacks, 1977"
+        }
+      },
+      "hero": {
+        "id": "tan-cong-bien-gioi-1977-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/bien-gioi-tay-nam/events/tan-cong-bien-gioi-1977.png",
+        "reduced": "eras/bien-gioi-tay-nam/events/tan-cong-bien-gioi-1977.png"
+      },
+      "citation": {
+        "work": "Lịch sử Quân đội nhân dân Việt Nam",
+        "section": {
+          "vi": "Tập đoàn Pol Pot tấn công biên giới An Giang, Tây Ninh (1977)",
+          "en": "The Pol Pot clique's attacks on the An Giang and Tây Ninh borders (1977)"
+        },
+        "author": "Viện Lịch sử Quân sự Việt Nam"
+      }
+    },
+    {
+      "id": "tham-sat-ba-chuc",
+      "slug": "tham-sat-ba-chuc",
+      "figureIds": [],
+      "details": {
+        "vi": "Trong 12 ngày, từ 18 đến 30 tháng 4 năm 1978, quân Khmer Đỏ tràn qua biên giới, chiếm giữ xã Ba Chúc (huyện Tri Tôn, An Giang), tiến hành một cuộc thảm sát man rợ nhằm vào dân thường không có khả năng tự vệ. Người dân chạy lên núi Tượng, vào chùa Tam Bửu, chùa Phi Lai để lánh nạn vẫn bị lùng giết. Tổng cộng 3.157 người dân vô tội đã bị giết hại, chỉ có ba người sống sót. Đây là một trong những tội ác diệt chủng tàn khốc nhất mà tập đoàn Pol Pot – Ieng Sary gây ra trên lãnh thổ Việt Nam, gây chấn động dư luận trong nước và quốc tế, đồng thời là một trong những nguyên nhân trực tiếp thúc đẩy quân và dân ta đi đến quyết định mở cuộc tổng phản công quy mô lớn cuối năm 1978 để bảo vệ Tổ quốc và chặn đứng chế độ diệt chủng. Ngày nay, hài cốt của các nạn nhân được lưu giữ tại Khu di tích Nhà mồ Ba Chúc — nơi tưởng niệm và là chứng tích tố cáo tội ác diệt chủng của Khmer Đỏ.",
+        "en": "Over 12 days, from 18 to 30 April 1978, Khmer Rouge forces crossed the border and occupied Ba Chúc commune (Tri Tôn district, An Giang), carrying out a savage massacre of defenseless civilians. People who fled to Tượng mountain and to the Tam Bửu and Phi Lai pagodas for shelter were hunted down and killed. In total, 3,157 innocent civilians were killed; only three people survived. This was one of the most brutal genocidal atrocities committed by the Pol Pot – Ieng Sary clique on Vietnamese soil, shocking domestic and international opinion, and was one of the direct causes that led Vietnamese forces and people to launch the large-scale counter-offensive of late 1978 to defend the Fatherland and stop the genocidal regime. Today the victims' remains are kept at the Ba Chúc Tomb memorial site — a place of remembrance and a testament exposing the Khmer Rouge's genocide."
+      },
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "18 – 30/4/1978 SCN", "en": "18–30 April 1978 CE" },
+        "value": 1978,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Thảm sát Ba Chúc",
+        "en": "The Ba Chúc massacre"
+      },
+      "summary": {
+        "vi": "18–30/4/1978, quân Khmer Đỏ chiếm giữ Ba Chúc (An Giang), giết hại 3.157 dân thường, chỉ ba người sống sót — một trong những tội ác diệt chủng tàn khốc nhất trên đất Việt Nam.",
+        "en": "18–30 Apr 1978: Khmer Rouge forces occupy Ba Chúc (An Giang), killing 3,157 civilians; only three survive — one of the most brutal genocidal atrocities on Vietnamese soil."
+      },
+      "body": {
+        "vi": "Từ 18–30/4/1978, quân Khmer Đỏ tràn qua biên giới, chiếm giữ xã Ba Chúc (Tri Tôn, An Giang), thảm sát dân thường không có khả năng tự vệ. Người dân chạy lên núi Tượng, vào chùa Tam Bửu, Phi Lai lánh nạn vẫn bị lùng giết. Tổng cộng 3.157 người bị giết hại, chỉ ba người sống sót. Đây là một trong những tội ác diệt chủng tàn khốc nhất của Pol Pot trên đất Việt Nam, thúc đẩy quyết tâm mở cuộc tổng phản công bảo vệ Tổ quốc. Hài cốt nạn nhân được lưu giữ tại Khu di tích Nhà mồ Ba Chúc.",
+        "en": "From 18–30 Apr 1978, Khmer Rouge forces crossed the border and occupied Ba Chúc commune (Tri Tôn, An Giang), massacring defenseless civilians. People who fled to Tượng mountain and the Tam Bửu and Phi Lai pagodas were hunted down and killed. In total 3,157 people were killed; only three survived. This was one of Pol Pot's most brutal genocidal atrocities on Vietnamese soil, driving the resolve to launch the counter-offensive to defend the Fatherland. The victims' remains are kept at the Ba Chúc Tomb memorial."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "3.157 người dân vô tội đã ngã xuống ở Ba Chúc trong 12 ngày tháng Tư — chỉ ba người sống sót.",
+          "en": "3,157 innocent civilians fell at Ba Chúc over 12 days in April — only three survived."
+        },
+        "attribution": {
+          "vi": "về vụ thảm sát Ba Chúc, 4/1978",
+          "en": "on the Ba Chúc massacre, April 1978"
+        }
+      },
+      "hero": {
+        "id": "tham-sat-ba-chuc-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Khu di tích Nhà mồ Ba Chúc",
+          "en": "The Ba Chúc Tomb memorial"
+        },
+        "credit": "Báo Quân đội nhân dân",
+        "flagship": "eras/bien-gioi-tay-nam/events/tham-sat-ba-chuc.png",
+        "reduced": "eras/bien-gioi-tay-nam/events/tham-sat-ba-chuc.png"
+      },
+      "citation": {
+        "work": "Lịch sử Quân đội nhân dân Việt Nam",
+        "section": {
+          "vi": "Vụ thảm sát Ba Chúc, An Giang (4/1978)",
+          "en": "The Ba Chúc massacre, An Giang (April 1978)"
+        },
+        "author": "Viện Lịch sử Quân sự Việt Nam"
+      }
+    },
+    {
+      "id": "tong-phan-cong-tay-nam",
+      "slug": "tong-phan-cong-tay-nam",
+      "figureIds": ["vo-nguyen-giap", "le-trong-tan", "le-duc-anh"],
+      "details": {
+        "vi": "Trước các hành động xâm lược và diệt chủng ngày càng leo thang của tập đoàn Pol Pot – Ieng Sary, ngày 23 tháng 12 năm 1978, quân và dân ta đã mở cuộc tổng phản công chiến lược trên toàn tuyến biên giới Tây Nam. Dưới sự chỉ đạo của Bộ Quốc phòng (Đại tướng Võ Nguyên Giáp) và sự chỉ huy trực tiếp của tướng Lê Trọng Tấn — Tư lệnh Mặt trận Tây Nam — cùng các lực lượng Quân khu 9 do tướng Lê Đức Anh chỉ huy, quân ta đã đồng loạt tiến công, đập tan hệ thống phòng ngự của quân Khmer Đỏ dọc biên giới, đẩy lùi chúng trên toàn tuyến chỉ trong thời gian ngắn. Song song với đó, ngày 3 tháng 12 năm 1978, Mặt trận Đoàn kết dân tộc cứu nước Campuchia được thành lập, kêu gọi nhân dân Campuchia cùng đứng lên lật đổ chế độ diệt chủng Pol Pot. Cuộc tổng phản công đã tạo bước ngoặt quyết định, mở đường cho quân tình nguyện Việt Nam cùng lực lượng vũ trang cách mạng Campuchia tiến sâu vào nội địa, hướng tới giải phóng Phnôm Pênh.",
+        "en": "Facing the escalating aggression and genocide of the Pol Pot – Ieng Sary clique, on 23 December 1978 Vietnamese forces and people launched a strategic counter-offensive along the whole southwestern border. Under the direction of the Ministry of Defence (General Võ Nguyên Giáp) and the direct command of General Lê Trọng Tấn — Commander of the Southwest Front — together with Military Region 9 forces commanded by General Lê Đức Anh, Vietnamese troops attacked simultaneously, smashing the Khmer Rouge's defensive lines along the border and pushing them back on the whole front within a short time. In parallel, on 3 December 1978, the Kampuchean National United Front for National Salvation was founded, calling on the Cambodian people to rise together to overthrow the Pol Pot genocidal regime. The counter-offensive created a decisive turning point, opening the way for Vietnamese volunteer forces, together with Cambodian revolutionary armed forces, to advance deep into the interior toward the liberation of Phnôm Pênh."
+      },
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "23/12/1978 SCN", "en": "23 December 1978 CE" },
+        "value": 1978,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Tổng phản công trên toàn tuyến biên giới Tây Nam",
+        "en": "The counter-offensive along the whole southwestern border"
+      },
+      "summary": {
+        "vi": "23/12/1978, quân ta mở tổng phản công chiến lược, do Lê Trọng Tấn chỉ huy cùng lực lượng Lê Đức Anh, đập tan phòng ngự Khmer Đỏ, mở đường tiến vào giải phóng Phnôm Pênh.",
+        "en": "23 Dec 1978: our forces launch a strategic counter-offensive, commanded by Lê Trọng Tấn with Lê Đức Anh's forces, smashing Khmer Rouge defenses and opening the road to liberate Phnôm Pênh."
+      },
+      "body": {
+        "vi": "Ngày 23/12/1978, trước sự leo thang xâm lược, diệt chủng của Pol Pot, quân ta mở tổng phản công chiến lược trên toàn tuyến biên giới Tây Nam. Dưới sự chỉ đạo của Đại tướng Võ Nguyên Giáp, tướng Lê Trọng Tấn (Tư lệnh Mặt trận Tây Nam) cùng lực lượng Quân khu 9 (Lê Đức Anh chỉ huy) đồng loạt tiến công, đập tan phòng ngự Khmer Đỏ. Ngày 3/12/1978, Mặt trận Đoàn kết dân tộc cứu nước Campuchia ra đời. Cuộc tổng phản công mở đường cho quân tình nguyện tiến sâu vào nội địa, hướng tới giải phóng Phnôm Pênh.",
+        "en": "On 23 Dec 1978, facing Pol Pot's escalating aggression and genocide, our forces launched a strategic counter-offensive along the whole southwestern border. Under the direction of General Võ Nguyên Giáp, General Lê Trọng Tấn (Commander of the Southwest Front) together with Military Region 9 forces (commanded by Lê Đức Anh) attacked simultaneously, smashing Khmer Rouge defenses. On 3 Dec 1978 the Kampuchean National United Front for National Salvation was founded. The counter-offensive opened the way for volunteer forces to advance deep into the interior toward liberating Phnôm Pênh."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Trên toàn tuyến biên giới Tây Nam, thế trận đã đảo ngược — từ phòng ngự sang tổng phản công.",
+          "en": "Along the whole southwestern border, the tide had turned — from defense to counter-offensive."
+        },
+        "attribution": {
+          "vi": "về cuộc tổng phản công, 23/12/1978",
+          "en": "on the counter-offensive, 23 December 1978"
+        }
+      },
+      "hero": {
+        "id": "tong-phan-cong-tay-nam-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/bien-gioi-tay-nam/events/tong-phan-cong-tay-nam.png",
+        "reduced": "eras/bien-gioi-tay-nam/events/tong-phan-cong-tay-nam.png"
+      },
+      "citation": {
+        "work": "Lịch sử Quân đội nhân dân Việt Nam",
+        "section": {
+          "vi": "Cuộc tổng phản công chiến lược trên biên giới Tây Nam (12/1978)",
+          "en": "The strategic counter-offensive on the southwestern border (December 1978)"
+        },
+        "author": "Viện Lịch sử Quân sự Việt Nam"
+      }
+    },
+    {
+      "id": "giai-phong-phnom-penh",
+      "slug": "giai-phong-phnom-penh",
+      "figureIds": ["le-duc-anh"],
+      "details": {
+        "vi": "Tiếp nối thắng lợi của cuộc tổng phản công, quân tình nguyện Việt Nam cùng lực lượng vũ trang của Mặt trận Đoàn kết dân tộc cứu nước Campuchia đã thần tốc tiến công, đập tan các tuyến phòng thủ của quân Khmer Đỏ, và đến ngày 7 tháng 1 năm 1979 đã hoàn toàn giải phóng Thủ đô Phnôm Pênh, lật đổ chế độ diệt chủng Pol Pot – Ieng Sary sau gần bốn năm áp đặt lên nhân dân Campuchia một trong những tội ác diệt chủng đẫm máu nhất của thế kỷ 20. Ngày 8 tháng 1 năm 1979, nước Cộng hoà Nhân dân Campuchia được thành lập. Người dân Phnôm Pênh và các vùng được giải phóng đã đón chào quân tình nguyện Việt Nam và lực lượng cách mạng Campuchia trong niềm hân hoan thoát khỏi hoạ diệt chủng. Chiến thắng này là sự khẳng định rõ ràng: hành động của Việt Nam là chính đáng, xuất phát từ quyền tự vệ chính đáng trước sự xâm lược của Khmer Đỏ, đồng thời thực hiện nghĩa vụ quốc tế cao cả, giúp một dân tộc láng giềng thoát khỏi thảm hoạ diệt chủng.",
+        "en": "Building on the counter-offensive's success, Vietnamese volunteer forces together with the armed forces of the Kampuchean National United Front for National Salvation advanced with lightning speed, smashing Khmer Rouge defensive lines, and by 7 January 1979 had fully liberated the capital Phnôm Pênh, overthrowing the Pol Pot – Ieng Sary genocidal regime after nearly four years in which it had imposed one of the bloodiest genocides of the 20th century on the Cambodian people. On 8 January 1979 the People's Republic of Kampuchea was established. The people of Phnôm Pênh and the liberated areas welcomed the Vietnamese volunteer forces and Cambodian revolutionary forces with joy at their deliverance from the genocide. This victory clearly affirmed that Vietnam's action was justified, arising from its legitimate right of self-defense against Khmer Rouge aggression, while also fulfilling a noble international duty in helping a neighboring people escape a genocidal catastrophe."
+      },
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "7/1/1979 SCN", "en": "7 January 1979 CE" },
+        "value": 1979,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Giải phóng Phnôm Pênh, lật đổ chế độ diệt chủng",
+        "en": "The liberation of Phnôm Pênh, overthrowing the genocidal regime"
+      },
+      "summary": {
+        "vi": "7/1/1979, quân tình nguyện Việt Nam cùng lực lượng cách mạng Campuchia giải phóng Phnôm Pênh, lật đổ chế độ diệt chủng Pol Pot. Ngày 8/1/1979, nước Cộng hoà Nhân dân Campuchia thành lập.",
+        "en": "7 Jan 1979: Vietnamese volunteer forces together with Cambodian revolutionary forces liberate Phnôm Pênh, overthrowing the Pol Pot genocidal regime. On 8 Jan 1979 the People's Republic of Kampuchea is established."
+      },
+      "body": {
+        "vi": "Sau cuộc tổng phản công, quân tình nguyện Việt Nam cùng lực lượng cách mạng Campuchia thần tốc tiến công, đập tan phòng thủ Khmer Đỏ. Ngày 7/1/1979, Phnôm Pênh hoàn toàn giải phóng, chế độ diệt chủng Pol Pot – Ieng Sary bị lật đổ sau gần bốn năm. Ngày 8/1/1979, nước Cộng hoà Nhân dân Campuchia thành lập. Nhân dân Phnôm Pênh đón chào quân tình nguyện trong niềm hân hoan thoát khỏi hoạ diệt chủng.",
+        "en": "After the counter-offensive, Vietnamese volunteer forces together with Cambodian revolutionary forces advanced with lightning speed, smashing Khmer Rouge defenses. On 7 Jan 1979, Phnôm Pênh was fully liberated, and the Pol Pot – Ieng Sary genocidal regime was overthrown after nearly four years. On 8 Jan 1979 the People's Republic of Kampuchea was established. The people of Phnôm Pênh welcomed the volunteer forces with joy at their deliverance from the genocide."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Cùng nhân dân Campuchia lật đổ chế độ diệt chủng, giúp một dân tộc láng giềng thoát khỏi hoạ diệt vong.",
+          "en": "Together with the Cambodian people, overthrowing the genocidal regime and helping a neighboring nation escape annihilation."
+        },
+        "attribution": {
+          "vi": "về ý nghĩa của việc giải phóng Phnôm Pênh, 7/1/1979",
+          "en": "on the significance of Phnôm Pênh's liberation, 7 January 1979"
+        }
+      },
+      "hero": {
+        "id": "giai-phong-phnom-penh-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/bien-gioi-tay-nam/events/giai-phong-phnom-penh.png",
+        "reduced": "eras/bien-gioi-tay-nam/events/giai-phong-phnom-penh.png"
+      },
+      "citation": {
+        "work": "Lịch sử Quân đội nhân dân Việt Nam",
+        "section": {
+          "vi": "Cùng Mặt trận Đoàn kết dân tộc cứu nước Campuchia giải phóng Phnôm Pênh (7/1/1979)",
+          "en": "Together with the Kampuchean National United Front, liberating Phnôm Pênh (7 January 1979)"
+        },
+        "author": "Viện Lịch sử Quân sự Việt Nam"
+      }
+    },
+    {
+      "id": "quan-tinh-nguyen-ve-nuoc",
+      "slug": "quan-tinh-nguyen-ve-nuoc",
+      "figureIds": ["le-duc-anh"],
+      "details": {
+        "vi": "Sau khi giúp lật đổ chế độ diệt chủng Pol Pot, quân tình nguyện Việt Nam tiếp tục ở lại Campuchia theo lời đề nghị của chính quyền cách mạng nước này, làm nhiệm vụ quốc tế: giúp xây dựng lực lượng vũ trang cách mạng Campuchia, truy quét tàn quân Khmer Đỏ đang co cụm ở vùng biên giới giáp Thái Lan, đồng thời hỗ trợ nhân dân Campuchia khôi phục sản xuất, ổn định đời sống sau những năm tháng bị chế độ diệt chủng tàn phá. Từ năm 1981, tướng Lê Đức Anh giữ chức Tư lệnh Quân tình nguyện Việt Nam tại Campuchia. Khi tình hình Campuchia đã ổn định và theo tiến trình giải quyết chính trị vấn đề Campuchia, quân tình nguyện Việt Nam đã từng bước rút quân qua nhiều giai đoạn, và đến ngày 26 tháng 9 năm 1989, đợt rút quân cuối cùng hoàn tất, quân tình nguyện Việt Nam hoàn thành nghĩa vụ quốc tế cao cả, trở về nước, khép lại 10 năm làm nhiệm vụ giúp nước láng giềng Campuchia.",
+        "en": "After helping overthrow the Pol Pot genocidal regime, Vietnamese volunteer forces remained in Cambodia at the request of the country's revolutionary government to carry out an international duty: helping build Cambodia's revolutionary armed forces, hunting down remaining Khmer Rouge forces regrouping near the Thai border, and supporting the Cambodian people in restoring production and stabilizing their lives after the devastation of the genocidal regime. From 1981, General Lê Đức Anh served as Commander of the Vietnamese volunteer forces in Cambodia. Once the situation in Cambodia had stabilized and in step with the political settlement process for the Cambodia question, Vietnamese volunteer forces withdrew gradually over several stages, and on 26 September 1989 the final withdrawal was completed — the Vietnamese volunteer army having fulfilled its noble international duty, returning home and closing out ten years helping its neighbor Cambodia."
+      },
+      "order": 5,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "9/1989 SCN", "en": "September 1989 CE" },
+        "value": 1989,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Quân tình nguyện hoàn thành nghĩa vụ quốc tế, rút về nước",
+        "en": "The volunteer army completes its international duty and withdraws"
+      },
+      "summary": {
+        "vi": "Sau khi giúp lật đổ Pol Pot, quân tình nguyện tiếp tục giúp Campuchia truy quét tàn quân, ổn định đời sống. Ngày 26/9/1989, đợt rút quân cuối cùng hoàn tất, khép lại 10 năm làm nhiệm vụ quốc tế.",
+        "en": "After helping overthrow Pol Pot, the volunteer army continued helping Cambodia hunt down remaining forces and stabilize life. On 26 Sep 1989 the final withdrawal was completed, closing ten years of international duty."
+      },
+      "body": {
+        "vi": "Sau khi giúp lật đổ chế độ diệt chủng, quân tình nguyện Việt Nam ở lại Campuchia theo đề nghị của chính quyền cách mạng, giúp xây dựng lực lượng vũ trang, truy quét tàn quân Khmer Đỏ, hỗ trợ khôi phục đời sống. Từ 1981, Lê Đức Anh làm Tư lệnh Quân tình nguyện. Theo tiến trình giải quyết chính trị, quân tình nguyện rút dần qua nhiều giai đoạn; ngày 26/9/1989, đợt rút cuối cùng hoàn tất, khép lại 10 năm giúp nước láng giềng Campuchia.",
+        "en": "After helping overthrow the genocidal regime, Vietnamese volunteer forces stayed in Cambodia at the revolutionary government's request, helping build armed forces, hunting remaining Khmer Rouge forces, and supporting recovery. From 1981 Lê Đức Anh served as Commander of the volunteer forces. Following the political settlement process, the volunteer army withdrew gradually over several stages; on 26 Sep 1989 the final withdrawal was completed, closing ten years of helping neighboring Cambodia."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Mười năm làm nghĩa vụ quốc tế, quân tình nguyện Việt Nam để lại nghĩa tình với nhân dân Campuchia rồi trở về nước.",
+          "en": "Ten years of international duty; the Vietnamese volunteer army left behind a bond of friendship with the Cambodian people, then came home."
+        },
+        "attribution": {
+          "vi": "về việc quân tình nguyện Việt Nam rút khỏi Campuchia, 9/1989",
+          "en": "on the withdrawal of Vietnamese volunteer forces from Cambodia, September 1989"
+        }
+      },
+      "hero": {
+        "id": "quan-tinh-nguyen-ve-nuoc-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/bien-gioi-tay-nam/events/quan-tinh-nguyen-ve-nuoc.png",
+        "reduced": "eras/bien-gioi-tay-nam/events/quan-tinh-nguyen-ve-nuoc.png"
+      },
+      "citation": {
+        "work": "Lịch sử Quân đội nhân dân Việt Nam",
+        "section": {
+          "vi": "Quân tình nguyện Việt Nam rút khỏi Campuchia (9/1989)",
+          "en": "The withdrawal of Vietnamese volunteer forces from Cambodia (September 1989)"
+        },
+        "author": "Viện Lịch sử Quân sự Việt Nam"
+      }
+    }
+  ]
+}
