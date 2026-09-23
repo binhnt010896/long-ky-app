@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../state/media_prefetch.dart';
 import '../../state/providers.dart';
 import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
@@ -25,6 +26,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   final ParallaxController _pointer = ParallaxController();
   TiltParallaxDriver? _tilt;
   late int _dynastyIndex;
+  bool _queuedInitialPrefetch = false;
 
   @override
   void initState() {
@@ -65,6 +67,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           }
           final active =
               dynasties[_dynastyIndex.clamp(0, dynasties.length - 1)].period;
+          if (!_queuedInitialPrefetch) {
+            _queuedInitialPrefetch = true;
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              MediaPrefetcher.instance
+                  .queue(prefetchWindow(dynasties, _dynastyIndex));
+            });
+          }
           return Stack(
             fit: StackFit.expand,
             children: <Widget>[
@@ -76,6 +85,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 onPageChanged: (i) {
                   setState(() => _dynastyIndex = i);
                   ref.read(hubDynastyIndexProvider.notifier).state = i;
+                  MediaPrefetcher.instance.queue(prefetchWindow(dynasties, i));
                 },
                 itemBuilder: (context, i) {
                   final dynasty = dynasties[i];
@@ -309,7 +319,8 @@ class _DynastyCrest extends StatelessWidget {
       child: path == null
           ? Icon(Icons.brightness_1, size: 12, color: accent)
           : Image(
-              image: contentImageProvider(path),
+              image: contentImageProvider(path,
+                  decodeWidth: decodeWidthFor(context, size)),
               fit: BoxFit.cover,
               filterQuality: FilterQuality.medium,
               frameBuilder: fadeInImageFrame,

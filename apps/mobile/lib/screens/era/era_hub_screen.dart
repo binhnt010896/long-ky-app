@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../state/media_prefetch.dart';
 import '../../state/providers.dart';
 import '../../theme/era_palette_mapping.dart';
 import '../../widgets/circle_icon_button.dart';
@@ -24,6 +25,14 @@ class EraHubScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final eraAsync = ref.watch(eraProvider(slug));
     final lang = ref.watch(langProvider);
+
+    // Warm this era's event/figure art and its cover video in the background
+    // as soon as it loads — cheap to repeat (cache-checked) on later rebuilds
+    // (e.g. the VI/EN toggle), so no extra guard is needed.
+    eraAsync.whenData((era) {
+      WidgetsBinding.instance.addPostFrameCallback(
+          (_) => MediaPrefetcher.instance.queue(eraHubMediaFor(era)));
+    });
 
     return Scaffold(
       backgroundColor: VSColors.lacquer,
