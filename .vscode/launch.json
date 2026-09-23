@@ -9,7 +9,11 @@
       "program": "lib/main.dart",
       "cwd": "apps/mobile",
       "request": "launch",
-      "type": "dart"
+      "type": "dart",
+      // Pins the web dev server to port 3000 so it matches the R2 bucket's
+      // CORS allow-list (long-ky-content -> Settings -> CORS Policy). Ignored
+      // when launching on a non-web device.
+      "args": ["--web-port=3000"]
     }
   ]
 } 
