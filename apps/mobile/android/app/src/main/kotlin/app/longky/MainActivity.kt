@@ -1,4 +1,4 @@
-package app.vietsu.viet_su
+package app.longky
 
 import io.flutter.embedding.android.FlutterActivity
 
