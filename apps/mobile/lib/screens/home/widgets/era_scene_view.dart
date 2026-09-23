@@ -37,6 +37,12 @@ class EraSceneView extends StatelessWidget {
           palette: palette,
           foregroundVisible: true,
         ),
+        // Flat dim mask over the whole scene, so the kicker line (which sits
+        // where _HeroScrim's gradient has already faded toward the brighter
+        // art) stays legible too, not just the title lower in the scrim.
+        const IgnorePointer(
+          child: ColoredBox(color: Color.fromRGBO(0, 0, 0, 0.1)),
+        ),
         const IgnorePointer(child: _HeroScrim()),
         _EraHero(era: era, lang: lang),
       ],
