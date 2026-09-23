@@ -51,6 +51,16 @@ final eraProvider = FutureProvider.family<Era, String>((ref, slug) {
 /// Era Hub flips this, and Hub / Timeline / Detail read it.
 final langProvider = StateProvider<Lang>((ref) => Lang.vi);
 
+/// Today's date, read once per build. Overridden in tests to pin the day.
+final todayProvider = Provider<DateTime>((ref) => DateTime.now());
+
+/// The national-day label for [day] (VI, slash dates), or null on other days.
+String? nationalDayOn(DateTime day) => switch ((day.day, day.month)) {
+      (30, 4) => '30/4 · Thống nhất đất nước',
+      (2, 9) => '2/9 · Quốc khánh',
+      _ => null,
+    };
+
 /// Remembered scroll position of the Home dynasty hub, so returning to Home
 /// restores where the user left off. Needed because the hub's page views hold
 /// their index in widget state that is destroyed when a dynasty page scrolls

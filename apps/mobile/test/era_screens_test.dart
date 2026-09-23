@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:core_content/core_content.dart';
@@ -8,8 +9,34 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:viet_su/app_router.dart';
+import 'package:viet_su/state/content_sync.dart';
 import 'package:viet_su/state/providers.dart';
+import 'package:viet_su/state/tip_store.dart';
 import 'package:viet_su/widgets/timeline_bar.dart';
+
+/// A tip store with a fixed offer; [emit] plays a purchase outcome.
+class _FakeTipStore implements TipStore {
+  _FakeTipStore(this.offer);
+
+  final TipOffer? offer;
+  final StreamController<TipOutcome> _ctrl =
+      StreamController<TipOutcome>.broadcast();
+  int buys = 0;
+
+  void emit(TipOutcome o) => _ctrl.add(o);
+
+  @override
+  Future<TipOffer?> load() async => offer;
+
+  @override
+  Future<void> buy() async => buys++;
+
+  @override
+  Stream<TipOutcome> get outcomes => _ctrl.stream;
+
+  @override
+  void dispose() => _ctrl.close();
+}
 
 /// Content source backed by the repo's real content/ directory on disk.
 class _DiskSource implements ContentSource {
@@ -69,12 +96,19 @@ class _DiskSource implements ContentSource {
 Future<GoRouter> _pumpAt(
   WidgetTester tester,
   String location,
-  ExperienceTier tier,
-) async {
+  ExperienceTier tier, {
+  DateTime? today,
+  TipStore? tipStore,
+  int contentVersion = 0,
+}) async {
   final container = ProviderContainer(overrides: <Override>[
     tierProvider.overrideWithValue(tier),
     contentRepositoryProvider
         .overrideWithValue(ContentRepository(_DiskSource())),
+    // Pin the day (ordinary by default) and keep real store billing out.
+    todayProvider.overrideWithValue(today ?? DateTime(2026, 9, 3)),
+    tipStoreProvider.overrideWithValue(tipStore),
+    activeContentVersionProvider.overrideWith((ref) => contentVersion),
   ]);
   addTearDown(container.dispose);
 
@@ -1372,6 +1406,144 @@ void main() {
       expect(find.text('The Dragon Father'), findsOneWidget);
       // Vietnamese source label is gone.
       expect(find.text('NGUỒN'), findsNothing);
+    });
+  });
+
+  group('Sảnh', () {
+    // The top-most route, including pushed ones (the base uri ignores pushes).
+    String path(GoRouter r) =>
+        r.routerDelegate.currentConfiguration.last.matchedLocation;
+
+    Future<void> openSanh(WidgetTester tester) async {
+      await tester.tap(find.byKey(const ValueKey<String>('home-sanh-seal')));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('the seal on Home opens the Sảnh and its directory',
+        (tester) async {
+      await _pumpAt(tester, '/', ExperienceTier.reduced);
+      await openSanh(tester);
+
+      expect(find.text('Long Ký'), findsOneWidget);
+      expect(find.text('Chào cờ'), findsOneWidget);
+      expect(find.text('Niên biểu'), findsOneWidget);
+      expect(find.text('Bản đồ lãnh thổ'), findsOneWidget);
+      expect(find.text('Về Long Ký'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('close returns to Home', (tester) async {
+      final router = await _pumpAt(tester, '/', ExperienceTier.reduced);
+      await openSanh(tester);
+      await tester.tap(find.byIcon(Icons.close));
+      await tester.pumpAndSettle();
+
+      expect(path(router), '/');
+      expect(find.byKey(const ValueKey<String>('dynasty-pager')), findsOneWidget);
+    });
+
+    testWidgets('the Chào cờ card goes to the flag salute', (tester) async {
+      final router = await _pumpAt(tester, '/sanh', ExperienceTier.reduced);
+      await tester.tap(find.byKey(const ValueKey<String>('sanh-chao-co-card')));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 600));
+
+      expect(path(router), '/chao-co');
+    });
+
+    testWidgets('Niên biểu opens the global timeline', (tester) async {
+      await _pumpAt(tester, '/sanh', ExperienceTier.reduced);
+      await tester.tap(find.text('Niên biểu'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('NIÊN BIỂU'), findsOneWidget);
+    });
+
+    testWidgets('Về Long Ký shows the version and highlights source works',
+        (tester) async {
+      await _pumpAt(tester, '/sanh/gioi-thieu', ExperienceTier.reduced,
+          contentVersion: 20260923153357);
+
+      final scrollable = find.byType(Scrollable).first;
+      await tester.scrollUntilVisible(
+        find.textContaining('bản 20260923153357'),
+        300,
+        scrollable: scrollable,
+      );
+      expect(find.textContaining('do người Việt, vì người Việt',
+          findRichText: true), findsOneWidget);
+
+      TextSpan? workSpan;
+      for (final rt in tester.widgetList<RichText>(find.byType(RichText))) {
+        rt.text.visitChildren((span) {
+          if (span is TextSpan && span.text == 'Đại Việt sử ký toàn thư') {
+            workSpan = span;
+            return false;
+          }
+          return true;
+        });
+      }
+      expect(workSpan, isNotNull);
+      expect(workSpan!.style?.color, VSColors.goldBright);
+      expect(workSpan!.style?.fontWeight, FontWeight.w600);
+    });
+
+    testWidgets('the Home Chào cờ pill shows every day and names 2/9',
+        (tester) async {
+      final router = await _pumpAt(tester, '/', ExperienceTier.reduced);
+      expect(find.text('CHÀO CỜ HÔM NAY'), findsOneWidget);
+
+      await tester.tap(find.byKey(const ValueKey<String>('home-chao-co')));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 600));
+      expect(path(router), '/chao-co');
+    });
+
+    testWidgets('on 2/9 the pill names Quốc khánh', (tester) async {
+      await _pumpAt(tester, '/', ExperienceTier.reduced,
+          today: DateTime(2026, 9, 2));
+      expect(find.text('2/9 · QUỐC KHÁNH  ·  CHÀO CỜ'), findsOneWidget);
+    });
+
+    testWidgets('the 2/9/1945 event no longer carries a Chào cờ button',
+        (tester) async {
+      await _pumpAt(tester, '/era/cach-mang-thang-tam/event/cach-mang-thang-tam',
+          ExperienceTier.reduced);
+      final scrollable = find.byType(Scrollable).first;
+      await tester.scrollUntilVisible(find.text('NGUỒN'), 300,
+          scrollable: scrollable);
+      expect(find.text('Chào cờ'), findsNothing);
+    });
+
+    testWidgets('the tea row is hidden without a store offer', (tester) async {
+      await _pumpAt(tester, '/sanh', ExperienceTier.reduced,
+          tipStore: _FakeTipStore(null));
+      expect(find.byKey(const ValueKey<String>('sanh-tip-row')), findsNothing);
+    });
+
+    testWidgets('the tea row shows the price and thanks after purchase',
+        (tester) async {
+      final store = _FakeTipStore(const TipOffer(price: '25.000 ₫'));
+      await _pumpAt(tester, '/sanh', ExperienceTier.reduced, tipStore: store);
+
+      final scrollable = find.byType(Scrollable).first;
+      await tester.scrollUntilVisible(
+          find.byKey(const ValueKey<String>('sanh-tip-row')), 200,
+          scrollable: scrollable);
+      expect(find.text('Mời Long Ký một chén trà'), findsOneWidget);
+      expect(find.text('25.000 ₫'), findsOneWidget);
+
+      await tester.ensureVisible(
+          find.byKey(const ValueKey<String>('sanh-tip-row')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const ValueKey<String>('sanh-tip-row')));
+      await tester.pump();
+      expect(store.buys, 1);
+
+      store.emit(TipOutcome.thanked);
+      await tester.pumpAndSettle();
+      expect(find.text('Cảm ơn bạn đã mời Long Ký một chén trà.'),
+          findsOneWidget);
     });
   });
 }

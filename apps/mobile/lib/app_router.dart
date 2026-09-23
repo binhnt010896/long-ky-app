@@ -1,5 +1,7 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 import 'screens/chao_co/chao_co_screen.dart';
 import 'screens/character/character_detail_screen.dart';
@@ -8,12 +10,18 @@ import 'screens/era/era_timeline_screen.dart';
 import 'screens/event/event_detail_screen.dart';
 import 'screens/home/home_screen.dart';
 import 'screens/prototype/territory_map_demo_screen.dart';
+import 'screens/sanh/about_screen.dart';
+import 'screens/sanh/sanh_screen.dart';
 import 'screens/timeline/global_timeline_screen.dart';
 
 /// App routes.
 ///  - `/`                       Home — the vertical era stack.
 ///  - `/timeline`               Global Timeline — every era's events in order
 ///                              (pushed from Home's corner affordance).
+///  - `/sanh`                   Sảnh — the hall behind the Long Ký seal.
+///  - `/sanh/gioi-thieu`        Về Long Ký — sources, images, version.
+///  - `/chao-co`                Chào cờ — the daily flag salute.
+///  - `/map`                    Territory atlas.
 ///  - `/era/:slug`              Era Hub — parallax hero + facets.
 ///  - `/era/:slug/timeline`     Era Timeline — this era's events.
 ///  - `/era/:slug/event/:id`    Event Detail — hero, body, pull-quote, citation.
@@ -37,6 +45,34 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => TerritoryMapDemoScreen(
           initialEra: state.uri.queryParameters['era'],
         ),
+      ),
+      // The Sảnh opens out of the seal in Home's top-right corner.
+      GoRoute(
+        path: '/sanh',
+        pageBuilder: (context, state) => CustomTransitionPage<void>(
+          key: state.pageKey,
+          child: const SanhScreen(),
+          transitionDuration: VSMotion.reveal,
+          reverseTransitionDuration: VSMotion.reveal,
+          transitionsBuilder: (context, animation, _, child) {
+            final a = CurvedAnimation(
+                parent: animation, curve: VSMotion.emphasized);
+            return FadeTransition(
+              opacity: a,
+              child: ScaleTransition(
+                alignment: Alignment.topRight,
+                scale: Tween<double>(begin: 0.96, end: 1).animate(a),
+                child: child,
+              ),
+            );
+          },
+        ),
+        routes: <RouteBase>[
+          GoRoute(
+            path: 'gioi-thieu',
+            builder: (context, state) => const AboutScreen(),
+          ),
+        ],
       ),
       // Chào cờ — online flag salute (waving flag + Tiến quân ca + lyrics).
       GoRoute(

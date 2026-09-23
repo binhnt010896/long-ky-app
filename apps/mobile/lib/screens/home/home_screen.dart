@@ -9,6 +9,8 @@ import '../../state/media_prefetch.dart';
 import '../../state/providers.dart';
 import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
+import '../../widgets/flag_mark.dart';
+import '../../widgets/seal_button.dart';
 import 'widgets/era_scene_view.dart';
 
 /// Home — the dynasty hub. Two axes: swipe **vertically** to move between
@@ -244,52 +246,115 @@ class _ErrorView extends StatelessWidget {
 }
 
 /// Top chrome for the dynasty hub: the current dynasty's crest, name and span on
-/// the left; the global-timeline entry on the right.
-class _DynastyChrome extends StatelessWidget {
+/// the left; the global-timeline entry and the Long Ký seal (the Sảnh) on the
+/// right; and the daily Chào cờ prompt beneath.
+class _DynastyChrome extends ConsumerWidget {
   const _DynastyChrome({required this.period});
 
   final Period period;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final accent = VSColors.fromHex(period.accent);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: VSSpacing.screenEdge)
           .add(const EdgeInsets.only(top: 12)),
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          _DynastyCrest(period: period, accent: accent),
-          const SizedBox(width: VSSpacing.md),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  period.title.resolve(Lang.vi),
-                  style: VSType.title.copyWith(fontSize: 17),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              _DynastyCrest(period: period, accent: accent),
+              const SizedBox(width: VSSpacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      period.title.resolve(Lang.vi),
+                      style: VSType.title.copyWith(fontSize: 17),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 1),
+                    Text(
+                      period.yearRange.display.resolve(Lang.vi),
+                      style: VSType.caption.copyWith(
+                        color: VSColors.gold,
+                        fontSize: 10.5,
+                        letterSpacing: VSType.track(0.14, 11),
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 1),
-                Text(
-                  period.yearRange.display.resolve(Lang.vi),
-                  style: VSType.caption.copyWith(
-                    color: VSColors.gold,
-                    fontSize: 10.5,
-                    letterSpacing: VSType.track(0.14, 11),
-                  ),
-                ),
-              ],
-            ),
+              ),
+              const SizedBox(width: VSSpacing.sm),
+              CircleIconButton(
+                icon: Icons.timeline_rounded,
+                size: 34,
+                onTap: () => context.push('/timeline'),
+              ),
+              const SizedBox(width: VSSpacing.sm),
+              SealButton(
+                key: const ValueKey<String>('home-sanh-seal'),
+                onTap: () => context.push('/sanh'),
+              ),
+            ],
           ),
-          const SizedBox(width: VSSpacing.sm),
-          CircleIconButton(
-            icon: Icons.timeline_rounded,
-            size: 34,
-            onTap: () => context.push('/timeline'),
-          ),
+          const SizedBox(height: VSSpacing.sm),
+          _ChaoCoPill(occasion: nationalDayOn(ref.watch(todayProvider))),
         ],
+      ),
+    );
+  }
+}
+
+/// The daily Chào cờ prompt: always shown; on national days it names the day.
+class _ChaoCoPill extends StatelessWidget {
+  const _ChaoCoPill({required this.occasion});
+
+  final String? occasion;
+
+  @override
+  Widget build(BuildContext context) {
+    final lead = occasion == null ? 'CHÀO CỜ HÔM NAY' : '$occasion  ·  CHÀO CỜ';
+    final style = VSType.caption.copyWith(
+      fontSize: 10.5,
+      letterSpacing: VSType.track(0.16, 10.5),
+      color: VSColors.inkSecondary,
+    );
+    return GestureDetector(
+      key: const ValueKey<String>('home-chao-co'),
+      behavior: HitTestBehavior.opaque,
+      onTap: () => context.push('/chao-co'),
+      child: Container(
+        height: 26,
+        padding: const EdgeInsets.symmetric(horizontal: VSSpacing.sm),
+        decoration: BoxDecoration(
+          color: VSColors.lacquer.withValues(alpha: 0.45),
+          borderRadius: VSRadii.pillAll,
+          border: Border.all(color: VSColors.goldBorder),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            const FlagMark(width: 14),
+            const SizedBox(width: VSSpacing.xs),
+            Flexible(
+              child: Text(
+                occasion == null ? lead : lead.toUpperCase(),
+                style: style,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            const SizedBox(width: VSSpacing.xs),
+            Text('›',
+                style: style.copyWith(
+                    color: VSColors.goldBright, fontWeight: FontWeight.w700)),
+          ],
+        ),
       ),
     );
   }
