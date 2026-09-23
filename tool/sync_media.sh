@@ -8,8 +8,12 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 dart run tool/gen_media_manifest.dart
+# --s3-no-check-bucket: skip rclone's pre-upload bucket-exists check — our
+# R2 API token has no ListBuckets/HeadBucket permission, so that check
+# always misreads an existing bucket as missing (see publish_content.sh).
 rclone sync build/media r2:long-ky-content/media \
   --files-from build/media-files.txt \
   --delete-excluded \
   --header-upload "Cache-Control: public, max-age=31536000, immutable" \
+  --s3-no-check-bucket \
   --progress "$@"

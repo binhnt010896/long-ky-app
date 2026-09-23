@@ -20,13 +20,19 @@ if [[ "${1:-}" == "--dry-run" ]]; then
   exit 0
 fi
 
+# --s3-no-check-bucket: our R2 API token is scoped to this one bucket, with
+# no ListBuckets/HeadBucket permission — rclone's default pre-upload bucket
+# check reads that as "bucket missing," tries to create it, and that create
+# is denied too. The bucket already exists; skip the check.
 rclone copyto "build/pack/${VERSION}.json" \
   "r2:long-ky-content/content/packs/${VERSION}.json" \
-  --header-upload "Cache-Control: public, max-age=31536000, immutable"
+  --header-upload "Cache-Control: public, max-age=31536000, immutable" \
+  --s3-no-check-bucket
 
 rclone copyto "build/pack/latest.json" \
   "r2:long-ky-content/content/latest.json" \
-  --header-upload "Cache-Control: no-cache"
+  --header-upload "Cache-Control: no-cache" \
+  --s3-no-check-bucket
 
 echo "✓ published content pack ${VERSION}"
 echo "  Commit content/content-version.json (and this run's other content changes) now."
