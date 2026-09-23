@@ -48,8 +48,10 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
           ),
           error: (e, _) => Center(child: Text('$e', style: VSType.bodySmall)),
           data: (eras) {
-            final totalEvents =
-                eras.fold<int>(0, (sum, e) => sum + e.events.length);
+            final totalEvents = eras.fold<int>(
+              0,
+              (sum, e) => sum + e.events.length,
+            );
 
             // Filter: match each event's own text and its era/dynasty context,
             // both folded to remove diacritics so an unaccented query still
@@ -75,75 +77,122 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
               }
             }
 
-            return ListView(
-              padding: const EdgeInsets.only(bottom: VSSpacing.xxl),
-              children: <Widget>[
-                _Header(
-                  eraCount: eras.length,
-                  eventCount: totalEvents,
-                  lang: lang,
-                  controller: _controller,
-                  filtering: filtering,
-                  resultCount: resultCount,
-                  onChanged: (v) => setState(() => _query = v),
-                  onClear: () {
-                    _controller.clear();
-                    setState(() => _query = '');
-                  },
+            return CustomScrollView(
+              slivers: <Widget>[
+                // Floats back into view as soon as you scroll up (not only at
+                // the very top) and snaps fully open/shut rather than
+                // tracking the scroll offset partway.
+                SliverAppBar(
+                  backgroundColor: VSColors.lacquer,
+                  elevation: 0,
+                  floating: true,
+                  snap: true,
+                  toolbarHeight: 58,
+                  automaticallyImplyLeading: false,
+                  titleSpacing: 0,
+                  title: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: VSSpacing.xl,
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        Builder(
+                          builder: (context) => CircleIconButton(
+                            icon: Icons.arrow_back,
+                            onTap: () => context.canPop()
+                                ? context.pop()
+                                : context.go('/'),
+                          ),
+                        ),
+                        const Spacer(),
+                        Builder(
+                          builder: (context) => CircleIconButton(
+                            icon: Icons.map_outlined,
+                            onTap: () => context.push('/map'),
+                          ),
+                        ),
+                        const SizedBox(width: VSSpacing.sm),
+                        const LangToggle(),
+                      ],
+                    ),
+                  ),
                 ),
-                if (!filtering)
-                  for (var ei = 0; ei < eras.length; ei++) ...<Widget>[
-                    if (ei == 0 || eras[ei].period != eras[ei - 1].period)
-                      _PeriodHeader(
-                        period: eras[ei].period == null
-                            ? null
-                            : periods?[eras[ei].period!],
+                SliverPadding(
+                  padding: const EdgeInsets.only(bottom: VSSpacing.xxl),
+                  sliver: SliverList(
+                    delegate: SliverChildListDelegate(<Widget>[
+                      _HeaderBody(
+                        eraCount: eras.length,
+                        eventCount: totalEvents,
                         lang: lang,
+                        controller: _controller,
+                        filtering: filtering,
+                        resultCount: resultCount,
+                        onChanged: (v) => setState(() => _query = v),
+                        onClear: () {
+                          _controller.clear();
+                          setState(() => _query = '');
+                        },
                       ),
-                    _EraChapter(
-                      era: eras[ei],
-                      lang: lang,
-                      isFirst: ei == 0,
-                      onTap: () => context.push('/era/${eras[ei].slug}'),
-                    ),
-                    for (final event in eras[ei].events)
-                      _EventEntry(
-                        era: eras[ei],
-                        event: event,
-                        lang: lang,
-                        onTap: () => context.push(
-                            '/era/${eras[ei].slug}/event/${event.id}'),
-                      ),
-                  ]
-                else if (matches.isEmpty)
-                  _EmptyResults(lang: lang, query: _query.trim())
-                else
-                  for (var mi = 0; mi < matches.length; mi++) ...<Widget>[
-                    if (mi == 0 ||
-                        matches[mi].era.period != matches[mi - 1].era.period)
-                      _PeriodHeader(
-                        period: matches[mi].era.period == null
-                            ? null
-                            : periods?[matches[mi].era.period!],
-                        lang: lang,
-                      ),
-                    _EraChapter(
-                      era: matches[mi].era,
-                      lang: lang,
-                      isFirst: mi == 0,
-                      onTap: () =>
-                          context.push('/era/${matches[mi].era.slug}'),
-                    ),
-                    for (final event in matches[mi].events)
-                      _EventEntry(
-                        era: matches[mi].era,
-                        event: event,
-                        lang: lang,
-                        onTap: () => context.push(
-                            '/era/${matches[mi].era.slug}/event/${event.id}'),
-                      ),
-                  ],
-                if (!filtering || matches.isNotEmpty) const _EndCap(),
+                      if (!filtering)
+                        for (var ei = 0; ei < eras.length; ei++) ...<Widget>[
+                          if (ei == 0 || eras[ei].period != eras[ei - 1].period)
+                            _PeriodHeader(
+                              period: eras[ei].period == null
+                                  ? null
+                                  : periods?[eras[ei].period!],
+                              lang: lang,
+                            ),
+                          _EraChapter(
+                            era: eras[ei],
+                            lang: lang,
+                            isFirst: ei == 0,
+                            onTap: () => context.push('/era/${eras[ei].slug}'),
+                          ),
+                          for (final event in eras[ei].events)
+                            _EventEntry(
+                              era: eras[ei],
+                              event: event,
+                              lang: lang,
+                              onTap: () => context.push(
+                                '/era/${eras[ei].slug}/event/${event.id}',
+                              ),
+                            ),
+                        ]
+                      else if (matches.isEmpty)
+                        _EmptyResults(lang: lang, query: _query.trim())
+                      else
+                        for (var mi = 0; mi < matches.length; mi++) ...<Widget>[
+                          if (mi == 0 ||
+                              matches[mi].era.period !=
+                                  matches[mi - 1].era.period)
+                            _PeriodHeader(
+                              period: matches[mi].era.period == null
+                                  ? null
+                                  : periods?[matches[mi].era.period!],
+                              lang: lang,
+                            ),
+                          _EraChapter(
+                            era: matches[mi].era,
+                            lang: lang,
+                            isFirst: mi == 0,
+                            onTap: () =>
+                                context.push('/era/${matches[mi].era.slug}'),
+                          ),
+                          for (final event in matches[mi].events)
+                            _EventEntry(
+                              era: matches[mi].era,
+                              event: event,
+                              lang: lang,
+                              onTap: () => context.push(
+                                '/era/${matches[mi].era.slug}/event/${event.id}',
+                              ),
+                            ),
+                        ],
+                      if (!filtering || matches.isNotEmpty) const _EndCap(),
+                    ]),
+                  ),
+                ),
               ],
             );
           },
@@ -176,18 +225,20 @@ String _foldSearch(String s) {
 /// query like "nhà Trần" or "Lam Sơn" surfaces every event under it.
 String _eraHaystack(Era era, PeriodRegistry? periods) {
   final p = era.period == null ? null : periods?[era.period!];
-  return _foldSearch(<String>[
-    era.title.vi,
-    era.title.en ?? '',
-    era.kicker.vi,
-    era.kicker.en ?? '',
-    if (p != null) ...<String>[
-      p.title.vi,
-      p.title.en ?? '',
-      p.kicker.vi,
-      p.kicker.en ?? '',
-    ],
-  ].join(' '));
+  return _foldSearch(
+    <String>[
+      era.title.vi,
+      era.title.en ?? '',
+      era.kicker.vi,
+      era.kicker.en ?? '',
+      if (p != null) ...<String>[
+        p.title.vi,
+        p.title.en ?? '',
+        p.kicker.vi,
+        p.kicker.en ?? '',
+      ],
+    ].join(' '),
+  );
 }
 
 /// Searchable key for one event: its title, summary, displayed year and the
@@ -234,8 +285,11 @@ Map<int, int> _buildDiacriticFold() {
   return map;
 }
 
-class _Header extends StatelessWidget {
-  const _Header({
+/// Everything below the pinned top bar: overline, title, result count and the
+/// search field. Scrolls away normally (the top bar — back/map/lang — is a
+/// SliverAppBar above this in the CustomScrollView).
+class _HeaderBody extends StatelessWidget {
+  const _HeaderBody({
     required this.eraCount,
     required this.eventCount,
     required this.lang,
@@ -261,40 +315,21 @@ class _Header extends StatelessWidget {
     final title = lang == Lang.vi ? 'Dòng thời gian' : 'The timeline';
     final sub = filtering
         ? (lang == Lang.vi
-            ? (resultCount == 1
-                ? '1 kết quả'
-                : '$resultCount kết quả')
-            : (resultCount == 1 ? '1 result' : '$resultCount results'))
+              ? (resultCount == 1 ? '1 kết quả' : '$resultCount kết quả')
+              : (resultCount == 1 ? '1 result' : '$resultCount results'))
         : (lang == Lang.vi
-            ? '$eraCount kỷ nguyên · $eventCount sự kiện'
-            : '$eraCount eras · $eventCount events');
+              ? '$eraCount kỷ nguyên · $eventCount sự kiện'
+              : '$eraCount eras · $eventCount events');
     return Padding(
       padding: const EdgeInsets.fromLTRB(
-          VSSpacing.xl, VSSpacing.sm, VSSpacing.xl, VSSpacing.md),
+        VSSpacing.xl,
+        VSSpacing.md,
+        VSSpacing.xl,
+        VSSpacing.md,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Builder(
-                builder: (context) => CircleIconButton(
-                  icon: Icons.arrow_back,
-                  onTap: () =>
-                      context.canPop() ? context.pop() : context.go('/'),
-                ),
-              ),
-              const Spacer(),
-              Builder(
-                builder: (context) => CircleIconButton(
-                  icon: Icons.map_outlined,
-                  onTap: () => context.push('/map'),
-                ),
-              ),
-              const SizedBox(width: VSSpacing.sm),
-              const LangToggle(),
-            ],
-          ),
-          const SizedBox(height: VSSpacing.lg),
           Text(
             overline,
             style: VSType.overline.copyWith(
@@ -376,8 +411,9 @@ class _SearchField extends StatelessWidget {
                   color: VSColors.inkMuted,
                   fontSize: 14,
                 ),
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: VSSpacing.md),
+                contentPadding: const EdgeInsets.symmetric(
+                  vertical: VSSpacing.md,
+                ),
               ),
             ),
           ),
@@ -411,7 +447,11 @@ class _EmptyResults extends StatelessWidget {
         : 'No events found for “$query”.';
     return Padding(
       padding: const EdgeInsets.fromLTRB(
-          VSSpacing.xl, VSSpacing.xxl, VSSpacing.xl, VSSpacing.xxl),
+        VSSpacing.xl,
+        VSSpacing.xxl,
+        VSSpacing.xl,
+        VSSpacing.xxl,
+      ),
       child: Column(
         children: <Widget>[
           const Icon(Icons.search_off, size: 40, color: VSColors.inkMuted),
@@ -449,7 +489,11 @@ class _PeriodHeader extends StatelessWidget {
     final coverPath = p.cover?.reduced ?? p.cover?.flagship;
     return Padding(
       padding: const EdgeInsets.fromLTRB(
-          VSSpacing.md, VSSpacing.xl, VSSpacing.xl, VSSpacing.xs),
+        VSSpacing.md,
+        VSSpacing.xl,
+        VSSpacing.xl,
+        VSSpacing.xs,
+      ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(14),
         child: Stack(
@@ -457,15 +501,25 @@ class _PeriodHeader extends StatelessWidget {
             if (coverPath != null)
               Positioned.fill(
                 child: Image(
-                  image: contentImageProvider(coverPath,
-                      decodeWidth: decodeWidthFor(
-                          context, MediaQuery.sizeOf(context).width)),
+                  image: contentImageProvider(
+                    coverPath,
+                    decodeWidth: decodeWidthFor(
+                      context,
+                      MediaQuery.sizeOf(context).width,
+                    ),
+                  ),
                   fit: BoxFit.cover,
                   filterQuality: FilterQuality.medium,
                   frameBuilder: fadeInImageFrame,
                   errorBuilder: (_, __, ___) => const SizedBox.shrink(),
                 ),
               ),
+            // Flat dim mask under the left-to-right scrim below, so the art
+            // reads a touch darker everywhere (not just under the text) and
+            // the kicker/title/span stay legible against bright covers.
+            const Positioned.fill(
+              child: ColoredBox(color: Color.fromRGBO(0, 0, 0, 0.1)),
+            ),
             Positioned.fill(
               child: DecoratedBox(
                 decoration: BoxDecoration(
@@ -487,7 +541,11 @@ class _PeriodHeader extends StatelessWidget {
                 border: Border(left: BorderSide(color: accent, width: 3)),
               ),
               padding: const EdgeInsets.fromLTRB(
-                  VSSpacing.lg, VSSpacing.md, VSSpacing.lg, VSSpacing.md),
+                VSSpacing.lg,
+                VSSpacing.md,
+                VSSpacing.lg,
+                VSSpacing.md,
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -501,8 +559,10 @@ class _PeriodHeader extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 4),
-                  Text(p.title.resolve(lang),
-                      style: VSType.title.copyWith(fontSize: 20)),
+                  Text(
+                    p.title.resolve(lang),
+                    style: VSType.title.copyWith(fontSize: 20),
+                  ),
                   const SizedBox(height: 3),
                   Text(
                     p.yearRange.display.resolve(lang),
@@ -588,8 +648,9 @@ class _Spine extends StatelessWidget {
                 boxShadow: glow
                     ? <BoxShadow>[
                         BoxShadow(
-                            color: nodeColor.withValues(alpha: 0.6),
-                            blurRadius: 12),
+                          color: nodeColor.withValues(alpha: 0.6),
+                          blurRadius: 12,
+                        ),
                       ]
                     : null,
               ),
@@ -636,7 +697,11 @@ class _EraChapter extends StatelessWidget {
               onTap: onTap,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(
-                    VSSpacing.sm, VSSpacing.lg, VSSpacing.xl, VSSpacing.sm),
+                  VSSpacing.sm,
+                  VSSpacing.lg,
+                  VSSpacing.xl,
+                  VSSpacing.sm,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -644,8 +709,11 @@ class _EraChapter extends StatelessWidget {
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          const Icon(Icons.star_rounded,
-                              size: 12, color: VSColors.goldBright),
+                          const Icon(
+                            Icons.star_rounded,
+                            size: 12,
+                            color: VSColors.goldBright,
+                          ),
                           const SizedBox(width: 5),
                           Text(
                             'ĐỈNH CAO',
@@ -671,11 +739,16 @@ class _EraChapter extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Expanded(
-                          child: Text(era.title.resolve(lang),
-                              style: VSType.title.copyWith(fontSize: 22)),
+                          child: Text(
+                            era.title.resolve(lang),
+                            style: VSType.title.copyWith(fontSize: 22),
+                          ),
                         ),
-                        const Icon(Icons.chevron_right,
-                            size: 20, color: VSColors.goldBright),
+                        const Icon(
+                          Icons.chevron_right,
+                          size: 20,
+                          color: VSColors.goldBright,
+                        ),
                       ],
                     ),
                     const SizedBox(height: 4),
@@ -724,7 +797,11 @@ class _EventEntry extends StatelessWidget {
               onTap: onTap,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(
-                    VSSpacing.sm, VSSpacing.sm, VSSpacing.xl, VSSpacing.sm),
+                  VSSpacing.sm,
+                  VSSpacing.sm,
+                  VSSpacing.xl,
+                  VSSpacing.sm,
+                ),
                 child: Row(
                   children: <Widget>[
                     Expanded(
@@ -749,8 +826,11 @@ class _EventEntry extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: VSSpacing.sm),
-                    const Icon(Icons.arrow_forward,
-                        size: 15, color: VSColors.inkMuted),
+                    const Icon(
+                      Icons.arrow_forward,
+                      size: 15,
+                      color: VSColors.inkMuted,
+                    ),
                   ],
                 ),
               ),
