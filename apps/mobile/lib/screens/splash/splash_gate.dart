@@ -116,10 +116,17 @@ class _SplashGateState extends ConsumerState<SplashGate> {
                 opacity: _fadingOut ? 0 : 1,
                 duration: const Duration(milliseconds: 620),
                 curve: Curves.easeOut,
-                child: _SplashScreen(
-                  contentIn: _contentIn,
-                  showProgress: _showBar,
-                  progress: _warmProgress,
+                // The overlay sits in MaterialApp's `builder`, above the
+                // Navigator and so outside any Material: without this, its
+                // Text has no DefaultTextStyle and Flutter draws its yellow
+                // double-underline "missing Material" debug marker.
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: _SplashScreen(
+                    contentIn: _contentIn,
+                    showProgress: _showBar,
+                    progress: _warmProgress,
+                  ),
                 ),
               ),
             ),
