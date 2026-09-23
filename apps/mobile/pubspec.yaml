@@ -32,6 +32,10 @@ dependencies:
   just_audio: ^0.9.42
   # Looping video covers (e.g. the animated Điện Biên Phủ era cover).
   video_player: ^2.9.2
+  # Era media (images/video) is served from R2, not bundled — these fetch and
+  # cache it on device.
+  cached_network_image: ^3.4.1
+  flutter_cache_manager: ^3.4.1
 
 dev_dependencies:
   flutter_test:

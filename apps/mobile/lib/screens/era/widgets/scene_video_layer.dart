@@ -1,22 +1,26 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/widgets.dart';
 import 'package:video_player/video_player.dart';
+
+import '../../../theme/content_assets.dart';
 
 /// Plays a looping, muted video (an animated cover) over a still [poster].
 ///
 /// The poster is always painted underneath, so it serves as the instant
-/// fade-in image and as the fallback if the video fails to initialize. The
-/// video fades in once ready and is scaled to fill the layer like the still.
+/// fade-in image and as the fallback if the video fails to download or
+/// initialize. The video fades in once ready and is scaled to fill the layer
+/// like the still.
 class SceneVideoLayer extends StatefulWidget {
   const SceneVideoLayer({
-    required this.assetKey,
+    required this.path,
     required this.fit,
     required this.alignment,
     required this.poster,
     super.key,
   });
 
-  /// Bundled asset key, e.g. `assets/content/eras/<era>/cover.mp4`.
-  final String assetKey;
+  /// Content-relative media path, e.g. `eras/<era>/cover.mp4`.
+  final String path;
   final BoxFit fit;
   final Alignment alignment;
   final Widget poster;
@@ -36,8 +40,21 @@ class _SceneVideoLayerState extends State<SceneVideoLayer> {
   }
 
   Future<void> _init() async {
-    final c = VideoPlayerController.asset(widget.assetKey);
+    // Widget tests substitute debugContentImageOverride and must never touch
+    // the network, the cache plugin or a video platform channel.
+    if (debugContentImageOverride != null) return;
+    final url = ContentMedia.url(widget.path);
+    VideoPlayerController? c;
     try {
+      if (kIsWeb) {
+        c = VideoPlayerController.networkUrl(Uri.parse(url));
+      } else {
+        // Download once into the shared media cache, then play from disk:
+        // covers loop forever, so streaming would re-download on every visit.
+        final file = await ContentMedia.cache.getSingleFile(url);
+        if (!mounted) return;
+        c = VideoPlayerController.file(file);
+      }
       await c.initialize();
       await c.setLooping(true);
       await c.setVolume(0);
@@ -51,7 +68,7 @@ class _SceneVideoLayerState extends State<SceneVideoLayer> {
     } catch (_) {
       // A missing or unplayable video must never break the scene — the poster
       // remains as the static cover.
-      await c.dispose();
+      await c?.dispose();
     }
   }
 

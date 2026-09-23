@@ -2,6 +2,8 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
+import '../theme/content_assets.dart';
+
 /// Crops the bust (head + shoulders) out of a character reference sheet.
 ///
 /// The sheets are laid out consistently — full-body left, **bust top-right**,
@@ -9,9 +11,10 @@ import 'package:flutter/material.dart';
 /// on every figure. Painted via [Canvas.drawImageRect] for an exact crop that
 /// [BoxFit]/[Alignment] can't express. Fills its parent; give it a sized box.
 class FigureBust extends StatefulWidget {
-  const FigureBust({required this.assetKey, this.srcFraction = bust, super.key});
+  const FigureBust({required this.path, this.srcFraction = bust, super.key});
 
-  final String assetKey;
+  /// Content-relative media path, e.g. `eras/<era>/characters/<id>.png`.
+  final String path;
 
   /// Normalized (left, top, right, bottom) of the region within the sheet.
   final Rect srcFraction;
@@ -42,11 +45,11 @@ class _FigureBustState extends State<FigureBust> {
   @override
   void didUpdateWidget(FigureBust oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.assetKey != widget.assetKey) _resolve();
+    if (oldWidget.path != widget.path) _resolve();
   }
 
   void _resolve() {
-    final provider = AssetImage(widget.assetKey);
+    final provider = contentImageProvider(widget.path);
     final stream = provider.resolve(createLocalImageConfiguration(context));
     if (stream.key == _stream?.key) return;
     _detach();

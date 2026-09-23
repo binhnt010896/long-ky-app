@@ -308,8 +308,8 @@ class _DynastyCrest extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: path == null
           ? Icon(Icons.brightness_1, size: 12, color: accent)
-          : Image.asset(
-              contentAssetKey(path),
+          : Image(
+              image: contentImageProvider(path),
               fit: BoxFit.cover,
               filterQuality: FilterQuality.medium,
               frameBuilder: fadeInImageFrame,

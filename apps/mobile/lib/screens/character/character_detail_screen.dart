@@ -131,11 +131,17 @@ class _FigureHero extends StatelessWidget {
               ],
             ),
             child: fullBodyPath != null
-                ? Image.asset(contentAssetKey(fullBodyPath), fit: BoxFit.cover)
+                ? Image(
+                    image: contentImageProvider(fullBodyPath),
+                    fit: BoxFit.cover,
+                    frameBuilder: fadeInImageFrame,
+                    errorBuilder: (_, __, ___) =>
+                        const ColoredBox(color: VSColors.lacquerRaised),
+                  )
                 : sheetPath == null
                     ? const ColoredBox(color: VSColors.lacquerRaised)
                     : FigureBust(
-                        assetKey: contentAssetKey(sheetPath),
+                        path: sheetPath,
                         srcFraction: FigureBust.fullBody,
                       ),
           ),

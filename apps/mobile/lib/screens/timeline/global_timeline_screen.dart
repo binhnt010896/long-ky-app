@@ -456,10 +456,11 @@ class _PeriodHeader extends StatelessWidget {
           children: <Widget>[
             if (coverPath != null)
               Positioned.fill(
-                child: Image.asset(
-                  contentAssetKey(coverPath),
+                child: Image(
+                  image: contentImageProvider(coverPath),
                   fit: BoxFit.cover,
                   filterQuality: FilterQuality.medium,
+                  frameBuilder: fadeInImageFrame,
                   errorBuilder: (_, __, ___) => const SizedBox.shrink(),
                 ),
               ),

@@ -106,8 +106,8 @@ class _SceneLayerImage extends StatelessWidget {
       _ => (BoxFit.cover, Alignment.center, 1.0),
     };
 
-    Widget image = Image.asset(
-      contentAssetKey(path),
+    Widget image = Image(
+      image: contentImageProvider(path),
       fit: fit,
       alignment: align,
       filterQuality: FilterQuality.medium,
@@ -121,7 +121,7 @@ class _SceneLayerImage extends StatelessWidget {
     final video = slot.video;
     if (allowVideo && video != null) {
       image = SceneVideoLayer(
-        assetKey: contentAssetKey(video),
+        path: video,
         fit: fit,
         alignment: align,
         poster: image,

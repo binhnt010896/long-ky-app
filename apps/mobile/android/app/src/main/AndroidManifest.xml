@@ -1,4 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Era media (images/video) is fetched from the R2 CDN at runtime. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="viet_su"
         android:name="${applicationName}"

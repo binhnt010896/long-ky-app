@@ -324,8 +324,8 @@ class _EventHero extends StatelessWidget {
           // Real hero illustration when present; otherwise the era's parallax
           // scene stands in.
           if (heroPath != null)
-            Image.asset(
-              contentAssetKey(heroPath),
+            Image(
+              image: contentImageProvider(heroPath),
               fit: BoxFit.cover,
               alignment: Alignment.topCenter,
               filterQuality: FilterQuality.medium,

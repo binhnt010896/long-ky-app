@@ -109,10 +109,16 @@ class _FigureTile extends StatelessWidget {
                 height: 124,
                 width: double.infinity,
                 child: avatarPath != null
-                    ? Image.asset(contentAssetKey(avatarPath), fit: BoxFit.cover)
+                    ? Image(
+                        image: contentImageProvider(avatarPath),
+                        fit: BoxFit.cover,
+                        frameBuilder: fadeInImageFrame,
+                        errorBuilder: (_, __, ___) =>
+                            const ColoredBox(color: VSColors.lacquerRaised),
+                      )
                     : sheetPath == null
                         ? const ColoredBox(color: VSColors.lacquerRaised)
-                        : FigureBust(assetKey: contentAssetKey(sheetPath)),
+                        : FigureBust(path: sheetPath),
               ),
             ),
             const SizedBox(height: VSSpacing.sm),
