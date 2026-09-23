@@ -1,20 +1,30 @@
 import 'dart:async';
 
+import 'package:core_content/core_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../state/content_sync.dart';
 import '../../state/media_prefetch.dart';
 import '../../state/providers.dart';
+import '../../theme/content_assets.dart';
 
 /// Wraps the app and shows the **Long Ký** brand splash over it on launch, then
 /// fades away to reveal [child].
 ///
-/// While the seal rises in, it also warms the first Home page's media (the
-/// active dynasty's period cover and its first era's scene layers) into the
-/// on-device cache, so Home shows its art immediately instead of popping in
-/// over a few seconds. The splash never blocks longer than [_hardCap] on this
-/// — a slow or offline connection still opens the app, just to fallbacks.
+/// While the seal rises in, it does two things in sequence:
+///
+/// 1. Checks for a newer content pack, capped at 2s — if one arrives in time
+///    it's adopted immediately (Home is still hidden, so swapping content out
+///    from under it is safe); otherwise the check keeps running in the
+///    background and is simply picked up on the next launch.
+/// 2. Warms the first Home page's media (the active dynasty's period cover
+///    and its first era's scene layers) into the on-device cache, so Home
+///    shows its art immediately instead of popping in over a few seconds.
+///
+/// The splash never blocks longer than [_hardCap] in total — a slow or
+/// offline connection still opens the app, just to fallbacks.
 ///
 /// It lives only in the real app entry (`VietSuApp`) via `MaterialApp.router`'s
 /// `builder`, so the widget-test harness — which mounts screens through its own
@@ -64,7 +74,37 @@ class _SplashGateState extends ConsumerState<SplashGate> {
       setState(() => _hardCapped = true);
       _maybeFadeOut();
     }));
-    unawaited(_warmUp());
+    unawaited(_run());
+  }
+
+  Future<void> _run() async {
+    final activeVersion = ref.read(activeContentVersionProvider);
+    // checkForUpdate never throws — a timeout here just means it's still
+    // running; it keeps going in the background (persisting anything it
+    // finds) and gets picked up on the next launch instead.
+    final pack = await ContentSync.checkForUpdate(activeVersion)
+        .timeout(const Duration(seconds: 2), onTimeout: () => null);
+    if (pack != null && mounted) {
+      _activatePack(pack);
+    }
+    await _warmUp();
+  }
+
+  /// Adopts a freshly-validated pack while Home is still hidden under the
+  /// splash: swaps it in as the OTA overlay, applies its media manifest, and
+  /// drops every provider's cache so the next read reflects the new content.
+  void _activatePack(ContentPack pack) {
+    final source = ref.read(contentRepositoryProvider).source;
+    if (source is OtaContentSource) {
+      source.overlay = PackContentSource(pack);
+    }
+    ContentMedia.applyManifest(pack.media);
+    ref.read(contentRepositoryProvider).invalidate();
+    ref.invalidate(dynastiesProvider);
+    ref.invalidate(erasProvider);
+    ref.invalidate(periodsProvider);
+    ref.invalidate(eraProvider);
+    ref.read(activeContentVersionProvider.notifier).state = pack.version;
   }
 
   Future<void> _warmUp() async {

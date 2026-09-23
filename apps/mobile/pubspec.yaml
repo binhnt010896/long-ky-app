@@ -36,6 +36,11 @@ dependencies:
   # cache it on device.
   cached_network_image: ^3.4.1
   flutter_cache_manager: ^3.4.1
+  # Content packs (era text/people/periods over the air): fetch latest.json
+  # and the pack (http), persist it (path_provider), verify its sha256 (crypto).
+  http: ^1.6.0
+  path_provider: ^2.1.6
+  crypto: ^3.0.7
 
 dev_dependencies:
   flutter_test:
@@ -69,5 +74,6 @@ flutter:
     - assets/content/people.json
     - assets/content/periods.json
     - assets/content/media-manifest.json
+    - assets/content/content-version.json
     - assets/content/eras/
     - assets/content/chao-co/
