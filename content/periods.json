@@ -286,6 +286,50 @@
         "role": "cover",
         "reduced": "periods/khang-chien-chong-my.png"
       }
+    },
+    {
+      "id": "thong-nhat",
+      "order": 13,
+      "title": { "vi": "Thống nhất", "en": "Reunification" },
+      "kicker": { "vi": "NON SÔNG THU VỀ MỘT MỐI", "en": "ONE LAND, ONE STATE" },
+      "subtitle": {
+        "vi": "Từ Hội nghị Hiệp thương đến Quốc hội thống nhất — non sông liền một dải.",
+        "en": "From the Political Consultative Conference to the unified National Assembly — one land, joined again."
+      },
+      "yearRange": {
+        "display": { "vi": "1975 – 1977", "en": "1975 – 1977 CE" },
+        "startYear": 1975,
+        "endYear": 1977
+      },
+      "accent": "#c08a2e",
+      "cover": {
+        "id": "period-thong-nhat-cover",
+        "type": "image",
+        "role": "cover",
+        "reduced": "periods/thong-nhat.png"
+      }
+    },
+    {
+      "id": "chien-tranh-bien-gioi",
+      "order": 14,
+      "title": { "vi": "Chiến tranh biên giới", "en": "The Border Wars" },
+      "kicker": { "vi": "GIỮ TỪNG TẤC ĐẤT BIÊN CƯƠNG", "en": "EVERY INCH OF THE BORDER" },
+      "subtitle": {
+        "vi": "Bảo vệ biên giới Tây Nam và phía Bắc — giữ từng tấc đất biên cương của Tổ quốc.",
+        "en": "Defending the southwestern and northern borders — every inch of the Fatherland's frontier."
+      },
+      "yearRange": {
+        "display": { "vi": "1975 – 1989", "en": "1975 – 1989 CE" },
+        "startYear": 1975,
+        "endYear": 1989
+      },
+      "accent": "#5e6b3a",
+      "cover": {
+        "id": "period-chien-tranh-bien-gioi-cover",
+        "type": "image",
+        "role": "cover",
+        "reduced": "periods/chien-tranh-bien-gioi.png"
+      }
     }
   ]
 }

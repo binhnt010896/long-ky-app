@@ -1,0 +1,402 @@
+{
+  "schemaVersion": 1,
+  "id": "thong-nhat-dat-nuoc",
+  "slug": "thong-nhat-dat-nuoc",
+  "order": 31,
+  "period": "thong-nhat",
+  "title": {
+    "vi": "Thống nhất đất nước",
+    "en": "Reunifying the Country"
+  },
+  "kicker": {
+    "vi": "Non sông thu về một mối (1975 – 1977)",
+    "en": "One land, one state (1975–1977)"
+  },
+  "subtitle": {
+    "vi": "Từ Hội nghị Hiệp thương đến ghế thành viên Liên Hợp Quốc — hoàn tất sự nghiệp thống nhất về mặt Nhà nước.",
+    "en": "From the Political Consultative Conference to a UN seat — completing reunification as one state."
+  },
+  "overview": {
+    "vi": "Sau Đại thắng mùa Xuân 1975, non sông đã liền một dải trên thực tế, nhưng về mặt Nhà nước, hai miền vẫn còn hai chính quyền khác nhau: Việt Nam Dân chủ Cộng hoà ở miền Bắc và Chính phủ Cách mạng lâm thời Cộng hoà miền Nam Việt Nam ở miền Nam. Từ ngày 15 đến 21 tháng 11 năm 1975, tại Sài Gòn, Hội nghị Hiệp thương chính trị giữa đoàn đại biểu hai miền — do Trường Chinh và Phạm Hùng dẫn đầu — đã nhất trí phương án thống nhất đất nước về mặt Nhà nước thông qua một cuộc tổng tuyển cử chung. Ngày 25 tháng 4 năm 1976, hơn 23 triệu cử tri cả nước, với tỷ lệ đi bầu 98,77%, đã bầu ra 492 đại biểu Quốc hội khoá VI — Quốc hội đầu tiên của nước Việt Nam thống nhất. Kỳ họp thứ nhất Quốc hội khoá VI (24/6 – 3/7/1976) đã quyết định đổi tên nước thành Cộng hoà xã hội chủ nghĩa Việt Nam, chọn Hà Nội làm Thủ đô, Thành phố Sài Gòn – Gia Định được đổi tên thành Thành phố Hồ Chí Minh, đồng thời bầu Tôn Đức Thắng làm Chủ tịch nước, Phạm Văn Đồng làm Thủ tướng. Cuối năm đó, Đại hội đại biểu toàn quốc lần thứ IV của Đảng (12/1976) đã đổi tên Đảng Lao động Việt Nam thành Đảng Cộng sản Việt Nam, bầu Lê Duẩn làm Tổng Bí thư, đề ra đường lối xây dựng và bảo vệ Tổ quốc trong giai đoạn mới. Sự nghiệp thống nhất còn được khẳng định trên trường quốc tế: ngày 20 tháng 9 năm 1977, Việt Nam chính thức trở thành thành viên thứ 149 của Liên Hợp Quốc, mở ra một chương mới trong quan hệ đối ngoại của đất nước vừa thống nhất.",
+    "en": "After the Great Spring Victory of 1975, the country was already one in reality, but as a state it still had two separate governments: the Democratic Republic of Vietnam in the North and the Provisional Revolutionary Government of the Republic of South Vietnam in the South. From 15 to 21 November 1975, in Sài Gòn, the Political Consultative Conference between delegations from both regions — led by Trường Chinh and Phạm Hùng — agreed on a plan to reunify the country as one state through a shared general election. On 25 April 1976, more than 23 million voters nationwide, with a 98.77% turnout, elected 492 deputies to the 6th National Assembly — the first Assembly of a reunified Vietnam. Its first session (24 June – 3 July 1976) decided to rename the country the Socialist Republic of Vietnam, chose Hà Nội as the capital, renamed Sài Gòn – Gia Định City as Hồ Chí Minh City, and elected Tôn Đức Thắng as President and Phạm Văn Đồng as Prime Minister. Later that year, the Party's 4th National Congress (December 1976) renamed the Vietnam Workers' Party the Communist Party of Vietnam, elected Lê Duẩn as General Secretary, and set out a line for building and defending the Fatherland in the new period. Reunification was also affirmed internationally: on 20 September 1977, Vietnam formally became the 149th member of the United Nations, opening a new chapter in the newly reunified country's foreign relations."
+  },
+  "yearRange": {
+    "display": {
+      "vi": "1975 – 1977 SCN",
+      "en": "1975 – 1977 CE"
+    },
+    "startYear": 1975,
+    "endYear": 1977
+  },
+  "palette": {
+    "accent": "#b04a2c",
+    "particle": "#e0b23e",
+    "scene": [
+      "#0c0605",
+      "#1c0a08",
+      "#3a1410",
+      "#6b2418",
+      "#b04a2c",
+      "#c9722f",
+      "#e0b23e"
+    ]
+  },
+  "cover": {
+    "id": "thong-nhat-dat-nuoc-cover",
+    "type": "image",
+    "role": "cover",
+    "placeholder": "era-scene",
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    },
+    "flagship": "eras/thong-nhat-dat-nuoc/cover.png",
+    "reduced": "eras/thong-nhat-dat-nuoc/cover.png"
+  },
+  "scene": {
+    "layers": [
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "placeholder": "era-scene",
+        "flagship": "eras/thong-nhat-dat-nuoc/scene/sky.png",
+        "reduced": "eras/thong-nhat-dat-nuoc/scene/sky.png"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
+    ]
+  },
+  "primarySource": {
+    "work": "Lịch sử Việt Nam, tập 14: Từ năm 1975 đến năm 1986",
+    "section": {
+      "vi": "Hoàn thành thống nhất đất nước về mặt Nhà nước (1975–1977)",
+      "en": "Completing reunification of the country as one state (1975–1977)"
+    },
+    "author": "Viện Sử học"
+  },
+  "characters": [
+    { "ref": "ton-duc-thang" },
+    {
+      "ref": "truong-chinh",
+      "epithet": {
+        "vi": "Trưởng đoàn đại biểu miền Bắc tại Hội nghị Hiệp thương chính trị",
+        "en": "Head of the northern delegation at the Political Consultative Conference"
+      }
+    },
+    {
+      "ref": "pham-van-dong",
+      "epithet": {
+        "vi": "Thủ tướng nước Cộng hoà xã hội chủ nghĩa Việt Nam (1976–1987)",
+        "en": "Prime Minister of the Socialist Republic of Vietnam (1976–1987)"
+      }
+    },
+    {
+      "ref": "le-duan",
+      "epithet": {
+        "vi": "Tổng Bí thư Đảng Cộng sản Việt Nam (1976–1986)",
+        "en": "General Secretary of the Communist Party of Vietnam (1976–1986)"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "hoi-nghi-hiep-thuong",
+      "slug": "hoi-nghi-hiep-thuong",
+      "figureIds": ["truong-chinh"],
+      "details": {
+        "vi": "Sau ngày 30/4/1975, đất nước đã hoàn toàn giải phóng nhưng về mặt Nhà nước vẫn tồn tại hai chính quyền: Việt Nam Dân chủ Cộng hoà ở miền Bắc và Chính phủ Cách mạng lâm thời Cộng hoà miền Nam Việt Nam ở miền Nam. Thực hiện nguyện vọng thống nhất của toàn dân, từ ngày 15 đến 21 tháng 11 năm 1975, tại Sài Gòn diễn ra Hội nghị Hiệp thương chính trị thống nhất Tổ quốc, gồm Đoàn đại biểu miền Bắc (25 người) do đồng chí Trường Chinh — Uỷ viên Bộ Chính trị, Chủ tịch Uỷ ban Thường vụ Quốc hội Việt Nam Dân chủ Cộng hoà — làm Trưởng đoàn, và Đoàn đại biểu miền Nam (25 người) do đồng chí Phạm Hùng — Uỷ viên Bộ Chính trị, Bí thư Trung ương Cục miền Nam — làm Trưởng đoàn. Hội nghị đã nhất trí hoàn toàn: nước Việt Nam là một, dân tộc Việt Nam là một, cần sớm thống nhất về mặt Nhà nước để đáp ứng nguyện vọng thiết tha của đồng bào cả nước. Hai văn kiện của Hội nghị được Trưởng đoàn hai miền ký ngày 21/11/1975, xác định: sẽ tổ chức tổng tuyển cử trên toàn lãnh thổ Việt Nam để bầu ra Quốc hội chung, thực hiện thống nhất nước nhà về mặt Nhà nước.",
+        "en": "After 30 April 1975, the country was fully liberated, but as a state it still had two governments: the Democratic Republic of Vietnam in the North and the Provisional Revolutionary Government of the Republic of South Vietnam in the South. To carry out the whole people's wish for reunification, from 15 to 21 November 1975, Sài Gòn hosted the Political Consultative Conference on national reunification, with a 25-member northern delegation led by Trường Chinh — Politburo member and Chairman of the Standing Committee of the National Assembly of the DRV — and a 25-member southern delegation led by Phạm Hùng — Politburo member and Secretary of the Central Office for South Vietnam. The conference reached full agreement: Vietnam is one country and the Vietnamese are one people, and the state should be reunified promptly to answer the whole nation's earnest wish. Both delegation heads signed the conference's documents on 21 November 1975, agreeing that a general election would be held across the whole territory of Vietnam to elect a shared National Assembly and reunify the country as one state."
+      },
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "15 – 21/11/1975 SCN", "en": "15–21 November 1975 CE" },
+        "value": 1975,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Hội nghị Hiệp thương chính trị thống nhất đất nước",
+        "en": "The Political Consultative Conference on national reunification"
+      },
+      "summary": {
+        "vi": "15–21/11/1975 tại Sài Gòn, đoàn đại biểu hai miền do Trường Chinh và Phạm Hùng dẫn đầu nhất trí thống nhất đất nước về mặt Nhà nước bằng một cuộc tổng tuyển cử chung.",
+        "en": "15–21 Nov 1975 in Sài Gòn, delegations from both regions led by Trường Chinh and Phạm Hùng agree to reunify the country as one state through a shared general election."
+      },
+      "body": {
+        "vi": "Sau 30/4/1975, đất nước vẫn còn hai chính quyền. Từ 15–21/11/1975 tại Sài Gòn, Hội nghị Hiệp thương chính trị giữa đoàn đại biểu miền Bắc (Trường Chinh) và miền Nam (Phạm Hùng), mỗi đoàn 25 người, đã nhất trí: nước Việt Nam là một, cần thống nhất về mặt Nhà nước. Hai văn kiện được ký ngày 21/11/1975, thống nhất tổ chức tổng tuyển cử chung trên cả nước để bầu Quốc hội thống nhất.",
+        "en": "After 30 April 1975 the country still had two governments. From 15–21 Nov 1975 in Sài Gòn, the Political Consultative Conference between the northern (Trường Chinh) and southern (Phạm Hùng) delegations, 25 members each, agreed: Vietnam is one country, and the state should be reunified. Both documents were signed on 21 Nov 1975, agreeing on a shared general election to elect a unified National Assembly."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Nước Việt Nam là một, dân tộc Việt Nam là một, cần thống nhất nước nhà về mặt Nhà nước để đáp ứng nguyện vọng thiết tha của đồng bào cả nước.",
+          "en": "Vietnam is one country, the Vietnamese are one people; the state must be reunified to answer the earnest wish of the whole nation."
+        },
+        "attribution": {
+          "vi": "Văn kiện Hội nghị Hiệp thương chính trị, 21/11/1975",
+          "en": "Documents of the Political Consultative Conference, 21 November 1975"
+        }
+      },
+      "hero": {
+        "id": "hoi-nghi-hiep-thuong-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "credit": "TTXVN",
+        "flagship": "eras/thong-nhat-dat-nuoc/events/hoi-nghi-hiep-thuong.png",
+        "reduced": "eras/thong-nhat-dat-nuoc/events/hoi-nghi-hiep-thuong.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam, tập 14",
+        "section": {
+          "vi": "Hội nghị Hiệp thương chính trị thống nhất Tổ quốc (11/1975)",
+          "en": "The Political Consultative Conference on national reunification (November 1975)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "tong-tuyen-cu-1976",
+      "slug": "tong-tuyen-cu-1976",
+      "figureIds": [],
+      "details": {
+        "vi": "Thực hiện nghị quyết của Hội nghị Hiệp thương chính trị, ngày 25 tháng 4 năm 1976, cuộc Tổng tuyển cử bầu Quốc hội chung đã diễn ra trên phạm vi cả nước — lần tổng tuyển cử thứ hai trong lịch sử dân tộc, sau cuộc tổng tuyển cử đầu tiên ngày 6/1/1946. Hơn 23 triệu cử tri, với tỷ lệ đi bầu chung toàn quốc đạt 98,77% (miền Bắc 99,36%, miền Nam 98,17%), đã bầu chọn trong số 605 người ứng cử để chọn ra 492 đại biểu Quốc hội khoá VI (miền Bắc 249, miền Nam 243). Đây là cuộc tổng tuyển cử có ý nghĩa lịch sử đặc biệt: lần đầu tiên sau 21 năm bị chia cắt, nhân dân cả nước từ Bắc vào Nam cùng tham gia một cuộc bầu cử chung, chọn ra cơ quan quyền lực Nhà nước cao nhất đại diện cho ý chí thống nhất, khép lại một chặng đường thống nhất về mặt Nhà nước bắt đầu từ Hội nghị Hiệp thương chính trị năm 1975.",
+        "en": "Carrying out the resolution of the Political Consultative Conference, on 25 April 1976 the general election for a shared National Assembly was held nationwide — the second such election in the nation's history, after the first on 6 January 1946. More than 23 million voters, with a nationwide turnout of 98.77% (99.36% in the North, 98.17% in the South), chose 492 deputies to the 6th National Assembly (249 from the North, 243 from the South) from among 605 candidates. This election carried special historic meaning: for the first time in 21 years of division, the people of the whole country, North and South alike, took part in one shared election, choosing the highest organ of state power to represent the nation's reunified will, closing out the process of state reunification that had begun with the 1975 Political Consultative Conference."
+      },
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "25/4/1976 SCN", "en": "25 April 1976 CE" },
+        "value": 1976,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Tổng tuyển cử bầu Quốc hội chung cả nước",
+        "en": "The general election for a shared National Assembly"
+      },
+      "summary": {
+        "vi": "25/4/1976, hơn 23 triệu cử tri cả nước (tỷ lệ 98,77%) bầu ra 492 đại biểu Quốc hội khoá VI — lần đầu Bắc Nam cùng dự một cuộc bầu cử sau 21 năm chia cắt.",
+        "en": "25 Apr 1976: more than 23 million voters nationwide (98.77% turnout) elect 492 deputies to the 6th National Assembly — the first time North and South share one election after 21 years of division."
+      },
+      "body": {
+        "vi": "25/4/1976, cuộc tổng tuyển cử thứ hai trong lịch sử (sau 6/1/1946) diễn ra trên cả nước. Hơn 23 triệu cử tri, tỷ lệ đi bầu 98,77%, chọn 492 đại biểu Quốc hội khoá VI (Bắc 249, Nam 243) từ 605 người ứng cử. Lần đầu sau 21 năm chia cắt, nhân dân cả nước cùng dự một cuộc bầu cử, chọn ra cơ quan quyền lực Nhà nước cao nhất đại diện ý chí thống nhất.",
+        "en": "On 25 Apr 1976, the second general election in the nation's history (after 6 Jan 1946) was held nationwide. More than 23 million voters, at 98.77% turnout, chose 492 deputies to the 6th National Assembly (249 North, 243 South) from 605 candidates. For the first time in 21 years of division, the whole nation shared one election, choosing the highest organ of state power to represent its reunified will."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Lần đầu tiên sau 21 năm, lá phiếu của người dân Bắc và Nam cùng chọn ra một Quốc hội chung của cả nước.",
+          "en": "For the first time in 21 years, the ballots of people in the North and South together chose one shared National Assembly for the whole country."
+        },
+        "attribution": {
+          "vi": "về Tổng tuyển cử 25/4/1976",
+          "en": "on the general election of 25 April 1976"
+        }
+      },
+      "hero": {
+        "id": "tong-tuyen-cu-1976-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/thong-nhat-dat-nuoc/events/tong-tuyen-cu-1976.png",
+        "reduced": "eras/thong-nhat-dat-nuoc/events/tong-tuyen-cu-1976.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam, tập 14",
+        "section": {
+          "vi": "Tổng tuyển cử bầu Quốc hội chung cả nước (25/4/1976)",
+          "en": "The general election for a shared National Assembly (25 April 1976)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "nuoc-chxhcn-viet-nam",
+      "slug": "nuoc-chxhcn-viet-nam",
+      "figureIds": ["ton-duc-thang", "pham-van-dong"],
+      "details": {
+        "vi": "Ngày 24 tháng 6 năm 1976, kỳ họp thứ nhất Quốc hội khoá VI — Quốc hội của nước Việt Nam thống nhất — khai mạc tại Hà Nội, với 482 trong tổng số 492 đại biểu về dự. Sau nhiều ngày làm việc, ngày 2 tháng 7 năm 1976, Quốc hội đã ra những quyết định trọng đại: đặt tên nước là Cộng hoà xã hội chủ nghĩa Việt Nam; chọn Hà Nội là Thủ đô của nước Việt Nam thống nhất; đổi tên Thành phố Sài Gòn – Gia Định thành Thành phố Hồ Chí Minh; quyết định Quốc kỳ là cờ đỏ sao vàng, Quốc ca là bài Tiến quân ca. Quốc hội cũng bầu ra các cơ quan Nhà nước của nước Việt Nam thống nhất: đồng chí Tôn Đức Thắng được bầu làm Chủ tịch nước, đồng chí Phạm Văn Đồng được bầu làm Thủ tướng Chính phủ. Đây là sự kiện đánh dấu việc hoàn thành thống nhất đất nước về mặt Nhà nước — sau 21 năm bị chia cắt bởi chiến tranh, Việt Nam chính thức trở thành một quốc gia thống nhất, độc lập, có chủ quyền trên phạm vi cả nước.",
+        "en": "On 24 June 1976, the first session of the 6th National Assembly — the Assembly of a reunified Vietnam — opened in Hà Nội, with 482 of its 492 deputies attending. After days of deliberation, on 2 July 1976 the Assembly made momentous decisions: naming the country the Socialist Republic of Vietnam; choosing Hà Nội as the capital of a reunified Vietnam; renaming Sài Gòn – Gia Định City as Hồ Chí Minh City; and adopting the red flag with the gold star as the national flag and 'Tiến quân ca' as the national anthem. The Assembly also elected the state organs of a reunified Vietnam: Tôn Đức Thắng was elected President, and Phạm Văn Đồng was elected Prime Minister. This event marked the completion of the country's reunification as one state — after 21 years divided by war, Vietnam formally became one unified, independent and sovereign nation across its whole territory."
+      },
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "24/6 – 2/7/1976 SCN", "en": "24 June – 2 July 1976 CE" },
+        "value": 1976,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Nước Cộng hoà xã hội chủ nghĩa Việt Nam",
+        "en": "The Socialist Republic of Vietnam"
+      },
+      "summary": {
+        "vi": "Kỳ họp thứ nhất Quốc hội khoá VI (2/7/1976) đặt tên nước Cộng hoà xã hội chủ nghĩa Việt Nam, chọn Hà Nội làm Thủ đô, đổi tên Sài Gòn thành TP Hồ Chí Minh, bầu Tôn Đức Thắng làm Chủ tịch nước.",
+        "en": "The first session of the 6th National Assembly (2 July 1976) names the country the Socialist Republic of Vietnam, chooses Hà Nội as capital, renames Sài Gòn as Hồ Chí Minh City, and elects Tôn Đức Thắng President."
+      },
+      "body": {
+        "vi": "24/6/1976, kỳ họp thứ nhất Quốc hội khoá VI khai mạc tại Hà Nội. Ngày 2/7/1976, Quốc hội quyết định: tên nước Cộng hoà xã hội chủ nghĩa Việt Nam, Thủ đô Hà Nội, đổi tên Sài Gòn – Gia Định thành TP Hồ Chí Minh, Quốc kỳ cờ đỏ sao vàng, Quốc ca Tiến quân ca. Quốc hội bầu Tôn Đức Thắng làm Chủ tịch nước, Phạm Văn Đồng làm Thủ tướng. Sự kiện hoàn tất thống nhất đất nước về mặt Nhà nước sau 21 năm chia cắt.",
+        "en": "On 24 June 1976, the first session of the 6th National Assembly opened in Hà Nội. On 2 July 1976, the Assembly decided: the country's name would be the Socialist Republic of Vietnam, its capital Hà Nội, Sài Gòn – Gia Định renamed Hồ Chí Minh City, the flag the red flag with the gold star, and the anthem 'Tiến quân ca.' The Assembly elected Tôn Đức Thắng President and Phạm Văn Đồng Prime Minister. The event completed the country's reunification as one state after 21 years of division."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Nước Việt Nam từ Mục Nam Quan đến Mũi Cà Mau là một khối thống nhất, không thể chia cắt.",
+          "en": "Vietnam, from Mục Nam Quan to Cà Mau Point, is one indivisible whole."
+        },
+        "attribution": {
+          "vi": "về ý nghĩa của việc thống nhất đất nước, 2/7/1976",
+          "en": "on the significance of national reunification, 2 July 1976"
+        }
+      },
+      "hero": {
+        "id": "nuoc-chxhcn-viet-nam-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "credit": "TTXVN",
+        "flagship": "eras/thong-nhat-dat-nuoc/events/nuoc-chxhcn-viet-nam.png",
+        "reduced": "eras/thong-nhat-dat-nuoc/events/nuoc-chxhcn-viet-nam.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam, tập 14",
+        "section": {
+          "vi": "Kỳ họp thứ nhất Quốc hội khoá VI, nước Việt Nam thống nhất (6–7/1976)",
+          "en": "The first session of the 6th National Assembly of a reunified Vietnam (June–July 1976)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "dai-hoi-iv",
+      "slug": "dai-hoi-iv",
+      "figureIds": ["le-duan"],
+      "details": {
+        "vi": "Từ ngày 14 đến 20 tháng 12 năm 1976, tại Hà Nội, Đại hội đại biểu toàn quốc lần thứ IV của Đảng Lao động Việt Nam họp — đại hội đầu tiên của Đảng sau khi đất nước hoàn toàn thống nhất. Đại hội quyết định đổi tên Đảng Lao động Việt Nam thành Đảng Cộng sản Việt Nam, khẳng định đường lối đưa cả nước tiến lên chủ nghĩa xã hội, đề ra nhiệm vụ xây dựng lại đất nước sau nhiều thập niên chiến tranh và tiếp tục bảo vệ vững chắc Tổ quốc. Đồng chí Lê Duẩn được Đại hội bầu làm Tổng Bí thư Ban Chấp hành Trung ương Đảng. Đại hội IV diễn ra trong không khí phấn khởi của những năm đầu sau chiến tranh, nhưng cũng đứng trước những khó khăn to lớn về kinh tế và những thử thách mới ở cả hai đầu biên giới Tây Nam và phía Bắc.",
+        "en": "From 14 to 20 December 1976, in Hà Nội, the 4th National Congress of the Vietnam Workers' Party convened — the Party's first congress after the country's full reunification. The Congress decided to rename the Vietnam Workers' Party the Communist Party of Vietnam, affirmed the line of leading the whole country toward socialism, and set out the tasks of rebuilding the country after decades of war and continuing to firmly defend the Fatherland. Lê Duẩn was elected General Secretary of the Party Central Committee by the Congress. The 4th Congress took place amid the optimism of the first years after the war, but also facing major economic difficulties and new challenges on both the southwestern and northern borders."
+      },
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "14 – 20/12/1976 SCN", "en": "14–20 December 1976 CE" },
+        "value": 1976,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Đại hội IV: Đảng Cộng sản Việt Nam",
+        "en": "The 4th Congress: the Communist Party of Vietnam"
+      },
+      "summary": {
+        "vi": "12/1976, Đại hội IV đổi tên Đảng Lao động Việt Nam thành Đảng Cộng sản Việt Nam, bầu Lê Duẩn làm Tổng Bí thư, đề ra đường lối xây dựng và bảo vệ Tổ quốc sau thống nhất.",
+        "en": "In Dec 1976 the 4th Congress renames the Vietnam Workers' Party the Communist Party of Vietnam, elects Lê Duẩn General Secretary, and sets out the line for building and defending the Fatherland after reunification."
+      },
+      "body": {
+        "vi": "14–20/12/1976 tại Hà Nội, Đại hội IV của Đảng — đại hội đầu tiên sau thống nhất — quyết định đổi tên Đảng Lao động Việt Nam thành Đảng Cộng sản Việt Nam, khẳng định đường lối tiến lên chủ nghĩa xã hội, đề ra nhiệm vụ xây dựng lại đất nước sau chiến tranh và bảo vệ Tổ quốc. Lê Duẩn được bầu làm Tổng Bí thư.",
+        "en": "From 14–20 Dec 1976 in Hà Nội, the Party's 4th Congress — its first after reunification — decided to rename the Vietnam Workers' Party the Communist Party of Vietnam, affirmed the line toward socialism, and set out the tasks of rebuilding after the war and defending the Fatherland. Lê Duẩn was elected General Secretary."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Đại hội của một dân tộc đã giành lại độc lập, thống nhất, bước vào chặng đường xây dựng lại đất nước.",
+          "en": "The congress of a nation that has won back independence and unity, entering the road of rebuilding the country."
+        },
+        "attribution": {
+          "vi": "về ý nghĩa Đại hội IV, 12/1976",
+          "en": "on the significance of the 4th Congress, December 1976"
+        }
+      },
+      "hero": {
+        "id": "dai-hoi-iv-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/thong-nhat-dat-nuoc/events/dai-hoi-iv.png",
+        "reduced": "eras/thong-nhat-dat-nuoc/events/dai-hoi-iv.png"
+      },
+      "citation": {
+        "work": "Lịch sử Đảng Cộng sản Việt Nam",
+        "section": {
+          "vi": "Đại hội đại biểu toàn quốc lần thứ IV (12/1976)",
+          "en": "The 4th National Congress (December 1976)"
+        },
+        "author": "Viện Lịch sử Đảng"
+      }
+    },
+    {
+      "id": "gia-nhap-lien-hop-quoc",
+      "slug": "gia-nhap-lien-hop-quoc",
+      "figureIds": [],
+      "details": {
+        "vi": "Ngay sau khi đất nước thống nhất, Việt Nam kiên trì theo đuổi mục tiêu trở thành thành viên của Liên Hợp Quốc, nhưng trong nhiều năm bị một số nước lớn ngăn cản. Đến phiên họp lần thứ 32 của Đại hội đồng Liên Hợp Quốc, ngày 20 tháng 9 năm 1977, Việt Nam đã được chính thức công nhận là thành viên thứ 149 của tổ chức đa phương lớn nhất thế giới. Cùng ngày, lễ thượng cờ Việt Nam được trọng thể tổ chức tại trụ sở Liên Hợp Quốc ở New York. Đây là sự khẳng định trên trường quốc tế về một nước Việt Nam thống nhất, độc lập, có chủ quyền và toàn vẹn lãnh thổ, mở ra một chương mới trong quan hệ đối ngoại của đất nước, tạo điều kiện để Việt Nam tham gia ngày càng sâu rộng vào các hoạt động và tổ chức quốc tế.",
+        "en": "Immediately after reunification, Vietnam persistently pursued UN membership, but for years was blocked by certain major powers. At the 32nd session of the UN General Assembly, on 20 September 1977, Vietnam was formally admitted as the 149th member of the world's largest multilateral organization. On the same day, a solemn flag-raising ceremony for Vietnam was held at UN Headquarters in New York. This was an international affirmation of a unified, independent and sovereign Vietnam with full territorial integrity, opening a new chapter in the country's foreign relations and enabling Vietnam's ever-deeper participation in international affairs and organizations."
+      },
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": { "vi": "20/9/1977 SCN", "en": "20 September 1977 CE" },
+        "value": 1977,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Việt Nam trở thành thành viên thứ 149 của Liên Hợp Quốc",
+        "en": "Vietnam becomes the 149th member of the United Nations"
+      },
+      "summary": {
+        "vi": "20/9/1977, tại phiên họp Đại hội đồng LHQ, Việt Nam chính thức được công nhận là thành viên thứ 149, được thượng cờ tại trụ sở LHQ ở New York.",
+        "en": "20 Sep 1977: at a session of the UN General Assembly, Vietnam is formally admitted as the 149th member, with its flag raised at UN Headquarters in New York."
+      },
+      "body": {
+        "vi": "Sau thống nhất, Việt Nam kiên trì theo đuổi mục tiêu gia nhập Liên Hợp Quốc nhưng bị ngăn cản nhiều năm. Ngày 20/9/1977, tại phiên họp thứ 32 Đại hội đồng LHQ, Việt Nam chính thức trở thành thành viên thứ 149. Lễ thượng cờ được tổ chức trọng thể tại trụ sở LHQ, New York. Sự kiện khẳng định trên trường quốc tế một nước Việt Nam thống nhất, độc lập, mở ra chương mới trong đối ngoại.",
+        "en": "After reunification, Vietnam persistently pursued UN membership but was blocked for years. On 20 Sep 1977, at the 32nd session of the UN General Assembly, Vietnam formally became the 149th member. A solemn flag-raising ceremony was held at UN Headquarters in New York. The event internationally affirmed a unified, independent Vietnam, opening a new chapter in foreign relations."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Việt Nam, thành viên thứ 149 — một dấu mốc trong quan hệ hợp tác giữa Việt Nam và Liên Hợp Quốc.",
+          "en": "Vietnam, the 149th member — a milestone in the cooperative relationship between Vietnam and the United Nations."
+        },
+        "attribution": {
+          "vi": "về việc Việt Nam gia nhập Liên Hợp Quốc, 20/9/1977",
+          "en": "on Vietnam's accession to the United Nations, 20 September 1977"
+        }
+      },
+      "hero": {
+        "id": "gia-nhap-lien-hop-quoc-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/thong-nhat-dat-nuoc/events/gia-nhap-lien-hop-quoc.png",
+        "reduced": "eras/thong-nhat-dat-nuoc/events/gia-nhap-lien-hop-quoc.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam, tập 14",
+        "section": {
+          "vi": "Việt Nam gia nhập Liên Hợp Quốc (20/9/1977)",
+          "en": "Vietnam's accession to the United Nations (20 September 1977)"
+        },
+        "author": "Viện Sử học"
+      }
+    }
+  ]
+}

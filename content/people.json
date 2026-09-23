@@ -3566,6 +3566,126 @@
         "flagship": "eras/dai-thang-mua-xuan/characters/nguyen-thi-binh-full.png",
         "reduced": "eras/dai-thang-mua-xuan/characters/nguyen-thi-binh-full.png"
       }
+    },
+    {
+      "id": "ton-duc-thang",
+      "name": { "vi": "Tôn Đức Thắng", "en": "Tôn Đức Thắng" },
+      "epithet": {
+        "vi": "Chủ tịch nước đầu tiên của nước Cộng hòa xã hội chủ nghĩa Việt Nam",
+        "en": "First President of the Socialist Republic of Vietnam"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo cách mạng lão thành (1888–1980), quê ở Cù lao Ông Hổ, Mỹ Hoà Hưng, Long Xuyên (nay thuộc An Giang). Từng là thợ máy, ông tham gia phong trào công nhân từ rất sớm và bị thực dân Pháp giam cầm 17 năm ở nhà tù Côn Đảo. Sau Cách mạng Tháng Tám, ông giữ nhiều trọng trách, kế tục Chủ tịch Hồ Chí Minh làm Chủ tịch nước Việt Nam Dân chủ Cộng hoà từ năm 1969. Tại kỳ họp thứ nhất, Quốc hội khoá VI (1976) — Quốc hội của nước Việt Nam thống nhất — ông được bầu làm Chủ tịch nước Cộng hoà xã hội chủ nghĩa Việt Nam, và ngày 5/3/1979 ký Lệnh Tổng động viên trong cuộc chiến đấu bảo vệ biên giới phía Bắc. Ông được Chủ tịch Hồ Chí Minh ca ngợi là 'một tấm gương mẫu mực về đạo đức cách mạng'.",
+        "en": "A veteran revolutionary leader (1888–1980) from Cù Lao Ông Hổ, Mỹ Hoà Hưng, Long Xuyên (now An Giang). A former machinist, he joined the workers' movement early and was held for 17 years by the French at the Côn Đảo prison. After the August Revolution he held many senior posts, succeeding President Hồ Chí Minh as President of the Democratic Republic of Vietnam in 1969. At the first session of the 6th National Assembly (1976) — the Assembly of the reunified Vietnam — he was elected President of the Socialist Republic of Vietnam, and on 5 March 1979 signed the General Mobilization Order during the fight to defend the northern border. President Hồ Chí Minh praised him as 'a model of revolutionary morality.'"
+      },
+      "avatar": {
+        "id": "ton-duc-thang-avatar",
+        "type": "image",
+        "flagship": "eras/thong-nhat-dat-nuoc/characters/ton-duc-thang-avatar.png",
+        "reduced": "eras/thong-nhat-dat-nuoc/characters/ton-duc-thang-avatar.png"
+      },
+      "fullBody": {
+        "id": "ton-duc-thang-full",
+        "type": "image",
+        "flagship": "eras/thong-nhat-dat-nuoc/characters/ton-duc-thang-full.png",
+        "reduced": "eras/thong-nhat-dat-nuoc/characters/ton-duc-thang-full.png"
+      }
+    },
+    {
+      "id": "le-duc-anh",
+      "name": { "vi": "Đại tướng Lê Đức Anh", "en": "General Lê Đức Anh" },
+      "epithet": {
+        "vi": "Tư lệnh Quân khu 9; Tư lệnh Quân tình nguyện Việt Nam tại Campuchia",
+        "en": "Commander, Military Region 9; Commander of the Vietnamese volunteer forces in Cambodia"
+      },
+      "bio": {
+        "vi": "Đại tướng Quân đội nhân dân Việt Nam (1920–2019), quê ở Lộc An, Phú Lộc, Thừa Thiên Huế. Từ năm 1976 ông giữ chức Tư lệnh Quân khu 9, trực tiếp chỉ đạo lực lượng vũ trang vùng Tây Nam Bộ chống lại các cuộc tấn công của tập đoàn Pol Pot – Ieng Sary, rồi chỉ huy Mặt trận 979 trong cuộc tổng phản công cuối năm 1978, tiến tới giải phóng Phnôm Pênh (7/1/1979). Từ năm 1981, ông là Thứ trưởng Bộ Quốc phòng, kiêm Tư lệnh Quân tình nguyện Việt Nam tại Campuchia, giúp nhân dân Campuchia hồi sinh sau chế độ diệt chủng cho đến khi quân tình nguyện hoàn thành nghĩa vụ quốc tế, rút về nước năm 1989. Sau này ông giữ cương vị Chủ tịch nước Cộng hoà xã hội chủ nghĩa Việt Nam (1992–1997).",
+        "en": "A general of the Vietnam People's Army (1920–2019) from Lộc An, Phú Lộc, Thừa Thiên Huế. From 1976 he commanded Military Region 9, directly leading armed forces in the southwest against attacks by the Pol Pot – Ieng Sary clique, then commanding Front 979 in the counter-offensive of late 1978 that led to the liberation of Phnôm Pênh (7 January 1979). From 1981 he was Deputy Minister of Defence and concurrently Commander of the Vietnamese volunteer forces in Cambodia, helping the Cambodian people recover from the genocidal regime until the volunteer army completed its international duty and withdrew in 1989. He later served as President of the Socialist Republic of Vietnam (1992–1997)."
+      },
+      "avatar": {
+        "id": "le-duc-anh-avatar",
+        "type": "image",
+        "flagship": "eras/bien-gioi-tay-nam/characters/le-duc-anh-avatar.png",
+        "reduced": "eras/bien-gioi-tay-nam/characters/le-duc-anh-avatar.png"
+      },
+      "fullBody": {
+        "id": "le-duc-anh-full",
+        "type": "image",
+        "flagship": "eras/bien-gioi-tay-nam/characters/le-duc-anh-full.png",
+        "reduced": "eras/bien-gioi-tay-nam/characters/le-duc-anh-full.png"
+      }
+    },
+    {
+      "id": "le-trong-tan",
+      "name": { "vi": "Đại tướng Lê Trọng Tấn", "en": "General Lê Trọng Tấn" },
+      "epithet": {
+        "vi": "Tổng Tham mưu trưởng; chỉ huy Mặt trận Tây Nam",
+        "en": "Chief of the General Staff; commander of the Southwest Front"
+      },
+      "bio": {
+        "vi": "Đại tướng Quân đội nhân dân Việt Nam (1914–1986), tên khai sinh Lê Trọng Tố, quê ở Yên Nghĩa, Hoài Đức (Hà Tây, nay thuộc Hà Nội). Là một trong những vị tướng chỉ huy tác chiến xuất sắc nhất của Quân đội nhân dân, ông từng là Phó Tổng Tham mưu trưởng từ năm 1961, tham gia hoạch định nhiều chiến dịch lớn trong hai cuộc kháng chiến. Khi chiến tranh biên giới Tây Nam nổ ra, ông được cử làm Tư lệnh Mặt trận Tây Nam, trực tiếp chỉ huy cuộc tổng phản công cuối năm 1978 đánh bật quân Pol Pot khỏi biên giới, tiến tới giải phóng Phnôm Pênh. Từ năm 1978 đến khi qua đời năm 1986, ông giữ chức Tổng Tham mưu trưởng Quân đội nhân dân Việt Nam, Thứ trưởng Bộ Quốc phòng.",
+        "en": "A general of the Vietnam People's Army (1914–1986), born Lê Trọng Tố, from Yên Nghĩa, Hoài Đức (Hà Tây, now part of Hà Nội). One of the People's Army's most accomplished field commanders, he served as Deputy Chief of the General Staff from 1961, helping plan many major campaigns across both resistance wars. When the southwestern border war broke out, he was appointed Commander of the Southwest Front, directly leading the counter-offensive of late 1978 that drove Pol Pot's forces from the border and advanced to liberate Phnôm Pênh. From 1978 until his death in 1986, he served as Chief of the General Staff of the Vietnam People's Army and Deputy Minister of Defence."
+      },
+      "avatar": {
+        "id": "le-trong-tan-avatar",
+        "type": "image",
+        "flagship": "eras/bien-gioi-tay-nam/characters/le-trong-tan-avatar.png",
+        "reduced": "eras/bien-gioi-tay-nam/characters/le-trong-tan-avatar.png"
+      },
+      "fullBody": {
+        "id": "le-trong-tan-full",
+        "type": "image",
+        "flagship": "eras/bien-gioi-tay-nam/characters/le-trong-tan-full.png",
+        "reduced": "eras/bien-gioi-tay-nam/characters/le-trong-tan-full.png"
+      }
+    },
+    {
+      "id": "dam-quang-trung",
+      "name": { "vi": "Thượng tướng Đàm Quang Trung", "en": "Senior Lieutenant General Đàm Quang Trung" },
+      "epithet": {
+        "vi": "Tư lệnh Quân khu 1 trong chiến tranh bảo vệ biên giới phía Bắc",
+        "en": "Commander of Military Region 1 during the northern border war"
+      },
+      "bio": {
+        "vi": "Thượng tướng Quân đội nhân dân Việt Nam (1921–1995), người dân tộc Tày, quê ở Sóc Hà, Hà Quảng, Cao Bằng. Ông tham gia cách mạng từ trước năm 1945, là một trong những chỉ huy đầu tiên của lực lượng vũ trang cách mạng ở Việt Bắc. Ông là Tư lệnh kiêm Chính uỷ đầu tiên của Quân khu 1 khi quân khu được thành lập, và khi quân Trung Quốc tiến công xâm lược trên toàn tuyến biên giới phía Bắc (17/2/1979), ông trực tiếp chỉ huy lực lượng vũ trang Quân khu 1 chiến đấu bảo vệ các tỉnh Cao Bằng, Lạng Sơn. Ông từng ba lần được cử làm Tổng chỉ huy các cuộc duyệt binh lớn của Quân đội nhân dân Việt Nam.",
+        "en": "A senior general of the Vietnam People's Army (1921–1995), of Tày ethnicity, from Sóc Hà, Hà Quảng, Cao Bằng. He joined the revolution before 1945 and was one of the earliest commanders of revolutionary armed forces in the Việt Bắc region. He was the first Commander and Political Commissar of Military Region 1 when it was established, and when Chinese forces invaded along the whole northern border (17 February 1979), he directly commanded Military Region 1's forces defending Cao Bằng and Lạng Sơn provinces. He was chosen three times to command major military parades of the Vietnam People's Army."
+      },
+      "avatar": {
+        "id": "dam-quang-trung-avatar",
+        "type": "image",
+        "flagship": "eras/bien-gioi-phia-bac/characters/dam-quang-trung-avatar.png",
+        "reduced": "eras/bien-gioi-phia-bac/characters/dam-quang-trung-avatar.png"
+      },
+      "fullBody": {
+        "id": "dam-quang-trung-full",
+        "type": "image",
+        "flagship": "eras/bien-gioi-phia-bac/characters/dam-quang-trung-full.png",
+        "reduced": "eras/bien-gioi-phia-bac/characters/dam-quang-trung-full.png"
+      }
+    },
+    {
+      "id": "vu-lap",
+      "name": { "vi": "Thượng tướng Vũ Lập", "en": "Senior Lieutenant General Vũ Lập" },
+      "epithet": {
+        "vi": "Tư lệnh Quân khu 2 trong chiến tranh bảo vệ biên giới phía Bắc",
+        "en": "Commander of Military Region 2 during the northern border war"
+      },
+      "bio": {
+        "vi": "Thượng tướng Quân đội nhân dân Việt Nam (1924–1987), tên khai sinh Nông Văn Phách, quê ở Hoà An, Cao Bằng. Ông tham gia cách mạng từ thời niên thiếu, được cử đi huấn luyện quân sự từ năm 1941, và trải qua cả ba cuộc kháng chiến. Trên cương vị Tư lệnh Quân khu 2, ông trực tiếp chỉ huy lực lượng vũ trang các tỉnh Lào Cai, Hà Tuyên, Lai Châu chiến đấu chống quân Trung Quốc xâm lược từ ngày 17/2/1979, và tiếp tục chỉ huy Quân khu 2 trong những năm chiến sự kéo dài ở mặt trận Vị Xuyên. Ông mất năm 1987 khi vẫn đang tại nhiệm.",
+        "en": "A senior general of the Vietnam People's Army (1924–1987), born Nông Văn Phách, from Hoà An, Cao Bằng. He joined the revolution in his youth, was sent for military training from 1941, and served through all three resistance wars. As Commander of Military Region 2, he directly commanded the armed forces of Lào Cai, Hà Tuyên and Lai Châu provinces against the Chinese invasion from 17 February 1979, and continued to lead Military Region 2 through the years of prolonged fighting at the Vị Xuyên front. He died in 1987 while still in office."
+      },
+      "avatar": {
+        "id": "vu-lap-avatar",
+        "type": "image",
+        "flagship": "eras/bien-gioi-phia-bac/characters/vu-lap-avatar.png",
+        "reduced": "eras/bien-gioi-phia-bac/characters/vu-lap-avatar.png"
+      },
+      "fullBody": {
+        "id": "vu-lap-full",
+        "type": "image",
+        "flagship": "eras/bien-gioi-phia-bac/characters/vu-lap-full.png",
+        "reduced": "eras/bien-gioi-phia-bac/characters/vu-lap-full.png"
+      }
     }
   ]
 }
