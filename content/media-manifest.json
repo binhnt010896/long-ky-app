@@ -105,6 +105,98 @@
       "key": "eras/ba-trieu/scene/sky.webp",
       "v": "cdc2eb4fc0"
     },
+    "eras/bien-gioi-phia-bac/characters/dam-quang-trung-avatar.png": {
+      "key": "eras/bien-gioi-phia-bac/characters/dam-quang-trung-avatar.webp",
+      "v": "b82d3160b6"
+    },
+    "eras/bien-gioi-phia-bac/characters/dam-quang-trung-full.png": {
+      "key": "eras/bien-gioi-phia-bac/characters/dam-quang-trung-full.webp",
+      "v": "0b33fb008b"
+    },
+    "eras/bien-gioi-phia-bac/characters/vu-lap-avatar.png": {
+      "key": "eras/bien-gioi-phia-bac/characters/vu-lap-avatar.webp",
+      "v": "9542b84f2c"
+    },
+    "eras/bien-gioi-phia-bac/characters/vu-lap-full.png": {
+      "key": "eras/bien-gioi-phia-bac/characters/vu-lap-full.webp",
+      "v": "b0544b63cf"
+    },
+    "eras/bien-gioi-phia-bac/cover.png": {
+      "key": "eras/bien-gioi-phia-bac/cover.webp",
+      "v": "c39bd3b165"
+    },
+    "eras/bien-gioi-phia-bac/events/chien-dau-lang-son-cao-bang-lao-cai.png": {
+      "key": "eras/bien-gioi-phia-bac/events/chien-dau-lang-son-cao-bang-lao-cai.webp",
+      "v": "e8e29089d7"
+    },
+    "eras/bien-gioi-phia-bac/events/khep-lai-chien-tranh.png": {
+      "key": "eras/bien-gioi-phia-bac/events/khep-lai-chien-tranh.webp",
+      "v": "03605fbb1c"
+    },
+    "eras/bien-gioi-phia-bac/events/mat-tran-vi-xuyen.png": {
+      "key": "eras/bien-gioi-phia-bac/events/mat-tran-vi-xuyen.webp",
+      "v": "f1c26c9b29"
+    },
+    "eras/bien-gioi-phia-bac/events/tong-dong-vien-1979.png": {
+      "key": "eras/bien-gioi-phia-bac/events/tong-dong-vien-1979.webp",
+      "v": "61c172be48"
+    },
+    "eras/bien-gioi-phia-bac/events/xam-luoc-17-2-1979.png": {
+      "key": "eras/bien-gioi-phia-bac/events/xam-luoc-17-2-1979.webp",
+      "v": "3e7a59f6de"
+    },
+    "eras/bien-gioi-phia-bac/scene/sky.png": {
+      "key": "eras/bien-gioi-phia-bac/scene/sky.webp",
+      "v": "c39bd3b165"
+    },
+    "eras/bien-gioi-tay-nam/characters/le-duc-anh-avatar.png": {
+      "key": "eras/bien-gioi-tay-nam/characters/le-duc-anh-avatar.webp",
+      "v": "8bd4c1b747"
+    },
+    "eras/bien-gioi-tay-nam/characters/le-duc-anh-full.png": {
+      "key": "eras/bien-gioi-tay-nam/characters/le-duc-anh-full.webp",
+      "v": "1e66723cc4"
+    },
+    "eras/bien-gioi-tay-nam/characters/le-trong-tan-avatar.png": {
+      "key": "eras/bien-gioi-tay-nam/characters/le-trong-tan-avatar.webp",
+      "v": "8c4e6495fb"
+    },
+    "eras/bien-gioi-tay-nam/characters/le-trong-tan-full.png": {
+      "key": "eras/bien-gioi-tay-nam/characters/le-trong-tan-full.webp",
+      "v": "8dddf87589"
+    },
+    "eras/bien-gioi-tay-nam/cover.png": {
+      "key": "eras/bien-gioi-tay-nam/cover.webp",
+      "v": "8427fed5a3"
+    },
+    "eras/bien-gioi-tay-nam/events/giai-phong-phnom-penh.png": {
+      "key": "eras/bien-gioi-tay-nam/events/giai-phong-phnom-penh.webp",
+      "v": "b489e20239"
+    },
+    "eras/bien-gioi-tay-nam/events/khmer-do-chiem-tho-chu.png": {
+      "key": "eras/bien-gioi-tay-nam/events/khmer-do-chiem-tho-chu.webp",
+      "v": "c39fcccab2"
+    },
+    "eras/bien-gioi-tay-nam/events/quan-tinh-nguyen-ve-nuoc.png": {
+      "key": "eras/bien-gioi-tay-nam/events/quan-tinh-nguyen-ve-nuoc.webp",
+      "v": "1d6f33ea47"
+    },
+    "eras/bien-gioi-tay-nam/events/tan-cong-bien-gioi-1977.png": {
+      "key": "eras/bien-gioi-tay-nam/events/tan-cong-bien-gioi-1977.webp",
+      "v": "746648b183"
+    },
+    "eras/bien-gioi-tay-nam/events/tham-sat-ba-chuc.png": {
+      "key": "eras/bien-gioi-tay-nam/events/tham-sat-ba-chuc.webp",
+      "v": "ec64cf463b"
+    },
+    "eras/bien-gioi-tay-nam/events/tong-phan-cong-tay-nam.png": {
+      "key": "eras/bien-gioi-tay-nam/events/tong-phan-cong-tay-nam.webp",
+      "v": "fd48f95aea"
+    },
+    "eras/bien-gioi-tay-nam/scene/sky.png": {
+      "key": "eras/bien-gioi-tay-nam/scene/sky.webp",
+      "v": "8427fed5a3"
+    },
     "eras/cach-mang-thang-tam/characters/bao-dai-avatar.png": {
       "key": "eras/cach-mang-thang-tam/characters/bao-dai-avatar.webp",
       "v": "82d887599c"
@@ -1621,6 +1713,42 @@
       "key": "eras/thieu-tri/scene/sky.webp",
       "v": "204113851b"
     },
+    "eras/thong-nhat-dat-nuoc/characters/ton-duc-thang-avatar.png": {
+      "key": "eras/thong-nhat-dat-nuoc/characters/ton-duc-thang-avatar.webp",
+      "v": "c96fba6bfd"
+    },
+    "eras/thong-nhat-dat-nuoc/characters/ton-duc-thang-full.png": {
+      "key": "eras/thong-nhat-dat-nuoc/characters/ton-duc-thang-full.webp",
+      "v": "28b2b3c056"
+    },
+    "eras/thong-nhat-dat-nuoc/cover.png": {
+      "key": "eras/thong-nhat-dat-nuoc/cover.webp",
+      "v": "2c2f7acd8f"
+    },
+    "eras/thong-nhat-dat-nuoc/events/dai-hoi-iv.png": {
+      "key": "eras/thong-nhat-dat-nuoc/events/dai-hoi-iv.webp",
+      "v": "0ff998530a"
+    },
+    "eras/thong-nhat-dat-nuoc/events/gia-nhap-lien-hop-quoc.png": {
+      "key": "eras/thong-nhat-dat-nuoc/events/gia-nhap-lien-hop-quoc.webp",
+      "v": "b268acb4b9"
+    },
+    "eras/thong-nhat-dat-nuoc/events/hoi-nghi-hiep-thuong.png": {
+      "key": "eras/thong-nhat-dat-nuoc/events/hoi-nghi-hiep-thuong.webp",
+      "v": "851f8673b3"
+    },
+    "eras/thong-nhat-dat-nuoc/events/nuoc-chxhcn-viet-nam.png": {
+      "key": "eras/thong-nhat-dat-nuoc/events/nuoc-chxhcn-viet-nam.webp",
+      "v": "751f6f1f9a"
+    },
+    "eras/thong-nhat-dat-nuoc/events/tong-tuyen-cu-1976.png": {
+      "key": "eras/thong-nhat-dat-nuoc/events/tong-tuyen-cu-1976.webp",
+      "v": "cc7aa9bfdf"
+    },
+    "eras/thong-nhat-dat-nuoc/scene/sky.png": {
+      "key": "eras/thong-nhat-dat-nuoc/scene/sky.webp",
+      "v": "2c2f7acd8f"
+    },
     "eras/tien-le/characters/duong-van-nga-avatar.png": {
       "key": "eras/tien-le/characters/duong-van-nga-avatar.webp",
       "v": "afffd879b6"
@@ -2021,6 +2149,10 @@
       "key": "periods/bac-thuoc.webp",
       "v": "17891e5924"
     },
+    "periods/chien-tranh-bien-gioi.png": {
+      "key": "periods/chien-tranh-bien-gioi.webp",
+      "v": "3f88f90377"
+    },
     "periods/hau-le.png": {
       "key": "periods/hau-le.webp",
       "v": "23e692d0c8"
@@ -2068,6 +2200,10 @@
     "periods/tay-son.png": {
       "key": "periods/tay-son.webp",
       "v": "175fe326f8"
+    },
+    "periods/thong-nhat.png": {
+      "key": "periods/thong-nhat.webp",
+      "v": "d403bf6911"
     }
   }
 }
