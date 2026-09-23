@@ -24,6 +24,12 @@ abstract final class VSType {
   static const String familyDisplay = 'Playfair Display';
   static const String familyBody = 'Be Vietnam Pro';
 
+  /// The fonts are declared in *this* package's pubspec, so Flutter registers
+  /// them as `packages/ui_kit/<family>`. Every style must pass this as
+  /// `TextStyle.package`, or the family silently falls back to the platform
+  /// default (Roboto) with no error.
+  static const String fontPackage = 'ui_kit';
+
   /// Convert an `em` tracking value to Flutter's pixel `letterSpacing`.
   static double track(double em, double fontSize) => em * fontSize;
 
@@ -37,6 +43,7 @@ abstract final class VSType {
   }) {
     return TextStyle(
       fontFamily: familyDisplay,
+      package: fontPackage,
       fontSize: size,
       fontWeight: weight,
       // Playfair Display is a variable font; drive the wght axis explicitly so
@@ -60,6 +67,7 @@ abstract final class VSType {
   }) {
     return TextStyle(
       fontFamily: familyBody,
+      package: fontPackage,
       fontSize: size,
       fontWeight: weight,
       height: height,
@@ -137,6 +145,7 @@ abstract final class VSType {
   /// Monospaced provenance caption on illustrations (10.5px).
   static TextStyle get provenance => const TextStyle(
         fontFamily: familyBody,
+        package: fontPackage,
         fontSize: 10.5,
         height: 1.3,
         letterSpacing: 1.05, // 0.1em × 10.5
