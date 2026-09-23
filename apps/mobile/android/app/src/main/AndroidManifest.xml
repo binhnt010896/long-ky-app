@@ -2,7 +2,7 @@
     <!-- Era media (images/video) is fetched from the R2 CDN at runtime. -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="viet_su"
+        android:label="Long Ký"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
