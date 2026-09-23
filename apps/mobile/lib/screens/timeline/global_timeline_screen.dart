@@ -457,7 +457,9 @@ class _PeriodHeader extends StatelessWidget {
             if (coverPath != null)
               Positioned.fill(
                 child: Image(
-                  image: contentImageProvider(coverPath),
+                  image: contentImageProvider(coverPath,
+                      decodeWidth: decodeWidthFor(
+                          context, MediaQuery.sizeOf(context).width)),
                   fit: BoxFit.cover,
                   filterQuality: FilterQuality.medium,
                   frameBuilder: fadeInImageFrame,

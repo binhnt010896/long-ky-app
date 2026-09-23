@@ -18,19 +18,37 @@ const String kContentMediaBase = String.fromEnvironment(
 /// Overrides how a content-relative path resolves to an [ImageProvider], set
 /// once by `flutter_test_config.dart` for every widget test so nothing hits
 /// the network or the cache plugin. Production widgets (e.g. the era-cover
-/// video layer) also read it to skip their own network/cache work when a
-/// test has set it — not `@visibleForTesting` because of that.
+/// video layer, the media prefetcher) also read it to skip their own
+/// network/cache work when a test has set it — not `@visibleForTesting`
+/// because of that.
 ImageProvider Function(String path)? debugContentImageOverride;
 
+/// One media manifest entry: the served (WebP, usually) file for a source
+/// path, and its cache-busting version.
+class ContentMediaEntry {
+  const ContentMediaEntry({required this.key, required this.v});
+
+  /// The served path under the bucket's `media/` prefix, e.g.
+  /// `eras/au-lac/cover.webp` for source `eras/au-lac/cover.png`.
+  final String key;
+
+  /// Cache-busting version: changes when the source bytes or the encoder
+  /// settings change.
+  final String v;
+}
+
 /// Era media on the R2 CDN, with a shared on-device cache and cache-busting
-/// versions read from the bundled `content/media-manifest.json`.
+/// versions/served-keys read from the bundled `content/media-manifest.json`
+/// (schema v2), or applied at runtime from a downloaded content pack's media
+/// manifest (see the content-sync work).
 class ContentMedia {
   ContentMedia._();
 
-  static Map<String, String> _versions = const <String, String>{};
+  static Map<String, ContentMediaEntry> _entries =
+      const <String, ContentMediaEntry>{};
 
-  /// The on-device cache shared by images ([contentImageProvider]) and video
-  /// ([ContentMedia.url] + `getSingleFile`, see `SceneVideoLayer`).
+  /// The on-device cache shared by images ([contentImageProvider]), video
+  /// (`SceneVideoLayer`) and the background prefetcher (`MediaPrefetcher`).
   static final CacheManager cache = CacheManager(
     Config(
       'longKyMedia',
@@ -39,51 +57,84 @@ class ContentMedia {
     ),
   );
 
-  /// Loads the media manifest's file versions from the app bundle. A missing
-  /// or malformed manifest is never fatal — URLs just resolve without a
-  /// `?v=` query, so they still work, just without cache-busting.
+  /// Loads the media manifest from the app bundle. A missing or malformed
+  /// manifest is never fatal — every [url] still resolves, just without a
+  /// served-key remap or a `?v=` query.
   static Future<void> load() async {
     try {
-      final raw = await rootBundle.loadString('assets/content/media-manifest.json');
-      final json = jsonDecode(raw);
-      if (json is Map<String, dynamic> && json['files'] is Map) {
-        _versions = <String, String>{
-          for (final entry in (json['files'] as Map).entries)
-            entry.key as String: entry.value as String,
-        };
-      }
+      final raw =
+          await rootBundle.loadString('assets/content/media-manifest.json');
+      applyManifest(jsonDecode(raw) as Map<String, dynamic>);
     } catch (_) {
-      // Leave _versions empty; every url() still resolves, just unversioned.
+      // Leave _entries as-is (empty on first call).
     }
   }
 
-  /// Test seam: seed manifest versions directly, without a real bundle asset.
-  @visibleForTesting
-  static void debugSetVersions(Map<String, String> versions) {
-    _versions = versions;
+  /// Applies a media-manifest JSON object (schema v1 or v2) — used at startup
+  /// from the bundle, and by the content-sync work when a downloaded pack
+  /// becomes active.
+  static void applyManifest(Map<String, dynamic> manifestJson) {
+    final files = manifestJson['files'];
+    if (files is! Map) return;
+    final schemaVersion = manifestJson['schemaVersion'];
+    final entries = <String, ContentMediaEntry>{};
+    for (final entry in files.entries) {
+      final path = entry.key as String;
+      final value = entry.value;
+      if (schemaVersion == 2 && value is Map) {
+        final key = value['key'];
+        final v = value['v'];
+        if (key is String && v is String) {
+          entries[path] = ContentMediaEntry(key: key, v: v);
+        }
+      } else if (value is String) {
+        // Schema v1: the path itself is the served key, value is the version.
+        entries[path] = ContentMediaEntry(key: path, v: value);
+      }
+    }
+    _entries = entries;
   }
 
-  /// The full URL for a content-relative media path, with `?v=<hash>` when
-  /// the path is present in the loaded manifest.
+  /// Test seam: seed manifest entries directly, without a real bundle asset.
+  @visibleForTesting
+  static void debugSetEntries(Map<String, ContentMediaEntry> entries) {
+    _entries = entries;
+  }
+
+  /// The full URL for a content-relative media path, under the bucket's
+  /// `media/` prefix, with `?v=<hash>` when the path is present in the loaded
+  /// manifest.
   static String url(String contentRelativePath) {
-    final encoded = Uri.encodeFull(contentRelativePath);
-    final version = _versions[contentRelativePath];
-    return version == null
-        ? '$kContentMediaBase/$encoded'
-        : '$kContentMediaBase/$encoded?v=$version';
+    final entry = _entries[contentRelativePath];
+    if (entry == null) {
+      return '$kContentMediaBase/media/${Uri.encodeFull(contentRelativePath)}';
+    }
+    return '$kContentMediaBase/media/${Uri.encodeFull(entry.key)}?v=${entry.v}';
   }
 }
+
+/// The pixel width to decode an image at, given its logical (dp) display
+/// width — used to avoid decoding a full-resolution source for a small
+/// thumbnail (e.g. a 44dp dynasty crest).
+int decodeWidthFor(BuildContext context, double logicalWidth) =>
+    (logicalWidth * MediaQuery.devicePixelRatioOf(context)).ceil();
 
 /// Resolve a content-relative media path to an [ImageProvider] backed by the
 /// R2 CDN and the shared on-device cache. Tests substitute
 /// [debugContentImageOverride] so no widget test touches the network.
-ImageProvider contentImageProvider(String contentRelativePath) {
+///
+/// [decodeWidth], when given, decodes the image at that pixel width instead
+/// of its native resolution — pass [decodeWidthFor] for a thumbnail.
+ImageProvider contentImageProvider(String contentRelativePath,
+    {int? decodeWidth}) {
   final override = debugContentImageOverride;
-  if (override != null) return override(contentRelativePath);
-  return CachedNetworkImageProvider(
-    ContentMedia.url(contentRelativePath),
-    cacheManager: ContentMedia.cache,
-  );
+  final base = override != null
+      ? override(contentRelativePath)
+      : CachedNetworkImageProvider(
+          ContentMedia.url(contentRelativePath),
+          cacheManager: ContentMedia.cache,
+        );
+  return ResizeImage.resizeIfNeeded(decodeWidth, null, base);
 }
 
 /// An `Image.frameBuilder` that fades art in on first decode, so large scene

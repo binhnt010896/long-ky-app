@@ -110,7 +110,8 @@ class _FigureTile extends StatelessWidget {
                 width: double.infinity,
                 child: avatarPath != null
                     ? Image(
-                        image: contentImageProvider(avatarPath),
+                        image: contentImageProvider(avatarPath,
+                            decodeWidth: decodeWidthFor(context, 116)),
                         fit: BoxFit.cover,
                         frameBuilder: fadeInImageFrame,
                         errorBuilder: (_, __, ___) =>
