@@ -18,3 +18,4 @@ workspace:
 dev_dependencies:
   melos: ^6.3.0
   json_schema: ^5.1.0
+  crypto: ^3.0.7
