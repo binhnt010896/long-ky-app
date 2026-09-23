@@ -143,9 +143,8 @@ void main() {
       expect(await ota.availableSlugs(), contains('hong-bang-van-lang'));
     });
 
-    test('sync() is a safe no-op today', () async {
+    test('overlay is null until the app assigns one', () async {
       final ota = OtaContentSource(bundled: DiskContentSource(contentRoot));
-      await ota.sync();
       expect(ota.overlay, isNull);
     });
   });

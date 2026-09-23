@@ -2,28 +2,23 @@ import 'content_source.dart';
 
 /// The seam for over-the-air content updates.
 ///
-/// It composes a bundled fallback with an optional [overlay] source that a
-/// future implementation will populate from a downloaded/cached copy. Reads
-/// prefer the overlay and fall back to the bundle, so partial OTA payloads work.
-///
-/// The [sync] hook is where the OTA fetch will live (download → verify signature
-/// → validate against era.schema.json → swap in an overlay source). It is a
-/// no-op today; wiring it later must not change the read API above it.
+/// It composes a bundled fallback with an optional [overlay] source. Reads
+/// prefer the overlay and fall back to the bundle, so partial OTA payloads
+/// work. There is no `sync()` here — the app (`apps/mobile/lib/state/
+/// content_sync.dart`) owns fetching, validating (see [ContentPack.
+/// parseAndValidate]) and persisting a content pack, and simply assigns
+/// [overlay] to a [PackContentSource] once one passes validation. Keeping
+/// that entirely outside this package means it never needs Flutter, HTTP or
+/// filesystem access.
 class OtaContentSource implements ContentSource {
   OtaContentSource({required this.bundled, this.overlay});
 
   /// Always-present content shipped with the app.
   final ContentSource bundled;
 
-  /// Optional updated content fetched at runtime. Null until [sync] provides it.
+  /// Updated content fetched at runtime, once the app has validated it. Null
+  /// until then, or if validation ever fails.
   ContentSource? overlay;
-
-  /// Fetch and stage newer content. Currently a no-op placeholder — the OTA
-  /// pipeline (fetch, verify, validate, atomically swap [overlay]) lands later.
-  Future<void> sync() async {
-    // TODO(ota): download signed content pack, validate against era.schema.json,
-    // then set `overlay` to a source backed by the verified cache.
-  }
 
   @override
   Future<List<String>> availableSlugs() async {

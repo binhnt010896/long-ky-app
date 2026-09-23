@@ -5,6 +5,7 @@
 /// for the (stubbed) over-the-air seam. [ContentRepository] is the entry point.
 library;
 
+export 'src/content_pack.dart';
 export 'src/content_repository.dart';
 export 'src/content_source.dart';
 export 'src/ota_content_source.dart';
