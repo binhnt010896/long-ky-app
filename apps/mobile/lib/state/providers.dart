@@ -20,6 +20,7 @@ final contentRepositoryProvider = Provider<ContentRepository>((ref) {
       manifestPath: 'assets/content/index.json',
       eraDir: 'assets/content/eras',
       peoplePath: 'assets/content/people.json',
+      periodsPath: 'assets/content/periods.json',
     ),
   );
 });
