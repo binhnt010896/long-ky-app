@@ -81,7 +81,11 @@ class _EraHero extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomLeft,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(VSSpacing.xxl, 0, 56, 118),
+        // Bottom inset clears the era-position strip and explore affordance
+        // (home_screen.dart's _DynastyPage, anchored bottom-center with its own
+        // 40px inset) so the subtitle never sits under the gold indicator at
+        // phone height.
+        padding: const EdgeInsets.fromLTRB(VSSpacing.xxl, 0, 56, 160),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,

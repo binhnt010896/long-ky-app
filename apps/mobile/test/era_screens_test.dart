@@ -101,7 +101,6 @@ Future<GoRouter> _pumpAt(
   WidgetTester tester,
   String location,
   ExperienceTier tier, {
-  DateTime? today,
   TipStore? tipStore,
   int contentVersion = 0,
 }) async {
@@ -109,8 +108,6 @@ Future<GoRouter> _pumpAt(
     tierProvider.overrideWithValue(tier),
     contentRepositoryProvider
         .overrideWithValue(ContentRepository(_DiskSource())),
-    // Pin the day (ordinary by default) and keep real store billing out.
-    todayProvider.overrideWithValue(today ?? DateTime(2026, 9, 3)),
     tipStoreProvider.overrideWithValue(tipStore),
     activeContentVersionProvider.overrideWith((ref) => contentVersion),
   ]);
@@ -1492,21 +1489,11 @@ void main() {
       expect(workSpan!.style?.fontWeight, FontWeight.w600);
     });
 
-    testWidgets('the Home Chào cờ pill shows every day and names 2/9',
+    testWidgets('Home carries no Chào cờ pill (reachable only via the Sảnh)',
         (tester) async {
-      final router = await _pumpAt(tester, '/', ExperienceTier.reduced);
-      expect(find.text('CHÀO CỜ HÔM NAY'), findsOneWidget);
-
-      await tester.tap(find.byKey(const ValueKey<String>('home-chao-co')));
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 600));
-      expect(path(router), '/chao-co');
-    });
-
-    testWidgets('on 2/9 the pill names Quốc khánh', (tester) async {
-      await _pumpAt(tester, '/', ExperienceTier.reduced,
-          today: DateTime(2026, 9, 2));
-      expect(find.text('2/9 · QUỐC KHÁNH  ·  CHÀO CỜ'), findsOneWidget);
+      await _pumpAt(tester, '/', ExperienceTier.reduced);
+      expect(find.byKey(const ValueKey<String>('home-chao-co')), findsNothing);
+      expect(find.textContaining('CHÀO CỜ'), findsNothing);
     });
 
     testWidgets('the 2/9/1945 event no longer carries a Chào cờ button',
