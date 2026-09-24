@@ -6,71 +6,63 @@
 
 **Status: IDLE — nothing queued.**
 
-Cycle A is fully executed, verified, published and committed to `main`.
+Cycle B is fully executed, verified, published and committed to `main`.
 
-- **Image audit (Eras 29–31):** ~24 real archival photos were re-captioned
-  from "Minh họa · phong cách sơn mài" to "Ảnh tư liệu" or "Ảnh tư liệu ·
-  phục chế màu" (Era 28's lacquer illustrations and one poster-style
-  painting in Era 29 kept "Minh họa"). Two mismatched heroes were replaced
-  with user-supplied images: the 1930 Party-founding painting (enhanced
-  only, no colorization) and a Việt Bắc 1947 base photo (colorized, with a
-  strict per-face A/B check across ~20 faces). The 1945 famine photo is now
-  credited to Võ An Ninh.
-- **Era 32 "Thống nhất đất nước"** extended from 1977 to 1986 with 6 new
-  events: joining SEV and the Việt–Xô treaty (1978), the 1980 Constitution,
-  Chỉ thị 100 "Khoán 100" (1981), the 5th Party Congress (1982), and the
-  1985 price–wage–currency reform.
-- **New period "Đổi Mới"** (kicker "Nhìn thẳng vào sự thật") with **Era 35
-  "Công cuộc Đổi Mới"** (1986–1995), 9 events: the 6th Congress, the
-  Foreign Investment Law, Gạc Ma (14/3/1988), Khoán 10, the first rice
-  exports (1989), the 7th Congress, the 1992 Constitution, the US embargo
-  lift, and the July 1995 double milestone (US normalization + ASEAN).
-- **4 new figures:** Nguyễn Văn Linh, Võ Văn Kiệt, Đỗ Mười, Trần Văn Phương.
-  Trần Văn Phương's only known photo was too degraded for two AI
-  restoration attempts to reconstruct reliably (both drifted toward a
-  generic, idealized face); his portrait uses a plain local upscale
-  instead, to avoid risking a fabricated likeness of a named martyr. Worth
-  the user's own eyes on this one.
-- 35 eras · 212 events total (was 34/197). Territory atlas's "thong-nhat"
-  snapshot now also covers Era 35 (the territory is unchanged since 1975).
-- **Verified:** all 26 generated/restored images A/B-checked against
-  source (1 fallback to local upscale, as above); validate:content 35 eras
-  · manifest 0 collisions · analyze clean · 117 tests · web smoke test
-  confirmed Era 32's extension, Era 35, and the global timeline count
-  (35 kỷ nguyên · 212 sự kiện).
-- **Published:** pack `20260924044851` (35 eras, 1228 KB) is live on R2.
-- **Higgsfield spend:** 44 of the 120-credit cap for this cycle.
-- **6 commits** landed on `main` (2 caption/content fixes, 2 feat content,
-  1 territory/test update folded into the Era 35 commit, 1 version bump).
-
-## Still awaiting the user
-- **Trần Văn Phương's portrait:** the user should look at it themselves
-  and say whether the local-upscale fallback is acceptable, or whether to
-  try again, use a different source, or omit the portrait.
+- **Trần Văn Phương's portrait, redone.** The plain local-upscale fallback
+  from Cycle A is replaced by a Higgsfield restoration (autocontrast +
+  upscale reference, a black-and-white-only restore naming the facial
+  traits to keep, then a separate colorize-only pass), A/B-checked against
+  the source photo.
+- **Three new eras, closing the chronicle at 12/2025:**
+  - **Era 36 "Hội nhập quốc tế" (1996–2007),** 8 events: Đại hội VIII,
+    joining APEC (1998), the Enterprise Law (1999), the China land-border
+    treaty and Gulf of Tonkin delimitation, the Vietnam–US trade
+    agreement (2000), SEA Games 22 (2003), APEC 2006, and WTO accession as
+    the **150th member** (2007), echoing the UN's 149th (Era 32).
+  - **Era 37 "Vị thế mới" (2008–2019),** 7 events: Hà Nội's expansion
+    (2008), leaving low-income status (2008–2010), the 1000th anniversary
+    of Thăng Long (2010), the 2013 Constitution, APEC 2017, CPTPP/EVFTA,
+    and the UN Security Council seat (2019).
+  - **Era 38 "Kỷ nguyên vươn mình" (2020–2025),** 10 events: COVID-19, the
+    ASEAN chair year and RCEP (2020), Đại hội XIII (2021), "bamboo
+    diplomacy" and the US Comprehensive Strategic Partnership (2023),
+    Nguyễn Phú Trọng's death and Tô Lâm's succession (2024), Nghị quyết 57
+    (2024), the 50th reunification anniversary (30/4/2025), the 34-province
+    restructuring (2025), A80 (2/9/2025), and 2025 growth (NSO, +8.02%).
+  - Đại hội IX and XI were folded into their era overviews rather than
+    given standalone event cards, per the user's "history, not politics"
+    restraint; HD-981 was excluded per the user's decision.
+- **New period "Kỷ nguyên mới"** (2020–2025, kicker "Là bạn, là đối tác
+  tin cậy") carries Era 38; "Đổi Mới" now runs 1986–2019.
+- **9 new figures:** Lê Khả Phiêu, Trần Đức Lương, Phan Văn Khải, Nông Đức
+  Mạnh, Nguyễn Tấn Dũng, Nguyễn Phú Trọng, Tô Lâm, Phạm Minh Chính, Lương
+  Cường. Đỗ Mười and Võ Văn Kiệt are reused by reference. All portraits are
+  real photos the user supplied — every one already in color, so each was
+  locally enhanced/upscaled only (no colorization needed). Sitting/former
+  leadership was checked live against vietnam.gov.vn during planning
+  (Phạm Minh Chính and Lương Cường had by then finished their terms, so
+  both got full figure cards rather than office-only mentions).
+- **Higgsfield generation:** the one B&W event photo (Đại hội VIII) was
+  colorized and A/B-checked against the source; 3 era covers, 1 period
+  cover, and 3 event illustrations with no identifiable people (Luật
+  Doanh nghiệp 1999, Nghị quyết 57, tăng trưởng 2025) were generated. One
+  era-38 cover attempt was rejected and regenerated for violating the
+  full-bleed/no-frame rule.
+- 38 eras · 237 events · 17 periods total (was 35/212/16). Territory
+  atlas's "thong-nhat" snapshot now also covers eras 36–38 (fetched a
+  fresh Natural Earth basemap this session; the territory itself is
+  unchanged since 1975).
+- **Verified:** `validate_content` 38/38 eras · manifest 0 collisions (2
+  pre-existing missing hai-ba-trung ridge files, expected) · `analyze`
+  clean · 117/117 tests passing · web smoke test confirmed the 3 new eras,
+  the new period, and the "38 kỷ nguyên · 237 sự kiện" count.
+- **Published:** pack `20260924094323` (38 eras, 1299 KB) is live on R2.
+- **3 commits** landed on `main` (1 feat content, 1 chore version bump, and
+  this docs reset).
 
 ## Next cycles (queued, user's order)
-1. **Cycle B — the chronicle, 1996 → 2025** (outline; planned in full next):
-   - **Era 36, Hội nhập (1996–2007):** Đại hội VIII (1996); APEC membership
-     (11/1998); the 1999 Enterprise Law; the US–Việt Nam BTA (13/7/2000);
-     SEA Games 22 (12/2003); APEC 2006 in Hà Nội; **WTO, the 150th member**
-     (11/1/2007), echoing the UN's 149th. Figures: Phan Văn Khải, Nông Đức
-     Mạnh, Trần Đức Lương.
-   - **Era 37, Vị thế mới (2008–2019):** Hà Nội expanded (1/8/2008); leaving
-     low-income status (verify the World Bank year); Thăng Long's 1000th
-     anniversary (10/2010); the 2013 Constitution; HD-981 (5/2014, **user
-     decision needed**); CPTPP (2018) and EVFTA (6/2019); UN Security
-     Council election (2020–2021 term). Figures: Nguyễn Phú Trọng, Nguyễn
-     Tấn Dũng.
-   - **Era 38 "Kỷ Nguyên Vươn Mình"** (2020–2025, user-chosen name, slug
-     `ky-nguyen-vuon-minh`): COVID-19; Đại hội XIII (2021); General
-     Secretary Nguyễn Phú Trọng's death (19/7/2024); Nghị quyết 57
-     (12/2024); the 34 provinces/cities from 1/7/2025; the 50th anniversary
-     of Reunification (30/4/2025); A80, the 80th National Day (2/9/2025);
-     2025 growth (GSO figure, no superlatives without a source). Figures:
-     Nguyễn Phú Trọng, **Tô Lâm** (sitting General Secretary — official
-     portrait, neutral record-based text only).
-2. **Câu đố (quizzes)**, as a new Sảnh row.
-3. **UX polish pass**: screen-by-screen audit at phone size, then fixes
+1. **Câu đố (quizzes)**, as a new Sảnh row.
+2. **UX polish pass**: screen-by-screen audit at phone size, then fixes
    chosen by the user.
 
 ## Paused (Play Console)
