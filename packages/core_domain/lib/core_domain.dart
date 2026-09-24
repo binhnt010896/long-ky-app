@@ -14,4 +14,6 @@ export 'src/json_util.dart' show ContentFormatException;
 export 'src/localized_text.dart';
 export 'src/people.dart';
 export 'src/period.dart';
+export 'src/quiz/question.dart';
+export 'src/quiz/quiz_generator.dart';
 export 'src/year.dart';
