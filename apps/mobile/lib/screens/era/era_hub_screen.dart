@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:core_domain/core_domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -52,6 +54,7 @@ class EraHubScreen extends ConsumerWidget {
                 // The whole hub scrolls over the fixed parallax scene: hero band
                 // first, then the era-home facets on a dark reading sheet.
                 ListView(
+                  key: const ValueKey<String>('era-hub-scroll'),
                   padding: EdgeInsets.zero,
                   children: <Widget>[
                     _HubHero(era: era, lang: lang),
@@ -373,7 +376,35 @@ class _ExploreButton extends StatelessWidget {
             color: VSColors.inkFaint,
           ),
         ),
+        const SizedBox(height: VSSpacing.md),
+        _QuizLink(eraSlug: era.slug, lang: lang),
       ],
+    );
+  }
+}
+
+/// A quiet text link into Câu đố, scoped to this one era — not a badge or a
+/// pill, just a line of text under the timeline CTA.
+class _QuizLink extends StatelessWidget {
+  const _QuizLink({required this.eraSlug, required this.lang});
+
+  final String eraSlug;
+  final Lang lang;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () {
+        final seed = Random().nextInt(1 << 31);
+        context.push('/sanh/cau-do/choi?mode=era&era=$eraSlug&seed=$seed');
+      },
+      child: Text(
+        lang == Lang.vi
+            ? 'Thử sức kỷ nguyên này ›'
+            : 'Test yourself on this era ›',
+        style: VSType.caption.copyWith(color: VSColors.goldBright),
+      ),
     );
   }
 }

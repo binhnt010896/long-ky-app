@@ -1,3 +1,4 @@
+import 'package:core_domain/core_domain.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -10,6 +11,8 @@ import 'screens/era/era_timeline_screen.dart';
 import 'screens/event/event_detail_screen.dart';
 import 'screens/home/home_screen.dart';
 import 'screens/prototype/territory_map_demo_screen.dart';
+import 'screens/quiz/quiz_home_screen.dart';
+import 'screens/quiz/quiz_play_screen.dart';
 import 'screens/sanh/about_screen.dart';
 import 'screens/sanh/sanh_screen.dart';
 import 'screens/timeline/global_timeline_screen.dart';
@@ -71,6 +74,31 @@ final routerProvider = Provider<GoRouter>((ref) {
           GoRoute(
             path: 'gioi-thieu',
             builder: (context, state) => const AboutScreen(),
+          ),
+          // Câu đố — every question is generated from published content
+          // (see QuizGenerator); the play route is a pure function of its
+          // query params, so "play again" is just a push with a new seed.
+          GoRoute(
+            path: 'cau-do',
+            builder: (context, state) => const QuizHomeScreen(),
+          ),
+          GoRoute(
+            path: 'cau-do/choi',
+            builder: (context, state) {
+              final q = state.uri.queryParameters;
+              final mode = switch (q['mode']) {
+                'daily' => QuizMode.daily,
+                'period' => QuizMode.byPeriod,
+                'era' => QuizMode.byEra,
+                _ => QuizMode.random,
+              };
+              return QuizPlayScreen(
+                mode: mode,
+                seed: int.tryParse(q['seed'] ?? '') ?? 0,
+                periodId: q['period'],
+                eraSlug: q['era'],
+              );
+            },
           ),
         ],
       ),

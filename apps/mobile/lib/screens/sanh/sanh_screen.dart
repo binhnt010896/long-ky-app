@@ -14,6 +14,7 @@ import '../../widgets/circle_icon_button.dart';
 import '../../widgets/flag_mark.dart';
 import '../../widgets/lang_toggle.dart';
 import '../../widgets/seal_button.dart';
+import '../../widgets/tea_cups_icon.dart';
 import '../home/widgets/particle_field.dart';
 
 /// One entry in the Sảnh's directory. New features (e.g. Câu đố) are one more
@@ -44,6 +45,14 @@ const List<_SanhItem> _items = <_SanhItem>[
     subtitleVi: 'Mọi kỷ nguyên trên một dòng thời gian',
     subtitleEn: 'Every era on one line',
     route: '/timeline',
+  ),
+  _SanhItem(
+    icon: Icons.quiz_outlined,
+    titleVi: 'Câu đố',
+    titleEn: 'Quiz',
+    subtitleVi: 'Thử sức với nghìn năm sử Việt',
+    subtitleEn: 'Test yourself on a thousand years of Việt history',
+    route: '/sanh/cau-do',
   ),
   _SanhItem(
     icon: Icons.map_outlined,
@@ -140,6 +149,25 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
     ));
   }
 
+  void _openTipSheet(BuildContext context, List<TipOffer> offers, bool en) {
+    showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: VSColors.lacquerRaised,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: VSRadii.card),
+        side: BorderSide(color: VSColors.goldBorder),
+      ),
+      builder: (sheetContext) => _TipSizeSheet(
+        offers: offers,
+        en: en,
+        onPick: (productId) {
+          Navigator.of(sheetContext).pop();
+          ref.read(tipStoreProvider)?.buy(productId);
+        },
+      ),
+    );
+  }
+
   /// The i-th element's fade + 12px rise, 60ms after the previous one.
   Widget _rise(int i, Widget child) {
     const total = 700.0;
@@ -167,7 +195,7 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
     final lang = ref.watch(langProvider);
     final en = lang == Lang.en;
     final version = ref.watch(activeContentVersionProvider);
-    final offer = ref.watch(tipOfferProvider).valueOrNull;
+    final offers = ref.watch(tipOffersProvider).valueOrNull ?? const <TipOffer>[];
     final particles = ref.watch(tierProvider).capabilities.particles;
 
     var i = 0;
@@ -210,14 +238,14 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
                   Container(height: 1, color: VSColors.goldBorder),
                   for (final item in _items)
                     _rise(i++, _DirectoryRow(item: item, en: en)),
-                  if (offer != null) ...<Widget>[
+                  if (offers.isNotEmpty) ...<Widget>[
                     const SizedBox(height: VSSpacing.xl),
                     _rise(
                       i++,
                       _TipRow(
-                        price: offer.price,
+                        lowestPrice: offers.first.price,
                         en: en,
-                        onTap: () => ref.read(tipStoreProvider)?.buy(),
+                        onTap: () => _openTipSheet(context, offers, en),
                       ),
                     ),
                   ],
@@ -509,10 +537,16 @@ class _DirectoryRow extends StatelessWidget {
   }
 }
 
-/// "Mời Long Ký một chén trà" — shown only when the store product loaded.
+/// "Mời Long Ký một chén trà" — shown only once at least one size loaded from
+/// the store. Tapping opens [_TipSizeSheet] to pick among the (up to three)
+/// sizes.
 class _TipRow extends StatelessWidget {
-  const _TipRow({required this.price, required this.en, required this.onTap});
-  final String price;
+  const _TipRow({
+    required this.lowestPrice,
+    required this.en,
+    required this.onTap,
+  });
+  final String lowestPrice;
   final bool en;
   final VoidCallback onTap;
 
@@ -531,11 +565,118 @@ class _TipRow extends StatelessWidget {
           borderRadius: VSRadii.pillAll,
           border: Border.all(color: VSColors.gold.withValues(alpha: 0.6)),
         ),
-        child: Text(price,
-            style: VSType.caption.copyWith(color: VSColors.goldBright)),
+        child: Text(
+          en ? 'from $lowestPrice' : 'từ $lowestPrice',
+          style: VSType.caption.copyWith(color: VSColors.goldBright),
+        ),
       ),
       onTap: onTap,
       topRule: true,
+    );
+  }
+}
+
+/// Names one/two/three cups of tea, in the app's two languages.
+String tipSizeName(int cups, bool en) {
+  if (en) {
+    return switch (cups) {
+      1 => 'A cup of tea',
+      2 => 'Two cups of tea',
+      _ => 'Three cups of tea',
+    };
+  }
+  return switch (cups) {
+    1 => 'Một chén trà',
+    2 => 'Hai chén trà',
+    _ => 'Ba chén trà',
+  };
+}
+
+/// The three tip sizes, opened from [_TipRow]. One tap on a row buys that
+/// size directly — no separate "confirm" step, since store billing itself
+/// asks for confirmation.
+class _TipSizeSheet extends StatelessWidget {
+  const _TipSizeSheet({required this.offers, required this.en, required this.onPick});
+
+  final List<TipOffer> offers;
+  final bool en;
+  final ValueChanged<String> onPick;
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(24, 22, 24, 12),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              en ? 'Buy Long Ký a cup of tea' : 'Mời Long Ký một chén trà',
+              style: VSType.title.copyWith(color: VSColors.goldBright, fontSize: 18),
+            ),
+            const SizedBox(height: VSSpacing.xxs),
+            Text(
+              en
+                  ? 'Every size keeps Long Ký free and ad-free.'
+                  : 'Mỗi chén trà giúp Long Ký giữ được miễn phí, không quảng cáo.',
+              style: VSType.caption.copyWith(color: VSColors.inkMuted),
+            ),
+            const SizedBox(height: VSSpacing.lg),
+            for (final offer in offers)
+              _TipSizeRow(
+                key: ValueKey<String>('sanh-tip-size-${offer.productId}'),
+                offer: offer,
+                en: en,
+                onTap: () => onPick(offer.productId),
+              ),
+            const SizedBox(height: VSSpacing.sm),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _TipSizeRow extends StatelessWidget {
+  const _TipSizeRow({
+    required this.offer,
+    required this.en,
+    required this.onTap,
+    super.key,
+  });
+
+  final TipOffer offer;
+  final bool en;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: onTap,
+      child: Container(
+        constraints: const BoxConstraints(minHeight: 60),
+        padding: const EdgeInsets.symmetric(vertical: VSSpacing.sm),
+        decoration: const BoxDecoration(
+          border: Border(bottom: BorderSide(color: VSColors.goldBorder)),
+        ),
+        child: Row(
+          children: <Widget>[
+            SizedBox(
+              width: 40,
+              child: Center(child: TeaCupsIcon(cups: offer.cups, size: 20)),
+            ),
+            const SizedBox(width: VSSpacing.md),
+            Expanded(
+              child: Text(tipSizeName(offer.cups, en), style: VSType.cardTitle),
+            ),
+            const SizedBox(width: VSSpacing.sm),
+            Text(offer.price,
+                style: VSType.label.copyWith(color: VSColors.goldBright)),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -11,31 +11,53 @@ import 'package:ui_kit/ui_kit.dart';
 import 'package:viet_su/app_router.dart';
 import 'package:viet_su/state/content_sync.dart';
 import 'package:viet_su/state/providers.dart';
+import 'package:viet_su/state/quiz_store.dart';
 import 'package:viet_su/state/tip_store.dart';
 import 'package:viet_su/widgets/timeline_bar.dart';
 
 /// A tip store with a fixed offer; [emit] plays a purchase outcome.
 class _FakeTipStore implements TipStore {
-  _FakeTipStore(this.offer);
+  _FakeTipStore(this.offers);
 
-  final TipOffer? offer;
+  final List<TipOffer> offers;
   final StreamController<TipOutcome> _ctrl =
       StreamController<TipOutcome>.broadcast();
-  int buys = 0;
+  final List<String> boughtProductIds = <String>[];
 
   void emit(TipOutcome o) => _ctrl.add(o);
 
   @override
-  Future<TipOffer?> load() async => offer;
+  Future<List<TipOffer>> load() async => offers;
 
   @override
-  Future<void> buy() async => buys++;
+  Future<void> buy(String productId) async => boughtProductIds.add(productId);
 
   @override
   Stream<TipOutcome> get outcomes => _ctrl.stream;
 
   @override
   void dispose() => _ctrl.close();
+}
+
+/// An in-memory quiz store, so tests never touch `path_provider` (unmocked
+/// in widget tests) and always start from a clean slate.
+class _MemoryQuizStore implements QuizStore {
+  QuizProgress _progress = QuizProgress.empty;
+
+  @override
+  Future<QuizProgress> load() async => _progress;
+
+  @override
+  Future<QuizProgress> recordResult({
+    required String modeKey,
+    required int score,
+    required int total,
+    DateTime? dailyOn,
+  }) async {
+    _progress = _progress.withResult(modeKey, score, total,
+        markDailyDoneOn: dailyOn);
+    return _progress;
+  }
 }
 
 /// Content source backed by the repo's real content/ directory on disk.
@@ -102,6 +124,7 @@ Future<GoRouter> _pumpAt(
   String location,
   ExperienceTier tier, {
   TipStore? tipStore,
+  QuizStore? quizStore,
   int contentVersion = 0,
 }) async {
   final container = ProviderContainer(overrides: <Override>[
@@ -109,6 +132,7 @@ Future<GoRouter> _pumpAt(
     contentRepositoryProvider
         .overrideWithValue(ContentRepository(_DiskSource())),
     tipStoreProvider.overrideWithValue(tipStore),
+    quizStoreProvider.overrideWithValue(quizStore ?? _MemoryQuizStore()),
     activeContentVersionProvider.overrideWith((ref) => contentVersion),
   ]);
   addTearDown(container.dispose);
@@ -1506,15 +1530,20 @@ void main() {
       expect(find.text('Chào cờ'), findsNothing);
     });
 
-    testWidgets('the tea row is hidden without a store offer', (tester) async {
+    testWidgets('the tea row is hidden with no store offers', (tester) async {
       await _pumpAt(tester, '/sanh', ExperienceTier.reduced,
-          tipStore: _FakeTipStore(null));
+          tipStore: _FakeTipStore(const <TipOffer>[]));
       expect(find.byKey(const ValueKey<String>('sanh-tip-row')), findsNothing);
     });
 
-    testWidgets('the tea row shows the price and thanks after purchase',
-        (tester) async {
-      final store = _FakeTipStore(const TipOffer(price: '25.000 ₫'));
+    testWidgets(
+        'the tea row shows the lowest price; the sheet lists all sizes and '
+        'thanks after purchase', (tester) async {
+      final store = _FakeTipStore(const <TipOffer>[
+        TipOffer(productId: 'long_ky_tea', price: '25.000 ₫', cups: 1),
+        TipOffer(productId: 'long_ky_tea_2', price: '50.000 ₫', cups: 2),
+        TipOffer(productId: 'long_ky_tea_3', price: '75.000 ₫', cups: 3),
+      ]);
       await _pumpAt(tester, '/sanh', ExperienceTier.reduced, tipStore: store);
 
       final scrollable = find.byType(Scrollable).first;
@@ -1522,19 +1551,126 @@ void main() {
           find.byKey(const ValueKey<String>('sanh-tip-row')), 200,
           scrollable: scrollable);
       expect(find.text('Mời Long Ký một chén trà'), findsOneWidget);
-      expect(find.text('25.000 ₫'), findsOneWidget);
+      expect(find.text('từ 25.000 ₫'), findsOneWidget);
 
       await tester.ensureVisible(
           find.byKey(const ValueKey<String>('sanh-tip-row')));
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const ValueKey<String>('sanh-tip-row')));
-      await tester.pump();
-      expect(store.buys, 1);
+      await tester.pumpAndSettle();
+
+      // The sheet lists all three sizes with their real prices.
+      expect(find.text('Một chén trà'), findsOneWidget);
+      expect(find.text('Hai chén trà'), findsOneWidget);
+      expect(find.text('Ba chén trà'), findsOneWidget);
+      expect(find.text('50.000 ₫'), findsOneWidget);
+
+      await tester.tap(find.byKey(
+          const ValueKey<String>('sanh-tip-size-long_ky_tea_2')));
+      await tester.pumpAndSettle();
+      expect(store.boughtProductIds, <String>['long_ky_tea_2']);
 
       store.emit(TipOutcome.thanked);
       await tester.pumpAndSettle();
       expect(find.text('Cảm ơn bạn đã mời Long Ký một chén trà.'),
           findsOneWidget);
+    });
+  });
+
+  group('Câu đố', () {
+    // The top-most route, including pushed ones (the base uri ignores pushes).
+    String path(GoRouter r) =>
+        r.routerDelegate.currentConfiguration.last.matchedLocation;
+
+    testWidgets('the Sảnh row opens the quiz home', (tester) async {
+      final router = await _pumpAt(tester, '/sanh', ExperienceTier.reduced);
+      await tester.tap(find.text('Câu đố'));
+      await tester.pumpAndSettle();
+      expect(path(router), '/sanh/cau-do');
+    });
+
+    testWidgets('the quiz home lists all three modes', (tester) async {
+      await _pumpAt(tester, '/sanh/cau-do', ExperienceTier.reduced);
+      expect(find.text('Câu đố hôm nay'), findsOneWidget);
+      expect(find.text('Theo triều đại'), findsOneWidget);
+      expect(find.text('Ngẫu nhiên'), findsOneWidget);
+    });
+
+    testWidgets(
+        'answering the first daily question (seed 1, a quote question) '
+        'shows the correct/wrong feedback and a link to its event',
+        (tester) async {
+      await _pumpAt(
+          tester, '/sanh/cau-do/choi?mode=daily&seed=1', ExperienceTier.reduced);
+      expect(find.text('Câu 1/5'), findsOneWidget); // full corpus, 5 requested
+
+      // Tap the first option — right or wrong, the citation/summary panel
+      // and "read the event" link must appear either way.
+      await tester.tap(find.byKey(const ValueKey<int>(0)));
+      await tester.pumpAndSettle();
+      expect(find.text('Đọc sự kiện ›'), findsOneWidget);
+      expect(find.text('Tiếp theo ›'), findsOneWidget);
+
+      await tester.ensureVisible(find.text('Đọc sự kiện ›'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Đọc sự kiện ›'));
+      await tester.pumpAndSettle();
+      expect(find.text('NGUỒN'), findsOneWidget); // landed on Event Detail
+    });
+
+    testWidgets(
+        'the daily quiz (seed 1) runs all 5 questions to a score screen, '
+        'and the best score then shows on the quiz home', (tester) async {
+      final store = _MemoryQuizStore();
+      await _pumpAt(
+          tester, '/sanh/cau-do/choi?mode=daily&seed=1', ExperienceTier.reduced,
+          quizStore: store);
+
+      for (var q = 0; q < 5; q++) {
+        // Answer whatever question is showing: tap option/item 0, then 1, 2,
+        // 3 as needed until the question is answered (an MCQ needs one tap;
+        // the order question needs all four).
+        for (var i = 0; i < 4; i++) {
+          final tile = find.byKey(ValueKey<int>(i));
+          if (tile.evaluate().isEmpty) break;
+          await tester.tap(tile);
+          await tester.pump();
+          if (find.text('Tiếp theo ›').evaluate().isNotEmpty) break;
+        }
+        await tester.pumpAndSettle();
+        final next = find.text('Tiếp theo ›');
+        if (next.evaluate().isNotEmpty) {
+          await tester.ensureVisible(next);
+          await tester.pumpAndSettle();
+          await tester.tap(next);
+          await tester.pumpAndSettle();
+        }
+      }
+
+      // The score screen: "N/{total} questions correct" — the daily quiz may
+      // legitimately generate fewer than 5 if the scope is thin, so match on
+      // the fixed trailing copy rather than assuming a /5 denominator.
+      expect(find.text('câu trả lời đúng'), findsOneWidget);
+
+      final progress = await store.load();
+      expect(progress.bestFor(QuizModeKey.daily), isNotNull);
+      expect(progress.isDailyDoneOn(DateTime.now()), isTrue);
+    });
+
+    testWidgets(
+        'the era hub carries a quiet quiz link that opens an era-scoped quiz',
+        (tester) async {
+      final router = await _pumpAt(
+          tester, '/era/tran-hung-dao', ExperienceTier.reduced);
+      await tester.drag(find.byKey(const ValueKey<String>('era-hub-scroll')),
+          const Offset(0, -4000));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Thử sức kỷ nguyên này ›'));
+      await tester.pumpAndSettle();
+      expect(path(router), '/sanh/cau-do/choi');
+      // Confirms the era slug reached the generator and produced questions,
+      // rather than falling back to some other (or empty) scope.
+      expect(find.textContaining('Câu 1/'), findsOneWidget);
     });
   });
 }
