@@ -3809,6 +3809,249 @@
         "flagship": "eras/cong-cuoc-doi-moi/characters/tran-van-phuong-full.png",
         "reduced": "eras/cong-cuoc-doi-moi/characters/tran-van-phuong-full.png"
       }
+    },
+    {
+      "id": "le-kha-phieu",
+      "name": {
+        "vi": "Lê Khả Phiêu",
+        "en": "Lê Khả Phiêu"
+      },
+      "epithet": {
+        "vi": "Tổng Bí thư (1997–2001)",
+        "en": "General Secretary (1997–2001)"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo (1931–2020), quê xã Đông Khê, huyện Đông Sơn, tỉnh Thanh Hoá. Tham gia cách mạng từ năm 1947, vào Đảng năm 1949, trưởng thành trong quân đội qua hai cuộc kháng chiến. Tại Hội nghị Trung ương 4 khoá VIII (26/12/1997), được bầu làm Tổng Bí thư, giữ cương vị này đến Đại hội IX (4/2001) — giai đoạn Việt Nam gia nhập APEC (1998) và ký Hiệp định thương mại Việt–Mỹ (2000).",
+        "en": "A leader (1931–2020) from Đông Khê, Đông Sơn district, Thanh Hoá province. He joined the revolution in 1947 and the Party in 1949, rising through the army across two resistance wars. At the 8th Congress's 4th Central Committee plenum (26 Dec 1997), he was elected General Secretary, a post he held until the 9th Congress (Apr 2001) — the period when Vietnam joined APEC (1998) and signed the Vietnam–US Trade Agreement (2000)."
+      },
+      "avatar": {
+        "id": "le-kha-phieu-avatar",
+        "type": "image",
+        "flagship": "eras/hoi-nhap-quoc-te/characters/le-kha-phieu-avatar.png",
+        "reduced": "eras/hoi-nhap-quoc-te/characters/le-kha-phieu-avatar.png"
+      },
+      "fullBody": {
+        "id": "le-kha-phieu-full",
+        "type": "image",
+        "flagship": "eras/hoi-nhap-quoc-te/characters/le-kha-phieu-full.png",
+        "reduced": "eras/hoi-nhap-quoc-te/characters/le-kha-phieu-full.png"
+      }
+    },
+    {
+      "id": "tran-duc-luong",
+      "name": {
+        "vi": "Trần Đức Lương",
+        "en": "Trần Đức Lương"
+      },
+      "epithet": {
+        "vi": "Chủ tịch nước (1997–2006)",
+        "en": "President (1997–2006)"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo (sinh 1937), quê xã Phổ Khánh, huyện Đức Phổ, tỉnh Quảng Ngãi. Kỹ sư địa chất, tham gia cách mạng từ năm 1955, vào Đảng năm 1959. Tháng 9/1997, được Quốc hội bầu làm Chủ tịch nước, giữ cương vị này đến tháng 6/2006, đại diện Nhà nước trong các mốc hội nhập như gia nhập APEC (1998) và ký Hiệp định thương mại Việt–Mỹ (2000).",
+        "en": "A leader (born 1937) from Phổ Khánh commune, Đức Phổ district, Quảng Ngãi province. A geological engineer, he joined the revolution in 1955 and the Party in 1959. In Sep 1997, the National Assembly elected him President, a post he held until Jun 2006, representing the State at integration milestones such as joining APEC (1998) and signing the Vietnam–US Trade Agreement (2000)."
+      },
+      "avatar": {
+        "id": "tran-duc-luong-avatar",
+        "type": "image",
+        "flagship": "eras/hoi-nhap-quoc-te/characters/tran-duc-luong-avatar.png",
+        "reduced": "eras/hoi-nhap-quoc-te/characters/tran-duc-luong-avatar.png"
+      },
+      "fullBody": {
+        "id": "tran-duc-luong-full",
+        "type": "image",
+        "flagship": "eras/hoi-nhap-quoc-te/characters/tran-duc-luong-full.png",
+        "reduced": "eras/hoi-nhap-quoc-te/characters/tran-duc-luong-full.png"
+      }
+    },
+    {
+      "id": "phan-van-khai",
+      "name": {
+        "vi": "Phan Văn Khải",
+        "en": "Phan Văn Khải"
+      },
+      "epithet": {
+        "vi": "Thủ tướng (1997–2006)",
+        "en": "Prime Minister (1997–2006)"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo (1933–2018), quê xã Tân Thông Hội, huyện Củ Chi, TP. Hồ Chí Minh. Tham gia cách mạng từ năm 1947, vào Đảng năm 1959. Tháng 9/1997, được Quốc hội bầu làm Thủ tướng Chính phủ, giữ cương vị này đến tháng 6/2006 — giai đoạn ban hành Luật Doanh nghiệp (1999), ký Hiệp định thương mại Việt–Mỹ (2000) và trực tiếp chỉ đạo các vòng đàm phán gia nhập WTO của Việt Nam.",
+        "en": "A leader (1933–2018) from Tân Thông Hội commune, Củ Chi district, Hồ Chí Minh City. He joined the revolution in 1947 and the Party in 1959. In Sep 1997, the National Assembly elected him Prime Minister, a post he held until Jun 2006 — the period of the Enterprise Law (1999), the Vietnam–US Trade Agreement (2000), and Vietnam's WTO accession negotiations, which he directly oversaw."
+      },
+      "avatar": {
+        "id": "phan-van-khai-avatar",
+        "type": "image",
+        "flagship": "eras/hoi-nhap-quoc-te/characters/phan-van-khai-avatar.png",
+        "reduced": "eras/hoi-nhap-quoc-te/characters/phan-van-khai-avatar.png"
+      },
+      "fullBody": {
+        "id": "phan-van-khai-full",
+        "type": "image",
+        "flagship": "eras/hoi-nhap-quoc-te/characters/phan-van-khai-full.png",
+        "reduced": "eras/hoi-nhap-quoc-te/characters/phan-van-khai-full.png"
+      }
+    },
+    {
+      "id": "nong-duc-manh",
+      "name": {
+        "vi": "Nông Đức Mạnh",
+        "en": "Nông Đức Mạnh"
+      },
+      "epithet": {
+        "vi": "Tổng Bí thư (2001–2011)",
+        "en": "General Secretary (2001–2011)"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo (sinh 1940), dân tộc Tày, quê xã Cường Lợi, huyện Na Rì, tỉnh Bắc Kạn. Chủ tịch Quốc hội các khoá IX, X (1992–2001) trước khi được Đại hội IX bầu làm Tổng Bí thư (4/2001), giữ cương vị này qua hai kỳ đại hội đến năm 2011 — giai đoạn Việt Nam gia nhập WTO (2007), mở rộng địa giới Hà Nội (2008) và tổ chức Đại lễ 1000 năm Thăng Long (2010).",
+        "en": "A leader (born 1940), of Tày ethnicity, from Cường Lợi commune, Na Rì district, Bắc Kạn province. Chairman of the National Assembly for the 9th and 10th terms (1992–2001) before the 9th Congress elected him General Secretary (Apr 2001), a post he held across two congresses until 2011 — the period of Vietnam's WTO accession (2007), Hà Nội's expansion (2008), and the 1000th-anniversary celebration of Thăng Long (2010)."
+      },
+      "avatar": {
+        "id": "nong-duc-manh-avatar",
+        "type": "image",
+        "flagship": "eras/hoi-nhap-quoc-te/characters/nong-duc-manh-avatar.png",
+        "reduced": "eras/hoi-nhap-quoc-te/characters/nong-duc-manh-avatar.png"
+      },
+      "fullBody": {
+        "id": "nong-duc-manh-full",
+        "type": "image",
+        "flagship": "eras/hoi-nhap-quoc-te/characters/nong-duc-manh-full.png",
+        "reduced": "eras/hoi-nhap-quoc-te/characters/nong-duc-manh-full.png"
+      }
+    },
+    {
+      "id": "nguyen-tan-dung",
+      "name": {
+        "vi": "Nguyễn Tấn Dũng",
+        "en": "Nguyễn Tấn Dũng"
+      },
+      "epithet": {
+        "vi": "Thủ tướng (2006–2016)",
+        "en": "Prime Minister (2006–2016)"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo (sinh 1949), quê TP. Cà Mau, tỉnh Cà Mau. Phó Thủ tướng thường trực trước khi được Quốc hội bầu làm Thủ tướng Chính phủ tháng 6/2006, giữ cương vị này hai nhiệm kỳ đến năm 2016 — giai đoạn Hà Nội mở rộng địa giới (2008), Việt Nam thoát nhóm nước thu nhập thấp (2008–2010), tổ chức Đại lễ 1000 năm Thăng Long (2010) và ban hành Hiến pháp năm 2013.",
+        "en": "A leader (born 1949) from Cà Mau City, Cà Mau province. Standing Deputy Prime Minister before the National Assembly elected him Prime Minister in Jun 2006, a post he held for two terms until 2016 — the period of Hà Nội's expansion (2008), Vietnam's move out of low-income status (2008–2010), the 1000th-anniversary celebration of Thăng Long (2010), and the 2013 Constitution."
+      },
+      "avatar": {
+        "id": "nguyen-tan-dung-avatar",
+        "type": "image",
+        "flagship": "eras/vi-the-moi/characters/nguyen-tan-dung-avatar.png",
+        "reduced": "eras/vi-the-moi/characters/nguyen-tan-dung-avatar.png"
+      },
+      "fullBody": {
+        "id": "nguyen-tan-dung-full",
+        "type": "image",
+        "flagship": "eras/vi-the-moi/characters/nguyen-tan-dung-full.png",
+        "reduced": "eras/vi-the-moi/characters/nguyen-tan-dung-full.png"
+      }
+    },
+    {
+      "id": "nguyen-phu-trong",
+      "name": {
+        "vi": "Nguyễn Phú Trọng",
+        "en": "Nguyễn Phú Trọng"
+      },
+      "epithet": {
+        "vi": "Tổng Bí thư (2011–2024)",
+        "en": "General Secretary (2011–2024)"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo (1944–2024), quê xã Đông Hội, huyện Đông Anh, Hà Nội. Chủ tịch Quốc hội các khoá XI, XII trước khi Đại hội XI bầu làm Tổng Bí thư (1/2011), giữ cương vị này qua ba kỳ đại hội — đồng thời là Chủ tịch nước giai đoạn 2018–2021 — cho đến khi từ trần ngày 19/7/2024. Giai đoạn ông lãnh đạo gồm việc ban hành Hiến pháp 2013 và nhiều hiệp định thương mại thế hệ mới.",
+        "en": "A leader (1944–2024) from Đông Hội commune, Đông Anh district, Hà Nội. Chairman of the National Assembly for the 11th and 12th terms before the 11th Congress elected him General Secretary (Jan 2011), a post he held across three congresses — while also serving as President from 2018 to 2021 — until his death on 19 Jul 2024. His tenure spanned the 2013 Constitution and several new-generation trade agreements."
+      },
+      "avatar": {
+        "id": "nguyen-phu-trong-avatar",
+        "type": "image",
+        "flagship": "eras/vi-the-moi/characters/nguyen-phu-trong-avatar.png",
+        "reduced": "eras/vi-the-moi/characters/nguyen-phu-trong-avatar.png"
+      },
+      "fullBody": {
+        "id": "nguyen-phu-trong-full",
+        "type": "image",
+        "flagship": "eras/vi-the-moi/characters/nguyen-phu-trong-full.png",
+        "reduced": "eras/vi-the-moi/characters/nguyen-phu-trong-full.png"
+      }
+    },
+    {
+      "id": "to-lam",
+      "name": {
+        "vi": "Tô Lâm",
+        "en": "Tô Lâm"
+      },
+      "epithet": {
+        "vi": "Bộ trưởng Bộ Công an (2016–2024); Tổng Bí thư (từ 8/2024)",
+        "en": "Minister of Public Security (2016–2024); General Secretary (since Aug 2024)"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo (sinh 1957), quê xã Nghĩa Trụ, huyện Văn Giang, tỉnh Hưng Yên. Giữ chức Bộ trưởng Bộ Công an từ tháng 4/2016. Sau khi Tổng Bí thư Nguyễn Phú Trọng từ trần (19/7/2024), được Ban Chấp hành Trung ương bầu làm Tổng Bí thư ngày 3/8/2024. Tại Đại hội XIV (1/2026), ông tái cử Tổng Bí thư; tháng 4/2026, Quốc hội bầu ông giữ chức Chủ tịch nước.",
+        "en": "A leader (born 1957) from Nghĩa Trụ commune, Văn Giang district, Hưng Yên province. He served as Minister of Public Security from Apr 2016. After General Secretary Nguyễn Phú Trọng's death (19 Jul 2024), the Central Committee elected him General Secretary on 3 Aug 2024. At the 14th Congress (Jan 2026) he was re-elected General Secretary; in Apr 2026 the National Assembly elected him President."
+      },
+      "avatar": {
+        "id": "to-lam-avatar",
+        "type": "image",
+        "flagship": "eras/ky-nguyen-vuon-minh/characters/to-lam-avatar.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/characters/to-lam-avatar.png"
+      },
+      "fullBody": {
+        "id": "to-lam-full",
+        "type": "image",
+        "flagship": "eras/ky-nguyen-vuon-minh/characters/to-lam-full.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/characters/to-lam-full.png"
+      }
+    },
+    {
+      "id": "pham-minh-chinh",
+      "name": {
+        "vi": "Phạm Minh Chính",
+        "en": "Phạm Minh Chính"
+      },
+      "epithet": {
+        "vi": "Thủ tướng (2021–2026)",
+        "en": "Prime Minister (2021–2026)"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo (sinh 1958), quê xã Hoa Lộc, huyện Hậu Lộc, tỉnh Thanh Hoá. Trưởng Ban Tổ chức Trung ương trước khi được Quốc hội bầu làm Thủ tướng Chính phủ tháng 4/2021, giữ cương vị này đến tháng 4/2026 — giai đoạn chống dịch COVID-19, kỷ niệm 50 năm Ngày Giải phóng miền Nam (30/4/2025) và sắp xếp lại 34 tỉnh, thành phố (2025).",
+        "en": "A leader (born 1958) from Hoa Lộc commune, Hậu Lộc district, Thanh Hoá province. Head of the Central Organization Commission before the National Assembly elected him Prime Minister in Apr 2021, a post he held until Apr 2026 — the period of the COVID-19 response, the 50th anniversary of the South's liberation (30 Apr 2025), and the 2025 restructuring into 34 provinces and cities."
+      },
+      "avatar": {
+        "id": "pham-minh-chinh-avatar",
+        "type": "image",
+        "flagship": "eras/ky-nguyen-vuon-minh/characters/pham-minh-chinh-avatar.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/characters/pham-minh-chinh-avatar.png"
+      },
+      "fullBody": {
+        "id": "pham-minh-chinh-full",
+        "type": "image",
+        "flagship": "eras/ky-nguyen-vuon-minh/characters/pham-minh-chinh-full.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/characters/pham-minh-chinh-full.png"
+      }
+    },
+    {
+      "id": "luong-cuong",
+      "name": {
+        "vi": "Lương Cường",
+        "en": "Lương Cường"
+      },
+      "epithet": {
+        "vi": "Chủ tịch nước (2024–2026)",
+        "en": "President (2024–2026)"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo (sinh 1957), quê phường Dữu Lâu, TP. Việt Trì, tỉnh Phú Thọ. Từng là Chủ nhiệm Tổng cục Chính trị Quân đội nhân dân Việt Nam. Ngày 21/10/2024, được Quốc hội bầu làm Chủ tịch nước Cộng hoà xã hội chủ nghĩa Việt Nam, giữ cương vị này đến tháng 4/2026 — giai đoạn kỷ niệm 50 năm Ngày Giải phóng miền Nam (30/4/2025) và 80 năm Quốc khánh (2/9/2025).",
+        "en": "A leader (born 1957) from Dữu Lâu ward, Việt Trì city, Phú Thọ province. He previously headed the Vietnam People's Army's General Political Department. On 21 Oct 2024, the National Assembly elected him President of the Socialist Republic of Vietnam, a post he held until Apr 2026 — the period of the 50th anniversary of the South's liberation (30 Apr 2025) and the 80th National Day (2 Sep 2025)."
+      },
+      "avatar": {
+        "id": "luong-cuong-avatar",
+        "type": "image",
+        "flagship": "eras/ky-nguyen-vuon-minh/characters/luong-cuong-avatar.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/characters/luong-cuong-avatar.png"
+      },
+      "fullBody": {
+        "id": "luong-cuong-full",
+        "type": "image",
+        "flagship": "eras/ky-nguyen-vuon-minh/characters/luong-cuong-full.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/characters/luong-cuong-full.png"
+      }
     }
   ]
 }

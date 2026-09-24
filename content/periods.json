@@ -478,16 +478,16 @@
         "en": "FACE THE TRUTH SQUARELY"
       },
       "subtitle": {
-        "vi": "Từ khủng hoảng đến công cuộc Đổi Mới — mở cửa nền kinh tế, hội nhập khu vực và thế giới.",
-        "en": "From crisis to Renovation — opening the economy, integrating with the region and the world."
+        "vi": "Từ khủng hoảng đến công cuộc Đổi Mới, hội nhập khu vực và thế giới — mười năm mở cửa và hai mươi năm khẳng định vị thế.",
+        "en": "From crisis to Renovation, integrating with the region and the world — a decade of opening up and two decades affirming Vietnam's standing."
       },
       "yearRange": {
         "display": {
-          "vi": "1986 – 1995",
-          "en": "1986 – 1995 CE"
+          "vi": "1986 – 2019",
+          "en": "1986 – 2019 CE"
         },
         "startYear": 1986,
-        "endYear": 1995
+        "endYear": 2019
       },
       "accent": "#c9a227",
       "cover": {
@@ -495,6 +495,37 @@
         "type": "image",
         "role": "cover",
         "reduced": "periods/doi-moi.png"
+      }
+    },
+    {
+      "id": "ky-nguyen-moi",
+      "order": 16,
+      "title": {
+        "vi": "Kỷ nguyên mới",
+        "en": "A New Era"
+      },
+      "kicker": {
+        "vi": "LÀ BẠN, LÀ ĐỐI TÁC TIN CẬY",
+        "en": "A FRIEND AND A TRUSTED PARTNER"
+      },
+      "subtitle": {
+        "vi": "Tăng trưởng, hội nhập sâu rộng và là bạn với tất cả các nước — dân tộc bước vào kỷ nguyên vươn mình.",
+        "en": "Growth, deep integration and friendship with every nation — the nation enters its era of rising."
+      },
+      "yearRange": {
+        "display": {
+          "vi": "2020 – 2025",
+          "en": "2020 – 2025 CE"
+        },
+        "startYear": 2020,
+        "endYear": 2025
+      },
+      "accent": "#e0b43c",
+      "cover": {
+        "id": "period-ky-nguyen-moi-cover",
+        "type": "image",
+        "role": "cover",
+        "reduced": "periods/ky-nguyen-moi.png"
       }
     }
   ]

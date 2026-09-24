@@ -1,0 +1,569 @@
+{
+  "schemaVersion": 1,
+  "id": "ky-nguyen-vuon-minh",
+  "slug": "ky-nguyen-vuon-minh",
+  "order": 37,
+  "period": "ky-nguyen-moi",
+  "title": {
+    "vi": "Kỷ nguyên vươn mình",
+    "en": "The era of rising"
+  },
+  "kicker": {
+    "vi": "Kỷ nguyên vươn mình của dân tộc (2020 – 2025)",
+    "en": "The nation's era of rising (2020–2025)"
+  },
+  "subtitle": {
+    "vi": "Từ đại dịch đến kỷ niệm 50 năm thống nhất và 80 năm Quốc khánh — Việt Nam bước vào giai đoạn phát triển mới.",
+    "en": "From the pandemic to the 50th-reunification and 80th-National-Day anniversaries — Vietnam enters a new stage of development."
+  },
+  "overview": {
+    "vi": "Từ năm 2020, Việt Nam ứng phó đại dịch COVID-19 trong hơn hai năm, đồng thời giữ vai trò Chủ tịch ASEAN và chủ trì ký kết RCEP (15/11/2020). Đại hội XIII (25/1–1/2/2021) đề ra mục tiêu phát triển đến năm 2030 và 2045, tái bầu đồng chí Nguyễn Phú Trọng làm Tổng Bí thư. Theo đường lối \"ngoại giao cây tre,\" Việt Nam nâng cấp quan hệ với nhiều đối tác, trong đó có Đối tác Chiến lược Toàn diện với Hoa Kỳ (10/9/2023). Tổng Bí thư Nguyễn Phú Trọng từ trần ngày 19/7/2024; ngày 3/8/2024, đồng chí Tô Lâm được bầu làm Tổng Bí thư. Ngày 22/12/2024, Nghị quyết 57 xác định khoa học, công nghệ và chuyển đổi số là động lực tăng trưởng mới. Năm 2025 chứng kiến ba mốc lớn: kỷ niệm 50 năm Ngày Giải phóng miền Nam (30/4), sắp xếp lại thành 34 tỉnh, thành phố cùng mô hình chính quyền hai cấp (từ 1/7), và 80 năm Quốc khánh (2/9) với lễ duyệt binh trên biển đầu tiên tại Cam Ranh. Theo Cục Thống kê Quốc gia, GDP năm 2025 tăng 8,02%, đưa quy mô kinh tế vượt 514 tỷ USD — khép lại một giai đoạn được gọi là kỷ nguyên vươn mình của dân tộc.",
+    "en": "From 2020, Vietnam responded to the COVID-19 pandemic for over two years, while holding the ASEAN Chair and presiding over the signing of RCEP (15 Nov 2020). The 13th Congress (25 Jan–1 Feb 2021) set development goals for 2030 and 2045, re-electing Nguyễn Phú Trọng as General Secretary. Under its \"bamboo diplomacy\" line, Vietnam upgraded ties with several partners, including a Comprehensive Strategic Partnership with the United States (10 Sep 2023). General Secretary Nguyễn Phú Trọng died on 19 Jul 2024; on 3 Aug 2024, Tô Lâm was elected General Secretary. On 22 Dec 2024, Resolution 57 named science, technology and digital transformation as the new growth driver. 2025 saw three major milestones: the 50th anniversary of the South's liberation (30 Apr), restructuring into 34 provinces and cities with a two-tier government model (from 1 Jul), and the 80th National Day (2 Sep) with the country's first naval review, at Cam Ranh. Per the National Statistics Office, 2025 GDP grew 8.02%, taking the economy past 514 billion USD — closing what is called the nation's era of rising."
+  },
+  "yearRange": {
+    "display": {
+      "vi": "2020 – 2025 SCN",
+      "en": "2020–2025 CE"
+    },
+    "startYear": 2020,
+    "endYear": 2025
+  },
+  "palette": {
+    "accent": "#e0b43c",
+    "particle": "#f5da8a",
+    "scene": [
+      "#180f02",
+      "#3a2205",
+      "#6b3f08",
+      "#a5670f",
+      "#e0b43c",
+      "#efce6e",
+      "#f5da8a"
+    ]
+  },
+  "cover": {
+    "id": "ky-nguyen-vuon-minh-cover",
+    "type": "image",
+    "role": "cover",
+    "placeholder": "era-scene",
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    },
+    "flagship": "eras/ky-nguyen-vuon-minh/cover.png",
+    "reduced": "eras/ky-nguyen-vuon-minh/cover.png"
+  },
+  "scene": {
+    "layers": [
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "placeholder": "era-scene",
+        "flagship": "eras/ky-nguyen-vuon-minh/scene/sky.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/scene/sky.png"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
+    ]
+  },
+  "primarySource": {
+    "work": "Văn kiện Đại hội đại biểu toàn quốc lần thứ XIII",
+    "section": {
+      "vi": "Kỷ nguyên vươn mình của dân tộc (2020–2025)",
+      "en": "The nation's era of rising (2020–2025)"
+    },
+    "author": "Đảng Cộng sản Việt Nam"
+  },
+  "characters": [
+    {
+      "ref": "nguyen-phu-trong"
+    },
+    {
+      "ref": "to-lam"
+    },
+    {
+      "ref": "pham-minh-chinh"
+    },
+    {
+      "ref": "luong-cuong"
+    }
+  ],
+  "events": [
+    {
+      "id": "chong-dich-covid-19",
+      "slug": "chong-dich-covid-19",
+      "figureIds": [],
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "2020 – 2022 SCN",
+          "en": "2020–2022 CE"
+        },
+        "value": 2020,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Phòng, chống dịch COVID-19",
+        "en": "Responding to the COVID-19 pandemic"
+      },
+      "summary": {
+        "vi": "Từ đầu năm 2020, Việt Nam triển khai các biện pháp phòng, chống dịch COVID-19 và chiến dịch tiêm chủng toàn dân, với sự tham gia của lực lượng y tế, quân đội và cộng đồng trong hơn hai năm ứng phó.",
+        "en": "From early 2020, Vietnam carried out COVID-19 containment measures and a nationwide vaccination campaign, with health workers, the military and communities involved over more than two years of response."
+      },
+      "body": {
+        "vi": "Từ đầu năm 2020, Việt Nam triển khai các biện pháp phòng, chống dịch COVID-19 và chiến dịch tiêm chủng toàn dân, với sự tham gia của lực lượng y tế, quân đội và cộng đồng trong hơn hai năm ứng phó.",
+        "en": "From early 2020, Vietnam carried out COVID-19 containment measures and a nationwide vaccination campaign, with health workers, the military and communities involved over more than two years of response."
+      },
+      "hero": {
+        "id": "chong-dich-covid-19-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/ky-nguyen-vuon-minh/events/chong-dich-covid-19.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/events/chong-dich-covid-19.png"
+      },
+      "citation": {
+        "work": "Bộ Y tế",
+        "section": {
+          "vi": "Công tác phòng, chống dịch COVID-19",
+          "en": "The COVID-19 response"
+        }
+      }
+    },
+    {
+      "id": "chu-tich-asean-rcep",
+      "slug": "chu-tich-asean-rcep",
+      "figureIds": [],
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "2020 SCN",
+          "en": "2020 CE"
+        },
+        "value": 2020,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Chủ tịch ASEAN 2020 và ký kết RCEP",
+        "en": "ASEAN Chair 2020 and signing RCEP"
+      },
+      "summary": {
+        "vi": "Việt Nam giữ vai trò Chủ tịch ASEAN năm 2020, điều hành phần lớn các hội nghị trực tuyến do đại dịch; ngày 15/11/2020, Hiệp định Đối tác Kinh tế Toàn diện Khu vực (RCEP) được ký kết dưới sự chủ trì của Việt Nam.",
+        "en": "Vietnam held the ASEAN Chair in 2020, running most of that year's meetings online because of the pandemic; on 15 Nov 2020, the Regional Comprehensive Economic Partnership (RCEP) was signed under Vietnam's chairmanship."
+      },
+      "body": {
+        "vi": "Việt Nam giữ vai trò Chủ tịch ASEAN năm 2020, điều hành phần lớn các hội nghị trực tuyến do đại dịch; ngày 15/11/2020, Hiệp định Đối tác Kinh tế Toàn diện Khu vực (RCEP) được ký kết dưới sự chủ trì của Việt Nam.",
+        "en": "Vietnam held the ASEAN Chair in 2020, running most of that year's meetings online because of the pandemic; on 15 Nov 2020, the Regional Comprehensive Economic Partnership (RCEP) was signed under Vietnam's chairmanship."
+      },
+      "hero": {
+        "id": "chu-tich-asean-rcep-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/ky-nguyen-vuon-minh/events/chu-tich-asean-rcep.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/events/chu-tich-asean-rcep.png"
+      },
+      "citation": {
+        "work": "Bộ Ngoại giao Việt Nam",
+        "section": {
+          "vi": "Năm Chủ tịch ASEAN 2020 và Hiệp định RCEP",
+          "en": "ASEAN Chair year 2020 and the RCEP agreement"
+        }
+      }
+    },
+    {
+      "id": "dai-hoi-xiii",
+      "slug": "dai-hoi-xiii",
+      "figureIds": [
+        "nguyen-phu-trong"
+      ],
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "25/1 – 1/2/2021 SCN",
+          "en": "25 Jan – 1 Feb 2021 CE"
+        },
+        "value": 2021,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Đại hội XIII: mục tiêu phát triển đến 2030 và 2045",
+        "en": "The 13th Congress: development goals for 2030 and 2045"
+      },
+      "summary": {
+        "vi": "Từ 25/1 đến 1/2/2021 tại Hà Nội, Đại hội XIII của Đảng đề ra các mục tiêu phát triển đất nước đến năm 2030 (100 năm thành lập Đảng) và năm 2045 (100 năm thành lập nước), tái bầu đồng chí Nguyễn Phú Trọng làm Tổng Bí thư.",
+        "en": "From 25 Jan to 1 Feb 2021 in Hà Nội, the Party's 13th Congress set national development goals for 2030 (the Party's centenary) and 2045 (the state's centenary), re-electing Nguyễn Phú Trọng as General Secretary."
+      },
+      "body": {
+        "vi": "Từ 25/1 đến 1/2/2021 tại Hà Nội, Đại hội XIII của Đảng đề ra các mục tiêu phát triển đất nước đến năm 2030 (100 năm thành lập Đảng) và năm 2045 (100 năm thành lập nước), tái bầu đồng chí Nguyễn Phú Trọng làm Tổng Bí thư.",
+        "en": "From 25 Jan to 1 Feb 2021 in Hà Nội, the Party's 13th Congress set national development goals for 2030 (the Party's centenary) and 2045 (the state's centenary), re-electing Nguyễn Phú Trọng as General Secretary."
+      },
+      "hero": {
+        "id": "dai-hoi-xiii-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/ky-nguyen-vuon-minh/events/dai-hoi-xiii.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/events/dai-hoi-xiii.png"
+      },
+      "citation": {
+        "work": "Văn kiện Đại hội đại biểu toàn quốc lần thứ XIII",
+        "section": {
+          "vi": "Hà Nội, 25/1–1/2/2021",
+          "en": "Hà Nội, 25 Jan–1 Feb 2021"
+        },
+        "author": "Đảng Cộng sản Việt Nam"
+      }
+    },
+    {
+      "id": "ngoai-giao-cay-tre",
+      "slug": "ngoai-giao-cay-tre",
+      "figureIds": [
+        "nguyen-phu-trong"
+      ],
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "2021 – 2023 SCN",
+          "en": "2021–2023 CE"
+        },
+        "value": 2023,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Ngoại giao \"cây tre Việt Nam\": nâng cấp quan hệ đối tác",
+        "en": "\"Bamboo diplomacy\": upgrading partnerships"
+      },
+      "summary": {
+        "vi": "Việt Nam theo đuổi đường lối đối ngoại độc lập, đa phương hoá, được ví như \"cây tre Việt Nam\" — gốc vững, thân chắc, cành uyển chuyển. Ngày 10/9/2023, Việt Nam và Hoa Kỳ nâng cấp quan hệ lên Đối tác Chiến lược Toàn diện, tiếp nối các đối tác chiến lược toàn diện đã thiết lập với nhiều quốc gia.",
+        "en": "Vietnam pursued an independent, multilateral foreign policy, likened to \"Vietnamese bamboo\" — firm roots, a sturdy trunk, flexible branches. On 10 Sep 2023, Vietnam and the United States upgraded relations to a Comprehensive Strategic Partnership, following comprehensive strategic partnerships already established with other nations."
+      },
+      "body": {
+        "vi": "Việt Nam theo đuổi đường lối đối ngoại độc lập, đa phương hoá, được ví như \"cây tre Việt Nam\" — gốc vững, thân chắc, cành uyển chuyển. Ngày 10/9/2023, Việt Nam và Hoa Kỳ nâng cấp quan hệ lên Đối tác Chiến lược Toàn diện, tiếp nối các đối tác chiến lược toàn diện đã thiết lập với nhiều quốc gia.",
+        "en": "Vietnam pursued an independent, multilateral foreign policy, likened to \"Vietnamese bamboo\" — firm roots, a sturdy trunk, flexible branches. On 10 Sep 2023, Vietnam and the United States upgraded relations to a Comprehensive Strategic Partnership, following comprehensive strategic partnerships already established with other nations."
+      },
+      "hero": {
+        "id": "ngoai-giao-cay-tre-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/ky-nguyen-vuon-minh/events/ngoai-giao-cay-tre.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/events/ngoai-giao-cay-tre.png"
+      },
+      "citation": {
+        "work": "Bộ Ngoại giao Việt Nam",
+        "section": {
+          "vi": "Đối tác Chiến lược Toàn diện Việt Nam – Hoa Kỳ",
+          "en": "The Vietnam–US Comprehensive Strategic Partnership"
+        }
+      }
+    },
+    {
+      "id": "tong-bi-thu-nguyen-phu-trong-tu-tran",
+      "slug": "tong-bi-thu-nguyen-phu-trong-tu-tran",
+      "figureIds": [
+        "nguyen-phu-trong",
+        "to-lam"
+      ],
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "19/7/2024 – 3/8/2024 SCN",
+          "en": "19 Jul – 3 Aug 2024 CE"
+        },
+        "value": 2024,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Tổng Bí thư Nguyễn Phú Trọng từ trần; đồng chí Tô Lâm được bầu kế nhiệm",
+        "en": "General Secretary Nguyễn Phú Trọng dies; Tô Lâm elected to succeed him"
+      },
+      "summary": {
+        "vi": "Tổng Bí thư Nguyễn Phú Trọng từ trần ngày 19/7/2024 sau thời gian điều trị bệnh, ở tuổi 80. Ngày 3/8/2024, Ban Chấp hành Trung ương Đảng bầu đồng chí Tô Lâm, Chủ tịch nước, giữ chức Tổng Bí thư.",
+        "en": "General Secretary Nguyễn Phú Trọng died on 19 Jul 2024 after a period of illness, aged 80. On 3 Aug 2024, the Party's Central Committee elected Tô Lâm, then President, as General Secretary."
+      },
+      "body": {
+        "vi": "Tổng Bí thư Nguyễn Phú Trọng từ trần ngày 19/7/2024 sau thời gian điều trị bệnh, ở tuổi 80. Ngày 3/8/2024, Ban Chấp hành Trung ương Đảng bầu đồng chí Tô Lâm, Chủ tịch nước, giữ chức Tổng Bí thư.",
+        "en": "General Secretary Nguyễn Phú Trọng died on 19 Jul 2024 after a period of illness, aged 80. On 3 Aug 2024, the Party's Central Committee elected Tô Lâm, then President, as General Secretary."
+      },
+      "hero": {
+        "id": "tong-bi-thu-nguyen-phu-trong-tu-tran-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/ky-nguyen-vuon-minh/events/tong-bi-thu-nguyen-phu-trong-tu-tran.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/events/tong-bi-thu-nguyen-phu-trong-tu-tran.png"
+      },
+      "citation": {
+        "work": "Cổng Thông tin điện tử Chính phủ",
+        "section": {
+          "vi": "Thông cáo đặc biệt",
+          "en": "Special announcement"
+        }
+      }
+    },
+    {
+      "id": "nghi-quyet-57",
+      "slug": "nghi-quyet-57",
+      "figureIds": [],
+      "order": 5,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "22/12/2024 SCN",
+          "en": "22 Dec 2024 CE"
+        },
+        "value": 2024,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Nghị quyết 57: đột phá khoa học, công nghệ và chuyển đổi số",
+        "en": "Resolution 57: breakthroughs in science, technology and digital transformation"
+      },
+      "summary": {
+        "vi": "Ngày 22/12/2024, Bộ Chính trị ban hành Nghị quyết số 57-NQ/TW về đột phá phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia, xác định đây là động lực chính cho tăng trưởng giai đoạn mới.",
+        "en": "On 22 Dec 2024, the Politburo issued Resolution 57-NQ/TW on breakthroughs in science, technology, innovation and national digital transformation, naming it the main driver of growth for the new period."
+      },
+      "body": {
+        "vi": "Ngày 22/12/2024, Bộ Chính trị ban hành Nghị quyết số 57-NQ/TW về đột phá phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia, xác định đây là động lực chính cho tăng trưởng giai đoạn mới.",
+        "en": "On 22 Dec 2024, the Politburo issued Resolution 57-NQ/TW on breakthroughs in science, technology, innovation and national digital transformation, naming it the main driver of growth for the new period."
+      },
+      "hero": {
+        "id": "nghi-quyet-57-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/ky-nguyen-vuon-minh/events/nghi-quyet-57.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/events/nghi-quyet-57.png"
+      },
+      "citation": {
+        "work": "Nghị quyết số 57-NQ/TW",
+        "section": {
+          "vi": "Về đột phá phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia",
+          "en": "On breakthroughs in science, technology, innovation and national digital transformation"
+        },
+        "author": "Bộ Chính trị"
+      }
+    },
+    {
+      "id": "ky-niem-50-nam-thong-nhat",
+      "slug": "ky-niem-50-nam-thong-nhat",
+      "figureIds": [],
+      "order": 6,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "30/4/2025 SCN",
+          "en": "30 Apr 2025 CE"
+        },
+        "value": 2025,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Kỷ niệm 50 năm Ngày Giải phóng miền Nam, thống nhất đất nước",
+        "en": "The 50th anniversary of the South's liberation and national reunification"
+      },
+      "summary": {
+        "vi": "Ngày 30/4/2025 tại TP. Hồ Chí Minh, Việt Nam tổ chức lễ diễu binh, diễu hành kỷ niệm 50 năm Ngày Giải phóng miền Nam, thống nhất đất nước (30/4/1975), nối tiếp mốc Đại thắng mùa Xuân đã ghi trong lịch sử.",
+        "en": "On 30 Apr 2025 in Hồ Chí Minh City, Vietnam held a parade marking the 50th anniversary of the South's liberation and national reunification (30 Apr 1975), continuing the milestone of the historic Spring Victory."
+      },
+      "body": {
+        "vi": "Ngày 30/4/2025 tại TP. Hồ Chí Minh, Việt Nam tổ chức lễ diễu binh, diễu hành kỷ niệm 50 năm Ngày Giải phóng miền Nam, thống nhất đất nước (30/4/1975), nối tiếp mốc Đại thắng mùa Xuân đã ghi trong lịch sử.",
+        "en": "On 30 Apr 2025 in Hồ Chí Minh City, Vietnam held a parade marking the 50th anniversary of the South's liberation and national reunification (30 Apr 1975), continuing the milestone of the historic Spring Victory."
+      },
+      "hero": {
+        "id": "ky-niem-50-nam-thong-nhat-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/ky-nguyen-vuon-minh/events/ky-niem-50-nam-thong-nhat.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/events/ky-niem-50-nam-thong-nhat.png"
+      },
+      "citation": {
+        "work": "Cổng Thông tin điện tử Chính phủ",
+        "section": {
+          "vi": "Lễ kỷ niệm 50 năm Ngày Giải phóng miền Nam",
+          "en": "The 50th-anniversary ceremony of the South's liberation"
+        }
+      }
+    },
+    {
+      "id": "sap-xep-34-tinh",
+      "slug": "sap-xep-34-tinh",
+      "figureIds": [],
+      "order": 7,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "12/6/2025 – 1/7/2025 SCN",
+          "en": "12 Jun – 1 Jul 2025 CE"
+        },
+        "value": 2025,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Sắp xếp lại thành 34 tỉnh, thành phố",
+        "en": "Restructuring into 34 provinces and cities"
+      },
+      "summary": {
+        "vi": "Ngày 12/6/2025, Quốc hội thông qua nghị quyết sắp xếp lại các đơn vị hành chính cấp tỉnh, giảm từ 63 xuống 34 tỉnh, thành phố, cùng mô hình chính quyền địa phương hai cấp, có hiệu lực từ 1/7/2025.",
+        "en": "On 12 Jun 2025, the National Assembly passed a resolution restructuring provincial-level administrative units, reducing their number from 63 to 34 provinces and cities, alongside a two-tier local government model, in effect from 1 Jul 2025."
+      },
+      "body": {
+        "vi": "Ngày 12/6/2025, Quốc hội thông qua nghị quyết sắp xếp lại các đơn vị hành chính cấp tỉnh, giảm từ 63 xuống 34 tỉnh, thành phố, cùng mô hình chính quyền địa phương hai cấp, có hiệu lực từ 1/7/2025.",
+        "en": "On 12 Jun 2025, the National Assembly passed a resolution restructuring provincial-level administrative units, reducing their number from 63 to 34 provinces and cities, alongside a two-tier local government model, in effect from 1 Jul 2025."
+      },
+      "hero": {
+        "id": "sap-xep-34-tinh-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Bản đồ hành chính",
+          "en": "Administrative map"
+        },
+        "flagship": "eras/ky-nguyen-vuon-minh/events/sap-xep-34-tinh.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/events/sap-xep-34-tinh.png"
+      },
+      "citation": {
+        "work": "Cổng Thông tin điện tử Chính phủ",
+        "section": {
+          "vi": "Nghị quyết về sắp xếp đơn vị hành chính cấp tỉnh",
+          "en": "Resolution on restructuring provincial administrative units"
+        }
+      }
+    },
+    {
+      "id": "a80",
+      "slug": "a80",
+      "figureIds": [],
+      "order": 8,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "2/9/2025 SCN",
+          "en": "2 Sep 2025 CE"
+        },
+        "value": 2025,
+        "approximate": false
+      },
+      "title": {
+        "vi": "A80: 80 năm Quốc khánh",
+        "en": "A80: the 80th National Day"
+      },
+      "summary": {
+        "vi": "Ngày 2/9/2025 tại Ba Đình, Hà Nội, Việt Nam tổ chức lễ diễu binh, diễu hành kỷ niệm 80 năm Quốc khánh (2/9/1945), cùng lễ duyệt binh trên biển lần đầu tổ chức tại Cam Ranh.",
+        "en": "On 2 Sep 2025 at Ba Đình, Hà Nội, Vietnam held a parade marking the 80th National Day (2 Sep 1945), together with the country's first-ever naval review, held at Cam Ranh."
+      },
+      "body": {
+        "vi": "Ngày 2/9/2025 tại Ba Đình, Hà Nội, Việt Nam tổ chức lễ diễu binh, diễu hành kỷ niệm 80 năm Quốc khánh (2/9/1945), cùng lễ duyệt binh trên biển lần đầu tổ chức tại Cam Ranh.",
+        "en": "On 2 Sep 2025 at Ba Đình, Hà Nội, Vietnam held a parade marking the 80th National Day (2 Sep 1945), together with the country's first-ever naval review, held at Cam Ranh."
+      },
+      "hero": {
+        "id": "a80-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/ky-nguyen-vuon-minh/events/a80.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/events/a80.png"
+      },
+      "citation": {
+        "work": "Cổng Thông tin điện tử Chính phủ",
+        "section": {
+          "vi": "Lễ kỷ niệm 80 năm Quốc khánh",
+          "en": "The 80th National Day ceremony"
+        }
+      }
+    },
+    {
+      "id": "tang-truong-2025",
+      "slug": "tang-truong-2025",
+      "figureIds": [],
+      "order": 9,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "2025 SCN (công bố 5/1/2026)",
+          "en": "2025 CE (released 5 Jan 2026)"
+        },
+        "value": 2025,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Tăng trưởng GDP 2025 đạt 8,02%",
+        "en": "2025 GDP growth reaches 8.02%"
+      },
+      "summary": {
+        "vi": "Theo công bố của Cục Thống kê Quốc gia ngày 5/1/2026, tổng sản phẩm trong nước (GDP) năm 2025 tăng 8,02% — mức cao thứ hai trong giai đoạn 2011–2025 — đưa quy mô nền kinh tế vượt 514 tỷ USD.",
+        "en": "Per the National Statistics Office's release on 5 Jan 2026, Vietnam's GDP grew 8.02% in 2025 — the second-highest rate of 2011–2025 — taking the economy's size past 514 billion USD."
+      },
+      "body": {
+        "vi": "Theo công bố của Cục Thống kê Quốc gia ngày 5/1/2026, tổng sản phẩm trong nước (GDP) năm 2025 tăng 8,02% — mức cao thứ hai trong giai đoạn 2011–2025 — đưa quy mô nền kinh tế vượt 514 tỷ USD.",
+        "en": "Per the National Statistics Office's release on 5 Jan 2026, Vietnam's GDP grew 8.02% in 2025 — the second-highest rate of 2011–2025 — taking the economy's size past 514 billion USD."
+      },
+      "hero": {
+        "id": "tang-truong-2025-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/ky-nguyen-vuon-minh/events/tang-truong-2025.png",
+        "reduced": "eras/ky-nguyen-vuon-minh/events/tang-truong-2025.png"
+      },
+      "citation": {
+        "work": "Cục Thống kê Quốc gia",
+        "section": {
+          "vi": "Báo cáo tình hình kinh tế – xã hội năm 2025",
+          "en": "The 2025 socio-economic report"
+        }
+      }
+    }
+  ]
+}

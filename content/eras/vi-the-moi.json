@@ -1,0 +1,425 @@
+{
+  "schemaVersion": 1,
+  "id": "vi-the-moi",
+  "slug": "vi-the-moi",
+  "order": 36,
+  "period": "doi-moi",
+  "title": {
+    "vi": "Vị thế mới",
+    "en": "A new standing"
+  },
+  "kicker": {
+    "vi": "Thế và lực mới (2008 – 2019)",
+    "en": "A new standing and strength (2008–2019)"
+  },
+  "subtitle": {
+    "vi": "Từ Hà Nội mở rộng đến ghế Hội đồng Bảo an — Việt Nam khẳng định vị thế khu vực và quốc tế.",
+    "en": "From Hà Nội's expansion to a UN Security Council seat — Vietnam affirms its regional and international standing."
+  },
+  "overview": {
+    "vi": "Ngày 1/8/2008, Hà Nội mở rộng địa giới, sáp nhập Hà Tây và các vùng lân cận. Cùng năm, GNI bình quân đầu người vượt 1.000 USD, và đến năm 2010 Việt Nam được xếp vào nhóm thu nhập trung bình thấp. Từ 1 đến 10/10/2010, Hà Nội tổ chức Đại lễ 1000 năm Thăng Long. Tại Đại hội XI (12–19/1/2011), đồng chí Nguyễn Phú Trọng được bầu làm Tổng Bí thư; Đại hội XII (2016) tiếp tục nhiệm kỳ của ông. Ngày 28/11/2013, Quốc hội thông qua Hiến pháp mới, có hiệu lực từ 1/1/2014. Tháng 5/2016, Tổng thống Hoa Kỳ Barack Obama thăm Việt Nam và tuyên bố dỡ bỏ hoàn toàn cấm vận vũ khí sát thương. Việt Nam đăng cai APEC lần thứ hai tại Đà Nẵng (10–11/11/2017). CPTPP có hiệu lực với Việt Nam từ 14/1/2019, và EVFTA được ký ngày 30/6/2019. Ngày 7/6/2019, Việt Nam trúng cử Hội đồng Bảo an Liên Hợp Quốc nhiệm kỳ 2020–2021 với 192/193 phiếu — khép lại một giai đoạn hội nhập sâu và toàn diện hơn.",
+    "en": "On 1 Aug 2008, Hà Nội expanded its borders, merging Hà Tây and neighboring areas. That same year, GNI per capita passed 1,000 USD, and by 2010 Vietnam was classed as lower-middle income. From 1 to 10 Oct 2010, Hà Nội held the 1000th-anniversary celebration of Thăng Long. At the 11th Congress (12–19 Jan 2011), Nguyễn Phú Trọng was elected General Secretary; the 12th Congress (2016) continued his term. On 28 Nov 2013, the National Assembly passed a new Constitution, in effect from 1 Jan 2014. In May 2016, US President Barack Obama visited Vietnam and announced the full lifting of the lethal-arms embargo. Vietnam hosted APEC for the second time, in Đà Nẵng (10–11 Nov 2017). CPTPP took effect for Vietnam from 14 Jan 2019, and the EVFTA was signed on 30 Jun 2019. On 7 Jun 2019, Vietnam was elected to the UN Security Council for the 2020–2021 term with 192 of 193 votes — closing a period of deeper, broader integration."
+  },
+  "yearRange": {
+    "display": {
+      "vi": "2008 – 2019 SCN",
+      "en": "2008–2019 CE"
+    },
+    "startYear": 2008,
+    "endYear": 2019
+  },
+  "palette": {
+    "accent": "#b8322a",
+    "particle": "#e08a7a",
+    "scene": [
+      "#150403",
+      "#340a08",
+      "#5c130f",
+      "#8a1f18",
+      "#b8322a",
+      "#d05c4e",
+      "#e08a7a"
+    ]
+  },
+  "cover": {
+    "id": "vi-the-moi-cover",
+    "type": "image",
+    "role": "cover",
+    "placeholder": "era-scene",
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    },
+    "flagship": "eras/vi-the-moi/cover.png",
+    "reduced": "eras/vi-the-moi/cover.png"
+  },
+  "scene": {
+    "layers": [
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "placeholder": "era-scene",
+        "flagship": "eras/vi-the-moi/scene/sky.png",
+        "reduced": "eras/vi-the-moi/scene/sky.png"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
+    ]
+  },
+  "primarySource": {
+    "work": "Văn kiện Đại hội đại biểu toàn quốc lần thứ XI, XII",
+    "section": {
+      "vi": "Vị thế mới (2008–2019)",
+      "en": "A new standing (2008–2019)"
+    },
+    "author": "Đảng Cộng sản Việt Nam"
+  },
+  "characters": [
+    {
+      "ref": "nong-duc-manh"
+    },
+    {
+      "ref": "nguyen-tan-dung"
+    },
+    {
+      "ref": "nguyen-phu-trong"
+    }
+  ],
+  "events": [
+    {
+      "id": "mo-rong-ha-noi",
+      "slug": "mo-rong-ha-noi",
+      "figureIds": [],
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1/8/2008 SCN",
+          "en": "1 Aug 2008 CE"
+        },
+        "value": 2008,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Hà Nội mở rộng địa giới",
+        "en": "Hà Nội's borders expand"
+      },
+      "summary": {
+        "vi": "Từ ngày 1/8/2008, theo Nghị quyết của Quốc hội, tỉnh Hà Tây, huyện Mê Linh (Vĩnh Phúc) và 4 xã của huyện Lương Sơn (Hoà Bình) được nhập vào Hà Nội, đưa thủ đô trở thành một trong các thành phố có diện tích lớn nhất Đông Nam Á.",
+        "en": "From 1 Aug 2008, under a National Assembly resolution, Hà Tây province, Mê Linh district (Vĩnh Phúc) and 4 communes of Lương Sơn district (Hoà Bình) merged into Hà Nội, making the capital one of the largest cities by area in Southeast Asia."
+      },
+      "body": {
+        "vi": "Từ ngày 1/8/2008, theo Nghị quyết của Quốc hội, tỉnh Hà Tây, huyện Mê Linh (Vĩnh Phúc) và 4 xã của huyện Lương Sơn (Hoà Bình) được nhập vào Hà Nội, đưa thủ đô trở thành một trong các thành phố có diện tích lớn nhất Đông Nam Á.",
+        "en": "From 1 Aug 2008, under a National Assembly resolution, Hà Tây province, Mê Linh district (Vĩnh Phúc) and 4 communes of Lương Sơn district (Hoà Bình) merged into Hà Nội, making the capital one of the largest cities by area in Southeast Asia."
+      },
+      "hero": {
+        "id": "mo-rong-ha-noi-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/vi-the-moi/events/mo-rong-ha-noi.png",
+        "reduced": "eras/vi-the-moi/events/mo-rong-ha-noi.png"
+      },
+      "citation": {
+        "work": "Cổng Thông tin điện tử Chính phủ",
+        "section": {
+          "vi": "Nghị quyết số 15/2008/NQ-QH12",
+          "en": "Resolution 15/2008/NQ-QH12"
+        }
+      }
+    },
+    {
+      "id": "thoat-thu-nhap-thap",
+      "slug": "thoat-thu-nhap-thap",
+      "figureIds": [
+        "nguyen-tan-dung"
+      ],
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "2008 – 2010 SCN",
+          "en": "2008–2010 CE"
+        },
+        "value": 2009,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Việt Nam thoát nhóm nước thu nhập thấp",
+        "en": "Vietnam leaves the low-income group"
+      },
+      "summary": {
+        "vi": "Năm 2008, GNI bình quân đầu người của Việt Nam vượt 1.000 USD; đến năm 2010, Ngân hàng Thế giới xếp Việt Nam vào nhóm quốc gia có thu nhập trung bình thấp, đánh dấu bước chuyển sau hơn hai thập niên Đổi Mới.",
+        "en": "In 2008, Vietnam's GNI per capita passed 1,000 USD; by 2010, the World Bank classified Vietnam as a lower-middle-income country, marking a turning point after more than two decades of Renovation."
+      },
+      "body": {
+        "vi": "Năm 2008, GNI bình quân đầu người của Việt Nam vượt 1.000 USD; đến năm 2010, Ngân hàng Thế giới xếp Việt Nam vào nhóm quốc gia có thu nhập trung bình thấp, đánh dấu bước chuyển sau hơn hai thập niên Đổi Mới.",
+        "en": "In 2008, Vietnam's GNI per capita passed 1,000 USD; by 2010, the World Bank classified Vietnam as a lower-middle-income country, marking a turning point after more than two decades of Renovation."
+      },
+      "hero": {
+        "id": "thoat-thu-nhap-thap-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/vi-the-moi/events/thoat-thu-nhap-thap.png",
+        "reduced": "eras/vi-the-moi/events/thoat-thu-nhap-thap.png"
+      },
+      "citation": {
+        "work": "Ngân hàng Thế giới (World Bank)",
+        "section": {
+          "vi": "Phân loại thu nhập quốc gia",
+          "en": "Country income classification"
+        }
+      }
+    },
+    {
+      "id": "dai-le-1000-nam",
+      "slug": "dai-le-1000-nam",
+      "figureIds": [],
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1 – 10/10/2010 SCN",
+          "en": "1–10 Oct 2010 CE"
+        },
+        "value": 2010,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Đại lễ 1000 năm Thăng Long – Hà Nội",
+        "en": "The 1000th anniversary of Thăng Long – Hà Nội"
+      },
+      "summary": {
+        "vi": "Từ 1 đến 10/10/2010, Hà Nội tổ chức Đại lễ kỷ niệm 1000 năm Thăng Long, gợi nhớ Chiếu dời đô của Lý Thái Tổ năm 1010, với chuỗi hoạt động văn hoá và lễ hội quy mô lớn tại thủ đô.",
+        "en": "From 1 to 10 Oct 2010, Hà Nội held the 1000th-anniversary celebration of Thăng Long, recalling Lý Thái Tổ's 1010 Edict on Moving the Capital, with a large-scale series of cultural events and festivities across the capital."
+      },
+      "body": {
+        "vi": "Từ 1 đến 10/10/2010, Hà Nội tổ chức Đại lễ kỷ niệm 1000 năm Thăng Long, gợi nhớ Chiếu dời đô của Lý Thái Tổ năm 1010, với chuỗi hoạt động văn hoá và lễ hội quy mô lớn tại thủ đô.",
+        "en": "From 1 to 10 Oct 2010, Hà Nội held the 1000th-anniversary celebration of Thăng Long, recalling Lý Thái Tổ's 1010 Edict on Moving the Capital, with a large-scale series of cultural events and festivities across the capital."
+      },
+      "hero": {
+        "id": "dai-le-1000-nam-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/vi-the-moi/events/dai-le-1000-nam.png",
+        "reduced": "eras/vi-the-moi/events/dai-le-1000-nam.png"
+      },
+      "citation": {
+        "work": "Cổng Thông tin điện tử Chính phủ",
+        "section": {
+          "vi": "Đại lễ 1000 năm Thăng Long – Hà Nội",
+          "en": "The 1000th-anniversary celebration of Thăng Long – Hà Nội"
+        }
+      }
+    },
+    {
+      "id": "hien-phap-2013",
+      "slug": "hien-phap-2013",
+      "figureIds": [
+        "nguyen-phu-trong"
+      ],
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "28/11/2013 SCN",
+          "en": "28 Nov 2013 CE"
+        },
+        "value": 2013,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Hiến pháp năm 2013",
+        "en": "The 2013 Constitution"
+      },
+      "summary": {
+        "vi": "Ngày 28/11/2013, Quốc hội thông qua Hiến pháp nước Cộng hoà xã hội chủ nghĩa Việt Nam (11 chương, 120 điều), có hiệu lực từ 1/1/2014, do Chủ tịch nước Trương Tấn Sang công bố.",
+        "en": "On 28 Nov 2013, the National Assembly passed the Constitution of the Socialist Republic of Vietnam (11 chapters, 120 articles), in effect from 1 Jan 2014 and promulgated by President Trương Tấn Sang."
+      },
+      "body": {
+        "vi": "Ngày 28/11/2013, Quốc hội thông qua Hiến pháp nước Cộng hoà xã hội chủ nghĩa Việt Nam (11 chương, 120 điều), có hiệu lực từ 1/1/2014, do Chủ tịch nước Trương Tấn Sang công bố.",
+        "en": "On 28 Nov 2013, the National Assembly passed the Constitution of the Socialist Republic of Vietnam (11 chapters, 120 articles), in effect from 1 Jan 2014 and promulgated by President Trương Tấn Sang."
+      },
+      "hero": {
+        "id": "hien-phap-2013-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/vi-the-moi/events/hien-phap-2013.png",
+        "reduced": "eras/vi-the-moi/events/hien-phap-2013.png"
+      },
+      "citation": {
+        "work": "Hiến pháp nước Cộng hoà xã hội chủ nghĩa Việt Nam",
+        "section": {
+          "vi": "Năm 2013, 11 chương, 120 điều",
+          "en": "2013, 11 chapters, 120 articles"
+        }
+      }
+    },
+    {
+      "id": "apec-2017",
+      "slug": "apec-2017",
+      "figureIds": [],
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "10 – 11/11/2017 SCN",
+          "en": "10–11 Nov 2017 CE"
+        },
+        "value": 2017,
+        "approximate": false
+      },
+      "title": {
+        "vi": "APEC 2017 tại Đà Nẵng",
+        "en": "APEC 2017 in Đà Nẵng"
+      },
+      "summary": {
+        "vi": "Ngày 10–11/11/2017, Việt Nam đăng cai Hội nghị Cấp cao APEC lần thứ hai, tại Đà Nẵng, quy tụ lãnh đạo các nền kinh tế thành viên và tiếp tục khẳng định vai trò của Việt Nam trong hợp tác khu vực.",
+        "en": "On 10–11 Nov 2017, Vietnam hosted the APEC Leaders' Meeting for the second time, in Đà Nẵng, gathering member-economy leaders and further affirming Vietnam's role in regional cooperation."
+      },
+      "body": {
+        "vi": "Ngày 10–11/11/2017, Việt Nam đăng cai Hội nghị Cấp cao APEC lần thứ hai, tại Đà Nẵng, quy tụ lãnh đạo các nền kinh tế thành viên và tiếp tục khẳng định vai trò của Việt Nam trong hợp tác khu vực.",
+        "en": "On 10–11 Nov 2017, Vietnam hosted the APEC Leaders' Meeting for the second time, in Đà Nẵng, gathering member-economy leaders and further affirming Vietnam's role in regional cooperation."
+      },
+      "hero": {
+        "id": "apec-2017-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/vi-the-moi/events/apec-2017.png",
+        "reduced": "eras/vi-the-moi/events/apec-2017.png"
+      },
+      "citation": {
+        "work": "Bộ Ngoại giao Việt Nam",
+        "section": {
+          "vi": "Hội nghị Cấp cao APEC 2017",
+          "en": "The 2017 APEC Leaders' Meeting"
+        }
+      }
+    },
+    {
+      "id": "cptpp-evfta",
+      "slug": "cptpp-evfta",
+      "figureIds": [],
+      "order": 5,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "2018 – 2019 SCN",
+          "en": "2018–2019 CE"
+        },
+        "value": 2019,
+        "approximate": false
+      },
+      "title": {
+        "vi": "CPTPP và EVFTA: các hiệp định thương mại thế hệ mới",
+        "en": "CPTPP and EVFTA: new-generation trade agreements"
+      },
+      "summary": {
+        "vi": "Hiệp định CPTPP được ký tháng 3/2018 và có hiệu lực với Việt Nam từ 14/1/2019; Hiệp định thương mại tự do Việt Nam – EU (EVFTA) được ký ngày 30/6/2019, mở rộng thị trường xuất khẩu sang châu Á – Thái Bình Dương và châu Âu.",
+        "en": "The CPTPP was signed in Mar 2018 and took effect for Vietnam from 14 Jan 2019; the EU–Vietnam Free Trade Agreement (EVFTA) was signed on 30 Jun 2019, widening export markets across the Asia-Pacific and Europe."
+      },
+      "body": {
+        "vi": "Hiệp định CPTPP được ký tháng 3/2018 và có hiệu lực với Việt Nam từ 14/1/2019; Hiệp định thương mại tự do Việt Nam – EU (EVFTA) được ký ngày 30/6/2019, mở rộng thị trường xuất khẩu sang châu Á – Thái Bình Dương và châu Âu.",
+        "en": "The CPTPP was signed in Mar 2018 and took effect for Vietnam from 14 Jan 2019; the EU–Vietnam Free Trade Agreement (EVFTA) was signed on 30 Jun 2019, widening export markets across the Asia-Pacific and Europe."
+      },
+      "hero": {
+        "id": "cptpp-evfta-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/vi-the-moi/events/cptpp-evfta.png",
+        "reduced": "eras/vi-the-moi/events/cptpp-evfta.png"
+      },
+      "citation": {
+        "work": "Bộ Công Thương Việt Nam",
+        "section": {
+          "vi": "Các hiệp định thương mại tự do thế hệ mới",
+          "en": "New-generation free trade agreements"
+        }
+      }
+    },
+    {
+      "id": "hoi-dong-bao-an",
+      "slug": "hoi-dong-bao-an",
+      "figureIds": [
+        "nguyen-phu-trong"
+      ],
+      "order": 6,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "7/6/2019 SCN",
+          "en": "7 Jun 2019 CE"
+        },
+        "value": 2019,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Trúng cử Hội đồng Bảo an Liên Hợp Quốc, nhiệm kỳ 2020–2021",
+        "en": "Elected to the UN Security Council for the 2020–2021 term"
+      },
+      "summary": {
+        "vi": "Ngày 7/6/2019 tại New York, Việt Nam trúng cử làm thành viên không thường trực Hội đồng Bảo an Liên Hợp Quốc nhiệm kỳ 2020–2021 với 192 trên 193 phiếu thuận, lần thứ hai sau nhiệm kỳ 2008–2009.",
+        "en": "On 7 Jun 2019 in New York, Vietnam was elected a non-permanent member of the UN Security Council for the 2020–2021 term with 192 of 193 votes, its second such term after 2008–2009."
+      },
+      "body": {
+        "vi": "Ngày 7/6/2019 tại New York, Việt Nam trúng cử làm thành viên không thường trực Hội đồng Bảo an Liên Hợp Quốc nhiệm kỳ 2020–2021 với 192 trên 193 phiếu thuận, lần thứ hai sau nhiệm kỳ 2008–2009.",
+        "en": "On 7 Jun 2019 in New York, Vietnam was elected a non-permanent member of the UN Security Council for the 2020–2021 term with 192 of 193 votes, its second such term after 2008–2009."
+      },
+      "hero": {
+        "id": "hoi-dong-bao-an-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/vi-the-moi/events/hoi-dong-bao-an.png",
+        "reduced": "eras/vi-the-moi/events/hoi-dong-bao-an.png"
+      },
+      "citation": {
+        "work": "Bộ Ngoại giao Việt Nam",
+        "section": {
+          "vi": "Việt Nam tại Hội đồng Bảo an Liên Hợp Quốc",
+          "en": "Vietnam at the UN Security Council"
+        }
+      }
+    }
+  ]
+}

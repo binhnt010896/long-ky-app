@@ -1,0 +1,479 @@
+{
+  "schemaVersion": 1,
+  "id": "hoi-nhap-quoc-te",
+  "slug": "hoi-nhap-quoc-te",
+  "order": 35,
+  "period": "doi-moi",
+  "title": {
+    "vi": "Hội nhập quốc tế",
+    "en": "International integration"
+  },
+  "kicker": {
+    "vi": "Chủ động hội nhập kinh tế quốc tế (1996 – 2007)",
+    "en": "Actively integrating into the world economy (1996–2007)"
+  },
+  "subtitle": {
+    "vi": "Từ Đại hội VIII đến WTO — mười năm Việt Nam mở rộng quan hệ kinh tế với khu vỡc và thế giới.",
+    "en": "From the 8th Congress to the WTO — a decade of Vietnam widening its economic ties with the region and the world."
+  },
+  "overview": {
+    "vi": "Từ 28/6 đến 1/7/1996, Đại hội VIII của Đảng đề ra mục tiêu đậy mạnh công nghiệp hoá, hiện đại hoá, bầu đồng chí Đỗ Mắi tiếp tục giự chức Tổng Bí thư; cuối năm 1997, đồng chí Lê Khả Phiêu được bầu kế nhiệm. Ngày 15/11/1998, Việt Nam gia nhập APEC. Ngày 12/6/1999, Quốc hội thông qua Luật Doanh nghiệp, mở quyền tự do kinh doanh. Ngày 30/12/1999 và 25/12/2000, Việt Nam và Trung Quốc lần lượt ký hiệp ước biên giới trên đất liền và hiệp định phân định Vịnh Bắc Bộ. Ngày 13/7/2000, Việt Nam và Hoa Kỳ ký Hiệp định thương mại song phương. Tại Đại hội IX (19–22/4/2001), đồng chí Nông Đức Mạnh được bầu làm Tổng Bí thư, và mô hình \"kinh tế thị trường định hướng xã hội chủ nghĩa\" được xác định là mô hình kinh tế tổng quát. Cuối năm 2003, Việt Nam lần đầu đăng cai SEA Games. Năm 2006, Hà Nội đăng cai Hội nghị Cấp cao APEC, và ngày 11/1/2007, Việt Nam trở thành thành viên thứ 150 của WTO — khép lại mười năm chủ động hội nhập bằng mốc son đối ngoại và kinh tế lớn nhất.",
+    "en": "From 28 Jun to 1 Jul 1996, the Party's 8th Congress set the goal of accelerating industrialization and modernization, re-electing Đỗ Mưới as General Secretary; at the end of 1997, Lê Khả Phiêu was elected to succeed him. On 15 Nov 1998, Vietnam joined APEC. On 12 Jun 1999, the National Assembly passed the Enterprise Law, opening the right to freely start a business. On 30 Dec 1999 and 25 Dec 2000, Vietnam and China signed the Land Border Treaty and the Gulf of Tonkin Delimitation Agreement respectively. On 13 Jul 2000, Vietnam and the United States signed a bilateral trade agreement. At the 9th Congress (19–22 Apr 2001), Nông Đức Mạnh was elected General Secretary, and the \"socialist-oriented market economy\" was named as the general economic model. In late 2003, Vietnam hosted the SEA Games for the first time. In 2006, Hà Nội hosted the APEC Leaders' Meeting, and on 11 Jan 2007 Vietnam became the WTO's 150th member — closing a decade of active integration with its largest diplomatic and economic milestone yet."
+  },
+  "yearRange": {
+    "display": {
+      "vi": "1996 – 2007 SCN",
+      "en": "1996–2007 CE"
+    },
+    "startYear": 1996,
+    "endYear": 2007
+  },
+  "palette": {
+    "accent": "#3a8f8a",
+    "particle": "#7fd4c8",
+    "scene": [
+      "#04120f",
+      "#0a2420",
+      "#144a41",
+      "#227d6f",
+      "#3a8f8a",
+      "#5fb8ae",
+      "#7fd4c8"
+    ]
+  },
+  "cover": {
+    "id": "hoi-nhap-quoc-te-cover",
+    "type": "image",
+    "role": "cover",
+    "placeholder": "era-scene",
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    },
+    "flagship": "eras/hoi-nhap-quoc-te/cover.png",
+    "reduced": "eras/hoi-nhap-quoc-te/cover.png"
+  },
+  "scene": {
+    "layers": [
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "placeholder": "era-scene",
+        "flagship": "eras/hoi-nhap-quoc-te/scene/sky.png",
+        "reduced": "eras/hoi-nhap-quoc-te/scene/sky.png"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
+    ]
+  },
+  "primarySource": {
+    "work": "Văn kiện Đại hội đại biểu toàn quốc lần thứ VIII, IX",
+    "section": {
+      "vi": "Hội nhập quốc tế (1996–2007)",
+      "en": "International integration (1996–2007)"
+    },
+    "author": "Đảng Cộng sản Việt Nam"
+  },
+  "characters": [
+    {
+      "ref": "do-muoi"
+    },
+    {
+      "ref": "le-kha-phieu"
+    },
+    {
+      "ref": "tran-duc-luong"
+    },
+    {
+      "ref": "phan-van-khai"
+    },
+    {
+      "ref": "nong-duc-manh"
+    }
+  ],
+  "events": [
+    {
+      "id": "dai-hoi-viii",
+      "slug": "dai-hoi-viii",
+      "figureIds": [
+        "do-muoi",
+        "le-kha-phieu"
+      ],
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "28/6 – 1/7/1996 SCN",
+          "en": "28 Jun – 1 Jul 1996 CE"
+        },
+        "value": 1996,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Đại hội VIII: đậy mạnh công nghiệp hoá, hiện đại hoá",
+        "en": "The 8th Congress: accelerating industrialization and modernization"
+      },
+      "summary": {
+        "vi": "Từ 28/6 đến 1/7/1996 tại Hà Nội, Đại hội VIII của Đảng tịng kết 10 năm Đổi Mới và đề ra mục tiêu đậy mạnh công nghiệp hoá, hiện đại hoá đất nước, bầu đồng chí Đỗ Mắi tiếp tục giự chức Tổng Bí thư.",
+        "en": "From 28 Jun to 1 Jul 1996 in Hà Nội, the Party's 8th Congress reviewed a decade of Đổi Mới and set the goal of accelerating industrialization and modernization, re-electing Đỗ Mưới as General Secretary."
+      },
+      "body": {
+        "vi": "Đại hội đại biểu toàn quốc lần thứ VIII của Đảng họp tại Hà Nội từ ngày 28/6 đến 1/7/1996, với hơn 1.190 đại biểu. Nhìn lại 10 năm đầu đổi mới, Đại hội đánh giá đất nước đã thoát khỏi khủng hoảng kinh tế – xã hội, và đề ra nhiệm vụ trọng tâm cho giai đoạn mới: đậy mạnh công nghiệp hoá, hiện đại hoá, phấn đẫu đến năm 2020 đưa Việt Nam cơ bản trở thành một nước công nghiệp. Đại hội bầu đồng chí Đỗ Mắi tiếp tục giự chức Tổng Bí thư. Cuối năm 1997, tại Hội nghệ Trung ương 4 (26/12/1997), đồng chí Lê Khả Phiêu được bầu làm Tổng Bí thư.",
+        "en": "The Party's 8th National Congress met in Hà Nội from 28 Jun to 1 Jul 1996, with over 1,190 delegates. Reviewing the first decade of Renovation, the Congress judged that the country had emerged from its economic and social crisis, and set the central task for the new stage: accelerating industrialization and modernization, aiming for Vietnam to become basically an industrial nation by 2020. The Congress re-elected Đỗ Mưới as General Secretary. At the end of 1997, at the 4th Central Committee plenum (26 Dec 1997), Lê Khả Phiêu was elected General Secretary."
+      },
+      "hero": {
+        "id": "dai-hoi-viii-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/hoi-nhap-quoc-te/events/dai-hoi-viii.png",
+        "reduced": "eras/hoi-nhap-quoc-te/events/dai-hoi-viii.png"
+      },
+      "citation": {
+        "work": "Văn kiện Đại hội đại biểu toàn quốc lần thứ VIII",
+        "section": {
+          "vi": "Hà Nội, 28/6–1/7/1996",
+          "en": "Hà Nội, 28 Jun–1 Jul 1996"
+        },
+        "author": "Đảng Cộng sản Việt Nam"
+      }
+    },
+    {
+      "id": "gia-nhap-apec",
+      "slug": "gia-nhap-apec",
+      "figureIds": [
+        "le-kha-phieu"
+      ],
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "15/11/1998 SCN",
+          "en": "15 Nov 1998 CE"
+        },
+        "value": 1998,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Việt Nam gia nhập APEC",
+        "en": "Vietnam joins APEC"
+      },
+      "summary": {
+        "vi": "Ngày 15/11/1998 tại Kuala Lumpur, Việt Nam chính thức trở thành thành viên của Diễn đàn Hợp tác Kinh tế châu Á – Thái Bình Dương (APEC), mở rộng hợp tác kinh tế khu vỡc.",
+        "en": "On 15 Nov 1998 in Kuala Lumpur, Vietnam formally became a member of the Asia-Pacific Economic Cooperation (APEC) forum, widening its regional economic ties."
+      },
+      "body": {
+        "vi": "Tại Hội nghị Cấp cao APEC lần thứ 6 ngày 15/11/1998 tại Kuala Lumpur, Malaysia, Việt Nam được kết nạp làm thành viên chính thức của APEC, cùng Nga và Peru. Đây là diễn đàn kinh tế khu vỡc lớn nhất mà Việt Nam tham gia sau khi gia nhập ASEAN (1995), mở ra cơ hội hợp tác thương mại và đầu tư với các nền kinh tế lớn quanh Thái Bình Dương.",
+        "en": "At the 6th APEC Leaders' Meeting on 15 Nov 1998 in Kuala Lumpur, Malaysia, Vietnam was admitted as a full APEC member, together with Russia and Peru. It was the largest regional economic forum Vietnam had joined after ASEAN (1995), opening trade and investment cooperation with major Pacific-rim economies."
+      },
+      "hero": {
+        "id": "gia-nhap-apec-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/hoi-nhap-quoc-te/events/gia-nhap-apec.png",
+        "reduced": "eras/hoi-nhap-quoc-te/events/gia-nhap-apec.png"
+      },
+      "citation": {
+        "work": "Bộ Ngoại giao Việt Nam",
+        "section": {
+          "vi": "Việt Nam gia nhập APEC (1998)",
+          "en": "Vietnam joins APEC (1998)"
+        }
+      }
+    },
+    {
+      "id": "luat-doanh-nghiep-1999",
+      "slug": "luat-doanh-nghiep-1999",
+      "figureIds": [],
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "12/6/1999 SCN",
+          "en": "12 Jun 1999 CE"
+        },
+        "value": 1999,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Luật Doanh nghiệp: quyền tự do kinh doanh",
+        "en": "The Enterprise Law: the right to freely start a business"
+      },
+      "summary": {
+        "vi": "Ngày 12/6/1999, Quốc hội thông qua Luật Doanh nghiệp, có hiệu lỡc từ 1/1/2000, cho phép người dân đăng ký kinh doanh tự do thay vì phải xin phép, thúc đậy khu vỡc kinh tế tư nhân phát triển mạnh.",
+        "en": "On 12 Jun 1999, the National Assembly passed the Enterprise Law, effective from 1 Jan 2000, letting people register a business freely rather than seek prior approval, and driving strong growth in the private sector."
+      },
+      "body": {
+        "vi": "Luật Doanh nghiệp được Quốc hội khoá X thông qua ngày 12/6/1999, có hiệu lỡc từ ngày 1/1/2000, thay thế cơ chế \"xin – cho\" bằng quyền tự do đăng ký kinh doanh theo luật định. Chỉ trong vài năm sau khi luật có hiệu lỡc, số doanh nghiệp đăng ký mới tăng mạnh, đặt nền tảng cho khu vỡc kinh tế tư nhân trở thành một động lực tăng trưởng quan trọng của nền kinh tế.",
+        "en": "The Enterprise Law was passed by the 10th National Assembly on 12 Jun 1999, effective from 1 Jan 2000, replacing an ask-and-approve mechanism with the statutory right to register a business freely. Within a few years of taking effect, the number of newly registered businesses rose sharply, laying the foundation for the private sector to become a major driver of economic growth."
+      },
+      "hero": {
+        "id": "luat-doanh-nghiep-1999-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        },
+        "flagship": "eras/hoi-nhap-quoc-te/events/luat-doanh-nghiep-1999.png",
+        "reduced": "eras/hoi-nhap-quoc-te/events/luat-doanh-nghiep-1999.png"
+      },
+      "citation": {
+        "work": "Cổng Thông tin điện tử Chính phủ",
+        "section": {
+          "vi": "Luật Doanh nghiệp 1999",
+          "en": "The 1999 Enterprise Law"
+        }
+      }
+    },
+    {
+      "id": "phan-dinh-bien-gioi",
+      "slug": "phan-dinh-bien-gioi",
+      "figureIds": [],
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "30/12/1999 – 25/12/2000 SCN",
+          "en": "30 Dec 1999 – 25 Dec 2000 CE"
+        },
+        "value": 1999,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Phân định biên giới trên bộ và Vịnh Bắc Bộ với Trung Quốc",
+        "en": "Delimiting the land border and the Gulf of Tonkin with China"
+      },
+      "summary": {
+        "vi": "Ngày 30/12/1999, Việt Nam và Trung Quốc ký Hiệp ước biên giới trên đất liền (dài 1.449,566 km, 1.970 cột mớc); ngày 25/12/2000, hai bên ký Hiệp định phân định Vịnh Bắc Bộ (Việt Nam ≈ 53,23%, Trung Quốc ≈ 46,77%), giải quyết bằng thương lượng hoà bình.",
+        "en": "On 30 Dec 1999, Vietnam and China signed the Land Border Treaty (1,449.566 km, 1,970 markers); on 25 Dec 2000, the two sides signed the Gulf of Tonkin Delimitation Agreement (Vietnam ≈ 53.23%, China ≈ 46.77%), both settled through peaceful negotiation."
+      },
+      "body": {
+        "vi": "Ngày 30/12/1999, Việt Nam và Trung Quốc ký Hiệp ước biên giới trên đất liền (dài 1.449,566 km, 1.970 cột mớc); ngày 25/12/2000, hai bên ký Hiệp định phân định Vịnh Bắc Bộ (Việt Nam ≈ 53,23%, Trung Quốc ≈ 46,77%), giải quyết bằng thương lượng hoà bình.",
+        "en": "On 30 Dec 1999, Vietnam and China signed the Land Border Treaty (1,449.566 km, 1,970 markers); on 25 Dec 2000, the two sides signed the Gulf of Tonkin Delimitation Agreement (Vietnam ≈ 53.23%, China ≈ 46.77%), both settled through peaceful negotiation."
+      },
+      "hero": {
+        "id": "phan-dinh-bien-gioi-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/hoi-nhap-quoc-te/events/phan-dinh-bien-gioi.png",
+        "reduced": "eras/hoi-nhap-quoc-te/events/phan-dinh-bien-gioi.png"
+      },
+      "citation": {
+        "work": "Bộ Ngoại giao Việt Nam",
+        "section": {
+          "vi": "Biên giới Việt Nam – Trung Quốc",
+          "en": "The Vietnam–China border"
+        }
+      }
+    },
+    {
+      "id": "hiep-dinh-thuong-mai-viet-my",
+      "slug": "hiep-dinh-thuong-mai-viet-my",
+      "figureIds": [],
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "13/7/2000 SCN",
+          "en": "13 Jul 2000 CE"
+        },
+        "value": 2000,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Hiệp định thương mại Việt – Mỹ",
+        "en": "The Vietnam–US Trade Agreement"
+      },
+      "summary": {
+        "vi": "Ngày 13/7/2000, Bộ trưởng Thương mại Vũ Khoản và Đại diện Thương mại Hoa Kỳ Charlene Barshefsky ký Hiệp định thương mại song phương (BTA), có hiệu lỡc từ 10/12/2001, mở cửa thị trường lớn nhất thế giới cho hàng hoá Việt Nam.",
+        "en": "On 13 Jul 2000, Trade Minister Vũ Khoản and US Trade Representative Charlene Barshefsky signed the Bilateral Trade Agreement (BTA), in effect from 10 Dec 2001, opening the world's largest market to Vietnamese goods."
+      },
+      "body": {
+        "vi": "Ngày 13/7/2000, Bộ trưởng Thương mại Vũ Khoản và Đại diện Thương mại Hoa Kỳ Charlene Barshefsky ký Hiệp định thương mại song phương (BTA), có hiệu lỡc từ 10/12/2001, mở cửa thị trường lớn nhất thế giới cho hàng hoá Việt Nam.",
+        "en": "On 13 Jul 2000, Trade Minister Vũ Khoản and US Trade Representative Charlene Barshefsky signed the Bilateral Trade Agreement (BTA), in effect from 10 Dec 2001, opening the world's largest market to Vietnamese goods."
+      },
+      "hero": {
+        "id": "hiep-dinh-thuong-mai-viet-my-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/hoi-nhap-quoc-te/events/hiep-dinh-thuong-mai-viet-my.png",
+        "reduced": "eras/hoi-nhap-quoc-te/events/hiep-dinh-thuong-mai-viet-my.png"
+      },
+      "citation": {
+        "work": "Bộ Ngoại giao Việt Nam",
+        "section": {
+          "vi": "Hiệp định thương mại Việt Nam – Hoa Kỳ",
+          "en": "The Vietnam–United States Trade Agreement"
+        }
+      }
+    },
+    {
+      "id": "sea-games-22",
+      "slug": "sea-games-22",
+      "figureIds": [],
+      "order": 5,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "5 – 13/12/2003 SCN",
+          "en": "5–13 Dec 2003 CE"
+        },
+        "value": 2003,
+        "approximate": false
+      },
+      "title": {
+        "vi": "SEA Games 22: lần đầu đăng cai",
+        "en": "SEA Games 22: hosting for the first time"
+      },
+      "summary": {
+        "vi": "Từ 5 đến 13/12/2003, Việt Nam lần đầu tiên đăng cai Đại hội Thể thao Đông Nam Á (SEA Games 22) tại Hà Nội và các tỉnh lân cận, đoàn Việt Nam lần đầu dẫn đầu bảng tổng sắp huy chương.",
+        "en": "From 5 to 13 Dec 2003, Vietnam hosted the Southeast Asian Games (SEA Games 22) for the first time, in Hà Nội and neighboring provinces, with the Vietnamese team topping the medal table for the first time."
+      },
+      "body": {
+        "vi": "Từ 5 đến 13/12/2003, Việt Nam lần đầu tiên đăng cai Đại hội Thể thao Đông Nam Á (SEA Games 22) tại Hà Nội và các tỉnh lân cận, đoàn Việt Nam lần đầu dẫn đầu bảng tổng sắp huy chương.",
+        "en": "From 5 to 13 Dec 2003, Vietnam hosted the Southeast Asian Games (SEA Games 22) for the first time, in Hà Nội and neighboring provinces, with the Vietnamese team topping the medal table for the first time."
+      },
+      "hero": {
+        "id": "sea-games-22-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/hoi-nhap-quoc-te/events/sea-games-22.png",
+        "reduced": "eras/hoi-nhap-quoc-te/events/sea-games-22.png"
+      },
+      "citation": {
+        "work": "Cổng Thông tin điện tử Chính phủ",
+        "section": {
+          "vi": "SEA Games 22, Hà Nội 2003",
+          "en": "SEA Games 22, Hà Nội 2003"
+        }
+      }
+    },
+    {
+      "id": "apec-2006",
+      "slug": "apec-2006",
+      "figureIds": [],
+      "order": 6,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "11/2006 SCN",
+          "en": "Nov 2006 CE"
+        },
+        "value": 2006,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Hội nghị Cấp cao APEC lần đầu tại Hà Nội",
+        "en": "The first APEC Leaders' Meeting hosted in Hà Nội"
+      },
+      "summary": {
+        "vi": "Tháng 11/2006, Việt Nam lần đầu đăng cai Hội nghị Cấp cao APEC tại Hà Nội, quy tụ nguyên thủ 21 nền kinh tế thành viên, khẳng định vị thế đối ngoại ngay trước khi gia nhập WTO.",
+        "en": "In Nov 2006, Vietnam hosted the APEC Leaders' Meeting in Hà Nội for the first time, gathering the leaders of 21 member economies, affirming its diplomatic standing just before joining the WTO."
+      },
+      "body": {
+        "vi": "Tháng 11/2006, Việt Nam lần đầu đăng cai Hội nghị Cấp cao APEC tại Hà Nội, quy tụ nguyên thủ 21 nền kinh tế thành viên, khẳng định vị thế đối ngoại ngay trước khi gia nhập WTO.",
+        "en": "In Nov 2006, Vietnam hosted the APEC Leaders' Meeting in Hà Nội for the first time, gathering the leaders of 21 member economies, affirming its diplomatic standing just before joining the WTO."
+      },
+      "hero": {
+        "id": "apec-2006-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/hoi-nhap-quoc-te/events/apec-2006.png",
+        "reduced": "eras/hoi-nhap-quoc-te/events/apec-2006.png"
+      },
+      "citation": {
+        "work": "Bộ Ngoại giao Việt Nam",
+        "section": {
+          "vi": "Hội nghị Cấp cao APEC 2006",
+          "en": "The 2006 APEC Leaders' Meeting"
+        }
+      }
+    },
+    {
+      "id": "gia-nhap-wto",
+      "slug": "gia-nhap-wto",
+      "figureIds": [
+        "nong-duc-manh"
+      ],
+      "order": 7,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "11/1/2007 SCN",
+          "en": "11 Jan 2007 CE"
+        },
+        "value": 2007,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Việt Nam gia nhập WTO: thành viên thứ 150",
+        "en": "Vietnam joins the WTO as its 150th member"
+      },
+      "summary": {
+        "vi": "Sau khi ký Nghị định thư gia nhập ngày 7/11/2006 và được Quốc hội phê chuẩn ngày 29/11/2006, Việt Nam chính thức trở thành thành viên thứ 150 của Tổ chức Thương mại Thế giới (WTO) từ 11/1/2007, sau 11 năm đàm phán.",
+        "en": "After signing the Protocol of Accession on 7 Nov 2006 and ratification by the National Assembly on 29 Nov 2006, Vietnam formally became the World Trade Organization's 150th member from 11 Jan 2007, after 11 years of negotiation."
+      },
+      "body": {
+        "vi": "Việt Nam nộp đơn xin gia nhập WTO năm 1995 và trải qua 11 năm đàm phán song phương và đa phương. Ngày 7/11/2006, tại Geneva, Việt Nam ký Nghị định thư gia nhập; Quốc hội phê chuẩn ngày 29/11/2006, và Việt Nam trở thành thành viên thứ 150 của WTO từ ngày 11/1/2007 — mốc gợi nhớ con số 149 của Việt Nam khi gia nhập Liên Hợp Quốc năm 1977 (đơn vị thành viên thứ 149).",
+        "en": "Vietnam applied for WTO membership in 1995 and went through 11 years of bilateral and multilateral negotiations. On 7 Nov 2006 in Geneva, Vietnam signed the Protocol of Accession; the National Assembly ratified it on 29 Nov 2006, and Vietnam became the WTO's 150th member from 11 Jan 2007 — a milestone echoing Vietnam's own number, 149th, when it joined the United Nations in 1977."
+      },
+      "hero": {
+        "id": "gia-nhap-wto-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/hoi-nhap-quoc-te/events/gia-nhap-wto.png",
+        "reduced": "eras/hoi-nhap-quoc-te/events/gia-nhap-wto.png"
+      },
+      "citation": {
+        "work": "Bộ Công Thương Việt Nam",
+        "section": {
+          "vi": "Việt Nam gia nhập Tổ chức Thương mại Thế giới (WTO)",
+          "en": "Vietnam's accession to the World Trade Organization"
+        }
+      }
+    }
+  ]
+}

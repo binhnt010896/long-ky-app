@@ -379,11 +379,11 @@
     },
     "eras/cong-cuoc-doi-moi/characters/tran-van-phuong-avatar.png": {
       "key": "eras/cong-cuoc-doi-moi/characters/tran-van-phuong-avatar.webp",
-      "v": "186d883510"
+      "v": "1469e51b57"
     },
     "eras/cong-cuoc-doi-moi/characters/tran-van-phuong-full.png": {
       "key": "eras/cong-cuoc-doi-moi/characters/tran-van-phuong-full.webp",
-      "v": "8b74f85ca6"
+      "v": "83b5bf6a78"
     },
     "eras/cong-cuoc-doi-moi/characters/vo-van-kiet-avatar.png": {
       "key": "eras/cong-cuoc-doi-moi/characters/vo-van-kiet-avatar.webp",
@@ -789,6 +789,78 @@
       "key": "eras/hai-ba-trung/scene/sky.webp",
       "v": "386deb754b"
     },
+    "eras/hoi-nhap-quoc-te/characters/le-kha-phieu-avatar.png": {
+      "key": "eras/hoi-nhap-quoc-te/characters/le-kha-phieu-avatar.webp",
+      "v": "3329dcb30e"
+    },
+    "eras/hoi-nhap-quoc-te/characters/le-kha-phieu-full.png": {
+      "key": "eras/hoi-nhap-quoc-te/characters/le-kha-phieu-full.webp",
+      "v": "6d1dc3174d"
+    },
+    "eras/hoi-nhap-quoc-te/characters/nong-duc-manh-avatar.png": {
+      "key": "eras/hoi-nhap-quoc-te/characters/nong-duc-manh-avatar.webp",
+      "v": "15aa19057e"
+    },
+    "eras/hoi-nhap-quoc-te/characters/nong-duc-manh-full.png": {
+      "key": "eras/hoi-nhap-quoc-te/characters/nong-duc-manh-full.webp",
+      "v": "b106d2575c"
+    },
+    "eras/hoi-nhap-quoc-te/characters/phan-van-khai-avatar.png": {
+      "key": "eras/hoi-nhap-quoc-te/characters/phan-van-khai-avatar.webp",
+      "v": "dde604e953"
+    },
+    "eras/hoi-nhap-quoc-te/characters/phan-van-khai-full.png": {
+      "key": "eras/hoi-nhap-quoc-te/characters/phan-van-khai-full.webp",
+      "v": "e3d86dc509"
+    },
+    "eras/hoi-nhap-quoc-te/characters/tran-duc-luong-avatar.png": {
+      "key": "eras/hoi-nhap-quoc-te/characters/tran-duc-luong-avatar.webp",
+      "v": "8556e2e0b2"
+    },
+    "eras/hoi-nhap-quoc-te/characters/tran-duc-luong-full.png": {
+      "key": "eras/hoi-nhap-quoc-te/characters/tran-duc-luong-full.webp",
+      "v": "a43d83f454"
+    },
+    "eras/hoi-nhap-quoc-te/cover.png": {
+      "key": "eras/hoi-nhap-quoc-te/cover.webp",
+      "v": "fa69139fcb"
+    },
+    "eras/hoi-nhap-quoc-te/events/apec-2006.png": {
+      "key": "eras/hoi-nhap-quoc-te/events/apec-2006.webp",
+      "v": "4ac38bf46a"
+    },
+    "eras/hoi-nhap-quoc-te/events/dai-hoi-viii.png": {
+      "key": "eras/hoi-nhap-quoc-te/events/dai-hoi-viii.webp",
+      "v": "7a58ee545b"
+    },
+    "eras/hoi-nhap-quoc-te/events/gia-nhap-apec.png": {
+      "key": "eras/hoi-nhap-quoc-te/events/gia-nhap-apec.webp",
+      "v": "5e1d98ca69"
+    },
+    "eras/hoi-nhap-quoc-te/events/gia-nhap-wto.png": {
+      "key": "eras/hoi-nhap-quoc-te/events/gia-nhap-wto.webp",
+      "v": "339beb06c2"
+    },
+    "eras/hoi-nhap-quoc-te/events/hiep-dinh-thuong-mai-viet-my.png": {
+      "key": "eras/hoi-nhap-quoc-te/events/hiep-dinh-thuong-mai-viet-my.webp",
+      "v": "b32bd55acf"
+    },
+    "eras/hoi-nhap-quoc-te/events/luat-doanh-nghiep-1999.png": {
+      "key": "eras/hoi-nhap-quoc-te/events/luat-doanh-nghiep-1999.webp",
+      "v": "4db1441212"
+    },
+    "eras/hoi-nhap-quoc-te/events/phan-dinh-bien-gioi.png": {
+      "key": "eras/hoi-nhap-quoc-te/events/phan-dinh-bien-gioi.webp",
+      "v": "010c19cfd4"
+    },
+    "eras/hoi-nhap-quoc-te/events/sea-games-22.png": {
+      "key": "eras/hoi-nhap-quoc-te/events/sea-games-22.webp",
+      "v": "92a5c6a513"
+    },
+    "eras/hoi-nhap-quoc-te/scene/sky.png": {
+      "key": "eras/hoi-nhap-quoc-te/scene/sky.webp",
+      "v": "fa69139fcb"
+    },
     "eras/hong-bang/characters/an-duong-vuong.png": {
       "key": "eras/hong-bang/characters/an-duong-vuong.webp",
       "v": "a003c707c4"
@@ -924,6 +996,78 @@
     "eras/khuc-thua-du/scene/sky.png": {
       "key": "eras/khuc-thua-du/scene/sky.webp",
       "v": "99f4656f01"
+    },
+    "eras/ky-nguyen-vuon-minh/characters/luong-cuong-avatar.png": {
+      "key": "eras/ky-nguyen-vuon-minh/characters/luong-cuong-avatar.webp",
+      "v": "494d35b3df"
+    },
+    "eras/ky-nguyen-vuon-minh/characters/luong-cuong-full.png": {
+      "key": "eras/ky-nguyen-vuon-minh/characters/luong-cuong-full.webp",
+      "v": "23a8fd852b"
+    },
+    "eras/ky-nguyen-vuon-minh/characters/pham-minh-chinh-avatar.png": {
+      "key": "eras/ky-nguyen-vuon-minh/characters/pham-minh-chinh-avatar.webp",
+      "v": "d3cca5a1a9"
+    },
+    "eras/ky-nguyen-vuon-minh/characters/pham-minh-chinh-full.png": {
+      "key": "eras/ky-nguyen-vuon-minh/characters/pham-minh-chinh-full.webp",
+      "v": "f179f8fc6c"
+    },
+    "eras/ky-nguyen-vuon-minh/characters/to-lam-avatar.png": {
+      "key": "eras/ky-nguyen-vuon-minh/characters/to-lam-avatar.webp",
+      "v": "ab3dbffa6d"
+    },
+    "eras/ky-nguyen-vuon-minh/characters/to-lam-full.png": {
+      "key": "eras/ky-nguyen-vuon-minh/characters/to-lam-full.webp",
+      "v": "a64d0a2915"
+    },
+    "eras/ky-nguyen-vuon-minh/cover.png": {
+      "key": "eras/ky-nguyen-vuon-minh/cover.webp",
+      "v": "ef80eea372"
+    },
+    "eras/ky-nguyen-vuon-minh/events/a80.png": {
+      "key": "eras/ky-nguyen-vuon-minh/events/a80.webp",
+      "v": "638e9ec086"
+    },
+    "eras/ky-nguyen-vuon-minh/events/chong-dich-covid-19.png": {
+      "key": "eras/ky-nguyen-vuon-minh/events/chong-dich-covid-19.webp",
+      "v": "58c0b8c6d3"
+    },
+    "eras/ky-nguyen-vuon-minh/events/chu-tich-asean-rcep.png": {
+      "key": "eras/ky-nguyen-vuon-minh/events/chu-tich-asean-rcep.webp",
+      "v": "37c8ca9038"
+    },
+    "eras/ky-nguyen-vuon-minh/events/dai-hoi-xiii.png": {
+      "key": "eras/ky-nguyen-vuon-minh/events/dai-hoi-xiii.webp",
+      "v": "b111b07956"
+    },
+    "eras/ky-nguyen-vuon-minh/events/ky-niem-50-nam-thong-nhat.png": {
+      "key": "eras/ky-nguyen-vuon-minh/events/ky-niem-50-nam-thong-nhat.webp",
+      "v": "63b52479ac"
+    },
+    "eras/ky-nguyen-vuon-minh/events/nghi-quyet-57.png": {
+      "key": "eras/ky-nguyen-vuon-minh/events/nghi-quyet-57.webp",
+      "v": "0953f12ac8"
+    },
+    "eras/ky-nguyen-vuon-minh/events/ngoai-giao-cay-tre.png": {
+      "key": "eras/ky-nguyen-vuon-minh/events/ngoai-giao-cay-tre.webp",
+      "v": "d3d25d6733"
+    },
+    "eras/ky-nguyen-vuon-minh/events/sap-xep-34-tinh.png": {
+      "key": "eras/ky-nguyen-vuon-minh/events/sap-xep-34-tinh.webp",
+      "v": "477d81d447"
+    },
+    "eras/ky-nguyen-vuon-minh/events/tang-truong-2025.png": {
+      "key": "eras/ky-nguyen-vuon-minh/events/tang-truong-2025.webp",
+      "v": "f4fbf88417"
+    },
+    "eras/ky-nguyen-vuon-minh/events/tong-bi-thu-nguyen-phu-trong-tu-tran.png": {
+      "key": "eras/ky-nguyen-vuon-minh/events/tong-bi-thu-nguyen-phu-trong-tu-tran.webp",
+      "v": "8e0d0b7602"
+    },
+    "eras/ky-nguyen-vuon-minh/scene/sky.png": {
+      "key": "eras/ky-nguyen-vuon-minh/scene/sky.webp",
+      "v": "ef80eea372"
     },
     "eras/le-loi/characters/le-lai-avatar.png": {
       "key": "eras/le-loi/characters/le-lai-avatar.webp",
@@ -2245,6 +2389,58 @@
       "key": "eras/van-xuan/scene/sky.webp",
       "v": "2e6d4243bf"
     },
+    "eras/vi-the-moi/characters/nguyen-phu-trong-avatar.png": {
+      "key": "eras/vi-the-moi/characters/nguyen-phu-trong-avatar.webp",
+      "v": "f2b10e788b"
+    },
+    "eras/vi-the-moi/characters/nguyen-phu-trong-full.png": {
+      "key": "eras/vi-the-moi/characters/nguyen-phu-trong-full.webp",
+      "v": "85f15ba9bb"
+    },
+    "eras/vi-the-moi/characters/nguyen-tan-dung-avatar.png": {
+      "key": "eras/vi-the-moi/characters/nguyen-tan-dung-avatar.webp",
+      "v": "4a9ec911b4"
+    },
+    "eras/vi-the-moi/characters/nguyen-tan-dung-full.png": {
+      "key": "eras/vi-the-moi/characters/nguyen-tan-dung-full.webp",
+      "v": "f94273e2b5"
+    },
+    "eras/vi-the-moi/cover.png": {
+      "key": "eras/vi-the-moi/cover.webp",
+      "v": "07a567e39b"
+    },
+    "eras/vi-the-moi/events/apec-2017.png": {
+      "key": "eras/vi-the-moi/events/apec-2017.webp",
+      "v": "8140272ea8"
+    },
+    "eras/vi-the-moi/events/cptpp-evfta.png": {
+      "key": "eras/vi-the-moi/events/cptpp-evfta.webp",
+      "v": "09afc28d48"
+    },
+    "eras/vi-the-moi/events/dai-le-1000-nam.png": {
+      "key": "eras/vi-the-moi/events/dai-le-1000-nam.webp",
+      "v": "e60e38da85"
+    },
+    "eras/vi-the-moi/events/hien-phap-2013.png": {
+      "key": "eras/vi-the-moi/events/hien-phap-2013.webp",
+      "v": "fc7854d108"
+    },
+    "eras/vi-the-moi/events/hoi-dong-bao-an.png": {
+      "key": "eras/vi-the-moi/events/hoi-dong-bao-an.webp",
+      "v": "b35cf74cc6"
+    },
+    "eras/vi-the-moi/events/mo-rong-ha-noi.png": {
+      "key": "eras/vi-the-moi/events/mo-rong-ha-noi.webp",
+      "v": "5c82cdfcc7"
+    },
+    "eras/vi-the-moi/events/thoat-thu-nhap-thap.png": {
+      "key": "eras/vi-the-moi/events/thoat-thu-nhap-thap.webp",
+      "v": "abb74a5dce"
+    },
+    "eras/vi-the-moi/scene/sky.png": {
+      "key": "eras/vi-the-moi/scene/sky.webp",
+      "v": "07a567e39b"
+    },
     "periods/bac-thuoc.png": {
       "key": "periods/bac-thuoc.webp",
       "v": "17891e5924"
@@ -2272,6 +2468,10 @@
     "periods/khang-chien-chong-phap.png": {
       "key": "periods/khang-chien-chong-phap.webp",
       "v": "60a8db4fb9"
+    },
+    "periods/ky-nguyen-moi.png": {
+      "key": "periods/ky-nguyen-moi.webp",
+      "v": "72fa0c5272"
     },
     "periods/ngo-dinh-tien-le.png": {
       "key": "periods/ngo-dinh-tien-le.webp",
