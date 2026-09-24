@@ -4,71 +4,77 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: WAITING ON THE USER. The code is done; the first Play upload needs the user's keystore and Play Console setup.**
+**Status: IDLE — nothing queued.**
 
-## Done (committed to `main`)
+Cycle A is fully executed, verified, published and committed to `main`.
 
-**`348c014` feat(app): add the Sảnh hall behind the Long Ký seal**
-- The seal in Home's top-right corner opens the Sảnh (`/sanh`): a lacquer panel with a gold frame, the brand lockup, a Chào cờ card, and a directory (Niên biểu, Bản đồ lãnh thổ, Về Long Ký).
-- **Chào cờ is daily:** an always-on Home pill reads "CHÀO CỜ HÔM NAY". On 30/4 and 2/9 it names the day. The button on the 2/9/1945 event is gone.
-- **Về Long Ký** (`/sanh/gioi-thieu`) shows the approved copy. Cited works are in bold gold italic, and it includes "do người Việt, vì người Việt".
-- **The "Mời Long Ký một chén trà" tip** is a $0.99 consumable, `long_ky_tea`, using `in_app_purchase`.
-  - The row only appears once the store product loads, so it stays hidden until Play is set up.
-  - A successful purchase shows a thank-you sheet.
+- **Image audit (Eras 29–31):** ~24 real archival photos were re-captioned
+  from "Minh họa · phong cách sơn mài" to "Ảnh tư liệu" or "Ảnh tư liệu ·
+  phục chế màu" (Era 28's lacquer illustrations and one poster-style
+  painting in Era 29 kept "Minh họa"). Two mismatched heroes were replaced
+  with user-supplied images: the 1930 Party-founding painting (enhanced
+  only, no colorization) and a Việt Bắc 1947 base photo (colorized, with a
+  strict per-face A/B check across ~20 faces). The 1945 famine photo is now
+  credited to Võ An Ninh.
+- **Era 32 "Thống nhất đất nước"** extended from 1977 to 1986 with 6 new
+  events: joining SEV and the Việt–Xô treaty (1978), the 1980 Constitution,
+  Chỉ thị 100 "Khoán 100" (1981), the 5th Party Congress (1982), and the
+  1985 price–wage–currency reform.
+- **New period "Đổi Mới"** (kicker "Nhìn thẳng vào sự thật") with **Era 35
+  "Công cuộc Đổi Mới"** (1986–1995), 9 events: the 6th Congress, the
+  Foreign Investment Law, Gạc Ma (14/3/1988), Khoán 10, the first rice
+  exports (1989), the 7th Congress, the 1992 Constitution, the US embargo
+  lift, and the July 1995 double milestone (US normalization + ASEAN).
+- **4 new figures:** Nguyễn Văn Linh, Võ Văn Kiệt, Đỗ Mười, Trần Văn Phương.
+  Trần Văn Phương's only known photo was too degraded for two AI
+  restoration attempts to reconstruct reliably (both drifted toward a
+  generic, idealized face); his portrait uses a plain local upscale
+  instead, to avoid risking a fabricated likeness of a named martyr. Worth
+  the user's own eyes on this one.
+- 35 eras · 212 events total (was 34/197). Territory atlas's "thong-nhat"
+  snapshot now also covers Era 35 (the territory is unchanged since 1975).
+- **Verified:** all 26 generated/restored images A/B-checked against
+  source (1 fallback to local upscale, as above); validate:content 35 eras
+  · manifest 0 collisions · analyze clean · 117 tests · web smoke test
+  confirmed Era 32's extension, Era 35, and the global timeline count
+  (35 kỷ nguyên · 212 sự kiện).
+- **Published:** pack `20260924044851` (35 eras, 1228 KB) is live on R2.
+- **Higgsfield spend:** 44 of the 120-credit cap for this cycle.
+- **6 commits** landed on `main` (2 caption/content fixes, 2 feat content,
+  1 territory/test update folded into the Era 35 commit, 1 version bump).
 
-**`c6261eb` build(android): rename the package to app.longky and sign releases with an upload key**
-- `applicationId` and `namespace` are now `app.longky`, and `MainActivity` moved to match. The iOS bundle id is aligned.
-- Release builds read `android/key.properties` (gitignored). Without it they fall back to the debug key.
+## Still awaiting the user
+- **Trần Văn Phương's portrait:** the user should look at it themselves
+  and say whether the local-upscale fallback is acceptable, or whether to
+  try again, use a different source, or omit the portrait.
 
-**Verified:**
-- analyze is clean.
-- 117 app tests pass, including 10 new Sảnh tests.
-- The debug APK builds with the new package.
-- Web smoke test at 375×812: Home seal and pill, the Sảnh in VI and EN, and Về Long Ký.
-- The tea row is correctly absent on web.
-
-## Remaining: the user, in order
-1. **Create the upload keystore.** Keep it and its passwords safe; losing it blocks updates until Google resets the key.
-   ```bash
-   keytool -genkey -v -keystore ~/long-ky-upload.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
-   ```
-   Then write `apps/mobile/android/key.properties`:
-   ```
-   storePassword=…
-   keyPassword=…
-   keyAlias=upload
-   storeFile=/Users/binhnguyen/long-ky-upload.jks
-   ```
-   Back up both files outside the repo.
-2. **Tell Claude it exists.** Claude then runs:
-   - `flutter build appbundle --release` in `apps/mobile`.
-   - A `jarsigner` check that the bundle carries the upload certificate, not "Android Debug".
-
-   Claude never reads the passwords.
-3. **Play Console:**
-   - Create the app "Long Ký" (default language Vietnamese, App, Free). Keep **Play App Signing** on.
-   - Set up the **payments profile** (bank and tax details).
-4. **Internal testing:**
-   - Upload `build/app/outputs/bundle/release/app-release.aab`.
-   - Add yourself as a tester and accept the opt-in link on your phone.
-5. **In-app product:** create `long_ky_tea`. It is a managed product, $0.99, with name "Một chén trà". The description is: "Mời Long Ký một chén trà: tiếp sức để Long Ký viết tiếp sử Việt, miễn phí và không quảng cáo." **Activate** it.
-6. **License testing:** add your account under Settings → License testing.
-7. **Test on the phone:**
-   - Install from internal testing.
-   - Open Sảnh → "Mời Long Ký một chén trà" and buy with the test card.
-   - The thank-you sheet should appear. Buy again to confirm the purchase is consumable.
-8. **Before any wider release,** fill in Play's app content forms: privacy policy URL, data safety (no personal data collected), content rating, and target audience. Claude can draft the privacy policy and the data-safety answers.
-
-**Every later upload must raise the `+N` build number** in `apps/mobile/pubspec.yaml`, which is currently `1.0.0+1`.
-
-## Next cycles (queued, in order)
-1. **The chronicle, 1977 → 2025.**
-   - Complete Era 32 (1977–1986).
-   - Add a new **Đổi Mới** period with Era 35 (1986–1995, including Gạc Ma 1988), Era 36 (1996–2007, WTO), Era 37 (2008–2019) and Era 38 (2020–2025).
-   - Peacetime growth counts as history in full. Check every growth figure against Gov and GSO sources.
+## Next cycles (queued, user's order)
+1. **Cycle B — the chronicle, 1996 → 2025** (outline; planned in full next):
+   - **Era 36, Hội nhập (1996–2007):** Đại hội VIII (1996); APEC membership
+     (11/1998); the 1999 Enterprise Law; the US–Việt Nam BTA (13/7/2000);
+     SEA Games 22 (12/2003); APEC 2006 in Hà Nội; **WTO, the 150th member**
+     (11/1/2007), echoing the UN's 149th. Figures: Phan Văn Khải, Nông Đức
+     Mạnh, Trần Đức Lương.
+   - **Era 37, Vị thế mới (2008–2019):** Hà Nội expanded (1/8/2008); leaving
+     low-income status (verify the World Bank year); Thăng Long's 1000th
+     anniversary (10/2010); the 2013 Constitution; HD-981 (5/2014, **user
+     decision needed**); CPTPP (2018) and EVFTA (6/2019); UN Security
+     Council election (2020–2021 term). Figures: Nguyễn Phú Trọng, Nguyễn
+     Tấn Dũng.
+   - **Era 38 "Kỷ Nguyên Vươn Mình"** (2020–2025, user-chosen name, slug
+     `ky-nguyen-vuon-minh`): COVID-19; Đại hội XIII (2021); General
+     Secretary Nguyễn Phú Trọng's death (19/7/2024); Nghị quyết 57
+     (12/2024); the 34 provinces/cities from 1/7/2025; the 50th anniversary
+     of Reunification (30/4/2025); A80, the 80th National Day (2/9/2025);
+     2025 growth (GSO figure, no superlatives without a source). Figures:
+     Nguyễn Phú Trọng, **Tô Lâm** (sitting General Secretary — official
+     portrait, neutral record-based text only).
 2. **Câu đố (quizzes)**, as a new Sảnh row.
-3. **A soft tip ask** after finishing an era: shown once, dismissible, never on first launch.
-4. **iOS build and App Store in-app purchase** for the tip (Guideline 3.1.1). This needs Xcode and an Apple Developer account.
+3. **UX polish pass**: screen-by-screen audit at phone size, then fixes
+   chosen by the user.
 
-## Still awaiting the user's yes/no (from earlier cycles)
-- **Era 30/31 photo-hero recaption:** real archival photos there are captioned "Minh họa · phong cách sơn mài". Recaption them "Ảnh tư liệu · phục chế màu". This is a separate `fix(content)` commit plus a publish.
+## Paused (Play Console)
+The user's Play developer account is under review. When approved, resume
+at: create the upload keystore → `key.properties` → Claude builds and
+verifies the AAB → Play Console setup → `long_ky_tea` → license-tester
+purchase test. Full steps are in git history (`80d0117:EXECUTION.md`).
