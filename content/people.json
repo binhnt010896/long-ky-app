@@ -3569,7 +3569,10 @@
     },
     {
       "id": "ton-duc-thang",
-      "name": { "vi": "Tôn Đức Thắng", "en": "Tôn Đức Thắng" },
+      "name": {
+        "vi": "Tôn Đức Thắng",
+        "en": "Tôn Đức Thắng"
+      },
       "epithet": {
         "vi": "Chủ tịch nước đầu tiên của nước Cộng hòa xã hội chủ nghĩa Việt Nam",
         "en": "First President of the Socialist Republic of Vietnam"
@@ -3593,7 +3596,10 @@
     },
     {
       "id": "le-duc-anh",
-      "name": { "vi": "Đại tướng Lê Đức Anh", "en": "General Lê Đức Anh" },
+      "name": {
+        "vi": "Đại tướng Lê Đức Anh",
+        "en": "General Lê Đức Anh"
+      },
       "epithet": {
         "vi": "Tư lệnh Quân khu 9; Tư lệnh Quân tình nguyện Việt Nam tại Campuchia",
         "en": "Commander, Military Region 9; Commander of the Vietnamese volunteer forces in Cambodia"
@@ -3617,7 +3623,10 @@
     },
     {
       "id": "le-trong-tan",
-      "name": { "vi": "Đại tướng Lê Trọng Tấn", "en": "General Lê Trọng Tấn" },
+      "name": {
+        "vi": "Đại tướng Lê Trọng Tấn",
+        "en": "General Lê Trọng Tấn"
+      },
       "epithet": {
         "vi": "Tổng Tham mưu trưởng; chỉ huy Mặt trận Tây Nam",
         "en": "Chief of the General Staff; commander of the Southwest Front"
@@ -3641,7 +3650,10 @@
     },
     {
       "id": "dam-quang-trung",
-      "name": { "vi": "Thượng tướng Đàm Quang Trung", "en": "Senior Lieutenant General Đàm Quang Trung" },
+      "name": {
+        "vi": "Thượng tướng Đàm Quang Trung",
+        "en": "Senior Lieutenant General Đàm Quang Trung"
+      },
       "epithet": {
         "vi": "Tư lệnh Quân khu 1 trong chiến tranh bảo vệ biên giới phía Bắc",
         "en": "Commander of Military Region 1 during the northern border war"
@@ -3665,7 +3677,10 @@
     },
     {
       "id": "vu-lap",
-      "name": { "vi": "Thượng tướng Vũ Lập", "en": "Senior Lieutenant General Vũ Lập" },
+      "name": {
+        "vi": "Thượng tướng Vũ Lập",
+        "en": "Senior Lieutenant General Vũ Lập"
+      },
       "epithet": {
         "vi": "Tư lệnh Quân khu 2 trong chiến tranh bảo vệ biên giới phía Bắc",
         "en": "Commander of Military Region 2 during the northern border war"
@@ -3685,6 +3700,114 @@
         "type": "image",
         "flagship": "eras/bien-gioi-phia-bac/characters/vu-lap-full.png",
         "reduced": "eras/bien-gioi-phia-bac/characters/vu-lap-full.png"
+      }
+    },
+    {
+      "id": "nguyen-van-linh",
+      "name": {
+        "vi": "Nguyễn Văn Linh",
+        "en": "Nguyễn Văn Linh"
+      },
+      "epithet": {
+        "vi": "Tổng Bí thư (1986–1991); người khởi xướng công cuộc Đổi Mới",
+        "en": "General Secretary (1986–1991); the initiator of Đổi Mới"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo cách mạng (1915–1998), tên thật Nguyễn Văn Cúc, quê Hưng Yên. Tham gia cách mạng từ thời niên thiếu, nhiều lần bị thực dân Pháp bắt giam ở Côn Đảo. Sau 1975, ông làm Bí thư Thành uỷ Thành phố Hồ Chí Minh, nơi ông tổng kết nhiều thực tiễn 'bung ra' tự phát trong sản xuất, kinh doanh — những kinh nghiệm sau này góp phần hình thành đường lối Đổi Mới. Tại Đại hội VI (12/1986), giữa lúc đất nước khủng hoảng kinh tế – xã hội nghiêm trọng, ông được bầu làm Tổng Bí thư, trực tiếp chỉ đạo những bước đi đầu tiên của công cuộc Đổi Mới: đổi mới cơ chế quản lý kinh tế, phát triển kinh tế nhiều thành phần, mở cửa thu hút đầu tư nước ngoài. Ông được xem là người khởi xướng và có công lớn trong công cuộc Đổi Mới của Việt Nam.",
+        "en": "A revolutionary leader (1915–1998), born Nguyễn Văn Cúc in Hưng Yên. He joined the revolution as a youth and was repeatedly imprisoned by the French at Côn Đảo. After 1975 he served as Party Secretary of Hồ Chí Minh City, where he studied many spontaneous local 'breakouts' from rigid production and trading rules — experience that later helped shape the Đổi Mới line. At the 6th Congress (Dec 1986), amid severe economic and social crisis, he was elected General Secretary and directly guided Đổi Mới's first steps: reforming economic management, developing a multi-sector economy, and opening up to foreign investment. He is regarded as the initiator of, and a major contributor to, Vietnam's Renovation."
+      },
+      "avatar": {
+        "id": "nguyen-van-linh-avatar",
+        "type": "image",
+        "flagship": "eras/cong-cuoc-doi-moi/characters/nguyen-van-linh-avatar.png",
+        "reduced": "eras/cong-cuoc-doi-moi/characters/nguyen-van-linh-avatar.png"
+      },
+      "fullBody": {
+        "id": "nguyen-van-linh-full",
+        "type": "image",
+        "flagship": "eras/cong-cuoc-doi-moi/characters/nguyen-van-linh-full.png",
+        "reduced": "eras/cong-cuoc-doi-moi/characters/nguyen-van-linh-full.png"
+      }
+    },
+    {
+      "id": "vo-van-kiet",
+      "name": {
+        "vi": "Võ Văn Kiệt",
+        "en": "Võ Văn Kiệt"
+      },
+      "epithet": {
+        "vi": "Chủ tịch Hội đồng Bộ trưởng, sau là Thủ tướng Chính phủ (1991–1997)",
+        "en": "Chairman of the Council of Ministers, later Prime Minister (1991–1997)"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo cách mạng (1922–2008), tên thật Phan Văn Hoà, quê Vĩnh Long. Tham gia cách mạng từ năm 1938, trưởng thành qua hai cuộc kháng chiến ở Nam Bộ. Từ tháng 3/1988, ông giữ quyền Chủ tịch Hội đồng Bộ trưởng sau khi Chủ tịch Phạm Hùng từ trần; tháng 8/1991, được Quốc hội bầu làm Chủ tịch Hội đồng Bộ trưởng, từ năm 1992 gọi là Thủ tướng Chính phủ theo Hiến pháp mới, giữ cương vị này đến năm 1997. Ông là người quyết đoán, gắn liền với nhiều công trình và chính sách mở cửa quan trọng của thời kỳ đầu Đổi Mới — thúc đẩy phát triển kinh tế nhiều thành phần, mở đường cho các dự án hạ tầng và năng lượng lớn, đồng thời có vai trò quan trọng trong tiến trình bình thường hoá quan hệ với Hoa Kỳ và gia nhập ASEAN.",
+        "en": "A revolutionary leader (1922–2008), born Phan Văn Hoà in Vĩnh Long. He joined the revolution in 1938 and rose through both resistance wars in the South. From Mar 1988 he served as Acting Chairman of the Council of Ministers after Chairman Phạm Hùng's sudden death; in Aug 1991 the National Assembly elected him Chairman of the Council of Ministers, styled Prime Minister from 1992 under the new Constitution, a post he held until 1997. A decisive leader, he is linked to many of the major projects and opening-up policies of the early Đổi Mới period — driving the multi-sector economy, clearing the way for major infrastructure and energy projects, and playing an important role in normalizing relations with the United States and joining ASEAN."
+      },
+      "avatar": {
+        "id": "vo-van-kiet-avatar",
+        "type": "image",
+        "flagship": "eras/cong-cuoc-doi-moi/characters/vo-van-kiet-avatar.png",
+        "reduced": "eras/cong-cuoc-doi-moi/characters/vo-van-kiet-avatar.png"
+      },
+      "fullBody": {
+        "id": "vo-van-kiet-full",
+        "type": "image",
+        "flagship": "eras/cong-cuoc-doi-moi/characters/vo-van-kiet-full.png",
+        "reduced": "eras/cong-cuoc-doi-moi/characters/vo-van-kiet-full.png"
+      }
+    },
+    {
+      "id": "do-muoi",
+      "name": {
+        "vi": "Đỗ Mười",
+        "en": "Đỗ Mười"
+      },
+      "epithet": {
+        "vi": "Chủ tịch Hội đồng Bộ trưởng (1988–1991); Tổng Bí thư (1991–1997)",
+        "en": "Chairman of the Council of Ministers (1988–1991); General Secretary (1991–1997)"
+      },
+      "bio": {
+        "vi": "Nhà lãnh đạo cách mạng (1917–2018), tên thật Nguyễn Duy Cống, quê Thanh Trì, Hà Nội. Tham gia cách mạng từ năm 1936, từng bị thực dân Pháp bắt giam. Tháng 6/1988, được Quốc hội bầu làm Chủ tịch Hội đồng Bộ trưởng sau khi Chủ tịch Phạm Hùng từ trần. Tại Đại hội VII (6/1991), ông được bầu làm Tổng Bí thư, giữ cương vị này đến năm 1997, trực tiếp chỉ đạo việc thông qua Cương lĩnh xây dựng đất nước trong thời kỳ quá độ lên chủ nghĩa xã hội và Hiến pháp 1992, đồng thời chứng kiến những bước hội nhập quốc tế quan trọng của Việt Nam như bình thường hoá quan hệ với Hoa Kỳ và gia nhập ASEAN năm 1995.",
+        "en": "A revolutionary leader (1917–2018), born Nguyễn Duy Cống in Thanh Trì, Hà Nội. He joined the revolution in 1936 and was imprisoned by the French. In Jun 1988, the National Assembly elected him Chairman of the Council of Ministers after Chairman Phạm Hùng's death. At the 7th Congress (Jun 1991), he was elected General Secretary, a post he held until 1997, directly overseeing the adoption of the Platform for national construction in the transition to socialism and the 1992 Constitution, while also presiding over major steps in Vietnam's international integration, such as normalizing relations with the United States and joining ASEAN in 1995."
+      },
+      "avatar": {
+        "id": "do-muoi-avatar",
+        "type": "image",
+        "flagship": "eras/cong-cuoc-doi-moi/characters/do-muoi-avatar.png",
+        "reduced": "eras/cong-cuoc-doi-moi/characters/do-muoi-avatar.png"
+      },
+      "fullBody": {
+        "id": "do-muoi-full",
+        "type": "image",
+        "flagship": "eras/cong-cuoc-doi-moi/characters/do-muoi-full.png",
+        "reduced": "eras/cong-cuoc-doi-moi/characters/do-muoi-full.png"
+      }
+    },
+    {
+      "id": "tran-van-phuong",
+      "name": {
+        "vi": "Trần Văn Phương",
+        "en": "Trần Văn Phương"
+      },
+      "epithet": {
+        "vi": "Thiếu uý, Phó chỉ huy đảo Gạc Ma; Anh hùng Lực lượng vũ trang nhân dân",
+        "en": "Second lieutenant, deputy commander at Gạc Ma; Hero of the People's Armed Forces"
+      },
+      "bio": {
+        "vi": "Sĩ quan Hải quân nhân dân Việt Nam (1965–1988), quê xã Quảng Phúc, huyện Quảng Trạch, tỉnh Quảng Bình. Là Phó chỉ huy đảo Gạc Ma thuộc quần đảo Trường Sa, ngày 14/3/1988, khi hải quân Trung Quốc bất ngờ tấn công, ông cùng đồng đội kết thành 'vòng tròn bất tử' quyết giữ lá cờ Tổ quốc trên đảo. Khi bị thương nặng, ông vẫn động viên đồng đội bằng câu nói: 'Thà hy sinh, không thể mất đảo, hãy để cho máu của mình tô thắm lá cờ truyền thống của Quân chủng Hải quân,' rồi anh dũng hy sinh cùng 63 cán bộ, chiến sĩ khác. Ông được Nhà nước truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
+        "en": "A Vietnam People's Navy officer (1965–1988) from Quảng Phúc commune, Quảng Trạch district, Quảng Bình province. As deputy commander at Gạc Ma Reef in the Spratly Islands, on 14 Mar 1988, when Chinese naval forces suddenly attacked, he and his comrades linked hands into an 'immortal circle' to hold the national flag on the reef. Gravely wounded, he still rallied his comrades with the words: 'Rather sacrifice than lose the reef — let my blood stain the Navy's traditional flag,' before heroically falling alongside 63 other officers and soldiers. He was posthumously awarded the title Hero of the People's Armed Forces."
+      },
+      "avatar": {
+        "id": "tran-van-phuong-avatar",
+        "type": "image",
+        "flagship": "eras/cong-cuoc-doi-moi/characters/tran-van-phuong-avatar.png",
+        "reduced": "eras/cong-cuoc-doi-moi/characters/tran-van-phuong-avatar.png"
+      },
+      "fullBody": {
+        "id": "tran-van-phuong-full",
+        "type": "image",
+        "flagship": "eras/cong-cuoc-doi-moi/characters/tran-van-phuong-full.png",
+        "reduced": "eras/cong-cuoc-doi-moi/characters/tran-van-phuong-full.png"
       }
     }
   ]

@@ -76,6 +76,7 @@ class _DiskSource implements ContentSource {
         'thong-nhat-dat-nuoc',
         'bien-gioi-tay-nam',
         'bien-gioi-phia-bac',
+        'cong-cuoc-doi-moi',
       ];
 
   @override
@@ -1075,7 +1076,7 @@ void main() {
 
       // Header reflects the full corpus; the top of the spine is the first era.
       expect(find.text('NIÊN BIỂU'), findsOneWidget);
-      expect(find.text('34 kỷ nguyên · 197 sự kiện'), findsOneWidget);
+      expect(find.text('35 kỷ nguyên · 212 sự kiện'), findsOneWidget);
       expect(find.text('Hồng Bàng & Văn Lang'), findsOneWidget);
       expect(find.text('Kinh Dương Vương lập nước'), findsOneWidget);
       // The one spine runs down through every era to the last — scroll all the
@@ -1156,7 +1157,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Kinh Dương Vương lập nước'), findsOneWidget);
-      expect(find.text('34 kỷ nguyên · 197 sự kiện'), findsOneWidget);
+      expect(find.text('35 kỷ nguyên · 212 sự kiện'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   });

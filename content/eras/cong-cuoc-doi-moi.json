@@ -1,0 +1,611 @@
+{
+  "schemaVersion": 1,
+  "id": "cong-cuoc-doi-moi",
+  "slug": "cong-cuoc-doi-moi",
+  "order": 34,
+  "period": "doi-moi",
+  "title": {
+    "vi": "Công cuộc Đổi Mới",
+    "en": "The Renovation"
+  },
+  "kicker": {
+    "vi": "Nhìn thẳng vào sự thật (1986 – 1995)",
+    "en": "Face the truth squarely (1986–1995)"
+  },
+  "subtitle": {
+    "vi": "Từ Đại hội VI đến ghế thành viên ASEAN — mười năm mở cửa, đổi mới cơ chế và trở lại với thế giới.",
+    "en": "From the 6th Congress to an ASEAN seat — ten years of opening up, reforming the economy, and rejoining the world."
+  },
+  "overview": {
+    "vi": "Cuối năm 1986, đất nước lâm vào khủng hoảng kinh tế – xã hội nghiêm trọng sau nhiều năm duy trì cơ chế kế hoạch hoá tập trung, quan liêu, bao cấp. Từ ngày 15 đến 18 tháng 12 năm 1986, Đại hội đại biểu toàn quốc lần thứ VI của Đảng, với tinh thần \"nhìn thẳng vào sự thật, đánh giá đúng sự thật, nói rõ sự thật,\" đã chính thức khởi xướng công cuộc Đổi Mới toàn diện, bầu Nguyễn Văn Linh làm Tổng Bí thư. Ngày 29/12/1987, Quốc hội thông qua Luật Đầu tư nước ngoài, mở cửa nền kinh tế. Ngày 14/3/1988, tại đá Gạc Ma (Trường Sa), 64 cán bộ, chiến sĩ Hải quân nhân dân Việt Nam đã anh dũng hy sinh bảo vệ chủ quyền biển, đảo. Ngày 5/4/1988, Nghị quyết 10 (\"Khoán 10\") xác nhận hộ nông dân là đơn vị kinh tế tự chủ, đưa Việt Nam từ thiếu đói tới lần đầu tiên xuất khẩu gạo chỉ một năm sau, năm 1989. Tháng 6/1991, Đại hội VII thông qua Cương lĩnh xây dựng đất nước trong thời kỳ quá độ lên chủ nghĩa xã hội, bầu Đỗ Mười làm Tổng Bí thư; Võ Văn Kiệt trở thành Chủ tịch Hội đồng Bộ trưởng. Ngày 15/4/1992, Hiến pháp mới thể chế hoá đường lối Đổi Mới, khôi phục chức Chủ tịch nước và Thủ tướng Chính phủ. Ngày 3/2/1994, Hoa Kỳ bỏ cấm vận thương mại. Và trong tháng 7 năm 1995, chỉ cách nhau hai tuần, Việt Nam bình thường hoá quan hệ ngoại giao với Hoa Kỳ (11/7) và chính thức gia nhập ASEAN (28/7) — khép lại mười năm đầu Đổi Mới bằng một vị thế đối ngoại hoàn toàn mới.",
+    "en": "By late 1986, the country was in a severe economic and social crisis after years under a centralized, bureaucratic, subsidy-based mechanism. From 15 to 18 Dec 1986, the Party's 6th National Congress, with the spirit \"face the truth squarely, assess it truly, state it clearly,\" formally launched comprehensive Renovation (Đổi Mới) and elected Nguyễn Văn Linh as General Secretary. On 29 Dec 1987, the National Assembly passed the Law on Foreign Investment, opening the economy. On 14 Mar 1988, at Gạc Ma Reef (Spratly Islands), 64 Vietnam People's Navy officers and soldiers heroically fell defending the nation's sovereignty over its seas and islands. On 5 Apr 1988, Resolution 10 (\"Contract 10\") recognized the farming household as a self-managing economic unit, taking Vietnam from food shortage to its first rice exports just a year later, in 1989. In Jun 1991, the 7th Congress adopted a Platform for national construction in the transition to socialism and elected Đỗ Mười as General Secretary; Võ Văn Kiệt became Chairman of the Council of Ministers. On 15 Apr 1992, a new Constitution institutionalized the Đổi Mới line, restoring the offices of President and Prime Minister. On 3 Feb 1994, the United States lifted its trade embargo. And in Jul 1995, just two weeks apart, Vietnam normalized diplomatic relations with the US (11 Jul) and formally joined ASEAN (28 Jul) — closing the first decade of Đổi Mới with an entirely new standing in the world."
+  },
+  "yearRange": {
+    "display": {
+      "vi": "1986 – 1995 SCN",
+      "en": "1986 – 1995 CE"
+    },
+    "startYear": 1986,
+    "endYear": 1995
+  },
+  "palette": {
+    "accent": "#c9a227",
+    "particle": "#e8d27a",
+    "scene": [
+      "#0a0904",
+      "#1c1608",
+      "#3a2d0f",
+      "#6b5318",
+      "#c9a227",
+      "#d9b84a",
+      "#e8d27a"
+    ]
+  },
+  "cover": {
+    "id": "cong-cuoc-doi-moi-cover",
+    "type": "image",
+    "role": "cover",
+    "placeholder": "era-scene",
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    },
+    "flagship": "eras/cong-cuoc-doi-moi/cover.png",
+    "reduced": "eras/cong-cuoc-doi-moi/cover.png"
+  },
+  "scene": {
+    "layers": [
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "placeholder": "era-scene",
+        "flagship": "eras/cong-cuoc-doi-moi/scene/sky.png",
+        "reduced": "eras/cong-cuoc-doi-moi/scene/sky.png"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
+    ]
+  },
+  "primarySource": {
+    "work": "Lịch sử Việt Nam, tập 15",
+    "section": {
+      "vi": "Công cuộc Đổi Mới (1986–1995)",
+      "en": "The Renovation (1986–1995)"
+    },
+    "author": "Viện Sử học"
+  },
+  "characters": [
+    {
+      "ref": "nguyen-van-linh"
+    },
+    {
+      "ref": "vo-van-kiet"
+    },
+    {
+      "ref": "do-muoi"
+    },
+    {
+      "ref": "tran-van-phuong"
+    },
+    {
+      "ref": "truong-chinh",
+      "epithet": {
+        "vi": "Quyền Tổng Bí thư trước Đại hội VI (1986)",
+        "en": "Acting General Secretary ahead of the 6th Congress (1986)"
+      }
+    },
+    {
+      "ref": "pham-van-dong",
+      "epithet": {
+        "vi": "Cố vấn Ban Chấp hành Trung ương Đảng",
+        "en": "Adviser to the Party Central Committee"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "dai-hoi-vi",
+      "slug": "dai-hoi-vi",
+      "figureIds": [
+        "nguyen-van-linh",
+        "truong-chinh",
+        "pham-van-dong"
+      ],
+      "order": 0,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "15 – 18/12/1986 SCN",
+          "en": "15–18 Dec 1986 CE"
+        },
+        "value": 1986,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Đại hội VI: mở đầu công cuộc Đổi Mới",
+        "en": "The 6th Congress opens Đổi Mới"
+      },
+      "summary": {
+        "vi": "15–18/12/1986 tại Hà Nội, Đại hội VI của Đảng, với tinh thần 'nhìn thẳng vào sự thật, nói đúng sự thật, nói rõ sự thật,' mở đầu công cuộc Đổi Mới toàn diện, bầu Nguyễn Văn Linh làm Tổng Bí thư.",
+        "en": "15–18 Dec 1986 in Hà Nội, the Party's 6th Congress, with the spirit 'face the truth squarely, speak it truly, state it clearly,' opened comprehensive Đổi Mới and elected Nguyễn Văn Linh as General Secretary."
+      },
+      "body": {
+        "vi": "Sau khi Tổng Bí thư Lê Duẩn từ trần (10/7/1986), đồng chí Trường Chinh giữ quyền Tổng Bí thư trong thời gian ngắn trước Đại hội. Từ ngày 15 đến 18 tháng 12 năm 1986, tại Hà Nội, Đại hội đại biểu toàn quốc lần thứ VI của Đảng họp với 1.129 đại biểu, đại diện gần 1,9 triệu đảng viên. Với tinh thần 'nhìn thẳng vào sự thật, đánh giá đúng sự thật, nói rõ sự thật,' Đại hội thẳng thắn nhìn nhận những sai lầm trong quản lý kinh tế, chính thức khởi xướng đường lối Đổi Mới toàn diện — trước hết là đổi mới cơ chế quản lý kinh tế, phát triển kinh tế nhiều thành phần. Đại hội bầu đồng chí Nguyễn Văn Linh làm Tổng Bí thư.",
+        "en": "After General Secretary Lê Duẩn's death (10 Jul 1986), Trường Chinh served briefly as acting General Secretary ahead of the Congress. From 15 to 18 Dec 1986, in Hà Nội, the Party's 6th National Congress met with 1,129 delegates representing nearly 1.9 million members. With the spirit 'face the truth squarely, assess it truly, state it clearly,' the Congress frankly acknowledged past errors in economic management and formally launched a comprehensive line of Renovation (Đổi Mới) — above all reforming the economic management mechanism and developing a multi-sector economy. The Congress elected Nguyễn Văn Linh as General Secretary."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Đảng ta phải nhìn thẳng vào sự thật, đánh giá đúng sự thật, nói rõ sự thật.",
+          "en": "Our Party must look the truth squarely in the eye, assess it correctly, and speak it plainly."
+        },
+        "attribution": {
+          "vi": "Văn kiện Đại hội đại biểu toàn quốc lần thứ VI, 12/1986",
+          "en": "Documents of the 6th National Congress, Dec 1986"
+        }
+      },
+      "details": {
+        "vi": "Đại hội đại biểu toàn quốc lần thứ VI của Đảng Cộng sản Việt Nam họp từ ngày 15 đến 18 tháng 12 năm 1986 tại Hà Nội (có phiên trù bị từ 5–14/12), với 1.129 đại biểu tham dự, đại diện cho gần 1,9 triệu đảng viên cả nước. Đại hội diễn ra sau khi Tổng Bí thư Lê Duẩn từ trần ngày 10/7/1986 và đồng chí Trường Chinh giữ quyền Tổng Bí thư trong thời gian ngắn, giữa lúc đất nước đang lâm vào khủng hoảng kinh tế – xã hội nghiêm trọng sau cuộc tổng điều chỉnh giá – lương – tiền năm 1985. Với tinh thần tự phê bình nghiêm khắc, được tóm gọn trong phương châm 'nhìn thẳng vào sự thật, đánh giá đúng sự thật, nói rõ sự thật,' Đại hội thẳng thắn chỉ ra những sai lầm chủ quan, nóng vội trong nhận thức và chỉ đạo kinh tế những năm trước, đặc biệt là duy trì quá lâu cơ chế quản lý kế hoạch hoá tập trung, quan liêu, bao cấp. Trên cơ sở đó, Đại hội chính thức đề ra đường lối Đổi Mới toàn diện: phát triển kinh tế hàng hoá nhiều thành phần theo cơ chế thị trường có sự quản lý của Nhà nước, xoá bỏ cơ chế tập trung quan liêu bao cấp, thực hiện ba chương trình kinh tế lớn về lương thực – thực phẩm, hàng tiêu dùng và hàng xuất khẩu. Đại hội bầu Ban Chấp hành Trung ương mới, Bộ Chính trị bầu đồng chí Nguyễn Văn Linh — Uỷ viên Bộ Chính trị, người có nhiều đóng góp trong tổng kết thực tiễn 'bung ra' ở TP. Hồ Chí Minh — làm Tổng Bí thư. Đại hội VI được xem là cột mốc mở đầu công cuộc Đổi Mới của Việt Nam.",
+        "en": "The Communist Party of Vietnam's 6th National Congress met from 15 to 18 Dec 1986 in Hà Nội (with a preparatory session from 5–14 Dec), attended by 1,129 delegates representing nearly 1.9 million party members nationwide. It came after General Secretary Lê Duẩn's death on 10 Jul 1986, with Trường Chinh serving briefly as acting General Secretary, at a time when the country was mired in a severe economic and social crisis following the 1985 price–wage–currency reform. With a spirit of strict self-criticism, summed up in the motto 'face the truth squarely, assess it truly, state it clearly,' the Congress frankly identified the subjective, hasty errors in economic thinking and direction of prior years, above all having kept the centralized, bureaucratic, subsidy-based planning mechanism for far too long. On this basis, the Congress formally set out a comprehensive Renovation line: developing a multi-sector commodity economy under a market mechanism with state management, abolishing the centralized bureaucratic subsidy mechanism, and carrying out three major economic programs for food, consumer goods and exports. The Congress elected a new Central Committee, and the Politburo elected Nguyễn Văn Linh — a Politburo member who had contributed much to studying the 'breakout' practices in Hồ Chí Minh City — as General Secretary. The 6th Congress is regarded as the founding milestone of Vietnam's Renovation."
+      },
+      "hero": {
+        "id": "dai-hoi-vi-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/cong-cuoc-doi-moi/events/dai-hoi-vi.png",
+        "reduced": "eras/cong-cuoc-doi-moi/events/dai-hoi-vi.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam, tập 15",
+        "section": {
+          "vi": "Đại hội đại biểu toàn quốc lần thứ VI của Đảng (15–18/12/1986)",
+          "en": "The Party's 6th National Congress (15–18 Dec 1986)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "luat-dau-tu-nuoc-ngoai",
+      "slug": "luat-dau-tu-nuoc-ngoai",
+      "figureIds": [],
+      "order": 1,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "29/12/1987 SCN",
+          "en": "29 Dec 1987 CE"
+        },
+        "value": 1987,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Luật Đầu tư nước ngoài tại Việt Nam",
+        "en": "The Law on Foreign Investment in Vietnam"
+      },
+      "summary": {
+        "vi": "Ngày 29/12/1987, Quốc hội thông qua Luật Đầu tư nước ngoài tại Việt Nam — văn bản pháp lý đầu tiên mở cửa nền kinh tế cho vốn và doanh nghiệp nước ngoài sau Đổi Mới.",
+        "en": "On 29 Dec 1987, the National Assembly passed the Law on Foreign Investment in Vietnam — the first legal instrument opening the economy to foreign capital and enterprise after Đổi Mới."
+      },
+      "body": {
+        "vi": "Thực hiện đường lối Đổi Mới của Đại hội VI, ngày 29/12/1987, Quốc hội khoá VIII thông qua Luật Đầu tư nước ngoài tại Việt Nam — một trong những đạo luật kinh tế mở cửa sớm nhất, cho phép tổ chức, cá nhân nước ngoài đầu tư dưới hình thức hợp đồng hợp tác kinh doanh, doanh nghiệp liên doanh hoặc doanh nghiệp 100% vốn nước ngoài. Luật đặt nền pháp lý cho làn sóng đầu tư trực tiếp nước ngoài (FDI) đầu tiên vào Việt Nam, dù trong những năm đầu số vốn thực hiện còn khiêm tốn do hạ tầng, thủ tục còn nhiều khó khăn.",
+        "en": "Carrying out the 6th Congress's Đổi Mới line, on 29 Dec 1987 the 8th National Assembly passed the Law on Foreign Investment in Vietnam — one of the earliest opening-up economic laws, allowing foreign organizations and individuals to invest through business cooperation contracts, joint ventures, or wholly foreign-owned enterprises. The law laid the legal foundation for Vietnam's first wave of foreign direct investment (FDI), though realized capital in the early years stayed modest given infrastructure and procedural difficulties."
+      },
+      "details": {
+        "vi": "Ngay sau Đại hội VI, một trong những việc làm cụ thể hoá đường lối Đổi Mới là xây dựng khung pháp lý để thu hút vốn đầu tư nước ngoài, vốn rất cần thiết trong hoàn cảnh Việt Nam bị Mỹ cấm vận và ít tiếp cận được nguồn vốn phương Tây. Ngày 29/12/1987, Quốc hội khoá VIII thông qua Luật Đầu tư nước ngoài tại Việt Nam, có hiệu lực từ đầu năm 1988. Luật quy định ba hình thức đầu tư chính: hợp đồng hợp tác kinh doanh, doanh nghiệp liên doanh giữa nhà đầu tư nước ngoài với đối tác Việt Nam, và doanh nghiệp 100% vốn nước ngoài; đồng thời đưa ra một số ưu đãi về thuế và thời hạn hoạt động để khuyến khích nhà đầu tư. Đây được đánh giá là một trong những đạo luật về đầu tư nước ngoài thông thoáng nhất trong khu vực vào thời điểm đó. Tuy nhiên, do hạ tầng cơ sở còn yếu, thủ tục hành chính rườm rà và Việt Nam còn bị Mỹ cấm vận kinh tế, dòng vốn FDI thực hiện trong những năm 1988–1990 còn khiêm tốn, chủ yếu đến từ các nhà đầu tư châu Á. Luật Đầu tư nước ngoài 1987 vẫn được xem là bước mở cửa pháp lý đầu tiên, đặt nền cho các làn sóng đầu tư lớn hơn từ giữa thập niên 1990.",
+        "en": "Right after the 6th Congress, one concrete step in carrying out the Đổi Mới line was building a legal framework to attract foreign investment, badly needed given the US embargo and Vietnam's limited access to Western capital. On 29 Dec 1987, the 8th National Assembly passed the Law on Foreign Investment in Vietnam, effective from early 1988. It set out three main investment forms: business cooperation contracts, joint ventures between foreign investors and Vietnamese partners, and wholly foreign-owned enterprises, along with some tax and duration incentives to encourage investors. It was regarded as one of the most liberal foreign-investment laws in the region at the time. However, with weak infrastructure, cumbersome administrative procedures, and Vietnam still under US economic embargo, realized FDI in 1988–1990 stayed modest, coming mainly from Asian investors. The 1987 Law on Foreign Investment is still seen as the first legal opening, laying the ground for the larger waves of investment from the mid-1990s."
+      },
+      "hero": {
+        "id": "luat-dau-tu-nuoc-ngoai-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/cong-cuoc-doi-moi/events/luat-dau-tu-nuoc-ngoai.png",
+        "reduced": "eras/cong-cuoc-doi-moi/events/luat-dau-tu-nuoc-ngoai.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam, tập 15",
+        "section": {
+          "vi": "Luật Đầu tư nước ngoài tại Việt Nam (29/12/1987)",
+          "en": "The Law on Foreign Investment in Vietnam (29 Dec 1987)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "gac-ma",
+      "slug": "gac-ma",
+      "figureIds": [
+        "tran-van-phuong"
+      ],
+      "order": 2,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "14/3/1988 SCN",
+          "en": "14 Mar 1988 CE"
+        },
+        "value": 1988,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Bảo vệ chủ quyền ở Gạc Ma",
+        "en": "Defending sovereignty at Gạc Ma"
+      },
+      "summary": {
+        "vi": "Ngày 14/3/1988, tại đá Gạc Ma (Trường Sa), hải quân Trung Quốc bất ngờ tấn công; 64 cán bộ, chiến sĩ Hải quân nhân dân Việt Nam đã anh dũng hy sinh khi lập 'vòng tròn bất tử' bảo vệ chủ quyền và lá cờ Tổ quốc.",
+        "en": "On 14 Mar 1988, at Gạc Ma Reef (Spratly Islands), Chinese naval forces launched a sudden attack; 64 Vietnamese People's Navy officers and soldiers heroically fell forming an 'immortal circle' to defend sovereignty and the national flag."
+      },
+      "body": {
+        "vi": "Ngày 14/3/1988, tại đá Gạc Ma thuộc quần đảo Trường Sa, trong khi bộ đội công binh và hải quân Lữ đoàn 146 đang xây dựng, bảo vệ đảo, tàu chiến Trung Quốc bất ngờ nã pháo tấn công. Cán bộ, chiến sĩ ta nắm tay nhau thành 'vòng tròn bất tử' quyết giữ lá cờ Tổ quốc trên đảo. Thiếu uý Trần Văn Phương, trước khi ngã xuống, đã hô: 'Thà hy sinh, không thể mất đảo, hãy để cho máu của mình tô thắm lá cờ truyền thống của Quân chủng Hải quân.' 64 cán bộ, chiến sĩ đã anh dũng hy sinh; Việt Nam vẫn giữ được các đảo Cô Lin và Len Đao.",
+        "en": "On 14 Mar 1988, at Gạc Ma Reef in the Spratly Islands, while Vietnamese engineer and naval troops of Brigade 146 were building and guarding the reef, Chinese warships suddenly opened fire. Vietnamese officers and soldiers linked hands into an 'immortal circle' to hold the national flag on the reef. Second Lieutenant Trần Văn Phương, before falling, cried out: 'Rather sacrifice than lose the reef — let my blood stain the Navy's traditional flag.' 64 officers and soldiers gave their lives; Vietnam held on to Cô Lin and Len Đao."
+      },
+      "pullQuote": {
+        "text": {
+          "vi": "Thà hy sinh, không thể mất đảo, hãy để cho máu của mình tô thắm lá cờ truyền thống của Quân chủng Hải quân.",
+          "en": "Rather sacrifice than lose the reef — let my blood stain the Navy's traditional flag."
+        },
+        "attribution": {
+          "vi": "Thiếu uý Trần Văn Phương, đá Gạc Ma, 14/3/1988",
+          "en": "Second Lieutenant Trần Văn Phương, Gạc Ma Reef, 14 Mar 1988"
+        }
+      },
+      "details": {
+        "vi": "Đầu năm 1988, Hải quân nhân dân Việt Nam triển khai lực lượng đóng giữ, xây dựng các đảo, đá thuộc quần đảo Trường Sa, trong đó có đá Gạc Ma, Cô Lin và Len Đao. Rạng sáng ngày 14/3/1988, khi bộ đội công binh Lữ đoàn 83 và cán bộ, chiến sĩ Lữ đoàn 146 (Vùng 4 Hải quân) đang chuyển vật liệu xây dựng lên đá Gạc Ma, tàu chiến Trung Quốc bất ngờ dùng pháo lớn bắn thẳng vào bộ đội và các tàu vận tải của ta (HQ-604, HQ-605, HQ-505). Trước hoả lực áp đảo, cán bộ, chiến sĩ ta không có vũ khí tương xứng vẫn nắm tay nhau kết thành 'vòng tròn bất tử,' quyết giữ vững ngọn cờ Tổ quốc đã cắm trên đá. Thiếu uý Trần Văn Phương, Phó chỉ huy đảo Gạc Ma, khi bị thương nặng vẫn động viên đồng đội: 'Thà hy sinh, không thể mất đảo, hãy để cho máu của mình tô thắm lá cờ truyền thống của Quân chủng Hải quân.' Trong trận chiến không cân sức này, 64 cán bộ, chiến sĩ Hải quân nhân dân Việt Nam đã anh dũng hy sinh, tàu HQ-604 bị bắn chìm. Dù mất đá Gạc Ma, quân và dân ta vẫn giữ vững được các đảo Cô Lin và Len Đao ngay bên cạnh. Sự kiện Gạc Ma 14/3/1988 được ghi nhớ hằng năm là ngày tưởng niệm các anh hùng, liệt sĩ đã hy sinh bảo vệ chủ quyền biển, đảo thiêng liêng của Tổ quốc.",
+        "en": "In early 1988, the Vietnam People's Navy deployed forces to hold and build up reefs and islets in the Spratly archipelago, including Gạc Ma, Cô Lin and Len Đao Reefs. At dawn on 14 Mar 1988, as engineers from Brigade 83 and troops from Brigade 146 (Naval Region 4) were moving building materials onto Gạc Ma Reef, Chinese warships suddenly opened heavy fire directly on the Vietnamese troops and transport ships (HQ-604, HQ-605, HQ-505). Facing overwhelming firepower and lacking matching weapons, the Vietnamese officers and soldiers linked hands into an 'immortal circle,' determined to hold the national flag they had planted on the reef. Second Lieutenant Trần Văn Phương, deputy commander at Gạc Ma, though gravely wounded, still rallied his comrades: 'Rather sacrifice than lose the reef — let my blood stain the Navy's traditional flag.' In this lopsided battle, 64 Vietnam People's Navy officers and soldiers heroically gave their lives, and the ship HQ-604 was sunk. Though Gạc Ma Reef was lost, Vietnamese forces held on to the nearby Cô Lin and Len Đao Reefs. The 14 Mar 1988 Gạc Ma event is commemorated every year as a day honouring the heroes and fallen who died defending the nation's sacred sovereignty over its seas and islands."
+      },
+      "hero": {
+        "id": "gac-ma-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/cong-cuoc-doi-moi/events/gac-ma.png",
+        "reduced": "eras/cong-cuoc-doi-moi/events/gac-ma.png"
+      },
+      "citation": {
+        "work": "Lịch sử Quân đội nhân dân Việt Nam",
+        "section": {
+          "vi": "Sự kiện Gạc Ma, quần đảo Trường Sa (14/3/1988)",
+          "en": "The Gạc Ma event, Spratly Islands (14 Mar 1988)"
+        },
+        "author": "Viện Lịch sử Quân sự Việt Nam"
+      }
+    },
+    {
+      "id": "khoan-10",
+      "slug": "khoan-10",
+      "figureIds": [
+        "nguyen-van-linh"
+      ],
+      "order": 3,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "5/4/1988 SCN",
+          "en": "5 Apr 1988 CE"
+        },
+        "value": 1988,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Nghị quyết 10: hộ nông dân là đơn vị kinh tế tự chủ",
+        "en": "Resolution 10: the farming household as a self-managing unit"
+      },
+      "summary": {
+        "vi": "Ngày 5/4/1988, Bộ Chính trị ra Nghị quyết 10-NQ/TW ('Khoán 10'), xác nhận hộ nông dân là đơn vị kinh tế tự chủ — bước đổi mới căn bản trong quản lý nông nghiệp, đưa Việt Nam từ thiếu đói tới xuất khẩu gạo chỉ một năm sau.",
+        "en": "On 5 Apr 1988, the Politburo issued Resolution 10-NQ/TW ('Contract 10'), recognizing the farming household as a self-managing economic unit — a fundamental reform in agricultural management that took Vietnam from food shortage to rice exports within a single year."
+      },
+      "body": {
+        "vi": "Ngày 5/4/1988, Bộ Chính trị ra Nghị quyết số 10-NQ/TW 'Về đổi mới quản lý kinh tế nông nghiệp,' thường gọi là 'Khoán 10.' Nghị quyết xác định hợp tác xã là đơn vị kinh tế tự chủ, còn hộ gia đình xã viên là đơn vị kinh tế tự chủ nhận khoán với hợp tác xã — được giao quyền sử dụng ruộng đất lâu dài, tự quyết định sản xuất, tự chịu trách nhiệm về kết quả. Nghị quyết 10 nhanh chóng giải phóng sức sản xuất trong nông nghiệp: chỉ một năm sau, năm 1989, sản lượng lúa cả nước đạt 21,5 triệu tấn, Việt Nam lần đầu tiên xuất khẩu gạo.",
+        "en": "On 5 Apr 1988, the Politburo issued Resolution No. 10-NQ/TW, 'On renovating agricultural economic management,' commonly called 'Contract 10.' It established the cooperative as a self-managing economic unit and the member household as the self-managing unit contracting with the cooperative — given long-term land-use rights, free to decide its own production, and responsible for its own results. Resolution 10 quickly unleashed agricultural production: just a year later, in 1989, national rice output reached 21.5 million tonnes, and Vietnam exported rice for the first time."
+      },
+      "details": {
+        "vi": "Sau bảy năm thực hiện Chỉ thị 100 (1981), quan hệ khoán trong nông nghiệp vẫn còn nửa vời: hợp tác xã vẫn giữ quyền quyết định phần lớn các khâu sản xuất, người nông dân chưa thực sự làm chủ ruộng đất. Trước yêu cầu đẩy mạnh Đổi Mới sau Đại hội VI, ngày 5/4/1988, Bộ Chính trị do Tổng Bí thư Nguyễn Văn Linh đứng đầu ra Nghị quyết số 10-NQ/TW 'Về đổi mới quản lý kinh tế nông nghiệp.' Điểm mấu chốt của Nghị quyết là xác định rõ: hợp tác xã nông nghiệp là đơn vị kinh tế tự chủ, và hộ gia đình xã viên là đơn vị kinh tế tự chủ, nhận đất khoán ổn định lâu dài (thường 15 năm) từ hợp tác xã, được tự quyết định gieo trồng gì, đầu tư ra sao, và được hưởng toàn quyền sử dụng, định đoạt sản phẩm làm ra sau khi hoàn thành nghĩa vụ với hợp tác xã và Nhà nước. Đây là bước chuyển căn bản: từ hộ xã viên làm thuê hưởng công điểm, sang hộ nông dân thực sự là một đơn vị kinh tế độc lập. Tác động của Nghị quyết 10 đến rất nhanh: sản lượng lúa cả nước tăng vượt bậc, đạt 21,5 triệu tấn năm 1989 — và ngay trong năm đó, lần đầu tiên sau nhiều năm thiếu đói phải nhập lương thực, Việt Nam xuất khẩu được hơn 1,4 triệu tấn gạo, chính thức trở thành nước xuất khẩu gạo. Nghị quyết 10 được xem là một trong những quyết sách có tác động sâu rộng và tức thời nhất của thời kỳ đầu Đổi Mới.",
+        "en": "After seven years implementing Directive 100 (1981), contracting arrangements in agriculture remained half-hearted: cooperatives still decided most stages of production, and farmers were not yet truly masters of their land. As Đổi Mới needed to be pushed further after the 6th Congress, on 5 Apr 1988 the Politburo, headed by General Secretary Nguyễn Văn Linh, issued Resolution No. 10-NQ/TW, 'On renovating agricultural economic management.' Its key point was to clearly establish that the agricultural cooperative is a self-managing economic unit, and the member household is a self-managing unit, receiving stable long-term contracted land (typically 15 years) from the cooperative, free to decide what to grow and how to invest, and with full rights over the output after meeting its obligations to the cooperative and the state. This was a fundamental shift: from a member household working for work-points to a farming household as a genuinely independent economic unit. The effect of Resolution 10 came very fast: national rice output rose sharply, reaching 21.5 million tonnes in 1989 — and that same year, for the first time after years of food shortages and imports, Vietnam exported more than 1.4 million tonnes of rice, formally becoming a rice-exporting country. Resolution 10 is regarded as one of the most far-reaching and immediately felt decisions of the early Đổi Mới period."
+      },
+      "hero": {
+        "id": "khoan-10-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/cong-cuoc-doi-moi/events/khoan-10.png",
+        "reduced": "eras/cong-cuoc-doi-moi/events/khoan-10.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam, tập 15",
+        "section": {
+          "vi": "Nghị quyết 10-NQ/TW về đổi mới quản lý kinh tế nông nghiệp (5/4/1988)",
+          "en": "Resolution 10-NQ/TW on renovating agricultural management (5 Apr 1988)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "xuat-khau-gao-1989",
+      "slug": "xuat-khau-gao-1989",
+      "figureIds": [],
+      "order": 4,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1989 SCN",
+          "en": "1989 CE"
+        },
+        "value": 1989,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Từ thiếu đói đến xuất khẩu gạo",
+        "en": "From food shortage to rice exports"
+      },
+      "summary": {
+        "vi": "Năm 1989, chỉ một năm sau Khoán 10, sản lượng lúa cả nước đạt 21,5 triệu tấn; Việt Nam lần đầu tiên xuất khẩu hơn 1,4 triệu tấn gạo, chấm dứt nhiều năm phải nhập lương thực.",
+        "en": "In 1989, just a year after Contract 10, national rice output reached 21.5 million tonnes; Vietnam exported rice for the first time, over 1.4 million tonnes, ending years of having to import food."
+      },
+      "body": {
+        "vi": "Nhờ tác động của Nghị quyết 10 (Khoán 10) và các chính sách khuyến nông đầu thời kỳ Đổi Mới, sản lượng lúa cả nước năm 1989 đạt 21,5 triệu tấn, tăng mạnh so với các năm trước. Lần đầu tiên trong nhiều năm, Việt Nam không những đủ lương thực trong nước mà còn xuất khẩu được hơn 1,4 triệu tấn gạo, đạt giá trị hàng trăm triệu đô la — chấm dứt thời kỳ dài phải nhập gạo, mì để bù đắp thiếu hụt. Sự kiện đánh dấu Việt Nam bắt đầu trở lại là một nước xuất khẩu gạo trên thị trường thế giới.",
+        "en": "Thanks to the impact of Resolution 10 (Contract 10) and early Đổi Mới farm-support policies, national rice output in 1989 reached 21.5 million tonnes, a sharp rise on prior years. For the first time in many years, Vietnam not only had enough food at home but exported over 1.4 million tonnes of rice, worth hundreds of millions of dollars — ending a long period of having to import rice and wheat to cover shortfalls. The event marked Vietnam's return as a rice exporter on world markets."
+      },
+      "details": {
+        "vi": "Trong suốt những năm bao cấp, Việt Nam là nước thiếu lương thực kinh niên, hằng năm phải nhập khẩu hàng triệu tấn gạo, mì viện trợ, kể cả trong những năm ngay sau chiến tranh biên giới. Sau khi Nghị quyết 10 (Khoán 10, 5/4/1988) xác nhận hộ nông dân là đơn vị kinh tế tự chủ, năng suất và sản lượng lúa tăng vượt bậc chỉ trong một mùa vụ. Năm 1989, tổng sản lượng lúa cả nước đạt 21,5 triệu tấn — mức cao chưa từng có. Với nguồn cung dư dôi so với nhu cầu trong nước, lần đầu tiên sau nhiều thập niên, Việt Nam xuất khẩu gạo ra thị trường thế giới, với sản lượng xuất khẩu năm 1989 đạt hơn 1,4 triệu tấn, kim ngạch khoảng 310 triệu đô la. Lượng gạo xuất khẩu bất ngờ và lớn của Việt Nam năm 1989 tác động mạnh đến thị trường gạo thế giới, khiến giá gạo quốc tế giảm liên tục từ giữa năm đó. Từ một nước phải xin viện trợ lương thực, Việt Nam bắt đầu khẳng định vị thế một nước xuất khẩu gạo, và duy trì vị thế này liên tục trong hơn ba thập niên sau, trở thành một trong những nước xuất khẩu gạo hàng đầu thế giới.",
+        "en": "Throughout the subsidy years, Vietnam suffered chronic food shortages, importing millions of tonnes of rice and wheat as aid every year, even in the years right after the border wars. After Resolution 10 (Contract 10, 5 Apr 1988) recognized the farming household as a self-managing unit, rice productivity and output leapt within a single season. In 1989, national rice output reached 21.5 million tonnes — an unprecedented level. With supply exceeding domestic demand, for the first time in decades Vietnam exported rice onto world markets, with 1989 exports reaching over 1.4 million tonnes, worth roughly $310 million. Vietnam's sudden, large rice exports in 1989 hit world rice markets hard, sending international prices steadily down from mid-year. From a country asking for food aid, Vietnam began asserting itself as a rice exporter, a position it has held continuously for more than three decades since, becoming one of the world's leading rice-exporting nations."
+      },
+      "hero": {
+        "id": "xuat-khau-gao-1989-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/cong-cuoc-doi-moi/events/xuat-khau-gao-1989.png",
+        "reduced": "eras/cong-cuoc-doi-moi/events/xuat-khau-gao-1989.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam, tập 15",
+        "section": {
+          "vi": "Việt Nam xuất khẩu gạo lần đầu tiên (1989)",
+          "en": "Vietnam's first rice exports (1989)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "dai-hoi-vii",
+      "slug": "dai-hoi-vii",
+      "figureIds": [
+        "do-muoi",
+        "vo-van-kiet"
+      ],
+      "order": 5,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "24 – 27/6/1991 SCN",
+          "en": "24–27 Jun 1991 CE"
+        },
+        "value": 1991,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Đại hội VII và Cương lĩnh xây dựng đất nước",
+        "en": "The 7th Congress and the national-building Platform"
+      },
+      "summary": {
+        "vi": "24–27/6/1991 tại Hà Nội, Đại hội VII lần đầu thông qua Cương lĩnh xây dựng đất nước trong thời kỳ quá độ lên chủ nghĩa xã hội, bầu Đỗ Mười làm Tổng Bí thư; tháng 8/1991, Võ Văn Kiệt trở thành Chủ tịch Hội đồng Bộ trưởng.",
+        "en": "24–27 Jun 1991 in Hà Nội, the 7th Congress adopted, for the first time, a Platform for national construction in the transition to socialism, and elected Đỗ Mười as General Secretary; in Aug 1991, Võ Văn Kiệt became Chairman of the Council of Ministers."
+      },
+      "body": {
+        "vi": "Từ ngày 24 đến 27 tháng 6 năm 1991, tại Hà Nội, Đại hội đại biểu toàn quốc lần thứ VII của Đảng họp với 1.176 đại biểu, đại diện hơn 2 triệu đảng viên. Lần đầu tiên, Đại hội thông qua Cương lĩnh xây dựng đất nước trong thời kỳ quá độ lên chủ nghĩa xã hội, đề ra mục tiêu tổng quát đưa đất nước ra khỏi khủng hoảng kinh tế – xã hội, ổn định và phát triển. Đại hội bầu đồng chí Đỗ Mười làm Tổng Bí thư. Tháng 8/1991, kỳ họp Quốc hội khoá VIII bầu đồng chí Võ Văn Kiệt làm Chủ tịch Hội đồng Bộ trưởng, thay đồng chí Đỗ Mười.",
+        "en": "From 24 to 27 Jun 1991, in Hà Nội, the Party's 7th National Congress met with 1,176 delegates representing over 2 million members. For the first time, the Congress adopted a Platform for national construction in the transition to socialism, setting the overall goal of lifting the country out of economic and social crisis toward stability and development. The Congress elected Đỗ Mười as General Secretary. In Aug 1991, a session of the 8th National Assembly elected Võ Văn Kiệt as Chairman of the Council of Ministers, succeeding Đỗ Mười."
+      },
+      "details": {
+        "vi": "Đại hội đại biểu toàn quốc lần thứ VII của Đảng Cộng sản Việt Nam họp từ ngày 24 đến 27 tháng 6 năm 1991 tại Hà Nội, với 1.176 đại biểu tham dự, đại diện cho hơn 2 triệu đảng viên cả nước — diễn ra 5 năm sau khi công cuộc Đổi Mới được khởi xướng, trong bối cảnh hệ thống xã hội chủ nghĩa ở Liên Xô và Đông Âu đang lâm vào khủng hoảng. Lần đầu tiên trong lịch sử các kỳ đại hội, Đại hội VII thông qua Cương lĩnh xây dựng đất nước trong thời kỳ quá độ lên chủ nghĩa xã hội, trình bày quan niệm tổng quát về chủ nghĩa xã hội và con đường đi lên chủ nghĩa xã hội ở Việt Nam, cùng Chiến lược ổn định và phát triển kinh tế – xã hội đến năm 2000. Mục tiêu tổng quát cho 5 năm 1991–1995 được xác định là 'vượt qua khó khăn thử thách, ổn định và phát triển kinh tế – xã hội, tăng cường ổn định chính trị, đẩy lùi tiêu cực và bất công xã hội, đưa nước ta cơ bản ra khỏi tình trạng khủng hoảng hiện nay.' Đại hội bầu Ban Chấp hành Trung ương mới gồm 146 uỷ viên; Ban Chấp hành Trung ương bầu đồng chí Đỗ Mười — nguyên Chủ tịch Hội đồng Bộ trưởng — làm Tổng Bí thư. Sau Đại hội, tại kỳ họp thứ 9 Quốc hội khoá VIII (tháng 8/1991), đồng chí Võ Văn Kiệt được bầu làm Chủ tịch Hội đồng Bộ trưởng (từ năm 1992 gọi là Thủ tướng Chính phủ theo Hiến pháp mới), kế nhiệm đồng chí Đỗ Mười ở vị trí đứng đầu Chính phủ.",
+        "en": "The Communist Party of Vietnam's 7th National Congress met from 24 to 27 Jun 1991 in Hà Nội, attended by 1,176 delegates representing over 2 million members nationwide — held five years after Đổi Mới was launched, as the socialist system in the Soviet Union and Eastern Europe was falling into crisis. For the first time in the history of Party congresses, the 7th Congress adopted a Platform for national construction in the transition to socialism, setting out an overall conception of socialism and Vietnam's path toward it, together with a Strategy for socio-economic stabilization and development to the year 2000. The overall goal for the 1991–1995 period was set as 'overcoming difficulties and challenges, stabilizing and developing the economy and society, strengthening political stability, rolling back negative practices and social injustice, and basically lifting the country out of its current state of crisis.' The Congress elected a new Central Committee of 146 members; the Central Committee elected Đỗ Mười — the outgoing Chairman of the Council of Ministers — as General Secretary. After the Congress, at the 9th session of the 8th National Assembly (Aug 1991), Võ Văn Kiệt was elected Chairman of the Council of Ministers (called Prime Minister from 1992 under the new Constitution), succeeding Đỗ Mười as head of government."
+      },
+      "hero": {
+        "id": "dai-hoi-vii-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/cong-cuoc-doi-moi/events/dai-hoi-vii.png",
+        "reduced": "eras/cong-cuoc-doi-moi/events/dai-hoi-vii.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam, tập 15",
+        "section": {
+          "vi": "Đại hội đại biểu toàn quốc lần thứ VII của Đảng (24–27/6/1991)",
+          "en": "The Party's 7th National Congress (24–27 Jun 1991)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "hien-phap-1992",
+      "slug": "hien-phap-1992",
+      "figureIds": [
+        "vo-van-kiet"
+      ],
+      "order": 6,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "15/4/1992 SCN",
+          "en": "15 Apr 1992 CE"
+        },
+        "value": 1992,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Hiến pháp 1992",
+        "en": "The 1992 Constitution"
+      },
+      "summary": {
+        "vi": "Ngày 15/4/1992, Quốc hội khoá VIII thông qua Hiến pháp 1992, thay Hiến pháp 1980, thể chế hoá đường lối Đổi Mới: kinh tế hàng hoá nhiều thành phần, khôi phục chức Chủ tịch nước và Thủ tướng Chính phủ.",
+        "en": "On 15 Apr 1992, the 8th National Assembly adopted the 1992 Constitution, replacing the 1980 Constitution, institutionalizing Đổi Mới: a multi-sector commodity economy, and restoring the offices of President and Prime Minister."
+      },
+      "body": {
+        "vi": "Ngày 15/4/1992, tại kỳ họp thứ 11, Quốc hội khoá VIII thông qua Hiến pháp nước Cộng hoà xã hội chủ nghĩa Việt Nam năm 1992, thay thế Hiến pháp 1980. Gồm 12 chương, 147 điều, Hiến pháp 1992 thể chế hoá đường lối Đổi Mới do Đại hội VI và VII đề ra: xác lập nền kinh tế hàng hoá nhiều thành phần vận hành theo cơ chế thị trường có sự quản lý của Nhà nước, khôi phục chức danh Chủ tịch nước và Thủ tướng Chính phủ (thay Hội đồng Nhà nước và Hội đồng Bộ trưởng), mở rộng quyền công dân. Đây là bản hiến pháp đặt cơ sở pháp lý cho công cuộc Đổi Mới và hội nhập kinh tế quốc tế của Việt Nam.",
+        "en": "On 15 Apr 1992, at its 11th session, the 8th National Assembly adopted the 1992 Constitution of the Socialist Republic of Vietnam, replacing the 1980 Constitution. With 12 chapters and 147 articles, the 1992 Constitution institutionalized the Đổi Mới line set by the 6th and 7th Congresses: establishing a multi-sector commodity economy operating under a market mechanism with state management, restoring the offices of President and Prime Minister (replacing the Council of State and Council of Ministers), and expanding citizens' rights. It provided the legal basis for Vietnam's Đổi Mới and international economic integration."
+      },
+      "details": {
+        "vi": "Hiến pháp 1980 được xây dựng theo mô hình kế hoạch hoá tập trung, không còn phù hợp với thực tiễn Đổi Mới sau Đại hội VI và VII. Sau quá trình sửa đổi, ngày 15/4/1992, tại kỳ họp thứ 11, Quốc hội khoá VIII đã nhất trí thông qua Hiến pháp nước Cộng hoà xã hội chủ nghĩa Việt Nam năm 1992, gồm Lời nói đầu, 12 chương và 147 điều, có hiệu lực từ ngày Chủ tịch Hội đồng Nhà nước công bố (18/4/1992). Về kinh tế, Hiến pháp 1992 lần đầu tiên trong các bản hiến pháp sau 1975 chính thức ghi nhận nền kinh tế hàng hoá nhiều thành phần theo cơ chế thị trường, có sự quản lý của Nhà nước theo định hướng xã hội chủ nghĩa, thừa nhận và bảo hộ quyền sở hữu tư nhân về tư liệu sản xuất, khuyến khích đầu tư trong và ngoài nước. Về tổ chức Nhà nước, Hiến pháp khôi phục chức danh Chủ tịch nước là người đứng đầu Nhà nước (thay Hội đồng Nhà nước tập thể của Hiến pháp 1980), và chức danh Thủ tướng Chính phủ đứng đầu Chính phủ (thay Hội đồng Bộ trưởng) — Chủ tịch Hội đồng Bộ trưởng Võ Văn Kiệt trở thành Thủ tướng Chính phủ đầu tiên theo Hiến pháp mới. Hiến pháp cũng mở rộng các quyền tự do kinh doanh, quyền công dân, tạo khung pháp lý cho cải cách hành chính, tư pháp và hội nhập kinh tế quốc tế trong những năm tiếp theo. Hiến pháp 1992 được sửa đổi, bổ sung một lần vào năm 2001.",
+        "en": "The 1980 Constitution had been built for a centralized-planning model and no longer suited the realities of Đổi Mới after the 6th and 7th Congresses. After a process of revision, on 15 Apr 1992, at its 11th session, the 8th National Assembly unanimously adopted the 1992 Constitution of the Socialist Republic of Vietnam, comprising a preamble, 12 chapters and 147 articles, effective from the date it was promulgated by the Chairman of the Council of State (18 Apr 1992). Economically, the 1992 Constitution was the first of the post-1975 constitutions to formally recognize a multi-sector commodity economy under a market mechanism, with state management on a socialist-oriented path, acknowledging and protecting private ownership of the means of production and encouraging both domestic and foreign investment. In terms of state structure, the Constitution restored the office of President as head of state (replacing the collective Council of State of the 1980 Constitution), and the office of Prime Minister as head of government (replacing the Council of Ministers) — Chairman of the Council of Ministers Võ Văn Kiệt became the first Prime Minister under the new Constitution. The Constitution also expanded freedoms of business and citizens' rights, creating a legal framework for administrative and judicial reform and international economic integration in the years that followed. The 1992 Constitution was amended once, in 2001."
+      },
+      "hero": {
+        "id": "hien-phap-1992-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/cong-cuoc-doi-moi/events/hien-phap-1992.png",
+        "reduced": "eras/cong-cuoc-doi-moi/events/hien-phap-1992.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam, tập 15",
+        "section": {
+          "vi": "Hiến pháp nước Cộng hoà xã hội chủ nghĩa Việt Nam (15/4/1992)",
+          "en": "The Constitution of the Socialist Republic of Vietnam (15 Apr 1992)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "my-bo-cam-van",
+      "slug": "my-bo-cam-van",
+      "figureIds": [
+        "vo-van-kiet"
+      ],
+      "order": 7,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "3/2/1994 SCN",
+          "en": "3 Feb 1994 CE"
+        },
+        "value": 1994,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Mỹ bỏ cấm vận thương mại đối với Việt Nam",
+        "en": "The US lifts its trade embargo on Vietnam"
+      },
+      "summary": {
+        "vi": "Ngày 3/2/1994, Tổng thống Hoa Kỳ Bill Clinton tuyên bố bỏ cấm vận thương mại kéo dài 19 năm đối với Việt Nam, mở đường cho doanh nghiệp Mỹ đầu tư, buôn bán trực tiếp.",
+        "en": "On 3 Feb 1994, US President Bill Clinton announced the lifting of the 19-year-old trade embargo on Vietnam, opening the way for US businesses to invest and trade directly."
+      },
+      "body": {
+        "vi": "Ngày 3/2/1994, Tổng thống Hoa Kỳ Bill Clinton tuyên bố chính thức bãi bỏ lệnh cấm vận thương mại đã áp đặt với Việt Nam từ năm 1975. Quyết định được đưa ra trong bối cảnh hai nước đẩy mạnh hợp tác tìm kiếm quân nhân Mỹ mất tích (MIA) và Việt Nam kiên trì thực hiện chính sách đối ngoại rộng mở sau Đổi Mới. Việc bỏ cấm vận cho phép doanh nghiệp Mỹ đầu tư, xuất nhập khẩu trực tiếp với Việt Nam, là bước đi quan trọng trước khi hai nước bình thường hoá quan hệ ngoại giao vào năm 1995.",
+        "en": "On 3 Feb 1994, US President Bill Clinton formally announced the lifting of the trade embargo imposed on Vietnam since 1975. The decision came as the two countries deepened cooperation on the search for missing US servicemen (MIA), and as Vietnam pursued an increasingly open foreign policy after Đổi Mới. Lifting the embargo let US firms invest and trade directly with Vietnam, an important step ahead of the two countries' diplomatic normalization in 1995."
+      },
+      "details": {
+        "vi": "Sau khi chiến tranh kết thúc năm 1975, Hoa Kỳ áp đặt lệnh cấm vận toàn diện đối với Việt Nam, cấm mọi hoạt động thương mại, đầu tư giữa hai nước, kéo dài suốt 19 năm. Từ cuối thập niên 1980, cùng với tiến trình Đổi Mới và việc Việt Nam rút quân khỏi Campuchia (hoàn tất 1989), quan hệ hai nước dần được cải thiện, tập trung trước hết vào hợp tác nhân đạo tìm kiếm quân nhân Mỹ mất tích trong chiến tranh (MIA) và trao đổi văn phòng liên lạc. Ngày 3/2/1994, Tổng thống Bill Clinton tuyên bố chính thức bãi bỏ lệnh cấm vận thương mại với Việt Nam, với lý do khuyến khích hợp tác giải quyết vấn đề MIA và mở ra lợi ích kinh tế cho cả hai bên. Ngay sau đó, các doanh nghiệp Mỹ được phép đầu tư, xuất nhập khẩu trực tiếp với Việt Nam. Đây là một bước đi có ý nghĩa bản lề, then chốt trong tiến trình bình thường hoá quan hệ Việt Nam – Hoa Kỳ, mở đường cho việc hai nước chính thức thiết lập quan hệ ngoại giao vào tháng 7 năm 1995 và sau này ký Hiệp định Thương mại song phương (BTA) năm 2000.",
+        "en": "After the war ended in 1975, the United States imposed a comprehensive embargo on Vietnam, banning all trade and investment between the two countries for 19 years. From the late 1980s, alongside Đổi Mới and Vietnam's withdrawal of troops from Cambodia (completed in 1989), relations between the two countries gradually improved, focused first on humanitarian cooperation to search for US servicemen missing in the war (MIA) and on exchanging liaison offices. On 3 Feb 1994, President Bill Clinton formally announced lifting the trade embargo on Vietnam, citing the aim of encouraging cooperation on the MIA issue and opening economic benefits for both sides. Soon after, US businesses were permitted to invest and trade directly with Vietnam. This was a hinge, pivotal step in normalizing Vietnam–US relations, paving the way for the two countries to formally establish diplomatic relations in Jul 1995 and later sign a Bilateral Trade Agreement (BTA) in 2000."
+      },
+      "hero": {
+        "id": "my-bo-cam-van-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "eras/cong-cuoc-doi-moi/events/my-bo-cam-van.png",
+        "reduced": "eras/cong-cuoc-doi-moi/events/my-bo-cam-van.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam, tập 15",
+        "section": {
+          "vi": "Hoa Kỳ bỏ cấm vận thương mại đối với Việt Nam (3/2/1994)",
+          "en": "The US lifts its trade embargo on Vietnam (3 Feb 1994)"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "hoi-nhap-1995",
+      "slug": "hoi-nhap-1995",
+      "figureIds": [
+        "vo-van-kiet",
+        "do-muoi"
+      ],
+      "order": 8,
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "11/7 · 28/7/1995 SCN",
+          "en": "11 Jul · 28 Jul 1995 CE"
+        },
+        "value": 1995,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Bình thường hoá quan hệ với Hoa Kỳ, gia nhập ASEAN",
+        "en": "Normalizing relations with the US and joining ASEAN"
+      },
+      "summary": {
+        "vi": "Ngày 11/7/1995, Việt Nam và Hoa Kỳ tuyên bố bình thường hoá quan hệ ngoại giao; ngày 28/7/1995, Việt Nam chính thức trở thành thành viên thứ 7 của ASEAN — hai dấu mốc hội nhập quốc tế quan trọng khép lại 20 năm đầu Đổi Mới.",
+        "en": "On 11 Jul 1995, Vietnam and the US announced the normalization of diplomatic relations; on 28 Jul 1995, Vietnam formally became ASEAN's 7th member — two milestones of international integration closing the first two decades after reunification."
+      },
+      "body": {
+        "vi": "Ngày 11/7/1995 (giờ Washington), Tổng thống Bill Clinton tuyên bố bình thường hoá quan hệ ngoại giao với Việt Nam; ngày 5/8/1995 tại Hà Nội, Ngoại trưởng Hoa Kỳ Warren Christopher và Bộ trưởng Ngoại giao Nguyễn Mạnh Cầm ký văn kiện chính thức thiết lập quan hệ ngoại giao hai nước. Chỉ hai tuần sau tuyên bố của Mỹ, ngày 28/7/1995, tại Hội nghị Bộ trưởng Ngoại giao ASEAN lần thứ 28 ở Brunei, Việt Nam chính thức trở thành thành viên thứ 7 của Hiệp hội các quốc gia Đông Nam Á (ASEAN). Hai sự kiện liên tiếp trong tháng 7/1995 đưa Việt Nam ra khỏi thế bị cô lập, chính thức hội nhập vào khu vực và thế giới sau đúng 20 năm kể từ ngày đất nước thống nhất.",
+        "en": "On 11 Jul 1995 (Washington time), President Bill Clinton announced the normalization of diplomatic relations with Vietnam; on 5 Aug 1995 in Hà Nội, US Secretary of State Warren Christopher and Foreign Minister Nguyễn Mạnh Cầm signed the instrument formally establishing diplomatic relations. Just two weeks after the US announcement, on 28 Jul 1995, at the 28th ASEAN Ministerial Meeting in Brunei, Vietnam formally became the 7th member of the Association of Southeast Asian Nations (ASEAN). These two events, back to back in Jul 1995, brought Vietnam out of isolation and into formal regional and global integration exactly 20 years after reunification."
+      },
+      "details": {
+        "vi": "Sau khi Hoa Kỳ bỏ cấm vận thương mại (2/1994), hai nước tiếp tục đàm phán các bước tiến tới bình thường hoá hoàn toàn quan hệ. Tối ngày 11/7/1995 theo giờ Washington (sáng 12/7 giờ Việt Nam), Tổng thống Bill Clinton chính thức tuyên bố bình thường hoá quan hệ ngoại giao với Việt Nam. Ngày 5/8/1995, tại Hà Nội, Ngoại trưởng Hoa Kỳ Warren Christopher và Bộ trưởng Ngoại giao Việt Nam Nguyễn Mạnh Cầm ký văn kiện, chính thức xác lập quan hệ ngoại giao đầy đủ giữa hai nước sau đúng hai mươi năm kể từ khi chiến tranh kết thúc. Trong khi đó, tiến trình gia nhập ASEAN của Việt Nam — được xúc tiến từ đầu thập niên 1990 dưới sự chỉ đạo của Chủ tịch nước Lê Đức Anh và Thủ tướng Võ Văn Kiệt, cùng vai trò của Tổng Bí thư Đỗ Mười — đi đến kết quả chỉ hai tuần sau tuyên bố của Mỹ: ngày 28/7/1995, tại Hội nghị Bộ trưởng Ngoại giao ASEAN (AMM) lần thứ 28 tổ chức ở Brunei, lá cờ đỏ sao vàng được kéo lên trước trụ sở hội nghị, đánh dấu Việt Nam chính thức trở thành thành viên thứ 7 của Hiệp hội các quốc gia Đông Nam Á. Cùng trong tháng 7/1995, Việt Nam và Liên minh châu Âu (EU) cũng ký Hiệp định khung về hợp tác (17/7). Ba sự kiện đối ngoại liên tiếp trong một tháng đưa Việt Nam ra khỏi tình trạng bị cô lập kéo dài sau chiến tranh, chính thức hội nhập khu vực và quốc tế, khép lại hai mươi năm đầu tiên sau ngày đất nước thống nhất bằng một vị thế đối ngoại hoàn toàn mới.",
+        "en": "After the US lifted its trade embargo (Feb 1994), the two countries continued negotiating the steps toward full normalization. On the evening of 11 Jul 1995 Washington time (the morning of 12 Jul in Vietnam), President Bill Clinton formally announced the normalization of diplomatic relations with Vietnam. On 5 Aug 1995 in Hà Nội, US Secretary of State Warren Christopher and Vietnamese Foreign Minister Nguyễn Mạnh Cầm signed the instrument formally establishing full diplomatic relations between the two countries, exactly twenty years after the war ended. Meanwhile, Vietnam's process of joining ASEAN — pursued since the early 1990s under President Lê Đức Anh and Prime Minister Võ Văn Kiệt, with General Secretary Đỗ Mười's role — reached its result just two weeks after the US announcement: on 28 Jul 1995, at the 28th ASEAN Ministerial Meeting (AMM) held in Brunei, the red flag with the gold star was raised before the conference hall, marking Vietnam's formal accession as the 7th member of the Association of Southeast Asian Nations. That same month, Vietnam and the European Union (EU) also signed a Framework Cooperation Agreement (17 Jul). Three foreign-policy milestones within a single month brought Vietnam out of its long post-war isolation and into formal regional and international integration, closing the first twenty years since reunification with an entirely new standing in the world."
+      },
+      "hero": {
+        "id": "hoi-nhap-1995-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        },
+        "flagship": "eras/cong-cuoc-doi-moi/events/hoi-nhap-1995.png",
+        "reduced": "eras/cong-cuoc-doi-moi/events/hoi-nhap-1995.png"
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam, tập 15",
+        "section": {
+          "vi": "Bình thường hoá quan hệ Việt Nam – Hoa Kỳ và gia nhập ASEAN (7/1995)",
+          "en": "Vietnam–US normalization and ASEAN accession (Jul 1995)"
+        },
+        "author": "Viện Sử học"
+      }
+    }
+  ]
+}

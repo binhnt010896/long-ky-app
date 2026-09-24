@@ -256,10 +256,11 @@ SNAPSHOTS = [
       boundary=BEN_HAI,
       boundary_label="Giới tuyến quân sự tạm thời (vĩ tuyến 17)"),
     # Thống nhất (1975) reunifies the map — the Bến Hải line is gone, and the
-    # southwestern (1975–1989) and northern (1979–1989) border wars both play
-    # out from this one reunified territory, so they share this snapshot.
+    # southwestern (1975–1989) and northern (1979–1989) border wars, plus the
+    # Đổi Mới years (1986–1995), all play out from this one reunified
+    # territory, so they share this snapshot.
     S("thong-nhat", "Thống nhất", "Cộng hòa xã hội chủ nghĩa Việt Nam", 1977,
-      ["thong-nhat-dat-nuoc", "bien-gioi-tay-nam", "bien-gioi-phia-bac"], [
+      ["thong-nhat-dat-nuoc", "bien-gioi-tay-nam", "bien-gioi-phia-bac", "cong-cuoc-doi-moi"], [
         core("chxhcnvn", "Cộng hòa xã hội chủ nghĩa Việt Nam", "Thống nhất", TEAL, VN(5, 24)),
         china("Trung Quốc"), khmer("Campuchia", None, False), *ctx()]),
 ]

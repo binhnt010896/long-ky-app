@@ -4,14 +4,23 @@
     {
       "id": "hong-bang",
       "order": 0,
-      "title": { "vi": "Hồng Bàng – Âu Lạc", "en": "Hồng Bàng – Âu Lạc" },
-      "kicker": { "vi": "BÌNH MINH DỰNG NƯỚC", "en": "DAWN OF THE NATION" },
+      "title": {
+        "vi": "Hồng Bàng – Âu Lạc",
+        "en": "Hồng Bàng – Âu Lạc"
+      },
+      "kicker": {
+        "vi": "BÌNH MINH DỰNG NƯỚC",
+        "en": "DAWN OF THE NATION"
+      },
       "subtitle": {
         "vi": "Từ Kinh Dương Vương đến An Dương Vương — buổi đầu dựng nước.",
         "en": "From Kinh Dương Vương to An Dương Vương — the founding age."
       },
       "yearRange": {
-        "display": { "vi": "2879 – 208 TCN", "en": "2879 – 208 BCE" },
+        "display": {
+          "vi": "2879 – 208 TCN",
+          "en": "2879 – 208 BCE"
+        },
         "startYear": -2879,
         "endYear": -208
       },
@@ -26,14 +35,23 @@
     {
       "id": "nha-trieu",
       "order": 1,
-      "title": { "vi": "Nhà Triệu", "en": "The Triệu Dynasty" },
-      "kicker": { "vi": "KỶ NHÀ TRIỆU", "en": "THE TRIỆU RECORDS" },
+      "title": {
+        "vi": "Nhà Triệu",
+        "en": "The Triệu Dynasty"
+      },
+      "kicker": {
+        "vi": "KỶ NHÀ TRIỆU",
+        "en": "THE TRIỆU RECORDS"
+      },
       "subtitle": {
         "vi": "Nam Việt — buổi giao thời trước nghìn năm Bắc thuộc.",
         "en": "Nam Việt — an age between, before the long domination."
       },
       "yearRange": {
-        "display": { "vi": "207 – 111 TCN", "en": "207 – 111 BCE" },
+        "display": {
+          "vi": "207 – 111 TCN",
+          "en": "207 – 111 BCE"
+        },
         "startYear": -207,
         "endYear": -111
       },
@@ -48,14 +66,23 @@
     {
       "id": "bac-thuoc",
       "order": 2,
-      "title": { "vi": "Bắc thuộc & Khởi nghĩa", "en": "Domination & Uprisings" },
-      "kicker": { "vi": "NGHÌN NĂM BẮC THUỘC", "en": "A THOUSAND YEARS" },
+      "title": {
+        "vi": "Bắc thuộc & Khởi nghĩa",
+        "en": "Domination & Uprisings"
+      },
+      "kicker": {
+        "vi": "NGHÌN NĂM BẮC THUỘC",
+        "en": "A THOUSAND YEARS"
+      },
       "subtitle": {
         "vi": "Mất nước mà không mất giống nòi — những cuộc quật khởi.",
         "en": "A land under dominion, and the risings against it."
       },
       "yearRange": {
-        "display": { "vi": "111 TCN – 938", "en": "111 BCE – 938 CE" },
+        "display": {
+          "vi": "111 TCN – 938",
+          "en": "111 BCE – 938 CE"
+        },
         "startYear": -111,
         "endYear": 938
       },
@@ -70,14 +97,23 @@
     {
       "id": "ngo-dinh-tien-le",
       "order": 3,
-      "title": { "vi": "Ngô – Đinh – Tiền Lê", "en": "Ngô · Đinh · Tiền Lê" },
-      "kicker": { "vi": "BUỔI ĐẦU ĐỘC LẬP", "en": "INDEPENDENCE REBORN" },
+      "title": {
+        "vi": "Ngô – Đinh – Tiền Lê",
+        "en": "Ngô · Đinh · Tiền Lê"
+      },
+      "kicker": {
+        "vi": "BUỔI ĐẦU ĐỘC LẬP",
+        "en": "INDEPENDENCE REBORN"
+      },
       "subtitle": {
         "vi": "Từ Bạch Đằng dựng nền tự chủ đến Hoa Lư định đô.",
         "en": "From Bạch Đằng's founding victory to the citadel of Hoa Lư."
       },
       "yearRange": {
-        "display": { "vi": "939 – 1009", "en": "939 – 1009 CE" },
+        "display": {
+          "vi": "939 – 1009",
+          "en": "939 – 1009 CE"
+        },
         "startYear": 939,
         "endYear": 1009
       },
@@ -92,14 +128,23 @@
     {
       "id": "nha-ly",
       "order": 4,
-      "title": { "vi": "Nhà Lý", "en": "The Lý Dynasty" },
-      "kicker": { "vi": "THĂNG LONG RỒNG BAY", "en": "THE RISING DRAGON" },
+      "title": {
+        "vi": "Nhà Lý",
+        "en": "The Lý Dynasty"
+      },
+      "kicker": {
+        "vi": "THĂNG LONG RỒNG BAY",
+        "en": "THE RISING DRAGON"
+      },
       "subtitle": {
         "vi": "Dời đô Thăng Long, dựng văn hiến, phá Tống giữ nước.",
         "en": "The move to Thăng Long, letters and law, and the Song broken."
       },
       "yearRange": {
-        "display": { "vi": "1009 – 1225", "en": "1009 – 1225 CE" },
+        "display": {
+          "vi": "1009 – 1225",
+          "en": "1009 – 1225 CE"
+        },
         "startYear": 1009,
         "endYear": 1225
       },
@@ -114,14 +159,23 @@
     {
       "id": "nha-tran",
       "order": 5,
-      "title": { "vi": "Nhà Trần", "en": "The Trần Dynasty" },
-      "kicker": { "vi": "HÀO KHÍ ĐÔNG A", "en": "THE ĐÔNG A SPIRIT" },
+      "title": {
+        "vi": "Nhà Trần",
+        "en": "The Trần Dynasty"
+      },
+      "kicker": {
+        "vi": "HÀO KHÍ ĐÔNG A",
+        "en": "THE ĐÔNG A SPIRIT"
+      },
       "subtitle": {
         "vi": "Ba lần bình Nguyên, hào khí Đông A rạng non sông.",
         "en": "Three times the Mongols turned back — the age of Đông A."
       },
       "yearRange": {
-        "display": { "vi": "1225 – 1400", "en": "1225 – 1400 CE" },
+        "display": {
+          "vi": "1225 – 1400",
+          "en": "1225 – 1400 CE"
+        },
         "startYear": 1225,
         "endYear": 1400
       },
@@ -136,14 +190,23 @@
     {
       "id": "hau-le",
       "order": 6,
-      "title": { "vi": "Nhà Hậu Lê", "en": "The Later Lê" },
-      "kicker": { "vi": "LAM SƠN DẤY NGHĨA", "en": "THE LAM SƠN RISING" },
+      "title": {
+        "vi": "Nhà Hậu Lê",
+        "en": "The Later Lê"
+      },
+      "kicker": {
+        "vi": "LAM SƠN DẤY NGHĨA",
+        "en": "THE LAM SƠN RISING"
+      },
       "subtitle": {
         "vi": "Mười năm nếm mật nằm gai, bình Ngô mở lại nền độc lập.",
         "en": "Ten years of hardship, the Ming expelled, the nation restored."
       },
       "yearRange": {
-        "display": { "vi": "1418 – 1497", "en": "1418 – 1497 CE" },
+        "display": {
+          "vi": "1418 – 1497",
+          "en": "1418 – 1497 CE"
+        },
         "startYear": 1418,
         "endYear": 1497
       },
@@ -158,14 +221,23 @@
     {
       "id": "phan-tranh",
       "order": 7,
-      "title": { "vi": "Nam–Bắc triều · Trịnh–Nguyễn", "en": "Divided Courts · Trịnh–Nguyễn" },
-      "kicker": { "vi": "THỜI KỲ PHÂN TRANH", "en": "THE AGE OF DIVISION" },
+      "title": {
+        "vi": "Nam–Bắc triều · Trịnh–Nguyễn",
+        "en": "Divided Courts · Trịnh–Nguyễn"
+      },
+      "kicker": {
+        "vi": "THỜI KỲ PHÂN TRANH",
+        "en": "THE AGE OF DIVISION"
+      },
       "subtitle": {
         "vi": "Đại Việt chia đôi — Mạc chống Lê, rồi Trịnh chống Nguyễn.",
         "en": "Đại Việt torn in two — Mạc against Lê, then Trịnh against Nguyễn."
       },
       "yearRange": {
-        "display": { "vi": "1527 – 1672", "en": "1527 – 1672 CE" },
+        "display": {
+          "vi": "1527 – 1672",
+          "en": "1527 – 1672 CE"
+        },
         "startYear": 1527,
         "endYear": 1672
       },
@@ -180,14 +252,23 @@
     {
       "id": "tay-son",
       "order": 8,
-      "title": { "vi": "Nhà Tây Sơn", "en": "The Tây Sơn" },
-      "kicker": { "vi": "ÁO VẢI CỜ ĐÀO", "en": "THE PEASANT BANNER" },
+      "title": {
+        "vi": "Nhà Tây Sơn",
+        "en": "The Tây Sơn"
+      },
+      "kicker": {
+        "vi": "ÁO VẢI CỜ ĐÀO",
+        "en": "THE PEASANT BANNER"
+      },
       "subtitle": {
         "vi": "Anh hùng áo vải thống nhất sơn hà, đại phá ngoại xâm.",
         "en": "A peasant hero reunites the land and shatters the invaders."
       },
       "yearRange": {
-        "display": { "vi": "1771 – 1802", "en": "1771 – 1802 CE" },
+        "display": {
+          "vi": "1771 – 1802",
+          "en": "1771 – 1802 CE"
+        },
         "startYear": 1771,
         "endYear": 1802
       },
@@ -202,14 +283,23 @@
     {
       "id": "nguyen",
       "order": 9,
-      "title": { "vi": "Nhà Nguyễn", "en": "The Nguyễn Dynasty" },
-      "kicker": { "vi": "GIANG SƠN THU VỀ MỘT MỐI", "en": "THE REALM MADE ONE" },
+      "title": {
+        "vi": "Nhà Nguyễn",
+        "en": "The Nguyễn Dynasty"
+      },
+      "kicker": {
+        "vi": "GIANG SƠN THU VỀ MỘT MỐI",
+        "en": "THE REALM MADE ONE"
+      },
       "subtitle": {
         "vi": "Thống nhất sơn hà, đặt tên nước Việt Nam, định đô Huế.",
         "en": "The land unified, named Việt Nam, its capital set at Huế."
       },
       "yearRange": {
-        "display": { "vi": "1802 – 1945", "en": "1802 – 1945 CE" },
+        "display": {
+          "vi": "1802 – 1945",
+          "en": "1802 – 1945 CE"
+        },
         "startYear": 1802,
         "endYear": 1945
       },
@@ -224,14 +314,23 @@
     {
       "id": "phap-thuoc",
       "order": 10,
-      "title": { "vi": "Pháp thuộc & Phong trào yêu nước", "en": "French Rule & the Patriotic Movements" },
-      "kicker": { "vi": "ĐÊM TRƯỚC ĐỔI MỚI", "en": "THE COLONIAL NIGHT" },
+      "title": {
+        "vi": "Pháp thuộc & Phong trào yêu nước",
+        "en": "French Rule & the Patriotic Movements"
+      },
+      "kicker": {
+        "vi": "ĐÊM TRƯỚC ĐỔI MỚI",
+        "en": "THE COLONIAL NIGHT"
+      },
       "subtitle": {
         "vi": "Mất nước dưới ách thực dân — sĩ phu và trí thức đi tìm đường cứu nước.",
         "en": "A nation under colonial rule — scholars and intellectuals seek a way to save it."
       },
       "yearRange": {
-        "display": { "vi": "1897 – 1945", "en": "1897 – 1945 CE" },
+        "display": {
+          "vi": "1897 – 1945",
+          "en": "1897 – 1945 CE"
+        },
         "startYear": 1897,
         "endYear": 1945
       },
@@ -246,14 +345,23 @@
     {
       "id": "khang-chien-chong-phap",
       "order": 11,
-      "title": { "vi": "Kháng chiến chống Pháp", "en": "The Resistance War Against France" },
-      "kicker": { "vi": "CHÍN NĂM LÀM NÊN ĐIỆN BIÊN", "en": "NINE YEARS TO ĐIỆN BIÊN" },
+      "title": {
+        "vi": "Kháng chiến chống Pháp",
+        "en": "The Resistance War Against France"
+      },
+      "kicker": {
+        "vi": "CHÍN NĂM LÀM NÊN ĐIỆN BIÊN",
+        "en": "NINE YEARS TO ĐIỆN BIÊN"
+      },
       "subtitle": {
         "vi": "Từ nền độc lập non trẻ đến chiến thắng Điện Biên Phủ chấn động địa cầu.",
         "en": "From a fragile new independence to the earth-shaking victory at Điện Biên Phủ."
       },
       "yearRange": {
-        "display": { "vi": "1945 – 1954", "en": "1945 – 1954 CE" },
+        "display": {
+          "vi": "1945 – 1954",
+          "en": "1945 – 1954 CE"
+        },
         "startYear": 1945,
         "endYear": 1954
       },
@@ -268,14 +376,23 @@
     {
       "id": "khang-chien-chong-my",
       "order": 12,
-      "title": { "vi": "Kháng chiến chống Mỹ, cứu nước", "en": "The Resistance War Against America" },
-      "kicker": { "vi": "BẮC – NAM SUM HỌP", "en": "NORTH AND SOUTH REUNITED" },
+      "title": {
+        "vi": "Kháng chiến chống Mỹ, cứu nước",
+        "en": "The Resistance War Against America"
+      },
+      "kicker": {
+        "vi": "BẮC – NAM SUM HỌP",
+        "en": "NORTH AND SOUTH REUNITED"
+      },
       "subtitle": {
         "vi": "Từ giới tuyến tạm thời đến Chiến dịch Hồ Chí Minh — hai mươi mốt năm giành lại một dải giang sơn.",
         "en": "From a temporary line of division to the Hồ Chí Minh Campaign — twenty-one years to win back one land."
       },
       "yearRange": {
-        "display": { "vi": "1954 – 1975", "en": "1954 – 1975 CE" },
+        "display": {
+          "vi": "1954 – 1975",
+          "en": "1954 – 1975 CE"
+        },
         "startYear": 1954,
         "endYear": 1975
       },
@@ -290,14 +407,23 @@
     {
       "id": "thong-nhat",
       "order": 13,
-      "title": { "vi": "Thống nhất", "en": "Reunification" },
-      "kicker": { "vi": "NON SÔNG THU VỀ MỘT MỐI", "en": "ONE LAND, ONE STATE" },
+      "title": {
+        "vi": "Thống nhất",
+        "en": "Reunification"
+      },
+      "kicker": {
+        "vi": "NON SÔNG THU VỀ MỘT MỐI",
+        "en": "ONE LAND, ONE STATE"
+      },
       "subtitle": {
         "vi": "Từ Hội nghị Hiệp thương đến Quốc hội thống nhất — non sông liền một dải.",
         "en": "From the Political Consultative Conference to the unified National Assembly — one land, joined again."
       },
       "yearRange": {
-        "display": { "vi": "1975 – 1977", "en": "1975 – 1977 CE" },
+        "display": {
+          "vi": "1975 – 1977",
+          "en": "1975 – 1977 CE"
+        },
         "startYear": 1975,
         "endYear": 1977
       },
@@ -312,14 +438,23 @@
     {
       "id": "chien-tranh-bien-gioi",
       "order": 14,
-      "title": { "vi": "Chiến tranh biên giới", "en": "The Border Wars" },
-      "kicker": { "vi": "GIỮ TỪNG TẤC ĐẤT BIÊN CƯƠNG", "en": "EVERY INCH OF THE BORDER" },
+      "title": {
+        "vi": "Chiến tranh biên giới",
+        "en": "The Border Wars"
+      },
+      "kicker": {
+        "vi": "GIỮ TỪNG TẤC ĐẤT BIÊN CƯƠNG",
+        "en": "EVERY INCH OF THE BORDER"
+      },
       "subtitle": {
         "vi": "Bảo vệ biên giới Tây Nam và phía Bắc — giữ từng tấc đất biên cương của Tổ quốc.",
         "en": "Defending the southwestern and northern borders — every inch of the Fatherland's frontier."
       },
       "yearRange": {
-        "display": { "vi": "1975 – 1989", "en": "1975 – 1989 CE" },
+        "display": {
+          "vi": "1975 – 1989",
+          "en": "1975 – 1989 CE"
+        },
         "startYear": 1975,
         "endYear": 1989
       },
@@ -329,6 +464,37 @@
         "type": "image",
         "role": "cover",
         "reduced": "periods/chien-tranh-bien-gioi.png"
+      }
+    },
+    {
+      "id": "doi-moi",
+      "order": 15,
+      "title": {
+        "vi": "Đổi Mới",
+        "en": "Renovation"
+      },
+      "kicker": {
+        "vi": "NHÌN THẲNG VÀO SỰ THẬT",
+        "en": "FACE THE TRUTH SQUARELY"
+      },
+      "subtitle": {
+        "vi": "Từ khủng hoảng đến công cuộc Đổi Mới — mở cửa nền kinh tế, hội nhập khu vực và thế giới.",
+        "en": "From crisis to Renovation — opening the economy, integrating with the region and the world."
+      },
+      "yearRange": {
+        "display": {
+          "vi": "1986 – 1995",
+          "en": "1986 – 1995 CE"
+        },
+        "startYear": 1986,
+        "endYear": 1995
+      },
+      "accent": "#c9a227",
+      "cover": {
+        "id": "period-doi-moi-cover",
+        "type": "image",
+        "role": "cover",
+        "reduced": "periods/doi-moi.png"
       }
     }
   ]
