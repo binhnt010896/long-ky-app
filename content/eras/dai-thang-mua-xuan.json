@@ -83,18 +83,32 @@
     "author": "Viện Lịch sử Quân sự Việt Nam"
   },
   "characters": [
-    { "ref": "ho-chi-minh" },
-    { "ref": "le-duan" },
-    { "ref": "vo-nguyen-giap" },
-    { "ref": "nguyen-thi-dinh" },
-    { "ref": "van-tien-dung" },
-    { "ref": "nguyen-thi-binh" }
+    {
+      "ref": "ho-chi-minh"
+    },
+    {
+      "ref": "le-duan"
+    },
+    {
+      "ref": "vo-nguyen-giap"
+    },
+    {
+      "ref": "nguyen-thi-dinh"
+    },
+    {
+      "ref": "van-tien-dung"
+    },
+    {
+      "ref": "nguyen-thi-binh"
+    }
   ],
   "events": [
     {
       "id": "dat-nuoc-chia-doi",
       "slug": "dat-nuoc-chia-doi",
-      "figureIds": ["ho-chi-minh"],
+      "figureIds": [
+        "ho-chi-minh"
+      ],
       "details": {
         "vi": "Theo Hiệp định Genève 1954, sông Bến Hải (vĩ tuyến 17) chỉ là giới tuyến quân sự tạm thời để hai bên tập kết chuyển quân, hoàn toàn không phải ranh giới chính trị hay lãnh thổ; hiệp định quy định sẽ tổ chức hiệp thương rồi tổng tuyển cử tự do trong cả nước vào tháng 7 năm 1956 để thống nhất đất nước. Thế nhưng Mỹ nhanh chóng hất cẳng Pháp, dựng lên chính quyền tay sai Ngô Đình Diệm ở miền Nam, công khai tuyên bố không thi hành hiệp định, không hiệp thương tổng tuyển cử. Chính quyền Diệm ra sức củng cố bộ máy đàn áp, tiến hành các chiến dịch 'tố cộng, diệt cộng' tàn bạo; đỉnh điểm là Luật 10/59 (ban hành tháng 5-1959) lập các toà án quân sự đặc biệt, dùng máy chém lưu động đi khắp các tỉnh miền Nam hành quyết những người kháng chiến cũ và những người yêu nước không chịu khuất phục. Hàng vạn cán bộ, đảng viên, quần chúng cách mạng bị bắt bớ, tù đày, giết hại; phong trào cách mạng miền Nam trải qua giai đoạn vô cùng khó khăn, tổn thất nặng nề. Chính sách khủng bố trắng của Mỹ – Diệm, thay vì dập tắt được ý chí đấu tranh, đã đẩy mâu thuẫn lên đến đỉnh điểm, làm chín muồi điều kiện cho một cao trào cách mạng mới bùng nổ.",
         "en": "Under the 1954 Geneva Accords, the Bến Hải river (the 17th parallel) was only a provisional military demarcation line for regrouping forces, in no way a political or territorial boundary; the Accords called for consultations and then a free general election across the whole country in July 1956 to reunify it. Yet the United States quickly displaced France, installing the client government of Ngô Đình Diệm in the South, which openly declared it would not implement the Accords or hold consultations for the election. The Diệm government built up its machinery of repression, waging brutal 'denounce and exterminate the communists' campaigns; the climax was Law 10/59 (enacted May 1959), which set up special military tribunals and sent mobile guillotines across the southern provinces to execute former resistance fighters and patriots who refused to submit. Tens of thousands of cadres, Party members and revolutionary masses were arrested, imprisoned or killed; the southern revolutionary movement passed through a period of extreme hardship and heavy losses. The Mỹ–Diệm white terror, far from extinguishing the will to struggle, pushed the contradiction to its breaking point and ripened the conditions for a new revolutionary upsurge."
@@ -137,8 +151,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/dai-thang-mua-xuan/events/dat-nuoc-chia-doi.png",
         "reduced": "eras/dai-thang-mua-xuan/events/dat-nuoc-chia-doi.png"
@@ -155,7 +169,10 @@
     {
       "id": "dong-khoi",
       "slug": "dong-khoi",
-      "figureIds": ["le-duan", "nguyen-thi-dinh"],
+      "figureIds": [
+        "le-duan",
+        "nguyen-thi-dinh"
+      ],
       "details": {
         "vi": "Trước sự đàn áp khốc liệt của Mỹ – Diệm, tháng 1 năm 1959, Hội nghị lần thứ 15 Ban Chấp hành Trung ương Đảng đã ra nghị quyết lịch sử, xác định con đường phát triển cơ bản của cách mạng miền Nam là khởi nghĩa giành chính quyền về tay nhân dân bằng con đường bạo lực cách mạng, kết hợp lực lượng chính trị của quần chúng với lực lượng vũ trang. Nghị quyết 15 như luồng gió mới thổi bùng phong trào đấu tranh đang bị dồn nén. Cuối năm 1959, đầu năm 1960, dưới sự lãnh đạo trực tiếp của Tỉnh uỷ Bến Tre — trong đó có vai trò nổi bật của bà Nguyễn Thị Định — nhân dân ba xã điểm Định Thuỷ, Phước Hiệp, Bình Khánh (huyện Mỏ Cày) đồng loạt nổi dậy phá tề, diệt ác ôn, giành quyền làm chủ. Đây là hình thức đấu tranh mới mẻ: quần chúng, chủ yếu là phụ nữ, tay không hoặc mang gậy gộc kéo lên đấu tranh trực diện với địch, kết hợp với lực lượng vũ trang bí mật diệt ác, phá kìm — hình thành nên 'Đội quân tóc dài' nổi tiếng. Phong trào Đồng khởi nhanh chóng lan rộng khắp Nam Bộ và một phần Khu 5, làm tan rã từng mảng bộ máy kìm kẹp của địch ở nông thôn, hình thành các vùng giải phóng rộng lớn. Thắng lợi của Đồng khởi tạo bước ngoặt căn bản cho cách mạng miền Nam, và ngày 20 tháng 12 năm 1960, tại Tây Ninh, Mặt trận Dân tộc Giải phóng miền Nam Việt Nam chính thức ra đời, tập hợp mọi tầng lớp nhân dân đấu tranh chống Mỹ – Diệm.",
         "en": "Facing brutal Mỹ–Diệm repression, in January 1959 the Party Central Committee's Fifteenth Plenum issued a historic resolution, setting the fundamental path of the southern revolution as an uprising to seize power through revolutionary violence, combining the political force of the masses with armed force. Resolution 15 was like a fresh wind fanning the pent-up struggle. In late 1959 and early 1960, under the direct leadership of the Bến Tre Provincial Party Committee — with Nguyễn Thị Định playing a prominent role — the people of three pilot communes, Định Thuỷ, Phước Hiệp and Bình Khánh (Mỏ Cày district), rose up together to smash the puppet administration, eliminate tyrants and seize mastery of their villages. This was a novel form of struggle: masses, chiefly women, bare-handed or carrying sticks, marched to confront the enemy directly, combined with secret armed forces striking tyrants and breaking the enemy's grip — giving rise to the famous 'Long-Haired Army.' The Đồng Khởi movement quickly spread across the South and part of Military Region 5, shattering the enemy's rural control apparatus piece by piece and forming broad liberated zones. Đồng Khởi's victory marked a fundamental turning point for the southern revolution, and on 20 December 1960, at Tây Ninh, the National Liberation Front of South Vietnam was formally founded, uniting every stratum of the people to fight the Mỹ–Diệm regime."
@@ -198,8 +215,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/dai-thang-mua-xuan/events/dong-khoi.png",
         "reduced": "eras/dai-thang-mua-xuan/events/dong-khoi.png"
@@ -216,7 +233,9 @@
     {
       "id": "danh-bai-chien-tranh-dac-biet",
       "slug": "danh-bai-chien-tranh-dac-biet",
-      "figureIds": ["vo-nguyen-giap"],
+      "figureIds": [
+        "vo-nguyen-giap"
+      ],
       "details": {
         "vi": "Sau thất bại của chính sách thực dân kiểu cũ, từ năm 1961 đế quốc Mỹ chuyển sang thực hiện chiến lược 'Chiến tranh đặc biệt' ở miền Nam: dùng quân đội tay sai Sài Gòn làm lực lượng chiến đấu chủ yếu, do cố vấn quân sự Mỹ chỉ huy, được trang bị vũ khí, phương tiện chiến tranh hiện đại của Mỹ, đặc biệt là chiến thuật 'trực thăng vận', 'thiết xa vận' cơ động nhanh; đồng thời ra sức dồn dân lập 'ấp chiến lược', coi đây là 'xương sống' của chiến lược nhằm tách dân ra khỏi cách mạng. Quân và dân miền Nam đã kiên cường chống lại bằng đấu tranh chính trị kết hợp đấu tranh vũ trang, phá từng mảng 'ấp chiến lược', xây dựng làng xã chiến đấu. Trận đánh tiêu biểu và có ý nghĩa bước ngoặt là chiến thắng Ấp Bắc (Mỹ Tho) ngày 2 tháng 1 năm 1963: với lực lượng nhỏ nhưng cách đánh mưu trí, quân giải phóng đã đánh bại cuộc hành quân càn quét có máy bay lên thẳng, xe bọc thép và cố vấn Mỹ trực tiếp chỉ huy, bắn rơi và bắn hỏng nhiều máy bay, loại khỏi vòng chiến hàng trăm tên địch. Chiến thắng Ấp Bắc chứng minh quân dân miền Nam hoàn toàn có khả năng đánh bại các chiến thuật cơ động mới của Mỹ – nguỵ, mở đầu cao trào 'thi đua Ấp Bắc, giết giặc lập công' trên khắp chiến trường. Đến giữa năm 1965, chiến lược 'Chiến tranh đặc biệt' của Mỹ hoàn toàn phá sản, hệ thống 'ấp chiến lược' về cơ bản bị phá vỡ, chính quyền Sài Gòn lâm vào khủng hoảng triền miên.",
         "en": "After the failure of old-style colonial policy, from 1961 the United States shifted to a 'Special War' strategy in the South: using the Sài Gòn client army as its main fighting force, commanded by American military advisers and equipped with modern American weapons and equipment, especially the fast-moving 'heliborne' and 'armored' tactics; at the same time it drove the population into 'strategic hamlets,' treating this as the strategy's 'backbone' meant to separate the people from the revolution. The army and people of the South resisted tenaciously, combining political with armed struggle, dismantling the strategic hamlets piece by piece and building fighting villages. The emblematic, turning-point battle was the victory at Ấp Bắc (Mỹ Tho) on 2 January 1963: with a small force but shrewd tactics, the Liberation Army defeated a sweep operation backed by helicopters, armored vehicles and direct American advisory command, shooting down and damaging many aircraft and putting hundreds of enemy troops out of action. The Ấp Bắc victory proved that the southern army and people could fully defeat the new mobile tactics of the US and its client, opening the 'emulate Ấp Bắc, kill the enemy and win merit' upsurge across the battlefield. By mid-1965 the 'Special War' strategy had completely collapsed, the strategic-hamlet system was largely broken, and the Sài Gòn government sank into unending crisis."
@@ -259,8 +278,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
         },
         "flagship": "eras/dai-thang-mua-xuan/events/danh-bai-chien-tranh-dac-biet.png",
         "reduced": "eras/dai-thang-mua-xuan/events/danh-bai-chien-tranh-dac-biet.png"
@@ -277,7 +296,9 @@
     {
       "id": "chien-tranh-cuc-bo",
       "slug": "chien-tranh-cuc-bo",
-      "figureIds": ["vo-nguyen-giap"],
+      "figureIds": [
+        "vo-nguyen-giap"
+      ],
       "details": {
         "vi": "Trước nguy cơ sụp đổ hoàn toàn của chính quyền Sài Gòn, từ giữa năm 1965 đế quốc Mỹ chuyển sang chiến lược 'Chiến tranh cục bộ', ồ ạt đưa quân viễn chinh Mỹ và quân các nước đồng minh trực tiếp vào tham chiến ở miền Nam, đồng thời dùng không quân, hải quân tiến hành cuộc chiến tranh phá hoại quy mô lớn, lâu dài đối với miền Bắc nhằm ngăn chặn sự chi viện cho tiền tuyến. Trận đầu tiên quân ta đọ sức trực tiếp với quân viễn chinh Mỹ là chiến thắng Vạn Tường (Quảng Ngãi) ngày 18 tháng 8 năm 1965: bộ đội chủ lực ta đã đánh bại một lực lượng lớn thuỷ quân lục chiến Mỹ có xe tăng, pháo binh, máy bay yểm trợ, chứng minh khả năng đánh thắng quân Mỹ trong điều kiện chúng có ưu thế tuyệt đối về hoả lực. Tiếp đó, quân dân miền Nam liên tiếp đánh bại hai cuộc phản công chiến lược mùa khô 1965–1966 và 1966–1967 của Mỹ – nguỵ. Ở miền Bắc, quân và dân ta vừa sản xuất vừa chiến đấu với tinh thần 'tay cày tay súng, tay búa tay súng', bắn rơi hàng nghìn máy bay Mỹ, bảo vệ vững chắc hậu phương lớn, tiếp tục chi viện sức người sức của không ngừng cho miền Nam qua đường Hồ Chí Minh. Chiến lược 'Chiến tranh cục bộ' — đỉnh cao về quy mô quân sự của Mỹ trong cuộc chiến — đã không đạt được mục tiêu đề ra, đẩy nước Mỹ vào thế sa lầy ngày càng sâu.",
         "en": "Facing the imminent collapse of the Sài Gòn government, from mid-1965 the United States shifted to a 'Local War' strategy, pouring American expeditionary troops and allied forces directly into combat in the South while using its air force and navy to wage a large-scale, prolonged war of destruction against the North to cut off support for the front. Our army's first direct clash with American expeditionary forces was the victory at Vạn Tường (Quảng Ngãi) on 18 August 1965: our main-force troops defeated a large Marine force backed by tanks, artillery and air support, proving that American troops could be defeated even when they held overwhelming firepower superiority. Southern forces then went on to defeat the two strategic dry-season counter-offensives of 1965–66 and 1966–67. In the North, the army and people fought while producing, in the spirit of 'plow in one hand, rifle in the other; hammer in one hand, rifle in the other,' shooting down thousands of American aircraft, firmly defending the great rear and continuing to supply manpower and materiel to the South without pause via the Hồ Chí Minh Trail. The 'Local War' strategy — the peak of America's military scale in the conflict — failed to achieve its goals, sinking the United States ever deeper into a quagmire."
@@ -320,8 +341,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/dai-thang-mua-xuan/events/chien-tranh-cuc-bo.png",
         "reduced": "eras/dai-thang-mua-xuan/events/chien-tranh-cuc-bo.png"
@@ -338,7 +359,9 @@
     {
       "id": "tet-mau-than-1968",
       "slug": "tet-mau-than-1968",
-      "figureIds": ["le-duan"],
+      "figureIds": [
+        "le-duan"
+      ],
       "details": {
         "vi": "Sau hai mùa khô liên tiếp thất bại, Mỹ vẫn không sao chuyển được cục diện chiến trường theo hướng có lợi cho chúng. Nắm bắt thời cơ chiến lược, Bộ Chính trị quyết định mở cuộc Tổng tiến công và nổi dậy đồng loạt trên toàn miền Nam vào đúng dịp Tết Nguyên đán Mậu Thân (bắt đầu đêm 30 rạng sáng 31 tháng 1 năm 1968), đánh thẳng vào các đô thị, cơ quan đầu não, căn cứ quân sự lớn của Mỹ – nguỵ, kể cả Sài Gòn, Huế và hàng loạt thành phố, thị xã khác trên khắp miền Nam. Cuộc tổng tiến công gây bất ngờ hoàn toàn về thời điểm và quy mô, quân giải phóng đánh chiếm và làm chủ nhiều mục tiêu quan trọng, trong đó có cuộc đột kích táo bạo vào Toà Đại sứ Mỹ tại Sài Gòn và cuộc chiến đấu kiên cường bảo vệ Thành cổ Huế suốt 25 ngày đêm. Tuy về mặt quân sự sau đó ta phải rút khỏi một số địa bàn do so sánh lực lượng còn chênh lệch, nhưng đòn tiến công Mậu Thân đã tạo nên một chấn động chính trị to lớn ngay tại nước Mỹ: làm sụp đổ ảo tưởng về khả năng thắng lợi bằng quân sự mà giới cầm quyền Mỹ vẫn tuyên truyền, buộc Tổng thống Mỹ phải tuyên bố ngừng ném bom miền Bắc từ vĩ tuyến 20 trở ra, chấp nhận ngồi vào bàn đàm phán tại Paris, và không ra tái tranh cử. Mậu Thân 1968 được xem là bước ngoặt chiến lược, làm lung lay tận gốc ý chí xâm lược của đế quốc Mỹ, mở đầu thời kỳ Mỹ buộc phải xuống thang chiến tranh.",
         "en": "After two failed dry seasons in a row, the US still could not turn the battlefield situation in its favor. Seizing the strategic moment, the Political Bureau decided to launch a simultaneous General Offensive and Uprising across the whole South during the Lunar New Year (Tết) of Mậu Thân (beginning the night of 30–31 January 1968), striking directly at cities, command centers and major American and client military bases, including Sài Gòn, Huế and a host of other cities and towns across the South. The offensive achieved complete surprise in timing and scale; Liberation forces seized and briefly held many important targets, including a daring raid on the American Embassy in Sài Gòn and the tenacious 25-day defense of the Huế Citadel. Although militarily we later had to withdraw from some areas due to the imbalance of forces, the Tết Offensive produced a massive political shockwave inside the United States itself: it shattered the illusion of military victory that the American leadership had propagated, forced the US President to announce a bombing halt north of the 20th parallel, accept negotiations in Paris, and decline to seek re-election. Tết 1968 is regarded as a strategic turning point, shaking American imperialism's will to wage the war to its roots and opening the period in which the US was forced to de-escalate."
@@ -381,8 +404,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/dai-thang-mua-xuan/events/tet-mau-than-1968.png",
         "reduced": "eras/dai-thang-mua-xuan/events/tet-mau-than-1968.png"
@@ -399,7 +422,9 @@
     {
       "id": "bac-ho-qua-doi",
       "slug": "bac-ho-qua-doi",
-      "figureIds": ["ho-chi-minh"],
+      "figureIds": [
+        "ho-chi-minh"
+      ],
       "details": {
         "vi": "Giữa lúc cuộc kháng chiến chống Mỹ bước vào giai đoạn quyết liệt, vào lúc 9 giờ 47 phút ngày 2 tháng 9 năm 1969 — đúng ngày Quốc khánh nước Việt Nam Dân chủ Cộng hoà — Chủ tịch Hồ Chí Minh qua đời tại Hà Nội, hưởng thọ 79 tuổi, để lại niềm tiếc thương vô hạn cho toàn Đảng, toàn quân, toàn dân Việt Nam và bạn bè quốc tế. Trước lúc đi xa, Người đã để lại bản Di chúc thiêng liêng, được viết và sửa trong nhiều năm (1965–1969), căn dặn về công việc của Đảng, chăm lo đời sống nhân dân, bồi dưỡng thế hệ cách mạng cho đời sau, và khẳng định niềm tin sắt đá vào thắng lợi cuối cùng của sự nghiệp chống Mỹ, cứu nước, thống nhất Tổ quốc. Tin Bác mất khiến cả dân tộc chìm trong đau thương, nhưng cũng chính từ nỗi đau ấy, ý chí 'biến đau thương thành hành động cách mạng' càng thêm sục sôi trên khắp các chiến trường, mặt trận sản xuất. Lễ truy điệu trọng thể được tổ chức tại Quảng trường Ba Đình ngày 9 tháng 9 năm 1969. Từ đó, Di chúc của Người trở thành cương lĩnh hành động, là nguồn cổ vũ tinh thần to lớn, thôi thúc toàn Đảng, toàn quân, toàn dân ta vượt qua muôn vàn gian khổ, hy sinh, đi tới thắng lợi hoàn toàn của cuộc kháng chiến chống Mỹ, cứu nước.",
         "en": "Just as the resistance against America entered its most decisive stage, at 9:47 a.m. on 2 September 1969 — the very anniversary of the founding of the Democratic Republic of Vietnam — President Hồ Chí Minh passed away in Hà Nội at the age of 79, leaving boundless grief across the Party, the armed forces, the people of Vietnam and friends around the world. Before he passed, he left behind his sacred Testament, written and revised over several years (1965–1969), instructing on the work of the Party, caring for the people's lives, nurturing revolutionary successors, and affirming an unshakeable faith in the final victory of the resistance to save the nation and reunify the Fatherland. News of his death plunged the whole nation into grief, yet from that very grief the resolve to 'turn sorrow into revolutionary action' burned all the fiercer across every battlefield and production front. A solemn state funeral was held at Ba Đình Square on 9 September 1969. From then on, his Testament became a program of action, a great source of spiritual inspiration that drove the Party, the armed forces and the people through untold hardship and sacrifice to the complete victory of the resistance against America to save the nation."
@@ -442,8 +467,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/dai-thang-mua-xuan/events/bac-ho-qua-doi.png",
         "reduced": "eras/dai-thang-mua-xuan/events/bac-ho-qua-doi.png"
@@ -460,7 +485,10 @@
     {
       "id": "duong-truong-son",
       "slug": "duong-truong-son",
-      "figureIds": ["le-duan", "vo-nguyen-giap"],
+      "figureIds": [
+        "le-duan",
+        "vo-nguyen-giap"
+      ],
       "details": {
         "vi": "Ngay từ năm 1959, để chi viện kịp thời sức người, sức của cho chiến trường miền Nam, Bộ Chính trị và Chủ tịch Hồ Chí Minh đã quyết định mở tuyến vận tải chiến lược mang tên Người — Đường Hồ Chí Minh — trên dãy Trường Sơn hùng vĩ, kéo dài từ Nghệ An qua Lào, Campuchia đến tận Nam Bộ, cùng với 'Đường Hồ Chí Minh trên biển' bí mật vận chuyển vũ khí bằng tàu không số. Đây là kỳ tích của ý chí và sức sáng tạo của dân tộc: hàng chục vạn bộ đội, thanh niên xung phong, dân công hoả tuyến ngày đêm mở đường, san lấp hố bom, vượt qua mưa bom bão đạn, sốt rét rừng, thú dữ để vận chuyển hàng triệu tấn vũ khí, lương thực, đưa hàng chục vạn cán bộ, chiến sĩ vào Nam chiến đấu. Sau thất bại của 'Chiến tranh cục bộ', Mỹ chuyển sang chiến lược 'Việt Nam hoá chiến tranh': rút dần quân Mỹ, tăng cường vũ trang, huấn luyện cho quân đội Sài Gòn để 'dùng người Việt đánh người Việt', đồng thời mở rộng chiến tranh sang Campuchia (1970) và Lào. Nhằm cắt đứt tuyến chi viện chiến lược, đầu năm 1971 địch mở cuộc hành quân lớn 'Lam Sơn 719' đánh ra Đường 9 – Nam Lào; quân ta đã đập tan cuộc hành quân này, loại khỏi vòng chiến hàng vạn quân địch, bảo vệ vững chắc tuyến chi viện. Thắng lợi Đường 9 – Nam Lào cùng những thắng lợi liên tiếp trên các chiến trường đã làm phá sản về căn bản chiến lược 'Việt Nam hoá chiến tranh' của Mỹ, tạo tiền đề cho các đòn tiến công chiến lược tiếp theo.",
         "en": "From as early as 1959, to supply manpower and materiel to the southern battlefield in time, the Political Bureau and President Hồ Chí Minh decided to open a strategic supply route bearing his name — the Hồ Chí Minh Trail — through the mighty Trường Sơn mountains, running from Nghệ An through Laos and Cambodia down to the South, together with the secret 'Hồ Chí Minh Trail at Sea,' which used unnumbered ships to smuggle weapons. This was a feat of national will and ingenuity: hundreds of thousands of soldiers, youth volunteers and front-line laborers worked day and night to build roads, fill bomb craters, and brave bombardment, jungle malaria and wild animals to move millions of tons of weapons and food, and send hundreds of thousands of cadres and soldiers south to fight. After the failure of 'Local War,' the US shifted to 'Vietnamization': gradually withdrawing American troops while arming and training the Sài Gòn army to 'use Vietnamese to fight Vietnamese,' while also expanding the war into Cambodia (1970) and Laos. To sever the strategic supply line, in early 1971 the enemy launched the large 'Lam Sơn 719' operation against Route 9 in southern Laos; our forces smashed this operation, putting tens of thousands of enemy troops out of action and firmly protecting the supply line. The Route 9 – Southern Laos victory, together with successive victories on other fronts, fundamentally defeated America's 'Vietnamization' strategy and laid the groundwork for the strategic offensives to come."
@@ -503,8 +531,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/dai-thang-mua-xuan/events/duong-truong-son.png",
         "reduced": "eras/dai-thang-mua-xuan/events/duong-truong-son.png"
@@ -521,7 +549,9 @@
     {
       "id": "dien-bien-phu-tren-khong",
       "slug": "dien-bien-phu-tren-khong",
-      "figureIds": ["vo-nguyen-giap"],
+      "figureIds": [
+        "vo-nguyen-giap"
+      ],
       "details": {
         "vi": "Cuối năm 1972, trước nguy cơ thất bại hoàn toàn trên bàn đàm phán Paris, đế quốc Mỹ liều lĩnh mở cuộc tập kích chiến lược đường không lớn nhất kể từ sau Chiến tranh thế giới thứ hai, sử dụng máy bay ném bom chiến lược B-52 cùng nhiều loại máy bay chiến thuật hiện đại, đánh phá huỷ diệt vào Hà Nội, Hải Phòng và các thành phố lớn ở miền Bắc trong 12 ngày đêm, từ 18 đến 30 tháng 12 năm 1972, hòng buộc ta phải khuất phục trên bàn đàm phán. Quân và dân miền Bắc, nòng cốt là Quân chủng Phòng không – Không quân với lưới lửa tên lửa, pháo cao xạ, không quân tiêm kích, đã hiệp đồng chiến đấu vô cùng anh dũng, mưu trí. Ngay đêm đầu tiên (18/12/1972), quân ta đã bắn rơi những chiếc B-52 đầu tiên trên bầu trời Hà Nội. Suốt 12 ngày đêm ác liệt, quân dân ta đã bắn rơi 81 máy bay các loại, trong đó có 34 chiếc B-52 — phần lớn rơi tại chỗ — làm nên chiến thắng lịch sử mà dư luận quốc tế gọi là 'Điện Biên Phủ trên không'. Đây là thất bại nặng nề nhất trong lịch sử không quân chiến lược Mỹ, đập tan hoàn toàn ý đồ dùng sức mạnh không quân để áp đặt điều kiện đàm phán có lợi cho Mỹ. Ngày 30 tháng 12 năm 1972, chính quyền Mỹ buộc phải tuyên bố ngừng ném bom từ vĩ tuyến 20 trở ra và quay lại bàn đàm phán Paris với thái độ nghiêm túc hơn, dẫn tới việc ký kết Hiệp định Paris chỉ ít tuần sau đó.",
         "en": "In late 1972, facing imminent complete failure at the Paris negotiating table, the United States recklessly launched the largest strategic air assault since the Second World War, using B-52 strategic bombers together with many modern tactical aircraft to carry out a campaign of destruction against Hà Nội, Hải Phòng and other major cities of the North over 12 days and nights, from 18 to 30 December 1972, in an attempt to force us to submit at the negotiating table. The army and people of the North, with the Air Defense–Air Force as the core, using a web of missiles, anti-aircraft guns and fighter aircraft, fought in coordinated combat with immense courage and skill. On the very first night (18 December 1972), our forces shot down the first B-52s over the skies of Hà Nội. Over the 12 fierce days and nights, our army and people shot down 81 aircraft of all types, including 34 B-52s — most crashing on the spot — achieving a historic victory that international opinion came to call the 'Điện Biên Phủ in the Air.' It was the heaviest defeat in the history of the American strategic air force, completely shattering the attempt to use air power to impose favorable negotiating terms on the US side. On 30 December 1972, the American government was forced to announce a halt to bombing north of the 20th parallel and return to the Paris negotiating table with a more serious attitude, leading to the signing of the Paris Accords only weeks later."
@@ -564,8 +594,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/dai-thang-mua-xuan/events/dien-bien-phu-tren-khong.png",
         "reduced": "eras/dai-thang-mua-xuan/events/dien-bien-phu-tren-khong.png"
@@ -582,7 +612,9 @@
     {
       "id": "hiep-dinh-paris",
       "slug": "hiep-dinh-paris",
-      "figureIds": ["nguyen-thi-binh"],
+      "figureIds": [
+        "nguyen-thi-binh"
+      ],
       "details": {
         "vi": "Hội nghị Paris về Việt Nam là cuộc đàm phán ngoại giao dài nhất trong lịch sử hiện đại, kéo dài gần 5 năm (13/5/1968 đến 27/1/1973) với hàng trăm phiên họp công khai và bí mật. Đoàn đại biểu Chính phủ Việt Nam Dân chủ Cộng hoà và đoàn đại biểu Chính phủ Cách mạng lâm thời Cộng hoà miền Nam Việt Nam, trong đó bà Nguyễn Thị Binh giữ vai trò Trưởng đoàn đàm phán và sau là Bộ trưởng Ngoại giao của Chính phủ Cách mạng lâm thời, đã kiên trì đấu tranh trên nguyên tắc kết hợp với sách lược mềm dẻo, gắn chặt với những thắng lợi quyết định trên chiến trường — đặc biệt là chiến thắng 'Điện Biên Phủ trên không' cuối năm 1972 — để buộc phía Mỹ phải nhượng bộ. Ngày 27 tháng 1 năm 1973, tại Trung tâm Hội nghị quốc tế Kléber (Paris), Hiệp định về chấm dứt chiến tranh, lập lại hoà bình ở Việt Nam được ký kết giữa bốn bên. Theo đó, Hoa Kỳ và các nước cam kết tôn trọng độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ của nước Việt Nam; Hoa Kỳ cam kết rút hết quân đội và quân các nước đồng minh, tháo dỡ các căn cứ quân sự, chấm dứt dính líu quân sự và can thiệp vào công việc nội bộ của miền Nam Việt Nam. Bà Nguyễn Thị Bình trở thành người phụ nữ duy nhất đặt bút ký vào một hiệp định quốc tế lớn của thời đại. Với Hiệp định Paris, quân Mỹ và quân đồng minh đã phải rút khỏi miền Nam Việt Nam, tạo ra so sánh lực lượng mới hết sức có lợi cho cách mạng, mở ra thời kỳ mới: 'đánh cho Mỹ cút' đã hoàn thành, chỉ còn nhiệm vụ 'đánh cho nguỵ nhào'.",
         "en": "The Paris Conference on Vietnam was the longest diplomatic negotiation in modern history, lasting nearly five years (13 May 1968 to 27 January 1973) across hundreds of public and secret sessions. The delegations of the Democratic Republic of Vietnam and the Provisional Revolutionary Government of the Republic of South Vietnam — with Nguyễn Thị Bình serving as chief negotiator and later Foreign Minister of the Provisional Revolutionary Government — fought persistently on principle while using flexible tactics, tying their position closely to decisive battlefield victories, especially the 'Điện Biên Phủ in the Air' victory of late 1972, to force American concessions. On 27 January 1973, at the Kléber International Conference Center in Paris, the Agreement on Ending the War and Restoring Peace in Vietnam was signed among the four parties. Under it, the United States and other countries pledged to respect Vietnam's independence, sovereignty, unity and territorial integrity; the US pledged to withdraw all its own and allied troops, dismantle its military bases, and end military involvement and interference in South Vietnam's internal affairs. Nguyễn Thị Bình became the only woman to sign a major international accord of that era. With the Paris Accords, American and allied troops had to withdraw from South Vietnam, creating a new balance of forces highly favorable to the revolution and opening a new period: 'fighting to make the Americans leave' was complete, leaving only the task of 'fighting to make the puppet regime collapse.'"
@@ -625,8 +657,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/dai-thang-mua-xuan/events/hiep-dinh-paris.png",
         "reduced": "eras/dai-thang-mua-xuan/events/hiep-dinh-paris.png"
@@ -643,7 +675,10 @@
     {
       "id": "chien-dich-tay-nguyen",
       "slug": "chien-dich-tay-nguyen",
-      "figureIds": ["van-tien-dung", "vo-nguyen-giap"],
+      "figureIds": [
+        "van-tien-dung",
+        "vo-nguyen-giap"
+      ],
       "details": {
         "vi": "Sau Hiệp định Paris, quân Mỹ và quân đồng minh rút hết khỏi miền Nam, nhưng chính quyền Sài Gòn vẫn ngoan cố phá hoại hiệp định, tiếp tục chiến tranh với sự viện trợ ồ ạt của Mỹ. Trước tình hình so sánh lực lượng đã thay đổi căn bản có lợi cho ta, đầu năm 1975 Bộ Chính trị hạ quyết tâm chiến lược giải phóng hoàn toàn miền Nam, dự kiến trong hai năm 1975–1976, nhưng sẵn sàng thời cơ để giải phóng ngay trong năm 1975 nếu điều kiện cho phép. Chiến dịch Tây Nguyên được chọn làm đòn mở màn, với trận đánh then chốt là tiến công thị xã Buôn Ma Thuột — nơi địch sơ hở, phòng thủ mỏng — vào rạng sáng ngày 10 tháng 3 năm 1975. Chỉ sau hai ngày chiến đấu, quân ta đã làm chủ hoàn toàn Buôn Ma Thuột, làm rung chuyển toàn bộ hệ thống phòng ngự của địch ở Tây Nguyên; địch buộc phải rút chạy khỏi Tây Nguyên theo Đường số 7, bị quân ta truy kích tiêu diệt gần hết. Thắng lợi Tây Nguyên mở ra bước ngoặt của cuộc Tổng tiến công. Thừa thắng, quân ta thần tốc tiến công giải phóng Huế (26/3/1975) rồi Đà Nẵng — căn cứ quân sự liên hợp lớn nhất của địch — chỉ trong ba ngày (29/3/1975), làm tan rã hoàn toàn Quân khu 1 của địch. Chỉ trong vòng chưa đầy một tháng, toàn bộ miền Trung và Tây Nguyên được giải phóng, tạo thế và lực áp đảo cho đòn quyết chiến chiến lược cuối cùng nhằm vào Sài Gòn.",
         "en": "After the Paris Accords, American and allied troops fully withdrew from the South, but the Sài Gòn government stubbornly sabotaged the accords and continued the war with massive US aid. With the balance of forces having shifted fundamentally in our favor, in early 1975 the Political Bureau resolved on the strategic goal of fully liberating the South, planned for the two years 1975–1976, but ready to seize the chance to liberate it within 1975 itself if conditions allowed. The Tây Nguyên (Central Highlands) Campaign was chosen as the opening blow, its key battle the assault on Buôn Ma Thuột town — where the enemy was exposed and thinly defended — at dawn on 10 March 1975. In just two days our forces fully took Buôn Ma Thuột, shaking the enemy's entire defensive system in the Highlands; the enemy was forced to flee the Highlands along Route 7, where our forces pursued and destroyed nearly the whole retreating force. The Tây Nguyên victory opened the turning point of the General Offensive. Riding the momentum, our forces swiftly liberated Huế (26 March 1975) and then Đà Nẵng — the enemy's largest combined military base — in just three days (29 March 1975), completely shattering the enemy's Military Region 1. In under a month, the whole of central Vietnam and the Highlands were liberated, creating an overwhelming position and strength for the final decisive strategic blow aimed at Sài Gòn."
@@ -686,8 +721,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/dai-thang-mua-xuan/events/chien-dich-tay-nguyen.png",
         "reduced": "eras/dai-thang-mua-xuan/events/chien-dich-tay-nguyen.png"
@@ -704,7 +739,10 @@
     {
       "id": "chien-dich-ho-chi-minh",
       "slug": "chien-dich-ho-chi-minh",
-      "figureIds": ["le-duan", "van-tien-dung"],
+      "figureIds": [
+        "le-duan",
+        "van-tien-dung"
+      ],
       "details": {
         "vi": "Sau thắng lợi Tây Nguyên và Huế – Đà Nẵng, Bộ Chính trị nhận định thời cơ chiến lược đã chín muồi và hạ quyết tâm: 'phải tập trung nhanh nhất lực lượng, binh khí kỹ thuật và vật chất, giải phóng miền Nam trước mùa mưa'. Ngày 14 tháng 4 năm 1975, Bộ Chính trị chính thức đặt tên chiến dịch giải phóng Sài Gòn – Gia Định là Chiến dịch Hồ Chí Minh. Đại tướng Văn Tiến Dũng được cử làm Tư lệnh chiến dịch. Năm cánh quân lớn với đầy đủ binh chủng hợp thành được lệnh đồng loạt tiến công từ nhiều hướng, thần tốc siết chặt vòng vây quanh Sài Gòn, trước đó đã lần lượt đập tan tuyến phòng thủ Xuân Lộc — cửa ngõ phía đông kiên cố cuối cùng của địch. Đúng 17 giờ ngày 26 tháng 4 năm 1975, chiến dịch chính thức mở màn. Trưa ngày 30 tháng 4 năm 1975, các binh đoàn thọc sâu của ta đồng loạt đánh chiếm các mục tiêu trọng yếu trong nội đô; đúng 11 giờ 30 phút, xe tăng quân giải phóng húc đổ cổng Dinh Độc Lập, lá cờ của Mặt trận Dân tộc Giải phóng tung bay trên nóc dinh; Tổng thống chính quyền Sài Gòn Dương Văn Minh tuyên bố đầu hàng không điều kiện. Chiến dịch Hồ Chí Minh toàn thắng, kết thúc 21 năm kháng chiến chống Mỹ, cứu nước và 30 năm chiến tranh giải phóng dân tộc liên tục kể từ Cách mạng Tháng Tám 1945. Đây là thắng lợi vĩ đại nhất, trọn vẹn nhất trong lịch sử chống ngoại xâm của dân tộc Việt Nam, mở ra kỷ nguyên đất nước độc lập, thống nhất, đi lên chủ nghĩa xã hội.",
         "en": "After the victories in the Highlands and at Huế–Đà Nẵng, the Political Bureau judged the strategic moment ripe and resolved: 'concentrate forces, equipment and materiel as quickly as possible to liberate the South before the rainy season.' On 14 April 1975, the Political Bureau formally named the campaign to liberate Sài Gòn–Gia Định the Hồ Chí Minh Campaign. General Văn Tiến Dũng was appointed campaign commander. Five large combined-arms columns were ordered to advance simultaneously from multiple directions, swiftly tightening the ring around Sài Gòn, having already smashed the Xuân Lộc line — the enemy's last fortified eastern gateway. At exactly 5 p.m. on 26 April 1975, the campaign formally opened. At noon on 30 April 1975, our spearhead units simultaneously seized key objectives inside the city; at precisely 11:30 a.m., a Liberation tank crashed through the gate of the Independence Palace and the National Liberation Front's flag flew atop it; Sài Gòn government president Dương Văn Minh announced unconditional surrender. The Hồ Chí Minh Campaign achieved total victory, ending 21 years of resistance against America to save the nation and 30 years of continuous national liberation war since the August Revolution of 1945. It was the greatest, most complete victory in the history of the Vietnamese people's resistance to foreign aggression, opening an era of an independent, reunified country advancing toward socialism."
@@ -747,8 +785,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/dai-thang-mua-xuan/events/chien-dich-ho-chi-minh.png",
         "reduced": "eras/dai-thang-mua-xuan/events/chien-dich-ho-chi-minh.png"

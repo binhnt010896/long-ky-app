@@ -148,8 +148,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Minh họa",
+          "en": "Illustration"
         },
         "flagship": "eras/cach-mang-thang-tam/events/dang-cong-san-ra-doi.png",
         "reduced": "eras/cach-mang-thang-tam/events/dang-cong-san-ra-doi.png"
@@ -211,8 +211,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Minh họa",
+          "en": "Illustration"
         },
         "flagship": "eras/cach-mang-thang-tam/events/xo-viet-nghe-tinh.png",
         "reduced": "eras/cach-mang-thang-tam/events/xo-viet-nghe-tinh.png"
@@ -272,8 +272,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/cach-mang-thang-tam/events/phong-trao-dan-chu.png",
         "reduced": "eras/cach-mang-thang-tam/events/phong-trao-dan-chu.png"
@@ -335,8 +335,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/cach-mang-thang-tam/events/khoi-nghia-1940.png",
         "reduced": "eras/cach-mang-thang-tam/events/khoi-nghia-1940.png"
@@ -399,8 +399,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/cach-mang-thang-tam/events/mat-tran-viet-minh.png",
         "reduced": "eras/cach-mang-thang-tam/events/mat-tran-viet-minh.png"
@@ -460,11 +460,12 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
         },
         "flagship": "eras/cach-mang-thang-tam/events/nan-doi-at-dau.png",
-        "reduced": "eras/cach-mang-thang-tam/events/nan-doi-at-dau.png"
+        "reduced": "eras/cach-mang-thang-tam/events/nan-doi-at-dau.png",
+        "credit": "Võ An Ninh"
       },
       "citation": {
         "work": "Việt Nam những sự kiện lịch sử (1919–1945)",
@@ -521,8 +522,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/cach-mang-thang-tam/events/nhat-dao-chinh-phap.png",
         "reduced": "eras/cach-mang-thang-tam/events/nhat-dao-chinh-phap.png"
@@ -585,8 +586,8 @@
         "role": "hero",
         "placeholder": "era-scene",
         "caption": {
-          "vi": "Minh họa · phong cách sơn mài",
-          "en": "Illustration · lacquer style"
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
         },
         "flagship": "eras/cach-mang-thang-tam/events/cach-mang-thang-tam.png",
         "reduced": "eras/cach-mang-thang-tam/events/cach-mang-thang-tam.png"
