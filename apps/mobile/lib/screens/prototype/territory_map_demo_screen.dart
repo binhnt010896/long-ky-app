@@ -179,6 +179,9 @@ class _TerritoryMapDemoScreenState extends State<TerritoryMapDemoScreen> {
               child: TimelineBar(
                 years: <int>[for (final s in kAtlas) s.anchorYear],
                 selected: snap.anchorYear,
+                // The last snapshot ("thong-nhat", 1977) is the territory as
+                // it stands through the current chronicle, not a fixed year.
+                openEnded: true,
                 onChanged: (y) {
                   final i = kAtlas.indexWhere((s) => s.anchorYear == y);
                   if (i >= 0) setState(() => _index = i);

@@ -11,11 +11,18 @@ class TimelineBar extends StatelessWidget {
     required this.years,
     required this.selected,
     required this.onChanged,
+    this.openEnded = false,
   });
 
   final List<int> years;
   final int selected;
   final ValueChanged<int> onChanged;
+
+  /// True when the *last* (largest) year in [years] is a snapshot that still
+  /// holds today — e.g. the territory atlas's final snapshot covers 1977
+  /// through the current chronicle. That year's label then reads as an
+  /// open-ended span ("1977 – nay") rather than a single fixed year.
+  final bool openEnded;
 
   static const double _pad = 22;
   static const double _height = 66;
@@ -29,7 +36,17 @@ class TimelineBar extends StatelessWidget {
     return (t * (years.length - 1)).round();
   }
 
-  String _label(int y) => y < 0 ? '${-y} TCN' : '$y';
+  int get _latestYear =>
+      years.isEmpty ? 0 : years.reduce((a, b) => a > b ? a : b);
+
+  String _label(int y) {
+    final base = y < 0 ? '${-y} TCN' : '$y';
+    return openEnded && y == _latestYear && y > 0 ? '$base – nay' : base;
+  }
+
+  /// A rough per-character width at the pill's bold 12px, floored at the old
+  /// fixed 60px so short years ("500 TCN") don't shrink from what they were.
+  double _pillWidth(int y) => (_label(y).length * 7.6 + 20).clamp(60.0, 120.0);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +59,9 @@ class TimelineBar extends StatelessWidget {
         // (plus the selected one); every tick still renders.
         final labelStep = (years.length / 6).ceil().clamp(1, years.length);
         bool showLabel(int i) {
-          if (i == selIdx) return true;
+          // The selected tick's year is already named by the pill above the
+          // thumb; showing it again here just collides with the pill.
+          if (i == selIdx) return false;
           if ((i - selIdx).abs() < labelStep) return false;
           return i % labelStep == 0 || i == years.length - 1;
         }
@@ -108,12 +127,15 @@ class TimelineBar extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Current-year pill.
+                // Current-year pill. Sized to its text (an open-ended span
+                // like "1977 – nay" is longer than a bare year) so it never
+                // wraps to a second line.
                 Positioned(
-                  left: (_x(selIdx, w) - 30).clamp(0.0, w - 60),
+                  left: (_x(selIdx, w) - _pillWidth(selected) / 2)
+                      .clamp(0.0, w - _pillWidth(selected)),
                   top: 2,
                   child: Container(
-                    width: 60,
+                    width: _pillWidth(selected),
                     alignment: Alignment.center,
                     padding: const EdgeInsets.symmetric(vertical: 3),
                     decoration: BoxDecoration(
@@ -122,6 +144,9 @@ class TimelineBar extends StatelessWidget {
                     ),
                     child: Text(
                       _label(selected),
+                      maxLines: 1,
+                      softWrap: false,
+                      overflow: TextOverflow.visible,
                       style: VSType.label.copyWith(
                           color: VSColors.inkPrimary,
                           fontSize: 12,
