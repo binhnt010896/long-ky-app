@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 final firebaseAuthProvider = Provider<FirebaseAuth>((ref) => FirebaseAuth.instance);
 
@@ -29,20 +28,15 @@ class AuthController {
 
   final FirebaseAuth _auth;
 
+  /// Web-only app, so this goes straight through Firebase Auth's own popup
+  /// flow rather than the `google_sign_in` plugin — no client-ID meta tag
+  /// or extra web wiring needed beyond enabling Google sign-in in the
+  /// Firebase console (already done).
   Future<void> signInWithGoogle() async {
-    final googleSignIn = GoogleSignIn();
-    final account = await googleSignIn.signIn();
-    if (account == null) return; // user cancelled the popup
-    final googleAuth = await account.authentication;
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-    await _auth.signInWithCredential(credential);
+    await _auth.signInWithPopup(GoogleAuthProvider());
   }
 
   Future<void> signOut() async {
-    await GoogleSignIn().signOut();
     await _auth.signOut();
   }
 }

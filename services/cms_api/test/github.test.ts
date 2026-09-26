@@ -1,7 +1,7 @@
 import { env } from 'cloudflare:test';
 import { describe, expect, it } from 'vitest';
 
-import { ConflictError, commitFiles, getContentAtHead } from '../src/github';
+import { ConflictError, commitFiles, decodeBase64Utf8, getContentAtHead } from '../src/github';
 import type { Env } from '../src/types';
 
 const testEnv = env as unknown as Env;
@@ -48,6 +48,17 @@ describe('getContentAtHead', () => {
     expect(result.sha).toBe('head-sha');
     expect(Object.keys(result.files)).toEqual(['content/au-lac.json']);
     expect(result.files['content/au-lac.json']).toBe('{"slug":"au-lac"}');
+  });
+});
+
+describe('decodeBase64Utf8', () => {
+  it('round-trips Vietnamese diacritics, including GitHub-style line-wrapped base64', () => {
+    const text = '{"title":"Âu Lạc — Hai Bà Trưng, Đinh Tiên Hoàng, Nguyễn"}';
+    const bytes = new TextEncoder().encode(text);
+    const b64 = btoa(String.fromCharCode(...bytes));
+    const wrapped = b64.replace(/(.{60})/g, '$1\n');
+
+    expect(decodeBase64Utf8(wrapped)).toBe(text);
   });
 });
 

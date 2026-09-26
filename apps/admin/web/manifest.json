@@ -1,11 +1,11 @@
 {
-    "name": "admin",
-    "short_name": "admin",
+    "name": "Long Ký CMS",
+    "short_name": "Long Ký",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#4b0102",
+    "theme_color": "#4b0102",
+    "description": "Long Ký content admin.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

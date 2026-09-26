@@ -76,7 +76,7 @@ class CmsApiClient {
       headers: await _headers(),
     );
     _throwIfError(res);
-    final body = jsonDecode(res.body) as Map<String, dynamic>;
+    final body = jsonDecode(_text(res)) as Map<String, dynamic>;
     return ContentAtHead(
       body['sha'] as String,
       (body['files'] as Map<String, dynamic>).map((k, v) => MapEntry(k, v as String)),
@@ -96,11 +96,11 @@ class CmsApiClient {
       body: jsonEncode({'baseSha': baseSha, 'files': files, 'message': message}),
     );
     if (res.statusCode == 409) {
-      final body = jsonDecode(res.body) as Map<String, dynamic>;
+      final body = jsonDecode(_text(res)) as Map<String, dynamic>;
       throw CommitConflictException(body['error'] as String? ?? 'main moved');
     }
     _throwIfError(res);
-    final body = jsonDecode(res.body) as Map<String, dynamic>;
+    final body = jsonDecode(_text(res)) as Map<String, dynamic>;
     return body['sha'] as String;
   }
 
@@ -141,16 +141,20 @@ class CmsApiClient {
       headers: await _headers(),
     );
     _throwIfError(res);
-    final body = jsonDecode(res.body);
+    final body = jsonDecode(_text(res));
     if (body == null) return null;
     return PublishRunStatus.fromJson(body as Map<String, dynamic>);
   }
 
+  /// Always UTF-8 — `res.body` falls back to Latin-1 when the response has
+  /// no charset, which mangles every Vietnamese diacritic.
+  String _text(http.Response res) => utf8.decode(res.bodyBytes);
+
   void _throwIfError(http.Response res) {
     if (res.statusCode >= 200 && res.statusCode < 300) return;
-    String message = res.body;
+    String message = _text(res);
     try {
-      final body = jsonDecode(res.body);
+      final body = jsonDecode(_text(res));
       if (body is Map && body['error'] is String) message = body['error'] as String;
     } catch (_) {
       // Non-JSON error body — use the raw text.

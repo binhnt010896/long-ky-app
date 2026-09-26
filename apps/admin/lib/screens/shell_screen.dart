@@ -39,9 +39,18 @@ class AdminShell extends ConsumerWidget {
             selectedIndex: _selectedIndex(location),
             onDestinationSelected: (i) => context.go(_destinations[i].path),
             labelType: NavigationRailLabelType.all,
-            leading: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 16),
-              child: Text('龍記', style: TextStyle(fontSize: 20)),
+            leading: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              child: Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset('assets/brand/long-ky-logo.png', width: 40, height: 40),
+                  ),
+                  const SizedBox(height: 6),
+                  Text('Long Ký', style: Theme.of(context).textTheme.labelMedium),
+                ],
+              ),
             ),
             trailing: Expanded(
               child: Align(

@@ -43,6 +43,14 @@ async function ghFetch(
   return res.json();
 }
 
+/** `atob` alone yields one char per *byte* (Latin-1), which mangles every
+ * Vietnamese diacritic — the bytes must go through a UTF-8 decoder. */
+export function decodeBase64Utf8(b64: string): string {
+  const binary = atob(b64.replace(/\n/g, ''));
+  const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
+  return new TextDecoder('utf-8', { fatal: true, ignoreBOM: false }).decode(bytes);
+}
+
 interface GitTreeEntry {
   path: string;
   mode: string;
@@ -87,7 +95,7 @@ export async function getContentAtHead(
         encoding: string;
       };
       files[entry.path] =
-        blob.encoding === 'base64' ? atob(blob.content.replace(/\n/g, '')) : blob.content;
+        blob.encoding === 'base64' ? decodeBase64Utf8(blob.content) : blob.content;
     }),
   );
 
