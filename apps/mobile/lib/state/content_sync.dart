@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
+import '../telemetry/telemetry.dart';
 import '../theme/content_assets.dart';
 
 /// Where the app checks for a newer content pack (era text, people, periods
@@ -35,9 +36,10 @@ class ContentSync {
       if (json is Map<String, dynamic> && json['version'] is int) {
         return json['version'] as int;
       }
-    } catch (_) {
+    } catch (e, s) {
       // No committed baseline yet (or a malformed one) — 0 means any real
       // downloaded pack is newer, which is the safe direction to fail in.
+      reportNonFatal(e, s, reason: 'ContentSync.bundledVersion');
     }
     return 0;
   }
@@ -72,10 +74,11 @@ class ContentSync {
           ContentMedia.applyManifest(pack.media);
           activeVersion = pack.version;
         }
-      } catch (_) {
+      } catch (e, s) {
         // A stored pack that no longer validates (corrupted, or this app
         // build no longer understands its schemaVersion) is discarded —
         // startup proceeds on the bundle.
+        reportNonFatal(e, s, reason: 'ContentSync.startup: stored pack invalid');
         try {
           await file.delete();
         } catch (_) {
@@ -119,7 +122,16 @@ class ContentSync {
       final actualHash = sha256.convert(utf8.encode(raw)).toString();
       if (actualHash != sha256Hex) return null;
 
-      final pack = ContentPack.parseAndValidate(raw);
+      final ContentPack pack;
+      try {
+        pack = ContentPack.parseAndValidate(raw);
+      } catch (e, s) {
+        // A hash-verified download that still fails to parse is a real
+        // content bug (unlike the network hiccups the outer catch below
+        // swallows silently) — worth a report.
+        reportNonFatal(e, s, reason: 'ContentSync.checkForUpdate: pack invalid');
+        return null;
+      }
 
       final file = await _storeFile();
       if (file != null) {

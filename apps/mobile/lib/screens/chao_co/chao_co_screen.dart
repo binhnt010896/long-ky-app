@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
 
 /// One karaoke line: the second into the anthem at which it becomes current.
@@ -18,7 +20,7 @@ class AnthemLine {
 /// (Tiến quân ca) with simple transport controls, and karaoke lyrics that
 /// highlight and auto-scroll as the song plays. Assets are bundled under
 /// assets/content/chao-co/.
-class ChaoCoScreen extends StatefulWidget {
+class ChaoCoScreen extends ConsumerStatefulWidget {
   const ChaoCoScreen({super.key});
 
   static const String flagAsset = 'assets/content/chao-co/quoc-ky.gif';
@@ -44,10 +46,10 @@ class ChaoCoScreen extends StatefulWidget {
   ];
 
   @override
-  State<ChaoCoScreen> createState() => _ChaoCoScreenState();
+  ConsumerState<ChaoCoScreen> createState() => _ChaoCoScreenState();
 }
 
-class _ChaoCoScreenState extends State<ChaoCoScreen> {
+class _ChaoCoScreenState extends ConsumerState<ChaoCoScreen> {
   final AudioPlayer _player = AudioPlayer();
   final ScrollController _lyricsCtrl = ScrollController();
   final List<GlobalKey> _lineKeys =
@@ -57,8 +59,10 @@ class _ChaoCoScreenState extends State<ChaoCoScreen> {
   bool _failed = false;
   int _current = -1;
   double _posSec = 0;
+  bool _wasPlaying = false;
   StreamSubscription<Duration>? _posSub;
   StreamSubscription<ProcessingState>? _stateSub;
+  StreamSubscription<PlayerState>? _playStateSub;
 
   @override
   void initState() {
@@ -79,6 +83,14 @@ class _ChaoCoScreenState extends State<ChaoCoScreen> {
           await _player.seek(Duration.zero);
           if (mounted) setState(() => _current = -1);
         }
+      });
+      // One `chao_co_play` per rising edge (paused/stopped → playing) — replay
+      // and resume both count, a pause doesn't.
+      _playStateSub = _player.playerStateStream.listen((s) {
+        if (s.playing && !_wasPlaying) {
+          ref.read(telemetryProvider).event('chao_co_play', const <String, Object>{});
+        }
+        _wasPlaying = s.playing;
       });
       if (mounted) setState(() => _ready = true);
     } catch (_) {
@@ -131,6 +143,7 @@ class _ChaoCoScreenState extends State<ChaoCoScreen> {
   void dispose() {
     _posSub?.cancel();
     _stateSub?.cancel();
+    _playStateSub?.cancel();
     _player.dispose();
     _lyricsCtrl.dispose();
     super.dispose();

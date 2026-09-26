@@ -9,8 +9,21 @@ import '../../state/providers.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
 
+const String _statsHeadingVi = 'THỐNG KÊ';
+const String _statsHeadingEn = 'STATISTICS';
+const String _statsLabelVi = 'Gửi thống kê ẩn danh';
+const String _statsLabelEn = 'Share anonymous usage stats';
+const String _statsBodyVi =
+    'Giúp Long Ký biết trang nào được xem nhiều và phát hiện lỗi, qua Firebase '
+    'Analytics/Crashlytics. Không thu thập tên, email hay bất kỳ thông tin '
+    'định danh nào. Có thể tắt bất cứ lúc nào.';
+const String _statsBodyEn =
+    'Helps Long Ký see which pages get read and catch crashes, via Firebase '
+    'Analytics/Crashlytics. No name, email or other identifying information '
+    'is collected. Turn it off any time.';
+
 /// App version shown on the About page (mirrors pubspec `version`).
-const String kAppVersion = '1.0.0';
+const String kAppVersion = '1.0.1';
 
 /// A paragraph as segments; `true` marks the title of a cited work, which is
 /// highlighted.
@@ -98,6 +111,7 @@ class AboutScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final en = ref.watch(langProvider) == Lang.en;
     final version = ref.watch(activeContentVersionProvider);
+    final statsEnabled = ref.watch(telemetryEnabledProvider);
     final work = VSType.body.copyWith(
       color: VSColors.goldBright,
       fontWeight: FontWeight.w600,
@@ -144,6 +158,30 @@ class AboutScreen extends ConsumerWidget {
                 ),
               ),
             ],
+            const SizedBox(height: VSSpacing.xl),
+            Text(en ? _statsHeadingEn : _statsHeadingVi, style: VSType.overline),
+            const SizedBox(height: VSSpacing.sm),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  child: Text(en ? _statsLabelEn : _statsLabelVi,
+                      style: VSType.body),
+                ),
+                const SizedBox(width: VSSpacing.md),
+                Switch(
+                  value: statsEnabled.valueOrNull ?? true,
+                  activeTrackColor: VSColors.goldBright,
+                  onChanged: statsEnabled.isLoading
+                      ? null
+                      : (value) => ref
+                          .read(telemetryEnabledProvider.notifier)
+                          .setEnabled(value),
+                ),
+              ],
+            ),
+            const SizedBox(height: VSSpacing.sm),
+            Text(en ? _statsBodyEn : _statsBodyVi, style: VSType.bodySmall),
             const SizedBox(height: VSSpacing.xl),
             Text(en ? 'VERSION' : 'PHIÊN BẢN', style: VSType.overline),
             const SizedBox(height: VSSpacing.sm),

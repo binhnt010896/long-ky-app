@@ -3,6 +3,9 @@ import 'package:core_domain/core_domain.dart';
 import 'package:experience/experience.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../telemetry/telemetry.dart';
+import '../telemetry/telemetry_settings.dart';
+
 /// The active experience tier.
 ///
 /// A runtime decision (device capability probe / user override / trailer build).
@@ -62,3 +65,25 @@ final langProvider = StateProvider<Lang>((ref) => Lang.vi);
 final hubDynastyIndexProvider = StateProvider<int>((ref) => 0);
 final hubEraIndexProvider =
     StateProvider<Map<String, int>>((ref) => <String, int>{});
+
+/// The "Gửi thống kê ẩn danh" store — see telemetry/telemetry_settings.dart.
+final telemetrySettingsStoreProvider =
+    Provider<TelemetrySettingsStore>((ref) => FileTelemetrySettingsStore());
+
+/// Whether analytics/crash collection is enabled — default **on**, no
+/// first-run prompt. The Về Long Ký switch reads and writes this; main.dart
+/// applies it to [Telemetry] on startup and whenever it changes.
+final telemetryEnabledProvider =
+    AsyncNotifierProvider<TelemetryEnabledNotifier, bool>(
+        TelemetryEnabledNotifier.new);
+
+class TelemetryEnabledNotifier extends AsyncNotifier<bool> {
+  @override
+  Future<bool> build() => ref.watch(telemetrySettingsStoreProvider).load();
+
+  Future<void> setEnabled(bool enabled) async {
+    state = AsyncData<bool>(enabled);
+    await ref.read(telemetrySettingsStoreProvider).setEnabled(enabled);
+    await ref.read(telemetryProvider).setEnabled(enabled);
+  }
+}

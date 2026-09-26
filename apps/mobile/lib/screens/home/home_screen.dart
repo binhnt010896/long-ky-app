@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:core_domain/core_domain.dart';
 import 'package:experience/experience.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +9,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 import '../../state/media_prefetch.dart';
 import '../../state/providers.dart';
+import '../../telemetry/telemetry.dart';
 import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/seal_button.dart';
@@ -28,6 +31,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   TiltParallaxDriver? _tilt;
   late int _dynastyIndex;
   bool _queuedInitialPrefetch = false;
+  Timer? _eraViewDebounce;
 
   @override
   void initState() {
@@ -47,7 +51,20 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     _tilt?.dispose();
     _pointer.dispose();
     _dynastyController.dispose();
+    _eraViewDebounce?.cancel();
     super.dispose();
+  }
+
+  /// "Which era do people linger on from Home" — debounced so a fast swipe
+  /// through several eras only counts the one the reader stopped on.
+  void _onEraSettled(Era era, String periodId) {
+    _eraViewDebounce?.cancel();
+    _eraViewDebounce = Timer(const Duration(seconds: 1), () {
+      ref.read(telemetryProvider).event('era_card_view', <String, Object>{
+        'era_slug': era.slug,
+        'period_id': periodId,
+      });
+    });
   }
 
   void _openEra(Era era) => context.push('/era/${era.slug}');
@@ -105,6 +122,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       next[periodId] = eraIndex;
                       ref.read(hubEraIndexProvider.notifier).state = next;
                     },
+                    onEraSettled: (era) => _onEraSettled(era, periodId),
                   );
                 },
               ),
@@ -132,6 +150,7 @@ class _DynastyPage extends StatefulWidget {
     required this.onOpenEra,
     required this.initialEraIndex,
     required this.onEraChanged,
+    required this.onEraSettled,
   });
 
   final Dynasty dynasty;
@@ -142,6 +161,10 @@ class _DynastyPage extends StatefulWidget {
   /// position — this page's state is rebuilt whenever it scrolls back into view.
   final int initialEraIndex;
   final ValueChanged<int> onEraChanged;
+
+  /// Called (debounced by the parent) whenever the horizontal pager settles
+  /// on an era — drives the `era_card_view` telemetry event.
+  final ValueChanged<Era> onEraSettled;
 
   @override
   State<_DynastyPage> createState() => _DynastyPageState();
@@ -178,6 +201,7 @@ class _DynastyPageState extends State<_DynastyPage> {
           onPageChanged: (i) {
             setState(() => _eraIndex = i);
             widget.onEraChanged(i);
+            widget.onEraSettled(widget.dynasty.eras[i]);
           },
           itemBuilder: (context, i) {
             final era = eras[i];

@@ -1,10 +1,32 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <!-- Era media (images/video) is fetched from the R2 CDN at runtime. -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- donations-not-ads: Firebase Analytics/Play Services measurement adds
+         these by default (the classic advertising-ID permission, plus its
+         Android 13+ Privacy Sandbox equivalents); we never use an
+         advertising ID, so all three are removed at merge time. Verify
+         they're gone from the merged release manifest after any Firebase
+         dependency bump. -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"
+        tools:node="remove"/>
+    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID"
+        tools:node="remove"/>
+    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION"
+        tools:node="remove"/>
     <application
         android:label="Long Ký"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <!-- Belt-and-suspenders alongside the AD_ID removal above: even if a
+             future dependency reintroduces the permission, these two flags
+             keep Analytics from collecting or using an advertising ID. -->
+        <meta-data
+            android:name="google_analytics_adid_collection_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="google_analytics_default_allow_ad_personalization_signals"
+            android:value="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

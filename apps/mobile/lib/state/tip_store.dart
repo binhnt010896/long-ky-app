@@ -4,6 +4,8 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
+import '../telemetry/telemetry.dart';
+
 /// "Mời Long Ký một chén trà" — three consumable tip sizes to the developer
 /// through store billing (App Store Review Guideline 3.1.1; Google Play
 /// Billing), never framed as a charity donation. Capped at three cups so
@@ -51,7 +53,8 @@ int _cupsFor(String productId) => switch (productId) {
 /// Google Play Billing (and later App Store) via the official plugin.
 class StoreTipStore implements TipStore {
   StoreTipStore() {
-    _sub = _iap.purchaseStream.listen(_onPurchases, onError: (Object _) {
+    _sub = _iap.purchaseStream.listen(_onPurchases, onError: (Object e, StackTrace s) {
+      reportNonFatal(e, s, reason: 'StoreTipStore.purchaseStream');
       _outcomes.add(TipOutcome.failed);
     });
   }
@@ -78,7 +81,8 @@ class StoreTipStore implements TipStore {
           TipOffer(productId: p.id, price: p.price, cups: _cupsFor(p.id)),
       ]..sort((a, b) => a.cups.compareTo(b.cups));
       return offers;
-    } catch (_) {
+    } catch (e, s) {
+      reportNonFatal(e, s, reason: 'StoreTipStore.load');
       return const <TipOffer>[];
     }
   }
@@ -91,7 +95,8 @@ class StoreTipStore implements TipStore {
       await _iap.buyConsumable(
         purchaseParam: PurchaseParam(productDetails: product),
       );
-    } catch (_) {
+    } catch (e, s) {
+      reportNonFatal(e, s, reason: 'StoreTipStore.buy');
       _outcomes.add(TipOutcome.failed);
     }
   }

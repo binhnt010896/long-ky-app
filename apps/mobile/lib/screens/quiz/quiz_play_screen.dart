@@ -8,6 +8,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 import '../../state/providers.dart';
 import '../../state/quiz_store.dart';
+import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
 
@@ -81,6 +82,11 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
       );
       if (!mounted) return;
       setState(() => _questions = questions);
+      ref.read(telemetryProvider).event('quiz_start', <String, Object>{
+        'quiz_mode': widget.mode.name,
+        if (widget.eraSlug != null) 'era_slug': widget.eraSlug!,
+        if (widget.periodId != null) 'period_id': widget.periodId!,
+      });
     } catch (e) {
       if (!mounted) return;
       setState(() => _error = e);
@@ -89,15 +95,17 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
 
   void _answerMcq(McqQuestion q, int i) {
     if (_answered) return;
+    final correct = i == q.correctIndex;
     setState(() {
       _answered = true;
       _selectedMcqIndex = i;
-      if (i == q.correctIndex) {
+      if (correct) {
         _score++;
       } else {
         _missed.add(q);
       }
     });
+    _logAnswer(q.type, correct);
   }
 
   void _tapOrderItem(OrderQuestion q, int itemIndex) {
@@ -112,7 +120,18 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
         } else {
           _missed.add(q);
         }
+        _logAnswer(q.type, correct);
       }
+    });
+  }
+
+  /// Which question types trip people up — see EXECUTION.md's Cycle F event
+  /// table.
+  void _logAnswer(QuestionType type, bool correct) {
+    // GA4 event params are string/num only — no bool.
+    ref.read(telemetryProvider).event('quiz_answer', <String, Object>{
+      'question_type': type.name,
+      'correct': correct ? 1 : 0,
     });
   }
 
@@ -151,6 +170,11 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
           dailyOn: widget.mode == QuizMode.daily ? DateTime.now() : null,
         );
     ref.invalidate(quizProgressProvider);
+    ref.read(telemetryProvider).event('quiz_complete', <String, Object>{
+      'quiz_mode': widget.mode.name,
+      'score': _score,
+      'total': _questions!.length,
+    });
   }
 
   void _playAgain() {
@@ -431,14 +455,14 @@ class _OptionTile extends StatelessWidget {
   }
 }
 
-class _FeedbackPanel extends StatelessWidget {
+class _FeedbackPanel extends ConsumerWidget {
   const _FeedbackPanel({required this.source, required this.en});
 
   final QuestionSource source;
   final bool en;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final lang = en ? Lang.en : Lang.vi;
     final section = source.citation.section?.resolve(lang);
     final meta = <String>[
@@ -472,8 +496,14 @@ class _FeedbackPanel extends StatelessWidget {
           ),
           const SizedBox(height: VSSpacing.sm),
           GestureDetector(
-            onTap: () => GoRouter.of(context)
-                .push('/era/${source.eraSlug}/event/${source.eventId}'),
+            onTap: () {
+              ref.read(telemetryProvider).event('source_link_open', <String, Object>{
+                'era_slug': source.eraSlug,
+                'event_id': source.eventId,
+              });
+              GoRouter.of(context)
+                  .push('/era/${source.eraSlug}/event/${source.eventId}');
+            },
             child: Text(
               en ? 'Read the event ›' : 'Đọc sự kiện ›',
               style: VSType.label.copyWith(color: VSColors.goldBright),

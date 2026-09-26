@@ -16,6 +16,8 @@ import 'screens/quiz/quiz_play_screen.dart';
 import 'screens/sanh/about_screen.dart';
 import 'screens/sanh/sanh_screen.dart';
 import 'screens/timeline/global_timeline_screen.dart';
+import 'telemetry/route_telemetry.dart';
+import 'telemetry/telemetry.dart';
 
 /// App routes.
 ///  - `/`                       Home — the vertical era stack.
@@ -135,4 +137,14 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
     ],
   );
+});
+
+/// Logs a `screen_view` on every navigation — see route_telemetry.dart.
+/// A plain [Provider] (not autoDispose): one observer for the app's whole
+/// lifetime, matching [routerProvider]'s own lifetime.
+final routeTelemetryObserverProvider = Provider<RouteTelemetryObserver>((ref) {
+  final observer =
+      RouteTelemetryObserver(ref.watch(routerProvider), ref.watch(telemetryProvider));
+  ref.onDispose(observer.dispose);
+  return observer;
 });

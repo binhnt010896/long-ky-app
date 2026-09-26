@@ -10,6 +10,7 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../state/content_sync.dart';
 import '../../state/providers.dart';
 import '../../state/tip_store.dart';
+import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/flag_mark.dart';
 import '../../widgets/lang_toggle.dart';
@@ -89,6 +90,10 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
     duration: const Duration(milliseconds: 700),
   );
   StreamSubscription<TipOutcome>? _tipSub;
+  // The most recent product a buy() was attempted for — the outcome stream
+  // itself carries no product id, and the sheet only lets one purchase run
+  // at a time (see _openTipSheet). Best-effort attribution for `tip_result`.
+  String? _lastTipProductId;
 
   @override
   void initState() {
@@ -118,6 +123,16 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
   void _onTipOutcome(TipOutcome outcome) {
     if (!mounted) return;
     final en = ref.read(langProvider) == Lang.en;
+    final outcomeName = switch (outcome) {
+      TipOutcome.thanked => 'bought',
+      TipOutcome.pending => 'pending',
+      TipOutcome.cancelled => 'cancelled',
+      TipOutcome.failed => 'error',
+    };
+    ref.read(telemetryProvider).event('tip_result', <String, Object>{
+      if (_lastTipProductId != null) 'product_id': _lastTipProductId!,
+      'outcome': outcomeName,
+    });
     switch (outcome) {
       case TipOutcome.thanked:
         showModalBottomSheet<void>(
@@ -150,6 +165,7 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
   }
 
   void _openTipSheet(BuildContext context, List<TipOffer> offers, bool en) {
+    ref.read(telemetryProvider).event('tip_sheet_open', const <String, Object>{});
     showModalBottomSheet<void>(
       context: context,
       backgroundColor: VSColors.lacquerRaised,
@@ -162,6 +178,7 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
         en: en,
         onPick: (productId) {
           Navigator.of(sheetContext).pop();
+          _lastTipProductId = productId;
           ref.read(tipStoreProvider)?.buy(productId);
         },
       ),

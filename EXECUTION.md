@@ -4,94 +4,98 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: IDLE — code is done. What's left is the user's own hands in Play
-Console (see "Paused" below).**
+**Status: IDLE — Cycle F (Firebase Analytics + Crashlytics) is fully
+executed, verified and committed. What's left is the user's own hands in
+Firebase/Play Console (see "Paused" below) before this build goes out.**
 
-Cycle D (Câu đố) and the app-code half of Cycle E (three tip sizes) are
-fully executed, verified and committed to `main`. No content changed, so
-there was nothing to publish this cycle.
+Cycle G (the Long Ký CMS) is still only planned — see git history
+(`EXECUTION.md` as of the "plan Cycle F/G" commit) for the full spec if
+picking it up next: Flutter web on Firebase Hosting, a Cloudflare Worker
+backend, media originals moving to a private `long-ky-sources` R2 bucket,
+and publishing moving to GitHub Actions. Decided there: G3 Cloudflare
+Worker, G4 saves go straight to `main`, G5 `long-ky-admin.web.app`.
 
-## Câu đố — shipped
+## Cycle F — shipped
 
-- **`QuizGenerator`** (`packages/core_domain/lib/src/quiz/`): every question
-  is built from an event or figure already in `content/`, never hand-written
-  text. Five types — year, who, quote → event, order (4 events, chronological),
-  era — each carrying the source event's real citation, shown after
-  answering.
-- **"Who" excludes 16 post-1975 heads of Party/State/Government** (Tôn Đức
-  Thắng through Lương Cường; see `QuizGenerator.excludedLeaderIds`), per the
-  history-not-politics stance. Found and fixed one gap live during this
-  cycle's own smoke test: Lê Đức Anh (Chủ tịch nước 1992–1997) was missing
-  from the list.
-- **Four scopes:** daily (5, seeded by the calendar date so it's the same
-  quiz for everyone), by dynasty (10), random (10), and a per-era 5-question
-  quiz reached by a quiet "Thử sức kỷ nguyên này ›" link on every Era Hub.
-- **Screens:** `quiz_home_screen.dart` (three mode cards, remembered best
-  score, a ✓ once today's quiz is done) and `quiz_play_screen.dart` (one
-  question at a time, instant feedback, the score shown inline — no separate
-  route). Routes are a pure function of their query params, so "Chơi lại" is
-  just a push with a new seed.
-- **A new "Câu đố" row** in the Sảnh, right after Niên biểu.
-- **`lib/state/quiz_store.dart`** persists best scores and the daily
-  done-date the same way `ContentSync` persists a content pack (a small JSON
-  file via `path_provider`; in-memory only on web). No new dependency.
-- No streaks, badges or leaderboards — matches the delicate-UI rule.
-- **Verified:** the generator ran across the full real 237-event corpus with
-  no fixtures (`packages/core_domain/test/quiz_generator_test.dart`) —
-  deterministic per seed, exactly one correct option among 4 distinct ones,
-  the year/order spacing rules hold, no excluded leader is ever a "who"
-  answer, every question resolves to a real event. Widget tests cover the
-  Sảnh row, all three modes, an MCQ and an order question's feedback, a full
-  5-question run to the score screen, and the era-hub link. A web smoke test
-  at 375×812 walked one full daily quiz end to end (a wrong MCQ answer, a
-  wrong order answer, three right answers, the score screen, and the
-  remembered best score back on the quiz home).
+- **`flutterfire configure`** wired the app to the `long-ky-app` Firebase
+  project (`lib/firebase_options.dart`, `android/app/google-services.json`).
+  Web/iOS deliberately throw — Firebase never runs there.
+- **`lib/telemetry/`** — `Telemetry` (screen/event/recordError/setEnabled),
+  `FirebaseTelemetry` (real) and `NoopTelemetry` (web + **all debug
+  builds**, so local testing never pollutes the numbers).
+  `telemetryProvider` picks one by `kIsWeb`/`kReleaseMode`.
+- **Screen tracking**: `route_telemetry.dart`'s `mapUriToScreen` maps every
+  route in `app_router.dart` to a fixed `screen_name` (e.g. `era_hub`,
+  `event_detail`) + id params (`era_slug`, `event_id`, …);
+  `RouteTelemetryObserver` listens on the router's delegate and logs
+  `screen_view` on every navigation. Home logs a separate debounced
+  `era_card_view {era_slug, period_id}` (~1s settle) since its two nested
+  PageViews aren't routes.
+- **Events**: `quiz_start`/`quiz_answer`/`quiz_complete`,
+  `source_link_open`, `chao_co_play`, `atlas_era_change` (debounced),
+  `tip_sheet_open`/`tip_result`, `content_pack_adopted` — wired at each
+  site listed in the plan.
+- **Crashlytics**: `main.dart` wires `FlutterError.onError` +
+  `PlatformDispatcher.instance.onError` as fatal reports. The four
+  previously-silent `catch (_) {}` sites with real failure signal
+  (`ContentSync.bundledVersion`/`startup`/`checkForUpdate`'s pack-parse
+  step, `StoreTipStore.load`/`buy`/purchase-stream, `FileQuizStore.load`/
+  `recordResult`) now also call `reportNonFatal` — routine, expected
+  failures (background media prefetch on a bad connection, an unavailable
+  billing platform) were deliberately left silent to avoid Crashlytics
+  noise.
+- **No ad machinery**: `AndroidManifest.xml` strips
+  `com.google.android.gms.permission.AD_ID` **and** its Android 13+
+  Privacy Sandbox equivalents (`ACCESS_ADSERVICES_AD_ID`,
+  `ACCESS_ADSERVICES_ATTRIBUTION`) — all three turned out to be pulled in
+  by Firebase's measurement SDK, found by inspecting the actual dependency
+  AARs, not just the one permission the plan named. Plus the
+  `google_analytics_adid_collection_enabled`/
+  `google_analytics_default_allow_ad_personalization_signals` meta-data
+  flags. Verified absent from the merged release manifest;
+  `com.android.vending.BILLING` still present.
+- **The off switch**: "Gửi thống kê ẩn danh" in Về Long Ký, default **on**,
+  no prompt — `telemetry/telemetry_settings.dart` persists it the same way
+  `QuizStore` persists progress (a small JSON file, in-memory on web).
+- **Paperwork updated**: `docs/play-store/privacy-policy.md` (§8, both
+  languages) and `docs/play-store/data-safety-and-listing.md` now describe
+  Analytics/Crashlytics honestly — **must be re-pasted into Play Console
+  and the live privacy-policy page before this build is uploaded.**
+- **Version bumped** `1.0.0+2` → `1.0.1+3`.
+- **Verified**: `packages/*` and the app's full test suite (129 app tests,
+  including 6 new ones in `test/telemetry_test.dart` covering the route→
+  screen map, a full navigation sequence, the debounced `era_card_view`,
+  a full quiz run's event sequence, and the on/off switch) all pass;
+  `melos analyze` clean across every package; a signed release `.aab` was
+  built and `jarsigner -verify` confirms it's signed by the real upload key
+  (`CN=Thanh-Binh Nguyen`), not the debug cert.
+- **Gradle note**: bumped `com.google.gms.google-services` to 4.4.3 (the
+  Crashlytics Gradle plugin 3.x requires ≥4.4.1) and added the Crashlytics
+  Gradle plugin. The pre-existing "failed to strip debug symbols" warning
+  (missing `cmdline-tools`, noted in Cycle E) is unrelated and still
+  non-blocking.
 
-## Tip sizes — shipped (app code)
+## Paused — needs the user's own hands
 
-- **Three consumable sizes**, capped low so nobody overspends: `long_ky_tea`
-  ($0.99, một chén trà), `long_ky_tea_2` ($1.99, hai chén trà),
-  `long_ky_tea_3` ($2.99, ba chén trà).
-- `TipStore.load()` now returns every offer the store actually has; the
-  Sảnh's tip row shows "từ `<lowest price>`" and opens a small sheet
-  listing all loaded sizes with gold line-drawn 1/2/3-cup icons
-  (`widgets/tea_cups_icon.dart`) — no commissioned art needed.
-- No soft tip prompt anywhere outside the Sảnh (the user's call).
-- iOS stays parked.
-
-## Drafted for the Play Store (not yet published anywhere)
-
-- `docs/play-store/privacy-policy.md` — bilingual, ready to paste onto
-  binh-nt.dev. No accounts, no personal data, no analytics, no ads;
-  purchases handled entirely by Google Play Billing. Two placeholders left
-  for the user: contact email, last-updated date.
-- `docs/play-store/data-safety-and-listing.md` — draft answers for Play's
-  Data safety and content-rating questionnaires, the ads/target-audience
-  declarations, and store-listing copy (VI/EN).
-
-## Paused — needs the user's own hands in Play Console
-
-Everything code-side is ready; what's left is store setup:
-
-1. Create the upload keystore and `android/key.properties` (gitignored;
-   Claude never reads, types or stores the passwords).
-2. Tell Claude it exists — Claude raises the build number, builds the
-   `.aab`, and verifies it carries the upload certificate.
-3. Confirm Play App Signing is on and the payments profile is set up.
-4. Upload to internal testing (Google only unlocks in-app products after an
-   upload that carries the billing permission).
-5. Create and activate the three `long_ky_tea*` products in Play Console.
-6. Add the user's account under License testing.
-7. Test-buy each size on the phone; confirm the thank-you sheet and that
-   they're consumable.
-8. Publish the drafted privacy policy at a public URL, paste the Data
-   safety / content-rating answers into Play Console, and add the store
-   listing (icon 512×512, feature graphic 1024×500, 2–8 screenshots).
+1. In Firebase console → Analytics → Custom definitions, register
+   event-scoped dimensions `era_slug`, `event_id`, `figure_id` once the
+   first real data arrives (otherwise GA4 can say a screen was viewed but
+   not which era/event/figure).
+2. Re-paste the updated privacy policy at binh-nt.dev (fill the two
+   placeholders first, per Cycle E's note) and update the Data safety /
+   content declarations in Play Console to match
+   `docs/play-store/data-safety-and-listing.md` — **before** uploading this
+   build; Play rejects a release whose SDKs contradict a stale form.
+3. Upload `apps/mobile/build/app/outputs/bundle/release/app-release.aab`
+   (or a fresh build off this commit) to a release.
+4. Everything else from Cycle E is still open too: confirm the payments
+   profile clears bank verification, create and activate the three
+   `long_ky_tea*` products, license testing, a real test purchase, the
+   Vietnamese store listing, screenshots/feature graphic.
 
 ## Next cycles (queued)
 
-None currently queued beyond the Play Console steps above. Carried-over UX
-audit findings from an earlier cycle (top-bar scrims, particles over text,
-the Chào cờ lyrics legibility, the swipe-hint timing, and a few
-low-priority ones) are still parked — see git history
-(`21fb88b:EXECUTION.md`) if picking any of them up.
+Cycle G (CMS) as summarized above, once the user wants to pick it up.
+Carried-over UX audit findings from an earlier cycle (top-bar scrims,
+particles over text, the Chào cờ lyrics legibility, the swipe-hint timing)
+are still parked — see git history (`21fb88b:EXECUTION.md`).

@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../telemetry/telemetry.dart';
+
 /// A remembered best score for one quiz scope ("daily", "random", a period or
 /// an era) — see [QuizStore.modeKey].
 class BestScore {
@@ -122,8 +124,9 @@ class FileQuizStore implements QuizStore {
         bests: bests,
         dailyDoneDate: dailyDoneDate is String ? dailyDoneDate : null,
       );
-    } catch (_) {
+    } catch (e, s) {
       // A corrupted or unreadable file is not worth failing the quiz over.
+      reportNonFatal(e, s, reason: 'FileQuizStore.load');
       return _cached = QuizProgress.empty;
     }
   }
@@ -152,9 +155,10 @@ class FileQuizStore implements QuizStore {
         }));
         await tmp.rename(file.path);
       }
-    } catch (_) {
+    } catch (e, s) {
       // In-memory _cached already reflects the result even if the write
       // failed — the session stays consistent even without persistence.
+      reportNonFatal(e, s, reason: 'FileQuizStore.recordResult');
     }
     return updated;
   }

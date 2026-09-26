@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "240841070468",
+    "project_id": "long-ky-app",
+    "storage_bucket": "long-ky-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240841070468:android:07ee9f41d6df027811efd1",
+        "android_client_info": {
+          "package_name": "app.longky"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAo8Wz7RGrYoSnyeRjd_pyaG7a-OU1uV5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

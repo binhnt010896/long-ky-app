@@ -8,6 +8,7 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../state/content_sync.dart';
 import '../../state/media_prefetch.dart';
 import '../../state/providers.dart';
+import '../../telemetry/telemetry.dart';
 import '../../theme/content_assets.dart';
 
 /// Wraps the app and shows the **Long Ký** brand splash over it on launch, then
@@ -105,6 +106,8 @@ class _SplashGateState extends ConsumerState<SplashGate> {
     ref.invalidate(periodsProvider);
     ref.invalidate(eraProvider);
     ref.read(activeContentVersionProvider.notifier).state = pack.version;
+    ref.read(telemetryProvider).event('content_pack_adopted',
+        <String, Object>{'version': pack.version, 'at': 'splash'});
   }
 
   Future<void> _warmUp() async {

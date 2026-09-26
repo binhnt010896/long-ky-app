@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/territory_map.dart';
 import '../../widgets/timeline_bar.dart';
@@ -13,7 +17,7 @@ import 'territory_atlas_model.dart';
 /// era's polities (real coastlines, authored borders). Tap any region, claim,
 /// island, or neighbour to see who held it. Opened for a specific era via
 /// `?era=<slug>`, or from the start when none is given.
-class TerritoryMapDemoScreen extends StatefulWidget {
+class TerritoryMapDemoScreen extends ConsumerStatefulWidget {
   const TerritoryMapDemoScreen({super.key, this.initialEra});
 
   /// The era slug to open on (its dynasty snapshot). Null → the first snapshot.
@@ -27,16 +31,37 @@ class TerritoryMapDemoScreen extends StatefulWidget {
   }
 
   @override
-  State<TerritoryMapDemoScreen> createState() => _TerritoryMapDemoScreenState();
+  ConsumerState<TerritoryMapDemoScreen> createState() =>
+      _TerritoryMapDemoScreenState();
 }
 
-class _TerritoryMapDemoScreenState extends State<TerritoryMapDemoScreen> {
+class _TerritoryMapDemoScreenState
+    extends ConsumerState<TerritoryMapDemoScreen> {
   late int _index;
+  Timer? _eraChangeDebounce;
 
   @override
   void initState() {
     super.initState();
     _index = TerritoryMapDemoScreen.snapshotIndexForEra(widget.initialEra);
+  }
+
+  @override
+  void dispose() {
+    _eraChangeDebounce?.cancel();
+    super.dispose();
+  }
+
+  /// Debounced so dragging the scrubber through several snapshots only counts
+  /// the one it settles on.
+  void _onSnapshotSettled(AtlasSnapshot snap) {
+    if (snap.eras.isEmpty) return;
+    _eraChangeDebounce?.cancel();
+    _eraChangeDebounce = Timer(const Duration(milliseconds: 600), () {
+      ref.read(telemetryProvider).event('atlas_era_change', <String, Object>{
+        'era_slug': snap.eras.first,
+      });
+    });
   }
 
   Offset _centroid(List<List<Offset>> rings) {
@@ -184,7 +209,10 @@ class _TerritoryMapDemoScreenState extends State<TerritoryMapDemoScreen> {
                 openEnded: true,
                 onChanged: (y) {
                   final i = kAtlas.indexWhere((s) => s.anchorYear == y);
-                  if (i >= 0) setState(() => _index = i);
+                  if (i >= 0) {
+                    setState(() => _index = i);
+                    _onSnapshotSettled(kAtlas[i]);
+                  }
                 },
               ),
             ),

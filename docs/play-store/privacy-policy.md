@@ -20,8 +20,9 @@ thập gì — và quan trọng hơn, không thu thập gì.
 
 Long Ký không yêu cầu đăng ký hay đăng nhập. Ứng dụng không thu thập tên,
 email, số điện thoại, vị trí hay bất kỳ thông tin định danh cá nhân nào.
-Ứng dụng không dùng công cụ phân tích hành vi (analytics), không theo dõi
-người dùng giữa các ứng dụng hay trang web khác, và không có quảng cáo.
+Ứng dụng không theo dõi người dùng giữa các ứng dụng hay trang web khác, và
+không có quảng cáo. Mục 8 dưới đây mô tả thống kê sử dụng ẩn danh mà ứng dụng
+có gửi.
 
 ### 2. Nội dung được tải từ máy chủ
 
@@ -65,6 +66,21 @@ này, với ngày cập nhật ở đầu trang.
 
 Có câu hỏi về quyền riêng tư? Liên hệ: **[email liên hệ của bạn]**
 
+### 8. Thống kê sử dụng ẩn danh và báo lỗi
+
+Long Ký dùng Firebase Analytics và Firebase Crashlytics (của Google) để biết
+trang nào được xem nhiều và phát hiện lỗi/sự cố. Hai công cụ này ghi nhận:
+màn hình bạn xem, các thao tác trong ứng dụng (ví dụ: chơi Câu đố, mở Chào
+cờ, kéo bản đồ, mở mục ủng hộ), model máy và phiên bản hệ điều hành, quốc
+gia ước tính, và một mã định danh thiết bị ngẫu nhiên do Firebase tạo ra —
+không gắn với tên, email hay bất kỳ tài khoản nào của bạn. Khi ứng dụng gặp
+lỗi, thông tin về lỗi đó (không kèm nội dung bạn đang xem hay nhập) cũng
+được gửi để giúp sửa lỗi. Dữ liệu này do Google xử lý theo
+[Chính sách quyền riêng tư của Google](https://policies.google.com/privacy).
+
+Bạn có thể tắt tính năng này bất cứ lúc nào tại **Sảnh → Về Long Ký →
+"Gửi thống kê ẩn danh"**. Mặc định tính năng này đang bật.
+
 ---
 
 ## English
@@ -79,8 +95,9 @@ more to the point, what it doesn't.
 
 Long Ký has no sign-up or sign-in. It does not collect your name, email,
 phone number, location, or any other personally identifying information. It
-uses no behavioral analytics, does not track you across other apps or
-websites, and carries no advertising.
+does not track you across other apps or websites, and carries no
+advertising. Section 8 below describes the anonymous usage statistics the
+app does send.
 
 ### 2. Content is fetched from a server
 
@@ -121,3 +138,19 @@ address, with the updated date at the top.
 ### 7. Contact
 
 Questions about privacy? Contact: **[your contact email]**
+
+### 8. Anonymous usage statistics and crash reporting
+
+Long Ký uses Firebase Analytics and Firebase Crashlytics (both Google
+services) to see which pages get read and to catch crashes and errors.
+These record: which screens you view, in-app actions (e.g. playing Câu đố,
+opening Chào cờ, dragging the territory atlas, opening the tip sheet), your
+device model and OS version, an estimated country, and a random device
+identifier that Firebase generates — never your name, email, or any account
+of yours. When the app hits an error, information about that error (not the
+content you were viewing or entering) is also sent, to help fix it. Google
+processes this data under its own
+[Privacy Policy](https://policies.google.com/privacy).
+
+You can turn this off at any time under **Sảnh → Về Long Ký → "Share
+anonymous usage stats"**. It is on by default.

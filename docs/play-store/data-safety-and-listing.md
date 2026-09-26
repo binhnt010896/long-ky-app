@@ -7,21 +7,34 @@ the app has changed since this was drafted.
 ## Data safety questionnaire
 
 - **Does your app collect or share any of the required user data types?**
-  **No.** The app collects no personal data (see the privacy policy). Google
-  Play Billing handles purchase data itself, outside the app.
-- **Data collected:** none.
-- **Data shared with third parties:** none directly by the app. (Google
-  Play Billing and the Cloudflare CDN are platform/infrastructure services,
-  not third-party data sharing by the app itself — Play's form has a
-  specific carve-out for payment processing and CDN delivery; if the form
-  asks about them explicitly, note "processed by Google Play Billing for
-  purchases; standard CDN server logs for content delivery, not linked to
-  identity.")
-- **Is all user data encrypted in transit?** Not applicable — no user data
-  is collected. (If the form requires an answer regardless: content is
-  fetched over HTTPS.)
-- **Does your app allow users to request data deletion?** Not applicable —
-  nothing is collected to delete.
+  **Yes** — Firebase Analytics and Crashlytics collect app activity and
+  diagnostic data (see below); no personal data (name, email, etc.) is
+  collected. Google Play Billing handles purchase data itself, outside the
+  app.
+- **Data collected:**
+  - **App activity → App interactions** (screens viewed, in-app actions
+    such as Câu đố/Chào cờ/atlas/tip usage) — Purpose: **Analytics**.
+    Optional (the in-app switch, default on).
+  - **App info and performance → Crash logs, Diagnostics** — Purpose:
+    **Analytics, App functionality**. Optional (same switch).
+  - **Device or other IDs** (Firebase's own installation identifier, not
+    the advertising ID — this app never collects or uses the advertising
+    ID) — Purpose: **Analytics**. Optional (same switch).
+- **Data shared with third parties:** none directly by the app beyond
+  Google, which processes Analytics/Crashlytics data as Long Ký's service
+  provider (not a separate third-party share for Play's purposes). Google
+  Play Billing and the Cloudflare CDN are platform/infrastructure services;
+  if the form asks about them explicitly, note "processed by Google Play
+  Billing for purchases; standard CDN server logs for content delivery, not
+  linked to identity."
+- **Is all user data encrypted in transit?** **Yes.**
+- **Does your app allow users to request data deletion?** The in-app switch
+  stops collection going forward; Firebase's own instance identifiers are
+  not linked to a real-world identity, so there is nothing to tie a
+  deletion request to. State this plainly if the form asks.
+- **Advertising ID:** **not collected** — confirm the merged release
+  manifest has no `AD_ID` permission before answering this (see
+  EXECUTION.md's Cycle F verification steps).
 
 ## Content rating questionnaire (IARC)
 

@@ -19,6 +19,9 @@ class VietSuApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final tier = ref.watch(tierProvider);
+    // Instantiates the screen-view listener for the app's lifetime; also
+    // ensures a router exists before we read it below.
+    ref.watch(routeTelemetryObserverProvider);
 
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
