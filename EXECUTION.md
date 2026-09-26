@@ -4,10 +4,12 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: EXECUTING Cycle G (the Long Ký CMS). G-0 and G-1 are both fully
-done — code, and the actual 3.4 GB data migration. G-2 needs one setup step
-from the user first (below). Cycle F is fully shipped — what's left there is
-the user's own hands in Firebase/Play Console (see "Paused" below).**
+**Status: EXECUTING Cycle G (the Long Ký CMS). G-0 through G-3 are code-done
+and verified locally — G-2's live workflow run and G-3's real deploy are the
+two things still outstanding (see "Blocked" below), both because this
+environment has no push/deploy credentials, not because the code isn't
+ready. Cycle F is fully shipped — what's left there is the user's own hands
+in Firebase/Play Console (see "Paused" below).**
 
 Cycle G in full: Flutter web on Firebase Hosting (`apps/admin`), a
 Cloudflare Worker backend, media originals moving to a private
@@ -16,17 +18,20 @@ Decided: G3 Cloudflare Worker, G4 saves go straight to `main`, G5
 `long-ky-admin.web.app`. Build order: G-0 foundations → G-1 sources to the
 cloud → G-2 publish in CI → G-3 Worker → G-4 CMS app → G-5 Hosting deploy.
 
-### Blocked — needs the user's hands before G-2 can run for real
+### Blocked — needs the user's hands
 
-Moving publishing into GitHub Actions needs the R2 credentials as
-**GitHub Actions secrets** on `long-ky-app` (Settings → Secrets and
-variables → Actions → New repository secret): `R2_ACCESS_KEY_ID`,
-`R2_SECRET_ACCESS_KEY` (the same pair rclone already uses locally — read
-from your local `rclone.conf` or the Cloudflare dashboard, not something
-Claude has read), plus `R2_ENDPOINT` (`https://<account-id>.r2.cloudflarestorage.com`,
-from `rclone config show r2` — not a secret, but convenient to keep
-alongside them). Claude can write the workflow file itself; it just can't
-create the secrets.
+1. **Push this branch.** Claude has no `git push`/`gh` access from this
+   environment (confirmed: `origin` needs an SSH key Claude doesn't have) —
+   every commit below is local only until you push. This has apparently
+   been true for the whole project; nothing new to Cycle G.
+2. **G-2's GitHub Actions secrets** (`R2_ACCESS_KEY_ID`,
+   `R2_SECRET_ACCESS_KEY`, `R2_ENDPOINT`) — **done**, per your last message.
+   Once pushed, test with `gh workflow run publish-content.yml -f
+   dry_run=true` and tell Claude what it reports.
+3. **G-3's deploy**: after pushing, from `services/cms_api/`:
+   `npx wrangler secret put GITHUB_TOKEN` (paste the fine-grained token from
+   earlier — typed into your terminal, never handled by Claude), then
+   `npm run deploy`. Tell Claude the deployed Worker URL once it's up.
 
 ## Cycle F — shipped
 
@@ -138,13 +143,41 @@ create the secrets.
   0 errors. `push_sources.sh --check` now reports "0 differences found,
   681 matching files" — the Mac is no longer the only copy of this art.
 
-### G-2 through G-5 — not started
+### G-2 Publish in CI — code shipped, one live run pending
 
-Queued next, in order: publish moving into a GitHub Actions workflow (needs
-the Actions secrets above), the Cloudflare Worker backend, the `apps/admin`
-Flutter app itself, then the Hosting deploy. Full detail for each was
-captured in the planning session; ask Claude to recap any stage's spec if
-picking this up in a new session.
+- **`.github/workflows/publish-content.yml`** — manual trigger
+  (`workflow_dispatch`, `dry_run` input). Pulls originals from
+  `long-ky-sources`, runs the same format/validate/test gate as
+  `content-check.yml`, then `tool/publish_content.sh` (or `--dry-run`); a
+  real publish commits `content-version.json`/`media-manifest.json` back to
+  `main` itself.
+- **Not yet exercised for real** — needs this branch pushed and a live
+  `gh workflow run publish-content.yml -f dry_run=true` to confirm the
+  pipeline actually runs end to end (rclone install, cwebp, the whole
+  gate) on a GitHub-hosted runner, not just that the YAML is well-formed.
+
+### G-3 Worker — code shipped, verified locally; not deployed
+
+- **`services/cms_api/`** (TypeScript, Hono, on Cloudflare Workers) — see
+  its own README for the endpoint list. Holds the GitHub token (a Worker
+  secret) and R2 access (a bucket binding) the CMS itself can never safely
+  hold. Auth: Firebase ID token verified against Google's JWKS, checked
+  against an email allowlist.
+- **Verified**: 17 tests (`@cloudflare/vitest-pool-workers`, a real
+  in-memory R2 simulator, a fake `fetch` for GitHub's API) — auth refuses a
+  missing/foreign/unverified/non-allowlisted token, a moved `main` throws
+  `ConflictError` (409) without writing anything, a real multi-file commit
+  sequences correctly, media uploads are type/size-checked before touching
+  R2. `tsc --noEmit` clean; `wrangler deploy --dry-run` bundles and
+  resolves every binding.
+- **Not yet deployed** — needs `wrangler secret put GITHUB_TOKEN` then
+  `npm run deploy` (both your hands; see "Blocked" above).
+
+### G-4 (the CMS app itself) and G-5 (Hosting deploy) — not started
+
+Next up once G-2/G-3 are confirmed live. Full detail for each was captured
+in the planning session; ask Claude to recap any stage's spec if picking
+this up in a new session.
 
 ## Paused — needs the user's own hands
 
