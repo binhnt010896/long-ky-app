@@ -4,9 +4,12 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: EXECUTING Cycle G (the Long Ký CMS). G-0 through G-3 are fully
-done: code, pushed, and verified live (not just locally). G-4 (the actual
-`apps/admin` CMS) is next. Cycle F is fully shipped — what's left there is
+**Status: EXECUTING Cycle G (the Long Ký CMS). G-0 through G-4 are done:
+code committed, `melos analyze`/`flutter analyze`/`flutter build web` all
+clean, and the sign-in gate verified live in a browser against the
+redeployed Worker. G-5 (the actual Hosting deploy) is next — it needs the
+user's explicit yes, since it makes the CMS reachable at
+`long-ky-admin.web.app`. Cycle F is fully shipped — what's left there is
 the user's own hands in Firebase/Play Console (see "Paused" below).**
 
 Cycle G in full: Flutter web on Firebase Hosting (`apps/admin`), a
@@ -183,7 +186,38 @@ Worth remembering for any future session that hits the same wall.
   the Worker). Live smoke test: an unauthenticated `GET /content` correctly
   returns `401 {"error":"Missing bearer token"}`, not a silent pass-through.
 
-### G-4 (the CMS app itself) — EXECUTING
+### G-4 (the CMS app itself) — shipped
+
+Built as planned, with two scope cuts made during execution (both flagged
+here rather than silently shipped):
+- **People/Periods editors are whole-file raw JSON**, not a per-person
+  guided form — `content/people.json`/`content/periods.json` are single
+  shared registries, so there's no natural field-by-field form without a
+  schema change (which this cycle explicitly avoids). The photo-fidelity
+  step is a CMS-only checklist (an in-memory checkbox per person with a
+  portrait) — nothing is written to the file; it's a reminder, not data.
+- **Preview is a plain rendered summary** (title/kicker/subtitle/overview/
+  events in a phone-frame), not the real app screens via
+  `contentRepositoryProvider` — wiring `core_content`/`experience` in (CDN
+  media loading, routing, theming) was too large an integration for this
+  pass. Good for a bilingual-text/event-order sanity check; not a
+  substitute for checking the real app before publishing.
+
+Everything else matches the original plan: Google sign-in gated by the
+Worker's own allowlist check, a `GET /content` draft keyed by `baseSha`,
+era editor (guided title/kicker/subtitle/overview + raw-JSON fallback for
+events/characters/citations), media upload/preview via the Worker (never
+touches R2 directly) with pinch-zoom for corner/transparency checks,
+and a publish page that gates a real publish on a successful dry run.
+
+**Also done as part of G-4**: the Worker's CORS now allows `localhost`
+origins alongside `CMS_ORIGIN` (Flutter web's dev server), redeployed and
+verified with a live `OPTIONS` preflight from a `localhost` origin.
+
+**Verified**: `flutter analyze` clean, `flutter build web` succeeds, and
+the sign-in screen renders correctly behind GoRouter's auth redirect in a
+live browser preview against the real (redeployed) Worker — actually
+signing in needs the user's own Google account, so that's still a G-5 step.
 
 **Pre-flight, done before writing code:**
 - Firebase web app "Admin Panel" (`1:240841070468:web:178cf934c969d76011efd1`)
