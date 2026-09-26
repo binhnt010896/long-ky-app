@@ -1,0 +1,90 @@
+name: publish-content
+
+# Runs the exact same publish pipeline tool/publish_content.sh runs locally,
+# but starting from `long-ky-sources` (the shared originals bucket) instead
+# of whatever happens to be on one Mac's disk — so the CMS's own Publish
+# button (via the Cloudflare Worker, once G-3/G-4 exist) and `gh workflow run
+# publish-content` both publish from the same source of truth.
+#
+# Manual trigger only: publishing is never automatic. `dry_run: true`
+# previews (formats, validates, converts media, reports what would change)
+# without touching R2 or committing anything.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Preview only — don't upload to R2 or commit"
+        type: boolean
+        default: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Install rclone
+        run: curl https://rclone.org/install.sh | sudo bash
+
+      - name: Install cwebp
+        run: sudo apt-get update && sudo apt-get install -y webp
+
+      - name: Configure the r2 rclone remote
+        run: |
+          mkdir -p ~/.config/rclone
+          cat > ~/.config/rclone/rclone.conf <<EOF
+          [r2]
+          type = s3
+          provider = Cloudflare
+          access_key_id = ${{ secrets.R2_ACCESS_KEY_ID }}
+          secret_access_key = ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          endpoint = ${{ secrets.R2_ENDPOINT }}
+          EOF
+
+      - name: dart pub get (workspace)
+        run: dart pub get
+
+      - name: Pull originals from long-ky-sources
+        run: tool/pull_sources.sh
+
+      # Same gate as content-check.yml — a pull that somehow landed something
+      # unformatted or invalid must never reach a real publish.
+      - name: Canonical content formatting
+        run: dart run tool/format_content.dart --check
+
+      - name: Content schema + referential-integrity validation
+        run: dart run tool/validate_content.dart
+
+      - name: core_domain tests (loads the full content corpus)
+        working-directory: packages/core_domain
+        run: flutter test
+
+      - name: Publish (dry run)
+        if: ${{ inputs.dry_run }}
+        run: tool/publish_content.sh --dry-run
+
+      - name: Publish
+        if: ${{ !inputs.dry_run }}
+        run: tool/publish_content.sh
+
+      # publish_content.sh updates content/content-version.json and
+      # content/media-manifest.json on disk but — unlike a local run — this
+      # runner has no one to commit them by hand, so it does that itself.
+      - name: Commit the published version bump
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git config user.name "long-ky-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add content/content-version.json content/media-manifest.json
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "chore(content): publish content pack $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          fi
