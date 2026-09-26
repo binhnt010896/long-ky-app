@@ -14,6 +14,7 @@ workspace:
   - packages/core_content
   - packages/experience
   - apps/mobile
+  - apps/admin
 
 dev_dependencies:
   melos: ^6.3.0

@@ -14,9 +14,18 @@ import type { Env } from './types';
 
 const app = new Hono<{ Bindings: Env }>();
 
-// CORS locked to the deployed CMS's own origin — this API has no other
-// legitimate caller.
-app.use('*', async (c, next) => cors({ origin: c.env.CMS_ORIGIN })(c, next));
+// CORS locked to the deployed CMS's own origin, plus any localhost origin
+// (Flutter web's dev server picks a random port each run) so local dev can
+// talk to the live Worker without redeploying it every time.
+app.use('*', async (c, next) =>
+  cors({
+    origin: (origin) => {
+      if (origin === c.env.CMS_ORIGIN) return origin;
+      if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) return origin;
+      return null;
+    },
+  })(c, next),
+);
 
 // Every route below needs a signed-in, allowlisted caller. The CMS's own
 // sign-in page (not this Worker) is what's actually reachable without a

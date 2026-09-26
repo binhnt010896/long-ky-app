@@ -183,11 +183,76 @@ Worth remembering for any future session that hits the same wall.
   the Worker). Live smoke test: an unauthenticated `GET /content` correctly
   returns `401 {"error":"Missing bearer token"}`, not a silent pass-through.
 
-### G-4 (the CMS app itself) and G-5 (Hosting deploy) — not started
+### G-4 (the CMS app itself) — EXECUTING
 
-Next up. Full detail for each was captured in the planning session; ask
-Claude to recap any stage's spec if picking
-this up in a new session.
+**Pre-flight, done before writing code:**
+- Firebase web app "Admin Panel" (`1:240841070468:web:178cf934c969d76011efd1`)
+  and Hosting site `long-ky-admin` (→ `long-ky-admin.web.app`) both already
+  exist and are linked, confirmed via `firebase apps:list` /
+  `firebase hosting:sites:list`.
+- Worker CORS currently allows only `CMS_ORIGIN` (the production origin) —
+  needs `http://localhost:*` added and the Worker redeployed before local
+  dev against the live Worker works.
+
+**Structure**: `apps/admin`, a plain Flutter web app (no mobile/desktop
+targets), added to the root `pubspec.yaml` workspace list and left under
+Melos's existing `apps/**` glob. Depends on `core_domain` (reuses
+`ContentFormatter`/`ContentValidator` verbatim — same canonical-format and
+validation code as the CLI/CI) and `firebase_auth`/`firebase_core`/
+`google_sign_in` for auth. Talks to the Worker over plain `http`, never
+touches GitHub or R2 directly.
+
+**Screens** (Riverpod, same pattern as `apps/mobile`):
+1. **Sign-in** — Google sign-in via Firebase Auth. Non-allowlisted emails
+   get a clear "not authorized" message (the Worker enforces this for real;
+   the UI check is just a good error message).
+2. **Dashboard** — counts (eras/people/periods), a publish-status chip, nav
+   to the editors.
+3. **Era editor** — list eras, edit one era's JSON (guided form for known
+   fields: id/title/dates/summary/sources; raw-JSON fallback for anything
+   the form doesn't cover, so unknown fields always round-trip).
+4. **Event editor** — nested under an era; citation field required before
+   save (client-side check; `ContentValidator` is the real gate).
+5. **People registry** — the shared `content/people.json`; per-person
+   fields plus a free-text confirmation note for photo/era accuracy (no
+   schema change — [[people-registry]], [[camera-photo-fidelity]]).
+6. **Periods editor** — `content/periods.json`.
+7. **Media** — upload (`PUT /media`) and preview (`GET /media`) originals in
+   `long-ky-sources`; corner-zoom on preview to check transparency
+   ([[higgsfield-restore-pitfalls]] muscle memory, done in-browser here).
+8. **Preview** — phone-frame chrome rendering the *real* app screens via a
+   `contentRepositoryProvider` override pointed at the in-memory draft, not
+   a mockup.
+9. **Publish** — dry run against the Worker's `/publish`, show the GitHub
+   Actions run status (`/publish/status`), then a real publish gated on the
+   dry run having passed.
+
+**Editing model**: `GET /content` once per session into an in-memory draft
+keyed by the `baseSha` it returned; every editor mutates that draft; `POST
+/commit` sends the whole diff atomically. A 409 (main moved) surfaces as
+"reload and redo your edit" — no merge UI, per G-4's own conflict policy.
+
+**Language**: English CMS labels (this is Claude's/the admin's tool, not
+the public app — no i18n needed).
+
+**Build order**: sign-in → dashboard shell → era/event editors → people
+registry → media → phone-frame preview → publish page. Each stage gets its
+own commit; `melos analyze`/tests stay green throughout.
+
+### G-5 (Hosting deploy) — not started
+
+`flutter build web` in `apps/admin` → `firebase deploy --only
+hosting:long-ky-admin` (needs the user's explicit yes — this makes the CMS
+publicly reachable, even though it's gated by Firebase Auth + the email
+allowlist). The user may need to add `long-ky-admin.web.app` to Firebase
+Auth's authorized domains (Authentication → Settings → Authorized domains)
+before Google sign-in works there; `localhost` is authorized by default so
+local dev is unaffected. The user does the first live end-to-end sign-in
+test themselves.
+
+There is also a second, unlinked Hosting site `admin-long-ky.web.app`
+(probably a first-attempt leftover) — flagged for the user to delete or
+keep; not used by anything in this cycle.
 
 ## Paused — needs the user's own hands
 
