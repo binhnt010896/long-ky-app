@@ -13,6 +13,8 @@ const _destinations = [
   (path: '/publish', icon: Icons.cloud_upload_outlined, label: 'Publish'),
 ];
 
+enum _ShellMenuAction { appearance, signOut }
+
 class AdminShell extends ConsumerWidget {
   const AdminShell({required this.child, super.key});
 
@@ -56,20 +58,41 @@ class AdminShell extends ConsumerWidget {
                 alignment: Alignment.bottomCenter,
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 16),
-                  child: Column(
-                    children: [
-                      IconButton(
-                        tooltip: 'Appearance',
-                        icon: const Icon(Icons.palette_outlined),
-                        onPressed: () => showDialog<void>(
-                          context: context,
-                          builder: (context) => const _AppearanceDialog(),
+                  // A single menu, not two stacked IconButtons — the
+                  // trailing area's height is whatever's left after the
+                  // destinations above it, and in a short window two
+                  // buttons could overflow it with the top one silently
+                  // clipped. One icon always fits.
+                  child: PopupMenuButton<_ShellMenuAction>(
+                    tooltip: 'Settings',
+                    icon: const Icon(Icons.more_vert),
+                    onSelected: (action) {
+                      switch (action) {
+                        case _ShellMenuAction.appearance:
+                          showDialog<void>(
+                            context: context,
+                            builder: (context) => const _AppearanceDialog(),
+                          );
+                        case _ShellMenuAction.signOut:
+                          ref.read(authControllerProvider).signOut();
+                      }
+                    },
+                    itemBuilder: (context) => [
+                      const PopupMenuItem(
+                        value: _ShellMenuAction.appearance,
+                        child: ListTile(
+                          leading: Icon(Icons.palette_outlined),
+                          title: Text('Appearance'),
+                          contentPadding: EdgeInsets.zero,
                         ),
                       ),
-                      IconButton(
-                        tooltip: user?.email ?? 'Sign out',
-                        icon: const Icon(Icons.logout),
-                        onPressed: () => ref.read(authControllerProvider).signOut(),
+                      PopupMenuItem(
+                        value: _ShellMenuAction.signOut,
+                        child: ListTile(
+                          leading: const Icon(Icons.logout),
+                          title: Text(user?.email ?? 'Sign out'),
+                          contentPadding: EdgeInsets.zero,
+                        ),
                       ),
                     ],
                   ),
