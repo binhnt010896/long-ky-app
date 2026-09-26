@@ -15,11 +15,17 @@
         "vi": "Húy Lộc Tục, cháu dòng Thần Nông. Được phong làm vua phương Nam, ngài xưng Kinh Dương Vương, đặt quốc hiệu là Xích Quỷ. Ngài lấy con gái Động Đình Quân, sinh ra Lạc Long Quân — mở đầu dòng giống Rồng Tiên của người Việt.",
         "en": "Personal name Lộc Tục, of the line of Thần Nông. Made king of the South, he styled himself Kinh Dương Vương and named his realm Xích Quỷ. He wed the daughter of the Lord of Động Đình and fathered Lạc Long Quân — first of the Dragon-and-Fairy line of the Việt."
       },
-      "portrait": {
-        "id": "kinh-duong-vuong-portrait",
+      "avatar": {
+        "id": "kinh-duong-vuong-avatar",
         "type": "image",
-        "flagship": "eras/hong-bang/characters/kinh-duong-vuong.png",
-        "reduced": "eras/hong-bang/characters/kinh-duong-vuong.png"
+        "flagship": "eras/hong-bang/characters/kinh-duong-vuong-avatar.png",
+        "reduced": "eras/hong-bang/characters/kinh-duong-vuong-avatar.png"
+      },
+      "fullBody": {
+        "id": "kinh-duong-vuong-full",
+        "type": "image",
+        "flagship": "eras/hong-bang/characters/kinh-duong-vuong-full.png",
+        "reduced": "eras/hong-bang/characters/kinh-duong-vuong-full.png"
       }
     },
     {
@@ -36,11 +42,17 @@
         "vi": "Húy Sùng Lãm, con Kinh Dương Vương, nối ngôi trị phương Nam và phần nhiều ở dưới Thủy phủ. Ngài lấy Âu Cơ, sinh bọc trăm trứng nở trăm con; rồi năm mươi con theo cha xuống biển, năm mươi con theo mẹ lên núi — cội nguồn hai tiếng đồng bào.",
         "en": "Personal name Sùng Lãm, son of Kinh Dương Vương, who succeeded to the South and often dwelt in the water realm. He took Âu Cơ to wife, and she bore a sac of a hundred eggs that hatched a hundred sons; fifty followed him to the sea and fifty their mother to the mountains — the root of the word đồng bào, of one womb."
       },
-      "portrait": {
-        "id": "lac-long-quan-portrait",
+      "avatar": {
+        "id": "lac-long-quan-avatar",
         "type": "image",
-        "flagship": "eras/hong-bang/characters/lac-long-quan.png",
-        "reduced": "eras/hong-bang/characters/lac-long-quan.png"
+        "flagship": "eras/hong-bang/characters/lac-long-quan-avatar.png",
+        "reduced": "eras/hong-bang/characters/lac-long-quan-avatar.png"
+      },
+      "fullBody": {
+        "id": "lac-long-quan-full",
+        "type": "image",
+        "flagship": "eras/hong-bang/characters/lac-long-quan-full.png",
+        "reduced": "eras/hong-bang/characters/lac-long-quan-full.png"
       }
     },
     {
@@ -57,11 +69,17 @@
         "vi": "Con gái Đế Lai, kết duyên cùng Lạc Long Quân. Bà sinh ra bọc trăm trứng, nở thành trăm người con; khi chia tay chồng, bà dẫn năm mươi con lên núi lập nghiệp. Người Việt tôn bà là Mẹ Tiên.",
         "en": "Daughter of Đế Lai, wed to Lạc Long Quân. She bore the sac of a hundred eggs that hatched a hundred children; parting from her husband, she led fifty of them up into the mountains. The Việt honour her as the Fairy Mother."
       },
-      "portrait": {
-        "id": "au-co-portrait",
+      "avatar": {
+        "id": "au-co-avatar",
         "type": "image",
-        "flagship": "eras/hong-bang/characters/au-co.png",
-        "reduced": "eras/hong-bang/characters/au-co.png"
+        "flagship": "eras/hong-bang/characters/au-co-avatar.png",
+        "reduced": "eras/hong-bang/characters/au-co-avatar.png"
+      },
+      "fullBody": {
+        "id": "au-co-full",
+        "type": "image",
+        "flagship": "eras/hong-bang/characters/au-co-full.png",
+        "reduced": "eras/hong-bang/characters/au-co-full.png"
       }
     },
     {
@@ -78,11 +96,17 @@
         "vi": "Con trưởng của Lạc Long Quân nối ngôi, xưng là Hùng Vương, đặt quốc hiệu Văn Lang, đóng đô ở Phong Châu. Nước chia làm mười lăm bộ, đặt các chức Lạc hầu, Lạc tướng; ngôi vua truyền nối mười tám đời — nền tự chủ đầu tiên của người Việt.",
         "en": "The eldest son of Lạc Long Quân, who succeeded and styled himself Hùng Vương, named the nation Văn Lang and set his capital at Phong Châu. The land was divided into fifteen districts under Lạc lords and generals; the throne passed through eighteen generations — the first self-ruled order of the Việt."
       },
-      "portrait": {
-        "id": "vua-hung-portrait",
+      "avatar": {
+        "id": "vua-hung-avatar",
         "type": "image",
-        "flagship": "eras/hong-bang/characters/vua-hung.png",
-        "reduced": "eras/hong-bang/characters/vua-hung.png"
+        "flagship": "eras/hong-bang/characters/vua-hung-avatar.png",
+        "reduced": "eras/hong-bang/characters/vua-hung-avatar.png"
+      },
+      "fullBody": {
+        "id": "vua-hung-full",
+        "type": "image",
+        "flagship": "eras/hong-bang/characters/vua-hung-full.png",
+        "reduced": "eras/hong-bang/characters/vua-hung-full.png"
       }
     },
     {
@@ -99,11 +123,17 @@
         "vi": "Thần Núi Tản Viên. Ngài cùng Thủy Tinh cầu hôn công chúa Mỵ Nương đời Hùng Vương thứ mười tám; đem đủ sính lễ đến trước nên rước được nàng về núi. Mỗi khi Thủy Tinh dâng nước, nước cao đến đâu núi lại cao lên đến đấy.",
         "en": "The Mountain Spirit of Tản Viên. With Thủy Tinh he sought the hand of Princess Mỵ Nương in the reign of the eighteenth Hùng King; arriving first with the betrothal gifts, he bore her home to the mountains. Whenever Thủy Tinh raised the flood, however high the waters rose the mountain rose higher."
       },
-      "portrait": {
-        "id": "son-tinh-portrait",
+      "avatar": {
+        "id": "son-tinh-avatar",
         "type": "image",
-        "flagship": "eras/hong-bang/characters/son-tinh.png",
-        "reduced": "eras/hong-bang/characters/son-tinh.png"
+        "flagship": "eras/hong-bang/characters/son-tinh-avatar.png",
+        "reduced": "eras/hong-bang/characters/son-tinh-avatar.png"
+      },
+      "fullBody": {
+        "id": "son-tinh-full",
+        "type": "image",
+        "flagship": "eras/hong-bang/characters/son-tinh-full.png",
+        "reduced": "eras/hong-bang/characters/son-tinh-full.png"
       }
     },
     {
@@ -120,11 +150,17 @@
         "vi": "Thần Nước. Đến cầu hôn Mỵ Nương sau Sơn Tinh, thần nổi giận dâng nước đánh để cướp nàng, nhưng đánh mãi không được. Hằng năm thần lại dâng nước báo oán — người xưa lấy đó mà giải nghĩa mùa mưa lũ.",
         "en": "The Water Spirit. Coming to seek Mỵ Nương after Sơn Tinh, in fury he raised the waters to seize her, yet never could prevail. Each year he raises the flood anew to press his grievance — and so the ancients explained the season of rains and floods."
       },
-      "portrait": {
-        "id": "thuy-tinh-portrait",
+      "avatar": {
+        "id": "thuy-tinh-avatar",
         "type": "image",
-        "flagship": "eras/hong-bang/characters/thuy-tinh.png",
-        "reduced": "eras/hong-bang/characters/thuy-tinh.png"
+        "flagship": "eras/hong-bang/characters/thuy-tinh-avatar.png",
+        "reduced": "eras/hong-bang/characters/thuy-tinh-avatar.png"
+      },
+      "fullBody": {
+        "id": "thuy-tinh-full",
+        "type": "image",
+        "flagship": "eras/hong-bang/characters/thuy-tinh-full.png",
+        "reduced": "eras/hong-bang/characters/thuy-tinh-full.png"
       }
     },
     {
@@ -195,11 +231,17 @@
         "vi": "Họ Thục tên Phán, thủ lĩnh người Âu Việt. Ngài đánh bại vua Hùng cuối cùng, hợp nhất Âu Việt và Lạc Việt, dựng nước Âu Lạc và đóng đô ở Cổ Loa. Nhờ nỏ thần Kim Quy, ngài mấy phen đẩy lui Triệu Đà; nhưng vì mất cảnh giác mà lẫy nỏ bị đánh tráo, nước Âu Lạc mất vào năm 208 TCN.",
         "en": "Of the house of Thục, named Phán, a chieftain of the Âu Việt. He defeated the last Hùng King, united the Âu Việt and Lạc Việt, founded Âu Lạc and set his capital at Cổ Loa. With the Golden Turtle's crossbow he threw back Triệu Đà again and again — but, grown careless, he let its trigger be stolen, and Âu Lạc fell in 208 BCE."
       },
-      "portrait": {
-        "id": "an-duong-vuong-portrait",
+      "avatar": {
+        "id": "an-duong-vuong-avatar",
         "type": "image",
-        "flagship": "eras/hong-bang/characters/an-duong-vuong.png",
-        "reduced": "eras/hong-bang/characters/an-duong-vuong.png"
+        "flagship": "eras/hong-bang/characters/an-duong-vuong-avatar.png",
+        "reduced": "eras/hong-bang/characters/an-duong-vuong-avatar.png"
+      },
+      "fullBody": {
+        "id": "an-duong-vuong-full",
+        "type": "image",
+        "flagship": "eras/hong-bang/characters/an-duong-vuong-full.png",
+        "reduced": "eras/hong-bang/characters/an-duong-vuong-full.png"
       }
     },
     {
@@ -216,11 +258,17 @@
         "vi": "Có sách chép là Cao Thông, bậc thợ tài kiêm dũng tướng của An Dương Vương. Ông đứng ra chế nỏ thần 'Linh Quang Kim Quy thần cơ', lắp lẫy làm từ móng thần Kim Quy, bắn một phát ra nhiều mũi tên đồng — vũ khí giữ nước của Âu Lạc.",
         "en": "Named Cao Thông in some records, a master craftsman and bold general to An Dương Vương. He forged the divine crossbow, the 'Sacred Mechanism of the Radiant Golden Turtle,' its trigger set with the Turtle's claw, loosing many bronze bolts at a single shot — the weapon that guarded Âu Lạc."
       },
-      "portrait": {
-        "id": "cao-lo-portrait",
+      "avatar": {
+        "id": "cao-lo-avatar",
         "type": "image",
-        "flagship": "eras/au-lac/characters/cao-lo.png",
-        "reduced": "eras/au-lac/characters/cao-lo.png"
+        "flagship": "eras/au-lac/characters/cao-lo-avatar.png",
+        "reduced": "eras/au-lac/characters/cao-lo-avatar.png"
+      },
+      "fullBody": {
+        "id": "cao-lo-full",
+        "type": "image",
+        "flagship": "eras/au-lac/characters/cao-lo-full.png",
+        "reduced": "eras/au-lac/characters/cao-lo-full.png"
       }
     },
     {
@@ -237,11 +285,17 @@
         "vi": "Thần Rùa Vàng, tự xưng là sứ giả Thanh Giang. Thần hiện lên giúp An Dương Vương trừ yêu, xây xong thành Cổ Loa; khi từ biệt tháo một móng chân tặng vua làm lẫy nỏ. Về sau chính thần thét lời cảnh báo 'Giặc ở sau lưng nhà vua đó' rồi rẽ nước đưa vua xuống biển.",
         "en": "The Golden Turtle deity, calling itself the Envoy of the Clear River. It appeared to help An Dương Vương drive off demons and complete the Cổ Loa citadel, and at parting gave a claw for the crossbow's trigger. Later it cried the warning 'The enemy is behind you, O King,' and parted the waters to bear the king into the sea."
       },
-      "portrait": {
-        "id": "than-kim-quy-portrait",
+      "avatar": {
+        "id": "than-kim-quy-avatar",
         "type": "image",
-        "flagship": "eras/au-lac/characters/than-kim-quy.png",
-        "reduced": "eras/au-lac/characters/than-kim-quy.png"
+        "flagship": "eras/au-lac/characters/than-kim-quy-avatar.png",
+        "reduced": "eras/au-lac/characters/than-kim-quy-avatar.png"
+      },
+      "fullBody": {
+        "id": "than-kim-quy-full",
+        "type": "image",
+        "flagship": "eras/au-lac/characters/than-kim-quy-full.png",
+        "reduced": "eras/au-lac/characters/than-kim-quy-full.png"
       }
     },
     {
@@ -258,11 +312,17 @@
         "vi": "Con gái An Dương Vương, kết duyên cùng Trọng Thủy — con trai Triệu Đà. Vì nhẹ dạ tin chồng, nàng để lộ nỏ thần và bị tráo mất lẫy. Khi nước loạn, nàng rắc lông ngỗng theo lời hẹn; cha nàng chém nàng bên bờ biển. Tương truyền máu nàng chảy xuống biển hóa thành ngọc trai.",
         "en": "Daughter of An Dương Vương, wed to Trọng Thủy, son of Triệu Đà. Trusting her husband to a fault, she let the divine crossbow be seen and its trigger switched. When war came she strewed goose-down as promised; her father slew her at the shore. It is told her blood flowed into the sea and became pearls."
       },
-      "portrait": {
-        "id": "my-chau-portrait",
+      "avatar": {
+        "id": "my-chau-avatar",
         "type": "image",
-        "flagship": "eras/au-lac/characters/my-chau.png",
-        "reduced": "eras/au-lac/characters/my-chau.png"
+        "flagship": "eras/au-lac/characters/my-chau-avatar.png",
+        "reduced": "eras/au-lac/characters/my-chau-avatar.png"
+      },
+      "fullBody": {
+        "id": "my-chau-full",
+        "type": "image",
+        "flagship": "eras/au-lac/characters/my-chau-full.png",
+        "reduced": "eras/au-lac/characters/my-chau-full.png"
       }
     },
     {
@@ -279,11 +339,17 @@
         "vi": "Con trai Triệu Đà, được cha cho sang ở rể nhà An Dương Vương. Ông dỗ Mỵ Châu cho xem nỏ thần rồi ngầm đánh tráo lẫy Kim Quy đem về cho cha, mở đường cho quân Triệu diệt Âu Lạc. Sau, thương tiếc Mỵ Châu, ông gieo mình xuống giếng ở Loa thành mà chết.",
         "en": "Son of Triệu Đà, sent to dwell as a son-in-law in An Dương Vương's house. He coaxed Mỵ Châu into showing the divine crossbow, secretly switched out the Golden Turtle's trigger and carried it to his father, opening the way for Triệu's conquest of Âu Lạc. Grief-stricken afterward, he threw himself into a well at Loa thành and died."
       },
-      "portrait": {
-        "id": "trong-thuy-portrait",
+      "avatar": {
+        "id": "trong-thuy-avatar",
         "type": "image",
-        "flagship": "eras/au-lac/characters/trong-thuy.png",
-        "reduced": "eras/au-lac/characters/trong-thuy.png"
+        "flagship": "eras/au-lac/characters/trong-thuy-avatar.png",
+        "reduced": "eras/au-lac/characters/trong-thuy-avatar.png"
+      },
+      "fullBody": {
+        "id": "trong-thuy-full",
+        "type": "image",
+        "flagship": "eras/au-lac/characters/trong-thuy-full.png",
+        "reduced": "eras/au-lac/characters/trong-thuy-full.png"
       }
     },
     {
@@ -300,11 +366,17 @@
         "vi": "Người huyện Chân Định, vốn là quan úy nhà Tần ở quận Nam Hải. Nhân nhà Tần sụp đổ, ông đóng cửa ải, chiếm ba quận phương Nam, đánh lấy Âu Lạc của An Dương Vương rồi lập nước Nam Việt, đóng đô Phiên Ngung, tự xưng đế. Ông sống rất thọ, trị vì hơn bảy mươi năm, giữ thế ngang hàng với nhà Hán.",
         "en": "A man of Chân Định and once a Qin commandery officer in Nam Hải. As the Qin collapsed he sealed the passes, seized the three southern commanderies, took An Dương Vương's Âu Lạc, and founded Nam Việt with its capital at Phiên Ngung, styling himself emperor. Long-lived, he reigned more than seventy years and held his own against Han."
       },
-      "portrait": {
-        "id": "trieu-da-portrait",
+      "avatar": {
+        "id": "trieu-da-avatar",
         "type": "image",
-        "flagship": "eras/au-lac/characters/trieu-da.png",
-        "reduced": "eras/au-lac/characters/trieu-da.png"
+        "flagship": "eras/au-lac/characters/trieu-da-avatar.png",
+        "reduced": "eras/au-lac/characters/trieu-da-avatar.png"
+      },
+      "fullBody": {
+        "id": "trieu-da-full",
+        "type": "image",
+        "flagship": "eras/au-lac/characters/trieu-da-full.png",
+        "reduced": "eras/au-lac/characters/trieu-da-full.png"
       }
     },
     {
