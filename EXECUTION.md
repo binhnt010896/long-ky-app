@@ -4,311 +4,289 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: EXECUTING Cycle G (the Long Ký CMS). G-0 through G-4 are done:
-code committed, `melos analyze`/`flutter analyze`/`flutter build web` all
-clean, and the sign-in gate verified live in a browser against the
-redeployed Worker. G-5 (the actual Hosting deploy) is next — it needs the
-user's explicit yes, since it makes the CMS reachable at
-`long-ky-admin.web.app`. Cycle F is fully shipped — what's left there is
-the user's own hands in Firebase/Play Console (see "Paused" below).**
+**Status: PLANNING Cycle H (CMS v2 — field editors, a content tree, a real
+media library). Nothing built yet. Three decisions (H1–H3) and one
+pre-flight action need the user before execution.**
 
-Cycle G in full: Flutter web on Firebase Hosting (`apps/admin`), a
-Cloudflare Worker backend, media originals moving to a private
-`long-ky-sources` R2 bucket, and publishing moving to GitHub Actions.
-Decided: G3 Cloudflare Worker, G4 saves go straight to `main`, G5
-`long-ky-admin.web.app`. Build order: G-0 foundations → G-1 sources to the
-cloud → G-2 publish in CI → G-3 Worker → G-4 CMS app → G-5 Hosting deploy.
+## Where things stand
 
-**Note on push/deploy access**: this environment had no `git push`/`gh`
-access at first (no SSH key). Fixed mid-cycle: the user ran `gh auth login`
-with "Authenticate Git with your GitHub credentials? Yes", which set up an
-HTTPS credential helper — switching `origin` to the HTTPS remote URL then
-let both `git push` and the `gh` CLI work directly from this environment.
-Worth remembering for any future session that hits the same wall.
+- **Cycle F** (Firebase Analytics + Crashlytics) — shipped. Detail:
+  `ab81eb4`.
+- **Cycle G** (the CMS) — shipped and live:
+  - CMS: `https://long-ky-admin.web.app`, Flutter web in `apps/admin`.
+  - Worker: `https://long-ky-cms-api.binhnt-010896.workers.dev`
+    (`services/cms_api`).
+  - Originals live in private R2 `long-ky-sources`; publishing runs in
+    GitHub Actions (`publish-content.yml`).
+  - Full G notes: `d64c738:EXECUTION.md`.
+  - Post-launch fixes (`26c647d`): the Worker decoded content as Latin-1, so
+    every Vietnamese diacritic came through as mojibake. It now decodes
+    UTF-8, with a test; no bad commit ever landed. Sign-in now goes through
+    Firebase's own popup. The Hán-tự placeholder logo was replaced with the
+    Long Ký seal.
+- **What Cycle H replaces**: G-4 shipped People/Periods as whole-file raw
+  JSON, a flat era list, and a Media screen where you type a path by hand.
+  Cycle H is the user's three asks:
+  1. Field-by-field People and Periods editors.
+  2. A Periods → Eras tree with add, edit, remove and reorder.
+  3. A media library showing the real current images with their
+     dimensions, plus replace-in-place.
 
-### Deployed / live
+## Facts the plan is built on (checked, not assumed)
 
-- **Worker**: `https://long-ky-cms-api.binhnt-010896.workers.dev` — smoke
-  tested with a bare `curl`, correctly returns `401
-  {"error":"Missing bearer token"}` rather than a silent pass-through.
-- **GitHub Actions secrets** (`R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`,
-  `R2_ENDPOINT`) and the Worker's `GITHUB_TOKEN` secret are both set.
+- **People**: 154 people in one `content/people.json`. Schema: `id`, `name`
+  (required), `epithet`, `bio` (each `{vi, en}`, `vi` required), and the
+  asset refs `portrait`, `avatar`, `fullBody`. Eras point at people via
+  `characters[].ref`, and `events[].figureIds` must be in the era's roster.
+- **Periods**: 17 periods in one `content/periods.json`.
+  - Required: `id`, `order`, `title`, `kicker`, `yearRange`, `accent`.
+  - Optional: `subtitle`, `cover`.
+  - `yearRange` = `{display{vi,en}, startYear, endYear}`; negative years
+    are BCE.
+- **Eras**: 38 era files. Each has `period` (the parent) and a global
+  integer `order`; the app sorts by `order`. `id == slug` for every era.
+  `index.json` must list exactly the era files. Required: `schemaVersion`,
+  `id`, `slug`, `order`, `period`, `title`, `kicker`, `subtitle`,
+  `yearRange`, `palette.accent`, `primarySource`, and `events` (at least 1,
+  each with a `citation`).
+- **Media**:
+  - An asset ref's `flagship`/`reduced`/`placeholder` is a source path,
+    e.g. `eras/au-lac/characters/cao-lo.png`.
+  - `media-manifest.json` maps each source path to `{key, v}`.
+  - The CDN serves `…r2.dev/media/<key>?v=<v>`.
+  - **Publish converts to WebP (q85) but never resizes**, so the CDN copy's
+    pixel size is the original's. Dimensions can come from the fast WebP;
+    there's no need to pull 5 MB PNGs.
+- **CDN CORS — blocker**: `GET …r2.dev/media/…` with `Origin:
+  https://long-ky-admin.web.app` returns 200 but **no
+  `Access-Control-Allow-Origin`**. Flutter web can't load cross-origin
+  images without it, so the media library can't show a single thumbnail
+  until this is fixed. See pre-flight below.
+- **Sync hazard found while planning**: `push_sources.sh`/`pull_sources.sh`
+  use plain `rclone copy`, which overwrites whenever size or modtime
+  differ.
+  - Once the CMS can replace an image in `long-ky-sources`, the next
+    `push_sources.sh` from the Mac would quietly put the **old** local file
+    back.
+  - Must fix before replace-in-place ships (H-4).
 
-## Cycle F — shipped
+## Decisions needed
 
-- **`flutterfire configure`** wired the app to the `long-ky-app` Firebase
-  project (`lib/firebase_options.dart`, `android/app/google-services.json`).
-  Web/iOS deliberately throw — Firebase never runs there.
-- **`lib/telemetry/`** — `Telemetry` (screen/event/recordError/setEnabled),
-  `FirebaseTelemetry` (real) and `NoopTelemetry` (web + **all debug
-  builds**, so local testing never pollutes the numbers).
-  `telemetryProvider` picks one by `kIsWeb`/`kReleaseMode`.
-- **Screen tracking**: `route_telemetry.dart`'s `mapUriToScreen` maps every
-  route in `app_router.dart` to a fixed `screen_name` (e.g. `era_hub`,
-  `event_detail`) + id params (`era_slug`, `event_id`, …);
-  `RouteTelemetryObserver` listens on the router's delegate and logs
-  `screen_view` on every navigation. Home logs a separate debounced
-  `era_card_view {era_slug, period_id}` (~1s settle) since its two nested
-  PageViews aren't routes.
-- **Events**: `quiz_start`/`quiz_answer`/`quiz_complete`,
-  `source_link_open`, `chao_co_play`, `atlas_era_change` (debounced),
-  `tip_sheet_open`/`tip_result`, `content_pack_adopted` — wired at each
-  site listed in the plan.
-- **Crashlytics**: `main.dart` wires `FlutterError.onError` +
-  `PlatformDispatcher.instance.onError` as fatal reports. The four
-  previously-silent `catch (_) {}` sites with real failure signal
-  (`ContentSync.bundledVersion`/`startup`/`checkForUpdate`'s pack-parse
-  step, `StoreTipStore.load`/`buy`/purchase-stream, `FileQuizStore.load`/
-  `recordResult`) now also call `reportNonFatal` — routine, expected
-  failures (background media prefetch on a bad connection, an unavailable
-  billing platform) were deliberately left silent to avoid Crashlytics
-  noise.
-- **No ad machinery**: `AndroidManifest.xml` strips
-  `com.google.android.gms.permission.AD_ID` **and** its Android 13+
-  Privacy Sandbox equivalents (`ACCESS_ADSERVICES_AD_ID`,
-  `ACCESS_ADSERVICES_ATTRIBUTION`) — all three turned out to be pulled in
-  by Firebase's measurement SDK, found by inspecting the actual dependency
-  AARs, not just the one permission the plan named. Plus the
-  `google_analytics_adid_collection_enabled`/
-  `google_analytics_default_allow_ad_personalization_signals` meta-data
-  flags. Verified absent from the merged release manifest;
-  `com.android.vending.BILLING` still present.
-- **The off switch**: "Gửi thống kê ẩn danh" in Về Long Ký, default **on**,
-  no prompt — `telemetry/telemetry_settings.dart` persists it the same way
-  `QuizStore` persists progress (a small JSON file, in-memory on web).
-- **Paperwork updated**: `docs/play-store/privacy-policy.md` (§8, both
-  languages) and `docs/play-store/data-safety-and-listing.md` now describe
-  Analytics/Crashlytics honestly — **must be re-pasted into Play Console
-  and the live privacy-policy page before this build is uploaded.**
-- **Version bumped** `1.0.0+2` → `1.0.1+3`.
-- **Verified**: `packages/*` and the app's full test suite (129 app tests,
-  including 6 new ones in `test/telemetry_test.dart` covering the route→
-  screen map, a full navigation sequence, the debounced `era_card_view`,
-  a full quiz run's event sequence, and the on/off switch) all pass;
-  `melos analyze` clean across every package; a signed release `.aab` was
-  built and `jarsigner -verify` confirms it's signed by the real upload key
-  (`CN=Thanh-Binh Nguyen`), not the debug cert.
-- **Gradle note**: bumped `com.google.gms.google-services` to 4.4.3 (the
-  Crashlytics Gradle plugin 3.x requires ≥4.4.1) and added the Crashlytics
-  Gradle plugin. The pre-existing "failed to strip debug symbols" warning
-  (missing `cmdline-tools`, noted in Cycle E) is unrelated and still
-  non-blocking.
+- **H1 — Removing an era.** *Recommend: hard delete.* It removes the JSON
+  and its `index.json` entry in one commit. You confirm by typing the slug.
+  Undo is `git revert`, and the originals stay in `long-ky-sources`. The
+  next publish drops its served files from the CDN. (The alternative, a
+  "hidden" flag, is a schema change for little gain.)
+- **H2 — Half-written new eras.** A new era is authored over days, but
+  anything in `index.json` ships on the **next publish**, including a
+  publish made only to fix a typo elsewhere.
+  - *Recommend:* add an optional `"draft": true` to the era schema.
+    `build_content_pack.dart` and the media manifest skip drafts, so
+    **installed apps never receive them**, old app versions included. The
+    CMS shows a DRAFT badge and a "Mark ready" button.
+  - Alternative: no draft state. A new era must be complete (at least one
+    cited event) before it's created, and it goes live on the next publish.
+- **H3 — Replacing an image overwrites its original**, and
+  `long-ky-sources` has no versioning.
+  - *Recommend:* before overwriting, the Worker copies the old original to
+    `_replaced/<timestamp>/<path>` in the same bucket. It's cheap, needs no
+    UI, and you can recover by hand.
+  - Alternative: overwrite with no backup (the Mac may still hold a copy,
+    but not for CMS-only uploads).
 
-## Cycle G — progress
+## Pre-flight — the user's hands (about 1 minute, before H-4)
 
-### G-0 Foundations — shipped
+Cloudflare dashboard → R2 → `long-ky-content` → Settings → **CORS policy**
+→ add:
 
-- **`ContentFormatter`** (`packages/core_domain`): canonical JSON layout —
-  every value on its own line, 2-space indent, original key order. A plain
-  uniform expansion (what `JSON.stringify(data, null, 2)` naturally
-  produces) rather than the old hand-tuned "collapse a short `{vi,en}`
-  object onto one line" style, so a CMS save or a hand edit always diffs as
-  just the field that changed.
-- **`ContentValidator`** (`packages/core_domain`): the schema +
-  referential-integrity checks that used to live directly in
-  `tool/validate_content.dart`, now a pure function over raw JSON strings
-  (no file I/O) — the exact same code the CMS will call later against an
-  in-memory draft, before anything is saved.
-- **`tool/format_content.dart`** (new) and **`tool/validate_content.dart`**
-  (unchanged CLI output, now a thin wrapper around `ContentValidator`).
-- **`.github/workflows/content-check.yml`** — the repo's first CI: canonical
-  formatting, schema/referential validation, and `core_domain`'s test suite
-  (loads the whole real content corpus) on every push/PR touching
-  `content/` or `core_domain`. Not yet exercised on a real push — will show
-  green (or not) on the next one.
-- **The one-time reformat**: all 46 `content/**/*.json` files rewritten to
-  canonical form, as its own mechanical `style(content):` commit. Verified:
-  every file's *decoded* JSON is byte-identical before/after (a
-  `DeepCollectionEquality` check across all 46 files), and the formatter is
-  idempotent (`format_content --check` is clean immediately after).
-- **Verified**: 8 new unit tests for `ContentFormatter`/`ContentValidator`
-  (idempotency, data-preservation, every real file already canonical, a
-  forced schema violation, a forced bad person-ref, the index-check being
-  skippable) plus the full existing suite (129 app tests + all packages)
-  and `melos analyze` all pass.
+```json
+[{ "AllowedOrigins": ["https://long-ky-admin.web.app", "http://localhost:3020"],
+   "AllowedMethods": ["GET", "HEAD"], "AllowedHeaders": ["*"], "MaxAgeSeconds": 86400 }]
+```
 
-### G-1 Sources to the cloud — shipped, fully verified
+It's read-only and limited to the CMS's origins; the mobile app is
+unaffected (native apps don't use CORS). Claude verifies it afterwards with
+the same `curl` check. Fallback if you'd rather not: the Worker proxies
+thumbnails. That works, but every image then goes through the Worker.
 
-- **`tool/push_sources.sh`** / **`tool/pull_sources.sh`**: copy-only
-  up/down sync between `content/`'s gitignored media and the private
-  `long-ky-sources` R2 bucket — copy-only in both directions so the Mac,
-  the CMS, and CI can never race and delete each other's uploads.
-  `push_sources.sh --check` reports unpushed media without uploading.
-- **`tool/publish_content.sh`** now refuses a real publish (not `--dry-run`)
-  unless `push_sources.sh --check` is clean — otherwise a publish run from
-  wherever the CMS/CI runs later (which starts from `long-ky-sources`, not
-  this disk) could delete a served image whose only original is on this
-  Mac.
-- **The one-time upload ran** (2026-09-26, after fixing the R2 token's
-  bucket scope and the user's explicit go-ahead): **681 files, 3.369 GiB**,
-  0 errors. `push_sources.sh --check` now reports "0 differences found,
-  681 matching files" — the Mac is no longer the only copy of this art.
+## Cycle H — spec
 
-### G-2 Publish in CI — shipped, verified live
+### Principles (all stages)
 
-- **`.github/workflows/publish-content.yml`** — manual trigger
-  (`workflow_dispatch`, `dry_run` input). Pulls originals from
-  `long-ky-sources`, runs the same format/validate/test gate as
-  `content-check.yml`, then `tool/publish_content.sh` (or `--dry-run`); a
-  real publish commits `content-version.json`/`media-manifest.json` back to
-  `main` itself.
-- **Ran for real** (`dry_run=true`, run
-  [36226183243](https://github.com/binhnt010896/long-ky-app/actions/runs/36226183243)):
-  every step green — rclone/cwebp install, pulling 681 files from
-  `long-ky-sources`, the format/validate/test gate, and the media
-  conversion (627 files, 3.60 GB → 0.25 GB served). "Publish" and "Commit
-  the published version bump" correctly stayed skipped for the dry run.
-- **Found a real, pre-existing content gap in the process**: the dry run's
-  media-conversion step warned `referenced media not found on disk:
-  eras/hai-ba-trung/scene/ridge-far.png` and `ridge-near.png` —
-  `hai-ba-trung.json` has referenced these two scene layers since the era
-  was built, but the files were never generated (not on the Mac, not in
-  `long-ky-sources`, never in a published manifest). Not a Cycle G
-  regression — the old validator only checks JSON structure, never whether
-  a referenced path actually exists on disk. Parked as a content fix,
-  not yet actioned (ask the user before generating the missing art).
+- **Edit maps, not models.** Forms read and write the raw decoded JSON map
+  of each item, so any key a form doesn't know about survives a save. The
+  "Raw JSON" tab stays on every item as the escape hatch.
+- **IDs are locked once created.** This covers era slug/id, period id and
+  person id. They're baked into media paths, the analytics `era_slug`, and
+  the refs in other files. The id field is editable only while creating.
+- **Everything is still gated by `ContentValidator`.** Forms add friendlier,
+  earlier checks (required fields, a citation on events), but the validator
+  stays the real gate. Commit remains blocked while any issue exists.
+- **Referential safety in the UI.**
+  - You can't delete a person any era still references; the UI lists
+    those eras instead.
+  - You can't delete a period that still has eras; move or delete them
+    first.
+  - The validator would catch both anyway; the UI just explains why.
 
-### G-3 Worker — shipped and deployed
+### H-0 Foundations (`apps/admin`)
 
-- **`services/cms_api/`** (TypeScript, Hono, on Cloudflare Workers) — see
-  its own README for the endpoint list. Holds the GitHub token (a Worker
-  secret) and R2 access (a bucket binding) the CMS itself can never safely
-  hold. Auth: Firebase ID token verified against Google's JWKS, checked
-  against an email allowlist.
-- **Verified**: 17 tests (`@cloudflare/vitest-pool-workers`, a real
-  in-memory R2 simulator, a fake `fetch` for GitHub's API) — auth refuses a
-  missing/foreign/unverified/non-allowlisted token, a moved `main` throws
-  `ConflictError` (409) without writing anything, a real multi-file commit
-  sequences correctly, media uploads are type/size-checked before touching
-  R2. `tsc --noEmit` clean.
-- **Deployed**: `https://long-ky-cms-api.binhnt-010896.workers.dev` (first
-  deploy also registered the account's `workers.dev` subdomain and created
-  the Worker). Live smoke test: an unauthenticated `GET /content` correctly
-  returns `401 {"error":"Missing bearer token"}`, not a silent pass-through.
+- **`ContentDraft` supports adding and deleting files.**
+  - `pendingChanges` becomes `Map<String, String?>`: new paths are
+    included, deleted paths map to `null`. The Worker's `/commit` already
+    accepts both.
+  - The dashboard and Publish pages list changes as added / edited /
+    deleted.
+- **Shared form widgets:**
+  - `LocalizedTextField`: a vi/en pair; vi is required, matching the
+    schema.
+  - `YearRangeField`: display vi/en plus start/end years, with a BCE
+    toggle instead of typing negative numbers.
+  - `HexColorField`: a swatch plus a hex input.
+  - `AssetRefField`: shows the thumbnail and path, with "Replace…" opening
+    the media detail (H-4).
+- **Unsaved-changes guard**: leaving an item with unstaged edits asks
+  first.
 
-### G-4 (the CMS app itself) — shipped
+### H-1 Content tree (replaces the flat Eras list)
 
-Built as planned, with two scope cuts made during execution (both flagged
-here rather than silently shipped):
-- **People/Periods editors are whole-file raw JSON**, not a per-person
-  guided form — `content/people.json`/`content/periods.json` are single
-  shared registries, so there's no natural field-by-field form without a
-  schema change (which this cycle explicitly avoids). The photo-fidelity
-  step is a CMS-only checklist (an in-memory checkbox per person with a
-  portrait) — nothing is written to the file; it's a reminder, not data.
-- **Preview is a plain rendered summary** (title/kicker/subtitle/overview/
-  events in a phone-frame), not the real app screens via
-  `contentRepositoryProvider` — wiring `core_content`/`experience` in (CDN
-  media loading, routing, theming) was too large an integration for this
-  pass. Good for a bilingual-text/event-order sanity check; not a
-  substitute for checking the real app before publishing.
+- A left-hand tree: **periods in `order`, with their eras nested in era
+  `order`**. Each row shows the title, year range, and a status (issue
+  count, DRAFT if H2 goes that way).
+- Selecting a row opens its editor on the right. A period opens H-3; an era
+  opens the existing era editor (guided + raw).
+- **Add**
+  - "+ Period": a form with the required fields; the id is suggested from
+    the title with diacritics stripped (`Hồng Bàng` → `hong-bang`).
+  - "+ Era in this period": a minimal form (slug, title, kicker, subtitle,
+    yearRange, accent, primarySource, a first event with citation). It
+    creates `content/eras/<slug>.json` plus the `index.json` entry.
+- **Remove**, per H1: typed-slug confirmation for eras; periods only when
+  empty.
+- **Reorder / move**
+  - Drag within a period to reorder; drag an era onto another period to
+    move it (this rewrites its `period`).
+  - Era `order` is renumbered 0…n-1 in tree order, but only files whose
+    number actually changed are written, so a reorder never touches more
+    than it must.
+  - Period `order` works the same way inside `periods.json`.
+  - `index.json` is rewritten in the same order.
 
-Everything else matches the original plan: Google sign-in gated by the
-Worker's own allowlist check, a `GET /content` draft keyed by `baseSha`,
-era editor (guided title/kicker/subtitle/overview + raw-JSON fallback for
-events/characters/citations), media upload/preview via the Worker (never
-touches R2 directly) with pinch-zoom for corner/transparency checks,
-and a publish page that gates a real publish on a successful dry run.
+### H-2 People editor
 
-**Also done as part of G-4**: the Worker's CORS now allows `localhost`
-origins alongside `CMS_ORIGIN` (Flutter web's dev server), redeployed and
-verified with a live `OPTIONS` preflight from a `localhost` origin.
+- A searchable list of 154 people (name vi/en, id). Filter chips: "has
+  portrait", "unused" (referenced by no era).
+- The person form:
+  - Name, epithet and bio (vi/en; bio multi-line).
+  - `portrait`/`avatar`/`fullBody` shown as thumbnails via `AssetRefField`.
+  - A **"Used in"** list of the eras whose roster includes them (links),
+    shown read-only.
+- The photo-fidelity checkbox moves into this form. It shows on any person
+  with an image and stays CMS-only, never written to the file
+  ([[camera-photo-fidelity]]).
+- Add person (id suggested from the name, locked after creation). Delete
+  is only allowed when "Used in" is empty.
 
-**Verified**: `flutter analyze` clean, `flutter build web` succeeds, and
-the sign-in screen renders correctly behind GoRouter's auth redirect in a
-live browser preview against the real (redeployed) Worker — actually
-signing in needs the user's own Google account, so that's still a G-5 step.
+### H-3 Periods editor
 
-**Pre-flight, done before writing code:**
-- Firebase web app "Admin Panel" (`1:240841070468:web:178cf934c969d76011efd1`)
-  and Hosting site `long-ky-admin` (→ `long-ky-admin.web.app`) both already
-  exist and are linked, confirmed via `firebase apps:list` /
-  `firebase hosting:sites:list`.
-- Worker CORS currently allows only `CMS_ORIGIN` (the production origin) —
-  needs `http://localhost:*` added and the Worker redeployed before local
-  dev against the live Worker works.
+A field form opened from the tree: title/kicker/subtitle (vi/en),
+`yearRange`, `accent` (with a swatch preview), and `cover` (thumbnail).
+Order comes from the tree; the id is locked.
 
-**Structure**: `apps/admin`, a plain Flutter web app (no mobile/desktop
-targets), added to the root `pubspec.yaml` workspace list and left under
-Melos's existing `apps/**` glob. Depends on `core_domain` (reuses
-`ContentFormatter`/`ContentValidator` verbatim — same canonical-format and
-validation code as the CLI/CI) and `firebase_auth`/`firebase_core`/
-`google_sign_in` for auth. Talks to the Worker over plain `http`, never
-touches GitHub or R2 directly.
+### H-4 Media library (replaces the path-typing Media screen)
 
-**Screens** (Riverpod, same pattern as `apps/mobile`):
-1. **Sign-in** — Google sign-in via Firebase Auth. Non-allowlisted emails
-   get a clear "not authorized" message (the Worker enforces this for real;
-   the UI check is just a good error message).
-2. **Dashboard** — counts (eras/people/periods), a publish-status chip, nav
-   to the editors.
-3. **Era editor** — list eras, edit one era's JSON (guided form for known
-   fields: id/title/dates/summary/sources; raw-JSON fallback for anything
-   the form doesn't cover, so unknown fields always round-trip).
-4. **Event editor** — nested under an era; citation field required before
-   save (client-side check; `ContentValidator` is the real gate).
-5. **People registry** — the shared `content/people.json`; per-person
-   fields plus a free-text confirmation note for photo/era accuracy (no
-   schema change — [[people-registry]], [[camera-photo-fidelity]]).
-6. **Periods editor** — `content/periods.json`.
-7. **Media** — upload (`PUT /media`) and preview (`GET /media`) originals in
-   `long-ky-sources`; corner-zoom on preview to check transparency
-   ([[higgsfield-restore-pitfalls]] muscle memory, done in-browser here).
-8. **Preview** — phone-frame chrome rendering the *real* app screens via a
-   `contentRepositoryProvider` override pointed at the in-memory draft, not
-   a mockup.
-9. **Publish** — dry run against the Worker's `/publish`, show the GitHub
-   Actions run status (`/publish/status`), then a real publish gated on the
-   dry run having passed.
+**Browse**
+- The library is built from what the content actually references: it walks
+  the draft's era/people/period JSON for every asset path.
+- Groups: Periods (covers) · each era (cover, scene layers, per-era
+  character art, event heroes) · People (portrait/avatar/fullBody).
+- Each tile:
+  - A thumbnail from the CDN (`media/<key>?v=<v>`) and its **pixel
+    dimensions**, decoded in the browser.
+  - The served file size, from `Content-Length`.
+  - Which items use it.
+- Tile states:
+  - **Published**: in the manifest.
+  - **Missing**: referenced but in neither the manifest nor
+    `long-ky-sources`. This is exactly the Hai Bà Trưng ridge-art case from
+    G-2, now caught at a glance.
+  - **Replaced, publish to go live**: uploaded this session.
 
-**Editing model**: `GET /content` once per session into an in-memory draft
-keyed by the `baseSha` it returned; every editor mutates that draft; `POST
-/commit` sends the whole diff atomically. A 409 (main moved) surfaces as
-"reload and redo your edit" — no merge UI, per G-4's own conflict policy.
+**Detail view**
+- A large preview with zoom, and a **background toggle**
+  (checkerboard / magenta / the era's real `sky.png`). This is the same
+  transparency check done by hand for generated art.
+- Original path, dimensions, whether it has alpha, and "used by" links.
 
-**Language**: English CMS labels (this is Claude's/the admin's tool, not
-the public app — no i18n needed).
+**Replace**
+1. Pick a file. It must be the same file type as the path; a `.png` path
+   takes a PNG.
+2. See old and new side by side, with dimensions.
+3. **Warnings** (not blocks):
+   - The aspect ratio differs from the current image by more than 1%.
+   - The current image has transparency and the new one doesn't (a
+     scene-layer killer).
+   - The new image is smaller than the current one.
+4. Confirm → the Worker backs up the old original (H3) → `PUT` to the same
+   path.
+5. Nothing in the JSON changes. The next publish re-converts it, bumps
+   `v`, and the app refetches.
 
-**Build order**: sign-in → dashboard shell → era/event editors → people
-registry → media → phone-frame preview → publish page. Each stage gets its
-own commit; `melos analyze`/tests stay green throughout.
+**Worker**
+- `PUT /media` gains the H3 backup copy.
+- New `GET /media/exists?paths=` (batched `head()`) so "Missing" is
+  accurate for paths not yet published.
 
-### G-5 (Hosting deploy) — not started
+**Sync fix**
+- `push_sources.sh`/`pull_sources.sh` gain `rclone --update` (never
+  overwrite a newer file).
+- `push_sources.sh --check` failing now tells you to run
+  `pull_sources.sh` first, not to push.
+- This is the hazard noted above.
 
-`flutter build web` in `apps/admin` → `firebase deploy --only
-hosting:long-ky-admin` (needs the user's explicit yes — this makes the CMS
-publicly reachable, even though it's gated by Firebase Auth + the email
-allowlist). The user may need to add `long-ky-admin.web.app` to Firebase
-Auth's authorized domains (Authentication → Settings → Authorized domains)
-before Google sign-in works there; `localhost` is authorized by default so
-local dev is unaffected. The user does the first live end-to-end sign-in
-test themselves.
+**Uploading new media** (a path not yet referenced) stays available as an
+"Upload new…" action in the library, with a folder picker built from
+existing folders instead of free typing.
 
-There is also a second, unlinked Hosting site `admin-long-ky.web.app`
-(probably a first-attempt leftover) — flagged for the user to delete or
-keep; not used by anything in this cycle.
+### H-5 Verify and ship
+
+- **Tests**
+  - `ContentDraft` add/delete/pending diff.
+  - Tree reorder: only the changed `order`s get written, and `index.json`
+    stays in sync.
+  - Every form round-trips unknown keys untouched.
+  - Delete guards.
+  - Worker: backup-then-overwrite, `exists`.
+  - `melos analyze` and the full test suites stay green.
+- **Browser**: local run against the live Worker for every screen. The
+  user does the signed-in pass (Claude can't sign in as them).
+- **Deploy**: Worker redeploy plus `firebase deploy --only
+  hosting:long-ky-admin`, **each with the user's explicit yes**.
+
+### Out of scope for H (noted, not planned)
+
+- Per-event field editor (events stay in the era editor's Raw JSON).
+- A pixel-exact preview using the real app screens (G-4's scope cut
+  stands).
+- An image cropper or resizer in the browser.
 
 ## Paused — needs the user's own hands
 
-1. In Firebase console → Analytics → Custom definitions, register
-   event-scoped dimensions `era_slug`, `event_id`, `figure_id` once the
-   first real data arrives (otherwise GA4 can say a screen was viewed but
-   not which era/event/figure).
-2. Re-paste the updated privacy policy at binh-nt.dev (fill the two
-   placeholders first, per Cycle E's note) and update the Data safety /
-   content declarations in Play Console to match
-   `docs/play-store/data-safety-and-listing.md` — **before** uploading this
-   build; Play rejects a release whose SDKs contradict a stale form.
-3. Upload `apps/mobile/build/app/outputs/bundle/release/app-release.aab`
-   (or a fresh build off this commit) to a release.
-4. Everything else from Cycle E is still open too: confirm the payments
-   profile clears bank verification, create and activate the three
-   `long_ky_tea*` products, license testing, a real test purchase, the
-   Vietnamese store listing, screenshots/feature graphic.
+1. Firebase console → Analytics → Custom definitions: register
+   event-scoped dimensions `era_slug`, `event_id`, `figure_id` once real
+   data arrives.
+2. Re-paste the updated privacy policy at binh-nt.dev (the portfolio page
+   is built; `firebase deploy` it). Make the Play Console Data safety form
+   match `docs/play-store/data-safety-and-listing.md` **before** uploading
+   1.0.1+3.
+3. Upload the 1.0.1+3 `.aab` to a release.
+4. From Cycle E: payments profile verification, create and activate the
+   `long_ky_tea*` products, license testing, a real test purchase,
+   screenshots and the feature graphic.
+5. Optional: delete the unused Hosting site `admin-long-ky.web.app`.
 
 ## Next cycles (queued)
 
-Cycle G continues once the GitHub Actions secrets are set (see "Blocked"
-above). Carried-over UX audit findings from an earlier cycle (top-bar scrims,
-particles over text, the Chào cờ lyrics legibility, the swipe-hint timing)
-are still parked — see git history (`21fb88b:EXECUTION.md`).
+Carried-over UX audit findings (top-bar scrims, particles over text, Chào
+cờ lyrics legibility, swipe-hint timing) are still parked — see
+`21fb88b:EXECUTION.md`.
