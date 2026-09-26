@@ -44,23 +44,41 @@ ColorScheme _schemeFor(Color accent, Brightness brightness) {
   final primary = dark ? Color.lerp(accent, Colors.white, 0.35)! : accent;
   final onPrimary = primary.computeLuminance() > 0.4 ? Colors.black : Colors.white;
 
+  // The unnamed ColorScheme.light/dark constructors bake in fixed Material
+  // defaults for every field not passed explicitly — onSurfaceVariant (what
+  // an unstyled IconButton's glyph actually uses) among them. Leaving it
+  // unset made every plain icon button in the app (Appearance, sign-out,
+  // every delete/reorder icon in the tree and media library) render at
+  // near-zero contrast against the custom surface, visible only on hover.
+  // Every field an unstyled control might read now gets a deliberate,
+  // contrast-checked value instead of an inherited default.
   return dark
       ? ColorScheme.dark(
           primary: primary,
           onPrimary: onPrimary,
           secondary: primary,
+          onSecondary: onPrimary,
           surface: const Color(0xFF17181A),
           onSurface: const Color(0xFFE3E3E3),
+          onSurfaceVariant: const Color(0xFFC4C6C8),
           surfaceContainerHighest: const Color(0xFF2A2B2E),
+          outline: const Color(0xFF8A8D91),
+          outlineVariant: const Color(0xFF444649),
           error: const Color(0xFFCF6679),
+          onError: Colors.black,
         )
       : ColorScheme.light(
           primary: primary,
           onPrimary: onPrimary,
           secondary: primary,
+          onSecondary: onPrimary,
           surface: const Color(0xFFFAFAFA),
           onSurface: const Color(0xFF1B1B1B),
+          onSurfaceVariant: const Color(0xFF44474A),
           surfaceContainerHighest: const Color(0xFFE7E7E7),
+          outline: const Color(0xFF74777A),
+          outlineVariant: const Color(0xFFC4C6C8),
           error: const Color(0xFFB3261E),
+          onError: Colors.white,
         );
 }

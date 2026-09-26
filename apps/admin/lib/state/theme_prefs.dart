@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 const _themeModeKey = 'cms.themeMode';
 const _seedColorKey = 'cms.seedColor';
+const _defaultPrefs = ThemePrefs(themeMode: ThemeMode.system, accent: CmsAccent.slate);
 
 /// A few named picks, not a full colour wheel — this is an internal tool,
 /// not something worth a custom-colour picker for. `slate` is the default:
@@ -31,9 +32,24 @@ class ThemePrefs {
 }
 
 class ThemePrefsController extends AsyncNotifier<ThemePrefs> {
+  SharedPreferences? _prefs;
+
+  Future<SharedPreferences?> _loadPrefs() async {
+    if (_prefs != null) return _prefs;
+    try {
+      return _prefs = await SharedPreferences.getInstance();
+    } catch (_) {
+      // Some browser privacy settings (e.g. strict storage partitioning)
+      // can make this throw or hang — the picker still has to work for the
+      // rest of the session even if nothing persists across a reload.
+      return null;
+    }
+  }
+
   @override
   Future<ThemePrefs> build() async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await _loadPrefs();
+    if (prefs == null) return _defaultPrefs;
     final modeIndex = prefs.getInt(_themeModeKey);
     final accentName = prefs.getString(_seedColorKey);
     return ThemePrefs(
@@ -47,21 +63,28 @@ class ThemePrefsController extends AsyncNotifier<ThemePrefs> {
     );
   }
 
-  Future<void> setThemeMode(ThemeMode mode) async {
-    final current = state.valueOrNull;
-    if (current == null) return;
-    state = AsyncData(current.copyWith(themeMode: mode));
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt(_themeModeKey, mode.index);
+  /// Applies [update] to the in-memory state immediately regardless of
+  /// whether [build] ever resolved — a click in the Appearance dialog must
+  /// always do something, even if persistence itself later fails.
+  Future<void> _apply(
+    ThemePrefs Function(ThemePrefs) update,
+    void Function(SharedPreferences) persist,
+  ) async {
+    final current = state.valueOrNull ?? _defaultPrefs;
+    state = AsyncData(update(current));
+    final prefs = await _loadPrefs();
+    if (prefs != null) persist(prefs);
   }
 
-  Future<void> setAccent(CmsAccent accent) async {
-    final current = state.valueOrNull;
-    if (current == null) return;
-    state = AsyncData(current.copyWith(accent: accent));
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_seedColorKey, accent.name);
-  }
+  Future<void> setThemeMode(ThemeMode mode) => _apply(
+    (p) => p.copyWith(themeMode: mode),
+    (prefs) => prefs.setInt(_themeModeKey, mode.index),
+  );
+
+  Future<void> setAccent(CmsAccent accent) => _apply(
+    (p) => p.copyWith(accent: accent),
+    (prefs) => prefs.setString(_seedColorKey, accent.name),
+  );
 }
 
 final themePrefsProvider = AsyncNotifierProvider<ThemePrefsController, ThemePrefs>(
