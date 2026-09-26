@@ -1,0 +1,23 @@
+{
+  "name": "cms_api",
+  "private": true,
+  "description": "Cloudflare Worker backend for the Long Ký admin CMS (apps/admin) — holds the GitHub token and R2 access the CMS itself can never safely hold in a browser.",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.6.14",
+    "jose": "^5.9.6"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.6.4",
+    "@cloudflare/workers-types": "^4.20241127.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
+    "wrangler": "^3.109.1"
+  }
+}

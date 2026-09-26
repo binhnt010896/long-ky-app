@@ -1,0 +1,23 @@
+name = "long-ky-cms-api"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Original content media — the same private bucket tool/push_sources.sh and
+# tool/pull_sources.sh sync with. A binding, not an access key: no R2
+# credentials exist anywhere in the CMS's own path.
+[[r2_buckets]]
+binding = "SOURCES_BUCKET"
+bucket_name = "long-ky-sources"
+
+# Plain config, not secrets — safe to commit. GITHUB_TOKEN is the one real
+# secret this Worker holds; set it with:
+#   wrangler secret put GITHUB_TOKEN
+[vars]
+FIREBASE_PROJECT_ID = "long-ky-app"
+GITHUB_OWNER = "binhnt010896"
+GITHUB_REPO = "long-ky-app"
+# Comma-separated allowlist — only these Google accounts can use the CMS.
+ALLOWED_EMAILS = "binhnt.010896@gmail.com"
+# Locks CORS to the deployed CMS's own origin (see EXECUTION.md's G5).
+CMS_ORIGIN = "https://long-ky-admin.web.app"

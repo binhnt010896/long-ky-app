@@ -70,3 +70,11 @@ content/**/*.mp3
 content/**/*.wav
 content/**/*.m4a
 content/**/*.mp4
+
+# services/cms_api (Cycle G's Cloudflare Worker) — Node tooling and local
+# wrangler state. .dev.vars would hold local secret overrides for `wrangler
+# dev`; the one real secret (GITHUB_TOKEN) is never in a file at all — see
+# services/cms_api/README.md.
+services/cms_api/node_modules/
+services/cms_api/.wrangler/
+services/cms_api/.dev.vars
