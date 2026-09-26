@@ -17,5 +17,9 @@ workspace:
 
 dev_dependencies:
   melos: ^6.3.0
-  json_schema: ^5.1.0
   crypto: ^3.0.7
+  # tool/validate_content.dart and tool/format_content.dart call into
+  # ContentValidator/ContentFormatter (core_domain is pure Dart, so it runs
+  # fine under plain `dart run`, unlike core_content which needs Flutter).
+  core_domain:
+    path: packages/core_domain

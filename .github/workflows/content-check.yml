@@ -1,0 +1,47 @@
+name: content-check
+
+# The gate every content change (by hand or, later, through the CMS) must
+# clear before it can be published: canonical formatting, schema +
+# referential-integrity validation, and the core_domain test suite, which
+# loads the whole real content corpus (including the quiz generator's own
+# checks) — so a bad edit shows red here before anyone tries to publish it.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/**"
+      - "packages/core_domain/**"
+      - "tool/format_content.dart"
+      - "tool/validate_content.dart"
+      - ".github/workflows/content-check.yml"
+  pull_request:
+    paths:
+      - "content/**"
+      - "packages/core_domain/**"
+      - "tool/format_content.dart"
+      - "tool/validate_content.dart"
+      - ".github/workflows/content-check.yml"
+  workflow_dispatch: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: dart pub get (workspace)
+        run: dart pub get
+
+      - name: Canonical content formatting
+        run: dart run tool/format_content.dart --check
+
+      - name: Content schema + referential-integrity validation
+        run: dart run tool/validate_content.dart
+
+      - name: core_domain tests (loads the full content corpus)
+        working-directory: packages/core_domain
+        run: flutter test

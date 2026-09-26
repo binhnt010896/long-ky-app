@@ -24,3 +24,11 @@ scripts:
   validate:content:
     description: Validate content/eras/*.json against era.schema.json.
     run: dart run tool/validate_content.dart
+
+  format:content:
+    description: Rewrite every content/**/*.json file to the canonical layout.
+    run: dart run tool/format_content.dart
+
+  format:content:check:
+    description: Fail if any content/**/*.json file isn't canonically formatted (CI).
+    run: dart run tool/format_content.dart --check
