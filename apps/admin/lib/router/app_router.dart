@@ -8,7 +8,6 @@ import '../screens/dashboard_screen.dart';
 import '../screens/era_editor_screen.dart';
 import '../screens/media_library_screen.dart';
 import '../screens/people_screen.dart';
-import '../screens/preview_screen.dart';
 import '../screens/publish_screen.dart';
 import '../screens/shell_screen.dart';
 import '../screens/sign_in_screen.dart';
@@ -50,7 +49,6 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             builder: (context, state) =>
                 MediaLibraryScreen(focusPath: state.uri.queryParameters['focus']),
           ),
-          GoRoute(path: '/preview', builder: (context, state) => const PreviewScreen()),
           GoRoute(path: '/publish', builder: (context, state) => const PublishScreen()),
         ],
       ),

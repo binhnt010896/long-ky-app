@@ -287,11 +287,6 @@ class _PersonDetailPaneState extends ConsumerState<_PersonDetailPane> {
             LocalizedTextField(label: 'Bio', vi: bioVi, en: bioEn, maxLines: 6),
             const SizedBox(height: 8),
             AssetRefField(
-              label: 'Portrait',
-              assetRef: person['portrait'] as Map<String, dynamic>?,
-              manifest: manifest,
-            ),
-            AssetRefField(
               label: 'Avatar',
               assetRef: person['avatar'] as Map<String, dynamic>?,
               manifest: manifest,
@@ -299,6 +294,15 @@ class _PersonDetailPaneState extends ConsumerState<_PersonDetailPane> {
             AssetRefField(
               label: 'Full body',
               assetRef: person['fullBody'] as Map<String, dynamic>?,
+              manifest: manifest,
+            ),
+            AssetRefField(
+              label: 'Portrait',
+              caption: person['avatar'] != null || person['fullBody'] != null
+                  ? 'Legacy — not shown while Avatar/Full body are set.'
+                  : "Legacy 3-part sheet — the app crops this era's figures "
+                        'from it since there is no dedicated Avatar/Full body yet.',
+              assetRef: person['portrait'] as Map<String, dynamic>?,
               manifest: manifest,
             ),
             if (hasPhoto) ...[

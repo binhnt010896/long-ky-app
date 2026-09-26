@@ -3,13 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../auth/auth_providers.dart';
+import '../state/theme_prefs.dart';
 
 const _destinations = [
   (path: '/', icon: Icons.dashboard_outlined, label: 'Dashboard'),
   (path: '/eras', icon: Icons.account_tree_outlined, label: 'Content'),
   (path: '/people', icon: Icons.people_outline, label: 'People'),
   (path: '/media', icon: Icons.image_outlined, label: 'Media'),
-  (path: '/preview', icon: Icons.phone_iphone_outlined, label: 'Preview'),
   (path: '/publish', icon: Icons.cloud_upload_outlined, label: 'Publish'),
 ];
 
@@ -56,10 +56,22 @@ class AdminShell extends ConsumerWidget {
                 alignment: Alignment.bottomCenter,
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 16),
-                  child: IconButton(
-                    tooltip: user?.email ?? 'Sign out',
-                    icon: const Icon(Icons.logout),
-                    onPressed: () => ref.read(authControllerProvider).signOut(),
+                  child: Column(
+                    children: [
+                      IconButton(
+                        tooltip: 'Appearance',
+                        icon: const Icon(Icons.palette_outlined),
+                        onPressed: () => showDialog<void>(
+                          context: context,
+                          builder: (context) => const _AppearanceDialog(),
+                        ),
+                      ),
+                      IconButton(
+                        tooltip: user?.email ?? 'Sign out',
+                        icon: const Icon(Icons.logout),
+                        onPressed: () => ref.read(authControllerProvider).signOut(),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -72,6 +84,91 @@ class AdminShell extends ConsumerWidget {
           const VerticalDivider(width: 1),
           Expanded(child: child),
         ],
+      ),
+    );
+  }
+}
+
+class _AppearanceDialog extends ConsumerWidget {
+  const _AppearanceDialog();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final prefs = ref.watch(themePrefsProvider).valueOrNull;
+    final controller = ref.read(themePrefsProvider.notifier);
+
+    return AlertDialog(
+      title: const Text('Appearance'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Theme', style: Theme.of(context).textTheme.labelLarge),
+          SegmentedButton<ThemeMode>(
+            segments: const [
+              ButtonSegment(value: ThemeMode.light, icon: Icon(Icons.light_mode_outlined), label: Text('Light')),
+              ButtonSegment(value: ThemeMode.dark, icon: Icon(Icons.dark_mode_outlined), label: Text('Dark')),
+              ButtonSegment(value: ThemeMode.system, icon: Icon(Icons.brightness_auto_outlined), label: Text('Auto')),
+            ],
+            selected: {prefs?.themeMode ?? ThemeMode.system},
+            onSelectionChanged: (s) => controller.setThemeMode(s.first),
+          ),
+          const SizedBox(height: 16),
+          Text('Accent colour', style: Theme.of(context).textTheme.labelLarge),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 12,
+            runSpacing: 12,
+            children: [
+              for (final accent in CmsAccent.values)
+                _AccentSwatch(
+                  accent: accent,
+                  selected: prefs?.accent == accent,
+                  onTap: () => controller.setAccent(accent),
+                ),
+            ],
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(onPressed: () => Navigator.pop(context), child: const Text('Done')),
+      ],
+    );
+  }
+}
+
+class _AccentSwatch extends StatelessWidget {
+  const _AccentSwatch({required this.accent, required this.selected, required this.onTap});
+
+  final CmsAccent accent;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(8),
+      child: Padding(
+        padding: const EdgeInsets.all(4),
+        child: Column(
+          children: [
+            Container(
+              width: 32,
+              height: 32,
+              decoration: BoxDecoration(
+                color: accent.color,
+                shape: BoxShape.circle,
+                border: selected
+                    ? Border.all(color: Theme.of(context).colorScheme.onSurface, width: 2)
+                    : null,
+              ),
+              child: selected ? const Icon(Icons.check, color: Colors.white, size: 18) : null,
+            ),
+            const SizedBox(height: 4),
+            Text(accent.label, style: Theme.of(context).textTheme.labelSmall),
+          ],
+        ),
       ),
     );
   }
