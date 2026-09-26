@@ -4,10 +4,10 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: EXECUTING Cycle G (the Long Ký CMS). G-0 and G-1's code are done,
-committed and verified; G-1's actual data migration is blocked on one setup
-step below. Cycle F is fully shipped — what's left there is the user's own
-hands in Firebase/Play Console (see "Paused" below).**
+**Status: EXECUTING Cycle G (the Long Ký CMS). G-0 and G-1 are both fully
+done — code, and the actual 3.4 GB data migration. G-2 needs one setup step
+from the user first (below). Cycle F is fully shipped — what's left there is
+the user's own hands in Firebase/Play Console (see "Paused" below).**
 
 Cycle G in full: Flutter web on Firebase Hosting (`apps/admin`), a
 Cloudflare Worker backend, media originals moving to a private
@@ -16,21 +16,17 @@ Decided: G3 Cloudflare Worker, G4 saves go straight to `main`, G5
 `long-ky-admin.web.app`. Build order: G-0 foundations → G-1 sources to the
 cloud → G-2 publish in CI → G-3 Worker → G-4 CMS app → G-5 Hosting deploy.
 
-### Blocked — needs the user's hands before G-1 can finish
+### Blocked — needs the user's hands before G-2 can run for real
 
-The R2 API token `rclone` uses is scoped to `long-ky-content` only;
-`rclone lsd r2:long-ky-sources` returns **403 Access Denied**. In the
-Cloudflare dashboard → R2 → **Manage API tokens** → edit the token rclone
-uses (or create a new one) → add **`long-ky-sources`** to its bucket scope
-with Object Read & Write → save. Tell Claude once it's done; the fix is on
-Cloudflare's side only, nothing local to `rclone.conf` needs to change.
-
-Also needed before **G-2** (CI publishing) can run for real: the R2
-credentials as **GitHub Actions secrets** on `long-ky-app` (Settings →
-Secrets and variables → Actions) — `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`
-(the same pair rclone already uses locally), plus `R2_ENDPOINT` (from
-`rclone config show r2` — the `.r2.cloudflarestorage.com` URL, not a secret
-but convenient to keep alongside them).
+Moving publishing into GitHub Actions needs the R2 credentials as
+**GitHub Actions secrets** on `long-ky-app` (Settings → Secrets and
+variables → Actions → New repository secret): `R2_ACCESS_KEY_ID`,
+`R2_SECRET_ACCESS_KEY` (the same pair rclone already uses locally — read
+from your local `rclone.conf` or the Cloudflare dashboard, not something
+Claude has read), plus `R2_ENDPOINT` (`https://<account-id>.r2.cloudflarestorage.com`,
+from `rclone config show r2` — not a secret, but convenient to keep
+alongside them). Claude can write the workflow file itself; it just can't
+create the secrets.
 
 ## Cycle F — shipped
 
@@ -125,7 +121,7 @@ but convenient to keep alongside them).
   skippable) plus the full existing suite (129 app tests + all packages)
   and `melos analyze` all pass.
 
-### G-1 Sources to the cloud — code shipped, data migration blocked
+### G-1 Sources to the cloud — shipped, fully verified
 
 - **`tool/push_sources.sh`** / **`tool/pull_sources.sh`**: copy-only
   up/down sync between `content/`'s gitignored media and the private
@@ -137,9 +133,10 @@ but convenient to keep alongside them).
   wherever the CMS/CI runs later (which starts from `long-ky-sources`, not
   this disk) could delete a served image whose only original is on this
   Mac.
-- **Not yet run**: the actual one-time 3.4 GB upload — blocked on the R2
-  token scope above, and needs your explicit yes before it runs regardless
-  (per the standing rule on outward-facing, hard-to-fully-verify actions).
+- **The one-time upload ran** (2026-09-26, after fixing the R2 token's
+  bucket scope and the user's explicit go-ahead): **681 files, 3.369 GiB**,
+  0 errors. `push_sources.sh --check` now reports "0 differences found,
+  681 matching files" — the Mac is no longer the only copy of this art.
 
 ### G-2 through G-5 — not started
 
@@ -169,7 +166,7 @@ picking this up in a new session.
 
 ## Next cycles (queued)
 
-Cycle G continues once the R2 token is fixed (see "Blocked" above).
-Carried-over UX audit findings from an earlier cycle (top-bar scrims,
+Cycle G continues once the GitHub Actions secrets are set (see "Blocked"
+above). Carried-over UX audit findings from an earlier cycle (top-bar scrims,
 particles over text, the Chào cờ lyrics legibility, the swipe-hint timing)
 are still parked — see git history (`21fb88b:EXECUTION.md`).
