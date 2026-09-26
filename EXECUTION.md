@@ -4,16 +4,33 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: IDLE — Cycle F (Firebase Analytics + Crashlytics) is fully
-executed, verified and committed. What's left is the user's own hands in
-Firebase/Play Console (see "Paused" below) before this build goes out.**
+**Status: EXECUTING Cycle G (the Long Ký CMS). G-0 and G-1's code are done,
+committed and verified; G-1's actual data migration is blocked on one setup
+step below. Cycle F is fully shipped — what's left there is the user's own
+hands in Firebase/Play Console (see "Paused" below).**
 
-Cycle G (the Long Ký CMS) is still only planned — see git history
-(`EXECUTION.md` as of the "plan Cycle F/G" commit) for the full spec if
-picking it up next: Flutter web on Firebase Hosting, a Cloudflare Worker
-backend, media originals moving to a private `long-ky-sources` R2 bucket,
-and publishing moving to GitHub Actions. Decided there: G3 Cloudflare
-Worker, G4 saves go straight to `main`, G5 `long-ky-admin.web.app`.
+Cycle G in full: Flutter web on Firebase Hosting (`apps/admin`), a
+Cloudflare Worker backend, media originals moving to a private
+`long-ky-sources` R2 bucket, and publishing moving to GitHub Actions.
+Decided: G3 Cloudflare Worker, G4 saves go straight to `main`, G5
+`long-ky-admin.web.app`. Build order: G-0 foundations → G-1 sources to the
+cloud → G-2 publish in CI → G-3 Worker → G-4 CMS app → G-5 Hosting deploy.
+
+### Blocked — needs the user's hands before G-1 can finish
+
+The R2 API token `rclone` uses is scoped to `long-ky-content` only;
+`rclone lsd r2:long-ky-sources` returns **403 Access Denied**. In the
+Cloudflare dashboard → R2 → **Manage API tokens** → edit the token rclone
+uses (or create a new one) → add **`long-ky-sources`** to its bucket scope
+with Object Read & Write → save. Tell Claude once it's done; the fix is on
+Cloudflare's side only, nothing local to `rclone.conf` needs to change.
+
+Also needed before **G-2** (CI publishing) can run for real: the R2
+credentials as **GitHub Actions secrets** on `long-ky-app` (Settings →
+Secrets and variables → Actions) — `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`
+(the same pair rclone already uses locally), plus `R2_ENDPOINT` (from
+`rclone config show r2` — the `.r2.cloudflarestorage.com` URL, not a secret
+but convenient to keep alongside them).
 
 ## Cycle F — shipped
 
@@ -75,6 +92,63 @@ Worker, G4 saves go straight to `main`, G5 `long-ky-admin.web.app`.
   (missing `cmdline-tools`, noted in Cycle E) is unrelated and still
   non-blocking.
 
+## Cycle G — progress
+
+### G-0 Foundations — shipped
+
+- **`ContentFormatter`** (`packages/core_domain`): canonical JSON layout —
+  every value on its own line, 2-space indent, original key order. A plain
+  uniform expansion (what `JSON.stringify(data, null, 2)` naturally
+  produces) rather than the old hand-tuned "collapse a short `{vi,en}`
+  object onto one line" style, so a CMS save or a hand edit always diffs as
+  just the field that changed.
+- **`ContentValidator`** (`packages/core_domain`): the schema +
+  referential-integrity checks that used to live directly in
+  `tool/validate_content.dart`, now a pure function over raw JSON strings
+  (no file I/O) — the exact same code the CMS will call later against an
+  in-memory draft, before anything is saved.
+- **`tool/format_content.dart`** (new) and **`tool/validate_content.dart`**
+  (unchanged CLI output, now a thin wrapper around `ContentValidator`).
+- **`.github/workflows/content-check.yml`** — the repo's first CI: canonical
+  formatting, schema/referential validation, and `core_domain`'s test suite
+  (loads the whole real content corpus) on every push/PR touching
+  `content/` or `core_domain`. Not yet exercised on a real push — will show
+  green (or not) on the next one.
+- **The one-time reformat**: all 46 `content/**/*.json` files rewritten to
+  canonical form, as its own mechanical `style(content):` commit. Verified:
+  every file's *decoded* JSON is byte-identical before/after (a
+  `DeepCollectionEquality` check across all 46 files), and the formatter is
+  idempotent (`format_content --check` is clean immediately after).
+- **Verified**: 8 new unit tests for `ContentFormatter`/`ContentValidator`
+  (idempotency, data-preservation, every real file already canonical, a
+  forced schema violation, a forced bad person-ref, the index-check being
+  skippable) plus the full existing suite (129 app tests + all packages)
+  and `melos analyze` all pass.
+
+### G-1 Sources to the cloud — code shipped, data migration blocked
+
+- **`tool/push_sources.sh`** / **`tool/pull_sources.sh`**: copy-only
+  up/down sync between `content/`'s gitignored media and the private
+  `long-ky-sources` R2 bucket — copy-only in both directions so the Mac,
+  the CMS, and CI can never race and delete each other's uploads.
+  `push_sources.sh --check` reports unpushed media without uploading.
+- **`tool/publish_content.sh`** now refuses a real publish (not `--dry-run`)
+  unless `push_sources.sh --check` is clean — otherwise a publish run from
+  wherever the CMS/CI runs later (which starts from `long-ky-sources`, not
+  this disk) could delete a served image whose only original is on this
+  Mac.
+- **Not yet run**: the actual one-time 3.4 GB upload — blocked on the R2
+  token scope above, and needs your explicit yes before it runs regardless
+  (per the standing rule on outward-facing, hard-to-fully-verify actions).
+
+### G-2 through G-5 — not started
+
+Queued next, in order: publish moving into a GitHub Actions workflow (needs
+the Actions secrets above), the Cloudflare Worker backend, the `apps/admin`
+Flutter app itself, then the Hosting deploy. Full detail for each was
+captured in the planning session; ask Claude to recap any stage's spec if
+picking this up in a new session.
+
 ## Paused — needs the user's own hands
 
 1. In Firebase console → Analytics → Custom definitions, register
@@ -95,7 +169,7 @@ Worker, G4 saves go straight to `main`, G5 `long-ky-admin.web.app`.
 
 ## Next cycles (queued)
 
-Cycle G (CMS) as summarized above, once the user wants to pick it up.
+Cycle G continues once the R2 token is fixed (see "Blocked" above).
 Carried-over UX audit findings from an earlier cycle (top-bar scrims,
 particles over text, the Chào cờ lyrics legibility, the swipe-hint timing)
 are still parked — see git history (`21fb88b:EXECUTION.md`).
