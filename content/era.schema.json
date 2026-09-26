@@ -143,6 +143,10 @@
       "items": {
         "$ref": "#/$defs/historyEvent"
       }
+    },
+    "draft": {
+      "description": "true while an era is still being authored in the CMS. Must still be a fully valid era (schema + referential integrity) to commit, but tool/build_content_pack.dart excludes it from the published content pack — installed apps, old versions included, never receive it over the air. It still ships in a fresh app *build*, since assets/content is bundled from content/ verbatim (see EXECUTION.md's Cycle H). Omit (or false) once the era is ready to publish.",
+      "type": "boolean"
     }
   },
   "$defs": {

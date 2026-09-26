@@ -6,9 +6,8 @@ import '../auth/auth_providers.dart';
 
 const _destinations = [
   (path: '/', icon: Icons.dashboard_outlined, label: 'Dashboard'),
-  (path: '/eras', icon: Icons.auto_stories_outlined, label: 'Eras'),
+  (path: '/eras', icon: Icons.account_tree_outlined, label: 'Content'),
   (path: '/people', icon: Icons.people_outline, label: 'People'),
-  (path: '/periods', icon: Icons.timeline_outlined, label: 'Periods'),
   (path: '/media', icon: Icons.image_outlined, label: 'Media'),
   (path: '/preview', icon: Icons.phone_iphone_outlined, label: 'Preview'),
   (path: '/publish', icon: Icons.cloud_upload_outlined, label: 'Publish'),

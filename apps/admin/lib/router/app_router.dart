@@ -3,12 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../auth/auth_providers.dart';
+import '../screens/content_tree_screen.dart';
 import '../screens/dashboard_screen.dart';
 import '../screens/era_editor_screen.dart';
-import '../screens/era_list_screen.dart';
-import '../screens/media_screen.dart';
+import '../screens/media_library_screen.dart';
 import '../screens/people_screen.dart';
-import '../screens/periods_screen.dart';
 import '../screens/preview_screen.dart';
 import '../screens/publish_screen.dart';
 import '../screens/shell_screen.dart';
@@ -40,14 +39,17 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state, child) => AdminShell(child: child),
         routes: [
           GoRoute(path: '/', builder: (context, state) => const DashboardScreen()),
-          GoRoute(path: '/eras', builder: (context, state) => const EraListScreen()),
+          GoRoute(path: '/eras', builder: (context, state) => const ContentTreeScreen()),
           GoRoute(
             path: '/eras/:slug',
             builder: (context, state) => EraEditorScreen(slug: state.pathParameters['slug']!),
           ),
           GoRoute(path: '/people', builder: (context, state) => const PeopleScreen()),
-          GoRoute(path: '/periods', builder: (context, state) => const PeriodsScreen()),
-          GoRoute(path: '/media', builder: (context, state) => const MediaScreen()),
+          GoRoute(
+            path: '/media',
+            builder: (context, state) =>
+                MediaLibraryScreen(focusPath: state.uri.queryParameters['focus']),
+          ),
           GoRoute(path: '/preview', builder: (context, state) => const PreviewScreen()),
           GoRoute(path: '/publish', builder: (context, state) => const PublishScreen()),
         ],

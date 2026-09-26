@@ -42,6 +42,13 @@ echo "Pushing content media to long-ky-sources…"
 # --s3-no-check-bucket: our R2 API token has no ListBuckets/HeadBucket
 # permission — rclone's default pre-upload bucket check misreads an existing
 # bucket as missing and tries (and fails) to create it (see publish_content.sh).
+#
+# --update: skip a file if the remote copy is newer than the local one.
+# Since the CMS (Cycle H) can now replace a media original directly in
+# long-ky-sources, a plain `copy` from this Mac could silently put a stale
+# local file back over a newer CMS upload — --update is what stops that.
+# Always `pull_sources.sh` before a push if you're not sure the Mac is
+# current.
 rclone copy content/ r2:long-ky-sources "${EXCLUDES[@]}" \
-  --s3-no-check-bucket --progress "$@"
+  --s3-no-check-bucket --update --progress "$@"
 echo "✓ pushed."

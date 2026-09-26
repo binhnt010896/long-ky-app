@@ -116,8 +116,19 @@ class _PublishScreenState extends ConsumerState<PublishScreen> {
                       if (draft.pendingChanges.isEmpty)
                         const Text('No staged changes.')
                       else
-                        Text('${draft.pendingChanges.length} file(s) staged: '
-                            '${draft.pendingChanges.keys.join(', ')}'),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            for (final entry in draft.pendingChanges.entries)
+                              Text(
+                                entry.value == null
+                                    ? '− ${entry.key} (deleted)'
+                                    : (draft.baseline.containsKey(entry.key)
+                                          ? '~ ${entry.key}'
+                                          : '+ ${entry.key} (new)'),
+                              ),
+                          ],
+                        ),
                       const SizedBox(height: 8),
                       if (!result.isValid)
                         Text(

@@ -59,6 +59,40 @@ describe('putMedia', () => {
     const listed = await testEnv.SOURCES_BUCKET.list({ prefix: 'eras/au-lac/cover.png' });
     expect(listed.objects).toHaveLength(1);
   });
+
+  it('backs up the old original before overwriting an existing path', async () => {
+    const oldBytes = new TextEncoder().encode('the original file');
+    await testEnv.SOURCES_BUCKET.put('eras/au-lac/cover.png', oldBytes, {
+      httpMetadata: { contentType: 'image/png' },
+    });
+
+    const newBytes = new TextEncoder().encode('the replacement file');
+    await putMedia(
+      testEnv,
+      'eras/au-lac/cover.png',
+      new Blob([newBytes]).stream(),
+      'image/png',
+      newBytes.length,
+    );
+
+    // The live path now has the new content.
+    const live = await testEnv.SOURCES_BUCKET.get('eras/au-lac/cover.png');
+    expect(await live!.text()).toBe('the replacement file');
+
+    // A backup copy exists under _replaced/, holding the old content.
+    const backups = await testEnv.SOURCES_BUCKET.list({ prefix: '_replaced/' });
+    expect(backups.objects).toHaveLength(1);
+    expect(backups.objects[0]!.key).toMatch(/^_replaced\/.+\/eras\/au-lac\/cover\.png$/);
+    const backup = await testEnv.SOURCES_BUCKET.get(backups.objects[0]!.key);
+    expect(await backup!.text()).toBe('the original file');
+  });
+
+  it('uploads normally with no backup when the path is new', async () => {
+    const bytes = new TextEncoder().encode('brand new file');
+    await putMedia(testEnv, 'eras/au-lac/new.png', new Blob([bytes]).stream(), 'image/png', bytes.length);
+    const backups = await testEnv.SOURCES_BUCKET.list({ prefix: '_replaced/' });
+    expect(backups.objects).toHaveLength(0);
+  });
 });
 
 describe('getMedia', () => {

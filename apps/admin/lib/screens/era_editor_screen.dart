@@ -24,6 +24,7 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
   bool _rawMode = false;
   late TextEditingController _rawController;
   String? _rawError;
+  bool _draft = false;
 
   final _titleVi = TextEditingController();
   final _titleEn = TextEditingController();
@@ -54,6 +55,7 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
       _subtitleEn.text = _localized(decoded['subtitle'], 'en');
       _overviewVi.text = _localized(decoded['overview'], 'vi');
       _overviewEn.text = _localized(decoded['overview'], 'en');
+      _draft = decoded['draft'] == true;
     } catch (_) {
       // Leave the guided fields blank — the raw editor still shows it.
     }
@@ -73,6 +75,11 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
       decoded['kicker'] = {'vi': _kickerVi.text, 'en': _kickerEn.text};
       decoded['subtitle'] = {'vi': _subtitleVi.text, 'en': _subtitleEn.text};
       decoded['overview'] = {'vi': _overviewVi.text, 'en': _overviewEn.text};
+      if (_draft) {
+        decoded['draft'] = true;
+      } else {
+        decoded.remove('draft');
+      }
       final text = ContentFormatter.format(decoded);
       ref.read(contentDraftProvider.notifier).editFile(_path, text);
       _rawController.text = text;
@@ -127,9 +134,15 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
                     onPressed: () => context.go('/eras'),
                     icon: const Icon(Icons.arrow_back),
                   ),
-                  Expanded(
-                    child: Text(widget.slug, style: Theme.of(context).textTheme.headlineSmall),
-                  ),
+                  Text(widget.slug, style: Theme.of(context).textTheme.headlineSmall),
+                  if (_draft) ...[
+                    const SizedBox(width: 8),
+                    Chip(
+                      label: const Text('DRAFT'),
+                      backgroundColor: Theme.of(context).colorScheme.tertiaryContainer,
+                    ),
+                  ],
+                  const Spacer(),
                   SegmentedButton<bool>(
                     segments: const [
                       ButtonSegment(value: false, label: Text('Guided')),
@@ -137,6 +150,12 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
                     ],
                     selected: {_rawMode},
                     onSelectionChanged: (s) => setState(() => _rawMode = s.first),
+                  ),
+                  const SizedBox(width: 8),
+                  IconButton(
+                    tooltip: 'Delete era',
+                    icon: const Icon(Icons.delete_outline),
+                    onPressed: _confirmDelete,
                   ),
                 ],
               ),
@@ -169,6 +188,18 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          CheckboxListTile(
+            contentPadding: EdgeInsets.zero,
+            controlAffinity: ListTileControlAffinity.leading,
+            value: _draft,
+            title: const Text('Draft'),
+            subtitle: const Text(
+              'Still valid content, but excluded from the next publish — '
+              'installed apps never receive it over the air.',
+            ),
+            onChanged: (v) => setState(() => _draft = v ?? false),
+          ),
+          const SizedBox(height: 8),
           _bilingualRow('Title', _titleVi, _titleEn),
           _bilingualRow('Kicker', _kickerVi, _kickerEn),
           _bilingualRow('Subtitle', _subtitleVi, _subtitleEn),
@@ -242,6 +273,38 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
         FilledButton(onPressed: _saveRaw, child: const Text('Stage changes')),
       ],
     );
+  }
+
+  Future<void> _confirmDelete() async {
+    final controller = TextEditingController();
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Delete era'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('This permanently removes content/eras/${widget.slug}.json and its '
+                'index.json entry. Type the slug to confirm:'),
+            const SizedBox(height: 12),
+            TextField(controller: controller, decoration: InputDecoration(hintText: widget.slug)),
+          ],
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancel')),
+          FilledButton(
+            style: FilledButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.error),
+            onPressed: () => Navigator.pop(context, controller.text.trim() == widget.slug),
+            child: const Text('Delete'),
+          ),
+        ],
+      ),
+    );
+    controller.dispose();
+    if (confirmed != true) return;
+    ref.read(contentDraftProvider.notifier).deleteEra(widget.slug);
+    if (mounted) context.go('/eras');
   }
 
   @override

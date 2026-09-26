@@ -60,25 +60,43 @@ Future<int> _run() async {
   final periods = readJson('periods.json');
   final media = readJson('media-manifest.json');
 
-  final slugs = <String>[
+  final allSlugs = <String>[
     for (final s in index['eras'] as List)
       if (s is String) s,
   ];
-  final eras = <String, dynamic>{
-    for (final slug in slugs) slug: readJson('eras/$slug.json'),
+  final allEras = <String, dynamic>{
+    for (final slug in allSlugs) slug: readJson('eras/$slug.json'),
   };
+
+  // Draft eras (see era.schema.json's `draft`) are still authored, valid
+  // JSON on `main` — they just never go out over the air. Dropped here,
+  // not earlier, so validation/referential-integrity checks above still
+  // cover them while they're being written.
+  final draftSlugs = <String>{
+    for (final entry in allEras.entries)
+      if (entry.value['draft'] == true) entry.key,
+  };
+  final slugs = allSlugs.where((s) => !draftSlugs.contains(s)).toList();
+  final eras = <String, dynamic>{
+    for (final slug in slugs) slug: allEras[slug],
+  };
+  final publishedIndex = <String, dynamic>{...index, 'eras': slugs};
 
   final version = _versionStamp(DateTime.now().toUtc());
 
   final pack = <String, dynamic>{
     'schemaVersion': kPackSchemaVersion,
     'version': version,
-    'index': index,
+    'index': publishedIndex,
     'people': people,
     'periods': periods,
     'media': media,
     'eras': eras,
   };
+
+  if (draftSlugs.isNotEmpty) {
+    stdout.writeln('  excluding ${draftSlugs.length} draft era(s): ${draftSlugs.join(', ')}');
+  }
 
   final packJson = jsonEncode(pack);
   final packDir = Directory('${root.path}/build/pack');
