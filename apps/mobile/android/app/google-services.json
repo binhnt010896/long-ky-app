@@ -12,7 +12,12 @@
           "package_name": "app.longky"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "240841070468-ioa5ans761ngnmjo58d4pi0hkd6ravsc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAo8Wz7RGrYoSnyeRjd_pyaG7a-OU1uV5A"
@@ -20,7 +25,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240841070468-ioa5ans761ngnmjo58d4pi0hkd6ravsc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
