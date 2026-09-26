@@ -4,12 +4,10 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: EXECUTING Cycle G (the Long Ký CMS). G-0 through G-3 are code-done
-and verified locally — G-2's live workflow run and G-3's real deploy are the
-two things still outstanding (see "Blocked" below), both because this
-environment has no push/deploy credentials, not because the code isn't
-ready. Cycle F is fully shipped — what's left there is the user's own hands
-in Firebase/Play Console (see "Paused" below).**
+**Status: EXECUTING Cycle G (the Long Ký CMS). G-0 through G-3 are fully
+done: code, pushed, and verified live (not just locally). G-4 (the actual
+`apps/admin` CMS) is next. Cycle F is fully shipped — what's left there is
+the user's own hands in Firebase/Play Console (see "Paused" below).**
 
 Cycle G in full: Flutter web on Firebase Hosting (`apps/admin`), a
 Cloudflare Worker backend, media originals moving to a private
@@ -18,20 +16,20 @@ Decided: G3 Cloudflare Worker, G4 saves go straight to `main`, G5
 `long-ky-admin.web.app`. Build order: G-0 foundations → G-1 sources to the
 cloud → G-2 publish in CI → G-3 Worker → G-4 CMS app → G-5 Hosting deploy.
 
-### Blocked — needs the user's hands
+**Note on push/deploy access**: this environment had no `git push`/`gh`
+access at first (no SSH key). Fixed mid-cycle: the user ran `gh auth login`
+with "Authenticate Git with your GitHub credentials? Yes", which set up an
+HTTPS credential helper — switching `origin` to the HTTPS remote URL then
+let both `git push` and the `gh` CLI work directly from this environment.
+Worth remembering for any future session that hits the same wall.
 
-1. **Push this branch.** Claude has no `git push`/`gh` access from this
-   environment (confirmed: `origin` needs an SSH key Claude doesn't have) —
-   every commit below is local only until you push. This has apparently
-   been true for the whole project; nothing new to Cycle G.
-2. **G-2's GitHub Actions secrets** (`R2_ACCESS_KEY_ID`,
-   `R2_SECRET_ACCESS_KEY`, `R2_ENDPOINT`) — **done**, per your last message.
-   Once pushed, test with `gh workflow run publish-content.yml -f
-   dry_run=true` and tell Claude what it reports.
-3. **G-3's deploy**: after pushing, from `services/cms_api/`:
-   `npx wrangler secret put GITHUB_TOKEN` (paste the fine-grained token from
-   earlier — typed into your terminal, never handled by Claude), then
-   `npm run deploy`. Tell Claude the deployed Worker URL once it's up.
+### Deployed / live
+
+- **Worker**: `https://long-ky-cms-api.binhnt-010896.workers.dev` — smoke
+  tested with a bare `curl`, correctly returns `401
+  {"error":"Missing bearer token"}` rather than a silent pass-through.
+- **GitHub Actions secrets** (`R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`,
+  `R2_ENDPOINT`) and the Worker's `GITHUB_TOKEN` secret are both set.
 
 ## Cycle F — shipped
 
@@ -143,7 +141,7 @@ cloud → G-2 publish in CI → G-3 Worker → G-4 CMS app → G-5 Hosting deplo
   0 errors. `push_sources.sh --check` now reports "0 differences found,
   681 matching files" — the Mac is no longer the only copy of this art.
 
-### G-2 Publish in CI — code shipped, one live run pending
+### G-2 Publish in CI — shipped, verified live
 
 - **`.github/workflows/publish-content.yml`** — manual trigger
   (`workflow_dispatch`, `dry_run` input). Pulls originals from
@@ -151,12 +149,23 @@ cloud → G-2 publish in CI → G-3 Worker → G-4 CMS app → G-5 Hosting deplo
   `content-check.yml`, then `tool/publish_content.sh` (or `--dry-run`); a
   real publish commits `content-version.json`/`media-manifest.json` back to
   `main` itself.
-- **Not yet exercised for real** — needs this branch pushed and a live
-  `gh workflow run publish-content.yml -f dry_run=true` to confirm the
-  pipeline actually runs end to end (rclone install, cwebp, the whole
-  gate) on a GitHub-hosted runner, not just that the YAML is well-formed.
+- **Ran for real** (`dry_run=true`, run
+  [36226183243](https://github.com/binhnt010896/long-ky-app/actions/runs/36226183243)):
+  every step green — rclone/cwebp install, pulling 681 files from
+  `long-ky-sources`, the format/validate/test gate, and the media
+  conversion (627 files, 3.60 GB → 0.25 GB served). "Publish" and "Commit
+  the published version bump" correctly stayed skipped for the dry run.
+- **Found a real, pre-existing content gap in the process**: the dry run's
+  media-conversion step warned `referenced media not found on disk:
+  eras/hai-ba-trung/scene/ridge-far.png` and `ridge-near.png` —
+  `hai-ba-trung.json` has referenced these two scene layers since the era
+  was built, but the files were never generated (not on the Mac, not in
+  `long-ky-sources`, never in a published manifest). Not a Cycle G
+  regression — the old validator only checks JSON structure, never whether
+  a referenced path actually exists on disk. Parked as a content fix,
+  not yet actioned (ask the user before generating the missing art).
 
-### G-3 Worker — code shipped, verified locally; not deployed
+### G-3 Worker — shipped and deployed
 
 - **`services/cms_api/`** (TypeScript, Hono, on Cloudflare Workers) — see
   its own README for the endpoint list. Holds the GitHub token (a Worker
@@ -168,15 +177,16 @@ cloud → G-2 publish in CI → G-3 Worker → G-4 CMS app → G-5 Hosting deplo
   missing/foreign/unverified/non-allowlisted token, a moved `main` throws
   `ConflictError` (409) without writing anything, a real multi-file commit
   sequences correctly, media uploads are type/size-checked before touching
-  R2. `tsc --noEmit` clean; `wrangler deploy --dry-run` bundles and
-  resolves every binding.
-- **Not yet deployed** — needs `wrangler secret put GITHUB_TOKEN` then
-  `npm run deploy` (both your hands; see "Blocked" above).
+  R2. `tsc --noEmit` clean.
+- **Deployed**: `https://long-ky-cms-api.binhnt-010896.workers.dev` (first
+  deploy also registered the account's `workers.dev` subdomain and created
+  the Worker). Live smoke test: an unauthenticated `GET /content` correctly
+  returns `401 {"error":"Missing bearer token"}`, not a silent pass-through.
 
 ### G-4 (the CMS app itself) and G-5 (Hosting deploy) — not started
 
-Next up once G-2/G-3 are confirmed live. Full detail for each was captured
-in the planning session; ask Claude to recap any stage's spec if picking
+Next up. Full detail for each was captured in the planning session; ask
+Claude to recap any stage's spec if picking
 this up in a new session.
 
 ## Paused — needs the user's own hands
