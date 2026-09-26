@@ -4,15 +4,27 @@
   "slug": "minh-mang",
   "order": 23,
   "period": "nguyen",
-  "title": { "vi": "Minh Mạng", "en": "Minh Mạng" },
-  "kicker": { "vi": "Nhà Nguyễn · Cải cách và cực thịnh", "en": "The Nguyễn · reform and apogee" },
-  "subtitle": { "vi": "Chia tỉnh, định chế, đặt tên Đại Nam — nhưng khép cửa với phương Tây.", "en": "Provinces, institutions, the name Đại Nam — but a door closed to the West." },
+  "title": {
+    "vi": "Minh Mạng",
+    "en": "Minh Mạng"
+  },
+  "kicker": {
+    "vi": "Nhà Nguyễn · Cải cách và cực thịnh",
+    "en": "The Nguyễn · reform and apogee"
+  },
+  "subtitle": {
+    "vi": "Chia tỉnh, định chế, đặt tên Đại Nam — nhưng khép cửa với phương Tây.",
+    "en": "Provinces, institutions, the name Đại Nam — but a door closed to the West."
+  },
   "overview": {
     "vi": "Nối nghiệp vua cha Gia Long, năm Canh Thìn (1820) hoàng tử Nguyễn Phúc Đảm lên ngôi, lấy niên hiệu Minh Mạng. Ông là bậc vua cần chính và quyết đoán bậc nhất triều Nguyễn, hằng ngày tự tay xem xét tấu chương, đề cao Nho học và chế độ quân chủ tập quyền chặt chẽ. Đầu đời, quyền hành ở hai đầu đất nước còn nằm trong tay hai vị tổng trấn uy quyền là Lê Văn Duyệt ở Gia Định và Lê Chất ở Bắc thành. Sau khi hai ông mất, năm Tân Mão – Nhâm Thìn (1831–1832), vua tiến hành cuộc cải cách hành chính lớn nhất: bãi bỏ hai tổng trấn, chia cả nước thành ba mươi tỉnh cùng phủ Thừa Thiên, đặt quan cai trị do triều đình trực tiếp bổ nhiệm — một bộ máy tập quyền quy củ mà dấu ấn còn lại đến ngày nay. Vua kiện toàn luật lệ, quan chế, khoa cử, lập Nội các và Cơ mật viện, chăm lo đê điều, khai hoang (công lớn của Doanh điền sứ Nguyễn Công Trứ ở Tiền Hải, Kim Sơn), sửa sang văn hiến. Về đối ngoại, vua mở mang bờ cõi, đặt quyền bảo hộ lên Chân Lạp (Trấn Tây thành), và năm Mậu Tuất (1838) đổi quốc hiệu thành Đại Nam, biểu thị một quốc gia lớn mạnh, thống nhất từ nam chí bắc. Triều Nguyễn dưới đời Minh Mạng đạt tới thời cực thịnh. Nhưng vua cũng thi hành chính sách bảo thủ, 'bế quan tỏa cảng': hạn chế buôn bán với phương Tây, khước từ những lời mời thông thương, lại nghiêm cấm và trừng trị đạo Thiên Chúa. Chính sách khép kín ấy khiến Đại Nam không theo kịp đà biến đổi của thế giới, gieo mầm cho tai họa mất nước vào tay thực dân Pháp mấy chục năm sau. Vua Minh Mạng mất năm Tân Sửu (1841).",
     "en": "Succeeding his father Gia Long, in the year Canh Thìn (1820) Prince Nguyễn Phúc Đảm took the throne under the era-name Minh Mạng. He was the most diligent and decisive of the Nguyễn emperors, reading memorials with his own hand each day and exalting Confucian learning and a tightly centralised monarchy. Early on, power at the two ends of the country still lay with two mighty viceroys — Lê Văn Duyệt at Gia Định and Lê Chất at the Northern Citadel. After their deaths, in the years Tân Mão–Nhâm Thìn (1831–1832), the emperor carried out his greatest administrative reform: abolishing the two viceroyalties and dividing the whole country into thirty provinces and the prefecture of Thừa Thiên, with officials appointed directly by the court — an orderly centralised machine whose imprint remains to this day. He perfected the laws, officialdom and examinations, founded the Grand Secretariat and Privy Council, tended dykes and land-reclamation (the great work of Commissioner Nguyễn Công Trứ at Tiền Hải and Kim Sơn), and cultivated letters. Abroad, he extended the frontier, set a protectorate over Chân Lạp (the Trấn Tây region), and in the year Mậu Tuất (1838) renamed the country Đại Nam, proclaiming a strong nation unified from south to north. Under Minh Mạng the Nguyễn reached their height. But he also pursued a conservative, 'closed-port' policy: restricting trade with the West, refusing offers of commerce, and sternly banning and punishing Christianity. That closed door left Đại Nam unable to keep pace with a changing world, sowing the seed of the loss of the country to French colonists decades later. Minh Mạng died in the year Tân Sửu (1841)."
   },
   "yearRange": {
-    "display": { "vi": "1820 – 1841 SCN", "en": "1820 – 1841 CE" },
+    "display": {
+      "vi": "1820 – 1841 SCN",
+      "en": "1820 – 1841 CE"
+    },
     "startYear": 1820,
     "endYear": 1841
   },
@@ -36,30 +48,60 @@
     "flagship": "eras/minh-mang/cover.png",
     "reduced": "eras/minh-mang/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/minh-mang/scene/sky.png", "reduced": "eras/minh-mang/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/minh-mang/scene/sky.png",
+        "reduced": "eras/minh-mang/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Nam thực lục",
-    "section": { "vi": "Chính biên · Đệ nhị kỷ", "en": "Primary Compilation · Second Reign" },
+    "section": {
+      "vi": "Chính biên · Đệ nhị kỷ",
+      "en": "Primary Compilation · Second Reign"
+    },
     "author": "Quốc sử quán triều Nguyễn"
   },
   "characters": [
-    { "ref": "minh-mang" },
-    { "ref": "nguyen-cong-tru" },
-    { "ref": "le-van-khoi" },
-    { "ref": "truong-minh-giang" }
+    {
+      "ref": "minh-mang"
+    },
+    {
+      "ref": "nguyen-cong-tru"
+    },
+    {
+      "ref": "le-van-khoi"
+    },
+    {
+      "ref": "truong-minh-giang"
+    }
   ],
   "events": [
     {
       "id": "len-ngoi-minh-mang",
       "slug": "len-ngoi-minh-mang",
-      "figureIds": ["minh-mang"],
+      "figureIds": [
+        "minh-mang"
+      ],
       "details": {
         "vi": "Năm Canh Thìn (1820), vua Gia Long băng, hoàng tử thứ tư là Nguyễn Phúc Đảm nối ngôi, lấy niên hiệu Minh Mạng. Vua vốn thông minh, hiếu học, tính cương nghị, ngay từ khi còn là hoàng tử đã được Gia Long tin cẩn giao cho tham dự chính sự. Lên ngôi, vua tỏ rõ là bậc quân chủ cần mẫn hiếm có: mỗi ngày dậy từ sớm, tự tay xem xét tấu sớ khắp nơi gửi về, phê duyệt tỉ mỉ, không để việc tồn đọng; đặt ra lệ 'châu phê' — vua tự phê bằng mực son lên bản tấu. Vua sùng Nho, lấy đạo trị nước của các bậc thánh hiền làm khuôn mẫu, đề cao kỷ cương, lễ nghĩa, ra sức xây dựng một triều đình quy củ, một nền quân chủ tập quyền vững mạnh, làm nền tảng cho những cải cách lớn về sau.",
         "en": "In the year Canh Thìn (1820) Gia Long died, and his fourth son Nguyễn Phúc Đảm succeeded under the era-name Minh Mạng. Intelligent, studious and firm, even as a prince he had been trusted by Gia Long with a share in government. On taking the throne he proved a rare and diligent sovereign: rising early each day to read with his own hand the memorials sent from every quarter, annotating them minutely and letting nothing pile up; he established the practice of 'vermilion endorsement' — the emperor marking each memorial in his own red ink. Revering Confucianism, he took the sage-kings' way of rule as his model, prized order and propriety, and laboured to build an orderly court and a strong centralised monarchy — the foundation for the great reforms to come."
@@ -67,11 +109,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1820 SCN", "en": "1820 CE" },
+        "display": {
+          "vi": "1820 SCN",
+          "en": "1820 CE"
+        },
         "value": 1820,
         "approximate": false
       },
-      "title": { "vi": "Minh Mạng lên ngôi, vị vua cần chính", "en": "Minh Mạng enthroned, the diligent sovereign" },
+      "title": {
+        "vi": "Minh Mạng lên ngôi, vị vua cần chính",
+        "en": "Minh Mạng enthroned, the diligent sovereign"
+      },
       "summary": {
         "vi": "Năm 1820, Minh Mạng nối ngôi Gia Long; bậc vua cần mẫn, sùng Nho, dựng nền quân chủ tập quyền.",
         "en": "In 1820 Minh Mạng succeeds Gia Long — a diligent, Confucian ruler building a centralised monarchy."
@@ -81,8 +129,14 @@
         "en": "In 1820 Gia Long died and Prince Nguyễn Phúc Đảm succeeded as Minh Mạng. Intelligent, firm and rarely diligent, he read and endorsed memorials from every quarter with his own hand each day. Revering Confucianism and prizing order, he laboured to build an orderly court and a strong centralised monarchy — the ground for the great reforms to come."
       },
       "pullQuote": {
-        "text": { "vi": "Vua tôi mỗi ngày cần mẫn, tự tay châu phê, không để một việc nào ứ đọng — ấy là gốc của việc trị nước.", "en": "Sovereign and ministers diligent each day, the emperor endorsing with his own vermilion brush, letting nothing pile up — this is the root of governing." },
-        "attribution": { "vi": "theo Đại Nam thực lục", "en": "per the Đại Nam thực lục" }
+        "text": {
+          "vi": "Vua tôi mỗi ngày cần mẫn, tự tay châu phê, không để một việc nào ứ đọng — ấy là gốc của việc trị nước.",
+          "en": "Sovereign and ministers diligent each day, the emperor endorsing with his own vermilion brush, letting nothing pile up — this is the root of governing."
+        },
+        "attribution": {
+          "vi": "theo Đại Nam thực lục",
+          "en": "per the Đại Nam thực lục"
+        }
       },
       "hero": {
         "id": "len-ngoi-minh-mang-hero",
@@ -91,18 +145,26 @@
         "flagship": "eras/minh-mang/events/len-ngoi-minh-mang.png",
         "reduced": "eras/minh-mang/events/len-ngoi-minh-mang.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Chính biên · Đệ nhị kỷ · Quyển 1", "en": "Primary Compilation · Second Reign · Book 1" },
+        "section": {
+          "vi": "Chính biên · Đệ nhị kỷ · Quyển 1",
+          "en": "Primary Compilation · Second Reign · Book 1"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     },
     {
       "id": "cai-cach-hanh-chinh",
       "slug": "cai-cach-hanh-chinh",
-      "figureIds": ["minh-mang"],
+      "figureIds": [
+        "minh-mang"
+      ],
       "details": {
         "vi": "Buổi đầu triều Nguyễn, để cai quản một đất nước vừa thống nhất còn nhiều khác biệt, Gia Long đặt ra hai tổng trấn lớn: Bắc thành trông coi cả Bắc Bộ, Gia Định thành trông coi cả Nam Bộ, quyền hành rất rộng, gần như một 'triều đình con'. Minh Mạng muốn thâu tóm quyền lực về trung ương. Chờ khi các tổng trấn quyền uy như Lê Văn Duyệt, Lê Chất qua đời, vua ra tay: năm Tân Mão – Nhâm Thìn (1831–1832), bãi bỏ cả hai tổng trấn, chia lại cả nước thành ba mươi tỉnh cùng phủ Thừa Thiên nơi kinh đô. Đứng đầu tỉnh là các quan Tổng đốc, Tuần phủ, Bố chính, Án sát do triều đình trực tiếp bổ nhiệm và điều động, chịu trách nhiệm trước vua. Dưới tỉnh có phủ, huyện, tổng, xã. Đây là cuộc cải cách hành chính quy mô và triệt để bậc nhất trong lịch sử phong kiến Việt Nam, tạo nên một bộ máy nhà nước tập quyền thống nhất, chặt chẽ. Cách chia tỉnh và tên nhiều tỉnh đặt ra từ thời Minh Mạng vẫn còn được dùng cho tới ngày nay.",
         "en": "At the dynasty's outset, to govern a newly unified but still diverse country, Gia Long had set up two great viceroyalties: the Northern Citadel over all the North, and the Gia Định Citadel over all the South, with such wide powers they were almost 'courts within a court.' Minh Mạng meant to draw power back to the centre. Waiting until mighty viceroys like Lê Văn Duyệt and Lê Chất had died, he acted: in the years Tân Mão–Nhâm Thìn (1831–1832) he abolished both viceroyalties and redivided the country into thirty provinces plus the prefecture of Thừa Thiên at the capital. Each province was headed by Governors-General, Governors, Administration and Surveillance Commissioners, appointed and moved directly by the court and answerable to the emperor; beneath the province lay prefectures, districts, cantons and communes. This was the most thorough administrative reform in Vietnamese dynastic history, creating a unified, tightly centralised state. Its provincial scheme and many of the province names date from Minh Mạng and are still in use today."
@@ -110,11 +172,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1831 – 1832 SCN", "en": "1831 – 1832 CE" },
+        "display": {
+          "vi": "1831 – 1832 SCN",
+          "en": "1831 – 1832 CE"
+        },
         "value": 1831,
         "approximate": false
       },
-      "title": { "vi": "Bãi tổng trấn, chia nước làm ba mươi tỉnh", "en": "The viceroyalties abolished; thirty provinces" },
+      "title": {
+        "vi": "Bãi tổng trấn, chia nước làm ba mươi tỉnh",
+        "en": "The viceroyalties abolished; thirty provinces"
+      },
       "summary": {
         "vi": "Minh Mạng bỏ hai tổng trấn Bắc thành – Gia Định, chia nước làm 30 tỉnh do triều đình trực tiếp cai quản.",
         "en": "Minh Mạng abolishes the two viceroyalties and divides the country into 30 provinces under direct rule."
@@ -124,8 +192,14 @@
         "en": "Gia Long had set up the two viceroyalties governing the country's ends with wide powers. Bent on centralisation, Minh Mạng waited until the viceroys died, then in 1831–1832 abolished both and divided the country into 30 provinces plus Thừa Thiên, with Governors-General and Governors appointed directly by the court. It was the most thorough administrative reform, forging a unified centralised state; its provincial scheme still echoes today."
       },
       "pullQuote": {
-        "text": { "vi": "Chia đặt tỉnh hạt, quyền về một mối triều đình — trong ngoài như một, kỷ cương mới nghiêm.", "en": "Provinces set out, power gathered to the one court — inner and outer as one, and discipline made strict." },
-        "attribution": { "vi": "theo Đại Nam thực lục", "en": "per the Đại Nam thực lục" }
+        "text": {
+          "vi": "Chia đặt tỉnh hạt, quyền về một mối triều đình — trong ngoài như một, kỷ cương mới nghiêm.",
+          "en": "Provinces set out, power gathered to the one court — inner and outer as one, and discipline made strict."
+        },
+        "attribution": {
+          "vi": "theo Đại Nam thực lục",
+          "en": "per the Đại Nam thực lục"
+        }
       },
       "hero": {
         "id": "cai-cach-hanh-chinh-hero",
@@ -134,18 +208,27 @@
         "flagship": "eras/minh-mang/events/cai-cach-hanh-chinh.png",
         "reduced": "eras/minh-mang/events/cai-cach-hanh-chinh.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Chính biên · Đệ nhị kỷ · Quyển 3", "en": "Primary Compilation · Second Reign · Book 3" },
+        "section": {
+          "vi": "Chính biên · Đệ nhị kỷ · Quyển 3",
+          "en": "Primary Compilation · Second Reign · Book 3"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     },
     {
       "id": "loan-le-van-khoi",
       "slug": "loan-le-van-khoi",
-      "figureIds": ["minh-mang", "le-van-khoi"],
+      "figureIds": [
+        "minh-mang",
+        "le-van-khoi"
+      ],
       "details": {
         "vi": "Tả quân Lê Văn Duyệt, Tổng trấn Gia Định, là bậc đại công thần uy quyền, khi còn sống nhiều lần trái ý vua Minh Mạng, lại khoan dung với giáo dân. Ông mất năm 1832; vua cho truy xét, kể ra nhiều tội, sai san phẳng mộ, dựng bia khắc chữ nhục, trị tội thân thích và bộ hạ. Con nuôi ông là Lê Văn Khôi cùng những người cũ của Tả quân uất ức, năm Quý Tỵ (1833) nổi dậy, giết Bố chính, Án sát, chiếm thành Phiên An (Gia Định), rồi lan ra làm chủ cả sáu tỉnh Nam Kỳ, thanh thế rất lớn, thậm chí sai người sang cầu viện quân Xiêm. Vua Minh Mạng phải điều đại quân vào nam đánh dẹp; quân triều đình vây hãm thành Phiên An kiên cố mãi không hạ được, cuộc chiến kéo dài dằng dai. Lê Văn Khôi chết bệnh trong thành; đến năm Ất Mùi (1835) thành mới bị phá, hơn một nghìn người trong thành bị bắt và xử tử. Đây là cuộc nổi dậy lớn nhất, đẫm máu nhất chống lại triều đình đời Minh Mạng.",
         "en": "The Left Marshal Lê Văn Duyệt, Viceroy of Gia Định, was a mighty founding minister who in life had often crossed Minh Mạng and had been lenient toward Christian converts. He died in 1832; the emperor had him investigated, charged with many crimes, his tomb razed and marked with a stele of disgrace, and his kin and retainers punished. His adopted son Lê Văn Khôi and the marshal's old followers, in resentment, rose in the year Quý Tỵ (1833), killed the provincial commissioners, seized the citadel of Phiên An (Gia Định), and spread to master all six provinces of the South, growing so strong that they even sent to Siam for aid. Minh Mạng had to send great armies south; they besieged the stout citadel of Phiên An without taking it, and the war dragged on. Lê Văn Khôi died of illness within the walls; only in the year Ất Mùi (1835) was the citadel stormed, and more than a thousand within were captured and executed. It was the largest and bloodiest revolt against Minh Mạng's court."
@@ -153,11 +236,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1833 – 1835 SCN", "en": "1833 – 1835 CE" },
+        "display": {
+          "vi": "1833 – 1835 SCN",
+          "en": "1833 – 1835 CE"
+        },
         "value": 1833,
         "approximate": false
       },
-      "title": { "vi": "Nổi dậy thành Phiên An, án Lê Văn Duyệt", "en": "The Phiên An revolt and the Lê Văn Duyệt affair" },
+      "title": {
+        "vi": "Nổi dậy thành Phiên An, án Lê Văn Duyệt",
+        "en": "The Phiên An revolt and the Lê Văn Duyệt affair"
+      },
       "summary": {
         "vi": "Minh Mạng truy tội Lê Văn Duyệt; con nuôi Lê Văn Khôi nổi dậy chiếm Phiên An (1833), ba năm mới dẹp xong.",
         "en": "Minh Mạng condemns Lê Văn Duyệt; his son Lê Văn Khôi seizes Phiên An (1833), suppressed only after three years."
@@ -167,8 +256,14 @@
         "en": "Lê Văn Duyệt died (1832), and Minh Mạng condemned him, razed his tomb and punished his kin. His son Lê Văn Khôi rose in 1833, seized the Phiên An citadel, mastered the South and sought Siamese aid. The court besieged it long in vain; Lê Văn Khôi died of illness within, and only in 1835 did the citadel fall, over a thousand executed. It was the largest revolt against Minh Mạng's court."
       },
       "pullQuote": {
-        "text": { "vi": "Công thần một thời, đến khi khuất bóng lại mắc tội; oan khiên ấy khơi nên binh lửa mấy năm ròng.", "en": "A great minister of his day, once gone was charged with crimes; that grievance kindled years of war." },
-        "attribution": { "vi": "lời bàn của người đời sau", "en": "the judgment of later generations" }
+        "text": {
+          "vi": "Công thần một thời, đến khi khuất bóng lại mắc tội; oan khiên ấy khơi nên binh lửa mấy năm ròng.",
+          "en": "A great minister of his day, once gone was charged with crimes; that grievance kindled years of war."
+        },
+        "attribution": {
+          "vi": "lời bàn của người đời sau",
+          "en": "the judgment of later generations"
+        }
       },
       "hero": {
         "id": "loan-le-van-khoi-hero",
@@ -177,18 +272,27 @@
         "flagship": "eras/minh-mang/events/loan-le-van-khoi.png",
         "reduced": "eras/minh-mang/events/loan-le-van-khoi.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Chính biên · Đệ nhị kỷ · Quyển 4", "en": "Primary Compilation · Second Reign · Book 4" },
+        "section": {
+          "vi": "Chính biên · Đệ nhị kỷ · Quyển 4",
+          "en": "Primary Compilation · Second Reign · Book 4"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     },
     {
       "id": "mo-coi-dai-nam",
       "slug": "mo-coi-dai-nam",
-      "figureIds": ["minh-mang", "truong-minh-giang"],
+      "figureIds": [
+        "minh-mang",
+        "truong-minh-giang"
+      ],
       "details": {
         "vi": "Đời Minh Mạng, thế nước đang lên, vua ra sức mở mang và củng cố bờ cõi. Ở phía tây nam, nhân nước Chân Lạp (Cao Miên) suy yếu và tranh chấp ảnh hưởng với nước Xiêm, nhà Nguyễn đem quân sang, đánh lui quân Xiêm, đặt quyền bảo hộ, rồi sáp nhập đất Chân Lạp vào bản đồ, lập thành Trấn Tây thành, cử tướng Trương Minh Giảng làm Tổng đốc trấn giữ. Cương vực Đại Nam khi ấy trải rộng chưa từng có. Cùng với võ công, vua chú trọng khẳng định vị thế quốc gia: năm Mậu Tuất (1838), xét thấy quốc hiệu 'Việt Nam' đặt từ đời Gia Long chưa xứng với một nước rộng lớn, hùng mạnh, thống nhất, vua cho đổi quốc hiệu thành Đại Nam (nghĩa là 'nước Nam lớn'), tỏ rõ khí thế của một đế quốc phương Nam ngang hàng, không thần phục ai. Tuy nhiên, việc cai trị vùng đất mới Trấn Tây, khác biệt phong tục, gặp muôn vàn khó khăn, người bản xứ nhiều lần nổi dậy, mầm bất ổn đã tiềm tàng.",
         "en": "In Minh Mạng's reign, with the nation on the rise, the emperor laboured to extend and secure the frontier. To the south-west, as Chân Lạp (Cambodia) weakened and Siam vied for influence, the Nguyễn sent armies, beat back the Siamese, imposed a protectorate, then annexed the Khmer land onto their map as the Trấn Tây region, with General Trương Minh Giảng as its Governor. Đại Nam's borders then stretched as never before. Alongside these feats of arms the emperor sought to assert the nation's standing: in the year Mậu Tuất (1838), holding that the name 'Việt Nam' set under Gia Long was unworthy of so broad, strong and unified a realm, he changed the country's name to Đại Nam ('the Great South'), proclaiming the spirit of a southern empire that bowed to none. Yet ruling the new Trấn Tây land of alien customs proved endlessly hard, its people rising again and again — the seeds of instability already lay hidden."
@@ -196,11 +300,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1834 – 1838 SCN", "en": "1834 – 1838 CE" },
+        "display": {
+          "vi": "1834 – 1838 SCN",
+          "en": "1834 – 1838 CE"
+        },
         "value": 1838,
         "approximate": false
       },
-      "title": { "vi": "Mở mang bờ cõi, đặt quốc hiệu Đại Nam", "en": "Widening the borders; the name Đại Nam" },
+      "title": {
+        "vi": "Mở mang bờ cõi, đặt quốc hiệu Đại Nam",
+        "en": "Widening the borders; the name Đại Nam"
+      },
       "summary": {
         "vi": "Nhà Nguyễn bảo hộ Chân Lạp (Trấn Tây thành); năm 1838 vua đổi quốc hiệu thành Đại Nam.",
         "en": "The Nguyễn make Chân Lạp a protectorate (Trấn Tây); in 1838 the country is renamed Đại Nam."
@@ -210,8 +320,14 @@
         "en": "With the nation rising, Minh Mạng extended the frontier: beating back the Siamese, making Chân Lạp a protectorate, annexing it as the Trấn Tây region under Trương Minh Giảng. In 1838, holding 'Việt Nam' unworthy, he renamed the country Đại Nam, proclaiming a southern empire. But holding alien Trấn Tây proved hard, its people rising — instability lay hidden."
       },
       "pullQuote": {
-        "text": { "vi": "Nước Nam lớn mạnh, thống nhất một dải — nay xưng Đại Nam, khí thế đế vương phương Nam.", "en": "A great and unified southern land — now styled Đại Nam, the imperial spirit of the South." },
-        "attribution": { "vi": "về việc đặt quốc hiệu năm 1838, theo Đại Nam thực lục", "en": "on the 1838 renaming, per the Đại Nam thực lục" }
+        "text": {
+          "vi": "Nước Nam lớn mạnh, thống nhất một dải — nay xưng Đại Nam, khí thế đế vương phương Nam.",
+          "en": "A great and unified southern land — now styled Đại Nam, the imperial spirit of the South."
+        },
+        "attribution": {
+          "vi": "về việc đặt quốc hiệu năm 1838, theo Đại Nam thực lục",
+          "en": "on the 1838 renaming, per the Đại Nam thực lục"
+        }
       },
       "hero": {
         "id": "mo-coi-dai-nam-hero",
@@ -220,18 +336,27 @@
         "flagship": "eras/minh-mang/events/mo-coi-dai-nam.png",
         "reduced": "eras/minh-mang/events/mo-coi-dai-nam.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Chính biên · Đệ nhị kỷ · Quyển 5", "en": "Primary Compilation · Second Reign · Book 5" },
+        "section": {
+          "vi": "Chính biên · Đệ nhị kỷ · Quyển 5",
+          "en": "Primary Compilation · Second Reign · Book 5"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     },
     {
       "id": "khai-hoang-van-tri",
       "slug": "khai-hoang-van-tri",
-      "figureIds": ["minh-mang", "nguyen-cong-tru"],
+      "figureIds": [
+        "minh-mang",
+        "nguyen-cong-tru"
+      ],
       "details": {
         "vi": "Không chỉ lo binh bị và bộ máy, Minh Mạng còn chăm lo việc trị nước lâu dài: đắp đê, trị thủy, khuyến khích nông tang, mở mang khai hoang. Nổi bật nhất là công cuộc quai đê lấn biển, khẩn hoang vùng ven biển Bắc Bộ do Doanh điền sứ Nguyễn Công Trứ đứng đầu: ông chiêu mộ dân nghèo, tổ chức đắp đê, đào kênh, biến những bãi sình lầy hoang vu thành ruộng đồng phì nhiêu, lập nên hai huyện mới Tiền Hải (Thái Bình) và Kim Sơn (Ninh Bình), đem lại cơ nghiệp cho hàng vạn người. Về văn hiến, vua sùng Nho học, mở đều các khoa thi Hương, thi Hội, kén chọn nhân tài; cho lập Quốc sử quán biên soạn quốc sử (bộ Đại Nam thực lục), sưu tầm điển chương; định lại lễ nhạc, phẩm phục, chuẩn mực đạo đức theo khuôn Nho giáo. Kỷ cương phép nước đời Minh Mạng nghiêm minh, học phong hưng thịnh; nhiều danh sĩ, danh thần tài năng như Nguyễn Công Trứ, Hà Tông Quyền, Phan Thanh Giản... xuất hiện, làm rạng rỡ một thời trị bình.",
         "en": "Beyond arms and administration, Minh Mạng tended the lasting work of rule: building dykes, controlling floods, encouraging farming and sericulture, and opening waste land. The most notable was the winning of coastal land in the North under Commissioner Nguyễn Công Trứ: he gathered the poor, organised the raising of dykes and digging of canals, turned desolate marsh into fertile fields, and founded the two new districts of Tiền Hải (Thái Bình) and Kim Sơn (Ninh Bình), giving a livelihood to tens of thousands. In letters, the emperor revered Confucian learning, held the regional and metropolitan examinations regularly to choose talent, founded the Historiography Institute to compile the national history (the Đại Nam thực lục), gathered records, and reset rites, music, dress and moral standards on the Confucian model. Under Minh Mạng the law was strict and learning flourished; many gifted scholars and ministers — Nguyễn Công Trứ, Hà Tông Quyền, Phan Thanh Giản and others — arose to grace an age of peace."
@@ -239,11 +364,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1828 – 1840 SCN", "en": "1828 – 1840 CE" },
+        "display": {
+          "vi": "1828 – 1840 SCN",
+          "en": "1828 – 1840 CE"
+        },
         "value": 1828,
         "approximate": true
       },
-      "title": { "vi": "Khai hoang lấn biển, chấn hưng văn hiến", "en": "Winning land from the sea; letters revived" },
+      "title": {
+        "vi": "Khai hoang lấn biển, chấn hưng văn hiến",
+        "en": "Winning land from the sea; letters revived"
+      },
       "summary": {
         "vi": "Nguyễn Công Trứ quai đê lấn biển, lập Tiền Hải, Kim Sơn; vua sùng Nho, mở khoa cử, soạn quốc sử.",
         "en": "Nguyễn Công Trứ wins land from the sea, founding Tiền Hải and Kim Sơn; the emperor revives learning."
@@ -253,8 +384,14 @@
         "en": "Minh Mạng tended flood control and land-clearing: Commissioner Nguyễn Công Trứ won coastal land in the North, founding the districts of Tiền Hải and Kim Sơn and giving fields to tens of thousands. Revering Confucianism, the emperor held regular examinations, founded the Historiography Institute to compile the Đại Nam thực lục, and reset rites. The law was strict and learning flourished; many gifted ministers arose."
       },
       "pullQuote": {
-        "text": { "vi": "Đã mang tiếng ở trong trời đất, / Phải có danh gì với núi sông.", "en": "Since one bears a name between heaven and earth, / one must leave some fame with the mountains and rivers." },
-        "attribution": { "vi": "Nguyễn Công Trứ, Bài ca ngất ngưởng", "en": "Nguyễn Công Trứ, 'Song of the Untrammelled'" }
+        "text": {
+          "vi": "Đã mang tiếng ở trong trời đất, / Phải có danh gì với núi sông.",
+          "en": "Since one bears a name between heaven and earth, / one must leave some fame with the mountains and rivers."
+        },
+        "attribution": {
+          "vi": "Nguyễn Công Trứ, Bài ca ngất ngưởng",
+          "en": "Nguyễn Công Trứ, 'Song of the Untrammelled'"
+        }
       },
       "hero": {
         "id": "khai-hoang-van-tri-hero",
@@ -263,18 +400,26 @@
         "flagship": "eras/minh-mang/events/khai-hoang-van-tri.png",
         "reduced": "eras/minh-mang/events/khai-hoang-van-tri.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Chính biên · Đệ nhị kỷ · Quyển 6", "en": "Primary Compilation · Second Reign · Book 6" },
+        "section": {
+          "vi": "Chính biên · Đệ nhị kỷ · Quyển 6",
+          "en": "Primary Compilation · Second Reign · Book 6"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     },
     {
       "id": "cam-dao-be-quan",
       "slug": "cam-dao-be-quan",
-      "figureIds": ["minh-mang"],
+      "figureIds": [
+        "minh-mang"
+      ],
       "details": {
         "vi": "Là vị vua sùng Nho và bảo thủ, Minh Mạng lo ngại đạo Thiên Chúa và ảnh hưởng của người phương Tây làm lung lay nền tảng Nho giáo và trật tự xã hội. Vua ban nhiều dụ cấm đạo ngày một gắt gao: cấm truyền giáo, buộc giáo dân bỏ đạo, trừng trị, thậm chí xử tử một số giáo sĩ và giáo dân không chịu chối đạo — mở đầu cho những cuộc cấm đạo khốc liệt kéo dài mấy đời vua sau. Về ngoại thương, vua thi hành chính sách 'bế quan tỏa cảng': hạn chế cho tàu buôn phương Tây vào, khước từ những lời đề nghị thông thương, đặt quan hệ của các nước Anh, Pháp. Chính sách khép kín ấy giữ được sự thuần nhất trong nước một thời, nhưng khiến Đại Nam không nắm bắt được những biến chuyển lớn của thế giới đang bước vào thời đại công nghiệp và thực dân; đó là điều mà đời sau nhìn lại tiếc nuối, coi là một trong những nguyên nhân sâu xa khiến nước ta không đủ sức chống lại cuộc xâm lăng của thực dân Pháp mấy chục năm sau. Năm Tân Sửu (1841), vua Minh Mạng băng, ở ngôi hai mươi mốt năm, truyền lại cho con là Thiệu Trị một đất nước rộng lớn, quy củ mà cũng đang khép dần cánh cửa với bên ngoài.",
         "en": "A Confucian and conservative sovereign, Minh Mạng feared that Christianity and Western influence would shake the Confucian foundation and social order. He issued ever harsher edicts against the faith: banning preaching, forcing converts to recant, punishing them, and even executing some priests and believers who would not renounce it — the beginning of fierce persecutions that ran on through several later reigns. In foreign trade he pursued a 'closed-port' policy: limiting Western merchant ships, refusing offers of commerce, and holding the British and French at arm's length. That closed door kept the realm uniform for a time, but left Đại Nam unable to grasp the great changes of a world entering the age of industry and empire — something later ages looked back on with regret as a deep cause of the country's inability to resist the French decades on. In the year Tân Sửu (1841) Minh Mạng died, after twenty-one years on the throne, leaving to his son Thiệu Trị a broad and orderly country that was also, slowly, shutting its door to the world."
@@ -282,11 +427,17 @@
       "order": 5,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1825 – 1841 SCN", "en": "1825 – 1841 CE" },
+        "display": {
+          "vi": "1825 – 1841 SCN",
+          "en": "1825 – 1841 CE"
+        },
         "value": 1841,
         "approximate": false
       },
-      "title": { "vi": "Cấm đạo, bế quan tỏa cảng, vua băng", "en": "Persecution, the closed door, and the emperor's death" },
+      "title": {
+        "vi": "Cấm đạo, bế quan tỏa cảng, vua băng",
+        "en": "Persecution, the closed door, and the emperor's death"
+      },
       "summary": {
         "vi": "Vua cấm đạo Thiên Chúa, thi hành 'bế quan tỏa cảng', khép cửa với phương Tây; băng năm 1841.",
         "en": "The emperor bans Christianity and closes the ports to the West; he dies in 1841."
@@ -296,8 +447,14 @@
         "en": "Confucian and conservative, Minh Mạng issued ever harsher edicts against Christianity, executing some priests and converts; he closed the ports, limited merchant ships, and refused commerce with Britain and France. The closed door left Đại Nam unable to keep pace with the world, sowing the seed of later ruin. In 1841 he died after twenty-one years, passing the throne to Thiệu Trị."
       },
       "pullQuote": {
-        "text": { "vi": "Khép cửa giữ nếp cũ một thời, mà lỡ mất cơ hội canh tân — ấy là nỗi tiếc của cả một dân tộc.", "en": "The door was shut to keep the old ways for a season, and the chance to renew was lost — the regret of a whole people." },
-        "attribution": { "vi": "lời bàn của người đời sau", "en": "the judgment of later generations" }
+        "text": {
+          "vi": "Khép cửa giữ nếp cũ một thời, mà lỡ mất cơ hội canh tân — ấy là nỗi tiếc của cả một dân tộc.",
+          "en": "The door was shut to keep the old ways for a season, and the chance to renew was lost — the regret of a whole people."
+        },
+        "attribution": {
+          "vi": "lời bàn của người đời sau",
+          "en": "the judgment of later generations"
+        }
       },
       "hero": {
         "id": "cam-dao-be-quan-hero",
@@ -306,11 +463,17 @@
         "flagship": "eras/minh-mang/events/cam-dao-be-quan.png",
         "reduced": "eras/minh-mang/events/cam-dao-be-quan.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Chính biên · Đệ nhị kỷ · Quyển 7", "en": "Primary Compilation · Second Reign · Book 7" },
+        "section": {
+          "vi": "Chính biên · Đệ nhị kỷ · Quyển 7",
+          "en": "Primary Compilation · Second Reign · Book 7"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     }

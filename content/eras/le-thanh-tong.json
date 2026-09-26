@@ -4,15 +4,27 @@
   "slug": "le-thanh-tong",
   "order": 18,
   "period": "hau-le",
-  "title": { "vi": "Lê Thánh Tông", "en": "Lê Thánh Tông" },
-  "kicker": { "vi": "Kỷ nhà Hậu Lê · Hồng Đức thịnh trị", "en": "The Later Lê · the Hồng Đức golden age" },
-  "subtitle": { "vi": "Văn trị võ công, Đại Việt tới thời cực thịnh.", "en": "Letters and arms alike — Đại Việt at its height." },
+  "title": {
+    "vi": "Lê Thánh Tông",
+    "en": "Lê Thánh Tông"
+  },
+  "kicker": {
+    "vi": "Kỷ nhà Hậu Lê · Hồng Đức thịnh trị",
+    "en": "The Later Lê · the Hồng Đức golden age"
+  },
+  "subtitle": {
+    "vi": "Văn trị võ công, Đại Việt tới thời cực thịnh.",
+    "en": "Letters and arms alike — Đại Việt at its height."
+  },
   "overview": {
     "vi": "Sau khi Lê Thái Tổ dựng lại nước, nhà Hậu Lê trải mấy đời vua thì sinh biến: năm Kỷ Mão (1459), Lạng Sơn Vương Lê Nghi Dân đang đêm trèo thành vào cung giết vua Lê Nhân Tông cùng Hoàng thái hậu mà cướp ngôi, rồi làm nhiều điều hôn ám. Năm Canh Thìn (1460), các bậc lão thần Nguyễn Xí, Đinh Liệt dấy binh phế bỏ Nghi Dân, rước con thứ của Thái Tông là Lê Tư Thành lên ngôi, tức Lê Thánh Tông. Vua bấy giờ mới mười tám tuổi mà anh minh quyết đoán, ở ngôi ba mươi tám năm với hai niên hiệu Quang Thuận và Hồng Đức, đưa Đại Việt tới thời cực thịnh. Về nội trị, vua cải tổ bộ máy: chia nước làm mười ba đạo thừa tuyên, kiện toàn lục bộ, lập bản đồ Hồng Đức, ban bộ Quốc triều hình luật (luật Hồng Đức) quy mô và tiến bộ. Về văn hiến, vua chấn hưng Nho học, mở khoa cử đều đặn, dựng bia tiến sĩ ở Văn Miếu, lập hội thơ Tao Đàn và sai sử thần Ngô Sĩ Liên soạn bộ Đại Việt sử ký toàn thư — bộ chính sử mà đến nay ta còn dựa vào. Về võ công, năm Tân Mão (1471) vua thân chinh bình Chiêm, hạ kinh đô Đồ Bàn, mở mang bờ cõi về phương Nam. Sử thần khen ngợi đời Hồng Đức là thời thịnh trị bậc nhất của nước Việt.",
     "en": "After Lê Thái Tổ restored the nation, the Later Lê passed through several reigns and then fell into upheaval: in the year Kỷ Mão (1459) Lạng Sơn Prince Lê Nghi Dân climbed the palace wall by night, murdered King Lê Nhân Tông and the Queen Mother, and usurped the throne, ruling darkly. In the year Canh Thìn (1460) the senior ministers Nguyễn Xí and Đinh Liệt rose in arms, deposed Nghi Dân, and raised Lê Thái Tông's son Lê Tư Thành to the throne — Lê Thánh Tông. Just eighteen yet wise and decisive, he reigned thirty-eight years under the era-names Quang Thuận and Hồng Đức and carried Đại Việt to its height. In governance he reformed the state: he divided the realm into thirteen circuits, reorganised the six ministries, drew up the Hồng Đức maps, and issued the comprehensive, progressive Quốc triều hình luật (Hồng Đức Code). In letters he revived Confucian learning, held regular examinations, raised the doctoral steles at the Văn Miếu, founded the Tao Đàn poetry society, and had the historian Ngô Sĩ Liên compile the Đại Việt sử ký toàn thư — the very chronicle we still rely upon. In arms, in the year Tân Mão (1471) he led the campaign that broke Champa, storming the capital Đồ Bàn and extending the southern frontier. The historians praised the Hồng Đức era as the finest age of peace and order the Việt nation had known."
   },
   "yearRange": {
-    "display": { "vi": "1460 – 1497 SCN", "en": "1460 – 1497 CE" },
+    "display": {
+      "vi": "1460 – 1497 SCN",
+      "en": "1460 – 1497 CE"
+    },
     "startYear": 1460,
     "endYear": 1497
   },
@@ -36,31 +48,64 @@
     "flagship": "eras/le-thanh-tong/cover.png",
     "reduced": "eras/le-thanh-tong/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/le-thanh-tong/scene/sky.png", "reduced": "eras/le-thanh-tong/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/le-thanh-tong/scene/sky.png",
+        "reduced": "eras/le-thanh-tong/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Bản kỷ thực lục", "en": "Basic Records · Veritable Records" },
+    "section": {
+      "vi": "Bản kỷ thực lục",
+      "en": "Basic Records · Veritable Records"
+    },
     "author": "Sử thần triều Lê"
   },
   "characters": [
-    { "ref": "le-thanh-tong" },
-    { "ref": "nguyen-xi" },
-    { "ref": "ngo-si-lien" },
-    { "ref": "than-nhan-trung" },
-    { "ref": "nguyen-trai" }
+    {
+      "ref": "le-thanh-tong"
+    },
+    {
+      "ref": "nguyen-xi"
+    },
+    {
+      "ref": "ngo-si-lien"
+    },
+    {
+      "ref": "than-nhan-trung"
+    },
+    {
+      "ref": "nguyen-trai"
+    }
   ],
   "events": [
     {
       "id": "binh-nan-nghi-dan",
       "slug": "binh-nan-nghi-dan",
-      "figureIds": ["le-thanh-tong", "nguyen-xi"],
+      "figureIds": [
+        "le-thanh-tong",
+        "nguyen-xi"
+      ],
       "details": {
         "vi": "Vua Lê Nhân Tông lên ngôi từ nhỏ, lớn lên vốn là bậc nhân hậu. Người anh là Lạng Sơn Vương Lê Nghi Dân, trước từng bị truất ngôi thái tử, ôm lòng oán vọng. Đêm mồng ba tháng mười năm Kỷ Mão (1459), Nghi Dân cùng bè đảng bắc thang trèo tường vào cung, giết vua Nhân Tông, hôm sau lại giết Hoàng thái hậu Nguyễn Thị Anh, rồi tự lập làm vua. Nghi Dân tin dùng bọn tiểu nhân, thay đổi phép cũ, giết hại bề tôi, lòng người oán giận. Tháng sáu năm Canh Thìn (1460), các đại thần khai quốc là Nguyễn Xí, Đinh Liệt bí mật hợp mưu, phát động binh biến, bắt giết bọn phản nghịch, phế Nghi Dân xuống tước hầu. Các quan bàn nhau, thấy con thứ của vua Thái Tông là Lê Tư Thành tư chất thông minh, dáng mạo khác thường, bèn rước lên ngôi, tức vua Lê Thánh Tông, đổi niên hiệu là Quang Thuận. Nhà Lê từ cơn nghiêng ngả lại vững vàng.",
         "en": "King Lê Nhân Tông came to the throne as a child and grew to be a humane ruler. His elder brother, Lạng Sơn Prince Lê Nghi Dân, once deposed as crown prince, nursed resentment. On the night of the third of the tenth month, Kỷ Mão (1459), Nghi Dân and his faction raised ladders and scaled the palace wall, murdered King Nhân Tông, killed the Queen Mother Nguyễn Thị Anh the next day, and set himself up as king. He trusted mean men, overturned the old order, and slew his ministers, until the people's hearts turned against him. In the sixth month of Canh Thìn (1460), the founding ministers Nguyễn Xí and Đinh Liệt secretly joined counsel, launched a coup, seized and killed the rebels, and reduced Nghi Dân to a marquis. Deliberating, the officials saw that Lê Thái Tông's son Lê Tư Thành was of rare intelligence and bearing, and raised him to the throne as Lê Thánh Tông, changing the era-name to Quang Thuận. The tottering house of Lê stood firm once more."
@@ -68,11 +113,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1459 – 1460 SCN", "en": "1459 – 1460 CE" },
+        "display": {
+          "vi": "1459 – 1460 SCN",
+          "en": "1459 – 1460 CE"
+        },
         "value": 1460,
         "approximate": false
       },
-      "title": { "vi": "Bình nạn Nghi Dân, Tư Thành lên ngôi", "en": "The usurper deposed, Tư Thành enthroned" },
+      "title": {
+        "vi": "Bình nạn Nghi Dân, Tư Thành lên ngôi",
+        "en": "The usurper deposed, Tư Thành enthroned"
+      },
       "summary": {
         "vi": "Nghi Dân giết vua cướp ngôi; Nguyễn Xí dấy binh phế bỏ, lập Lê Tư Thành — Thánh Tông.",
         "en": "Nghi Dân murders the king and usurps; Nguyễn Xí deposes him and enthrones Lê Tư Thành — Thánh Tông."
@@ -82,8 +133,14 @@
         "en": "In 1459 Lạng Sơn Prince Lê Nghi Dân scaled the palace wall, murdered King Lê Nhân Tông and the Queen Mother, seized the throne, and ruled darkly. In 1460 the ministers Nguyễn Xí and Đinh Liệt deposed him by coup and raised Lê Thái Tông's son Lê Tư Thành — Lê Thánh Tông — to the throne, with the era-name Quang Thuận. From then the Lê house stood firm."
       },
       "pullQuote": {
-        "text": { "vi": "Nghi Dân là đứa con bất hiếu, giết vua cướp ngôi, tội ác tày trời; nay phế đi mà lập bậc hiền minh, để yên xã tắc.", "en": "Nghi Dân is an unfilial son who murdered his king and seized the throne — a crime that reaches heaven; now we depose him and raise a wise ruler, to bring the altars of the land to peace." },
-        "attribution": { "vi": "lời các đại thần, theo Đại Việt sử ký toàn thư", "en": "the ministers' words, per the Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Nghi Dân là đứa con bất hiếu, giết vua cướp ngôi, tội ác tày trời; nay phế đi mà lập bậc hiền minh, để yên xã tắc.",
+          "en": "Nghi Dân is an unfilial son who murdered his king and seized the throne — a crime that reaches heaven; now we depose him and raise a wise ruler, to bring the altars of the land to peace."
+        },
+        "attribution": {
+          "vi": "lời các đại thần, theo Đại Việt sử ký toàn thư",
+          "en": "the ministers' words, per the Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "binh-nan-nghi-dan-hero",
@@ -92,18 +149,26 @@
         "flagship": "eras/le-thanh-tong/events/binh-nan-nghi-dan.png",
         "reduced": "eras/le-thanh-tong/events/binh-nan-nghi-dan.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ thực lục · Quyển 12", "en": "Basic Records · Book 12" },
+        "section": {
+          "vi": "Bản kỷ thực lục · Quyển 12",
+          "en": "Basic Records · Book 12"
+        },
         "author": "Sử thần triều Lê"
       }
     },
     {
       "id": "dinh-che-do",
       "slug": "dinh-che-do",
-      "figureIds": ["le-thanh-tong"],
+      "figureIds": [
+        "le-thanh-tong"
+      ],
       "details": {
         "vi": "Lê Thánh Tông ra sức chỉnh đốn phép nước, xây dựng một bộ máy nhà nước quy củ và tập quyền bậc nhất trong lịch sử phong kiến Việt Nam. Năm Bính Tuất (1466), vua chia lại cả nước thành mười hai đạo thừa tuyên (sau thêm một đạo thành mười ba), dưới có phủ, huyện, châu, xã, đặt các ty coi việc quân, dân, hình án tách bạch để giám sát lẫn nhau. Ở triều đình, vua bãi bỏ các chức quyền thần trung gian, tự mình nắm lục bộ (Lại, Hộ, Lễ, Binh, Hình, Công) cùng lục khoa, lục tự, đặt Ngự sử đài để can gián, giám sát. Năm Canh Tuất (1490), vua sai hoàn thành bản đồ Hồng Đức, đo vẽ cương vực cả nước. Vua đặc biệt coi trọng đất đai bờ cõi: năm Quý Tỵ (1473) từng nghiêm sức cho quan giữ biên giới phía bắc rằng chớ để mất một tấc đất của tổ tông.",
         "en": "Lê Thánh Tông laboured to set the state in order, building the most orderly and centralised administration in Vietnamese dynastic history. In the year Bính Tuất (1466) he divided the whole country into twelve circuits (later thirteen), with prefectures, districts, sub-prefectures and communes beneath, and separate bureaus over the military, the civil population, and justice so that each watched the others. At court he abolished the intermediary offices of overmighty ministers and himself directed the six ministries (Personnel, Revenue, Rites, War, Justice, Works) with their six boards and six courts, and set up a Censorate to remonstrate and oversee. In the year Canh Tuất (1490) he had the Hồng Đức maps completed, surveying the realm's whole extent. He prized the land and its borders above all: in the year Quý Tỵ (1473) he sternly charged the wardens of the northern frontier never to yield an inch of the ancestors' soil."
@@ -111,11 +176,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1466 – 1490 SCN", "en": "1466 – 1490 CE" },
+        "display": {
+          "vi": "1466 – 1490 SCN",
+          "en": "1466 – 1490 CE"
+        },
         "value": 1466,
         "approximate": false
       },
-      "title": { "vi": "Định mười ba đạo, giữ từng tấc đất", "en": "Thirteen circuits, and every inch of land" },
+      "title": {
+        "vi": "Định mười ba đạo, giữ từng tấc đất",
+        "en": "Thirteen circuits, and every inch of land"
+      },
       "summary": {
         "vi": "Chia nước làm mười ba đạo thừa tuyên, kiện toàn lục bộ, lập bản đồ Hồng Đức; nghiêm giữ cương vực.",
         "en": "The realm split into thirteen circuits, the six ministries reordered, the Hồng Đức maps drawn; the borders fiercely kept."
@@ -125,8 +196,14 @@
         "en": "Lê Thánh Tông reformed the state toward centralisation: in 1466 he divided the realm into thirteen circuits with separate military, civil and judicial bureaus watching one another; abolished overmighty offices and took the six ministries in hand; set up a Censorate; and in 1490 completed the Hồng Đức maps. He guarded the borders with special vigilance, yielding not an inch of ancestral soil."
       },
       "pullQuote": {
-        "text": { "vi": "Một thước núi, một tấc sông của ta lẽ nào lại vứt bỏ? Kẻ nào dám đem một thước, một tấc đất của Thái Tổ để lại làm mồi cho giặc, thì phải tội tru di.", "en": "How could we cast away a foot of our mountains, an inch of our rivers? Whoever dares give one foot or inch of the land Thái Tổ left us as bait to the enemy shall be put to death with his clan." },
-        "attribution": { "vi": "Lê Thánh Tông (1473), theo Đại Việt sử ký toàn thư", "en": "Lê Thánh Tông (1473), per the Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Một thước núi, một tấc sông của ta lẽ nào lại vứt bỏ? Kẻ nào dám đem một thước, một tấc đất của Thái Tổ để lại làm mồi cho giặc, thì phải tội tru di.",
+          "en": "How could we cast away a foot of our mountains, an inch of our rivers? Whoever dares give one foot or inch of the land Thái Tổ left us as bait to the enemy shall be put to death with his clan."
+        },
+        "attribution": {
+          "vi": "Lê Thánh Tông (1473), theo Đại Việt sử ký toàn thư",
+          "en": "Lê Thánh Tông (1473), per the Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "dinh-che-do-hero",
@@ -135,18 +212,26 @@
         "flagship": "eras/le-thanh-tong/events/dinh-che-do.png",
         "reduced": "eras/le-thanh-tong/events/dinh-che-do.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ thực lục · Quyển 12", "en": "Basic Records · Book 12" },
+        "section": {
+          "vi": "Bản kỷ thực lục · Quyển 12",
+          "en": "Basic Records · Book 12"
+        },
         "author": "Sử thần triều Lê"
       }
     },
     {
       "id": "binh-chiem-do-ban",
       "slug": "binh-chiem-do-ban",
-      "figureIds": ["le-thanh-tong"],
+      "figureIds": [
+        "le-thanh-tong"
+      ],
       "details": {
         "vi": "Nước Chiêm Thành ở phía nam nhiều phen quấy nhiễu biên giới, cướp phá vùng Hóa Châu. Năm Canh Dần (1470), vua Chiêm là Trà Toàn đem quân đánh phá; Lê Thánh Tông bèn thân chinh cầm đại quân thủy bộ hơn hai mươi vạn nam tiến. Đầu năm Tân Mão (1471), quân Đại Việt tiến đánh, phá tan quân Chiêm, vây hãm rồi hạ được kinh đô Đồ Bàn (thành Chà Bàn, đất Vijaya), bắt sống vua Trà Toàn cùng rất nhiều tướng sĩ. Vua sáp nhập phần đất mới, lập thành đạo thừa tuyên Quảng Nam — đạo thứ mười ba — mở mang bờ cõi Đại Việt xa về phương Nam, đặt nền cho công cuộc Nam tiến của các đời sau. Đây là võ công lớn nhất trong đời Hồng Đức.",
         "en": "To the south, Champa repeatedly harried the frontier and raided the Hóa Châu region. In the year Canh Dần (1470) the Cham king Trà Toàn attacked; Lê Thánh Tông therefore led in person a great army of land and sea, over two hundred thousand strong, southward. Early in the year Tân Mão (1471) the Đại Việt forces struck, shattered the Cham army, besieged and took the capital Đồ Bàn (the citadel of Chà Bàn, in Vijaya), and captured king Trà Toàn alive with many of his officers. The king annexed the new land as the circuit of Quảng Nam — the thirteenth — carrying Đại Việt's frontier far to the south and laying the ground for the southward expansion of later ages. It was the greatest feat of arms of the Hồng Đức reign."
@@ -154,11 +239,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1471 SCN", "en": "1471 CE" },
+        "display": {
+          "vi": "1471 SCN",
+          "en": "1471 CE"
+        },
         "value": 1471,
         "approximate": false
       },
-      "title": { "vi": "Thân chinh bình Chiêm, hạ thành Đồ Bàn", "en": "The southern campaign: Đồ Bàn falls" },
+      "title": {
+        "vi": "Thân chinh bình Chiêm, hạ thành Đồ Bàn",
+        "en": "The southern campaign: Đồ Bàn falls"
+      },
       "summary": {
         "vi": "Vua thân chinh đánh Chiêm Thành, hạ kinh đô Đồ Bàn, bắt vua Trà Toàn, lập đạo Quảng Nam.",
         "en": "The king marches south, storms the capital Đồ Bàn, takes king Trà Toàn, and founds Quảng Nam circuit."
@@ -168,8 +259,14 @@
         "en": "Champa harried the border, and in 1470 king Trà Toàn attacked. Lê Thánh Tông led over two hundred thousand troops south; early in 1471 he shattered the Cham army, took the capital Đồ Bàn, and captured Trà Toàn alive. He made the new land the circuit of Quảng Nam, extending the frontier southward — the greatest feat of arms of the Hồng Đức reign."
       },
       "pullQuote": {
-        "text": { "vi": "Chiêm Thành nhiều lần dấy binh lấn cướp biên cương; nay đem quân hỏi tội, là để yên dân giữ nước.", "en": "Champa has again and again raised arms to encroach on our borders; to march against it now is to bring the people peace and keep the realm safe." },
-        "attribution": { "vi": "chiếu thân chinh của Lê Thánh Tông, theo Đại Việt sử ký toàn thư", "en": "Lê Thánh Tông's campaign edict, per the Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Chiêm Thành nhiều lần dấy binh lấn cướp biên cương; nay đem quân hỏi tội, là để yên dân giữ nước.",
+          "en": "Champa has again and again raised arms to encroach on our borders; to march against it now is to bring the people peace and keep the realm safe."
+        },
+        "attribution": {
+          "vi": "chiếu thân chinh của Lê Thánh Tông, theo Đại Việt sử ký toàn thư",
+          "en": "Lê Thánh Tông's campaign edict, per the Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "binh-chiem-do-ban-hero",
@@ -178,18 +275,26 @@
         "flagship": "eras/le-thanh-tong/events/binh-chiem-do-ban.png",
         "reduced": "eras/le-thanh-tong/events/binh-chiem-do-ban.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ thực lục · Quyển 13", "en": "Basic Records · Book 13" },
+        "section": {
+          "vi": "Bản kỷ thực lục · Quyển 13",
+          "en": "Basic Records · Book 13"
+        },
         "author": "Sử thần triều Lê"
       }
     },
     {
       "id": "luat-hong-duc",
       "slug": "luat-hong-duc",
-      "figureIds": ["le-thanh-tong"],
+      "figureIds": [
+        "le-thanh-tong"
+      ],
       "details": {
         "vi": "Trong đời Hồng Đức, Lê Thánh Tông sai các đại thần biên định và ban hành bộ Quốc triều hình luật, đời sau quen gọi là luật Hồng Đức — bộ luật thành văn quy mô và hoàn chỉnh bậc nhất của nước ta thời phong kiến, gồm hơn bảy trăm điều, chia thành nhiều chương. Bộ luật lấy tư tưởng Nho giáo làm gốc để giữ gìn kỷ cương, tôn ti, nhưng đáng quý là còn thấm đượm truyền thống và tục lệ của người Việt, có nhiều điều khoản tiến bộ hiếm thấy đương thời: bảo vệ quyền lợi người phụ nữ trong hôn nhân và thừa kế, cho con gái được chia gia tài, bênh vực người già cả, trẻ mồ côi, kẻ tàn tật và dân nghèo, trừng trị nghiêm quan lại nhũng nhiễu. Nhờ có phép nước rõ ràng, xã hội đời Hồng Đức quy củ, kỷ cương nghiêm minh.",
         "en": "During the Hồng Đức reign Lê Thánh Tông had his ministers compile and promulgate the Quốc triều hình luật, known to later ages as the Hồng Đức Code — the most comprehensive and complete written law our nation produced in dynastic times, with more than seven hundred articles in many chapters. Rooted in Confucian thought to uphold order and hierarchy, it was, remarkably, also steeped in Vietnamese tradition and custom, with progressive provisions rare for the age: it protected women's rights in marriage and inheritance, let daughters share the family estate, defended the aged, the orphaned, the disabled and the poor, and strictly punished grasping officials. With the law thus clear, the society of the Hồng Đức era was orderly and its discipline strict and fair."
@@ -197,11 +302,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "≈ 1483 SCN", "en": "≈ 1483 CE" },
+        "display": {
+          "vi": "≈ 1483 SCN",
+          "en": "≈ 1483 CE"
+        },
         "value": 1483,
         "approximate": true
       },
-      "title": { "vi": "Ban bộ luật Hồng Đức", "en": "The Hồng Đức Code" },
+      "title": {
+        "vi": "Ban bộ luật Hồng Đức",
+        "en": "The Hồng Đức Code"
+      },
       "summary": {
         "vi": "Ban Quốc triều hình luật — bộ luật quy mô, tiến bộ, bảo vệ cả quyền lợi người phụ nữ.",
         "en": "The Quốc triều hình luật is issued — a vast, progressive code that even protects women's rights."
@@ -211,8 +322,14 @@
         "en": "Lê Thánh Tông had the Quốc triều hình luật (Hồng Đức Code) compiled and issued — the most complete written law of the dynastic age, over seven hundred articles. Rooted in Confucianism yet steeped in Vietnamese custom, it carried many progressive provisions: protecting women's rights, letting daughters inherit, defending the weak, and punishing grasping officials — making the discipline of the Hồng Đức era strict and fair."
       },
       "pullQuote": {
-        "text": { "vi": "Pháp luật là phép công của nhà nước, ta cùng các ngươi đều phải theo.", "en": "The law is the common measure of the state; I and you alike must abide by it." },
-        "attribution": { "vi": "lời Lê Thánh Tông, theo sử chép", "en": "Lê Thánh Tông's words, per the histories" }
+        "text": {
+          "vi": "Pháp luật là phép công của nhà nước, ta cùng các ngươi đều phải theo.",
+          "en": "The law is the common measure of the state; I and you alike must abide by it."
+        },
+        "attribution": {
+          "vi": "lời Lê Thánh Tông, theo sử chép",
+          "en": "Lê Thánh Tông's words, per the histories"
+        }
       },
       "hero": {
         "id": "luat-hong-duc-hero",
@@ -221,18 +338,29 @@
         "flagship": "eras/le-thanh-tong/events/luat-hong-duc.png",
         "reduced": "eras/le-thanh-tong/events/luat-hong-duc.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ thực lục · Quyển 13", "en": "Basic Records · Book 13" },
+        "section": {
+          "vi": "Bản kỷ thực lục · Quyển 13",
+          "en": "Basic Records · Book 13"
+        },
         "author": "Sử thần triều Lê"
       }
     },
     {
       "id": "van-hien-tao-dan",
       "slug": "van-hien-tao-dan",
-      "figureIds": ["le-thanh-tong", "ngo-si-lien", "than-nhan-trung", "nguyen-trai"],
+      "figureIds": [
+        "le-thanh-tong",
+        "ngo-si-lien",
+        "than-nhan-trung",
+        "nguyen-trai"
+      ],
       "details": {
         "vi": "Lê Thánh Tông là bậc vua sùng Nho, trọng việc học, lại tự mình hay chữ, làm nhiều thơ văn. Đời ông, khoa cử mở đều đặn, kén chọn được nhiều nhân tài; năm Giáp Thìn (1484), vua cho dựng bia đá đề tên các tiến sĩ ở Văn Miếu, sai Thân Nhân Trung soạn bài ký, mở đầu lệ dựng bia tiến sĩ lưu danh muôn thuở. Vua lập hội thơ Tao Đàn gồm hai mươi tám người giỏi văn ('nhị thập bát tú'), tự làm Tao Đàn nguyên súy. Trước đó, năm Kỷ Hợi (1479), vua sai sử thần Ngô Sĩ Liên biên soạn xong bộ Đại Việt sử ký toàn thư, chép việc nước từ họ Hồng Bàng đến đầu triều Lê — chính là bộ chính sử mà đời sau còn dựa vào. Vua cũng minh oan cho công thần Nguyễn Trãi bị hàm oan trong vụ Lệ Chi Viên, truy phục quan tước và cho sưu tầm lại di cảo của ông. Văn hiến Đại Việt đời Hồng Đức nhờ đó rực rỡ một thời.",
         "en": "Lê Thánh Tông revered Confucian learning and prized scholarship, and being himself a fine writer composed much poetry and prose. In his reign examinations were held regularly and drew out many talents; in the year Giáp Thìn (1484) he raised stone steles at the Văn Miếu inscribed with the doctors' names, and had Thân Nhân Trung compose the inscription — beginning the custom of doctoral steles that hand down names through the ages. He founded the Tao Đàn poetry society of twenty-eight masters (the 'Twenty-Eight Stars') and made himself its Grand Master. Earlier, in the year Kỷ Hợi (1479), he had the historian Ngô Sĩ Liên complete the Đại Việt sử ký toàn thư, recording the nation from the Hồng Bàng to the early Lê — the very chronicle later ages rely upon. He also cleared the name of the great minister Nguyễn Trãi, wronged in the Lệ Chi Viên affair, restored his rank, and had his surviving writings gathered. So the culture of Đại Việt shone in the Hồng Đức age."
@@ -240,11 +368,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1479 – 1484 SCN", "en": "1479 – 1484 CE" },
+        "display": {
+          "vi": "1479 – 1484 SCN",
+          "en": "1479 – 1484 CE"
+        },
         "value": 1484,
         "approximate": false
       },
-      "title": { "vi": "Bia tiến sĩ, hội Tao Đàn, sử ký Toàn thư", "en": "Doctoral steles, the Tao Đàn, and the Toàn thư" },
+      "title": {
+        "vi": "Bia tiến sĩ, hội Tao Đàn, sử ký Toàn thư",
+        "en": "Doctoral steles, the Tao Đàn, and the Toàn thư"
+      },
       "summary": {
         "vi": "Khoa cử thịnh, dựng bia tiến sĩ ở Văn Miếu; vua lập hội Tao Đàn, sai Ngô Sĩ Liên soạn Đại Việt sử ký toàn thư.",
         "en": "Examinations flourish and steles rise at the Văn Miếu; the king founds the Tao Đàn and has Ngô Sĩ Liên compile the Toàn thư."
@@ -254,8 +388,14 @@
         "en": "The king revered Confucian learning and held regular examinations; in 1484 he raised the doctoral steles at the Văn Miếu with Thân Nhân Trung's inscription. He founded the Tao Đàn as its Grand Master; in 1479 he had Ngô Sĩ Liên complete the Đại Việt sử ký toàn thư — the chronicle later ages rely upon. He also cleared Nguyễn Trãi's name from the Lệ Chi Viên affair. So Đại Việt's culture shone."
       },
       "pullQuote": {
-        "text": { "vi": "Hiền tài là nguyên khí của quốc gia. Nguyên khí thịnh thì thế nước mạnh rồi lên cao; nguyên khí suy thì thế nước yếu rồi xuống thấp.", "en": "Talented and virtuous men are the vital essence of the nation. When that essence thrives, the state is strong and rises high; when it wanes, the state is weak and sinks low." },
-        "attribution": { "vi": "Thân Nhân Trung, bài ký bia tiến sĩ khoa Nhâm Tuất (1484)", "en": "Thân Nhân Trung, inscription for the doctoral stele of 1484" }
+        "text": {
+          "vi": "Hiền tài là nguyên khí của quốc gia. Nguyên khí thịnh thì thế nước mạnh rồi lên cao; nguyên khí suy thì thế nước yếu rồi xuống thấp.",
+          "en": "Talented and virtuous men are the vital essence of the nation. When that essence thrives, the state is strong and rises high; when it wanes, the state is weak and sinks low."
+        },
+        "attribution": {
+          "vi": "Thân Nhân Trung, bài ký bia tiến sĩ khoa Nhâm Tuất (1484)",
+          "en": "Thân Nhân Trung, inscription for the doctoral stele of 1484"
+        }
       },
       "hero": {
         "id": "van-hien-tao-dan-hero",
@@ -264,18 +404,26 @@
         "flagship": "eras/le-thanh-tong/events/van-hien-tao-dan.png",
         "reduced": "eras/le-thanh-tong/events/van-hien-tao-dan.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ thực lục · Quyển 13", "en": "Basic Records · Book 13" },
+        "section": {
+          "vi": "Bản kỷ thực lục · Quyển 13",
+          "en": "Basic Records · Book 13"
+        },
         "author": "Sử thần triều Lê"
       }
     },
     {
       "id": "hong-duc-thinh-tri",
       "slug": "hong-duc-thinh-tri",
-      "figureIds": ["le-thanh-tong"],
+      "figureIds": [
+        "le-thanh-tong"
+      ],
       "details": {
         "vi": "Trải hai niên hiệu Quang Thuận và Hồng Đức, gần bốn mươi năm trị vì, Lê Thánh Tông đưa Đại Việt tới thời cực thịnh: kỷ cương phép nước nghiêm minh, bờ cõi mở rộng, việc học và văn hiến hưng thịnh, mùa màng no đủ, ngoài biên yên ổn. Sử sách gọi đó là thời 'Hồng Đức thịnh trị', một trong những đỉnh cao của chế độ quân chủ nước ta. Năm Đinh Tỵ (1497), vua băng, thọ năm mươi sáu tuổi, miếu hiệu Thánh Tông, an táng ở Chiêu Lăng. Sử thần Ngô Sĩ Liên và các đời sau đều hết lời ngợi ca ông là bậc vua anh hùng tài lược, văn võ song toàn. Sau khi vua mất, dù các đời sau còn giữ được nền nếp một thời, nhưng thời hoàng kim Hồng Đức khó có đời nào sánh lại.",
         "en": "Across the era-names Quang Thuận and Hồng Đức, in nearly forty years on the throne, Lê Thánh Tông carried Đại Việt to its height: the law was strict and clear, the borders were extended, learning and culture flourished, harvests were full, and the frontiers were quiet. The histories call it the 'Hồng Đức peace,' one of the summits of our monarchy. In the year Đinh Tỵ (1497) the king died at fifty-six, temple name Thánh Tông, and was buried at Chiêu Lăng. The historian Ngô Sĩ Liên and later ages alike praised him without reserve as a heroic and able sovereign, master of both letters and arms. After his passing, though later reigns preserved something of his order for a time, the golden age of Hồng Đức was one that few ages could match."
@@ -283,11 +431,17 @@
       "order": 5,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1497 SCN", "en": "1497 CE" },
+        "display": {
+          "vi": "1497 SCN",
+          "en": "1497 CE"
+        },
         "value": 1497,
         "approximate": false
       },
-      "title": { "vi": "Hồng Đức thịnh trị, vua băng", "en": "The Hồng Đức peace, and the king's passing" },
+      "title": {
+        "vi": "Hồng Đức thịnh trị, vua băng",
+        "en": "The Hồng Đức peace, and the king's passing"
+      },
       "summary": {
         "vi": "Đại Việt đạt tới cực thịnh dưới đời Hồng Đức; năm 1497 vua băng, miếu hiệu Thánh Tông.",
         "en": "Đại Việt reaches its zenith under the Hồng Đức reign; in 1497 the king dies, temple name Thánh Tông."
@@ -297,8 +451,14 @@
         "en": "In nearly forty years Lê Thánh Tông carried Đại Việt to its height: the law strict, the borders wide, culture thriving, harvests full — the histories' 'Hồng Đức peace.' In 1497 the king died at fifty-six, temple name Thánh Tông. The historians praised him as a heroic, able sovereign, master of both letters and arms."
       },
       "pullQuote": {
-        "text": { "vi": "Vua sáng lập chế độ, văn vật khả quan, mở mang đất đai, bờ cõi khá rộng, thực là bậc vua anh hùng tài lược.", "en": "The king founded institutions of admirable culture, opened up the land and widened its borders — truly a heroic and able sovereign." },
-        "attribution": { "vi": "Sử thần Ngô Sĩ Liên bàn · Đại Việt sử ký toàn thư", "en": "The historian Ngô Sĩ Liên's appraisal · Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Vua sáng lập chế độ, văn vật khả quan, mở mang đất đai, bờ cõi khá rộng, thực là bậc vua anh hùng tài lược.",
+          "en": "The king founded institutions of admirable culture, opened up the land and widened its borders — truly a heroic and able sovereign."
+        },
+        "attribution": {
+          "vi": "Sử thần Ngô Sĩ Liên bàn · Đại Việt sử ký toàn thư",
+          "en": "The historian Ngô Sĩ Liên's appraisal · Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "hong-duc-thinh-tri-hero",
@@ -307,11 +467,17 @@
         "flagship": "eras/le-thanh-tong/events/hong-duc-thinh-tri.png",
         "reduced": "eras/le-thanh-tong/events/hong-duc-thinh-tri.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ thực lục · Quyển 13", "en": "Basic Records · Book 13" },
+        "section": {
+          "vi": "Bản kỷ thực lục · Quyển 13",
+          "en": "Basic Records · Book 13"
+        },
         "author": "Sử thần triều Lê"
       }
     }

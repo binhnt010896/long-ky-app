@@ -4,15 +4,27 @@
   "slug": "au-lac",
   "order": 1,
   "period": "hong-bang",
-  "title": { "vi": "Âu Lạc", "en": "Âu Lạc" },
-  "kicker": { "vi": "Kỷ nhà Thục", "en": "The House of Thục" },
-  "subtitle": { "vi": "Thành ốc chín vòng, nỏ thần một phát.", "en": "Nine spiral walls, one divine crossbow." },
+  "title": {
+    "vi": "Âu Lạc",
+    "en": "Âu Lạc"
+  },
+  "kicker": {
+    "vi": "Kỷ nhà Thục",
+    "en": "The House of Thục"
+  },
+  "subtitle": {
+    "vi": "Thành ốc chín vòng, nỏ thần một phát.",
+    "en": "Nine spiral walls, one divine crossbow."
+  },
   "overview": {
     "vi": "Nối buổi Hồng Bàng, Thục Phán hợp nhất Âu Việt và Lạc Việt, dựng nước Âu Lạc và đắp thành Cổ Loa xoáy vòng như trôn ốc. Được thần Kim Quy giúp, vua có nỏ thần bắn một phát giết hàng vạn, mấy phen đẩy lui Triệu Đà. Nhưng mối tình Mỵ Châu – Trọng Thủy hóa thành kế phản gián: lẫy thần bị đánh tráo, cơ đồ nửa thế kỷ tan trong một sớm. Ngoại kỷ chép đây là bài học đầu tiên về cảnh giác giữ nước.",
     "en": "Following the Hồng Bàng dawn, Thục Phán united the Âu Việt and Lạc Việt, founded Âu Lạc and raised the coiling snail-shell citadel of Cổ Loa. Aided by the Golden Turtle, the king wielded a divine crossbow that felled ten thousand at a shot and threw back Triệu Đà time and again. But the love of Mỵ Châu and Trọng Thủy became an act of espionage: the sacred trigger was switched, and half a century's work fell in a single morning. The Outer Records set this down as the first lesson in the vigilance a nation owes itself."
   },
   "yearRange": {
-    "display": { "vi": "257 – 208 TCN", "en": "257 – 208 BCE" },
+    "display": {
+      "vi": "257 – 208 TCN",
+      "en": "257 – 208 BCE"
+    },
     "startYear": -257,
     "endYear": -208
   },
@@ -36,35 +48,88 @@
     "flagship": "eras/au-lac/cover.png",
     "reduced": "eras/au-lac/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/au-lac/scene/sky.png", "reduced": "eras/au-lac/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "ridge-far", "type": "image", "role": "mid", "depth": 0.45, "flagship": "eras/au-lac/scene/ridge-far.png", "reduced": "eras/au-lac/scene/ridge-far.png", "placeholder": "ridge" },
-      { "id": "ridge-near", "type": "image", "role": "foreground", "depth": 0.8, "flagship": "eras/au-lac/scene/ridge-near.png", "reduced": "eras/au-lac/scene/ridge-near.png", "placeholder": "ridge" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/au-lac/scene/sky.png",
+        "reduced": "eras/au-lac/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "ridge-far",
+        "type": "image",
+        "role": "mid",
+        "depth": 0.45,
+        "flagship": "eras/au-lac/scene/ridge-far.png",
+        "reduced": "eras/au-lac/scene/ridge-far.png",
+        "placeholder": "ridge"
+      },
+      {
+        "id": "ridge-near",
+        "type": "image",
+        "role": "foreground",
+        "depth": 0.8,
+        "flagship": "eras/au-lac/scene/ridge-near.png",
+        "reduced": "eras/au-lac/scene/ridge-near.png",
+        "placeholder": "ridge"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Ngoại kỷ", "en": "Outer Records" },
+    "section": {
+      "vi": "Ngoại kỷ",
+      "en": "Outer Records"
+    },
     "author": "Ngô Sĩ Liên"
   },
   "characters": [
-    { "ref": "an-duong-vuong" },
-    { "ref": "cao-lo" },
-    { "ref": "than-kim-quy" },
-    { "ref": "my-chau" },
-    { "ref": "trong-thuy" },
-    { "ref": "trieu-da" }
+    {
+      "ref": "an-duong-vuong"
+    },
+    {
+      "ref": "cao-lo"
+    },
+    {
+      "ref": "than-kim-quy"
+    },
+    {
+      "ref": "my-chau"
+    },
+    {
+      "ref": "trong-thuy"
+    },
+    {
+      "ref": "trieu-da"
+    }
   ],
   "events": [
     {
       "id": "an-duong-vuong-lap-au-lac",
       "slug": "an-duong-vuong-lap-au-lac",
-      "figureIds": ["an-duong-vuong"],
-      "relatedEventIds": ["xay-thanh-co-loa", "au-lac-mat-nuoc"],
+      "figureIds": [
+        "an-duong-vuong"
+      ],
+      "relatedEventIds": [
+        "xay-thanh-co-loa",
+        "au-lac-mat-nuoc"
+      ],
       "details": {
         "vi": "Sách Ngoại kỷ chép: An Dương Vương họ Thục tên Phán, nối đời làm thủ lĩnh người Âu Việt. Nhân cuối đời Hùng Vương chính sự lơi lỏng, Thục Phán đem quân thôn tính Văn Lang, hợp nhất Âu Việt cùng Lạc Việt mà xưng vương, đặt quốc hiệu là Âu Lạc. Vua đóng đô ở Phong Khê, đắp thành Cổ Loa làm căn bản, dựng nền cai trị mới trên đất cũ của vua Hùng. Bấy giờ là năm Giáp Thìn, mở đầu kỷ nhà Thục trong Ngoại kỷ.",
         "en": "By the Outer Records: An Dương Vương, of the house of Thục and named Phán, held by succession the leadership of the Âu Việt. As the late Hùng court grew slack in rule, Thục Phán marched against Văn Lang, fused the Âu Việt with the Lạc Việt, and took the royal title, naming his realm Âu Lạc. He fixed his capital at Phong Khê and raised the citadel of Cổ Loa as its foundation, setting a new order upon the old land of the Hùng. This was the year Giáp Thìn, the opening of the House of Thục in the Outer Records."
@@ -72,11 +137,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "257 TCN", "en": "257 BCE" },
+        "display": {
+          "vi": "257 TCN",
+          "en": "257 BCE"
+        },
         "value": -257,
         "approximate": false
       },
-      "title": { "vi": "An Dương Vương lập nước Âu Lạc", "en": "An Dương Vương founds Âu Lạc" },
+      "title": {
+        "vi": "An Dương Vương lập nước Âu Lạc",
+        "en": "An Dương Vương founds Âu Lạc"
+      },
       "summary": {
         "vi": "Hợp nhất Âu Việt và Lạc Việt, dời đô về Cổ Loa.",
         "en": "Uniting the Âu Việt and Lạc Việt, the capital moves to Cổ Loa."
@@ -86,7 +157,10 @@
         "en": "Thục Phán, chieftain of the Âu Việt, defeated the last Hùng King and merged the Âu Việt and Lạc Việt into a single state named Âu Lạc, styling himself An Dương Vương. He shifted the seat of power from the Phong Châu region to Cổ Loa, opening the House of Thục in Vietnamese history."
       },
       "pullQuote": {
-        "text": { "vi": "Hợp nhất Âu, Lạc — dựng nên một nước Âu Lạc.", "en": "Âu and Lạc made one — the realm of Âu Lạc." }
+        "text": {
+          "vi": "Hợp nhất Âu, Lạc — dựng nên một nước Âu Lạc.",
+          "en": "Âu and Lạc made one — the realm of Âu Lạc."
+        }
       },
       "hero": {
         "id": "an-duong-vuong-lap-au-lac-hero",
@@ -95,19 +169,31 @@
         "flagship": "eras/au-lac/events/an-duong-vuong-lap-au-lac.png",
         "reduced": "eras/au-lac/events/an-duong-vuong-lap-au-lac.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 1", "en": "Outer Records · Book 1" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 1",
+          "en": "Outer Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "xay-thanh-co-loa",
       "slug": "xay-thanh-co-loa",
-      "figureIds": ["an-duong-vuong", "than-kim-quy"],
-      "relatedEventIds": ["no-than-kim-quy", "an-duong-vuong-lap-au-lac"],
+      "figureIds": [
+        "an-duong-vuong",
+        "than-kim-quy"
+      ],
+      "relatedEventIds": [
+        "no-than-kim-quy",
+        "an-duong-vuong-lap-au-lac"
+      ],
       "details": {
         "vi": "Tương truyền nơi đắp thành có con gà trắng sống nghìn năm hóa yêu, cùng lũ ma quỷ của một vị vua trước tụ ở núi Thất Diệu, đêm đêm phá thành đang xây. An Dương Vương lập đàn cầu đảo; thần Kim Quy — xưng là sứ giả Thanh Giang — hiện lên, ở lại ba năm giúp vua trừ hết yêu ma. Yêu tan, thành mới đắp xong, nhiều lớp tường quanh co, ngoài là hào sâu thông với sông, vừa là kinh đô vừa là thành lũy phòng giữ — một công trình quân sự vào loại sớm và lớn bậc nhất của người Việt.",
         "en": "It is told that where the walls rose, a white cockerel a thousand years old had turned demon and, with the ghosts of a former king gathered at Mount Thất Diệu, tore them down night after night. An Dương Vương set an altar and prayed; the Golden Turtle — calling itself the Envoy of the Clear River — appeared and stayed three years, helping the king rid the place of every demon. With the demons gone the walls at last held, winding in many coiling ramparts and ringed without by a deep moat joined to the river — at once capital and fortress, among the earliest and greatest military works of the Việt."
@@ -115,11 +201,17 @@
       "order": 1,
       "kind": "semi-historical",
       "year": {
-        "display": { "vi": "≈ 257 TCN", "en": "≈ 257 BCE" },
+        "display": {
+          "vi": "≈ 257 TCN",
+          "en": "≈ 257 BCE"
+        },
         "value": -257,
         "approximate": true
       },
-      "title": { "vi": "Xây thành Cổ Loa", "en": "Building the Cổ Loa citadel" },
+      "title": {
+        "vi": "Xây thành Cổ Loa",
+        "en": "Building the Cổ Loa citadel"
+      },
       "summary": {
         "vi": "Chín vòng xoáy ốc; thần Kim Quy trừ yêu, thành mới đứng vững.",
         "en": "Coiling spiral rings — the Golden Turtle drives off the demon and the walls hold."
@@ -129,7 +221,10 @@
         "en": "An Dương Vương raised his walls at Phong Khê, but each time they rose high they crumbled. The king prayed, and the Golden Turtle appeared and destroyed the white-cockerel demon that had lurked there in mischief. With the demon gone the walls at last stood, vast and coiling like a snail's shell — and so it was called Loa thành, the Snail Citadel."
       },
       "pullQuote": {
-        "text": { "vi": "Đắp tới đâu lở tới đó, cho đến khi Rùa Vàng hiện.", "en": "As fast as they rose the walls fell — until the Golden Turtle came." }
+        "text": {
+          "vi": "Đắp tới đâu lở tới đó, cho đến khi Rùa Vàng hiện.",
+          "en": "As fast as they rose the walls fell — until the Golden Turtle came."
+        }
       },
       "hero": {
         "id": "xay-thanh-co-loa-hero",
@@ -138,19 +233,32 @@
         "flagship": "eras/au-lac/events/co-loa-thanh.png",
         "reduced": "eras/au-lac/events/co-loa-thanh.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 1", "en": "Outer Records · Book 1" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 1",
+          "en": "Outer Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "no-than-kim-quy",
       "slug": "no-than-kim-quy",
-      "figureIds": ["cao-lo", "than-kim-quy", "an-duong-vuong"],
-      "relatedEventIds": ["xay-thanh-co-loa", "au-lac-mat-nuoc"],
+      "figureIds": [
+        "cao-lo",
+        "than-kim-quy",
+        "an-duong-vuong"
+      ],
+      "relatedEventIds": [
+        "xay-thanh-co-loa",
+        "au-lac-mat-nuoc"
+      ],
       "details": {
         "vi": "Cao Lỗ (có sách chép là Cao Thông) là bậc thợ tài kiêm dũng tướng, đứng ra coi việc rèn nỏ. Nỏ thần bắn ra tên đồng, một lần nhiều mũi — người sau ngờ đó là hình ảnh của loại nỏ bắn liên tiếp, hợp với hàng vạn mũi tên đồng tìm thấy ở Cổ Loa ngày nay. Nhờ nỏ thần, An Dương Vương mấy phen đánh bại quân Triệu Đà. Đà đánh không được bèn xin hòa, cầu thân, mưu tính kế lâu dài.",
         "en": "Cao Lỗ (in some records Cao Thông), a craftsman of genius and a bold general, took charge of forging the weapon. The divine crossbow shot bronze bolts many at a time — later readers took this for a repeating crossbow, fitting the tens of thousands of bronze arrowheads unearthed at Cổ Loa today. By its power An Dương Vương threw back Triệu Đà again and again. Unable to prevail, Triệu Đà sued for peace and sought a marriage tie, laying a longer plan."
@@ -158,10 +266,16 @@
       "order": 2,
       "kind": "legend",
       "year": {
-        "display": { "vi": "Truyền thuyết", "en": "Legend" },
+        "display": {
+          "vi": "Truyền thuyết",
+          "en": "Legend"
+        },
         "value": null
       },
-      "title": { "vi": "Nỏ thần Kim Quy", "en": "The Golden Turtle's crossbow" },
+      "title": {
+        "vi": "Nỏ thần Kim Quy",
+        "en": "The Golden Turtle's crossbow"
+      },
       "summary": {
         "vi": "Móng rùa làm lẫy, một phát giết hàng vạn.",
         "en": "A turtle's claw for a trigger — one shot fells ten thousand."
@@ -171,8 +285,14 @@
         "en": "As it took its leave, the Golden Turtle drew off one of its claws and gave it to An Dương Vương, bidding him make it a crossbow's trigger to keep the realm safe. The king had his general Cao Lỗ forge the weapon, named the Sacred Mechanism of the Radiant Golden Turtle. At a single shot it loosed a storm of bolts and slew the enemy by the ten thousand, and by it the king threw back the armies of Triệu Đà from the North."
       },
       "pullQuote": {
-        "text": { "vi": "Giữ được nỏ này thì giữ được thiên hạ.", "en": "Keep this crossbow and you keep the realm." },
-        "attribution": { "vi": "Thần Kim Quy", "en": "The Golden Turtle" }
+        "text": {
+          "vi": "Giữ được nỏ này thì giữ được thiên hạ.",
+          "en": "Keep this crossbow and you keep the realm."
+        },
+        "attribution": {
+          "vi": "Thần Kim Quy",
+          "en": "The Golden Turtle"
+        }
       },
       "hero": {
         "id": "no-than-kim-quy-hero",
@@ -181,19 +301,31 @@
         "flagship": "eras/au-lac/events/no-than-kim-quy.png",
         "reduced": "eras/au-lac/events/no-than-kim-quy.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 1", "en": "Outer Records · Book 1" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 1",
+          "en": "Outer Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "my-chau-trong-thuy",
       "slug": "my-chau-trong-thuy",
-      "figureIds": ["my-chau", "trong-thuy"],
-      "relatedEventIds": ["no-than-kim-quy", "au-lac-mat-nuoc"],
+      "figureIds": [
+        "my-chau",
+        "trong-thuy"
+      ],
+      "relatedEventIds": [
+        "no-than-kim-quy",
+        "au-lac-mat-nuoc"
+      ],
       "details": {
         "vi": "Trọng Thủy ở rể tại Loa thành, dỗ Mỵ Châu cho xem trộm nỏ thần, rồi ngầm làm một cái lẫy giả tráo lấy lẫy Kim Quy đem về cho Triệu Đà. Đà mừng, biết Âu Lạc đã mất chỗ dựa, liền cất quân sang đánh. Mối tình Mỵ Châu – Trọng Thủy trở thành tấn bi kịch: một bên trọn tình mà nhẹ dạ, một bên vẹn hiếu với cha mà phụ nghĩa vợ chồng. Sử thần đời sau lấy chuyện này răn về cái họa tin người mà lơ là phòng bị.",
         "en": "Dwelling as a son-in-law within Loa thành, Trọng Thủy coaxed Mỵ Châu into showing him the divine crossbow, then secretly made a false trigger, swapped it for the Golden Turtle's claw, and carried the claw back to Triệu Đà. Triệu Đà rejoiced: knowing Âu Lạc had lost its safeguard, he raised his army to attack. The love of Mỵ Châu and Trọng Thủy became a tragedy — she faithful but trusting to a fault, he dutiful to his father yet false to his wife. Later historians drew from it a warning: to trust a person and grow careless of one's defenses."
@@ -201,10 +333,16 @@
       "order": 3,
       "kind": "legend",
       "year": {
-        "display": { "vi": "Truyền thuyết", "en": "Legend" },
+        "display": {
+          "vi": "Truyền thuyết",
+          "en": "Legend"
+        },
         "value": null
       },
-      "title": { "vi": "Mỵ Châu – Trọng Thủy", "en": "Mỵ Châu and Trọng Thủy" },
+      "title": {
+        "vi": "Mỵ Châu – Trọng Thủy",
+        "en": "Mỵ Châu and Trọng Thủy"
+      },
       "summary": {
         "vi": "Tình duyên hóa kế phản gián, lẫy thần bị đánh tráo.",
         "en": "A marriage turned to espionage — the sacred trigger stolen."
@@ -214,8 +352,14 @@
         "en": "Triệu Đà made peace and asked the king's daughter Mỵ Châu in marriage for his son Trọng Thủy. Trọng Thủy coaxed her into showing him the divine crossbow and then switched out the Golden Turtle's trigger. His work done, he begged leave to visit his father; at parting, Mỵ Châu promised that if war should scatter them, he might follow the goose-down she would strew to find her again."
       },
       "pullQuote": {
-        "text": { "vi": "Thiếp rắc lông ngỗng dọc đường, chàng cứ theo đó mà tìm.", "en": "I will strew goose-down along the way; follow it and find me." },
-        "attribution": { "vi": "Mỵ Châu", "en": "Mỵ Châu" }
+        "text": {
+          "vi": "Thiếp rắc lông ngỗng dọc đường, chàng cứ theo đó mà tìm.",
+          "en": "I will strew goose-down along the way; follow it and find me."
+        },
+        "attribution": {
+          "vi": "Mỵ Châu",
+          "en": "Mỵ Châu"
+        }
       },
       "hero": {
         "id": "my-chau-trong-thuy-hero",
@@ -224,19 +368,32 @@
         "flagship": "eras/au-lac/events/my-chau-trong-thuy.png",
         "reduced": "eras/au-lac/events/my-chau-trong-thuy.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 1", "en": "Outer Records · Book 1" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 1",
+          "en": "Outer Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "au-lac-mat-nuoc",
       "slug": "au-lac-mat-nuoc",
-      "figureIds": ["an-duong-vuong", "trieu-da", "my-chau"],
-      "relatedEventIds": ["my-chau-trong-thuy", "an-duong-vuong-lap-au-lac"],
+      "figureIds": [
+        "an-duong-vuong",
+        "trieu-da",
+        "my-chau"
+      ],
+      "relatedEventIds": [
+        "my-chau-trong-thuy",
+        "an-duong-vuong-lap-au-lac"
+      ],
       "details": {
         "vi": "Bấy giờ là năm Quý Tỵ (208 TCN); nhà Thục trải một đời An Dương Vương thì mất, gồm khoảng năm mươi năm. Tương truyền máu Mỵ Châu chảy xuống biển, trai ăn phải hóa thành ngọc; Trọng Thủy thương tiếc, nhảy xuống giếng ở Loa thành mà chết — người sau lấy nước giếng ấy rửa ngọc trai thì ngọc càng sáng. Câu chuyện khép lại nước Âu Lạc, mở sang thời nhà Triệu và buổi đầu ngàn năm Bắc thuộc trong Ngoại kỷ.",
         "en": "This was the year Quý Tỵ (208 BCE); the House of Thục, after the single reign of An Dương Vương, came to its end — some fifty years in all. It is told that Mỵ Châu's blood flowed into the sea and the oysters that drank it bore pearls; Trọng Thủy, stricken with grief, threw himself into a well within Loa thành — and later, pearls washed in that well's water shone the brighter. So closes the tale of Âu Lạc, opening onto the House of Triệu and the first of the thousand years of Northern domination in the Outer Records."
@@ -244,11 +401,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "208 TCN", "en": "208 BCE" },
+        "display": {
+          "vi": "208 TCN",
+          "en": "208 BCE"
+        },
         "value": -208,
         "approximate": false
       },
-      "title": { "vi": "Âu Lạc mất nước", "en": "The fall of Âu Lạc" },
+      "title": {
+        "vi": "Âu Lạc mất nước",
+        "en": "The fall of Âu Lạc"
+      },
       "summary": {
         "vi": "Nỏ mất thiêng, vua chém con rồi theo Rùa Vàng xuống biển.",
         "en": "The crossbow fails; the king slays his daughter and follows the Turtle into the sea."
@@ -258,8 +421,14 @@
         "en": "Triệu Đà came with his army. Trusting in the divine crossbow, An Dương Vương laughed at his ease, and only when the foe was upon him did he take up the bow — but the trigger had been switched, and it was useless. Defeated, he set Mỵ Châu behind him on his horse and fled south; the enemy followed the trail of goose-down. Then the Golden Turtle rose and cried aloud: 'The enemy is behind you, O King!' Understanding at last, he drew his sword and slew Mỵ Châu, then followed the Turtle down into the sea. Âu Lạc passed into the hands of the House of Triệu."
       },
       "pullQuote": {
-        "text": { "vi": "Giặc ở sau lưng nhà vua đó!", "en": "The enemy is behind you, O King!" },
-        "attribution": { "vi": "Thần Kim Quy", "en": "The Golden Turtle" }
+        "text": {
+          "vi": "Giặc ở sau lưng nhà vua đó!",
+          "en": "The enemy is behind you, O King!"
+        },
+        "attribution": {
+          "vi": "Thần Kim Quy",
+          "en": "The Golden Turtle"
+        }
       },
       "hero": {
         "id": "au-lac-mat-nuoc-hero",
@@ -268,11 +437,17 @@
         "flagship": "eras/au-lac/events/au-lac-mat-nuoc.png",
         "reduced": "eras/au-lac/events/au-lac-mat-nuoc.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 1", "en": "Outer Records · Book 1" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 1",
+          "en": "Outer Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     }

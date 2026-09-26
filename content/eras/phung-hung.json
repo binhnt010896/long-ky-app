@@ -4,15 +4,27 @@
   "slug": "phung-hung",
   "order": 7,
   "period": "bac-thuoc",
-  "title": { "vi": "Phùng Hưng", "en": "Phùng Hưng" },
-  "kicker": { "vi": "Kỷ thuộc Đường", "en": "The age under Tang" },
-  "subtitle": { "vi": "Bố Cái Đại Vương — thần vua đất Đường Lâm.", "en": "Bố Cái Đại Vương — the divine king of Đường Lâm." },
+  "title": {
+    "vi": "Phùng Hưng",
+    "en": "Phùng Hưng"
+  },
+  "kicker": {
+    "vi": "Kỷ thuộc Đường",
+    "en": "The age under Tang"
+  },
+  "subtitle": {
+    "vi": "Bố Cái Đại Vương — thần vua đất Đường Lâm.",
+    "en": "Bố Cái Đại Vương — the divine king of Đường Lâm."
+  },
   "overview": {
     "vi": "Sau Mai Hắc Đế, đất Việt vẫn thuộc nhà Đường. Ở Đường Lâm có Phùng Hưng, đời đời làm quan lang, nhà hào phú; sử chép ông có sức khỏe hơn người, có thể giằng được trâu, đánh được cọp. Trong niên hiệu Đại Lịch, nhân Giao Châu có loạn, ông cùng em là Phùng Hải chiêu tập dân chúng, thu phục các huyện láng giềng, rồi cất quân vây phủ thành. Quan đô hộ Cao Chính Bình lo sợ mà chết; Phùng Hưng vào phủ coi việc, được ít lâu thì mất. Con là Phùng An tôn cha là Bố Cái Đại Vương — theo tục nước ta gọi cha là 'Bố', gọi mẹ là 'Cái'. Sau nhà Đường sai Triệu Xương sang, Phùng An đem quân ra hàng. Tuy tự chủ ngắn ngủi, Phùng Hưng được dân đời đời thờ làm thần vua, chép trong Ngoại kỷ.",
     "en": "After Mai Hắc Đế, the Việt land still lay under the Tang. In Đường Lâm lived Phùng Hưng, of a line of hereditary chiefs and a wealthy house; the chronicle records that he was of uncommon strength, able to wrestle a buffalo and fight a tiger. In the Đại Lịch era, when Giao Châu fell into unrest, he and his brother Phùng Hải gathered the people, won over the neighbouring districts, then led troops to besiege the citadel. The protector-general Cao Chính Bình died of fear; Phùng Hưng entered the seat to govern, but died not long after. His son Phùng An honoured him as Bố Cái Đại Vương — for by our custom a father is called 'Bố' and a mother 'Cái'. Later the Tang sent Triệu Xương, and Phùng An surrendered. Brief though the self-rule was, Phùng Hưng has been revered ever after as a divine king, and set down in the Outer Records."
   },
   "yearRange": {
-    "display": { "vi": "766 – 791 SCN", "en": "766 – 791 CE" },
+    "display": {
+      "vi": "766 – 791 SCN",
+      "en": "766 – 791 CE"
+    },
     "startYear": 766,
     "endYear": 791
   },
@@ -36,30 +48,61 @@
     "flagship": "eras/phung-hung/cover.png",
     "reduced": "eras/phung-hung/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/phung-hung/scene/sky.png", "reduced": "eras/phung-hung/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/phung-hung/scene/sky.png",
+        "reduced": "eras/phung-hung/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Ngoại kỷ", "en": "Outer Records" },
+    "section": {
+      "vi": "Ngoại kỷ",
+      "en": "Outer Records"
+    },
     "author": "Ngô Sĩ Liên"
   },
   "characters": [
-    { "ref": "phung-hung" },
-    { "ref": "phung-hai" },
-    { "ref": "phung-an" },
-    { "ref": "cao-chinh-binh" }
+    {
+      "ref": "phung-hung"
+    },
+    {
+      "ref": "phung-hai"
+    },
+    {
+      "ref": "phung-an"
+    },
+    {
+      "ref": "cao-chinh-binh"
+    }
   ],
   "events": [
     {
       "id": "ach-do-ho-cao-chinh-binh",
       "slug": "ach-do-ho-cao-chinh-binh",
-      "figureIds": ["phung-hung", "cao-chinh-binh"],
+      "figureIds": [
+        "phung-hung",
+        "cao-chinh-binh"
+      ],
       "details": {
         "vi": "Đất Việt bấy giờ vẫn là An Nam đô hộ phủ của nhà Đường, quan đô hộ Cao Chính Bình vơ vét hà khắc, khiến lòng dân oán hận. Ở đất Đường Lâm có Phùng Hưng, đời đời làm quan lang, vốn nhà hào phú. Sử chép ông có sức khỏe hơn người, có thể giằng được trâu, đánh được cọp — người trong vùng đều nể phục. Thấy chính sự nhà Đường ngày càng đổ nát, lòng người ly tán, ông ngầm nuôi chí lớn.",
         "en": "The Việt land was still the Tang's An Nam Protectorate, its protector-general Cao Chính Bình stripping it with harsh exactions until the people seethed. In Đường Lâm lived Phùng Hưng, of a line of hereditary chiefs and a wealthy house. The chronicle records that he was of uncommon strength, able to wrestle a buffalo and fight a tiger — and the people of the region held him in awe. Seeing the Tang government fall ever further into ruin and the people's hearts scatter, he quietly nursed a great design."
@@ -67,11 +110,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "≈ 766 SCN", "en": "≈ 766 CE" },
+        "display": {
+          "vi": "≈ 766 SCN",
+          "en": "≈ 766 CE"
+        },
         "value": 766,
         "approximate": true
       },
-      "title": { "vi": "Ách đô hộ và người Đường Lâm", "en": "The Tang yoke and the man of Đường Lâm" },
+      "title": {
+        "vi": "Ách đô hộ và người Đường Lâm",
+        "en": "The Tang yoke and the man of Đường Lâm"
+      },
       "summary": {
         "vi": "Cao Chính Bình hà khắc; Phùng Hưng sức khỏe hơn người, nuôi chí.",
         "en": "Cao Chính Bình's harsh rule; the mighty Phùng Hưng bides his time."
@@ -81,8 +130,14 @@
         "en": "The Việt land lay under the Tang, whose protector Cao Chính Bình was harsh and hated. In Đường Lâm lived Phùng Hưng, a wealthy hereditary chief of uncommon strength — able to wrestle a buffalo and fight a tiger. Seeing the Tang fall into disorder, he quietly nursed a great design."
       },
       "pullQuote": {
-        "text": { "vi": "Có sức khỏe, có thể giằng được trâu, đánh được cọp.", "en": "Of great strength, able to wrestle a buffalo and to fight a tiger." },
-        "attribution": { "vi": "Ngô Sĩ Liên", "en": "Ngô Sĩ Liên" }
+        "text": {
+          "vi": "Có sức khỏe, có thể giằng được trâu, đánh được cọp.",
+          "en": "Of great strength, able to wrestle a buffalo and to fight a tiger."
+        },
+        "attribution": {
+          "vi": "Ngô Sĩ Liên",
+          "en": "Ngô Sĩ Liên"
+        }
       },
       "hero": {
         "id": "ach-do-ho-cao-chinh-binh-hero",
@@ -91,18 +146,27 @@
         "flagship": "eras/phung-hung/events/ach-do-ho-cao-chinh-binh.png",
         "reduced": "eras/phung-hung/events/ach-do-ho-cao-chinh-binh.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 5",
+          "en": "Outer Records · Book 5"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "phung-hung-day-binh",
       "slug": "phung-hung-day-binh",
-      "figureIds": ["phung-hung", "phung-hai"],
+      "figureIds": [
+        "phung-hung",
+        "phung-hai"
+      ],
       "details": {
         "vi": "Trong niên hiệu Đại Lịch đời Đường Đại Tông, nhân Giao Châu có loạn, Phùng Hưng cùng em là Phùng Hải đứng ra chiêu tập dân chúng. Anh em họ Phùng lần lượt thu phục các huyện láng giềng, thế lực ngày một lớn; hào kiệt và dân chúng trong vùng nô nức theo về. Từ một dòng quan lang đất Đường Lâm, họ Phùng đã dựng nên một lực lượng đủ sức đương đầu với chính quyền đô hộ nhà Đường.",
         "en": "In the Đại Lịch era of the Tang emperor Đại Tông, when Giao Châu fell into unrest, Phùng Hưng and his brother Phùng Hải came forward to gather the people. The Phùng brothers won over the neighbouring districts one after another, their power swelling by the day; the brave and the common folk of the region flocked to them. From a line of hereditary chiefs in Đường Lâm, the Phùng had raised a force able to stand against the Tang protectorate."
@@ -110,11 +174,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "≈ 782 SCN", "en": "≈ 782 CE" },
+        "display": {
+          "vi": "≈ 782 SCN",
+          "en": "≈ 782 CE"
+        },
         "value": 782,
         "approximate": true
       },
-      "title": { "vi": "Phùng Hưng dấy binh", "en": "Phùng Hưng raises a revolt" },
+      "title": {
+        "vi": "Phùng Hưng dấy binh",
+        "en": "Phùng Hưng raises a revolt"
+      },
       "summary": {
         "vi": "Cùng em Phùng Hải thu phục các huyện láng giềng.",
         "en": "With his brother Phùng Hải he wins over the neighbouring districts."
@@ -124,8 +194,14 @@
         "en": "In the Đại Lịch era, Giao Châu fell into unrest. Phùng Hưng and his brother Phùng Hải gathered the people and won over the neighbouring districts, their power swelling until it could stand against the Tang protectorate."
       },
       "pullQuote": {
-        "text": { "vi": "Cùng với em là Hải đem nhau thu phục các huyện láng giềng.", "en": "With his brother Hải he won over the neighbouring districts." },
-        "attribution": { "vi": "Ngô Sĩ Liên", "en": "Ngô Sĩ Liên" }
+        "text": {
+          "vi": "Cùng với em là Hải đem nhau thu phục các huyện láng giềng.",
+          "en": "With his brother Hải he won over the neighbouring districts."
+        },
+        "attribution": {
+          "vi": "Ngô Sĩ Liên",
+          "en": "Ngô Sĩ Liên"
+        }
       },
       "hero": {
         "id": "phung-hung-day-binh-hero",
@@ -134,18 +210,27 @@
         "flagship": "eras/phung-hung/events/phung-hung-day-binh.png",
         "reduced": "eras/phung-hung/events/phung-hung-day-binh.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 5",
+          "en": "Outer Records · Book 5"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "vay-phu-chinh-binh-chet",
       "slug": "vay-phu-chinh-binh-chet",
-      "figureIds": ["phung-hung", "cao-chinh-binh"],
+      "figureIds": [
+        "phung-hung",
+        "cao-chinh-binh"
+      ],
       "details": {
         "vi": "Thanh thế đã lớn, Phùng Hưng cất quân tiến vây phủ thành — trị sở của An Nam đô hộ phủ. Quan đô hộ Cao Chính Bình đem quân chống giữ nhưng không sao đẩy lui được nghĩa quân; trong ngoài nao núng, ông lo sợ quá đến sinh bệnh mà chết. Sử chép gọn một câu: 'Chính Bình lo sợ mà chết.' Phùng Hưng nhân đó vào phủ, nắm lấy quyền cai trị, khôi phục quyền tự chủ cho người Việt sau bao năm dưới ách nhà Đường.",
         "en": "His power now great, Phùng Hưng led his troops to besiege the citadel — the seat of the An Nam Protectorate. The protector-general Cao Chính Bình brought out troops to hold it but could not drive the rebels back; shaken within and without, he was so overcome with fear that he sickened and died. The chronicle records it in a single line: 'Chính Bình died of fear.' Phùng Hưng then entered the seat and took the reins of government, restoring self-rule to the Việt after long years under the Tang."
@@ -153,11 +238,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "791 SCN", "en": "791 CE" },
+        "display": {
+          "vi": "791 SCN",
+          "en": "791 CE"
+        },
         "value": 791,
         "approximate": false
       },
-      "title": { "vi": "Vây phủ thành, Cao Chính Bình chết", "en": "The citadel besieged; Cao Chính Bình dies" },
+      "title": {
+        "vi": "Vây phủ thành, Cao Chính Bình chết",
+        "en": "The citadel besieged; Cao Chính Bình dies"
+      },
       "summary": {
         "vi": "Vây phủ thành; đô hộ Cao Chính Bình lo sợ mà chết.",
         "en": "The citadel besieged; the protector Cao Chính Bình dies of fear."
@@ -167,8 +258,14 @@
         "en": "Phùng Hưng led his troops to besiege the citadel. Cao Chính Bình could not hold and, overcome with fear, sickened and died. Phùng Hưng entered the seat and took power, restoring self-rule to the Việt."
       },
       "pullQuote": {
-        "text": { "vi": "Phùng Hưng cất quân vây phủ. Chính Bình lo sợ mà chết.", "en": "Phùng Hưng led his troops to besiege the citadel. Chính Bình died of fear." },
-        "attribution": { "vi": "Ngô Sĩ Liên", "en": "Ngô Sĩ Liên" }
+        "text": {
+          "vi": "Phùng Hưng cất quân vây phủ. Chính Bình lo sợ mà chết.",
+          "en": "Phùng Hưng led his troops to besiege the citadel. Chính Bình died of fear."
+        },
+        "attribution": {
+          "vi": "Ngô Sĩ Liên",
+          "en": "Ngô Sĩ Liên"
+        }
       },
       "hero": {
         "id": "vay-phu-chinh-binh-chet-hero",
@@ -177,18 +274,27 @@
         "flagship": "eras/phung-hung/events/vay-phu-chinh-binh-chet.png",
         "reduced": "eras/phung-hung/events/vay-phu-chinh-binh-chet.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 5",
+          "en": "Outer Records · Book 5"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "bo-cai-dai-vuong",
       "slug": "bo-cai-dai-vuong",
-      "figureIds": ["phung-hung", "phung-an"],
+      "figureIds": [
+        "phung-hung",
+        "phung-an"
+      ],
       "details": {
         "vi": "Phùng Hưng vào phủ coi việc chưa được bao lâu thì mất. Con là Phùng An nối nghiệp, tôn cha là Bố Cái Đại Vương — sử giải rằng theo tục nước ta gọi cha là 'Bố', gọi mẹ là 'Cái', nên lấy hai chữ ấy làm tên hiệu, ngụ ý tôn kính cha mẹ của muôn dân. Mùa hè tháng tư, nhà Đường sai Triệu Xương sang làm đô hộ; Xương vào cõi, biết vỗ về nên lòng dân yên, rồi sai sứ đến dụ. Phùng An liệu thế không chống nổi, bèn đem quân ra hàng. Cơ nghiệp tự chủ của họ Phùng tuy ngắn, nhưng tiếng Bố Cái Đại Vương thì lưu mãi, đền thờ hương khói không dứt.",
         "en": "Phùng Hưng governed from the seat only a short while before he died. His son Phùng An succeeded him and honoured his father as Bố Cái Đại Vương — the chronicle explains that by our country's custom a father is called 'Bố' and a mother 'Cái', so these two words were taken as the title, in reverence as the father-and-mother of the people. In summer, the fourth month, the Tang sent Triệu Xương as protector-general; entering the land he knew how to soothe it, so the people's hearts settled, and he sent an envoy to persuade An. Judging he could not resist, Phùng An surrendered with his troops. The Phùng self-rule was brief, but the name Bố Cái Đại Vương endures, his shrines kept in unbroken incense."
@@ -196,11 +302,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "791 SCN", "en": "791 CE" },
+        "display": {
+          "vi": "791 SCN",
+          "en": "791 CE"
+        },
         "value": 791,
         "approximate": false
       },
-      "title": { "vi": "Bố Cái Đại Vương", "en": "Bố Cái Đại Vương" },
+      "title": {
+        "vi": "Bố Cái Đại Vương",
+        "en": "Bố Cái Đại Vương"
+      },
       "summary": {
         "vi": "Phùng An tôn cha là Bố Cái Đại Vương; sau ra hàng Triệu Xương.",
         "en": "Phùng An honours his father as Bố Cái Đại Vương, then surrenders to Triệu Xương."
@@ -210,8 +322,14 @@
         "en": "Phùng Hưng died, and his son Phùng An honoured him as Bố Cái Đại Vương — by our custom a father is 'Bố' and a mother 'Cái'. Later the Tang sent Triệu Xương; the people settled, and Phùng An surrendered. The Phùng self-rule was brief, but the name Bố Cái Đại Vương endures."
       },
       "pullQuote": {
-        "text": { "vi": "Tục ta gọi cha là 'Bố', gọi mẹ là 'Cái', cho nên lấy làm tên hiệu.", "en": "By our custom a father is called 'Bố' and a mother 'Cái' — so it was made the title." },
-        "attribution": { "vi": "Ngô Sĩ Liên", "en": "Ngô Sĩ Liên" }
+        "text": {
+          "vi": "Tục ta gọi cha là 'Bố', gọi mẹ là 'Cái', cho nên lấy làm tên hiệu.",
+          "en": "By our custom a father is called 'Bố' and a mother 'Cái' — so it was made the title."
+        },
+        "attribution": {
+          "vi": "Ngô Sĩ Liên",
+          "en": "Ngô Sĩ Liên"
+        }
       },
       "hero": {
         "id": "bo-cai-dai-vuong-hero",
@@ -220,11 +338,17 @@
         "flagship": "eras/phung-hung/events/bo-cai-dai-vuong.png",
         "reduced": "eras/phung-hung/events/bo-cai-dai-vuong.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 5",
+          "en": "Outer Records · Book 5"
+        },
         "author": "Ngô Sĩ Liên"
       }
     }

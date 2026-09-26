@@ -4,15 +4,27 @@
   "slug": "hai-ba-trung",
   "order": 3,
   "period": "bac-thuoc",
-  "title": { "vi": "Hai Bà Trưng", "en": "The Trưng Sisters" },
-  "kicker": { "vi": "Kỷ Trưng Nữ Vương", "en": "Reign of the Trưng Queen" },
-  "subtitle": { "vi": "Ba năm độc lập, ngàn năm khí phách.", "en": "Three years of freedom, an eternal defiance." },
+  "title": {
+    "vi": "Hai Bà Trưng",
+    "en": "The Trưng Sisters"
+  },
+  "kicker": {
+    "vi": "Kỷ Trưng Nữ Vương",
+    "en": "Reign of the Trưng Queen"
+  },
+  "subtitle": {
+    "vi": "Ba năm độc lập, ngàn năm khí phách.",
+    "en": "Three years of freedom, an eternal defiance."
+  },
   "overview": {
     "vi": "Sau khi Nam Việt mất, người Việt chịu ách đô hộ nhà Hán hơn một trăm năm. Năm 40, hai chị em Trưng Trắc và Trưng Nhị ở Mê Linh phất cờ khởi nghĩa, đánh đuổi thái thú Tô Định, thu lại sáu mươi lăm thành và xưng Trưng Nữ Vương — lần đầu người Việt giành lại quyền tự chủ, mà lại do chính tay người phụ nữ. Nhưng chỉ được ba năm, nhà Hán sai lão tướng Mã Viện sang đàn áp; hai Bà thua trận, tuẫn tiết bên dòng Hát Giang. Khởi nghĩa tuy thất bại, Hai Bà Trưng mãi là biểu tượng bất khuất của dân tộc, được sử thần Ngô Sĩ Liên hết lời ngợi ca trong Ngoại kỷ.",
     "en": "After Nam Việt fell, the Việt bore the Han yoke for more than a century. In the year 40, the sisters Trưng Trắc and Trưng Nhị of Mê Linh raised the flag of revolt, drove out the governor Tô Định, recovered sixty-five citadels, and Trưng Trắc was proclaimed the Trưng Queen — the first time the Việt won back self-rule, and by a woman's hand. But after only three years, Han sent the veteran general Mã Viện to crush them; the sisters were defeated and gave themselves to the Hát River. Though the uprising failed, the Trưng Sisters remain the undying symbol of the nation's defiance, praised without stint by the historian Ngô Sĩ Liên in the Outer Records."
   },
   "yearRange": {
-    "display": { "vi": "40 – 43 SCN", "en": "40 – 43 CE" },
+    "display": {
+      "vi": "40 – 43 SCN",
+      "en": "40 – 43 CE"
+    },
     "startYear": 40,
     "endYear": 43
   },
@@ -36,33 +48,82 @@
     "flagship": "eras/hai-ba-trung/cover.png",
     "reduced": "eras/hai-ba-trung/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/hai-ba-trung/scene/sky.png", "reduced": "eras/hai-ba-trung/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "ridge-far", "type": "image", "role": "mid", "depth": 0.45, "flagship": "eras/hai-ba-trung/scene/ridge-far.png", "reduced": "eras/hai-ba-trung/scene/ridge-far.png", "placeholder": "ridge" },
-      { "id": "ridge-near", "type": "image", "role": "foreground", "depth": 0.8, "flagship": "eras/hai-ba-trung/scene/ridge-near.png", "reduced": "eras/hai-ba-trung/scene/ridge-near.png", "placeholder": "ridge" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/hai-ba-trung/scene/sky.png",
+        "reduced": "eras/hai-ba-trung/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "ridge-far",
+        "type": "image",
+        "role": "mid",
+        "depth": 0.45,
+        "flagship": "eras/hai-ba-trung/scene/ridge-far.png",
+        "reduced": "eras/hai-ba-trung/scene/ridge-far.png",
+        "placeholder": "ridge"
+      },
+      {
+        "id": "ridge-near",
+        "type": "image",
+        "role": "foreground",
+        "depth": 0.8,
+        "flagship": "eras/hai-ba-trung/scene/ridge-near.png",
+        "reduced": "eras/hai-ba-trung/scene/ridge-near.png",
+        "placeholder": "ridge"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Ngoại kỷ", "en": "Outer Records" },
+    "section": {
+      "vi": "Ngoại kỷ",
+      "en": "Outer Records"
+    },
     "author": "Ngô Sĩ Liên"
   },
   "characters": [
-    { "ref": "trung-trac" },
-    { "ref": "trung-nhi" },
-    { "ref": "thi-sach" },
-    { "ref": "to-dinh" },
-    { "ref": "ma-vien" }
+    {
+      "ref": "trung-trac"
+    },
+    {
+      "ref": "trung-nhi"
+    },
+    {
+      "ref": "thi-sach"
+    },
+    {
+      "ref": "to-dinh"
+    },
+    {
+      "ref": "ma-vien"
+    }
   ],
   "events": [
     {
       "id": "ach-do-ho-nha-han",
       "slug": "ach-do-ho-nha-han",
-      "figureIds": ["to-dinh", "thi-sach"],
+      "figureIds": [
+        "to-dinh",
+        "thi-sach"
+      ],
       "details": {
         "vi": "Từ khi nhà Triệu mất, đất Việt bị chia làm các quận Giao Chỉ, Cửu Chân, Nhật Nam, chịu ách đô hộ nhà Hán hơn một trăm năm. Các Lạc tướng người Việt tuy còn nhưng quyền bính dần vào tay quan lại phương Bắc. Đến đời thái thú Tô Định, chính sự tham tàn, thuế khóa nặng nề, lòng dân oán hận. Tô Định lại giết Thi Sách — con Lạc tướng Chu Diên, chồng của Trưng Trắc — khiến mối thù nước gộp cùng thù nhà, châm ngòi cho cuộc khởi nghĩa.",
         "en": "After the House of Triệu fell, the Việt land was carved into the commanderies of Giao Chỉ, Cửu Chân and Nhật Nam and bore the Han yoke for more than a century. The Việt Lạc lords remained, but power passed steadily to officials from the North. Under the governor Tô Định, rule grew rapacious and taxes crushing, and the people seethed. Tô Định then killed Thi Sách — son of the Lạc lord of Chu Diên and husband of Trưng Trắc — so that a nation's grievance fused with a personal one, and lit the fuse of revolt."
@@ -70,11 +131,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "≈ 40 SCN", "en": "≈ 40 CE" },
+        "display": {
+          "vi": "≈ 40 SCN",
+          "en": "≈ 40 CE"
+        },
         "value": 40,
         "approximate": true
       },
-      "title": { "vi": "Ách đô hộ nhà Hán", "en": "Under the Han yoke" },
+      "title": {
+        "vi": "Ách đô hộ nhà Hán",
+        "en": "Under the Han yoke"
+      },
       "summary": {
         "vi": "Thái thú Tô Định hà khắc; Thi Sách bị hại.",
         "en": "Governor Tô Định's cruelty; Thi Sách is slain."
@@ -84,7 +151,10 @@
         "en": "More than a century after losing their realm, the Việt lived under the Han yoke. Tô Định, the Grand Administrator of Giao Chỉ, was greedy and cruel, and he killed Thi Sách — husband of Trưng Trắc. A nation's grievance and a personal one piled up, waiting only for the day they would blaze."
       },
       "pullQuote": {
-        "text": { "vi": "Trăm năm Bắc thuộc, lòng dân chưa nguôi.", "en": "A century under the North — and the people's heart unquelled." }
+        "text": {
+          "vi": "Trăm năm Bắc thuộc, lòng dân chưa nguôi.",
+          "en": "A century under the North — and the people's heart unquelled."
+        }
       },
       "hero": {
         "id": "ach-do-ho-nha-han-hero",
@@ -93,18 +163,27 @@
         "flagship": "eras/hai-ba-trung/events/ach-do-ho-nha-han.png",
         "reduced": "eras/hai-ba-trung/events/ach-do-ho-nha-han.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 3", "en": "Outer Records · Book 3" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 3",
+          "en": "Outer Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "hai-ba-trung-khoi-nghia",
       "slug": "hai-ba-trung-khoi-nghia",
-      "figureIds": ["trung-trac", "trung-nhi"],
+      "figureIds": [
+        "trung-trac",
+        "trung-nhi"
+      ],
       "details": {
         "vi": "Mùa xuân năm Canh Tý (40), Trưng Trắc cùng em là Trưng Nhị phất cờ khởi nghĩa ở Mê Linh. Hai Bà cưỡi voi, thề trước ba quân rửa hận nước, nối lại nghiệp xưa họ Hùng. Các Lạc tướng, hào kiệt và dân chúng khắp Giao Chỉ, Cửu Chân nô nức theo về; nhiều nữ tướng cũng dấy binh hưởng ứng, làm nên khí thế chưa từng có.",
         "en": "In the spring of the year Canh Tý (40), Trưng Trắc and her sister Trưng Nhị raised the flag of revolt at Mê Linh. Mounted on war elephants, the sisters swore before their host to avenge the nation's shame and restore the old realm of the Hùng. The Lạc lords, the brave, and the people across Giao Chỉ and Cửu Chân flocked to them; women too raised arms in answer, building a fervour never seen before."
@@ -112,11 +191,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "40 SCN", "en": "40 CE" },
+        "display": {
+          "vi": "40 SCN",
+          "en": "40 CE"
+        },
         "value": 40,
         "approximate": false
       },
-      "title": { "vi": "Hai Bà Trưng khởi nghĩa", "en": "The Trưng Sisters rise" },
+      "title": {
+        "vi": "Hai Bà Trưng khởi nghĩa",
+        "en": "The Trưng Sisters rise"
+      },
       "summary": {
         "vi": "Phất cờ ở Mê Linh, các Lạc tướng hưởng ứng.",
         "en": "The flag rises at Mê Linh; the Lạc lords rally."
@@ -126,8 +211,14 @@
         "en": "In the year 40, Trưng Trắc and Trưng Nhị raised the flag of revolt at Mê Linh. Riding war elephants into the field, the sisters swore to avenge their nation; the Lạc lords and the multitude rallied to them, and many women rose in arms as well, building a mighty tide."
       },
       "pullQuote": {
-        "text": { "vi": "Một xin rửa sạch quốc thù, hai xin dựng lại nghiệp xưa họ Hùng.", "en": "First, to wash away the nation's shame; second, to restore the old realm of the Hùng." },
-        "attribution": { "vi": "Trưng Trắc", "en": "Trưng Trắc" }
+        "text": {
+          "vi": "Một xin rửa sạch quốc thù, hai xin dựng lại nghiệp xưa họ Hùng.",
+          "en": "First, to wash away the nation's shame; second, to restore the old realm of the Hùng."
+        },
+        "attribution": {
+          "vi": "Trưng Trắc",
+          "en": "Trưng Trắc"
+        }
       },
       "hero": {
         "id": "hai-ba-trung-khoi-nghia-hero",
@@ -136,18 +227,28 @@
         "flagship": "eras/hai-ba-trung/events/hai-ba-trung-khoi-nghia.png",
         "reduced": "eras/hai-ba-trung/events/hai-ba-trung-khoi-nghia.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 3", "en": "Outer Records · Book 3" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 3",
+          "en": "Outer Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "duoi-to-dinh-thu-65-thanh",
       "slug": "duoi-to-dinh-thu-65-thanh",
-      "figureIds": ["trung-trac", "trung-nhi", "to-dinh"],
+      "figureIds": [
+        "trung-trac",
+        "trung-nhi",
+        "to-dinh"
+      ],
       "details": {
         "vi": "Nghĩa quân Hai Bà đánh đâu thắng đó, quét sạch quận huyện của nhà Hán ở Giao Chỉ, Cửu Chân, Nhật Nam và Hợp Phố, hạ được sáu mươi lăm thành trì. Thái thú Tô Định chống không nổi, phải cắt tóc cạo râu trốn về Nam Hải. Chỉ trong thời gian ngắn, cả một dải đất phương Nam trở lại tay người Việt.",
         "en": "The sisters' armies won wherever they struck, sweeping the Han commanderies of Giao Chỉ, Cửu Chân, Nhật Nam and Hợp Phố and taking sixty-five citadels. Unable to hold, the governor Tô Định cut his hair and shaved his beard to flee back to Nam Hải. In a short span, a whole stretch of the southern land returned to Việt hands."
@@ -155,11 +256,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "40 SCN", "en": "40 CE" },
+        "display": {
+          "vi": "40 SCN",
+          "en": "40 CE"
+        },
         "value": 40,
         "approximate": false
       },
-      "title": { "vi": "Đuổi Tô Định, thu 65 thành", "en": "Tô Định driven out, 65 citadels won" },
+      "title": {
+        "vi": "Đuổi Tô Định, thu 65 thành",
+        "en": "Tô Định driven out, 65 citadels won"
+      },
       "summary": {
         "vi": "Nghĩa quân quét sạch quận huyện; Tô Định bỏ chạy.",
         "en": "The rebels sweep the commanderies; Tô Định flees."
@@ -169,7 +276,10 @@
         "en": "The sisters' armies stormed across Giao Chỉ, Cửu Chân, Nhật Nam and Hợp Phố, taking sixty-five citadels. Tô Định, heavily beaten, fled back to the North, and the southern land returned to Việt hands."
       },
       "pullQuote": {
-        "text": { "vi": "Sáu mươi lăm thành, một tay thu lại.", "en": "Sixty-five citadels, won back by her hand." }
+        "text": {
+          "vi": "Sáu mươi lăm thành, một tay thu lại.",
+          "en": "Sixty-five citadels, won back by her hand."
+        }
       },
       "hero": {
         "id": "duoi-to-dinh-hero",
@@ -178,18 +288,26 @@
         "flagship": "eras/hai-ba-trung/events/duoi-to-dinh.png",
         "reduced": "eras/hai-ba-trung/events/duoi-to-dinh.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 3", "en": "Outer Records · Book 3" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 3",
+          "en": "Outer Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "trung-nu-vuong-xung-vuong",
       "slug": "trung-nu-vuong-xung-vuong",
-      "figureIds": ["trung-trac"],
+      "figureIds": [
+        "trung-trac"
+      ],
       "details": {
         "vi": "Dẹp xong giặc, Trưng Trắc lên ngôi, xưng là Trưng Nữ Vương, đóng đô ở Mê Linh, khôi phục nền tự chủ của người Việt sau hơn một trăm năm Bắc thuộc. Bà xá thuế cho dân hai năm, chia đặt lại các nơi. Sử thần Ngô Sĩ Liên khen rằng chỉ một tiếng hô mà hơn sáu mươi thành hưởng ứng, dựng nước xưng vương — việc ấy thật dễ như trở bàn tay, đủ thấy khí thế người Việt.",
         "en": "With the foe expelled, Trưng Trắc took the throne as the Trưng Queen, set her capital at Mê Linh, and restored the self-rule of the Việt after more than a century under the North. She remitted the people's taxes for two years and reordered the land. The historian Ngô Sĩ Liên praised that at a single call more than sixty citadels answered and a realm was founded — a thing as easy as turning one's hand, proof of the spirit of the Việt."
@@ -197,11 +315,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "40 SCN", "en": "40 CE" },
+        "display": {
+          "vi": "40 SCN",
+          "en": "40 CE"
+        },
         "value": 40,
         "approximate": false
       },
-      "title": { "vi": "Trưng Nữ Vương xưng vương", "en": "The Trưng Queen proclaimed" },
+      "title": {
+        "vi": "Trưng Nữ Vương xưng vương",
+        "en": "The Trưng Queen proclaimed"
+      },
       "summary": {
         "vi": "Đóng đô Mê Linh, khôi phục nền tự chủ.",
         "en": "Capital at Mê Linh; self-rule restored."
@@ -211,8 +335,14 @@
         "en": "Trưng Trắc took the throne as the Trưng Queen, set her capital at Mê Linh and remitted the people's taxes. After more than a century of subjugation, the Việt again had a ruler of their own — and a queen at that."
       },
       "pullQuote": {
-        "text": { "vi": "Một tiếng hô, hơn sáu mươi thành hưởng ứng.", "en": "At a single call, more than sixty citadels answered." },
-        "attribution": { "vi": "Ngô Sĩ Liên", "en": "Ngô Sĩ Liên" }
+        "text": {
+          "vi": "Một tiếng hô, hơn sáu mươi thành hưởng ứng.",
+          "en": "At a single call, more than sixty citadels answered."
+        },
+        "attribution": {
+          "vi": "Ngô Sĩ Liên",
+          "en": "Ngô Sĩ Liên"
+        }
       },
       "hero": {
         "id": "trung-nu-vuong-hero",
@@ -221,18 +351,28 @@
         "flagship": "eras/hai-ba-trung/events/trung-nu-vuong.png",
         "reduced": "eras/hai-ba-trung/events/trung-nu-vuong.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 3", "en": "Outer Records · Book 3" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 3",
+          "en": "Outer Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "ma-vien-phan-cong",
       "slug": "ma-vien-phan-cong",
-      "figureIds": ["ma-vien", "trung-trac", "trung-nhi"],
+      "figureIds": [
+        "ma-vien",
+        "trung-trac",
+        "trung-nhi"
+      ],
       "details": {
         "vi": "Nghe tin Giao Chỉ mất, năm 42 vua Hán Quang Vũ phong lão tướng Mã Viện làm Phục Ba tướng quân, cùng Lưu Long, Đoàn Chí đem hai vạn quân thủy bộ sang đàn áp. Mã Viện theo ven biển mà tiến, san núi mở đường hơn nghìn dặm. Hai bên gặp nhau ở Lãng Bạc; quân Hán đông và tinh nhuệ, quân Hai Bà tuy dũng cảm nhưng mới họp, khó địch lâu dài. Sau nhiều trận ác chiến, thế không chống nổi, Hai Bà phải lui quân về giữ đất Cấm Khê, quân sĩ dần hao mòn.",
         "en": "Hearing that Giao Chỉ was lost, in 42 Emperor Quang Vũ of Han named the veteran Mã Viện the Wave-Calming General and, with Lưu Long and Đoàn Chí, sent twenty thousand troops by land and sea to crush the revolt. Mã Viện advanced along the coast, levelling hills to open a road of more than a thousand li. The two hosts met at Lãng Bạc; the Han were many and seasoned, and though the sisters' troops were brave they were newly gathered and could not hold for long. After fierce fighting the sisters, unable to withstand him, drew back to hold Cấm Khê, their ranks wearing thin."
@@ -240,11 +380,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "42 SCN", "en": "42 CE" },
+        "display": {
+          "vi": "42 SCN",
+          "en": "42 CE"
+        },
         "value": 42,
         "approximate": false
       },
-      "title": { "vi": "Mã Viện phản công", "en": "Mã Viện's counter-campaign" },
+      "title": {
+        "vi": "Mã Viện phản công",
+        "en": "Mã Viện's counter-campaign"
+      },
       "summary": {
         "vi": "Phục Ba tướng quân đem đại quân; ác chiến ở Lãng Bạc.",
         "en": "The Wave-Calming General brings a great host; hard fighting at Lãng Bạc."
@@ -254,7 +400,10 @@
         "en": "In 42 Han sent the Wave-Calming General Mã Viện with twenty thousand troops to crush the revolt. The two sides clashed at Lãng Bạc; the Han were many and seasoned, and though the sisters fought fiercely they were outmatched and fell back to hold Cấm Khê."
       },
       "pullQuote": {
-        "text": { "vi": "San núi mở đường nghìn dặm, giặc Bắc lại sang.", "en": "Hills levelled, a thousand-li road opened — the North came again." }
+        "text": {
+          "vi": "San núi mở đường nghìn dặm, giặc Bắc lại sang.",
+          "en": "Hills levelled, a thousand-li road opened — the North came again."
+        }
       },
       "hero": {
         "id": "ma-vien-phan-cong-hero",
@@ -263,18 +412,27 @@
         "flagship": "eras/hai-ba-trung/events/ma-vien-phan-cong.png",
         "reduced": "eras/hai-ba-trung/events/ma-vien-phan-cong.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 3", "en": "Outer Records · Book 3" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 3",
+          "en": "Outer Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "hai-ba-tuan-tiet",
       "slug": "hai-ba-tuan-tiet",
-      "figureIds": ["trung-trac", "trung-nhi"],
+      "figureIds": [
+        "trung-trac",
+        "trung-nhi"
+      ],
       "details": {
         "vi": "Sang năm 43, thế cùng lực kiệt, quân Hai Bà tan vỡ ở Cấm Khê. Không chịu để sa vào tay giặc, Trưng Trắc và Trưng Nhị gieo mình xuống dòng Hát Giang mà tuẫn tiết, giữ trọn khí tiết. Mã Viện bình xong đất Việt, dựng cột đồng làm mốc biên giới, đất nước lại rơi vào vòng Bắc thuộc. Song khí phách Hai Bà thì ngàn năm còn mãi; đền thờ hai Bà lập khắp nơi, hương khói không dứt. Sử thần Ngô Sĩ Liên khen: đàn bà mà làm nên việc anh hùng như thế, đủ khiến bọn mày râu phải thẹn.",
         "en": "In 43, spent and surrounded, the sisters' army broke at Cấm Khê. Rather than fall into enemy hands, Trưng Trắc and Trưng Nhị cast themselves into the Hát River and died with their honour whole. Mã Viện, his conquest complete, raised bronze pillars to mark the frontier, and the land sank again under Northern rule. Yet the sisters' defiance endures a thousand years; shrines to them stand everywhere in unbroken incense. The historian Ngô Sĩ Liên praised them: that women should achieve such heroism is enough to shame the men."
@@ -282,11 +440,17 @@
       "order": 5,
       "kind": "historical",
       "year": {
-        "display": { "vi": "43 SCN", "en": "43 CE" },
+        "display": {
+          "vi": "43 SCN",
+          "en": "43 CE"
+        },
         "value": 43,
         "approximate": false
       },
-      "title": { "vi": "Hai Bà tuẫn tiết", "en": "The sisters' sacrifice" },
+      "title": {
+        "vi": "Hai Bà tuẫn tiết",
+        "en": "The sisters' sacrifice"
+      },
       "summary": {
         "vi": "Thua ở Cấm Khê, hai Bà gieo mình xuống Hát Giang.",
         "en": "Defeated at Cấm Khê, the sisters give themselves to the Hát River."
@@ -296,7 +460,10 @@
         "en": "In 43 the army broke at Cấm Khê, and the sisters cast themselves into the Hát River, their honour whole. The realm fell again to Han — but the defiance of the sisters endures a thousand years, their shrines everywhere kept in unbroken incense."
       },
       "pullQuote": {
-        "text": { "vi": "Nước mất, thân này thà gửi cho dòng sông.", "en": "The realm lost, they gave their bodies to the river." }
+        "text": {
+          "vi": "Nước mất, thân này thà gửi cho dòng sông.",
+          "en": "The realm lost, they gave their bodies to the river."
+        }
       },
       "hero": {
         "id": "hai-ba-tuan-tiet-hero",
@@ -305,11 +472,17 @@
         "flagship": "eras/hai-ba-trung/events/hai-ba-tuan-tiet.png",
         "reduced": "eras/hai-ba-trung/events/hai-ba-tuan-tiet.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 3", "en": "Outer Records · Book 3" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 3",
+          "en": "Outer Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     }

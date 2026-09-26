@@ -4,15 +4,27 @@
   "slug": "ly-nhan-tong",
   "order": 14,
   "period": "nha-ly",
-  "title": { "vi": "Lý Nhân Tông & Lý Thường Kiệt", "en": "Lý Nhân Tông & Lý Thường Kiệt" },
-  "kicker": { "vi": "Kỷ nhà Lý", "en": "The Lý dynasty" },
-  "subtitle": { "vi": "Mở khoa thi, phá Tống, dựng nền tự chủ Đại Việt.", "en": "Examinations opened, the Song broken, Đại Việt's independence affirmed." },
+  "title": {
+    "vi": "Lý Nhân Tông & Lý Thường Kiệt",
+    "en": "Lý Nhân Tông & Lý Thường Kiệt"
+  },
+  "kicker": {
+    "vi": "Kỷ nhà Lý",
+    "en": "The Lý dynasty"
+  },
+  "subtitle": {
+    "vi": "Mở khoa thi, phá Tống, dựng nền tự chủ Đại Việt.",
+    "en": "Examinations opened, the Song broken, Đại Việt's independence affirmed."
+  },
   "overview": {
     "vi": "Lý Thánh Tông băng năm Nhâm Tý (1072), thái tử Càn Đức mới bảy tuổi lên ngôi, tức Lý Nhân Tông; mẹ là Ỷ Lan buông rèm nhiếp chính, có Lý Đạo Thành và Thái úy Lý Thường Kiệt phụ chính. Đời Nhân Tông là buổi cực thịnh của nhà Lý. Về văn, năm Ất Mão (1075) vua mở khoa thi Nho học đầu tiên chọn người tài, năm sau (1076) lập Quốc Tử Giám — trường học cao nhất nước, mở đầu nền khoa cử. Về võ, thấy nhà Tống sửa soạn xâm lược, Lý Thường Kiệt chủ trương 'ngồi yên đợi giặc không bằng đem quân ra trước'; năm 1075–1076, ông cùng Tông Đản đem quân sang phá tan các châu Ung, Khâm, Liêm, triệt căn cứ của giặc rồi rút về. Năm Đinh Tỵ (1077), quân Tống do Quách Quỳ kéo sang báo thù; Lý Thường Kiệt lập phòng tuyến bên sông Như Nguyệt chặn giặc, cho vang lên bài thơ 'Nam quốc sơn hà' khẳng định chủ quyền, rồi đại phá quân Tống. Ông lại chủ động giảng hòa cho giặc rút về, giữ vẹn bờ cõi. Nước Đại Việt từ đó vững như bàn thạch; Nhân Tông ở ngôi năm mươi lăm năm, lâu nhất trong sử Việt.",
     "en": "Lý Thánh Tông died in the year Nhâm Tý (1072), and the crown prince Càn Đức, only seven, took the throne as Lý Nhân Tông; his mother Ỷ Lan ruled from behind the screen, with Lý Đạo Thành and the Grand Marshal Lý Thường Kiệt as regents. Nhân Tông's reign was the summit of the Lý. In learning: in the year Ất Mão (1075) he opened the first Confucian examination to choose men of talent, and the next year (1076) founded the Quốc Tử Giám — the realm's highest school — beginning the age of examinations. In arms: seeing the Song prepare to invade, Lý Thường Kiệt held that 'to sit and await the enemy is worse than to strike first'; in 1075–1076 he and Tông Đản led an army to break the Song prefectures of Ung, Khâm and Liêm, destroying the enemy's bases before withdrawing. In the year Đinh Tỵ (1077) the Song under Quách Quỳ came in revenge; Lý Thường Kiệt raised a line along the Như Nguyệt River to bar them, had the poem 'Nam quốc sơn hà' proclaimed to assert the nation's sovereignty, and shattered the Song army. He then chose to negotiate their withdrawal, keeping the borders whole. From then Đại Việt stood firm as bedrock; Nhân Tông reigned fifty-five years, the longest in Việt history."
   },
   "yearRange": {
-    "display": { "vi": "1072 – 1127 SCN", "en": "1072 – 1127 CE" },
+    "display": {
+      "vi": "1072 – 1127 SCN",
+      "en": "1072 – 1127 CE"
+    },
     "startYear": 1072,
     "endYear": 1127
   },
@@ -36,29 +48,63 @@
     "flagship": "eras/ly-nhan-tong/cover.png",
     "reduced": "eras/ly-nhan-tong/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/ly-nhan-tong/scene/sky.png", "reduced": "eras/ly-nhan-tong/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/ly-nhan-tong/scene/sky.png",
+        "reduced": "eras/ly-nhan-tong/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Bản kỷ", "en": "Basic Records" },
+    "section": {
+      "vi": "Bản kỷ",
+      "en": "Basic Records"
+    },
     "author": "Ngô Sĩ Liên"
   },
   "characters": [
-    { "ref": "ly-nhan-tong" },
-    { "ref": "ly-thuong-kiet" },
-    { "ref": "y-lan", "epithet": { "vi": "Hoàng thái hậu nhiếp chính", "en": "Empress Dowager and regent" } }
+    {
+      "ref": "ly-nhan-tong"
+    },
+    {
+      "ref": "ly-thuong-kiet"
+    },
+    {
+      "ref": "y-lan",
+      "epithet": {
+        "vi": "Hoàng thái hậu nhiếp chính",
+        "en": "Empress Dowager and regent"
+      }
+    }
   ],
   "events": [
     {
       "id": "nhan-tong-len-ngoi",
       "slug": "nhan-tong-len-ngoi",
-      "figureIds": ["ly-nhan-tong", "y-lan", "ly-thuong-kiet"],
+      "figureIds": [
+        "ly-nhan-tong",
+        "y-lan",
+        "ly-thuong-kiet"
+      ],
       "details": {
         "vi": "Năm Nhâm Tý (1072), Lý Thánh Tông băng, thái tử Càn Đức mới bảy tuổi nối ngôi, tức Lý Nhân Tông. Vua còn thơ ấu, nên mẹ là Nguyên phi Ỷ Lan được tôn làm Hoàng thái hậu, buông rèm nhiếp chính; các đại thần Lý Đạo Thành coi việc văn, Thái úy Lý Thường Kiệt coi việc võ, cùng nhau phò giúp. Buổi đầu nhiếp chính, sử chép vì việc tranh quyền trong cung, thái hậu Ỷ Lan để xảy ra việc bức tử Thái hậu Thượng Dương cùng các thị nữ — điều mà đời sau lấy làm thương xót và chê trách. Song từ đó việc nước quy về một mối, trên dưới đồng lòng, đặt nền cho một triều Nhân Tông cường thịnh và lâu dài.",
         "en": "In the year Nhâm Tý (1072) Lý Thánh Tông died, and the crown prince Càn Đức, only seven, succeeded as Lý Nhân Tông. As the king was a child, his mother the consort Ỷ Lan was raised to Empress Dowager and ruled from behind the screen; the minister Lý Đạo Thành oversaw civil affairs and the Grand Marshal Lý Thường Kiệt the military, upholding the throne together. In the early regency, the chronicle records, out of a struggle for power within the palace the Dowager Ỷ Lan brought about the deaths of the senior Dowager Thượng Dương and her palace women — a deed later ages mourned and censured. Yet from then the affairs of state came under one hand, high and low of one mind, laying the ground for a long and flourishing reign."
@@ -66,11 +112,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1072 SCN", "en": "1072 CE" },
+        "display": {
+          "vi": "1072 SCN",
+          "en": "1072 CE"
+        },
         "value": 1072,
         "approximate": false
       },
-      "title": { "vi": "Nhân Tông lên ngôi, Ỷ Lan nhiếp chính", "en": "Nhân Tông enthroned, Ỷ Lan regent" },
+      "title": {
+        "vi": "Nhân Tông lên ngôi, Ỷ Lan nhiếp chính",
+        "en": "Nhân Tông enthroned, Ỷ Lan regent"
+      },
       "summary": {
         "vi": "Vua bảy tuổi nối ngôi; Ỷ Lan làm thái hậu nhiếp chính, Thường Kiệt phụ chính.",
         "en": "A seven-year-old succeeds; Ỷ Lan rules as regent, Thường Kiệt upholds the state."
@@ -80,8 +132,14 @@
         "en": "In 1072 Lý Thánh Tông died and the seven-year-old crown prince Càn Đức took the throne as Lý Nhân Tông. His mother Ỷ Lan became Empress Dowager and regent, with Lý Đạo Thành and the Grand Marshal Lý Thường Kiệt as regents. The early regency saw the deaths of the Dowager Thượng Dương, which later ages censured; yet the state now came under one hand."
       },
       "pullQuote": {
-        "text": { "vi": "Vua mới bảy tuổi, thái hậu Ỷ Lan buông rèm nhiếp chính, trong có Lý Đạo Thành, ngoài có Lý Thường Kiệt.", "en": "The king was but seven; the Dowager Ỷ Lan ruled from behind the screen, with Lý Đạo Thành within and Lý Thường Kiệt without." },
-        "attribution": { "vi": "theo Đại Việt sử ký toàn thư", "en": "per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Vua mới bảy tuổi, thái hậu Ỷ Lan buông rèm nhiếp chính, trong có Lý Đạo Thành, ngoài có Lý Thường Kiệt.",
+          "en": "The king was but seven; the Dowager Ỷ Lan ruled from behind the screen, with Lý Đạo Thành within and Lý Thường Kiệt without."
+        },
+        "attribution": {
+          "vi": "theo Đại Việt sử ký toàn thư",
+          "en": "per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "nhan-tong-len-ngoi-hero",
@@ -90,18 +148,26 @@
         "flagship": "eras/ly-nhan-tong/events/nhan-tong-len-ngoi.png",
         "reduced": "eras/ly-nhan-tong/events/nhan-tong-len-ngoi.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 3", "en": "Basic Records · Book 3" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 3",
+          "en": "Basic Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "khoa-thi-quoc-tu-giam",
       "slug": "khoa-thi-quoc-tu-giam",
-      "figureIds": ["ly-nhan-tong"],
+      "figureIds": [
+        "ly-nhan-tong"
+      ],
       "details": {
         "vi": "Nối chí cha dựng Văn Miếu, Lý Nhân Tông mở mang việc học. Năm Ất Mão (1075), vua xuống chiếu mở khoa thi Minh kinh bác học và Nho học tam trường — khoa thi đầu tiên của nước Việt để kén chọn người tài ra giúp nước; Lê Văn Thịnh đỗ đầu, được vào hầu vua học. Năm sau, năm Bính Thìn (1076), vua lập Quốc Tử Giám bên cạnh Văn Miếu, chọn những người có văn học trong nước vào đó dạy — đấy là trường học cao nhất, nơi đào tạo nhân tài cho triều đình, được coi là trường đại học đầu tiên của nước ta. Từ đây, việc học hành, thi cử chọn người theo tài đức mở ra, thành nền nếp lâu dài của nước Đại Việt.",
         "en": "Carrying on his father's founding of the Temple of Literature, Lý Nhân Tông advanced learning. In the year Ất Mão (1075) he decreed the first examination — in the classics and in the three Confucian grades — the first examination of the Việt to select men of talent for the state; Lê Văn Thịnh placed first and was brought in to attend the king's studies. The next year, Bính Thìn (1076), he founded the Quốc Tử Giám beside the Temple of Literature, choosing the realm's men of letters to teach there — the highest school, training talent for the court, reckoned the first university of our country. From then, study and examination by merit opened as a lasting institution of Đại Việt."
@@ -109,11 +175,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1075 – 1076 SCN", "en": "1075 – 1076 CE" },
+        "display": {
+          "vi": "1075 – 1076 SCN",
+          "en": "1075 – 1076 CE"
+        },
         "value": 1075,
         "approximate": false
       },
-      "title": { "vi": "Mở khoa thi, lập Quốc Tử Giám", "en": "The first examination and the Imperial Academy" },
+      "title": {
+        "vi": "Mở khoa thi, lập Quốc Tử Giám",
+        "en": "The first examination and the Imperial Academy"
+      },
       "summary": {
         "vi": "Khoa thi Nho học đầu tiên (1075); dựng Quốc Tử Giám (1076) — trường học cao nhất.",
         "en": "The first Confucian exam (1075); the Quốc Tử Giám founded (1076)."
@@ -123,8 +195,14 @@
         "en": "In 1075 Lý Nhân Tông opened the first Confucian examination to choose men of talent; Lê Văn Thịnh placed first. In 1076 he founded the Quốc Tử Giám beside the Temple of Literature with men of letters to teach — the highest school, reckoned our country's first university, opening a lasting age of examinations."
       },
       "pullQuote": {
-        "text": { "vi": "Xuống chiếu tuyển Minh kinh bác học và Nho học tam trường — khoa thi kén người tài đầu tiên của nước Việt.", "en": "He decreed examinations in the classics and the three Confucian grades — the first talent-choosing examination of the Việt." },
-        "attribution": { "vi": "theo Đại Việt sử ký toàn thư", "en": "per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Xuống chiếu tuyển Minh kinh bác học và Nho học tam trường — khoa thi kén người tài đầu tiên của nước Việt.",
+          "en": "He decreed examinations in the classics and the three Confucian grades — the first talent-choosing examination of the Việt."
+        },
+        "attribution": {
+          "vi": "theo Đại Việt sử ký toàn thư",
+          "en": "per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "khoa-thi-quoc-tu-giam-hero",
@@ -133,18 +211,26 @@
         "flagship": "eras/ly-nhan-tong/events/khoa-thi-quoc-tu-giam.png",
         "reduced": "eras/ly-nhan-tong/events/khoa-thi-quoc-tu-giam.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 3", "en": "Basic Records · Book 3" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 3",
+          "en": "Basic Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "tien-phat-che-nhan",
       "slug": "tien-phat-che-nhan",
-      "figureIds": ["ly-thuong-kiet"],
+      "figureIds": [
+        "ly-thuong-kiet"
+      ],
       "details": {
         "vi": "Bấy giờ nhà Tống ở phương Bắc muốn nhân nước ta vua còn nhỏ mà sang xâm lược, bèn tích trữ lương thảo, luyện quân, đặt căn cứ ở châu Ung để làm bàn đạp. Thái úy Lý Thường Kiệt tâu rằng ngồi yên đợi giặc không bằng đem quân ra trước để chặn mũi nhọn của giặc. Cuối năm Ất Mão (1075), ông cùng tướng Tông Đản đem hơn mười vạn quân thủy bộ chia đường sang đánh: hạ các châu Khâm, Liêm ở ven biển, rồi tiến vây thành Ung Châu. Sau hơn bốn mươi ngày, thành Ung bị hạ, quân ta triệt phá kho tàng, căn cứ mà nhà Tống dốc sức chuẩn bị để đánh Đại Việt, rồi chủ động rút quân về. Đây là đòn phủ đầu táo bạo, làm chậm và bẻ gãy thế xâm lược của giặc.",
         "en": "By then the Song of the North, minded to invade while our king was young, were storing provisions, drilling troops and building a base at Ung prefecture as a springboard. The Grand Marshal Lý Thường Kiệt argued that to sit and await the enemy was worse than to march out first and break their spearhead. Late in the year Ất Mão (1075) he and the general Tông Đản led over a hundred thousand troops by land and water in several columns: they took the coastal prefectures of Khâm and Liêm, then pressed the siege of Ung. After more than forty days Ung fell, and our forces destroyed the stores and the base the Song had labored to ready against Đại Việt, then withdrew of their own accord. It was a bold first blow that stalled and broke the enemy's design of invasion."
@@ -152,11 +238,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1075 – 1076 SCN", "en": "1075 – 1076 CE" },
+        "display": {
+          "vi": "1075 – 1076 SCN",
+          "en": "1075 – 1076 CE"
+        },
         "value": 1075,
         "approximate": false
       },
-      "title": { "vi": "Tiên phát chế nhân — phá Ung, Khâm, Liêm", "en": "The pre-emptive strike on Ung, Khâm and Liêm" },
+      "title": {
+        "vi": "Tiên phát chế nhân — phá Ung, Khâm, Liêm",
+        "en": "The pre-emptive strike on Ung, Khâm and Liêm"
+      },
       "summary": {
         "vi": "Lý Thường Kiệt đem quân sang phá tan căn cứ Tống ở Ung, Khâm, Liêm.",
         "en": "Lý Thường Kiệt strikes first, breaking the Song bases at Ung, Khâm and Liêm."
@@ -166,8 +258,14 @@
         "en": "Seeing the Song build a base at Ung to strike Đại Việt, Lý Thường Kiệt resolved to attack first. Late in 1075 he and Tông Đản led over a hundred thousand troops to take Khâm and Liêm, then besieged and destroyed Ung and the Song's stores and base, and withdrew — a first blow that broke the invasion's design."
       },
       "pullQuote": {
-        "text": { "vi": "Ngồi yên đợi giặc, sao bằng đem quân ra trước để chặn thế mạnh của giặc.", "en": "To sit and await the enemy is far worse than to march out first and break their advance." },
-        "attribution": { "vi": "Lý Thường Kiệt, theo Đại Việt sử ký toàn thư", "en": "Lý Thường Kiệt, per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Ngồi yên đợi giặc, sao bằng đem quân ra trước để chặn thế mạnh của giặc.",
+          "en": "To sit and await the enemy is far worse than to march out first and break their advance."
+        },
+        "attribution": {
+          "vi": "Lý Thường Kiệt, theo Đại Việt sử ký toàn thư",
+          "en": "Lý Thường Kiệt, per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "tien-phat-che-nhan-hero",
@@ -176,18 +274,26 @@
         "flagship": "eras/ly-nhan-tong/events/tien-phat-che-nhan.png",
         "reduced": "eras/ly-nhan-tong/events/tien-phat-che-nhan.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 3", "en": "Basic Records · Book 3" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 3",
+          "en": "Basic Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "nhu-nguyet-nam-quoc-son-ha",
       "slug": "nhu-nguyet-nam-quoc-son-ha",
-      "figureIds": ["ly-thuong-kiet"],
+      "figureIds": [
+        "ly-thuong-kiet"
+      ],
       "details": {
         "vi": "Năm Đinh Tỵ (1077), nhà Tống sai Quách Quỳ, Triệu Tiết đem mấy chục vạn quân sang báo thù. Lý Thường Kiệt lui về lập một phòng tuyến vững chắc bên bờ nam sông Như Nguyệt (tức sông Cầu), đắp lũy, đóng cọc, chặn đường tiến của giặc về Thăng Long. Quân Tống nhiều lần vượt sông đều bị đánh bật, giằng co lâu ngày, lương hết, quân mỏi. Tương truyền một đêm, từ trong đền thờ thần bên sông vang lên bốn câu thơ 'Nam quốc sơn hà Nam đế cư…', khẳng định sông núi nước Nam là của vua Nam, kẻ nghịch xâm phạm ắt chuốc bại vong — do Lý Thường Kiệt sai người ngâm để khích lệ ba quân. Quân ta nức lòng, mở trận quyết chiến, đại phá quân Tống, giặc chết đến quá nửa.",
         "en": "In the year Đinh Tỵ (1077) the Song sent Quách Quỳ and Triệu Tiết with several hundred thousand troops in revenge. Lý Thường Kiệt fell back to raise a strong line on the south bank of the Như Nguyệt River (the Cầu), throwing up ramparts and driving stakes to bar the road to Thăng Long. Again and again the Song crossed and were hurled back; the standoff dragged on until their provisions failed and their men wearied. Tradition holds that one night, from a spirit-shrine by the river, rang out four lines — 'The Southern land's rivers and mountains, the Southern Emperor dwells…' — declaring that the realm of the South belongs to its own sovereign and that invaders shall meet ruin; Lý Thường Kiệt had them chanted to hearten his troops. Fired with resolve, our army gave decisive battle and shattered the Song, more than half their host destroyed."
@@ -195,11 +301,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1077 SCN", "en": "1077 CE" },
+        "display": {
+          "vi": "1077 SCN",
+          "en": "1077 CE"
+        },
         "value": 1077,
         "approximate": false
       },
-      "title": { "vi": "Phòng tuyến Như Nguyệt, Nam quốc sơn hà", "en": "The Như Nguyệt line and Nam quốc sơn hà" },
+      "title": {
+        "vi": "Phòng tuyến Như Nguyệt, Nam quốc sơn hà",
+        "en": "The Như Nguyệt line and Nam quốc sơn hà"
+      },
       "summary": {
         "vi": "Lý Thường Kiệt chặn Tống bên sông Như Nguyệt; thơ thần khích lệ, đại phá giặc.",
         "en": "Lý Thường Kiệt bars the Song at the Như Nguyệt; a spirit-poem heartens, and the Song break."
@@ -209,8 +321,14 @@
         "en": "In 1077 the Song under Quách Quỳ invaded. Lý Thường Kiệt raised a line on the Như Nguyệt River to bar them; the two sides deadlocked and the Song could not cross. Tradition holds he had the poem 'Nam quốc sơn hà,' asserting the nation's sovereignty, chanted to hearten his troops, then gave battle and shattered the Song."
       },
       "pullQuote": {
-        "text": { "vi": "Nam quốc sơn hà Nam đế cư, / Tiệt nhiên định phận tại thiên thư. / Như hà nghịch lỗ lai xâm phạm, / Nhữ đẳng hành khan thủ bại hư.", "en": "The Southern land's rivers and mountains the Southern Emperor holds; / so it stands fixed in the Book of Heaven. / How dare you rebels come to invade? / You shall watch yourselves undone." },
-        "attribution": { "vi": "Nam quốc sơn hà · tương truyền của Lý Thường Kiệt", "en": "Nam quốc sơn hà · traditionally ascribed to Lý Thường Kiệt" }
+        "text": {
+          "vi": "Nam quốc sơn hà Nam đế cư, / Tiệt nhiên định phận tại thiên thư. / Như hà nghịch lỗ lai xâm phạm, / Nhữ đẳng hành khan thủ bại hư.",
+          "en": "The Southern land's rivers and mountains the Southern Emperor holds; / so it stands fixed in the Book of Heaven. / How dare you rebels come to invade? / You shall watch yourselves undone."
+        },
+        "attribution": {
+          "vi": "Nam quốc sơn hà · tương truyền của Lý Thường Kiệt",
+          "en": "Nam quốc sơn hà · traditionally ascribed to Lý Thường Kiệt"
+        }
       },
       "hero": {
         "id": "nhu-nguyet-nam-quoc-son-ha-hero",
@@ -219,18 +337,27 @@
         "flagship": "eras/ly-nhan-tong/events/nhu-nguyet-nam-quoc-son-ha.png",
         "reduced": "eras/ly-nhan-tong/events/nhu-nguyet-nam-quoc-son-ha.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 3", "en": "Basic Records · Book 3" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 3",
+          "en": "Basic Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "giang-hoa-thinh-tri",
       "slug": "giang-hoa-thinh-tri",
-      "figureIds": ["ly-nhan-tong", "ly-thuong-kiet"],
+      "figureIds": [
+        "ly-nhan-tong",
+        "ly-thuong-kiet"
+      ],
       "details": {
         "vi": "Quân Tống thua to, lại khốn vì lam chướng, lương thảo cạn, tiến thoái đều khó. Lý Thường Kiệt biết giặc đã nao núng, bèn chủ động sai người bàn việc giảng hòa, mở cho quân Tống một đường rút lui trong danh dự. Quách Quỳ mừng được lối thoát, liền đem quân về nước. Nhờ vậy mà không phải đánh đến cùng, không nhọc thêm tướng sĩ, khỏi tốn xương máu mà vẫn bảo toàn được xã tắc — sử thần khen là kế vẹn toàn. Sau đó hai nước lại thông sứ, nhà Tống trả dần các châu đã chiếm. Đời Nhân Tông từ đó thái bình, văn học và đạo Phật hưng thịnh, nước Đại Việt vững như bàn thạch. Vua ở ngôi năm mươi lăm năm, lâu nhất trong sử Việt, băng năm Đinh Mùi (1127); Lý Thường Kiệt giữ nước đến già, mất năm 1105.",
         "en": "The Song, badly beaten and wasted by fever and failing supplies, could neither advance nor stand. Knowing the enemy shaken, Lý Thường Kiệt took the initiative to sue for peace, opening the Song a way to withdraw with honor. Glad of the escape, Quách Quỳ led his army home. So without fighting to the end, without further wearying the troops or spending more blood, the nation was preserved whole — the historians praised it as a perfect stratagem. Afterward the two states exchanged envoys again and the Song gradually returned the prefectures they had seized. From then Nhân Tông's reign was at peace, letters and the Buddha's way flourished, and Đại Việt stood firm as bedrock. The king reigned fifty-five years, the longest in Việt history, and died in the year Đinh Mùi (1127); Lý Thường Kiệt guarded the realm into old age and died in 1105."
@@ -238,11 +365,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1077 – 1127 SCN", "en": "1077 – 1127 CE" },
+        "display": {
+          "vi": "1077 – 1127 SCN",
+          "en": "1077 – 1127 CE"
+        },
         "value": 1077,
         "approximate": true
       },
-      "title": { "vi": "Giảng hòa, giữ vẹn giang sơn", "en": "Peace made, the realm preserved" },
+      "title": {
+        "vi": "Giảng hòa, giữ vẹn giang sơn",
+        "en": "Peace made, the realm preserved"
+      },
       "summary": {
         "vi": "Thường Kiệt chủ động giảng hòa cho Tống rút; Đại Việt thái bình lâu dài.",
         "en": "Thường Kiệt makes peace and the Song withdraw; Đại Việt endures at peace."
@@ -252,8 +385,14 @@
         "en": "The beaten Song, wracked by disease and out of supplies, were let go: Lý Thường Kiệt sued for peace, opening them a way out and preserving the nation without further bloodshed — a perfect stratagem the histories praised. Nhân Tông's reign was thenceforth at peace; he ruled 55 years, the longest in Việt history, and died in 1127."
       },
       "pullQuote": {
-        "text": { "vi": "Dùng lời lẽ bàn hòa, không nhọc tướng sĩ, khỏi tốn xương máu mà bảo toàn được tông xã — ấy là kế vẹn toàn.", "en": "To make peace by words — sparing the troops, saving blood, yet preserving the realm — that was the perfect stratagem." },
-        "attribution": { "vi": "theo Ngô Sĩ Liên", "en": "per Ngô Sĩ Liên" }
+        "text": {
+          "vi": "Dùng lời lẽ bàn hòa, không nhọc tướng sĩ, khỏi tốn xương máu mà bảo toàn được tông xã — ấy là kế vẹn toàn.",
+          "en": "To make peace by words — sparing the troops, saving blood, yet preserving the realm — that was the perfect stratagem."
+        },
+        "attribution": {
+          "vi": "theo Ngô Sĩ Liên",
+          "en": "per Ngô Sĩ Liên"
+        }
       },
       "hero": {
         "id": "giang-hoa-thinh-tri-hero",
@@ -262,11 +401,17 @@
         "flagship": "eras/ly-nhan-tong/events/giang-hoa-thinh-tri.png",
         "reduced": "eras/ly-nhan-tong/events/giang-hoa-thinh-tri.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 3", "en": "Basic Records · Book 3" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 3",
+          "en": "Basic Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     }

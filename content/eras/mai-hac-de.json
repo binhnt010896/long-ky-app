@@ -4,15 +4,27 @@
   "slug": "mai-hac-de",
   "order": 6,
   "period": "bac-thuoc",
-  "title": { "vi": "Mai Hắc Đế", "en": "Mai Hắc Đế" },
-  "kicker": { "vi": "Kỷ thuộc Đường", "en": "The age under Tang" },
-  "subtitle": { "vi": "Dấy cờ Hoan Châu, xưng đế chống Đường.", "en": "A flag raised in Hoan Châu, an emperor against the Tang." },
+  "title": {
+    "vi": "Mai Hắc Đế",
+    "en": "Mai Hắc Đế"
+  },
+  "kicker": {
+    "vi": "Kỷ thuộc Đường",
+    "en": "The age under Tang"
+  },
+  "subtitle": {
+    "vi": "Dấy cờ Hoan Châu, xưng đế chống Đường.",
+    "en": "A flag raised in Hoan Châu, an emperor against the Tang."
+  },
   "overview": {
     "vi": "Sau nhà Tùy đến nhà Đường, đất Việt gọi là An Nam đô hộ phủ, chịu ách sưu cao thuế nặng và cống nạp phương vật cho phương Bắc. Đầu thế kỷ thứ tám, người Hoan Châu là Mai Thúc Loan — da đen, sức mạnh, được dân kính phục — dấy binh khởi nghĩa. Ông liên kết với Lâm Ấp, Chân Lạp, hợp binh mấy chục vạn, hạ được thành Tống Bình, đuổi quan đô hộ nhà Đường, rồi tự xưng là Mai Hắc Đế, đóng đô ở thành Vạn An đất Hoan Châu. Năm Nhâm Tuất (722), nhà Đường sai Dương Tư Húc đem mười vạn quân sang đàn áp; Mai Hắc Đế chống không nổi, lui vào rừng rồi mất. Sử chép về ông tuy ngắn, nhưng đây là một trong những lần người Việt xưng đế, dựng đô, đương đầu với cả một đế quốc phương Bắc đang thịnh.",
     "en": "After the Sui came the Tang, and the Việt land — now the An Nam Protectorate — bore high levies, heavy taxes and tribute of its goods to the North. In the early eighth century a man of Hoan Châu, Mai Thúc Loan — dark-skinned, powerful, revered by the people — raised a revolt. He joined with Lâm Ấp (Champa) and Chân Lạp (Cambodia), massed an army of hundreds of thousands, stormed the citadel of Tống Bình and drove out the Tang protector-general, then styled himself Mai Hắc Đế and set his capital at the citadel of Vạn An in Hoan Châu. In the year Nhâm Tuất (722), the Tang sent Dương Tư Húc with a hundred thousand troops to crush him; unable to hold, Mai Hắc Đế withdrew into the forest and died. The chronicle's record of him is brief, but this was one of the times the Việt claimed the imperial title, raised a capital, and stood against a Northern empire then at its height."
   },
   "yearRange": {
-    "display": { "vi": "713 – 722 SCN", "en": "713 – 722 CE" },
+    "display": {
+      "vi": "713 – 722 SCN",
+      "en": "713 – 722 CE"
+    },
     "startYear": 713,
     "endYear": 722
   },
@@ -36,29 +48,57 @@
     "flagship": "eras/mai-hac-de/cover.png",
     "reduced": "eras/mai-hac-de/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/mai-hac-de/scene/sky.png", "reduced": "eras/mai-hac-de/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/mai-hac-de/scene/sky.png",
+        "reduced": "eras/mai-hac-de/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Ngoại kỷ", "en": "Outer Records" },
+    "section": {
+      "vi": "Ngoại kỷ",
+      "en": "Outer Records"
+    },
     "author": "Ngô Sĩ Liên"
   },
   "characters": [
-    { "ref": "mai-hac-de" },
-    { "ref": "duong-tu-huc" },
-    { "ref": "quang-so-khach" }
+    {
+      "ref": "mai-hac-de"
+    },
+    {
+      "ref": "duong-tu-huc"
+    },
+    {
+      "ref": "quang-so-khach"
+    }
   ],
   "events": [
     {
       "id": "ach-do-ho-nha-duong",
       "slug": "ach-do-ho-nha-duong",
-      "figureIds": ["mai-hac-de"],
+      "figureIds": [
+        "mai-hac-de"
+      ],
       "details": {
         "vi": "Nối tiếp các đời trước, đến thế kỷ thứ bảy — tám, đất Việt thuộc nhà Đường, đặt làm An Nam đô hộ phủ, trị sở ở thành Tống Bình. Nhà Đường vơ vét sản vật, bắt dân nộp thuế khóa và phương vật quý cho triều đình phương Bắc; quan lại tham lam, dân tình khốn khổ. Ở đất Hoan Châu phía nam có Mai Thúc Loan, người làng Ngọc Trừng, da đen mà khỏe mạnh khác thường, tính khảng khái, được dân trong vùng mến phục. Thấy cảnh dân bị đè nén, ông ngầm nuôi chí lớn.",
         "en": "Following the ages before, by the seventh and eighth centuries the Việt land lay under the Tang as the An Nam Protectorate, its seat at the citadel of Tống Bình. The Tang stripped the land of its goods and pressed the people for taxes and precious tribute to the Northern court; the officials were grasping and the people wretched. In Hoan Châu to the south lived Mai Thúc Loan of Ngọc Trừng village, dark-skinned and of uncommon strength, upright of temper and dear to the people of his region. Seeing them ground down, he quietly nursed a great design."
@@ -66,11 +106,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "≈ 713 SCN", "en": "≈ 713 CE" },
+        "display": {
+          "vi": "≈ 713 SCN",
+          "en": "≈ 713 CE"
+        },
         "value": 713,
         "approximate": true
       },
-      "title": { "vi": "Ách đô hộ nhà Đường", "en": "Under the Tang yoke" },
+      "title": {
+        "vi": "Ách đô hộ nhà Đường",
+        "en": "Under the Tang yoke"
+      },
       "summary": {
         "vi": "An Nam thuộc Đường, cống nạp nặng nề; Mai Thúc Loan nuôi chí.",
         "en": "An Nam under the Tang, heavy with tribute; Mai Thúc Loan bides his time."
@@ -80,7 +126,10 @@
         "en": "In the eighth century the Việt land was the Tang's An Nam Protectorate, its people bowed under taxes and tribute. In Hoan Châu lived Mai Thúc Loan, dark-skinned and mighty, revered by the people; seeing their suffering, he quietly nursed the will to drive out the Tang."
       },
       "pullQuote": {
-        "text": { "vi": "Của ngon vật lạ đất Nam, năm năm gánh nộp cho người.", "en": "The South's rare goods, year on year, borne north as another's tribute." }
+        "text": {
+          "vi": "Của ngon vật lạ đất Nam, năm năm gánh nộp cho người.",
+          "en": "The South's rare goods, year on year, borne north as another's tribute."
+        }
       },
       "hero": {
         "id": "ach-do-ho-nha-duong-hero",
@@ -89,18 +138,26 @@
         "flagship": "eras/mai-hac-de/events/ach-do-ho-nha-duong.png",
         "reduced": "eras/mai-hac-de/events/ach-do-ho-nha-duong.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 5",
+          "en": "Outer Records · Book 5"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "mai-thuc-loan-day-binh",
       "slug": "mai-thuc-loan-day-binh",
-      "figureIds": ["mai-hac-de"],
+      "figureIds": [
+        "mai-hac-de"
+      ],
       "details": {
         "vi": "Mai Thúc Loan đứng ra chiêu tập dân chúng bốn phương, dựng căn cứ ở Hoan Châu, rèn quân tích lương, thế lực ngày một lớn. Tương truyền trong dân gian rằng ông vốn phải đi phu gánh vải nộp cống cho nhà Đường, giữa đường cực khổ mà hô hào mọi người nổi dậy — câu chuyện 'gánh vải' này về sau được truyền tụng rộng rãi, tuy các nhà sử học đời nay cho là dã sử, không thấy chép trong chính sử. Dù nguyên do thế nào, lòng dân oán giận nhà Đường đã sẵn, nên khi Mai Thúc Loan phất cờ, người theo về rất đông.",
         "en": "Mai Thúc Loan gathered the people from every quarter, built a base in Hoan Châu, drilled troops and stored grain, and his power grew by the day. Folk tradition holds that he had been forced to serve as a porter carrying litchi tribute to the Tang, and that on the bitter road he called the bearers to rise — this 'litchi porter' tale spread widely in later ages, though modern historians treat it as folk legend, not found in the formal chronicles. Whatever the spark, the people's hatred of the Tang was ready, and when Mai Thúc Loan raised his flag they flocked to him in great numbers."
@@ -108,11 +165,17 @@
       "order": 1,
       "kind": "legend",
       "year": {
-        "display": { "vi": "713 SCN", "en": "713 CE" },
+        "display": {
+          "vi": "713 SCN",
+          "en": "713 CE"
+        },
         "value": 714,
         "approximate": true
       },
-      "title": { "vi": "Mai Thúc Loan dấy binh", "en": "Mai Thúc Loan raises a revolt" },
+      "title": {
+        "vi": "Mai Thúc Loan dấy binh",
+        "en": "Mai Thúc Loan raises a revolt"
+      },
       "summary": {
         "vi": "Chiêu tập dân Hoan Châu, thế lực lớn dần.",
         "en": "He gathers the people of Hoan Châu; his power swells."
@@ -122,8 +185,14 @@
         "en": "Mai Thúc Loan gathered the people, built a base in Hoan Châu, drilled troops and stored grain. Tradition says he had been a litchi-tribute porter who called the bearers to rise — a folk tale, not in the formal chronicles — but the people's anger at the Tang was ready, and they flocked to him."
       },
       "pullQuote": {
-        "text": { "vi": "Nhọc nhằn gánh vải nghìn dặm, chi bằng dựng cờ một phen.", "en": "Better to raise a banner once than bear the litchi a thousand miles." },
-        "attribution": { "vi": "Theo truyền thuyết dân gian", "en": "From folk tradition" }
+        "text": {
+          "vi": "Nhọc nhằn gánh vải nghìn dặm, chi bằng dựng cờ một phen.",
+          "en": "Better to raise a banner once than bear the litchi a thousand miles."
+        },
+        "attribution": {
+          "vi": "Theo truyền thuyết dân gian",
+          "en": "From folk tradition"
+        }
       },
       "hero": {
         "id": "mai-thuc-loan-day-binh-hero",
@@ -132,18 +201,26 @@
         "flagship": "eras/mai-hac-de/events/mai-thuc-loan-day-binh.png",
         "reduced": "eras/mai-hac-de/events/mai-thuc-loan-day-binh.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 5",
+          "en": "Outer Records · Book 5"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "xung-hac-de-dung-van-an",
       "slug": "xung-hac-de-dung-van-an",
-      "figureIds": ["mai-hac-de"],
+      "figureIds": [
+        "mai-hac-de"
+      ],
       "details": {
         "vi": "Thanh thế đã lớn, Mai Thúc Loan tự xưng là hoàng đế; vì ông da đen nên người đời gọi là Mai Hắc Đế — vua Đen. Ông chọn đất hiểm Sa Nam bên sông Lam mà đắp thành Vạn An làm kinh đô, dựa lưng vào núi Đụn, lập triều đình, đặt tướng hiệu. Từ một cuộc nổi dậy ở châu quận xa, ông đã dựng nên một triều đình xưng đế giữa lòng đất An Nam, đối lập hẳn với chính quyền đô hộ nhà Đường.",
         "en": "His power now great, Mai Thúc Loan proclaimed himself emperor; because he was dark of skin the people called him Mai Hắc Đế — the Swarthy Emperor. He chose the strong ground of Sa Nam on the Lam River and raised the citadel of Vạn An as his capital, its back to Mount Đụn, set up a court and named his officers. From a revolt in a far province he had built an imperial court in the heart of An Nam, standing squarely against the Tang protectorate."
@@ -151,11 +228,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "≈ 722 SCN", "en": "≈ 722 CE" },
+        "display": {
+          "vi": "≈ 722 SCN",
+          "en": "≈ 722 CE"
+        },
         "value": 721,
         "approximate": true
       },
-      "title": { "vi": "Xưng Mai Hắc Đế, dựng thành Vạn An", "en": "He claims the throne and raises Vạn An" },
+      "title": {
+        "vi": "Xưng Mai Hắc Đế, dựng thành Vạn An",
+        "en": "He claims the throne and raises Vạn An"
+      },
       "summary": {
         "vi": "Tự xưng vua Đen, đóng đô ở thành Vạn An đất Hoan Châu.",
         "en": "He styles himself the Swarthy Emperor, his capital the citadel of Vạn An."
@@ -165,7 +248,10 @@
         "en": "His power now great, Mai Thúc Loan proclaimed himself emperor; being dark of skin he was called Mai Hắc Đế. He raised the citadel of Vạn An on the Lam River, its back to Mount Đụn, as his capital — an imperial court in the heart of An Nam, set against the Tang protectorate."
       },
       "pullQuote": {
-        "text": { "vi": "Dựng thành Vạn An, xưng đế một phương giữa đất An Nam.", "en": "Raising Vạn An, he claimed the throne of a realm in the heart of An Nam." }
+        "text": {
+          "vi": "Dựng thành Vạn An, xưng đế một phương giữa đất An Nam.",
+          "en": "Raising Vạn An, he claimed the throne of a realm in the heart of An Nam."
+        }
       },
       "hero": {
         "id": "xung-hac-de-dung-van-an-hero",
@@ -174,18 +260,27 @@
         "flagship": "eras/mai-hac-de/events/xung-hac-de-dung-van-an.png",
         "reduced": "eras/mai-hac-de/events/xung-hac-de-dung-van-an.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 5",
+          "en": "Outer Records · Book 5"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "lien-ket-ha-tong-binh",
       "slug": "lien-ket-ha-tong-binh",
-      "figureIds": ["mai-hac-de", "quang-so-khach"],
+      "figureIds": [
+        "mai-hac-de",
+        "quang-so-khach"
+      ],
       "details": {
         "vi": "Mai Hắc Đế sai sứ liên kết với các nước Lâm Ấp, Chân Lạp và Kim Lân, hợp lại thành một đạo quân mấy chục vạn người. Ông đem đại quân từ Hoan Châu tiến ra bắc, đánh thẳng vào phủ thành Tống Bình — trị sở của An Nam đô hộ phủ. Quan đô hộ nhà Đường là Quang Sở Khách chống cự không nổi, phải bỏ thành chạy về phương Bắc. Cả một dải đất An Nam trở lại tay người Việt; uy thế Mai Hắc Đế lừng lẫy một thời.",
         "en": "Mai Hắc Đế sent envoys to join with the states of Lâm Ấp, Chân Lạp and Kim Lân, massing them into an army of hundreds of thousands. He led the great host north from Hoan Châu and struck straight at the citadel of Tống Bình — the seat of the An Nam Protectorate. The Tang protector-general Quang Sở Khách could not hold and abandoned the city to flee north. A whole stretch of An Nam returned to Việt hands, and the power of Mai Hắc Đế rang out for a season."
@@ -193,11 +288,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "722 SCN", "en": "722 CE" },
+        "display": {
+          "vi": "722 SCN",
+          "en": "722 CE"
+        },
         "value": 722,
         "approximate": false
       },
-      "title": { "vi": "Liên kết các nước, hạ thành Tống Bình", "en": "Allies joined, Tống Bình taken" },
+      "title": {
+        "vi": "Liên kết các nước, hạ thành Tống Bình",
+        "en": "Allies joined, Tống Bình taken"
+      },
       "summary": {
         "vi": "Hợp binh Lâm Ấp, Chân Lạp; đuổi đô hộ, chiếm Tống Bình.",
         "en": "Joined with Champa and Chân Lạp, he takes Tống Bình and drives out the governor."
@@ -207,7 +308,10 @@
         "en": "Mai Hắc Đế joined with Lâm Ấp, Chân Lạp and Kim Lân, massed an army of hundreds of thousands, and marched on the citadel of Tống Bình. The protector-general Quang Sở Khách could not hold and fled north, and An Nam returned to Việt hands."
       },
       "pullQuote": {
-        "text": { "vi": "Ba nước hợp binh, một sớm phủ thành Tống Bình đổi chủ.", "en": "Three realms joined in arms, and in one morning Tống Bình changed hands." }
+        "text": {
+          "vi": "Ba nước hợp binh, một sớm phủ thành Tống Bình đổi chủ.",
+          "en": "Three realms joined in arms, and in one morning Tống Bình changed hands."
+        }
       },
       "hero": {
         "id": "lien-ket-ha-tong-binh-hero",
@@ -216,18 +320,28 @@
         "flagship": "eras/mai-hac-de/events/lien-ket-ha-tong-binh.png",
         "reduced": "eras/mai-hac-de/events/lien-ket-ha-tong-binh.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 5",
+          "en": "Outer Records · Book 5"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "duong-tu-huc-dan-ap",
       "slug": "duong-tu-huc-dan-ap",
-      "figureIds": ["mai-hac-de", "duong-tu-huc", "quang-so-khach"],
+      "figureIds": [
+        "mai-hac-de",
+        "duong-tu-huc",
+        "quang-so-khach"
+      ],
       "details": {
         "vi": "Năm Nhâm Tuất (722), vua Đường Huyền Tông sai nội thị Dương Tư Húc cùng quan đô hộ Quang Sở Khách đem mười vạn quân sang đàn áp. Quân Đường theo con đường ven biển cũ mà tiến, bất ngờ ập đến. Quân Mai Hắc Đế tuy đông nhưng phần nhiều là dân mới họp, khó đương nổi quân Đường thiện chiến; đôi bên đánh nhau dữ dội, người chết rất nhiều. Thành Vạn An thất thủ, Mai Hắc Đế phải rút vào rừng núi, ít lâu sau thì lâm bệnh mà mất. Cuộc khởi nghĩa tan, nhà Đường lập lại nền đô hộ; song tấm gương xưng đế chống Đường của vua Đen thì người Hoan Châu đời đời thờ phụng.",
         "en": "In the year Nhâm Tuất (722), the Tang emperor Huyền Tông sent the palace officer Dương Tư Húc with the protector-general Quang Sở Khách and a hundred thousand troops to crush the revolt. The Tang came by the old coastal road and fell on them suddenly. Mai Hắc Đế's army was large but mostly newly gathered folk, no match for the seasoned Tang; the two sides fought fiercely and the dead were many. Vạn An fell, and Mai Hắc Đế withdrew into the forested hills, where before long he sickened and died. The revolt was broken and the Tang restored their protectorate — yet the Swarthy Emperor's example, of claiming the throne against the Tang, the people of Hoan Châu have honoured ever since."
@@ -235,11 +349,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "722 SCN", "en": "722 CE" },
+        "display": {
+          "vi": "722 SCN",
+          "en": "722 CE"
+        },
         "value": 723,
         "approximate": false
       },
-      "title": { "vi": "Dương Tư Húc đàn áp", "en": "Dương Tư Húc crushes the revolt" },
+      "title": {
+        "vi": "Dương Tư Húc đàn áp",
+        "en": "Dương Tư Húc crushes the revolt"
+      },
       "summary": {
         "vi": "Mười vạn quân Đường sang; Vạn An thất thủ, vua Đen mất.",
         "en": "A hundred thousand Tang troops come; Vạn An falls and the Swarthy Emperor dies."
@@ -249,7 +369,10 @@
         "en": "In 722 the Tang sent Dương Tư Húc and Quang Sở Khách with a hundred thousand troops. Mai Hắc Đế's army, mostly newly gathered folk, could not hold; Vạn An fell, and he withdrew into the forest and died of illness. The revolt was broken — but the people of Hoan Châu have honoured the Swarthy Emperor ever since."
       },
       "pullQuote": {
-        "text": { "vi": "Thành mất người khuất, mà đền thờ vua Đen hương khói ngàn năm.", "en": "The citadel lost, the emperor gone — yet the Swarthy Emperor's shrine burns on a thousand years." }
+        "text": {
+          "vi": "Thành mất người khuất, mà đền thờ vua Đen hương khói ngàn năm.",
+          "en": "The citadel lost, the emperor gone — yet the Swarthy Emperor's shrine burns on a thousand years."
+        }
       },
       "hero": {
         "id": "duong-tu-huc-dan-ap-hero",
@@ -258,11 +381,17 @@
         "flagship": "eras/mai-hac-de/events/duong-tu-huc-dan-ap.png",
         "reduced": "eras/mai-hac-de/events/duong-tu-huc-dan-ap.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 5", "en": "Outer Records · Book 5" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 5",
+          "en": "Outer Records · Book 5"
+        },
         "author": "Ngô Sĩ Liên"
       }
     }

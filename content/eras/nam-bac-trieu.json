@@ -4,15 +4,27 @@
   "slug": "nam-bac-trieu",
   "order": 19,
   "period": "phan-tranh",
-  "title": { "vi": "Nam – Bắc triều", "en": "The Northern & Southern Courts" },
-  "kicker": { "vi": "Nhà Mạc · Lê trung hưng · buổi phân tranh", "en": "The Mạc · the Lê restoration · the age of division" },
-  "subtitle": { "vi": "Một nước hai vua, giang sơn chia đôi Nam – Bắc.", "en": "One land, two thrones — the realm split North and South." },
+  "title": {
+    "vi": "Nam – Bắc triều",
+    "en": "The Northern & Southern Courts"
+  },
+  "kicker": {
+    "vi": "Nhà Mạc · Lê trung hưng · buổi phân tranh",
+    "en": "The Mạc · the Lê restoration · the age of division"
+  },
+  "subtitle": {
+    "vi": "Một nước hai vua, giang sơn chia đôi Nam – Bắc.",
+    "en": "One land, two thrones — the realm split North and South."
+  },
   "overview": {
     "vi": "Sau đời Hồng Đức cực thịnh, nhà Lê sơ nhanh chóng suy đồi: các vua Uy Mục, Tương Dực hoang chơi tàn bạo, bị người đời gọi là 'vua quỷ', 'vua lợn'; triều đình chia bè kéo cánh, giặc giã nổi khắp nơi. Trong loạn lạc, võ tướng Mạc Đăng Dung dần thâu tóm binh quyền, rồi năm Đinh Hợi (1527) ép vua Lê Cung Hoàng nhường ngôi, lập nên nhà Mạc, đóng đô ở Thăng Long. Nhưng lòng người còn tưởng nhớ nhà Lê: đại thần Nguyễn Kim lánh sang Ai Lao, chiêu tập lực lượng, tìm được dòng dõi vua Lê tôn lên ngôi (Lê Trang Tông) năm Quý Tỵ (1533), dựng lại nhà Lê ở Thanh Hóa. Từ đó nước Đại Việt chia làm hai: nhà Mạc giữ phía bắc (Bắc triều), nhà Lê trung hưng giữ phía nam (Nam triều), đánh nhau dằng dai hơn nửa thế kỷ. Nguyễn Kim bị đầu độc (1545), binh quyền Nam triều về tay con rể là Trịnh Kiểm, rồi truyền cho Trịnh Tùng. Để tránh bị nghi kỵ, Nguyễn Hoàng — con Nguyễn Kim — xin vào trấn thủ Thuận Hóa (1558), gây dựng cơ nghiệp riêng ở phương Nam. Năm Nhâm Thìn (1592), Trịnh Tùng đại phá nhà Mạc, chiếm lại Thăng Long, chấm dứt Nam – Bắc triều; song vua Lê từ đó chỉ ngồi làm vì, thực quyền vào tay chúa Trịnh, còn họ Nguyễn hùng cứ Đàng Trong — gieo mầm cho cuộc Trịnh – Nguyễn phân tranh sau này.",
     "en": "After the height of the Hồng Đức age, the early Lê swiftly decayed: kings such as Uy Mục and Tương Dực, dissolute and cruel, were remembered as the 'demon king' and the 'pig king'; the court split into factions and rebellion flared everywhere. Amid the chaos the general Mạc Đăng Dung gathered all military power and, in the year Đinh Hợi (1527), forced King Lê Cung Hoàng to abdicate, founding the Mạc dynasty at Thăng Long. But the people still remembered the Lê: the minister Nguyễn Kim withdrew to Ai Lao, gathered forces, found a Lê heir and raised him to the throne as Lê Trang Tông in the year Quý Tỵ (1533), restoring the Lê in Thanh Hóa. From then Đại Việt was split in two: the Mạc held the north (the Northern Court), the restored Lê held the south (the Southern Court), and they fought on for more than half a century. Nguyễn Kim was poisoned (1545) and command passed to his son-in-law Trịnh Kiểm, then to Trịnh Tùng. To escape suspicion, Nguyễn Hoàng — Nguyễn Kim's son — asked to govern Thuận Hóa (1558) and built his own domain in the south. In the year Nhâm Thìn (1592), Trịnh Tùng crushed the Mạc and retook Thăng Long, ending the Northern and Southern Courts; yet from then the Lê kings reigned in name only, real power lay with the Trịnh lords, and the Nguyễn ruled the south — sowing the seed of the later Trịnh–Nguyễn division."
   },
   "yearRange": {
-    "display": { "vi": "1527 – 1592 SCN", "en": "1527 – 1592 CE" },
+    "display": {
+      "vi": "1527 – 1592 SCN",
+      "en": "1527 – 1592 CE"
+    },
     "startYear": 1527,
     "endYear": 1592
   },
@@ -36,31 +48,63 @@
     "flagship": "eras/nam-bac-trieu/cover.png",
     "reduced": "eras/nam-bac-trieu/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/nam-bac-trieu/scene/sky.png", "reduced": "eras/nam-bac-trieu/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/nam-bac-trieu/scene/sky.png",
+        "reduced": "eras/nam-bac-trieu/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Bản kỷ tục biên", "en": "Basic Records · Continued" },
+    "section": {
+      "vi": "Bản kỷ tục biên",
+      "en": "Basic Records · Continued"
+    },
     "author": "Sử thần triều Lê"
   },
   "characters": [
-    { "ref": "mac-dang-dung" },
-    { "ref": "nguyen-kim" },
-    { "ref": "trinh-kiem" },
-    { "ref": "nguyen-hoang" },
-    { "ref": "trinh-tung" }
+    {
+      "ref": "mac-dang-dung"
+    },
+    {
+      "ref": "nguyen-kim"
+    },
+    {
+      "ref": "trinh-kiem"
+    },
+    {
+      "ref": "nguyen-hoang"
+    },
+    {
+      "ref": "trinh-tung"
+    }
   ],
   "events": [
     {
       "id": "mac-dang-dung-cuop-ngoi",
       "slug": "mac-dang-dung-cuop-ngoi",
-      "figureIds": ["mac-dang-dung"],
+      "figureIds": [
+        "mac-dang-dung"
+      ],
       "details": {
         "vi": "Nhà Lê sau đời Thánh Tông, Hiến Tông còn thịnh, nhưng đến các vua Uy Mục, Tương Dực thì suy đồi nhanh chóng: vua trẻ hoang chơi, giết hại tông thất và đại thần, người đương thời gọi Uy Mục là 'vua quỷ', Tương Dực là 'vua lợn'. Triều đình chia bè kéo cánh, các tướng như Trịnh Duy Sản, Nguyễn Hoằng Dụ, Trịnh Tuy đánh nhau tranh quyền, giặc giã nổi khắp nơi. Trong cảnh ấy, võ tướng Mạc Đăng Dung, vốn xuất thân đô lực sĩ, nhờ quân công mà lên, dần dần dẹp các phe, thâu tóm hết binh quyền, tự phong tước cao, khống chế triều đình. Đến năm Đinh Hợi (1527), ông ép vua Lê Cung Hoàng nhường ngôi, sau bức phải chết, chính thức lập nên nhà Mạc, đóng đô ở Thăng Long. Nhà Lê sơ chấm dứt sau khoảng một trăm năm; sử thần nhà Lê chép việc này như một cuộc thoán đoạt.",
         "en": "After Thánh Tông and Hiến Tông the Lê had still flourished, but under kings Uy Mục and Tương Dực it decayed fast: young kings given to dissipation, killing kin and ministers, so that Uy Mục was called the 'demon king' and Tương Dực the 'pig king.' The court split into factions; generals such as Trịnh Duy Sản, Nguyễn Hoằng Dụ and Trịnh Tuy fought for power, and revolt flared everywhere. In this ruin the general Mạc Đăng Dung — once a champion wrestler risen by merit in war — put down the factions one by one, seized all military power, took high titles for himself, and dominated the court. In the year Đinh Hợi (1527) he forced King Lê Cung Hoàng to abdicate, then to his death, and formally founded the Mạc dynasty at Thăng Long. The early Lê ended after about a century; the Lê historians recorded the deed as a usurpation."
@@ -68,11 +112,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1527 SCN", "en": "1527 CE" },
+        "display": {
+          "vi": "1527 SCN",
+          "en": "1527 CE"
+        },
         "value": 1527,
         "approximate": false
       },
-      "title": { "vi": "Mạc Đăng Dung cướp ngôi, lập nhà Mạc", "en": "Mạc Đăng Dung usurps the throne" },
+      "title": {
+        "vi": "Mạc Đăng Dung cướp ngôi, lập nhà Mạc",
+        "en": "Mạc Đăng Dung usurps the throne"
+      },
       "summary": {
         "vi": "Nhà Lê sơ suy đồi; võ tướng Mạc Đăng Dung ép vua nhường ngôi, dựng nhà Mạc ở Thăng Long.",
         "en": "The early Lê collapses; the general Mạc Đăng Dung forces abdication and founds the Mạc at Thăng Long."
@@ -82,8 +132,14 @@
         "en": "After the Hồng Đức age the Lê decayed under 'demon' and 'pig' kings, the court split and revolts spread. The general Mạc Đăng Dung, risen by military merit, seized power and dominated the court; in 1527 he forced King Lê Cung Hoàng to abdicate and founded the Mạc at Thăng Long. The early Lê ended; the Lê historians called it a usurpation."
       },
       "pullQuote": {
-        "text": { "vi": "Đăng Dung là kẻ bề tôi mà cướp ngôi vua, mối họa thoán đoạt bắt đầu từ đấy.", "en": "Đăng Dung, a subject, seized the throne of his king; from here the scourge of usurpation began." },
-        "attribution": { "vi": "Sử thần bàn · Đại Việt sử ký toàn thư", "en": "The historians' judgment · Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Đăng Dung là kẻ bề tôi mà cướp ngôi vua, mối họa thoán đoạt bắt đầu từ đấy.",
+          "en": "Đăng Dung, a subject, seized the throne of his king; from here the scourge of usurpation began."
+        },
+        "attribution": {
+          "vi": "Sử thần bàn · Đại Việt sử ký toàn thư",
+          "en": "The historians' judgment · Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "mac-dang-dung-cuop-ngoi-hero",
@@ -92,18 +148,26 @@
         "flagship": "eras/nam-bac-trieu/events/mac-dang-dung-cuop-ngoi.png",
         "reduced": "eras/nam-bac-trieu/events/mac-dang-dung-cuop-ngoi.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ thực lục · Quyển 15", "en": "Basic Records · Book 15" },
+        "section": {
+          "vi": "Bản kỷ thực lục · Quyển 15",
+          "en": "Basic Records · Book 15"
+        },
         "author": "Sử thần triều Lê"
       }
     },
     {
       "id": "mac-hang-minh",
       "slug": "mac-hang-minh",
-      "figureIds": ["mac-dang-dung"],
+      "figureIds": [
+        "mac-dang-dung"
+      ],
       "details": {
         "vi": "Nhà Mạc lập ra, các cựu thần nhà Lê không phục, nhân đó cầu viện nhà Minh. Vua Minh lấy cớ 'hưng diệt kế tuyệt', phù nhà Lê, sai tướng đem đại quân áp sát biên giới phía bắc, đe dọa xâm lược. Trước thế nguy, để tránh binh đao, năm Canh Tý (1540) Mạc Đăng Dung cùng bề tôi tự trói mình, đi chân đất lên cửa ải Nam Quan, quỳ dâng biểu xin hàng, dâng sổ sách đất đai và mấy động vùng biên (Ti Phù, Kim Lặc, Cổ Sâm, Liễu Cát…) cho nhà Minh, chịu nhận chức 'An Nam Đô thống sứ' — tức hạ nước xuống hàng phiên thuộc. Nhờ đó nhà Minh bãi binh, nhà Mạc được yên. Nhưng việc quỳ hàng dâng đất ấy bị sử thần và người đời sau chê trách rất nặng, xem là nỗi nhục, dù cũng có ý kiến cho rằng đó là cách nhẫn nhịn để giữ cho dân khỏi nạn binh đao.",
         "en": "With the Mạc newly founded, former Lê officials would not submit and appealed to the Ming. The Ming emperor, on the pretext of 'reviving the extinguished and continuing the broken line' in aid of the Lê, sent generals with a great army to press the northern border and threaten invasion. Facing ruin, to spare the land from war, in the year Canh Tý (1540) Mạc Đăng Dung and his officials bound themselves, went barefoot to the Nam Quan pass, knelt to submit, and handed over land registers and several border tracts (Ti Phù, Kim Lặc, Cổ Sâm, Liễu Cát and others) to the Ming, accepting the title of 'Commandery Governor of An Nam' — reducing the country to a vassal. The Ming withdrew and the Mạc were left in peace. But this kneeling submission and ceding of land was gravely condemned by the historians and by posterity as a disgrace, though some held it a swallowing of pride to keep the people from the sword."
@@ -111,11 +175,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1540 SCN", "en": "1540 CE" },
+        "display": {
+          "vi": "1540 SCN",
+          "en": "1540 CE"
+        },
         "value": 1540,
         "approximate": false
       },
-      "title": { "vi": "Mạc Đăng Dung hàng Minh, dâng đất", "en": "Mạc Đăng Dung submits to the Ming" },
+      "title": {
+        "vi": "Mạc Đăng Dung hàng Minh, dâng đất",
+        "en": "Mạc Đăng Dung submits to the Ming"
+      },
       "summary": {
         "vi": "Bị nhà Minh dọa đánh, Mạc Đăng Dung quỳ hàng ở Nam Quan, dâng mấy động biên giới cầu yên.",
         "en": "Threatened by the Ming, Mạc Đăng Dung kneels at Nam Quan and cedes border tracts to buy peace."
@@ -125,8 +195,14 @@
         "en": "Former Lê officials appealed to the Ming, who threatened war in the Lê's name. In 1540 Mạc Đăng Dung bound himself and knelt in submission at the Nam Quan pass, ceding land registers and several border tracts and accepting the title of Commandery Governor. The Ming withdrew and the Mạc were safe; but the kneeling and ceding of land was harshly condemned as a disgrace."
       },
       "pullQuote": {
-        "text": { "vi": "Đường đường một nước, mà vua tự trói mình dâng đất, quỳ hàng nơi cửa ải — tủi nhục biết chừng nào.", "en": "A whole kingdom, yet its ruler binds himself, cedes land, and kneels in submission at the pass — what disgrace could be greater." },
-        "attribution": { "vi": "Sử thần bàn · Đại Việt sử ký toàn thư", "en": "The historians' judgment · Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Đường đường một nước, mà vua tự trói mình dâng đất, quỳ hàng nơi cửa ải — tủi nhục biết chừng nào.",
+          "en": "A whole kingdom, yet its ruler binds himself, cedes land, and kneels in submission at the pass — what disgrace could be greater."
+        },
+        "attribution": {
+          "vi": "Sử thần bàn · Đại Việt sử ký toàn thư",
+          "en": "The historians' judgment · Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "mac-hang-minh-hero",
@@ -135,18 +211,26 @@
         "flagship": "eras/nam-bac-trieu/events/mac-hang-minh.png",
         "reduced": "eras/nam-bac-trieu/events/mac-hang-minh.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ tục biên · Quyển 16", "en": "Basic Records (Continued) · Book 16" },
+        "section": {
+          "vi": "Bản kỷ tục biên · Quyển 16",
+          "en": "Basic Records (Continued) · Book 16"
+        },
         "author": "Sử thần triều Lê"
       }
     },
     {
       "id": "le-trung-hung",
       "slug": "le-trung-hung",
-      "figureIds": ["nguyen-kim"],
+      "figureIds": [
+        "nguyen-kim"
+      ],
       "details": {
         "vi": "Nhà Mạc tuy chiếm được Thăng Long, nhưng lòng người nhiều nơi còn tưởng nhớ nhà Lê hai trăm năm. Đại thần Nguyễn Kim, người Thanh Hóa, không chịu thần phục nhà Mạc, lánh sang đất Sầm Châu thuộc Ai Lao (Lào), chiêu tập những người trung nghĩa và hào kiệt bốn phương, dựng cờ 'phù Lê diệt Mạc'. Ông tìm được một người con của vua Lê là Lê Duy Ninh, năm Quý Tỵ (1533) tôn lên ngôi, tức Lê Trang Tông, dựng lại nhà Lê ở đất Thanh Hóa. Từ đây sử gọi là thời Lê trung hưng, và nước Đại Việt hình thành thế hai triều đình: nhà Mạc ở phía bắc gọi là Bắc triều, nhà Lê trung hưng ở phía nam gọi là Nam triều. Hai bên giao tranh giằng dai, đất nước bước vào hơn nửa thế kỷ nội chiến Nam – Bắc triều.",
         "en": "Though the Mạc held Thăng Long, in many regions the people still remembered two centuries of the Lê. The minister Nguyễn Kim of Thanh Hóa would not submit to the Mạc; he withdrew to Sầm Châu in Ai Lao (Laos), gathered loyal and valiant men from every quarter, and raised the banner of 'aiding the Lê, destroying the Mạc.' He found a son of the Lê house, Lê Duy Ninh, and in the year Quý Tỵ (1533) raised him to the throne as Lê Trang Tông, restoring the Lê in Thanh Hóa. From this the histories speak of the Lê restoration, and Đại Việt took the shape of two courts: the Mạc in the north, called the Northern Court, and the restored Lê in the south, the Southern Court. The two warred on without end, and the country entered more than half a century of civil war between North and South."
@@ -154,11 +238,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1533 SCN", "en": "1533 CE" },
+        "display": {
+          "vi": "1533 SCN",
+          "en": "1533 CE"
+        },
         "value": 1533,
         "approximate": false
       },
-      "title": { "vi": "Nguyễn Kim phò Lê, dựng Nam triều", "en": "Nguyễn Kim restores the Lê" },
+      "title": {
+        "vi": "Nguyễn Kim phò Lê, dựng Nam triều",
+        "en": "Nguyễn Kim restores the Lê"
+      },
       "summary": {
         "vi": "Nguyễn Kim lánh sang Ai Lao, tìm con vua Lê tôn lên ngôi, dựng lại nhà Lê ở Thanh Hóa (Nam triều).",
         "en": "Nguyễn Kim withdraws to Laos, enthrones a Lê heir, and restores the Lê in Thanh Hóa (the Southern Court)."
@@ -168,8 +258,14 @@
         "en": "The people still remembered the Lê. The minister Nguyễn Kim withdrew to Laos, gathered loyalists under the banner 'aid the Lê, destroy the Mạc,' and in 1533 enthroned the Lê heir Lê Duy Ninh (Lê Trang Tông), restoring the Lê in Thanh Hóa. So began the Lê restoration: the Mạc in the north and the Lê in the south at war — the civil war of the Northern and Southern Courts."
       },
       "pullQuote": {
-        "text": { "vi": "Nhà Lê tuy mất mà chưa mất hẳn, ấy là nhờ lòng người còn tưởng nhớ, và bề tôi trung còn dựng lại được cơ đồ.", "en": "The Lê fell yet did not wholly fall, for the people still remembered, and loyal ministers could raise the house anew." },
-        "attribution": { "vi": "Sử thần bàn · Đại Việt sử ký toàn thư", "en": "The historians' judgment · Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Nhà Lê tuy mất mà chưa mất hẳn, ấy là nhờ lòng người còn tưởng nhớ, và bề tôi trung còn dựng lại được cơ đồ.",
+          "en": "The Lê fell yet did not wholly fall, for the people still remembered, and loyal ministers could raise the house anew."
+        },
+        "attribution": {
+          "vi": "Sử thần bàn · Đại Việt sử ký toàn thư",
+          "en": "The historians' judgment · Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "le-trung-hung-hero",
@@ -178,18 +274,26 @@
         "flagship": "eras/nam-bac-trieu/events/le-trung-hung.png",
         "reduced": "eras/nam-bac-trieu/events/le-trung-hung.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ tục biên · Quyển 16", "en": "Basic Records (Continued) · Book 16" },
+        "section": {
+          "vi": "Bản kỷ tục biên · Quyển 16",
+          "en": "Basic Records (Continued) · Book 16"
+        },
         "author": "Sử thần triều Lê"
       }
     },
     {
       "id": "trinh-kiem-nam-quyen",
       "slug": "trinh-kiem-nam-quyen",
-      "figureIds": ["trinh-kiem"],
+      "figureIds": [
+        "trinh-kiem"
+      ],
       "details": {
         "vi": "Thế lực Nam triều đang lên thì năm Ất Tỵ (1545), Nguyễn Kim bị hàng tướng nhà Mạc là Dương Chấp Nhất ngầm đầu độc mà chết. Binh quyền Nam triều chuyển sang tay con rể ông là Trịnh Kiểm, người có tài cầm quân. Trịnh Kiểm được vua Lê phong Thái sư, tổng đốc việc quân quốc, dốc sức tổ chức lại lực lượng, nhiều phen đem quân ra bắc đánh nhà Mạc, giằng co ác liệt quanh vùng Thanh – Nghệ và đồng bằng sông Hồng. Từ Trịnh Kiểm, họ Trịnh nắm trọn thực quyền ở Nam triều: vua Lê tuy là chính thống nhưng chỉ ngồi làm vì, mọi việc lớn nhỏ đều do họ Trịnh quyết. Đây là mầm mống của thể chế 'vua Lê chúa Trịnh' kéo dài về sau. Cũng chính Trịnh Kiểm, vì nghi kỵ, đã giết anh của Nguyễn Hoàng là Nguyễn Uông, khiến họ Nguyễn phải tìm đường lánh nạn.",
         "en": "Just as the Southern Court was rising, in the year Ất Tỵ (1545) Nguyễn Kim was secretly poisoned by a surrendered Mạc general, Dương Chấp Nhất. Command passed to his son-in-law Trịnh Kiểm, a gifted commander. Made Grand Preceptor and supreme director of military affairs by the Lê king, Trịnh Kiểm rebuilt the forces and led many campaigns north against the Mạc, in fierce deadlock around Thanh–Nghệ and the Red River plain. From Trịnh Kiểm the Trịnh house held all real power in the Southern Court: the Lê king, though legitimate, reigned in name only while the Trịnh decided every matter. This was the seed of the 'Lê kings, Trịnh lords' order that endured after. It was Trịnh Kiểm too who, out of suspicion, had Nguyễn Hoàng's elder brother Nguyễn Uông killed, driving the Nguyễn to seek refuge."
@@ -197,11 +301,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1545 SCN", "en": "1545 CE" },
+        "display": {
+          "vi": "1545 SCN",
+          "en": "1545 CE"
+        },
         "value": 1545,
         "approximate": false
       },
-      "title": { "vi": "Nguyễn Kim bị hại, Trịnh Kiểm nắm quyền", "en": "Nguyễn Kim poisoned, Trịnh Kiểm takes power" },
+      "title": {
+        "vi": "Nguyễn Kim bị hại, Trịnh Kiểm nắm quyền",
+        "en": "Nguyễn Kim poisoned, Trịnh Kiểm takes power"
+      },
       "summary": {
         "vi": "Nguyễn Kim bị đầu độc; con rể Trịnh Kiểm nắm binh quyền Nam triều — mầm 'vua Lê chúa Trịnh'.",
         "en": "Nguyễn Kim is poisoned; his son-in-law Trịnh Kiểm takes command — the seed of the 'Lê kings, Trịnh lords.'"
@@ -211,8 +321,14 @@
         "en": "In 1545 Nguyễn Kim was poisoned by a surrendered Mạc general. His son-in-law Trịnh Kiểm took command of the Southern Court, was made Grand Preceptor and director of the army, and warred often against the Mạc. From then the Trịnh held all real power while the Lê king reigned in name only — the seed of the 'Lê kings, Trịnh lords' order. Trịnh Kiểm also killed Nguyễn Hoàng's brother, driving the Nguyễn to flee."
       },
       "pullQuote": {
-        "text": { "vi": "Vua Lê ngồi đó mà quyền bính về tay họ Trịnh; danh là bề tôi, thực là người cầm nước.", "en": "The Lê king sat on the throne, but the power lay with the Trịnh; subjects in name, in truth the masters of the realm." },
-        "attribution": { "vi": "Sử thần bàn · Đại Việt sử ký toàn thư", "en": "The historians' judgment · Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Vua Lê ngồi đó mà quyền bính về tay họ Trịnh; danh là bề tôi, thực là người cầm nước.",
+          "en": "The Lê king sat on the throne, but the power lay with the Trịnh; subjects in name, in truth the masters of the realm."
+        },
+        "attribution": {
+          "vi": "Sử thần bàn · Đại Việt sử ký toàn thư",
+          "en": "The historians' judgment · Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "trinh-kiem-nam-quyen-hero",
@@ -221,18 +337,27 @@
         "flagship": "eras/nam-bac-trieu/events/trinh-kiem-nam-quyen.png",
         "reduced": "eras/nam-bac-trieu/events/trinh-kiem-nam-quyen.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ tục biên · Quyển 16", "en": "Basic Records (Continued) · Book 16" },
+        "section": {
+          "vi": "Bản kỷ tục biên · Quyển 16",
+          "en": "Basic Records (Continued) · Book 16"
+        },
         "author": "Sử thần triều Lê"
       }
     },
     {
       "id": "nguyen-hoang-nam-tien",
       "slug": "nguyen-hoang-nam-tien",
-      "figureIds": ["nguyen-hoang", "trinh-kiem"],
+      "figureIds": [
+        "nguyen-hoang",
+        "trinh-kiem"
+      ],
       "details": {
         "vi": "Nguyễn Hoàng là con thứ của Nguyễn Kim. Sau khi cha mất, anh ông là Nguyễn Uông bị Trịnh Kiểm giết vì nghi kỵ, ông lo mình cũng chung số phận. Tương truyền ông cho người ngầm hỏi Trạng Trình Nguyễn Bỉnh Khiêm, được câu sấm 'Hoành Sơn nhất đái, vạn đại dung thân' — một dải núi Hoành Sơn, có thể dung thân muôn đời. Ông bèn nhờ chị là vợ Trịnh Kiểm xin cho vào trấn thủ Thuận Hóa, vùng đất xa xôi phía nam. Năm Mậu Ngọ (1558), Nguyễn Hoàng đem họ hàng, bộ khúc vượt đèo Ngang vào nam. Ở Thuận Hóa rồi Quảng Nam, ông thi hành chính sách khoan hòa, giảm sưu thuế, chiêu tập lưu dân khai khẩn, trọng đãi hào kiệt, khiến đất phương Nam trù phú, dân yên, gọi ông là Chúa Tiên. Ông ngầm gây dựng cơ nghiệp riêng, đặt nền cho các đời chúa Nguyễn ở Đàng Trong và mở đường cho công cuộc Nam tiến — nhưng cũng gieo mầm cho cuộc phân tranh Trịnh – Nguyễn sau này.",
         "en": "Nguyễn Hoàng was a younger son of Nguyễn Kim. After his father's death, his elder brother Nguyễn Uông was killed by Trịnh Kiểm out of suspicion, and he feared the same fate. Tradition holds he secretly consulted the sage Nguyễn Bỉnh Khiêm and received the oracle 'A single range of Hoành Sơn — a refuge for ten thousand ages.' He then had his sister, Trịnh Kiểm's wife, ask that he be sent to govern Thuận Hóa, a distant southern land. In the year Mậu Ngọ (1558) Nguyễn Hoàng led his kin and retainers over the Ngang Pass into the south. In Thuận Hóa and then Quảng Nam he ruled with leniency, lightened taxes, gathered migrants to open land, and honoured men of talent, so that the south grew rich and peaceful and the people called him Lord Tiên. Quietly he built a domain of his own, founding the line of Nguyễn lords in Đàng Trong and opening the way for the southward expansion — but also sowing the seed of the later Trịnh–Nguyễn division."
@@ -240,11 +365,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1558 SCN", "en": "1558 CE" },
+        "display": {
+          "vi": "1558 SCN",
+          "en": "1558 CE"
+        },
         "value": 1558,
         "approximate": false
       },
-      "title": { "vi": "Nguyễn Hoàng vào trấn Thuận Hóa", "en": "Nguyễn Hoàng goes south to Thuận Hóa" },
+      "title": {
+        "vi": "Nguyễn Hoàng vào trấn Thuận Hóa",
+        "en": "Nguyễn Hoàng goes south to Thuận Hóa"
+      },
       "summary": {
         "vi": "Tránh nghi kỵ của Trịnh Kiểm, Nguyễn Hoàng xin vào trấn Thuận Hóa, gây nền cơ nghiệp chúa Nguyễn.",
         "en": "Escaping Trịnh Kiểm's suspicion, Nguyễn Hoàng takes Thuận Hóa and founds the Nguyễn lords' domain."
@@ -254,8 +385,14 @@
         "en": "With his brother killed by Trịnh Kiểm, Nguyễn Hoàng feared for himself. Heeding Nguyễn Bỉnh Khiêm's oracle 'A single range of Hoành Sơn — a refuge for ten thousand ages,' he asked to govern Thuận Hóa in 1558. In the south he ruled gently, gathered settlers, honoured talent, and built his own domain; the people called him Lord Tiên. He founded the Nguyễn lords of Đàng Trong, opened the southward expansion, and sowed the seed of the Trịnh–Nguyễn division."
       },
       "pullQuote": {
-        "text": { "vi": "Hoành Sơn nhất đái, vạn đại dung thân.", "en": "A single range of Hoành Sơn — a refuge for ten thousand ages." },
-        "attribution": { "vi": "tương truyền lời Trạng Trình Nguyễn Bỉnh Khiêm", "en": "attributed by tradition to the sage Nguyễn Bỉnh Khiêm" }
+        "text": {
+          "vi": "Hoành Sơn nhất đái, vạn đại dung thân.",
+          "en": "A single range of Hoành Sơn — a refuge for ten thousand ages."
+        },
+        "attribution": {
+          "vi": "tương truyền lời Trạng Trình Nguyễn Bỉnh Khiêm",
+          "en": "attributed by tradition to the sage Nguyễn Bỉnh Khiêm"
+        }
       },
       "hero": {
         "id": "nguyen-hoang-nam-tien-hero",
@@ -264,18 +401,26 @@
         "flagship": "eras/nam-bac-trieu/events/nguyen-hoang-nam-tien.png",
         "reduced": "eras/nam-bac-trieu/events/nguyen-hoang-nam-tien.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ tục biên · Quyển 16", "en": "Basic Records (Continued) · Book 16" },
+        "section": {
+          "vi": "Bản kỷ tục biên · Quyển 16",
+          "en": "Basic Records (Continued) · Book 16"
+        },
         "author": "Sử thần triều Lê"
       }
     },
     {
       "id": "trinh-tung-diet-mac",
       "slug": "trinh-tung-diet-mac",
-      "figureIds": ["trinh-tung"],
+      "figureIds": [
+        "trinh-tung"
+      ],
       "details": {
         "vi": "Trịnh Kiểm mất (1570), sau một phen tranh giành, quyền bính Nam triều về tay con là Trịnh Tùng, một danh tướng. Ông chỉnh đốn quân ngũ, nhiều lần đem đại quân Bắc phạt, dần chiếm ưu thế trước nhà Mạc vốn đã suy yếu vì nội bộ lục đục. Năm Nhâm Thìn (1592), Trịnh Tùng đại phá quân Mạc, đánh chiếm Thăng Long; vua Mạc là Mạc Mậu Hợp thua chạy, bị bắt và đem giết. Cục diện Nam – Bắc triều kéo dài hơn nửa thế kỷ đến đây chấm dứt về cơ bản (tàn dư nhà Mạc còn chạy lên cát cứ ở Cao Bằng thêm mấy đời). Trịnh Tùng rước vua Lê Thế Tông về lại Thăng Long, danh nghĩa khôi phục nhà Lê; nhưng ông thâu tóm toàn bộ quyền bính, được phong tước Bình An Vương, lập phủ chúa riêng — chính thức mở ra thể chế 'vua Lê chúa Trịnh'. Trong khi đó họ Nguyễn đã vững ở phương Nam; nước tuy hợp một mối trên danh nghĩa mà thực đã ngầm chia Đàng Ngoài – Đàng Trong, dẫn tới cuộc Trịnh – Nguyễn phân tranh về sau.",
         "en": "Trịnh Kiểm died (1570), and after a struggle power in the Southern Court passed to his son Trịnh Tùng, a renowned general. He reorganised the armies, led many northern campaigns, and gradually gained the upper hand over the Mạc, weakened by their own discord. In the year Nhâm Thìn (1592) Trịnh Tùng shattered the Mạc and took Thăng Long; the Mạc king Mạc Mậu Hợp fled, was captured and put to death. The half-century war of the Northern and Southern Courts thus essentially ended (Mạc remnants held out at Cao Bằng for several more generations). Trịnh Tùng brought King Lê Thế Tông back to Thăng Long, nominally restoring the Lê; but he seized all power, was made Prince Bình An, and set up his own lords' palace — formally opening the 'Lê kings, Trịnh lords' order. Meanwhile the Nguyễn were firmly established in the south; the realm was one only in name, already secretly split into Đàng Ngoài (Outer) and Đàng Trong (Inner), leading to the later Trịnh–Nguyễn division."
@@ -283,11 +428,17 @@
       "order": 5,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1592 SCN", "en": "1592 CE" },
+        "display": {
+          "vi": "1592 SCN",
+          "en": "1592 CE"
+        },
         "value": 1592,
         "approximate": false
       },
-      "title": { "vi": "Trịnh Tùng diệt Mạc, mở nền chúa Trịnh", "en": "Trịnh Tùng crushes the Mạc, opens the Trịnh lordship" },
+      "title": {
+        "vi": "Trịnh Tùng diệt Mạc, mở nền chúa Trịnh",
+        "en": "Trịnh Tùng crushes the Mạc, opens the Trịnh lordship"
+      },
       "summary": {
         "vi": "Trịnh Tùng đại phá nhà Mạc, chiếm Thăng Long (1592); vua Lê phục vị nhưng chúa Trịnh nắm thực quyền.",
         "en": "Trịnh Tùng shatters the Mạc and takes Thăng Long (1592); the Lê are restored but the Trịnh hold real power."
@@ -297,8 +448,14 @@
         "en": "Trịnh Kiểm died and his son Trịnh Tùng took power, campaigning north. In 1592 he shattered the Mạc, took Thăng Long, and executed Mạc Mậu Hợp, ending the Northern–Southern war (Mạc remnants fled to Cao Bằng). He brought the Lê king back but seized all power, styled himself Prince Bình An, and set up a lords' palace — opening the 'Lê kings, Trịnh lords' order. With the Nguyễn firm in the south, the realm was secretly split into Đàng Ngoài and Đàng Trong."
       },
       "pullQuote": {
-        "text": { "vi": "Dứt được nhà Mạc mà quyền về phủ chúa; nhà Lê phục mà chẳng nắm nước — vua Lê chúa Trịnh bắt đầu từ đó.", "en": "The Mạc were ended, yet power went to the lords' palace; the Lê were restored but ruled nothing — the age of Lê kings and Trịnh lords began here." },
-        "attribution": { "vi": "Sử thần bàn · Đại Việt sử ký toàn thư", "en": "The historians' judgment · Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Dứt được nhà Mạc mà quyền về phủ chúa; nhà Lê phục mà chẳng nắm nước — vua Lê chúa Trịnh bắt đầu từ đó.",
+          "en": "The Mạc were ended, yet power went to the lords' palace; the Lê were restored but ruled nothing — the age of Lê kings and Trịnh lords began here."
+        },
+        "attribution": {
+          "vi": "Sử thần bàn · Đại Việt sử ký toàn thư",
+          "en": "The historians' judgment · Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "trinh-tung-diet-mac-hero",
@@ -307,11 +464,17 @@
         "flagship": "eras/nam-bac-trieu/events/trinh-tung-diet-mac.png",
         "reduced": "eras/nam-bac-trieu/events/trinh-tung-diet-mac.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ tục biên · Quyển 17", "en": "Basic Records (Continued) · Book 17" },
+        "section": {
+          "vi": "Bản kỷ tục biên · Quyển 17",
+          "en": "Basic Records (Continued) · Book 17"
+        },
         "author": "Sử thần triều Lê"
       }
     }

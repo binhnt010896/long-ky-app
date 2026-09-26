@@ -4,15 +4,27 @@
   "slug": "nha-trieu",
   "order": 2,
   "period": "nha-trieu",
-  "title": { "vi": "Nam Việt", "en": "Nam Việt" },
-  "kicker": { "vi": "Kỷ nhà Triệu", "en": "The House of Triệu" },
-  "subtitle": { "vi": "Một cõi đế vương, rồi ngàn năm Bắc thuộc.", "en": "A sovereign realm — then a thousand years under the North." },
+  "title": {
+    "vi": "Nam Việt",
+    "en": "Nam Việt"
+  },
+  "kicker": {
+    "vi": "Kỷ nhà Triệu",
+    "en": "The House of Triệu"
+  },
+  "subtitle": {
+    "vi": "Một cõi đế vương, rồi ngàn năm Bắc thuộc.",
+    "en": "A sovereign realm — then a thousand years under the North."
+  },
   "overview": {
     "vi": "Triệu Đà, viên quan úy nhà Tần, nhân loạn mà chiếm đất phương Nam, thôn tính Âu Lạc, lập nước Nam Việt và xưng đế ngang hàng với nhà Hán. Trải năm đời vua, triều Triệu vừa xưng thần vừa giữ thế tự chủ; đến khi Cù thái hậu mưu đem nước hàng Hán, chỉ còn tể tướng Lữ Gia một lòng chống giữ. Năm 111 TCN, quân Hán phá Phiên Ngung, Nam Việt mất — mở đầu hơn một nghìn năm Bắc thuộc. Sử thần Ngô Sĩ Liên chép nhà Triệu thành một kỷ chính thống; đời sau lại bàn Triệu là ngoại tộc — đây là chương gây tranh luận nhất trong Ngoại kỷ.",
     "en": "Triệu Đà, a Qin commandery officer, seized the southern lands amid the empire's collapse, annexed Âu Lạc, founded Nam Việt and styled himself emperor, a peer to Han. Across five reigns the House of Triệu played vassal abroad while holding its own at home; when the queen dowager Cù plotted to surrender the realm to Han, only the chancellor Lữ Gia held firm. In 111 BCE the Han armies stormed Phiên Ngung and Nam Việt fell — opening more than a thousand years of Northern domination. Ngô Sĩ Liên set the Triệu down as a legitimate reign; later historians called them foreigners — the most debated chapter in the Outer Records."
   },
   "yearRange": {
-    "display": { "vi": "207 – 111 TCN", "en": "207 – 111 BCE" },
+    "display": {
+      "vi": "207 – 111 TCN",
+      "en": "207 – 111 BCE"
+    },
     "startYear": -207,
     "endYear": -111
   },
@@ -36,42 +48,96 @@
     "flagship": "eras/nha-trieu/cover.png",
     "reduced": "eras/nha-trieu/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/nha-trieu/scene/sky.png", "reduced": "eras/nha-trieu/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "ridge-far", "type": "image", "role": "mid", "depth": 0.45, "flagship": "eras/nha-trieu/scene/ridge-far.png", "reduced": "eras/nha-trieu/scene/ridge-far.png", "placeholder": "ridge" },
-      { "id": "ridge-near", "type": "image", "role": "foreground", "depth": 0.8, "flagship": "eras/nha-trieu/scene/ridge-near.png", "reduced": "eras/nha-trieu/scene/ridge-near.png", "placeholder": "ridge" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/nha-trieu/scene/sky.png",
+        "reduced": "eras/nha-trieu/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "ridge-far",
+        "type": "image",
+        "role": "mid",
+        "depth": 0.45,
+        "flagship": "eras/nha-trieu/scene/ridge-far.png",
+        "reduced": "eras/nha-trieu/scene/ridge-far.png",
+        "placeholder": "ridge"
+      },
+      {
+        "id": "ridge-near",
+        "type": "image",
+        "role": "foreground",
+        "depth": 0.8,
+        "flagship": "eras/nha-trieu/scene/ridge-near.png",
+        "reduced": "eras/nha-trieu/scene/ridge-near.png",
+        "placeholder": "ridge"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Ngoại kỷ", "en": "Outer Records" },
+    "section": {
+      "vi": "Ngoại kỷ",
+      "en": "Outer Records"
+    },
     "author": "Ngô Sĩ Liên"
   },
   "characters": [
     {
       "ref": "trieu-da",
-      "name": { "vi": "Triệu Vũ Đế", "en": "Triệu Vũ Đế" },
-      "epithet": { "vi": "Vua dựng Nam Việt", "en": "Founder of Nam Việt" },
+      "name": {
+        "vi": "Triệu Vũ Đế",
+        "en": "Triệu Vũ Đế"
+      },
+      "epithet": {
+        "vi": "Vua dựng Nam Việt",
+        "en": "Founder of Nam Việt"
+      },
       "bio": {
         "vi": "Người huyện Chân Định, vốn là quan úy nhà Tần ở quận Nam Hải. Nhân nhà Tần sụp đổ, ông đóng cửa ải, chiếm ba quận phương Nam, đánh lấy Âu Lạc của An Dương Vương rồi lập nước Nam Việt, đóng đô Phiên Ngung, tự xưng đế. Ông sống rất thọ, trị vì hơn bảy mươi năm, giữ thế ngang hàng với nhà Hán — người mở đầu nhà Triệu trong Ngoại kỷ.",
         "en": "A man of Chân Định and once a Qin commandery officer in Nam Hải. As the Qin collapsed he sealed the passes, seized the three southern commanderies, took An Dương Vương's Âu Lạc, and founded Nam Việt with its capital at Phiên Ngung, styling himself emperor. Long-lived, he reigned more than seventy years and held his own against Han — the founder of the House of Triệu in the Outer Records."
       }
     },
-    { "ref": "trieu-van-de" },
-    { "ref": "lu-gia" },
-    { "ref": "cu-thi" },
-    { "ref": "trieu-ai-vuong" },
-    { "ref": "trieu-kien-duc" }
+    {
+      "ref": "trieu-van-de"
+    },
+    {
+      "ref": "lu-gia"
+    },
+    {
+      "ref": "cu-thi"
+    },
+    {
+      "ref": "trieu-ai-vuong"
+    },
+    {
+      "ref": "trieu-kien-duc"
+    }
   ],
   "events": [
     {
       "id": "trieu-vu-de-lap-nam-viet",
       "slug": "trieu-vu-de-lap-nam-viet",
-      "figureIds": ["trieu-da"],
+      "figureIds": [
+        "trieu-da"
+      ],
       "details": {
         "vi": "Triệu Đà người huyện Chân Định, làm quan úy quận Nam Hải cho nhà Tần. Khi nhà Tần sụp đổ, thiên hạ đại loạn, ông đóng các cửa ải, giết những quan lại do nhà Tần đặt, đem quân thu lấy ba quận Nam Hải, Quế Lâm và Tượng Quận. Rồi ông đánh chiếm Âu Lạc của An Dương Vương, hợp cả đất Việt phương Nam, lập nước Nam Việt, đóng đô ở Phiên Ngung và tự lập làm vua. Bấy giờ là năm Giáp Ngọ (207 TCN), mở đầu Kỷ nhà Triệu trong Ngoại kỷ.",
         "en": "Triệu Đà, a man of Chân Định, served the Qin as commandery officer of Nam Hải. When the Qin fell and all under heaven was in turmoil, he sealed the passes, killed the officials the Qin had installed, and gathered up the three commanderies of Nam Hải, Quế Lâm and Tượng Quận. He then seized An Dương Vương's Âu Lạc, joined all the southern Việt lands, founded the state of Nam Việt with its capital at Phiên Ngung, and made himself king. This was the year Giáp Ngọ (207 BCE), the opening of the Chronicle of the Triệu in the Outer Records."
@@ -79,11 +145,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "207 TCN", "en": "207 BCE" },
+        "display": {
+          "vi": "207 TCN",
+          "en": "207 BCE"
+        },
         "value": -207,
         "approximate": false
       },
-      "title": { "vi": "Triệu Vũ Đế lập nước Nam Việt", "en": "Triệu Vũ Đế founds Nam Việt" },
+      "title": {
+        "vi": "Triệu Vũ Đế lập nước Nam Việt",
+        "en": "Triệu Vũ Đế founds Nam Việt"
+      },
       "summary": {
         "vi": "Thôn tính Âu Lạc, dựng nước, đóng đô Phiên Ngung.",
         "en": "Absorbing Âu Lạc, a new realm rises with its capital at Phiên Ngung."
@@ -93,7 +165,10 @@
         "en": "Triệu Đà, commandery officer of Nam Hải, seized the three southern commanderies as the Qin collapsed, then took An Dương Vương's Âu Lạc. He fused these lands into the state of Nam Việt, set his capital at Phiên Ngung and proclaimed himself king, opening the House of Triệu."
       },
       "pullQuote": {
-        "text": { "vi": "Đóng cửa ải, làm chủ một phương.", "en": "The passes sealed — master of his own South." }
+        "text": {
+          "vi": "Đóng cửa ải, làm chủ một phương.",
+          "en": "The passes sealed — master of his own South."
+        }
       },
       "hero": {
         "id": "trieu-vu-de-lap-nam-viet-hero",
@@ -102,18 +177,26 @@
         "flagship": "eras/nha-trieu/events/trieu-vu-de-lap-nam-viet.png",
         "reduced": "eras/nha-trieu/events/trieu-vu-de-lap-nam-viet.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 2", "en": "Outer Records · Book 2" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 2",
+          "en": "Outer Records · Book 2"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "xung-de-hoa-han",
       "slug": "xung-de-hoa-han",
-      "figureIds": ["trieu-da"],
+      "figureIds": [
+        "trieu-da"
+      ],
       "details": {
         "vi": "Khi Cao hậu (Lã hậu) nhà Hán cấm bán đồ sắt và ngựa trâu cho Nam Việt, Triệu Đà tức giận, tự tôn là Nam Việt Vũ Đế, đem quân đánh phá biên giới nhà Hán, uy hiếp các nước Mân Việt, Tây Âu Lạc, khiến họ theo về. Sau, Hán Văn Đế lên ngôi, sai Lục Giả sang lại. Triệu Đà nhận lời bỏ đế hiệu, xưng thần và chịu triều cống với Hán; song trong nước vẫn dùng nghi vệ hoàng đế, xưng 'đế' như cũ, giữ thế ngang hàng mà tránh binh đao.",
         "en": "When Empress Lü of Han forbade the sale of iron tools and livestock to Nam Việt, Triệu Đà in anger raised himself to Emperor of Nam Việt, struck at the Han frontier, and overawed Mân Việt and Tây Âu Lạc into submission. Later, when Emperor Văn of Han came to the throne, he sent Lục Giả again; Triệu Đà agreed to drop the imperial title, style himself a vassal and send tribute — yet within his realm he kept the emperor's regalia and title as before, holding an equal's footing while sparing his people war."
@@ -121,11 +204,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "≈ 180 TCN", "en": "≈ 180 BCE" },
+        "display": {
+          "vi": "≈ 180 TCN",
+          "en": "≈ 180 BCE"
+        },
         "value": -180,
         "approximate": true
       },
-      "title": { "vi": "Xưng đế, đối mặt nhà Hán", "en": "Emperor of the South, facing Han" },
+      "title": {
+        "vi": "Xưng đế, đối mặt nhà Hán",
+        "en": "Emperor of the South, facing Han"
+      },
       "summary": {
         "vi": "Chống lệnh cấm của Lã hậu, tự xưng Nam Việt Vũ Đế.",
         "en": "Defying Empress Lü's embargo, he crowns himself Emperor of Nam Việt."
@@ -135,8 +224,14 @@
         "en": "When Han embargoed iron, Triệu Đà in wrath styled himself Emperor of Nam Việt and raided the northern border. In the reign of Emperor Văn, the envoy Lục Giả came to persuade him; outwardly Triệu Đà dropped the imperial title and called himself vassal, yet at home he kept an emperor's regalia and stood as Han's equal."
       },
       "pullQuote": {
-        "text": { "vi": "Ở đất này, ta cũng là hoàng đế một phương.", "en": "In this land, I too am an emperor of my own." },
-        "attribution": { "vi": "Triệu Vũ Đế", "en": "Triệu Vũ Đế" }
+        "text": {
+          "vi": "Ở đất này, ta cũng là hoàng đế một phương.",
+          "en": "In this land, I too am an emperor of my own."
+        },
+        "attribution": {
+          "vi": "Triệu Vũ Đế",
+          "en": "Triệu Vũ Đế"
+        }
       },
       "hero": {
         "id": "xung-de-hoa-han-hero",
@@ -145,18 +240,26 @@
         "flagship": "eras/nha-trieu/events/xung-de-hoa-han.png",
         "reduced": "eras/nha-trieu/events/xung-de-hoa-han.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 2", "en": "Outer Records · Book 2" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 2",
+          "en": "Outer Records · Book 2"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "van-de-noi-nghiep",
       "slug": "van-de-noi-nghiep",
-      "figureIds": ["trieu-van-de"],
+      "figureIds": [
+        "trieu-van-de"
+      ],
       "details": {
         "vi": "Triệu Vũ Đế sống rất thọ, con trai đã mất trước, nên khi ông băng, ngôi truyền cho cháu nội là Triệu Hồ, tức Văn Đế. Văn Đế giữ nếp cũ: đối với nhà Hán thì xưng thần triều cống, trong nước thì tự chủ. Đến đời sau, Minh Vương Anh Tề từng sang chầu và ở lại kinh đô nhà Hán, lấy người con gái Hán là Cù thị làm vợ, sinh ra Hưng — từ đó mối ràng buộc với phương Bắc càng sâu.",
         "en": "Triệu Vũ Đế lived to great age, and as his son had died before him, at his death the throne passed to his grandson Triệu Hồ — Văn Đế. Văn Đế kept the old balance: vassal and tributary to Han abroad, sovereign at home. In a later reign, Minh Vương Anh Tề went to court and dwelt at the Han capital, took a Han woman, the lady Cù, to wife and fathered Hưng — and so the ties to the North grew deeper."
@@ -164,11 +267,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "137 TCN", "en": "137 BCE" },
+        "display": {
+          "vi": "137 TCN",
+          "en": "137 BCE"
+        },
         "value": -137,
         "approximate": false
       },
-      "title": { "vi": "Văn Đế nối nghiệp", "en": "Văn Đế succeeds" },
+      "title": {
+        "vi": "Văn Đế nối nghiệp",
+        "en": "Văn Đế succeeds"
+      },
       "summary": {
         "vi": "Cháu Triệu Hồ lên ngôi; nhà Triệu bước vào thời giữ nước.",
         "en": "The grandson Triệu Hồ takes the throne; the dynasty settles into keeping what it holds."
@@ -184,18 +293,28 @@
         "flagship": "eras/nha-trieu/events/van-de-noi-nghiep.png",
         "reduced": "eras/nha-trieu/events/van-de-noi-nghiep.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 2", "en": "Outer Records · Book 2" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 2",
+          "en": "Outer Records · Book 2"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "cu-hau-va-lu-gia",
       "slug": "cu-hau-va-lu-gia",
-      "figureIds": ["cu-thi", "lu-gia", "trieu-ai-vuong"],
+      "figureIds": [
+        "cu-thi",
+        "lu-gia",
+        "trieu-ai-vuong"
+      ],
       "details": {
         "vi": "Minh Vương mất, con nhỏ là Hưng nối ngôi (Ai Vương), Cù thái hậu buông rèm nhiếp chính. Nhà Hán sai An Quốc Thiếu Quý — người tình cũ của Cù thị — sang dụ Nam Việt nội thuộc. Cù hậu nghe theo, sắm sửa hành trang muốn đem vua sang chầu và dâng nước cho Hán. Tể tướng Lữ Gia, ba đời làm tướng, được lòng dân, hết sức can ngăn; vua và thái hậu bày tiệc mưu giết Lữ Gia mà không thành. Từ đó, triều đình chia làm hai, thế nước nghiêng ngả.",
         "en": "When Minh Vương died, his young son Hưng took the throne as Ai Vương, and the queen dowager Cù ruled from behind the screen. Han sent An Quốc Thiếu Quý — the dowager's former lover — to draw Nam Việt into dependency. Cù agreed and made ready to bring the king to court and hand the realm to Han. The chancellor Lữ Gia, minister of three reigns and dear to the people, resisted with all his strength; at a banquet the king and dowager plotted his death and failed. From then the court split in two, and the realm tottered."
@@ -203,11 +322,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "113 TCN", "en": "113 BCE" },
+        "display": {
+          "vi": "113 TCN",
+          "en": "113 BCE"
+        },
         "value": -113,
         "approximate": false
       },
-      "title": { "vi": "Cù hậu mưu hàng, Lữ Gia giữ nước", "en": "The dowager's surrender, the chancellor's stand" },
+      "title": {
+        "vi": "Cù hậu mưu hàng, Lữ Gia giữ nước",
+        "en": "The dowager's surrender, the chancellor's stand"
+      },
       "summary": {
         "vi": "Thái hậu người Hán muốn dâng nước; tể tướng Lữ Gia chống lại.",
         "en": "A Han-born dowager would give the realm away; the chancellor Lữ Gia refuses."
@@ -217,8 +342,14 @@
         "en": "The boy king Ai Vương reigned under the regency of the dowager Cù. Heeding the Han envoy — her old lover — she would make Nam Việt a Han dependency. The chancellor Lữ Gia stood firm against it; the king and dowager plotted his death and failed, the court divided, and the realm stood in peril."
       },
       "pullQuote": {
-        "text": { "vi": "Nước là của tiên vương, không thể đem dâng người.", "en": "This realm is the forebears' — it is not ours to give away." },
-        "attribution": { "vi": "Lữ Gia", "en": "Lữ Gia" }
+        "text": {
+          "vi": "Nước là của tiên vương, không thể đem dâng người.",
+          "en": "This realm is the forebears' — it is not ours to give away."
+        },
+        "attribution": {
+          "vi": "Lữ Gia",
+          "en": "Lữ Gia"
+        }
       },
       "hero": {
         "id": "cu-hau-va-lu-gia-hero",
@@ -227,18 +358,28 @@
         "flagship": "eras/nha-trieu/events/cu-hau-va-lu-gia.png",
         "reduced": "eras/nha-trieu/events/cu-hau-va-lu-gia.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 2", "en": "Outer Records · Book 2" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 2",
+          "en": "Outer Records · Book 2"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "nha-trieu-mat-nuoc",
       "slug": "nha-trieu-mat-nuoc",
-      "figureIds": ["lu-gia", "trieu-kien-duc", "trieu-ai-vuong"],
+      "figureIds": [
+        "lu-gia",
+        "trieu-kien-duc",
+        "trieu-ai-vuong"
+      ],
       "details": {
         "vi": "Lữ Gia khởi binh, giết Cù thái hậu, vua Ai Vương và sứ giả nhà Hán, lập con trưởng Minh Vương là Kiến Đức lên ngôi. Hán Vũ Đế sai Lộ Bác Đức, Dương Bộc đem quân năm đạo sang đánh. Quân Hán phá Phiên Ngung; Lữ Gia và Kiến Đức chạy ra biển, bị bắt và giết. Nhà Triệu truyền năm đời, gồm chín mươi bảy năm, đến đây mất; nhà Hán chia đất Nam Việt làm chín quận — trong đó có Giao Chỉ, Cửu Chân, Nhật Nam — người Việt bước vào hơn một nghìn năm Bắc thuộc.",
         "en": "Lữ Gia rose in arms, killed the dowager Cù, the king Ai Vương and the Han envoys, and set Minh Vương's eldest son Kiến Đức on the throne. Emperor Vũ of Han sent Lộ Bác Đức and Dương Bộc with armies in five columns. The Han stormed Phiên Ngung; Lữ Gia and Kiến Đức fled to the sea, were caught and killed. The House of Triệu, five reigns and ninety-seven years, here came to its end; Han divided Nam Việt into nine commanderies — among them Giao Chỉ, Cửu Chân and Nhật Nam — and the Việt entered more than a thousand years of Northern domination."
@@ -246,11 +387,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "111 TCN", "en": "111 BCE" },
+        "display": {
+          "vi": "111 TCN",
+          "en": "111 BCE"
+        },
         "value": -111,
         "approximate": false
       },
-      "title": { "vi": "Nhà Triệu mất nước", "en": "The fall of the House of Triệu" },
+      "title": {
+        "vi": "Nhà Triệu mất nước",
+        "en": "The fall of the House of Triệu"
+      },
       "summary": {
         "vi": "Lữ Gia khởi binh; quân Hán phá Phiên Ngung, mở đầu Bắc thuộc.",
         "en": "Lữ Gia rises; Han storms Phiên Ngung — the long domination begins."
@@ -260,7 +407,10 @@
         "en": "Lữ Gia rose, killed the dowager, the king and the Han envoys, and enthroned Kiến Đức. Emperor Vũ of Han sent Lộ Bác Đức with a great host; Phiên Ngung fell, and Lữ Gia and Kiến Đức, fleeing to the sea, were caught and killed. Nam Việt was lost and carved into nine commanderies — the beginning of over a thousand years under the North."
       },
       "pullQuote": {
-        "text": { "vi": "Phiên Ngung thất thủ, một cõi đế vương thành chín quận.", "en": "Phiên Ngung falls — an empire becomes nine commanderies." }
+        "text": {
+          "vi": "Phiên Ngung thất thủ, một cõi đế vương thành chín quận.",
+          "en": "Phiên Ngung falls — an empire becomes nine commanderies."
+        }
       },
       "hero": {
         "id": "nha-trieu-mat-nuoc-hero",
@@ -269,11 +419,17 @@
         "flagship": "eras/nha-trieu/events/nha-trieu-mat-nuoc.png",
         "reduced": "eras/nha-trieu/events/nha-trieu-mat-nuoc.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 2", "en": "Outer Records · Book 2" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 2",
+          "en": "Outer Records · Book 2"
+        },
         "author": "Ngô Sĩ Liên"
       }
     }

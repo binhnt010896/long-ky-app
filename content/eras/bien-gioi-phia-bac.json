@@ -82,9 +82,15 @@
     "author": "Viện Lịch sử Quân sự Việt Nam"
   },
   "characters": [
-    { "ref": "dam-quang-trung" },
-    { "ref": "vu-lap" },
-    { "ref": "ton-duc-thang" },
+    {
+      "ref": "dam-quang-trung"
+    },
+    {
+      "ref": "vu-lap"
+    },
+    {
+      "ref": "ton-duc-thang"
+    },
     {
       "ref": "pham-van-dong",
       "epithet": {
@@ -105,7 +111,10 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "17/2/1979 SCN", "en": "17 February 1979 CE" },
+        "display": {
+          "vi": "17/2/1979 SCN",
+          "en": "17 February 1979 CE"
+        },
         "value": 1979,
         "approximate": false
       },
@@ -155,7 +164,10 @@
     {
       "id": "chien-dau-lang-son-cao-bang-lao-cai",
       "slug": "chien-dau-lang-son-cao-bang-lao-cai",
-      "figureIds": ["dam-quang-trung", "vu-lap"],
+      "figureIds": [
+        "dam-quang-trung",
+        "vu-lap"
+      ],
       "details": {
         "vi": "Trong những ngày chiến sự ác liệt nhất, từ 17 tháng 2 đến đầu tháng 3 năm 1979, lực lượng vũ trang Quân khu 1 dưới sự chỉ huy của tướng Đàm Quang Trung đã kiên cường chặn đánh quân xâm lược trên hướng Cao Bằng và Lạng Sơn — hai hướng tiến công chủ yếu của đối phương — trong đó nổi bật là những trận chiến đấu ác liệt bảo vệ thị trấn Đồng Đăng và thị xã Lạng Sơn. Trên hướng Lào Cai, lực lượng vũ trang Quân khu 2 do tướng Vũ Lập chỉ huy cũng chiến đấu quyết liệt, bẻ gãy nhiều đợt tiến công của đối phương. Bộ đội địa phương, dân quân tự vệ và nhân dân các dân tộc vùng biên giới đã cùng bộ đội chủ lực chiến đấu ngoan cường, biến từng bản làng, từng điểm cao thành những chốt chặn kiên cố; liệt sĩ Hoàng Thị Hồng Chiêm, nữ dân quân đã anh dũng chiến đấu đến cùng ở Bình Độ (Quảng Ninh), là một trong nhiều tấm gương hy sinh tiêu biểu của cuộc chiến. Cuộc chiến đấu kiên cường của quân và dân ta trên các hướng Cao Bằng, Lạng Sơn, Lào Cai đã làm chậm bước tiến của đối phương, gây tổn thất nặng nề cho lực lượng xâm lược.",
         "en": "During the fiercest days of fighting, from 17 February to early March 1979, Military Region 1's armed forces under General Đàm Quang Trung resolutely blocked the invading forces on the Cao Bằng and Lạng Sơn axes — the enemy's two main thrusts — including notably fierce battles defending Đồng Đăng town and Lạng Sơn town itself. On the Lào Cai axis, Military Region 2's forces under General Vũ Lập also fought fiercely, breaking up many enemy assaults. Local forces, self-defense militia and the border region's ethnic peoples fought tenaciously alongside main-force troops, turning villages and hilltops into fortified strongpoints; the militiawoman Hoàng Thị Hồng Chiêm, who fought to the end at Bình Độ (Quảng Ninh), is one of many exemplary sacrifices of this war. The resolute fighting of Vietnamese forces and people on the Cao Bằng, Lạng Sơn and Lào Cai axes slowed the enemy's advance and inflicted heavy losses on the invading forces."
@@ -163,7 +175,10 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "17/2 – 5/3/1979 SCN", "en": "17 February – 5 March 1979 CE" },
+        "display": {
+          "vi": "17/2 – 5/3/1979 SCN",
+          "en": "17 February – 5 March 1979 CE"
+        },
         "value": 1979,
         "approximate": false
       },
@@ -213,7 +228,9 @@
     {
       "id": "tong-dong-vien-1979",
       "slug": "tong-dong-vien-1979",
-      "figureIds": ["ton-duc-thang"],
+      "figureIds": [
+        "ton-duc-thang"
+      ],
       "details": {
         "vi": "Trước tình thế đất nước bị xâm lược trên toàn tuyến biên giới phía Bắc, ngày 5 tháng 3 năm 1979, Chủ tịch nước Tôn Đức Thắng đã ký Sắc lệnh số 29-LCT, ban bố Lệnh Tổng động viên trong cả nước, huy động mọi nguồn lực nhân lực, vật lực, tài lực cho nhiệm vụ chiến đấu bảo vệ Tổ quốc. Lệnh Tổng động viên đã thổi bùng khí thế cả nước ra trận, hàng triệu người trên khắp mọi miền đất nước sẵn sàng lên đường chi viện cho biên giới phía Bắc. Cũng chính trong ngày 5 tháng 3 năm 1979, do bị quân và dân ta chặn đánh quyết liệt trên toàn tuyến biên giới, chịu tổn thất nặng nề, phía Trung Quốc tuyên bố đã đạt được mục tiêu và bắt đầu rút quân. Việt Nam tuyên bố cho phép quân đội Trung Quốc rút quân trong hoà bình, và đến ngày 18 tháng 3 năm 1979, việc rút quân của Trung Quốc khỏi lãnh thổ Việt Nam đã hoàn tất, kết thúc giai đoạn chiến sự ác liệt nhất của cuộc chiến tranh biên giới phía Bắc.",
         "en": "Facing an invasion along the whole northern border, on 5 March 1979 President Tôn Đức Thắng signed Decree No. 29-LCT, proclaiming a General Mobilization across the whole country, calling up every resource of manpower, materiel and finance for the task of fighting to defend the Fatherland. The Mobilization Order ignited a nationwide spirit for battle, with millions across every region ready to set out to support the northern border. On that same day, 5 March 1979, having met fierce resistance along the whole border and suffered heavy losses, China announced it had achieved its objectives and began withdrawing its troops. Vietnam declared it would allow the Chinese army to withdraw peacefully, and by 18 March 1979 China's withdrawal from Vietnamese territory was complete, ending the most intense phase of the northern border war."
@@ -221,7 +238,10 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "5/3/1979 SCN", "en": "5 March 1979 CE" },
+        "display": {
+          "vi": "5/3/1979 SCN",
+          "en": "5 March 1979 CE"
+        },
         "value": 1979,
         "approximate": false
       },
@@ -279,7 +299,10 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1984 – 1989 SCN", "en": "1984 – 1989 CE" },
+        "display": {
+          "vi": "1984 – 1989 SCN",
+          "en": "1984 – 1989 CE"
+        },
         "value": 1984,
         "approximate": false
       },
@@ -329,7 +352,9 @@
     {
       "id": "khep-lai-chien-tranh",
       "slug": "khep-lai-chien-tranh",
-      "figureIds": ["pham-van-dong"],
+      "figureIds": [
+        "pham-van-dong"
+      ],
       "details": {
         "vi": "Từ cuối những năm 1980, cùng với những chuyển biến của tình hình quốc tế và khu vực, đặc biệt là tiến trình giải quyết chính trị vấn đề Campuchia, chiến sự trên biên giới phía Bắc dần lắng xuống. Hai nước bắt đầu quá trình đối thoại nhằm bình thường hoá quan hệ, với cuộc gặp cấp cao bí mật tại Thành Đô (Trung Quốc) trong hai ngày 3–4 tháng 9 năm 1990, giữa đoàn đại biểu cấp cao Việt Nam — gồm Tổng Bí thư Nguyễn Văn Linh, Chủ tịch Hội đồng Bộ trưởng Đỗ Mười và cố vấn Ban Chấp hành Trung ương Phạm Văn Đồng — với lãnh đạo cấp cao Trung Quốc, nhằm trao đổi việc giải quyết vấn đề Campuchia và khôi phục quan hệ bình thường giữa hai nước, hai Đảng. Trên cơ sở đó, tháng 11 năm 1991, Tổng Bí thư Đỗ Mười và Chủ tịch Hội đồng Bộ trưởng Võ Văn Kiệt đã sang thăm Trung Quốc; hai bên chính thức tuyên bố bình thường hoá quan hệ ngoại giao Việt Nam – Trung Quốc, khép lại hơn một thập niên căng thẳng, xung đột trên biên giới phía Bắc. Việc bình thường hoá quan hệ mở ra một giai đoạn mới trong quan hệ hai nước, trên cơ sở tôn trọng độc lập, chủ quyền và toàn vẹn lãnh thổ của nhau, đồng thời khép lại một chương đầy gian khổ, hy sinh trong lịch sử bảo vệ biên giới phía Bắc của dân tộc.",
         "en": "From the late 1980s, alongside shifts in the international and regional situation — especially the political settlement of the Cambodia question — fighting along the northern border gradually subsided. The two countries began a process of dialogue toward normalizing relations, with a secret high-level meeting at Chengdu, China over 3–4 September 1990, between a senior Vietnamese delegation — General Secretary Nguyễn Văn Linh, Chairman of the Council of Ministers Đỗ Mười, and Central Committee adviser Phạm Văn Đồng — and senior Chinese leaders, to discuss settling the Cambodia question and restoring normal relations between the two countries and Parties. On this basis, in November 1991 General Secretary Đỗ Mười and Chairman of the Council of Ministers Võ Văn Kiệt visited China; the two sides formally declared the normalization of Vietnam–China diplomatic relations, closing out more than a decade of tension and conflict on the northern border. Normalization opened a new period in relations between the two countries, based on mutual respect for independence, sovereignty and territorial integrity, while closing a chapter of great hardship and sacrifice in the nation's history of defending its northern border."
@@ -337,7 +362,10 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1989 – 1991 SCN", "en": "1989 – 1991 CE" },
+        "display": {
+          "vi": "1989 – 1991 SCN",
+          "en": "1989 – 1991 CE"
+        },
         "value": 1989,
         "approximate": false
       },

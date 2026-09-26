@@ -4,15 +4,27 @@
   "slug": "hong-bang-van-lang",
   "order": 0,
   "period": "hong-bang",
-  "title": { "vi": "Hồng Bàng & Văn Lang", "en": "Hồng Bàng & Văn Lang" },
-  "kicker": { "vi": "Kỷ nguyên khởi thủy", "en": "The founding era" },
-  "subtitle": { "vi": "Buổi bình minh dựng nước.", "en": "The dawn of nationhood." },
+  "title": {
+    "vi": "Hồng Bàng & Văn Lang",
+    "en": "Hồng Bàng & Văn Lang"
+  },
+  "kicker": {
+    "vi": "Kỷ nguyên khởi thủy",
+    "en": "The founding era"
+  },
+  "subtitle": {
+    "vi": "Buổi bình minh dựng nước.",
+    "en": "The dawn of nationhood."
+  },
   "overview": {
     "vi": "Buổi đầu dựng nước chép trong Ngoại kỷ Đại Việt sử ký toàn thư — từ Kinh Dương Vương mở cõi Xích Quỷ, qua dòng giống Rồng Tiên của Lạc Long Quân và Âu Cơ, đến mười tám đời Hùng Vương dựng nước Văn Lang. Nửa huyền sử nửa chính sử, đây là nơi người Việt tìm về cội nguồn con Rồng cháu Tiên.",
     "en": "The founding dawn as told in the Outer Records of the Đại Việt sử ký toàn thư — from Kinh Dương Vương opening the realm of Xích Quỷ, through the Dragon-and-Fairy line of Lạc Long Quân and Âu Cơ, to the eighteen generations of Hùng Kings who founded Văn Lang. Half legend, half chronicle, this is where the Việt trace their origin as children of the Dragon and the Fairy."
   },
   "yearRange": {
-    "display": { "vi": "2879 – 258 TCN", "en": "2879 – 258 BCE" },
+    "display": {
+      "vi": "2879 – 258 TCN",
+      "en": "2879 – 258 BCE"
+    },
     "startYear": -2879,
     "endYear": -258
   },
@@ -36,30 +48,82 @@
     "flagship": "eras/hong-bang/cover.png",
     "reduced": "eras/hong-bang/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/hong-bang/scene/sky.png", "reduced": "eras/hong-bang/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "ridge-far", "type": "image", "role": "mid", "depth": 0.45, "flagship": "eras/hong-bang/scene/ridge-far.png", "reduced": "eras/hong-bang/scene/ridge-far.png", "placeholder": "ridge" },
-      { "id": "ridge-near", "type": "image", "role": "foreground", "depth": 0.8, "flagship": "eras/hong-bang/scene/ridge-near.png", "reduced": "eras/hong-bang/scene/ridge-near.png", "placeholder": "ridge" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/hong-bang/scene/sky.png",
+        "reduced": "eras/hong-bang/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "ridge-far",
+        "type": "image",
+        "role": "mid",
+        "depth": 0.45,
+        "flagship": "eras/hong-bang/scene/ridge-far.png",
+        "reduced": "eras/hong-bang/scene/ridge-far.png",
+        "placeholder": "ridge"
+      },
+      {
+        "id": "ridge-near",
+        "type": "image",
+        "role": "foreground",
+        "depth": 0.8,
+        "flagship": "eras/hong-bang/scene/ridge-near.png",
+        "reduced": "eras/hong-bang/scene/ridge-near.png",
+        "placeholder": "ridge"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Ngoại kỷ", "en": "Outer Records" },
+    "section": {
+      "vi": "Ngoại kỷ",
+      "en": "Outer Records"
+    },
     "author": "Ngô Sĩ Liên"
   },
   "characters": [
-    { "ref": "kinh-duong-vuong" },
-    { "ref": "lac-long-quan" },
-    { "ref": "au-co" },
-    { "ref": "vua-hung" },
-    { "ref": "thanh-giong" },
-    { "ref": "lang-lieu" },
-    { "ref": "son-tinh" },
-    { "ref": "thuy-tinh" },
+    {
+      "ref": "kinh-duong-vuong"
+    },
+    {
+      "ref": "lac-long-quan"
+    },
+    {
+      "ref": "au-co"
+    },
+    {
+      "ref": "vua-hung"
+    },
+    {
+      "ref": "thanh-giong"
+    },
+    {
+      "ref": "lang-lieu"
+    },
+    {
+      "ref": "son-tinh"
+    },
+    {
+      "ref": "thuy-tinh"
+    },
     {
       "ref": "an-duong-vuong",
       "bio": {
@@ -72,8 +136,13 @@
     {
       "id": "kinh-duong-vuong-lap-nuoc",
       "slug": "kinh-duong-vuong-lap-nuoc",
-      "figureIds": ["kinh-duong-vuong", "lac-long-quan"],
-      "relatedEventIds": ["lac-long-quan-au-co"],
+      "figureIds": [
+        "kinh-duong-vuong",
+        "lac-long-quan"
+      ],
+      "relatedEventIds": [
+        "lac-long-quan-au-co"
+      ],
       "details": {
         "vi": "Sách Ngoại kỷ chép: Đế Minh, cháu ba đời họ Thần Nông, đi tuần thú phương Nam, gặp nàng Vụ Tiên mà sinh ra Lộc Tục. Lộc Tục thông minh thánh trí, được phong làm vua phương Nam, xưng là Kinh Dương Vương, đặt quốc hiệu là Xích Quỷ. Bờ cõi Xích Quỷ bắc giáp hồ Động Đình, nam giáp nước Hồ Tôn, tây giáp Ba Thục, đông giáp Nam Hải. Vua lấy con gái Động Đình Quân là Thần Long, sinh ra Sùng Lãm — tức Lạc Long Quân, người nối nghiệp mở đầu dòng giống Rồng Tiên.",
         "en": "By the Outer Records: Đế Minh, a third-generation descendant of Thần Nông, toured the southern lands and, meeting the lady Vụ Tiên, fathered Lộc Tục. Wise and sage, Lộc Tục was made king of the South, styled himself Kinh Dương Vương, and named the realm Xích Quỷ — bounded by Động Đình Lake to the north, Hồ Tôn to the south, Ba Thục to the west, and the South Sea to the east. He wed Thần Long, daughter of the Lord of Động Đình, and fathered Sùng Lãm — Lạc Long Quân — who carried on the Dragon-and-Fairy line."
@@ -81,11 +150,17 @@
       "order": 0,
       "kind": "semi-historical",
       "year": {
-        "display": { "vi": "≈ 2879 TCN", "en": "≈ 2879 BCE" },
+        "display": {
+          "vi": "≈ 2879 TCN",
+          "en": "≈ 2879 BCE"
+        },
         "value": -2879,
         "approximate": true
       },
-      "title": { "vi": "Kinh Dương Vương lập nước", "en": "Kinh Dương Vương founds the realm" },
+      "title": {
+        "vi": "Kinh Dương Vương lập nước",
+        "en": "Kinh Dương Vương founds the realm"
+      },
       "summary": {
         "vi": "Khởi thủy dòng giống Rồng Tiên nơi phương Nam.",
         "en": "The origin of the Dragon-and-Fairy lineage in the South."
@@ -95,8 +170,14 @@
         "en": "By the Outer Records, Kinh Dương Vương — personal name Lộc Tục — continued the line of Thần Nông, took the throne in the South, and named the country Xích Quỷ. He wed the daughter of the Lord of Động Đình Lake and fathered Lạc Long Quân, beginning the Dragon-and-Fairy lineage of the Việt people."
       },
       "pullQuote": {
-        "text": { "vi": "Ta là giống rồng, nàng là giống tiên…", "en": "I am of dragon kind, you are of fairy kind…" },
-        "attribution": { "vi": "Lạc Long Quân", "en": "Lạc Long Quân" }
+        "text": {
+          "vi": "Ta là giống rồng, nàng là giống tiên…",
+          "en": "I am of dragon kind, you are of fairy kind…"
+        },
+        "attribution": {
+          "vi": "Lạc Long Quân",
+          "en": "Lạc Long Quân"
+        }
       },
       "hero": {
         "id": "kinh-duong-vuong-hero",
@@ -105,19 +186,31 @@
         "flagship": "eras/hong-bang/events/kinh-duong-vuong.png",
         "reduced": "eras/hong-bang/events/kinh-duong-vuong.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 1", "en": "Outer Records · Book 1" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 1",
+          "en": "Outer Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "lac-long-quan-au-co",
       "slug": "lac-long-quan-au-co",
-      "figureIds": ["lac-long-quan", "au-co"],
-      "relatedEventIds": ["kinh-duong-vuong-lap-nuoc", "vua-hung-dung-van-lang"],
+      "figureIds": [
+        "lac-long-quan",
+        "au-co"
+      ],
+      "relatedEventIds": [
+        "kinh-duong-vuong-lap-nuoc",
+        "vua-hung-dung-van-lang"
+      ],
       "details": {
         "vi": "Lạc Long Quân húy là Sùng Lãm, nối ngôi cha trị vì phương Nam, phần nhiều ở dưới Thủy phủ. Bấy giờ Đế Lai từ phương Bắc đưa con gái là Âu Cơ xuống phương Nam; Lạc Long Quân lấy nàng. Âu Cơ sinh ra một bọc trăm trứng, nở thành trăm người con trai. Rồng Tiên khác giống, Long Quân bèn chia năm mươi con theo mẹ lên núi, năm mươi con theo cha xuống biển, cùng chia nhau cai quản các phương, khi hữu sự thì báo cho nhau, không lìa bỏ. Con trưởng được tôn lên nối ngôi, xưng là Hùng Vương.",
         "en": "Lạc Long Quân, whose given name was Sùng Lãm, succeeded his father as ruler of the South and often dwelt in the water realm. When Đế Lai brought his daughter Âu Cơ down from the North, Lạc Long Quân took her to wife. Âu Cơ bore a sac of a hundred eggs that hatched into a hundred sons. As dragon and fairy are of different kinds, the Lord parted them: fifty sons followed their mother to the mountains and fifty followed their father to the sea, each governing their own regions yet never abandoning one another in need. The eldest was raised up to succeed, styled Hùng Vương."
@@ -125,10 +218,16 @@
       "order": 1,
       "kind": "legend",
       "year": {
-        "display": { "vi": "Huyền sử", "en": "Legend" },
+        "display": {
+          "vi": "Huyền sử",
+          "en": "Legend"
+        },
         "value": null
       },
-      "title": { "vi": "Lạc Long Quân & Âu Cơ", "en": "Lạc Long Quân & Âu Cơ" },
+      "title": {
+        "vi": "Lạc Long Quân & Âu Cơ",
+        "en": "Lạc Long Quân & Âu Cơ"
+      },
       "summary": {
         "vi": "Bọc trăm trứng nở trăm con — nguồn cội một nhà.",
         "en": "One sac of a hundred eggs, a hundred children — one people, one home."
@@ -138,7 +237,10 @@
         "en": "Lạc Long Quân took Âu Cơ as his wife, and she bore a sac of a hundred eggs that hatched into a hundred children. Fifty followed their father to the sea and fifty followed their mother to the mountains, and together they built the land — from this the Việt call one another đồng bào, 'of one womb'."
       },
       "pullQuote": {
-        "text": { "vi": "Trăm trứng một bọc, trăm con một nhà.", "en": "A hundred eggs in one sac, a hundred children of one home." }
+        "text": {
+          "vi": "Trăm trứng một bọc, trăm con một nhà.",
+          "en": "A hundred eggs in one sac, a hundred children of one home."
+        }
       },
       "hero": {
         "id": "au-co-hero",
@@ -146,19 +248,31 @@
         "role": "hero",
         "flagship": "eras/hong-bang/events/lac-long-quan-au-co.png",
         "reduced": "eras/hong-bang/events/lac-long-quan-au-co.png",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 1", "en": "Outer Records · Book 1" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 1",
+          "en": "Outer Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "vua-hung-dung-van-lang",
       "slug": "vua-hung-dung-van-lang",
-      "figureIds": ["vua-hung"],
-      "relatedEventIds": ["lac-long-quan-au-co", "son-tinh-thuy-tinh", "thuc-phan-thay-nha-hung"],
+      "figureIds": [
+        "vua-hung"
+      ],
+      "relatedEventIds": [
+        "lac-long-quan-au-co",
+        "son-tinh-thuy-tinh",
+        "thuc-phan-thay-nha-hung"
+      ],
       "details": {
         "vi": "Hùng Vương lên ngôi, đặt quốc hiệu là Văn Lang, đóng đô ở Phong Châu. Nước chia làm mười lăm bộ; đặt tướng văn gọi là Lạc hầu, tướng võ gọi là Lạc tướng; con trai vua gọi là Quan lang, con gái gọi là Mị nương; quan coi việc gọi là Bồ chính. Ngôi vua đời đời cha truyền con nối, đều gọi chung là Hùng Vương, truyền nối được mười tám đời, giữ nền tự chủ lâu dài của người Việt.",
         "en": "Hùng Vương took the throne, named the nation Văn Lang, and set his capital at Phong Châu. The land was divided into fifteen districts; civil lords were called Lạc hầu and military lords Lạc tướng; the king's sons were Quan lang and his daughters Mị nương, while stewards were called Bồ chính. The throne passed from father to son, all styled Hùng Vương, through eighteen generations — a lasting self-ruled order of the Việt."
@@ -166,11 +280,17 @@
       "order": 2,
       "kind": "semi-historical",
       "year": {
-        "display": { "vi": "≈ 2524 TCN", "en": "≈ 2524 BCE" },
+        "display": {
+          "vi": "≈ 2524 TCN",
+          "en": "≈ 2524 BCE"
+        },
         "value": -2524,
         "approximate": true
       },
-      "title": { "vi": "Vua Hùng dựng Văn Lang", "en": "The Hùng Kings found Văn Lang" },
+      "title": {
+        "vi": "Vua Hùng dựng Văn Lang",
+        "en": "The Hùng Kings found Văn Lang"
+      },
       "summary": {
         "vi": "Đặt quốc hiệu, chia mười lăm bộ, định nghiệp lâu dài.",
         "en": "A name for the nation, fifteen districts, a lasting foundation."
@@ -185,19 +305,29 @@
         "role": "hero",
         "flagship": "eras/hong-bang/events/van-lang.png",
         "reduced": "eras/hong-bang/events/van-lang.png",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 1", "en": "Outer Records · Book 1" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 1",
+          "en": "Outer Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "thanh-giong-pha-giac-an",
       "slug": "thanh-giong-pha-giac-an",
-      "figureIds": ["thanh-giong"],
-      "relatedEventIds": ["vua-hung-dung-van-lang"],
+      "figureIds": [
+        "thanh-giong"
+      ],
+      "relatedEventIds": [
+        "vua-hung-dung-van-lang"
+      ],
       "details": {
         "vi": "Đời Hùng Vương thứ sáu, giặc Ân mượn cớ sang xâm lược nước Văn Lang. Vua sai sứ đi khắp nơi tìm người tài giỏi cứu nước. Ở làng Phù Đổng có đứa trẻ lên ba chưa biết nói cười, nghe tiếng sứ giả bỗng cất tiếng, xin nhà vua rèn cho ngựa sắt, roi sắt, áo giáp sắt. Cậu bé ăn khỏe lớn nhanh như thổi, vươn vai thành một tráng sĩ oai phong; cưỡi ngựa sắt phun lửa, vung roi xông vào phá tan giặc Ân. Roi gãy, tráng sĩ nhổ tre bên đường quật giặc. Đánh xong, ngài cưỡi ngựa lên núi Sóc Sơn rồi bay thẳng về trời. Vua nhớ công, phong là Phù Đổng Thiên Vương, lập đền thờ.",
         "en": "In the reign of the sixth Hùng King, the Ân invaders crossed into Văn Lang. The king sent envoys through the land to seek a champion. In Phù Đổng village a three-year-old boy who had never spoken or smiled heard the envoy's call and at once found his voice, asking the king to forge him an iron horse, an iron whip and iron armour. He ate mightily and grew as if the wind bore him up, stretching into a mighty warrior; astride the fire-breathing iron horse, whip whirling, he charged and broke the Ân host. When the whip snapped he tore up roadside bamboo to strike them down. His work done, he rode up Mount Sóc and flew straight to Heaven. In gratitude the king honoured him as Phù Đổng Thiên Vương and raised a shrine to him."
@@ -205,10 +335,16 @@
       "order": 3,
       "kind": "legend",
       "year": {
-        "display": { "vi": "Truyền thuyết", "en": "Legend" },
+        "display": {
+          "vi": "Truyền thuyết",
+          "en": "Legend"
+        },
         "value": null
       },
-      "title": { "vi": "Thánh Gióng phá giặc Ân", "en": "Thánh Gióng breaks the Ân" },
+      "title": {
+        "vi": "Thánh Gióng phá giặc Ân",
+        "en": "Thánh Gióng breaks the Ân"
+      },
       "summary": {
         "vi": "Cậu bé Phù Đổng vươn vai thành tráng sĩ, đánh tan giặc.",
         "en": "The child of Phù Đổng rises a giant and shatters the invaders."
@@ -218,7 +354,10 @@
         "en": "In the reign of the sixth Hùng King the Ân came to plunder. A three-year-old boy of Phù Đổng rose into a giant warrior, called for an iron horse, whip and armour, shattered the Ân host and rode to Heaven. The king honoured him as Phù Đổng Thiên Vương — the first emblem of the Việt will against invasion."
       },
       "pullQuote": {
-        "text": { "vi": "Vươn vai một cái, thành tráng sĩ chống trời.", "en": "One stretch of his shoulders, and a giant stood against the sky." }
+        "text": {
+          "vi": "Vươn vai một cái, thành tráng sĩ chống trời.",
+          "en": "One stretch of his shoulders, and a giant stood against the sky."
+        }
       },
       "hero": {
         "id": "thanh-giong-hero",
@@ -227,19 +366,29 @@
         "flagship": "eras/hong-bang/events/thanh-giong.png",
         "reduced": "eras/hong-bang/events/thanh-giong.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 1", "en": "Outer Records · Book 1" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 1",
+          "en": "Outer Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "banh-chung-banh-giay",
       "slug": "banh-chung-banh-giay",
-      "figureIds": ["lang-lieu"],
-      "relatedEventIds": ["vua-hung-dung-van-lang"],
+      "figureIds": [
+        "lang-lieu"
+      ],
+      "relatedEventIds": [
+        "vua-hung-dung-van-lang"
+      ],
       "details": {
         "vi": "Vua Hùng Vương thứ sáu, sau khi phá xong giặc Ân, muốn truyền ngôi, bèn hẹn các con: ai tìm được món ngon vật lạ dâng lên tổ tiên hợp ý nhất thì được nối ngôi. Các hoàng tử đua nhau tìm của ngon vật lạ khắp nơi. Riêng Lang Liêu, người con thứ mười tám, nhà nghèo, được thần báo mộng rằng trong trời đất không gì quý bằng gạo. Chàng lấy gạo nếp làm hai thứ bánh: bánh chưng vuông tượng hình đất, bánh giày tròn tượng hình trời, gói bằng lá xanh, bày như công cha nghĩa mẹ bao bọc. Vua nếm, khen ngon lại thấu lẽ trời đất, bèn truyền ngôi cho Lang Liêu. Từ đó nước ta có tục làm bánh chưng bánh giày mỗi độ Tết đến.",
         "en": "In the reign of the sixth Hùng King, after the Ân were broken, the king wished to name an heir and told his sons: whoever found the finest offering for the ancestors would inherit the throne. The princes vied to gather rare delicacies from every quarter. But Lang Liêu, the eighteenth son and a poor one, was told in a dream that nothing under heaven is more precious than rice. From glutinous rice he made two cakes: the square bánh chưng for the earth and the round bánh giày for the sky, wrapped in green leaves like a parent's enfolding love. Tasting them, the king praised both their savour and their grasp of the order of heaven and earth, and passed the throne to Lang Liêu. From then our land has kept the custom of the Tết cakes."
@@ -247,10 +396,16 @@
       "order": 4,
       "kind": "legend",
       "year": {
-        "display": { "vi": "Truyền thuyết", "en": "Legend" },
+        "display": {
+          "vi": "Truyền thuyết",
+          "en": "Legend"
+        },
         "value": null
       },
-      "title": { "vi": "Bánh chưng, bánh giày", "en": "The square and round cakes" },
+      "title": {
+        "vi": "Bánh chưng, bánh giày",
+        "en": "The square and round cakes"
+      },
       "summary": {
         "vi": "Lang Liêu dâng bánh tượng trời đất, được truyền ngôi.",
         "en": "Lang Liêu's cakes of earth and sky win him the throne."
@@ -260,7 +415,10 @@
         "en": "The sixth Hùng King would give the throne to the son with the worthiest offering. Poor Lang Liêu, guided by a dream, made from rice the square bánh chưng for the earth and round bánh giày for the sky. Praised for grasping the order of heaven and earth, he was given the throne — and the Tết cakes endure to this day."
       },
       "pullQuote": {
-        "text": { "vi": "Trong trời đất, không gì quý bằng hạt gạo.", "en": "Under heaven and earth, nothing is more precious than a grain of rice." }
+        "text": {
+          "vi": "Trong trời đất, không gì quý bằng hạt gạo.",
+          "en": "Under heaven and earth, nothing is more precious than a grain of rice."
+        }
       },
       "hero": {
         "id": "banh-chung-banh-giay-hero",
@@ -269,19 +427,30 @@
         "flagship": "eras/hong-bang/events/banh-chung-banh-giay.png",
         "reduced": "eras/hong-bang/events/banh-chung-banh-giay.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 1", "en": "Outer Records · Book 1" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 1",
+          "en": "Outer Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "son-tinh-thuy-tinh",
       "slug": "son-tinh-thuy-tinh",
-      "figureIds": ["son-tinh", "thuy-tinh"],
-      "relatedEventIds": ["vua-hung-dung-van-lang"],
+      "figureIds": [
+        "son-tinh",
+        "thuy-tinh"
+      ],
+      "relatedEventIds": [
+        "vua-hung-dung-van-lang"
+      ],
       "details": {
         "vi": "Đời Hùng Vương thứ mười tám, vua có người con gái là Mị Nương, nhan sắc tuyệt vời. Sơn Tinh và Thủy Tinh cùng đến cầu hôn; vua hẹn ai đem sính lễ đến trước thì gả. Sơn Tinh đem đủ voi chín ngà, gà chín cựa, ngựa chín hồng mao đến trước, rước Mị Nương về núi Tản Viên. Thủy Tinh đến sau, nổi giận dâng nước đánh; nước dâng cao bao nhiêu thì núi lại cao lên bấy nhiêu. Đánh mãi không được, Thủy Tinh phải lui; song hằng năm vẫn dâng nước làm mưa gió báo oán — người xưa nhân đó mà giải nghĩa mùa lũ.",
         "en": "In the reign of the eighteenth Hùng King, the king's daughter Mị Nương was of matchless beauty. Both Sơn Tinh and Thủy Tinh came to seek her hand; the king promised her to whoever first brought the betrothal gifts. Sơn Tinh arrived first with the nine-tusked elephant, the nine-spurred cockerel and the nine-maned horse, and bore Mị Nương home to Mount Tản Viên. Thủy Tinh came after and, in fury, raised the waters — yet however high the flood rose, the mountain rose higher. Unable to prevail, he withdrew, but each year he returns with storm and flood to press his grievance — and so the ancients explained the flood season."
@@ -289,10 +458,16 @@
       "order": 5,
       "kind": "legend",
       "year": {
-        "display": { "vi": "Truyền thuyết", "en": "Legend" },
+        "display": {
+          "vi": "Truyền thuyết",
+          "en": "Legend"
+        },
         "value": null
       },
-      "title": { "vi": "Sơn Tinh – Thủy Tinh", "en": "Sơn Tinh and Thủy Tinh" },
+      "title": {
+        "vi": "Sơn Tinh – Thủy Tinh",
+        "en": "Sơn Tinh and Thủy Tinh"
+      },
       "summary": {
         "vi": "Núi cao chế ngự cơn lũ dữ hằng năm.",
         "en": "The mountain masters the flood that returns each year."
@@ -302,7 +477,10 @@
         "en": "In the reign of the eighteenth Hùng King, Sơn Tinh the Mountain Spirit and Thủy Tinh the Water Spirit both sought the hand of Princess Mỵ Nương. Sơn Tinh arrived first and bore her home to the mountains. Thủy Tinh came after and, in fury, raised the waters against him; yet however high the flood rose, the mountain rose higher still. Each year the Water Spirit returns with the flood to press his grievance — so the ancients explained the flood season."
       },
       "pullQuote": {
-        "text": { "vi": "Nước dâng cao bao nhiêu, núi cao lên bấy nhiêu.", "en": "However high the waters rise, the mountain rises higher." }
+        "text": {
+          "vi": "Nước dâng cao bao nhiêu, núi cao lên bấy nhiêu.",
+          "en": "However high the waters rise, the mountain rises higher."
+        }
       },
       "hero": {
         "id": "son-tinh-hero",
@@ -310,19 +488,29 @@
         "role": "hero",
         "flagship": "eras/hong-bang/events/son-tinh-thuy-tinh.png",
         "reduced": "eras/hong-bang/events/son-tinh-thuy-tinh.png",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 1", "en": "Outer Records · Book 1" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 1",
+          "en": "Outer Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "thuc-phan-thay-nha-hung",
       "slug": "thuc-phan-thay-nha-hung",
-      "figureIds": ["an-duong-vuong"],
-      "relatedEventIds": ["vua-hung-dung-van-lang"],
+      "figureIds": [
+        "an-duong-vuong"
+      ],
+      "relatedEventIds": [
+        "vua-hung-dung-van-lang"
+      ],
       "details": {
         "vi": "Cuối đời Hùng Vương, Thục Phán là thủ lĩnh người Âu Việt, nhiều lần đem quân xâm lấn Văn Lang. Vua Hùng cậy binh cường tướng mạnh nên chểnh mảng phòng bị. Rốt cuộc Thục Phán đánh bại vua Hùng, hợp nhất Âu Việt và Lạc Việt, dựng nước Âu Lạc, tự xưng là An Dương Vương và dời đô về Cổ Loa. Họ Hồng Bàng trải hơn hai nghìn năm, đến đây khép lại, mở sang một thời kỳ mới của lịch sử nước Việt.",
         "en": "At the close of the Hùng era, Thục Phán, chieftain of the Âu Việt, raided Văn Lang many times. Trusting in strong troops and able generals, the Hùng King grew lax in his defenses. In the end Thục Phán defeated him, united the Âu Việt and Lạc Việt, founded the state of Âu Lạc, styled himself An Dương Vương, and moved the capital to Cổ Loa. The Hồng Bàng line, after more than two thousand years, here came to its close, opening a new age in the history of the Việt."
@@ -330,11 +518,17 @@
       "order": 6,
       "kind": "historical",
       "year": {
-        "display": { "vi": "258 TCN", "en": "258 BCE" },
+        "display": {
+          "vi": "258 TCN",
+          "en": "258 BCE"
+        },
         "value": -258,
         "approximate": false
       },
-      "title": { "vi": "Thục Phán thay nhà Hùng", "en": "Thục Phán supplants the Hùng" },
+      "title": {
+        "vi": "Thục Phán thay nhà Hùng",
+        "en": "Thục Phán supplants the Hùng"
+      },
       "summary": {
         "vi": "Khép lại buổi bình minh dựng nước.",
         "en": "The close of the founding dawn."
@@ -349,11 +543,17 @@
         "role": "hero",
         "flagship": "eras/hong-bang/events/thuc-phan-co-loa.png",
         "reduced": "eras/hong-bang/events/thuc-phan-co-loa.png",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 1", "en": "Outer Records · Book 1" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 1",
+          "en": "Outer Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     }

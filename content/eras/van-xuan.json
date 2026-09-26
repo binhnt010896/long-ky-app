@@ -4,15 +4,27 @@
   "slug": "van-xuan",
   "order": 5,
   "period": "bac-thuoc",
-  "title": { "vi": "Vạn Xuân", "en": "Vạn Xuân" },
-  "kicker": { "vi": "Kỷ nhà Tiền Lý", "en": "The Early Lý" },
-  "subtitle": { "vi": "Lần đầu xưng đế, dựng nước muôn xuân.", "en": "The first to claim the throne — a realm of ten thousand springs." },
+  "title": {
+    "vi": "Vạn Xuân",
+    "en": "Vạn Xuân"
+  },
+  "kicker": {
+    "vi": "Kỷ nhà Tiền Lý",
+    "en": "The Early Lý"
+  },
+  "subtitle": {
+    "vi": "Lần đầu xưng đế, dựng nước muôn xuân.",
+    "en": "The first to claim the throne — a realm of ten thousand springs."
+  },
   "overview": {
     "vi": "Gần ba trăm năm sau Bà Triệu, đất Việt vẫn dưới ách phương Bắc, bấy giờ là nhà Lương với thứ sử Tiêu Tư tham bạo. Năm 541, hào kiệt Thái Bình là Lý Bí dấy binh, đánh đuổi quân Lương, lại phá tan quân Lâm Ấp phía nam. Năm 544, ông lên ngôi, tự xưng Lý Nam Đế, đặt quốc hiệu Vạn Xuân, niên hiệu Thiên Đức, lập triều đình có văn có võ — lần đầu tiên người Việt xưng đế và dựng một quốc hiệu riêng, sánh ngang với phương Bắc. Nhà Lương sai Trần Bá Tiên sang đánh; Lý Nam Đế thua lui rồi mất, nhưng tướng cũ là Triệu Quang Phục rút về đầm Dạ Trạch, đánh du kích bền bỉ, cuối cùng quét sạch quân Lương, thu lại Vạn Xuân và lên ngôi Triệu Việt Vương. Đây là chương chép trong Ngoại kỷ về buổi người Việt lần đầu tự xưng đế.",
     "en": "Nearly three centuries after Lady Triệu, the Việt land still lay under the North — now the Liang, with the rapacious Inspector Tiêu Tư. In 541 the Thái Bình notable Lý Bí rose in arms, drove out the Liang and shattered a Lâm Ấp (Champa) host in the south. In 544 he took the throne as Lý Nam Đế, named the state Vạn Xuân and the era Thiên Đức, and built a court of civil and military officers — the first time the Việt claimed the imperial title and raised a realm's own name, an equal to the North. The Liang sent Trần Bá Tiên; Lý Nam Đế was beaten back and died, but his general Triệu Quang Phục withdrew to the Dạ Trạch marsh, waged a patient guerrilla war, and at last swept out the Liang, recovered Vạn Xuân and took the throne as King Triệu Việt. This is the Outer Records' chapter on the Việt's first claim to empire."
   },
   "yearRange": {
-    "display": { "vi": "541 – 571 SCN", "en": "541 – 571 CE" },
+    "display": {
+      "vi": "541 – 571 SCN",
+      "en": "541 – 571 CE"
+    },
     "startYear": 541,
     "endYear": 571
   },
@@ -36,31 +48,63 @@
     "flagship": "eras/van-xuan/cover.png",
     "reduced": "eras/van-xuan/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/van-xuan/scene/sky.png", "reduced": "eras/van-xuan/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/van-xuan/scene/sky.png",
+        "reduced": "eras/van-xuan/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Ngoại kỷ", "en": "Outer Records" },
+    "section": {
+      "vi": "Ngoại kỷ",
+      "en": "Outer Records"
+    },
     "author": "Ngô Sĩ Liên"
   },
   "characters": [
-    { "ref": "ly-nam-de" },
-    { "ref": "trieu-quang-phuc" },
-    { "ref": "pham-tu" },
-    { "ref": "tinh-thieu" },
-    { "ref": "tran-ba-tien" }
+    {
+      "ref": "ly-nam-de"
+    },
+    {
+      "ref": "trieu-quang-phuc"
+    },
+    {
+      "ref": "pham-tu"
+    },
+    {
+      "ref": "tinh-thieu"
+    },
+    {
+      "ref": "tran-ba-tien"
+    }
   ],
   "events": [
     {
       "id": "ach-do-ho-nha-luong",
       "slug": "ach-do-ho-nha-luong",
-      "figureIds": ["ly-nam-de"],
+      "figureIds": [
+        "ly-nam-de"
+      ],
       "details": {
         "vi": "Sau các đời Ngô, Tấn, Tống, Tề, đến thế kỷ thứ sáu đất Giao Châu thuộc về nhà Lương. Thứ sử Tiêu Tư tính tình tham lam tàn bạo, đặt ra trăm thứ thuế khóa, khiến lòng người oán hận. Bấy giờ ở Thái Bình có Lý Bí, dòng dõi hào trưởng, học rộng tài cao cả văn lẫn võ, từng ra làm quan nhỏ cho nhà Lương nhưng bất đắc chí mà bỏ về. Thấy dân tình khốn khổ, ông ngầm kết giao hào kiệt bốn phương, nuôi chí lớn đánh đuổi giặc Lương, giành lại giang sơn.",
         "en": "After the Ngô, Tấn, Tống and Tề, by the sixth century Giao Châu lay under the Liang. The Inspector Tiêu Tư was greedy and cruel, laying a hundred kinds of tax until the people seethed. In Thái Bình lived Lý Bí, of a chieftain line, deeply learned and gifted in both letters and arms, who had served the Liang in a minor post but left it in frustration. Seeing the people's misery, he quietly bound the brave of every quarter to him and nursed a great design — to drive out the Liang and win back the land."
@@ -68,11 +112,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "≈ 540 SCN", "en": "≈ 540 CE" },
+        "display": {
+          "vi": "≈ 540 SCN",
+          "en": "≈ 540 CE"
+        },
         "value": 540,
         "approximate": true
       },
-      "title": { "vi": "Ách đô hộ nhà Lương", "en": "Under the Liang yoke" },
+      "title": {
+        "vi": "Ách đô hộ nhà Lương",
+        "en": "Under the Liang yoke"
+      },
       "summary": {
         "vi": "Thứ sử Tiêu Tư hà khắc; Lý Bí ngầm nuôi chí lớn.",
         "en": "Inspector Tiêu Tư's harsh rule; Lý Bí quietly nurses a great design."
@@ -82,7 +132,10 @@
         "en": "In the sixth century Giao Châu lay under the Liang, whose Inspector Tiêu Tư was rapacious and hated. Lý Bí of Thái Bình, gifted yet passed over, left office, quietly gathered the brave to him and nursed the will to drive out the Liang."
       },
       "pullQuote": {
-        "text": { "vi": "Kẻ sĩ có tài mà không gặp thời, chí ở non sông.", "en": "A gifted man born to a bad age keeps his heart on the land itself." }
+        "text": {
+          "vi": "Kẻ sĩ có tài mà không gặp thời, chí ở non sông.",
+          "en": "A gifted man born to a bad age keeps his heart on the land itself."
+        }
       },
       "hero": {
         "id": "ach-do-ho-nha-luong-hero",
@@ -91,18 +144,28 @@
         "flagship": "eras/van-xuan/events/ach-do-ho-nha-luong.png",
         "reduced": "eras/van-xuan/events/ach-do-ho-nha-luong.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 4", "en": "Outer Records · Book 4" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 4",
+          "en": "Outer Records · Book 4"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "ly-bi-khoi-nghia",
       "slug": "ly-bi-khoi-nghia",
-      "figureIds": ["ly-nam-de", "tinh-thieu", "pham-tu"],
+      "figureIds": [
+        "ly-nam-de",
+        "tinh-thieu",
+        "pham-tu"
+      ],
       "details": {
         "vi": "Năm Tân Dậu (541), Lý Bí phất cờ khởi nghĩa. Hào kiệt các nơi nô nức hưởng ứng: có Tinh Thiều giỏi văn từng bị nhà Lương khinh rẻ, có lão tướng Phạm Tu dũng mãnh, có Triệu Túc tù trưởng đất Chu Diên đem quân theo về. Thế nghĩa quân lên nhanh; chỉ trong khoảng ba tháng đã đánh chiếm được châu thành. Thứ sử Tiêu Tư khiếp sợ, đút lót để được tháo chạy về Quảng Châu. Quân Lý Bí làm chủ cả đất Giao Châu.",
         "en": "In the year Tân Dậu (541) Lý Bí raised the flag of revolt. The brave of every quarter flocked to him: Tinh Thiều the scholar, once scorned by the Liang; the fierce veteran Phạm Tu; and Triệu Túc, chieftain of Chu Diên, who came over with his troops. The rebel tide rose fast, and within some three months they had taken the provincial citadel. The Inspector Tiêu Tư, terrified, bribed his way to flight back to Quảng Châu, and Lý Bí's men held all of Giao Châu."
@@ -110,11 +173,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "541 SCN", "en": "541 CE" },
+        "display": {
+          "vi": "541 SCN",
+          "en": "541 CE"
+        },
         "value": 541,
         "approximate": false
       },
-      "title": { "vi": "Lý Bí khởi nghĩa", "en": "Lý Bí rises in revolt" },
+      "title": {
+        "vi": "Lý Bí khởi nghĩa",
+        "en": "Lý Bí rises in revolt"
+      },
       "summary": {
         "vi": "Hào kiệt hưởng ứng; Tiêu Tư bỏ chạy, chiếm cả Giao Châu.",
         "en": "The brave rally; Tiêu Tư flees, and Giao Châu is taken."
@@ -124,7 +193,10 @@
         "en": "In 541 Lý Bí rose. Tinh Thiều, Phạm Tu, Triệu Túc and the brave of every quarter joined him. In a few months the rebels took the citadel; the Inspector Tiêu Tư fled north in terror, and Lý Bí held all of Giao Châu."
       },
       "pullQuote": {
-        "text": { "vi": "Một tiếng hô ở Thái Bình, hào kiệt bốn phương tụ về.", "en": "One call in Thái Bình, and the brave of every quarter gathered." }
+        "text": {
+          "vi": "Một tiếng hô ở Thái Bình, hào kiệt bốn phương tụ về.",
+          "en": "One call in Thái Bình, and the brave of every quarter gathered."
+        }
       },
       "hero": {
         "id": "ly-bi-khoi-nghia-hero",
@@ -133,18 +205,27 @@
         "flagship": "eras/van-xuan/events/ly-bi-khoi-nghia.png",
         "reduced": "eras/van-xuan/events/ly-bi-khoi-nghia.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 4", "en": "Outer Records · Book 4" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 4",
+          "en": "Outer Records · Book 4"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "pha-luong-va-lam-ap",
       "slug": "pha-luong-va-lam-ap",
-      "figureIds": ["pham-tu", "ly-nam-de"],
+      "figureIds": [
+        "pham-tu",
+        "ly-nam-de"
+      ],
       "details": {
         "vi": "Nhà Lương không cam chịu mất đất, hai lần sai quân sang đánh, nhưng đều bị Lý Bí đánh cho tan tác, phải rút về. Cùng lúc ấy, nhân đất Giao Châu có biến, vua nước Lâm Ấp ở phía nam đem quân sang cướp quận Cửu Đức. Lý Bí sai lão tướng Phạm Tu đem quân vào nam; Phạm Tu đánh một trận phá tan quân Lâm Ấp, khiến chúng phải lui. Trong ngoài đều yên, uy thế Lý Bí lừng lẫy khắp cõi.",
         "en": "Unwilling to lose the land, the Liang twice sent armies south, and twice Lý Bí smashed them and sent them home. At the same time, seizing on the turmoil, the king of Lâm Ấp (Champa) in the south raided Cửu Đức commandery. Lý Bí sent the veteran Phạm Tu south; in a single battle Phạm Tu shattered the Lâm Ấp host and drove them back. With peace within and without, Lý Bí's power rang through the whole land."
@@ -152,11 +233,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "543 SCN", "en": "543 CE" },
+        "display": {
+          "vi": "543 SCN",
+          "en": "543 CE"
+        },
         "value": 543,
         "approximate": false
       },
-      "title": { "vi": "Phá quân Lương và Lâm Ấp", "en": "Breaking the Liang and Lâm Ấp" },
+      "title": {
+        "vi": "Phá quân Lương và Lâm Ấp",
+        "en": "Breaking the Liang and Lâm Ấp"
+      },
       "summary": {
         "vi": "Hai lần đuổi quân Lương; Phạm Tu phá tan quân Lâm Ấp.",
         "en": "The Liang beaten off twice; Phạm Tu shatters the Lâm Ấp host."
@@ -166,7 +253,10 @@
         "en": "The Liang came twice and were beaten off both times. In the south a Lâm Ấp host raided Cửu Đức; Lý Bí sent the veteran Phạm Tu, who shattered them in a single battle. With foes quelled within and without, Lý Bí's fame rang out."
       },
       "pullQuote": {
-        "text": { "vi": "Giặc Bắc lui, giặc Nam tan — một cõi đã định.", "en": "The North driven off, the South shattered — a realm made secure." }
+        "text": {
+          "vi": "Giặc Bắc lui, giặc Nam tan — một cõi đã định.",
+          "en": "The North driven off, the South shattered — a realm made secure."
+        }
       },
       "hero": {
         "id": "pha-luong-va-lam-ap-hero",
@@ -175,18 +265,28 @@
         "flagship": "eras/van-xuan/events/pha-luong-va-lam-ap.png",
         "reduced": "eras/van-xuan/events/pha-luong-va-lam-ap.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 4", "en": "Outer Records · Book 4" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 4",
+          "en": "Outer Records · Book 4"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "lap-nuoc-van-xuan",
       "slug": "lap-nuoc-van-xuan",
-      "figureIds": ["ly-nam-de", "tinh-thieu", "pham-tu"],
+      "figureIds": [
+        "ly-nam-de",
+        "tinh-thieu",
+        "pham-tu"
+      ],
       "details": {
         "vi": "Mùa xuân năm Giáp Tý (544), dẹp yên trong ngoài, Lý Bí lên ngôi hoàng đế, tự xưng là Lý Nam Đế. Ngài đặt quốc hiệu là Vạn Xuân, tỏ ý mong xã tắc bền vững muôn đời như mùa xuân; đặt niên hiệu Thiên Đức, dựng triều nghi, đặt trăm quan. Bên văn có Tinh Thiều đứng đầu, bên võ có lão tướng Phạm Tu, Triệu Túc làm thái phó. Đây là lần đầu tiên trong lịch sử, người Việt tự xưng đế và đặt một quốc hiệu riêng, đứng ngang hàng với hoàng đế phương Bắc — một cột mốc lớn của ý thức độc lập.",
         "en": "In the spring of Giáp Tý (544), with all quelled within and without, Lý Bí ascended the throne as emperor and styled himself Lý Nam Đế. He named the state Vạn Xuân — 'Ten Thousand Springs' — wishing the realm to endure forever like the spring; set the era name Thiên Đức; and raised a court with its hundred officers. Tinh Thiều headed the civil side, the veteran Phạm Tu the military, and Triệu Túc served as Grand Tutor. For the first time in history the Việt claimed the imperial title and raised a realm's own name, standing as an equal to the emperors of the North — a great landmark in the consciousness of independence."
@@ -194,11 +294,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "544 SCN", "en": "544 CE" },
+        "display": {
+          "vi": "544 SCN",
+          "en": "544 CE"
+        },
         "value": 544,
         "approximate": false
       },
-      "title": { "vi": "Lý Nam Đế lập nước Vạn Xuân", "en": "Lý Nam Đế founds Vạn Xuân" },
+      "title": {
+        "vi": "Lý Nam Đế lập nước Vạn Xuân",
+        "en": "Lý Nam Đế founds Vạn Xuân"
+      },
       "summary": {
         "vi": "Xưng đế, đặt quốc hiệu Vạn Xuân, niên hiệu Thiên Đức.",
         "en": "He claims the throne, names the realm Vạn Xuân, the era Thiên Đức."
@@ -208,7 +314,10 @@
         "en": "In 544 Lý Bí took the throne as emperor, styled Lý Nam Đế, named the realm Vạn Xuân and the era Thiên Đức, and formed a court — Tinh Thiều over the civil side, Phạm Tu the military, Triệu Túc as Grand Tutor. It was the first time the Việt claimed empire and raised a realm's own name, an equal to the North."
       },
       "pullQuote": {
-        "text": { "vi": "Đặt tên nước là Vạn Xuân, mong xã tắc bền vững muôn đời.", "en": "He named the realm Vạn Xuân, that the land might endure ten thousand springs." }
+        "text": {
+          "vi": "Đặt tên nước là Vạn Xuân, mong xã tắc bền vững muôn đời.",
+          "en": "He named the realm Vạn Xuân, that the land might endure ten thousand springs."
+        }
       },
       "hero": {
         "id": "lap-nuoc-van-xuan-hero",
@@ -217,18 +326,28 @@
         "flagship": "eras/van-xuan/events/lap-nuoc-van-xuan.png",
         "reduced": "eras/van-xuan/events/lap-nuoc-van-xuan.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 4", "en": "Outer Records · Book 4" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 4",
+          "en": "Outer Records · Book 4"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "tran-ba-tien-sang-danh",
       "slug": "tran-ba-tien-sang-danh",
-      "figureIds": ["ly-nam-de", "tran-ba-tien", "trieu-quang-phuc"],
+      "figureIds": [
+        "ly-nam-de",
+        "tran-ba-tien",
+        "trieu-quang-phuc"
+      ],
       "details": {
         "vi": "Năm 545, vua Lương sai thứ sử Dương Phiêu và tư mã Trần Bá Tiên đem đại quân sang đánh Vạn Xuân. Trần Bá Tiên là tướng giỏi, quân Lương lại đông; Lý Nam Đế đánh mấy trận không lợi, phải lui giữ thành cửa sông Tô Lịch, rồi lui tiếp về thành Gia Ninh, sau vào giữ hồ Điển Triệt. Một đêm nước lũ dâng to, Trần Bá Tiên thừa cơ đánh úp, quân Vạn Xuân tan vỡ. Lý Nam Đế lui vào động Khuất Lạo, trao binh quyền cho tả tướng Triệu Quang Phục; ít lâu sau, năm 548, ngài mất vì bệnh, ở ngôi được năm năm.",
         "en": "In 545 the Liang ruler sent the Inspector Dương Phiêu and the marshal Trần Bá Tiên with a great army against Vạn Xuân. Trần Bá Tiên was an able commander and the Liang host was large; Lý Nam Đế fought several unfavourable battles and fell back to hold the fort at the mouth of the Tô Lịch, then withdrew to Gia Ninh, and after that to Điển Triệt Lake. One night, as a flood rose high, Trần Bá Tiên fell upon the camp and the Vạn Xuân army broke. Lý Nam Đế withdrew into the cave of Khuất Lạo and handed command to his general of the left, Triệu Quang Phục; not long after, in 548, he died of illness, having reigned five years."
@@ -236,11 +355,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "545 – 548 SCN", "en": "545 – 548 CE" },
+        "display": {
+          "vi": "545 – 548 SCN",
+          "en": "545 – 548 CE"
+        },
         "value": 545,
         "approximate": false
       },
-      "title": { "vi": "Trần Bá Tiên sang, Lý Nam Đế lui về Khuất Lạo", "en": "Trần Bá Tiên comes; Lý Nam Đế withdraws to Khuất Lạo" },
+      "title": {
+        "vi": "Trần Bá Tiên sang, Lý Nam Đế lui về Khuất Lạo",
+        "en": "Trần Bá Tiên comes; Lý Nam Đế withdraws to Khuất Lạo"
+      },
       "summary": {
         "vi": "Quân Lương phản công; vua lui về Khuất Lạo rồi mất.",
         "en": "The Liang counter-attack; the emperor withdraws to Khuất Lạo and dies."
@@ -250,7 +375,10 @@
         "en": "In 545 the Liang sent Trần Bá Tiên with a great army. Beaten in battle, Lý Nam Đế fell back from the Tô Lịch to Gia Ninh and then Điển Triệt Lake; surprised in a night flood, his army broke. He withdrew to Khuất Lạo, gave his troops to Triệu Quang Phục, and died in 548."
       },
       "pullQuote": {
-        "text": { "vi": "Trao lại ba quân cho tướng trẻ, gửi cả non sông vào Dạ Trạch.", "en": "He gave his army to a younger general — and the land's fate to the marshes." }
+        "text": {
+          "vi": "Trao lại ba quân cho tướng trẻ, gửi cả non sông vào Dạ Trạch.",
+          "en": "He gave his army to a younger general — and the land's fate to the marshes."
+        }
       },
       "hero": {
         "id": "tran-ba-tien-sang-danh-hero",
@@ -259,18 +387,27 @@
         "flagship": "eras/van-xuan/events/tran-ba-tien-sang-danh.png",
         "reduced": "eras/van-xuan/events/tran-ba-tien-sang-danh.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 4", "en": "Outer Records · Book 4" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 4",
+          "en": "Outer Records · Book 4"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "trieu-viet-vuong-da-trach",
       "slug": "trieu-viet-vuong-da-trach",
-      "figureIds": ["trieu-quang-phuc", "tran-ba-tien"],
+      "figureIds": [
+        "trieu-quang-phuc",
+        "tran-ba-tien"
+      ],
       "details": {
         "vi": "Triệu Quang Phục lui quân về giữ đầm Dạ Trạch — một vùng lầy lội mênh mông, lau sậy um tùm, chỉ có ông thông thuộc lối vào. Ban ngày ẩn kín, ban đêm dùng thuyền độc mộc ra đánh úp, cướp lương quân Lương rồi lại rút vào đầm, khiến Trần Bá Tiên giằng co mãi không dẹp được; người đương thời gọi ông là Dạ Trạch Vương. Gặp lúc nhà Lương có loạn Hầu Cảnh, Trần Bá Tiên được gọi về nước, để tì tướng ở lại. Triệu Quang Phục thừa thế tổng phản công, đánh tan quân Lương, thu lại toàn cõi Vạn Xuân. Ông lên ngôi, xưng là Triệu Việt Vương, giữ nền độc lập của nước Vạn Xuân thêm hơn hai mươi năm.",
         "en": "Triệu Quang Phục fell back to hold the Dạ Trạch marsh — a vast trackless fen of reeds and water that he alone knew how to enter. By day he lay hidden; by night he took dugout canoes to raid, seizing the Liang's grain and slipping back into the marsh, until Trần Bá Tiên was locked in a stalemate he could not break; the people called him the Marsh King. When the Hầu Cảnh rebellion broke out at home, Trần Bá Tiên was recalled, leaving a deputy behind. Triệu Quang Phục seized the moment for a general counter-offensive, shattered the Liang and recovered the whole of Vạn Xuân. He took the throne as King Triệu Việt and held the freedom of Vạn Xuân for more than twenty years."
@@ -278,11 +415,17 @@
       "order": 5,
       "kind": "historical",
       "year": {
-        "display": { "vi": "548 – 571 SCN", "en": "548 – 571 CE" },
+        "display": {
+          "vi": "548 – 571 SCN",
+          "en": "548 – 571 CE"
+        },
         "value": 550,
         "approximate": true
       },
-      "title": { "vi": "Triệu Việt Vương và đầm Dạ Trạch", "en": "King Triệu Việt and the Dạ Trạch marsh" },
+      "title": {
+        "vi": "Triệu Việt Vương và đầm Dạ Trạch",
+        "en": "King Triệu Việt and the Dạ Trạch marsh"
+      },
       "summary": {
         "vi": "Đánh du kích ở Dạ Trạch, quét sạch quân Lương, thu lại nước.",
         "en": "A guerrilla war from Dạ Trạch sweeps out the Liang and wins the realm back."
@@ -292,7 +435,10 @@
         "en": "Holding the Dạ Trạch marsh, Triệu Quang Phục hid by day and struck by night until Trần Bá Tiên was worn ragged — the people called him the Marsh King. When rebellion recalled Trần Bá Tiên, he counter-attacked, swept out the Liang, recovered Vạn Xuân and took the throne as King Triệu Việt."
       },
       "pullQuote": {
-        "text": { "vi": "Ngày ẩn trong lau, đêm ra phá giặc — một dải đầm giữ lấy giang sơn.", "en": "Hidden in the reeds by day, striking by night — a marsh that kept a kingdom." }
+        "text": {
+          "vi": "Ngày ẩn trong lau, đêm ra phá giặc — một dải đầm giữ lấy giang sơn.",
+          "en": "Hidden in the reeds by day, striking by night — a marsh that kept a kingdom."
+        }
       },
       "hero": {
         "id": "trieu-viet-vuong-da-trach-hero",
@@ -301,11 +447,17 @@
         "flagship": "eras/van-xuan/events/trieu-viet-vuong-da-trach.png",
         "reduced": "eras/van-xuan/events/trieu-viet-vuong-da-trach.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Ngoại kỷ · Quyển 4", "en": "Outer Records · Book 4" },
+        "section": {
+          "vi": "Ngoại kỷ · Quyển 4",
+          "en": "Outer Records · Book 4"
+        },
         "author": "Ngô Sĩ Liên"
       }
     }

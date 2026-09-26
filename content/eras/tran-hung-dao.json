@@ -5,15 +5,27 @@
   "order": 16,
   "period": "nha-tran",
   "flagship": true,
-  "title": { "vi": "Trần Hưng Đạo", "en": "Trần Hưng Đạo" },
-  "kicker": { "vi": "Kỷ nhà Trần · Hào khí Đông A", "en": "The Trần dynasty · the Đông A spirit" },
-  "subtitle": { "vi": "Ba lần đánh tan Nguyên Mông, non sông ngàn thuở vững vàng.", "en": "The Mongols broken thrice; the realm secured for a thousand ages." },
+  "title": {
+    "vi": "Trần Hưng Đạo",
+    "en": "Trần Hưng Đạo"
+  },
+  "kicker": {
+    "vi": "Kỷ nhà Trần · Hào khí Đông A",
+    "en": "The Trần dynasty · the Đông A spirit"
+  },
+  "subtitle": {
+    "vi": "Ba lần đánh tan Nguyên Mông, non sông ngàn thuở vững vàng.",
+    "en": "The Mongols broken thrice; the realm secured for a thousand ages."
+  },
   "overview": {
     "vi": "Sau lần thứ nhất đuổi được quân Mông Cổ, nhà Nguyên của Hốt Tất Liệt — đế quốc mạnh nhất thế giới, từng chinh phục cả Á sang Âu — hai lần nữa dốc đại quân xuống đánh Đại Việt để rửa hận và bắt thần phục. Dưới triều Trần Nhân Tông, với Thượng hoàng Thánh Tông cùng lo việc nước, triều đình cử Hưng Đạo Vương Trần Quốc Tuấn làm Quốc công Tiết chế, thống lĩnh toàn quân. Cả nước một lòng: vua mở hội nghị Diên Hồng hỏi ý bô lão, muôn người cùng hô 'Đánh'; Hưng Đạo viết Hịch tướng sĩ nung nấu chí căm thù; chàng thiếu niên Trần Quốc Toản bóp nát quả cam, dựng cờ 'phá cường địch, báo hoàng ân'. Năm Ất Dậu (1285), quân Nguyên do Thoát Hoan kéo sang; quân ta lui để bảo toàn lực lượng rồi phản công, thắng lớn ở Hàm Tử, Chương Dương, Tây Kết, chém Toa Đô, đuổi Thoát Hoan chạy dài. Năm Mậu Tý (1288), giặc sang lần ba; Trần Khánh Dư phá đoàn thuyền lương ở Vân Đồn, rồi Hưng Đạo đóng cọc nhọn trên sông Bạch Đằng, lợi dụng thủy triều mà đại phá thủy quân giặc, bắt sống Ô Mã Nhi — một chiến công vang dội muôn đời. Ba lần kháng chiến toàn thắng, Đại Việt giữ vững nền độc lập; Hưng Đạo Vương được dân tôn thờ là Đức Thánh Trần, còn Nhân Tông về sau lên Yên Tử, mở dòng Thiền Trúc Lâm.",
     "en": "After the Mongols were driven out the first time, the Yuan of Kublai Khan — the mightiest empire on earth, that had conquered from Asia to Europe — twice more poured great armies into Đại Việt to avenge the shame and compel submission. Under Trần Nhân Tông, with the Retired Emperor Thánh Tông sharing the burden, the court made the Hưng Đạo Prince Trần Quốc Tuấn Supreme Commander over all the armies. The whole nation was of one mind: the king convened the Diên Hồng council and the elders roared 'Fight!'; Hưng Đạo wrote his Proclamation to the Officers to kindle their fury; the boy Trần Quốc Toản crushed an orange in his hand and raised the banner 'break the strong foe, repay the king's grace.' In the year Ất Dậu (1285) the Yuan under Toghan invaded; our forces withdrew to preserve their strength, then counterattacked to great victories at Hàm Tử, Chương Dương and Tây Kết, killed Sogetu, and drove Toghan in flight. In the year Mậu Tý (1288) the enemy came a third time; Trần Khánh Dư destroyed the grain fleet at Vân Đồn, and then Hưng Đạo drove sharpened stakes into the Bạch Đằng River and, using the tide, shattered the enemy fleet and took the admiral Ô Mã Nhi alive — a feat resounding through the ages. Three wars, three victories: Đại Việt held its independence whole. The people revere the Hưng Đạo Prince as the Saint Trần, while Nhân Tông in time climbed Mount Yên Tử to open the Trúc Lâm school of Zen."
   },
   "yearRange": {
-    "display": { "vi": "1278 – 1300 SCN", "en": "1278 – 1300 CE" },
+    "display": {
+      "vi": "1278 – 1300 SCN",
+      "en": "1278 – 1300 CE"
+    },
     "startYear": 1278,
     "endYear": 1300
   },
@@ -37,33 +49,70 @@
     "flagship": "eras/tran-hung-dao/cover.png",
     "reduced": "eras/tran-hung-dao/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/tran-hung-dao/scene/sky.png", "reduced": "eras/tran-hung-dao/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/tran-hung-dao/scene/sky.png",
+        "reduced": "eras/tran-hung-dao/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Bản kỷ", "en": "Basic Records" },
+    "section": {
+      "vi": "Bản kỷ",
+      "en": "Basic Records"
+    },
     "author": "Ngô Sĩ Liên"
   },
   "characters": [
-    { "ref": "tran-hung-dao" },
-    { "ref": "tran-nhan-tong" },
-    { "ref": "tran-quang-khai" },
-    { "ref": "tran-nhat-duat" },
-    { "ref": "tran-quoc-toan" },
-    { "ref": "tran-khanh-du" },
-    { "ref": "o-ma-nhi" }
+    {
+      "ref": "tran-hung-dao"
+    },
+    {
+      "ref": "tran-nhan-tong"
+    },
+    {
+      "ref": "tran-quang-khai"
+    },
+    {
+      "ref": "tran-nhat-duat"
+    },
+    {
+      "ref": "tran-quoc-toan"
+    },
+    {
+      "ref": "tran-khanh-du"
+    },
+    {
+      "ref": "o-ma-nhi"
+    }
   ],
   "events": [
     {
       "id": "hao-khi-dong-a",
       "slug": "hao-khi-dong-a",
-      "figureIds": ["tran-nhan-tong", "tran-hung-dao"],
+      "figureIds": [
+        "tran-nhan-tong",
+        "tran-hung-dao"
+      ],
       "details": {
         "vi": "Năm Mậu Dần (1278), Trần Thánh Tông nhường ngôi cho con là Trần Khâm, tức Trần Nhân Tông, rồi lên làm Thượng hoàng cùng coi việc nước. Bấy giờ nhà Nguyên của Hốt Tất Liệt đã thôn tính cả Trung Hoa, hùng mạnh nhất thiên hạ, luôn sai sứ sang dụ vua Trần phải sang chầu và thần phục, ý muốn nuốt trọn Đại Việt. Vua tôi nhà Trần bề ngoài mềm mỏng giao thiệp, bên trong ráo riết chuẩn bị chống giặc. Triều đình cử Hưng Đạo Vương Trần Quốc Tuấn — bậc tôn thất có tài thao lược hơn người — làm Quốc công Tiết chế, thống lĩnh toàn bộ quân đội cả nước, lo việc luyện binh, chọn tướng. Khí thế cả nước hừng hực một lòng giữ nước, sử gọi là hào khí Đông A.",
         "en": "In the year Mậu Dần (1278) Trần Thánh Tông passed the throne to his son Trần Khâm — Trần Nhân Tông — and became Retired Emperor, sharing the affairs of state. By then Kublai Khan's Yuan had swallowed all of China, mightiest under heaven, and kept sending envoys demanding the Trần king come and submit, meaning to devour Đại Việt whole. Outwardly the Trần dealt softly; inwardly they prepared hard for war. The court made the Hưng Đạo Prince Trần Quốc Tuấn — a royal kinsman of surpassing strategic gift — Supreme Commander over all the realm's armies, to drill the troops and choose the officers. The spirit of the whole nation blazed as one to hold the land — what history calls the Đông A spirit."
@@ -71,11 +120,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1278 – 1283 SCN", "en": "1278 – 1283 CE" },
+        "display": {
+          "vi": "1278 – 1283 SCN",
+          "en": "1278 – 1283 CE"
+        },
         "value": 1278,
         "approximate": true
       },
-      "title": { "vi": "Hào khí Đông A", "en": "The Đông A spirit" },
+      "title": {
+        "vi": "Hào khí Đông A",
+        "en": "The Đông A spirit"
+      },
       "summary": {
         "vi": "Nhân Tông lên ngôi; Nguyên đe dọa; cử Hưng Đạo Vương thống lĩnh toàn quân.",
         "en": "Nhân Tông takes the throne; the Yuan threaten; the Hưng Đạo Prince takes command."
@@ -85,8 +140,14 @@
         "en": "In 1278 Trần Nhân Tông took the throne, with Thánh Tông as Retired Emperor. The mighty Yuan demanded submission, meaning to seize Đại Việt. The court made the Hưng Đạo Prince Trần Quốc Tuấn Supreme Commander over all the armies, drilling hard — the whole nation of one mind, the Đông A spirit."
       },
       "pullQuote": {
-        "text": { "vi": "Vua cử Hưng Đạo Vương Quốc Tuấn làm Quốc công Tiết chế, thống lĩnh quân đội cả nước.", "en": "The king made the Hưng Đạo Prince Quốc Tuấn Supreme Commander over the armies of the whole realm." },
-        "attribution": { "vi": "theo Đại Việt sử ký toàn thư", "en": "per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Vua cử Hưng Đạo Vương Quốc Tuấn làm Quốc công Tiết chế, thống lĩnh quân đội cả nước.",
+          "en": "The king made the Hưng Đạo Prince Quốc Tuấn Supreme Commander over the armies of the whole realm."
+        },
+        "attribution": {
+          "vi": "theo Đại Việt sử ký toàn thư",
+          "en": "per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "hao-khi-dong-a-hero",
@@ -95,18 +156,28 @@
         "flagship": "eras/tran-hung-dao/events/hao-khi-dong-a.png",
         "reduced": "eras/tran-hung-dao/events/hao-khi-dong-a.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 6", "en": "Basic Records · Book 6" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 6",
+          "en": "Basic Records · Book 6"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "dien-hong-hich-tuong-si",
       "slug": "dien-hong-hich-tuong-si",
-      "figureIds": ["tran-hung-dao", "tran-quoc-toan", "tran-nhan-tong"],
+      "figureIds": [
+        "tran-hung-dao",
+        "tran-quoc-toan",
+        "tran-nhan-tong"
+      ],
       "details": {
         "vi": "Trước thế giặc sắp sang, vua tôi nhà Trần lo việc đồng lòng cả nước. Năm Nhâm Ngọ (1282), vua mở hội nghị Bình Than họp các vương hầu, tướng lĩnh bàn kế chống giặc; chàng thiếu niên Trần Quốc Toản vì còn nhỏ không được dự bàn, tức khí bóp nát quả cam trong tay lúc nào không biết, về nhà chiêu mộ hơn nghìn người, dựng cờ thêu sáu chữ 'Phá cường địch, báo hoàng ân'. Năm Giáp Thân (1284), vua lại mời các bậc phụ lão trong nước về điện Diên Hồng, bày tiệc hỏi nên đánh hay nên hòa; muôn người cùng hô một tiếng: 'Đánh!'. Cùng lúc ấy, Quốc công Tiết chế Trần Hưng Đạo viết bài Hịch tướng sĩ, kể tội giặc, khích lệ lòng trung, dạy quân sĩ học Binh thư yếu lược, khiến ba quân nức lòng quyết chiến.",
         "en": "With the enemy about to march, the Trần laboured to unite the whole nation. In the year Nhâm Ngọ (1282) the king convened the Bình Than council of princes and generals to plan the defence; the boy Trần Quốc Toản, too young to join the debate, crushed the orange in his hand without noticing, and going home raised more than a thousand men under a banner of six words, 'break the strong foe, repay the king's grace.' In the year Giáp Thân (1284) the king summoned the nation's elders to the Diên Hồng hall, set out a feast and asked whether to fight or make peace; with one voice the multitude cried, 'Fight!' At the same time the Supreme Commander Trần Hưng Đạo wrote his Proclamation to the Officers, recounting the enemy's crimes, kindling their loyalty, and setting them to study the Essentials of Military Arts — so the whole army burned to give battle."
@@ -114,11 +185,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1282 – 1284 SCN", "en": "1282 – 1284 CE" },
+        "display": {
+          "vi": "1282 – 1284 SCN",
+          "en": "1282 – 1284 CE"
+        },
         "value": 1282,
         "approximate": false
       },
-      "title": { "vi": "Diên Hồng và Hịch tướng sĩ", "en": "Diên Hồng and the Proclamation to the Officers" },
+      "title": {
+        "vi": "Diên Hồng và Hịch tướng sĩ",
+        "en": "Diên Hồng and the Proclamation to the Officers"
+      },
       "summary": {
         "vi": "Bô lão hô 'Đánh' ở Diên Hồng; Hưng Đạo viết Hịch; Quốc Toản bóp nát quả cam.",
         "en": "The elders roar 'Fight' at Diên Hồng; Hưng Đạo writes the Proclamation; Quốc Toản crushes the orange."
@@ -128,8 +205,14 @@
         "en": "In 1282 the Bình Than council planned the defence; the young Trần Quốc Toản, barred from it, crushed an orange and raised troops under the banner 'break the strong foe, repay the king's grace.' In 1284 the king gathered the elders at Diên Hồng and the multitude cried 'Fight.' Hưng Đạo wrote his Proclamation to the Officers to steel the army for battle."
       },
       "pullQuote": {
-        "text": { "vi": "Ta thường tới bữa quên ăn, nửa đêm vỗ gối, ruột đau như cắt, nước mắt đầm đìa; chỉ giận chưa thể xả thịt lột da quân thù. Dẫu trăm thân này phơi ngoài nội cỏ, nghìn xác này gói trong da ngựa, ta cũng cam lòng.", "en": "Often I forget to eat at mealtime, and at midnight I strike my pillow, my bowels as if cut, tears streaming — raging that I cannot yet flay the enemy. Though this body lie a hundredfold on the grass, though these bones be wrapped a thousandfold in horsehide, I would gladly bear it." },
-        "attribution": { "vi": "Hịch tướng sĩ · Trần Hưng Đạo", "en": "Proclamation to the Officers · Trần Hưng Đạo" }
+        "text": {
+          "vi": "Ta thường tới bữa quên ăn, nửa đêm vỗ gối, ruột đau như cắt, nước mắt đầm đìa; chỉ giận chưa thể xả thịt lột da quân thù. Dẫu trăm thân này phơi ngoài nội cỏ, nghìn xác này gói trong da ngựa, ta cũng cam lòng.",
+          "en": "Often I forget to eat at mealtime, and at midnight I strike my pillow, my bowels as if cut, tears streaming — raging that I cannot yet flay the enemy. Though this body lie a hundredfold on the grass, though these bones be wrapped a thousandfold in horsehide, I would gladly bear it."
+        },
+        "attribution": {
+          "vi": "Hịch tướng sĩ · Trần Hưng Đạo",
+          "en": "Proclamation to the Officers · Trần Hưng Đạo"
+        }
       },
       "hero": {
         "id": "dien-hong-hich-tuong-si-hero",
@@ -138,18 +221,28 @@
         "flagship": "eras/tran-hung-dao/events/dien-hong-hich-tuong-si.png",
         "reduced": "eras/tran-hung-dao/events/dien-hong-hich-tuong-si.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 6", "en": "Basic Records · Book 6" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 6",
+          "en": "Basic Records · Book 6"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "khang-chien-lan-hai",
       "slug": "khang-chien-lan-hai",
-      "figureIds": ["tran-hung-dao", "tran-quang-khai", "tran-nhat-duat"],
+      "figureIds": [
+        "tran-hung-dao",
+        "tran-quang-khai",
+        "tran-nhat-duat"
+      ],
       "details": {
         "vi": "Năm Ất Dậu (1285), nhà Nguyên sai Trấn Nam Vương Thoát Hoan đem năm mươi vạn quân, hợp với cánh quân Toa Đô từ Chiêm Thành đánh ngược lên, hai mặt kẹp lại. Thế giặc rất mạnh, có lúc vua lo, đem lời thử hỏi Hưng Đạo có nên hàng; ông khảng khái tâu: 'Nếu bệ hạ muốn hàng, xin trước hãy chém đầu thần đi đã'. Theo kế của ông, quân ta chủ động rút lui, bỏ trống Thăng Long để bảo toàn lực lượng, khiến giặc mỏi mệt, thiếu ăn giữa mùa nóng. Đợi thời cơ, quân Trần phản công như vũ bão: Chiêu Văn Vương Trần Nhật Duật phá giặc ở Hàm Tử, Thượng tướng Trần Quang Khải phá giặc ở Chương Dương thu lại kinh thành, lại thắng lớn ở Tây Kết chém được Toa Đô. Thoát Hoan thua to, phải chui vào ống đồng cho quân khiêng chạy về Bắc.",
         "en": "In the year Ất Dậu (1285) the Yuan sent the Prince of Zhennan, Toghan, with half a million troops, joined by Sogetu's column striking up from Champa — a pincer from two sides. The enemy's force was overwhelming; the king, anxious, tested Hưng Đạo by asking whether to surrender, and he answered boldly, 'If Your Majesty wishes to surrender, first behead me.' By his plan our army withdrew of its own accord, leaving Thăng Long empty to preserve its strength, so the enemy wearied and starved in the heat. Awaiting the moment, the Trần counterattacked like a storm: the Chiêu Văn Prince Trần Nhật Duật broke the foe at Hàm Tử, the Grand Marshal Trần Quang Khải broke them at Chương Dương and retook the capital, and a great victory at Tây Kết killed Sogetu. Toghan, crushed, was carried home hidden in a bronze tube."
@@ -157,11 +250,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1285 SCN", "en": "1285 CE" },
+        "display": {
+          "vi": "1285 SCN",
+          "en": "1285 CE"
+        },
         "value": 1285,
         "approximate": false
       },
-      "title": { "vi": "Kháng chiến lần thứ hai", "en": "The second war of resistance" },
+      "title": {
+        "vi": "Kháng chiến lần thứ hai",
+        "en": "The second war of resistance"
+      },
       "summary": {
         "vi": "Rút lui bảo toàn rồi phản công: thắng Hàm Tử, Chương Dương; đuổi Thoát Hoan.",
         "en": "Withdraw, then counterattack: Hàm Tử and Chương Dương won; Toghan driven out."
@@ -171,8 +270,14 @@
         "en": "In 1285 Toghan invaded with half a million, joined by Sogetu. Asked whether to surrender, Hưng Đạo answered 'first behead me.' Our forces abandoned Thăng Long, let the enemy weary, then struck: Trần Nhật Duật won Hàm Tử, Trần Quang Khải won Chương Dương and retook the capital, Sogetu was killed at Tây Kết, and Toghan fled north."
       },
       "pullQuote": {
-        "text": { "vi": "Nếu bệ hạ muốn hàng, xin trước hãy chém đầu thần đi đã.", "en": "If Your Majesty wishes to surrender, first behead me." },
-        "attribution": { "vi": "Trần Hưng Đạo, theo Đại Việt sử ký toàn thư", "en": "Trần Hưng Đạo, per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Nếu bệ hạ muốn hàng, xin trước hãy chém đầu thần đi đã.",
+          "en": "If Your Majesty wishes to surrender, first behead me."
+        },
+        "attribution": {
+          "vi": "Trần Hưng Đạo, theo Đại Việt sử ký toàn thư",
+          "en": "Trần Hưng Đạo, per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "khang-chien-lan-hai-hero",
@@ -181,18 +286,28 @@
         "flagship": "eras/tran-hung-dao/events/khang-chien-lan-hai.png",
         "reduced": "eras/tran-hung-dao/events/khang-chien-lan-hai.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 6", "en": "Basic Records · Book 6" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 6",
+          "en": "Basic Records · Book 6"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "bach-dang-1288",
       "slug": "bach-dang-1288",
-      "figureIds": ["tran-hung-dao", "tran-khanh-du", "o-ma-nhi"],
+      "figureIds": [
+        "tran-hung-dao",
+        "tran-khanh-du",
+        "o-ma-nhi"
+      ],
       "details": {
         "vi": "Năm Mậu Tý (1288), nhà Nguyên sai Thoát Hoan đem quân sang lần thứ ba, lần này chú trọng đường thủy, sai Ô Mã Nhi hộ tống đoàn thuyền lương theo sau. Trần Khánh Dư mai phục ở Vân Đồn, đánh tan đoàn thuyền lương của Trương Văn Hổ; đại quân giặc từ đó lâm vào cảnh thiếu ăn, lòng người rối loạn, phải tính đường rút. Nắm thời cơ, Hưng Đạo Vương chọn sông Bạch Đằng — nơi Ngô Quyền xưa từng phá quân Nam Hán — sai đóng cọc nhọn bịt sắt cắm ngầm dưới lòng sông. Ông cho thuyền nhỏ ra khiêu chiến, nhử đoàn thuyền lớn của Ô Mã Nhi vào trận địa lúc nước triều lên; khi triều rút, thuyền giặc mắc cọc, tan vỡ, quân ta bốn mặt đổ ra đánh. Cả đoàn thủy quân Nguyên bị tiêu diệt, Ô Mã Nhi bị bắt sống. Chiến thắng Bạch Đằng năm 1288 là đỉnh cao của nghệ thuật quân sự Đại Việt, đập tan hoàn toàn mộng xâm lăng của đế quốc Nguyên Mông.",
         "en": "In the year Mậu Tý (1288) the Yuan sent Toghan a third time, now heavy on the water, with Ô Mã Nhi escorting the grain fleet behind. Trần Khánh Dư ambushed at Vân Đồn and destroyed Zhang Wenhu's grain fleet; from then the great army starved, its spirit broke, and it looked to retreat. Seizing the moment, the Hưng Đạo Prince chose the Bạch Đằng — where Ngô Quyền had once broken the Southern Han — and had iron-tipped stakes driven secretly into the riverbed. He sent light boats to provoke and lure Ô Mã Nhi's great fleet into the trap at high tide; when the tide fell, the enemy ships fouled on the stakes and broke apart, and our troops fell on them from every side. The whole Yuan fleet was destroyed and Ô Mã Nhi taken alive. The victory of Bạch Đằng in 1288 was the summit of Đại Việt's military art, shattering utterly the Yuan Mongol dream of conquest."
@@ -200,11 +315,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1288 SCN", "en": "1288 CE" },
+        "display": {
+          "vi": "1288 SCN",
+          "en": "1288 CE"
+        },
         "value": 1288,
         "approximate": false
       },
-      "title": { "vi": "Đại thắng Bạch Đằng", "en": "The great victory of Bạch Đằng" },
+      "title": {
+        "vi": "Đại thắng Bạch Đằng",
+        "en": "The great victory of Bạch Đằng"
+      },
       "summary": {
         "vi": "Phá thuyền lương ở Vân Đồn; đóng cọc Bạch Đằng, diệt thủy quân, bắt Ô Mã Nhi.",
         "en": "The grain fleet smashed at Vân Đồn; stakes at Bạch Đằng destroy the fleet, Ô Mã Nhi taken."
@@ -214,8 +335,14 @@
         "en": "In 1288 the Yuan came a third time. Trần Khánh Dư smashed the grain fleet at Vân Đồn, starving the enemy. The Hưng Đạo Prince drove stakes into the Bạch Đằng and lured Ô Mã Nhi's ships in at high tide; when it fell, they fouled and broke, our troops fell on them, the whole fleet was destroyed and Ô Mã Nhi taken alive — a feat resounding through the ages."
       },
       "pullQuote": {
-        "text": { "vi": "Năm nay đánh giặc nhàn.", "en": "This year the fighting will be easy." },
-        "attribution": { "vi": "Trần Hưng Đạo, theo Đại Việt sử ký toàn thư", "en": "Trần Hưng Đạo, per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Năm nay đánh giặc nhàn.",
+          "en": "This year the fighting will be easy."
+        },
+        "attribution": {
+          "vi": "Trần Hưng Đạo, theo Đại Việt sử ký toàn thư",
+          "en": "Trần Hưng Đạo, per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "bach-dang-1288-hero",
@@ -224,18 +351,28 @@
         "flagship": "eras/tran-hung-dao/events/bach-dang-1288.webp",
         "reduced": "eras/tran-hung-dao/events/bach-dang-1288.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa động · phong cách sơn mài", "en": "Animated illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa động · phong cách sơn mài",
+          "en": "Animated illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 6", "en": "Basic Records · Book 6" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 6",
+          "en": "Basic Records · Book 6"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "khai-hoan-khoan-thu",
       "slug": "khai-hoan-khoan-thu",
-      "figureIds": ["tran-nhan-tong", "tran-quang-khai", "tran-hung-dao"],
+      "figureIds": [
+        "tran-nhan-tong",
+        "tran-quang-khai",
+        "tran-hung-dao"
+      ],
       "details": {
         "vi": "Ba lần đánh tan giặc Nguyên, vua tôi nhà Trần mở tiệc khải hoàn. Thượng tướng Trần Quang Khải làm thơ mừng: 'Đoạt sáo Chương Dương độ, cầm Hồ Hàm Tử quan' — cướp giáo giặc ở bến Chương Dương, bắt quân Hồ ở cửa Hàm Tử. Vua Nhân Tông về bái yết Chiêu Lăng, cảm khái đề thơ: 'Xã tắc lưỡng hồi lao thạch mã, sơn hà thiên cổ điện kim âu' — non nước hai phen bon ngựa đá, giang sơn muôn thuở vững âu vàng. Sau chiến tranh, bắt được một hòm biểu của những kẻ trong nước từng ngầm hàng giặc, vua sai đốt đi không xét, để yên lòng người. Vua lại nghe lời Hưng Đạo, 'khoan thư sức dân', giảm tô thuế, chăm nghề nông, hàn gắn vết thương chiến tranh — nhờ đó nước Đại Việt bước vào một thời thịnh trị.",
         "en": "The Yuan broken thrice, the Trần held a feast of triumph. The Grand Marshal Trần Quang Khải sang: 'At Chương Dương ford the lances were seized; at Hàm Tử pass the Hu were taken.' King Nhân Tông, paying homage at the Chiêu Mausoleum, wrote with feeling: 'Twice the land wore out its stone horses; for a thousand ages the rivers and mountains hold firm as a golden vessel.' After the war a chest was found of secret pledges from those at home who had leaned toward the enemy; the king had it burned unread, to set men's hearts at ease. Heeding Hưng Đạo's counsel to 'ease the people's burdens,' he lightened taxes, tended farming, and healed the wounds of war — and so Đại Việt entered an age of flourishing."
@@ -243,11 +380,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1288 – 1293 SCN", "en": "1288 – 1293 CE" },
+        "display": {
+          "vi": "1288 – 1293 SCN",
+          "en": "1288 – 1293 CE"
+        },
         "value": 1289,
         "approximate": true
       },
-      "title": { "vi": "Khải hoàn, khoan thư sức dân", "en": "Triumph, and easing the people's burdens" },
+      "title": {
+        "vi": "Khải hoàn, khoan thư sức dân",
+        "en": "Triumph, and easing the people's burdens"
+      },
       "summary": {
         "vi": "Thơ khải hoàn; đốt hòm biểu hàng để yên lòng người; giảm thuế, hàn gắn.",
         "en": "Triumphal verse; the pledges burned to calm hearts; taxes eased, wounds healed."
@@ -257,8 +400,14 @@
         "en": "After three victories the Trận held a triumph; Trần Quang Khải sang 'At Chương Dương ford the lances were seized.' The king burned the chest of secret pledges to calm hearts, and heeding Hưng Đạo's 'ease the people's burdens,' lightened taxes and tended farming — Đại Việt entered an age of flourishing."
       },
       "pullQuote": {
-        "text": { "vi": "Xã tắc lưỡng hồi lao thạch mã, sơn hà thiên cổ điện kim âu.", "en": "Twice the land wore out its stone horses; for a thousand ages the rivers and mountains stand firm as a golden urn." },
-        "attribution": { "vi": "Trần Nhân Tông", "en": "Trần Nhân Tông" }
+        "text": {
+          "vi": "Xã tắc lưỡng hồi lao thạch mã, sơn hà thiên cổ điện kim âu.",
+          "en": "Twice the land wore out its stone horses; for a thousand ages the rivers and mountains stand firm as a golden urn."
+        },
+        "attribution": {
+          "vi": "Trần Nhân Tông",
+          "en": "Trần Nhân Tông"
+        }
       },
       "hero": {
         "id": "khai-hoan-khoan-thu-hero",
@@ -267,18 +416,27 @@
         "flagship": "eras/tran-hung-dao/events/khai-hoan-khoan-thu.png",
         "reduced": "eras/tran-hung-dao/events/khai-hoan-khoan-thu.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 6", "en": "Basic Records · Book 6" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 6",
+          "en": "Basic Records · Book 6"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "duc-thanh-tran",
       "slug": "duc-thanh-tran",
-      "figureIds": ["tran-hung-dao", "tran-nhan-tong"],
+      "figureIds": [
+        "tran-hung-dao",
+        "tran-nhan-tong"
+      ],
       "details": {
         "vi": "Về già, Hưng Đạo Vương lui về ở Vạn Kiếp. Khi ông ốm nặng, vua ngự tới thăm, hỏi kế sách giữ nước nếu quân phương Bắc lại sang. Ông ung dung bày kế tùy thời, rồi tâu điều cốt yếu: khoan thư sức dân để làm kế sâu rễ bền gốc, ấy là thượng sách giữ nước. Ông để lại cho đời bộ Binh thư yếu lược và bài Hịch tướng sĩ lưu danh muôn thuở. Năm Canh Tý (1300), Hưng Đạo Vương mất; dân chúng khắp nơi lập đền thờ, tôn ông là Đức Thánh Trần. Vua Nhân Tông sau khi truyền ngôi cũng lên núi Yên Tử tu hành, sáng lập Thiền phái Trúc Lâm, được tôn là Phật hoàng — triều Trần để lại cho hậu thế cả một võ công lừng lẫy lẫn một nền văn hóa, tôn giáo rực rỡ.",
         "en": "In old age the Hưng Đạo Prince withdrew to Vạn Kiếp. When he lay gravely ill the king came to ask how to hold the realm should the North invade again. Calmly he set out plans to suit the times, then gave the essential word: ease the people's burdens as the deep-rooted way — that is the supreme strategy of defence. He left to posterity the Essentials of Military Arts and the Proclamation to the Officers, famed for all ages. In the year Canh Tý (1300) the Hưng Đạo Prince died; the people everywhere raised shrines and revered him as the Saint Trần. King Nhân Tông, having yielded the throne, also climbed Mount Yên Tử to take holy orders and found the Trúc Lâm school of Zen, honoured as the Buddha-King — the Trần bequeathing to later ages both a resplendent record of arms and a brilliant flowering of culture and faith."
@@ -286,11 +444,17 @@
       "order": 5,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1300 SCN", "en": "1300 CE" },
+        "display": {
+          "vi": "1300 SCN",
+          "en": "1300 CE"
+        },
         "value": 1300,
         "approximate": false
       },
-      "title": { "vi": "Di ngôn giữ nước, hóa Đức Thánh Trần", "en": "The last counsel; the Saint Trần" },
+      "title": {
+        "vi": "Di ngôn giữ nước, hóa Đức Thánh Trần",
+        "en": "The last counsel; the Saint Trần"
+      },
       "summary": {
         "vi": "Hưng Đạo dặn vua 'khoan thư sức dân', rồi mất; dân tôn thờ là Đức Thánh Trần.",
         "en": "Hưng Đạo counsels 'ease the people's burdens,' then dies; revered as the Saint Trần."
@@ -300,8 +464,14 @@
         "en": "Gravely ill, the Hưng Đạo Prince counselled the king that 'easing the people's burdens' is the supreme defence, leaving the Essentials of Military Arts and the Proclamation to the Officers. He died in 1300, revered as the Saint Trần. Nhân Tông later abdicated and climbed Yên Tử to found the Trúc Lâm Zen school, honoured as the Buddha-King."
       },
       "pullQuote": {
-        "text": { "vi": "Khoan thư sức dân để làm kế sâu rễ bền gốc, đó là thượng sách giữ nước.", "en": "Ease the people's burdens as the way to deep roots and a firm base — that is the supreme strategy of defence." },
-        "attribution": { "vi": "Trần Hưng Đạo, theo Đại Việt sử ký toàn thư", "en": "Trần Hưng Đạo, per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Khoan thư sức dân để làm kế sâu rễ bền gốc, đó là thượng sách giữ nước.",
+          "en": "Ease the people's burdens as the way to deep roots and a firm base — that is the supreme strategy of defence."
+        },
+        "attribution": {
+          "vi": "Trần Hưng Đạo, theo Đại Việt sử ký toàn thư",
+          "en": "Trần Hưng Đạo, per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "duc-thanh-tran-hero",
@@ -310,11 +480,17 @@
         "flagship": "eras/tran-hung-dao/events/duc-thanh-tran.png",
         "reduced": "eras/tran-hung-dao/events/duc-thanh-tran.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 6", "en": "Basic Records · Book 6" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 6",
+          "en": "Basic Records · Book 6"
+        },
         "author": "Ngô Sĩ Liên"
       }
     }

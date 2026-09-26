@@ -4,15 +4,27 @@
   "slug": "thieu-tri",
   "order": 24,
   "period": "nguyen",
-  "title": { "vi": "Thiệu Trị", "en": "Thiệu Trị" },
-  "kicker": { "vi": "Nhà Nguyễn · Buổi lặng trước cơn giông", "en": "The Nguyễn · the calm before the storm" },
-  "subtitle": { "vi": "Vị vua thi nhân hiền hòa, và tiếng đại bác Pháp đầu tiên ở Đà Nẵng.", "en": "A gentle poet-emperor — and the first French cannon at Đà Nẵng." },
+  "title": {
+    "vi": "Thiệu Trị",
+    "en": "Thiệu Trị"
+  },
+  "kicker": {
+    "vi": "Nhà Nguyễn · Buổi lặng trước cơn giông",
+    "en": "The Nguyễn · the calm before the storm"
+  },
+  "subtitle": {
+    "vi": "Vị vua thi nhân hiền hòa, và tiếng đại bác Pháp đầu tiên ở Đà Nẵng.",
+    "en": "A gentle poet-emperor — and the first French cannon at Đà Nẵng."
+  },
   "overview": {
     "vi": "Năm Tân Sửu (1841), vua Minh Mạng băng, con trưởng là Nguyễn Phúc Miên Tông nối ngôi, lấy niên hiệu Thiệu Trị. So với vua cha nghiêm khắc và quyết đoán, Thiệu Trị là bậc vua hiền hòa, nhân hậu, hiếu thảo, đặc biệt say mê văn chương thi phú — ông để lại hàng nghìn bài thơ, trong đó nổi tiếng với lối thơ 'hồi văn' đọc xuôi đọc ngược đều thành bài. Về đường lối, ông cơ bản giữ nguyên khuôn phép cai trị của Minh Mạng: quân chủ tập quyền, sùng Nho, tiếp tục cấm đạo Thiên Chúa và bế quan tỏa cảng. Việc lớn đầu triều là giải quyết cái gánh nặng Trấn Tây: sau nhiều năm sa lầy tốn kém ở đất Cao Miên, quân dân Chân Lạp nổi dậy khắp nơi, lại thêm chiến tranh với Xiêm, triều đình đành cho rút quân khỏi Trấn Tây (1841), rồi qua mấy năm giao tranh và điều đình, đi tới dàn xếp để Cao Miên chịu triều cống cả hai nước Việt – Xiêm. Bảy năm trị vì của Thiệu Trị nhìn bề ngoài êm ả, nhưng thực ra là buổi lặng trước cơn giông: ở phương Tây, các nước tư bản đang bành trướng, và mối đe dọa đã gõ cửa. Năm Đinh Mùi (1847), lấy cớ bênh vực giáo sĩ bị giam, tàu chiến Pháp kéo đến cửa biển Đà Nẵng, khai hỏa bắn chìm mấy chiếc thuyền của thủy quân triều đình rồi bỏ đi — lần đầu tiên đại bác phương Tây nổ trên bờ biển nước ta, báo hiệu tai họa xâm lăng sắp tới. Vua Thiệu Trị vô cùng tức giận, càng thêm nghiêm lệnh cấm đạo và phòng bị; nhưng chỉ ít lâu sau, cùng năm ấy, ông lâm bệnh mà mất, để lại ngôi báu và một cơ nghiệp đang đứng trước sóng gió cho con thứ là Hồng Nhậm — tức vua Tự Đức.",
     "en": "In the year Tân Sửu (1841), Minh Mạng died and his eldest son Nguyễn Phúc Miên Tông succeeded under the era-name Thiệu Trị. Beside his stern and decisive father, Thiệu Trị was a gentle, humane and filial ruler, especially devoted to letters and poetry — he left thousands of poems, famous among them the 'palindrome' verses that read as poetry both forward and backward. In policy he largely kept Minh Mạng's ways: centralised monarchy, reverence for Confucianism, and the continued banning of Christianity and closing of the ports. His first great task was the burden of Trấn Tây: after years of costly quagmire in the Khmer land, with the Cambodians rising everywhere and war with Siam besides, the court withdrew the army from Trấn Tây (1841), and after some years of fighting and negotiation reached a settlement by which Cambodia paid tribute to both Vietnam and Siam. Thiệu Trị's seven years looked calm on the surface, but were in truth the lull before the storm: in the West the capitalist powers were expanding, and the threat had come knocking. In the year Đinh Mùi (1847), on the pretext of defending imprisoned missionaries, French warships came to the harbour of Đà Nẵng, opened fire and sank several vessels of the royal navy, then left — the first time Western cannon thundered on our shores, an omen of the invasion to come. Enraged, Thiệu Trị tightened his edicts against the faith and his defences; but soon after, that same year, he fell ill and died, leaving the throne and an imperiled realm to his younger son Hồng Nhậm — the emperor Tự Đức."
   },
   "yearRange": {
-    "display": { "vi": "1841 – 1847 SCN", "en": "1841 – 1847 CE" },
+    "display": {
+      "vi": "1841 – 1847 SCN",
+      "en": "1841 – 1847 CE"
+    },
     "startYear": 1841,
     "endYear": 1847
   },
@@ -36,29 +48,58 @@
     "flagship": "eras/thieu-tri/cover.png",
     "reduced": "eras/thieu-tri/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/thieu-tri/scene/sky.png", "reduced": "eras/thieu-tri/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/thieu-tri/scene/sky.png",
+        "reduced": "eras/thieu-tri/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Nam thực lục",
-    "section": { "vi": "Chính biên · Đệ tam kỷ", "en": "Primary Compilation · Third Reign" },
+    "section": {
+      "vi": "Chính biên · Đệ tam kỷ",
+      "en": "Primary Compilation · Third Reign"
+    },
     "author": "Quốc sử quán triều Nguyễn"
   },
   "characters": [
-    { "ref": "thieu-tri" },
-    { "ref": "nguyen-tri-phuong" },
-    { "ref": "truong-dang-que" }
+    {
+      "ref": "thieu-tri"
+    },
+    {
+      "ref": "nguyen-tri-phuong"
+    },
+    {
+      "ref": "truong-dang-que"
+    }
   ],
   "events": [
     {
       "id": "len-ngoi-thieu-tri",
       "slug": "len-ngoi-thieu-tri",
-      "figureIds": ["thieu-tri", "truong-dang-que"],
+      "figureIds": [
+        "thieu-tri",
+        "truong-dang-que"
+      ],
       "details": {
         "vi": "Năm Tân Sửu (1841), vua Minh Mạng băng, hoàng trưởng tử Nguyễn Phúc Miên Tông nối ngôi, đặt niên hiệu Thiệu Trị. Vua nối nghiệp một cơ đồ đang thời cực thịnh, guồng máy cai trị đã quy củ do vua cha dày công gây dựng. Tính vua nhân hậu, hiếu thảo, lại trọng lễ nghi phép tắc, nên cơ bản giữ nguyên đường lối của tiên đế: đề cao Nho học, giữ nền quân chủ tập quyền, trọng dụng các đại thần cũ. Bên cạnh vua có lớp đại thần quyền uy như Trương Đăng Quế — vốn là thầy dạy và bậc phụ chính được tin cẩn — cùng nhau lo việc triều chính. Buổi đầu triều Thiệu Trị nhìn chung yên ổn, nối tiếp cái nếp quy củ và bảo thủ của đời Minh Mạng.",
         "en": "In the year Tân Sửu (1841), Minh Mạng died and his eldest son Nguyễn Phúc Miên Tông succeeded under the era-name Thiệu Trị. He inherited a realm at its height, its machinery of rule made orderly by his father's long labour. Humane, filial and mindful of rite and propriety, he largely kept the late emperor's course: exalting Confucian learning, holding the centralised monarchy, and employing the old ministers. At his side stood powerful ministers such as Trương Đăng Quế — his former tutor and trusted regent — to manage affairs of state. The opening of Thiệu Trị's reign was generally calm, continuing the orderly, conservative pattern of Minh Mạng's day."
@@ -66,11 +107,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1841 SCN", "en": "1841 CE" },
+        "display": {
+          "vi": "1841 SCN",
+          "en": "1841 CE"
+        },
         "value": 1841,
         "approximate": false
       },
-      "title": { "vi": "Thiệu Trị nối ngôi, giữ nếp tiên triều", "en": "Thiệu Trị succeeds, keeping the old ways" },
+      "title": {
+        "vi": "Thiệu Trị nối ngôi, giữ nếp tiên triều",
+        "en": "Thiệu Trị succeeds, keeping the old ways"
+      },
       "summary": {
         "vi": "Năm 1841, Thiệu Trị nối ngôi Minh Mạng; vua hiền hòa, giữ nguyên đường lối Nho trị, tập quyền của vua cha.",
         "en": "In 1841 Thiệu Trị succeeds Minh Mạng — a gentle ruler who keeps his father's Confucian, centralised course."
@@ -80,8 +127,14 @@
         "en": "In 1841 Minh Mạng died and his eldest son Miên Tông succeeded as Thiệu Trị. Humane and filial, he largely kept his father's centralised, Confucian course and employed the old ministers such as Trương Đăng Quế. His reign opened calmly, continuing the orderly, conservative pattern of Minh Mạng's day."
       },
       "pullQuote": {
-        "text": { "vi": "Vua nhân hậu, giữ lễ, một lòng noi theo phép cũ của tiên đế, chưa nghĩ tới việc đổi thay.", "en": "Humane and mindful of rite, the emperor faithfully followed the late sovereign's ways, thinking not yet of change." },
-        "attribution": { "vi": "theo Đại Nam thực lục", "en": "per the Đại Nam thực lục" }
+        "text": {
+          "vi": "Vua nhân hậu, giữ lễ, một lòng noi theo phép cũ của tiên đế, chưa nghĩ tới việc đổi thay.",
+          "en": "Humane and mindful of rite, the emperor faithfully followed the late sovereign's ways, thinking not yet of change."
+        },
+        "attribution": {
+          "vi": "theo Đại Nam thực lục",
+          "en": "per the Đại Nam thực lục"
+        }
       },
       "hero": {
         "id": "len-ngoi-thieu-tri-hero",
@@ -90,18 +143,27 @@
         "flagship": "eras/thieu-tri/events/len-ngoi-thieu-tri.png",
         "reduced": "eras/thieu-tri/events/len-ngoi-thieu-tri.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Chính biên · Đệ tam kỷ · Quyển 1", "en": "Primary Compilation · Third Reign · Book 1" },
+        "section": {
+          "vi": "Chính biên · Đệ tam kỷ · Quyển 1",
+          "en": "Primary Compilation · Third Reign · Book 1"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     },
     {
       "id": "rut-khoi-tran-tay",
       "slug": "rut-khoi-tran-tay",
-      "figureIds": ["thieu-tri", "nguyen-tri-phuong"],
+      "figureIds": [
+        "thieu-tri",
+        "nguyen-tri-phuong"
+      ],
       "details": {
         "vi": "Cái gánh nặng lớn nhất mà Thiệu Trị thừa hưởng từ đời Minh Mạng là đất Trấn Tây — tức xứ Cao Miên (Chân Lạp) đã bị sáp nhập và đặt dưới quyền cai trị trực tiếp. Việc áp đặt phép tắc, quan lại người Việt lên một dân tộc khác phong tục đã gây bất bình sâu sắc; người Chân Lạp liên tục nổi dậy, lại được nước Xiêm ngấm ngầm hoặc công khai ủng hộ, khiến quân Nguyễn sa lầy, hao người tốn của không dứt. Xét thấy giữ mãi không lợi, ngay năm đầu (1841) triều đình quyết định rút quân, bỏ Trấn Tây thành, lui về giữ vùng An Giang, Hà Tiên. Tiếp đó là mấy năm giao tranh giằng co với quân Xiêm trên đất Cao Miên, có các tướng như Nguyễn Tri Phương, Doãn Uẩn, Lê Văn Đức cầm quân. Cuối cùng, hai bên Việt – Xiêm đi tới điều đình: lập lại vua Cao Miên, để nước này chịu triều cống và thần phục cả hai nước. Đại Nam giữ được ảnh hưởng và biên cương phía tây nam, khép lại một chương mở rộng tốn kém và đầy tham vọng của đời Minh Mạng.",
         "en": "The greatest burden Thiệu Trị inherited from Minh Mạng was Trấn Tây — the Khmer land of Cambodia (Chân Lạp), which had been annexed and placed under direct rule. Imposing Vietnamese law and officials on a people of alien customs bred deep resentment; the Cambodians rose again and again, backed openly or covertly by Siam, so that the Nguyễn armies bogged down in an endless drain of men and treasure. Judging that holding it served no good, in the very first year (1841) the court decided to withdraw, abandon the Trấn Tây citadel, and fall back to hold An Giang and Hà Tiên. There followed several years of see-saw fighting with the Siamese in Cambodia, led by generals such as Nguyễn Tri Phương, Doãn Uẩn and Lê Văn Đức. In the end Vietnam and Siam reached a settlement: a Cambodian king was restored, and the country paid tribute and submission to both. Đại Nam kept its influence and its south-western border, closing a costly and ambitious chapter of expansion from Minh Mạng's day."
@@ -109,11 +171,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1841 – 1845 SCN", "en": "1841 – 1845 CE" },
+        "display": {
+          "vi": "1841 – 1845 SCN",
+          "en": "1841 – 1845 CE"
+        },
         "value": 1841,
         "approximate": false
       },
-      "title": { "vi": "Rút khỏi Trấn Tây, dàn xếp việc Cao Miên", "en": "Leaving Trấn Tây; settling Cambodia" },
+      "title": {
+        "vi": "Rút khỏi Trấn Tây, dàn xếp việc Cao Miên",
+        "en": "Leaving Trấn Tây; settling Cambodia"
+      },
       "summary": {
         "vi": "Sa lầy ở Cao Miên, triều đình bỏ Trấn Tây (1841); qua mấy năm chiến – hòa với Xiêm, đi tới dàn xếp.",
         "en": "Bogged down in Cambodia, the court abandons Trấn Tây (1841); after years of war and talks with Siam, a settlement."
@@ -123,8 +191,14 @@
         "en": "Trấn Tây (Cambodia), annexed by Minh Mạng, bred resentment; the Khmer rose and Siam intervened, and the Nguyễn bogged down. In 1841 Thiệu Trị abandoned Trấn Tây and fell back on An Giang and Hà Tiên. After years of fighting Siam (under generals such as Nguyễn Tri Phương and Doãn Uẩn), the two sides settled: a Cambodian king was restored, paying tribute to both — closing the costly expansion of the previous reign."
       },
       "pullQuote": {
-        "text": { "vi": "Giữ đất người mà lòng người không theo, thì dẫu có công chiếm cũng khó bề yên — chi bằng lui về giữ lấy cương vực mình.", "en": "To hold another's land while its people will not follow — even won, it cannot be kept in peace; better to withdraw and guard one's own border." },
-        "attribution": { "vi": "lời bàn của người đời sau", "en": "the judgment of later generations" }
+        "text": {
+          "vi": "Giữ đất người mà lòng người không theo, thì dẫu có công chiếm cũng khó bề yên — chi bằng lui về giữ lấy cương vực mình.",
+          "en": "To hold another's land while its people will not follow — even won, it cannot be kept in peace; better to withdraw and guard one's own border."
+        },
+        "attribution": {
+          "vi": "lời bàn của người đời sau",
+          "en": "the judgment of later generations"
+        }
       },
       "hero": {
         "id": "rut-khoi-tran-tay-hero",
@@ -133,18 +207,26 @@
         "flagship": "eras/thieu-tri/events/rut-khoi-tran-tay.png",
         "reduced": "eras/thieu-tri/events/rut-khoi-tran-tay.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Chính biên · Đệ tam kỷ · Quyển 2", "en": "Primary Compilation · Third Reign · Book 2" },
+        "section": {
+          "vi": "Chính biên · Đệ tam kỷ · Quyển 2",
+          "en": "Primary Compilation · Third Reign · Book 2"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     },
     {
       "id": "vua-thi-nhan",
       "slug": "vua-thi-nhan",
-      "figureIds": ["thieu-tri"],
+      "figureIds": [
+        "thieu-tri"
+      ],
       "details": {
         "vi": "Thiệu Trị nổi tiếng là ông vua hay chữ, mê thơ vào bậc nhất trong các vua Nguyễn. Ông làm thơ rất nhiều, tương truyền để lại tới hàng nghìn bài, phần lớn là thơ chữ Hán vịnh cảnh, tả tình, ghi việc. Đặc biệt, ông giỏi lối thơ 'hồi văn kiêm liên hoàn' cực kỳ công phu — như bài 'Vũ trung sơn thủy', xếp chữ theo vòng, đọc xuôi đọc ngược, đọc từ nhiều hướng đều thành những bài thơ hoàn chỉnh, được xem là kỳ tài về chữ nghĩa. Noi gương vua cha, ông cũng coi trọng Nho học và khoa cử: mở đều các khoa thi kén nhân tài, chăm lo Quốc Tử Giám, khuyến khích việc học. Ông cho tiếp tục biên soạn, khắc in nhiều sách vở, điển lệ của triều đình. Về xây dựng, ông cho hoàn thiện thêm cung điện, lăng tẩm ở Huế; lăng của ông (Xương Lăng) về sau nổi tiếng thanh nhã. Đời Thiệu Trị, tuy ngắn, vẫn là một thời văn hiến được chăm chút của triều Nguyễn.",
         "en": "Thiệu Trị was renowned as the most learned and poetry-loving of the Nguyễn emperors. He wrote prolifically — by tradition some thousands of poems, mostly in Literary Chinese, on landscape, feeling and event. He excelled above all at the extraordinarily intricate 'palindrome-and-circular' form — as in his poem 'Vũ trung sơn thủy' (Mountains and Waters in the Rain), whose characters, arranged in a ring, read forward, backward and from many directions each as a complete poem, esteemed a marvel of wordcraft. Following his father, he too prized Confucian learning and the examinations: holding them regularly to draw out talent, tending the Imperial Academy, and encouraging study. He continued the compiling and printing of the court's books and statutes, and completed further palaces and mausolea at Huế; his own tomb (Xương Lăng) later became famed for its elegance. Short though it was, Thiệu Trị's reign was a well-tended age of letters for the Nguyễn."
@@ -152,11 +234,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1841 – 1847 SCN", "en": "1841 – 1847 CE" },
+        "display": {
+          "vi": "1841 – 1847 SCN",
+          "en": "1841 – 1847 CE"
+        },
         "value": 1843,
         "approximate": true
       },
-      "title": { "vi": "Ông vua thi nhân, chuộng văn hiến", "en": "The poet-emperor and his letters" },
+      "title": {
+        "vi": "Ông vua thi nhân, chuộng văn hiến",
+        "en": "The poet-emperor and his letters"
+      },
       "summary": {
         "vi": "Thiệu Trị mê thơ bậc nhất các vua Nguyễn, giỏi lối thơ hồi văn; trọng Nho học, khoa cử, sách vở.",
         "en": "The most poetry-loving of the Nguyễn emperors, master of the palindrome verse; a patron of learning and letters."
@@ -166,8 +254,14 @@
         "en": "Thiệu Trị was the most learned, poetry-loving of the Nguyễn emperors, leaving thousands of poems and mastering the 'palindrome' form that reads forward and backward alike (as in 'Mountains and Waters in the Rain'). He prized Confucian learning, held regular examinations, tended the Imperial Academy, printed books, and completed palaces and tombs at Huế. Short as it was, his reign was a well-tended age of letters."
       },
       "pullQuote": {
-        "text": { "vi": "Chữ xếp thành vòng, đọc xuôi đọc ngược thảy nên thơ — tài hoa của một ông vua yêu cái đẹp của chữ nghĩa.", "en": "Characters arranged in a ring, read forward or backward each a poem — the artistry of an emperor in love with the beauty of words." },
-        "attribution": { "vi": "về thơ hồi văn của vua Thiệu Trị", "en": "on Thiệu Trị's palindrome verse" }
+        "text": {
+          "vi": "Chữ xếp thành vòng, đọc xuôi đọc ngược thảy nên thơ — tài hoa của một ông vua yêu cái đẹp của chữ nghĩa.",
+          "en": "Characters arranged in a ring, read forward or backward each a poem — the artistry of an emperor in love with the beauty of words."
+        },
+        "attribution": {
+          "vi": "về thơ hồi văn của vua Thiệu Trị",
+          "en": "on Thiệu Trị's palindrome verse"
+        }
       },
       "hero": {
         "id": "vua-thi-nhan-hero",
@@ -176,18 +270,26 @@
         "flagship": "eras/thieu-tri/events/vua-thi-nhan.png",
         "reduced": "eras/thieu-tri/events/vua-thi-nhan.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Chính biên · Đệ tam kỷ · Quyển 4", "en": "Primary Compilation · Third Reign · Book 4" },
+        "section": {
+          "vi": "Chính biên · Đệ tam kỷ · Quyển 4",
+          "en": "Primary Compilation · Third Reign · Book 4"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     },
     {
       "id": "phao-ham-da-nang",
       "slug": "phao-ham-da-nang",
-      "figureIds": ["thieu-tri"],
+      "figureIds": [
+        "thieu-tri"
+      ],
       "details": {
         "vi": "Trong khi triều đình Đại Nam vẫn khép mình theo lối cũ, thì ngoài kia thế giới đã đổi khác: các nước tư bản phương Tây, mạnh về tàu to súng lớn, đang tràn sang phương Đông tìm thuộc địa và thị trường. Nước Pháp, gắn với việc truyền giáo, đặc biệt để mắt tới Đại Nam. Chính sách cấm đạo, bắt giam và xử tội giáo sĩ của triều Nguyễn trở thành cái cớ để Pháp can thiệp bằng vũ lực. Năm Đinh Mùi (1847), lấy cớ đòi thả mấy giáo sĩ bị giam, hai chiến hạm Pháp kéo đến cửa biển Đà Nẵng. Nhân lúc thương thuyết, thấy thủy quân triều đình có ý phòng bị, quân Pháp bất ngờ khai hỏa, bắn chìm gần hết mấy chiếc thuyền đồng của thủy quân ta đậu ở vũng, giết hại nhiều binh sĩ, rồi giương buồm bỏ đi. Đây là lần đầu tiên đại bác của phương Tây nổ trên bờ biển nước ta, phơi bày sự chênh lệch ghê gớm về vũ khí và cảnh báo về một tai họa xâm lăng đang tới gần. Tin dữ báo về, vua Thiệu Trị vô cùng phẫn nộ, hạ lệnh phòng bị nghiêm ngặt hơn và càng thắt chặt việc cấm đạo — nhưng cánh cửa khép kín của Đại Nam đã bắt đầu bị lung lay bởi họng súng ngoại bang.",
         "en": "While the court of Đại Nam still shut itself in the old way, the world outside had changed: the capitalist powers of the West, strong in great ships and heavy guns, were pouring into the East in search of colonies and markets. France, tied to its missions, had a particular eye on Đại Nam. The Nguyễn policy of banning the faith and imprisoning and punishing missionaries became a pretext for armed intervention. In the year Đinh Mùi (1847), on the pretext of demanding the release of imprisoned priests, two French warships came to the harbour of Đà Nẵng. Amid the talks, seeing the royal navy make ready, the French suddenly opened fire, sinking almost all of our navy's bronze-hulled vessels moored in the bay, killing many, then setting sail away. This was the first time Western cannon thundered on our shores, laying bare a fearful gap in arms and warning of an invasion drawing near. At the grim news, Emperor Thiệu Trị was enraged, ordered stricter defences, and tightened the ban on the faith all the more — but the closed door of Đại Nam had begun to shake before the muzzles of foreign guns."
@@ -195,11 +297,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1847 SCN", "en": "1847 CE" },
+        "display": {
+          "vi": "1847 SCN",
+          "en": "1847 CE"
+        },
         "value": 1847,
         "approximate": false
       },
-      "title": { "vi": "Pháo hạm Pháp bắn phá Đà Nẵng", "en": "French warships bombard Đà Nẵng" },
+      "title": {
+        "vi": "Pháo hạm Pháp bắn phá Đà Nẵng",
+        "en": "French warships bombard Đà Nẵng"
+      },
       "summary": {
         "vi": "Năm 1847, lấy cớ bênh giáo sĩ, chiến hạm Pháp bắn chìm thủy quân triều đình ở Đà Nẵng — điềm báo xâm lăng.",
         "en": "In 1847, on a missionary pretext, French warships sink the royal navy at Đà Nẵng — an omen of invasion."
@@ -209,8 +317,14 @@
         "en": "The West, strong in ships and guns, was spreading in search of colonies; the Nguyễn ban on Christianity became France's pretext to intervene. In 1847, demanding the release of missionaries, two French warships came to Đà Nẵng, suddenly opened fire, sank almost all our navy's bronze-hulled vessels, and left. The first Western cannon on our shores laid bare a fearful gap in arms. Enraged, Thiệu Trị tightened his defences and his bans."
       },
       "pullQuote": {
-        "text": { "vi": "Đại bác ngoại bang lần đầu nổ trên cửa biển — cánh cửa khép kín trăm năm bắt đầu bị lung lay.", "en": "Foreign cannon thundered for the first time at the harbour mouth — the door shut for a hundred years began to shake." },
-        "attribution": { "vi": "về sự kiện Đà Nẵng năm 1847", "en": "on the Đà Nẵng incident of 1847" }
+        "text": {
+          "vi": "Đại bác ngoại bang lần đầu nổ trên cửa biển — cánh cửa khép kín trăm năm bắt đầu bị lung lay.",
+          "en": "Foreign cannon thundered for the first time at the harbour mouth — the door shut for a hundred years began to shake."
+        },
+        "attribution": {
+          "vi": "về sự kiện Đà Nẵng năm 1847",
+          "en": "on the Đà Nẵng incident of 1847"
+        }
       },
       "hero": {
         "id": "phao-ham-da-nang-hero",
@@ -219,18 +333,27 @@
         "flagship": "eras/thieu-tri/events/phao-ham-da-nang.png",
         "reduced": "eras/thieu-tri/events/phao-ham-da-nang.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Chính biên · Đệ tam kỷ · Quyển 7", "en": "Primary Compilation · Third Reign · Book 7" },
+        "section": {
+          "vi": "Chính biên · Đệ tam kỷ · Quyển 7",
+          "en": "Primary Compilation · Third Reign · Book 7"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     },
     {
       "id": "vua-bang-truyen-ngoi",
       "slug": "vua-bang-truyen-ngoi",
-      "figureIds": ["thieu-tri", "truong-dang-que"],
+      "figureIds": [
+        "thieu-tri",
+        "truong-dang-que"
+      ],
       "details": {
         "vi": "Sau vụ Đà Nẵng chưa được bao lâu, cùng trong năm Đinh Mùi (1847), vua Thiệu Trị lâm bệnh nặng rồi băng hà, ở ngôi bảy năm, thọ ba mươi bảy tuổi. Việc truyền ngôi để lại một mối rắc rối cho hoàng tộc: theo lẽ thường, con trưởng là Hồng Bảo sẽ nối ngôi, nhưng vua và các đại thần, đứng đầu là Trương Đăng Quế, lại chọn người con thứ là Hồng Nhậm — thông minh, hay chữ hơn — lên ngôi, tức vua Tự Đức. Hồng Bảo bị gạt ra, ôm lòng oán hận, về sau mưu việc giành lại ngôi báu, gây nên loạn lạc và bi kịch trong hoàng gia. Vua Thiệu Trị được an táng ở Xương Lăng, một khu lăng thanh nhã bên dòng nước ở Huế. Triều đại của ông khép lại một thời tương đối yên ả cuối cùng của nhà Nguyễn; người kế vị là Tự Đức sẽ phải đối mặt trực tiếp với cơn bão lớn nhất: cuộc xâm lược của thực dân Pháp.",
         "en": "Not long after the Đà Nẵng affair, in that same year Đinh Mùi (1847), Thiệu Trị fell gravely ill and died, after seven years on the throne, at thirty-seven. The succession left a tangle for the royal house: by custom the eldest son Hồng Bảo should have followed, but the emperor and his ministers, led by Trương Đăng Quế, chose the younger son Hồng Nhậm — cleverer and more learned — who took the throne as Tự Đức. Cast aside, Hồng Bảo nursed his grievance and later plotted to seize the throne, bringing tragedy and revolt to the royal family. Thiệu Trị was buried at Xương Lăng, an elegant tomb by the water at Huế. His reign closed the last relatively peaceful age of the Nguyễn; his successor Tự Đức would face, head on, the greatest storm of all: the invasion of the French."
@@ -238,11 +361,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1847 SCN", "en": "1847 CE" },
+        "display": {
+          "vi": "1847 SCN",
+          "en": "1847 CE"
+        },
         "value": 1847,
         "approximate": false
       },
-      "title": { "vi": "Vua băng, Tự Đức nối ngôi", "en": "The emperor dies; Tự Đức succeeds" },
+      "title": {
+        "vi": "Vua băng, Tự Đức nối ngôi",
+        "en": "The emperor dies; Tự Đức succeeds"
+      },
       "summary": {
         "vi": "Cuối 1847, Thiệu Trị băng; các đại thần chọn con thứ Hồng Nhậm (Tự Đức) thay con trưởng Hồng Bảo — mầm loạn về sau.",
         "en": "Late 1847, Thiệu Trị dies; ministers choose the younger son Hồng Nhậm (Tự Đức) over the elder Hồng Bảo — a seed of strife."
@@ -252,8 +381,14 @@
         "en": "That same year, 1847, soon after Đà Nẵng, Thiệu Trị fell ill and died at thirty-seven. The succession bred trouble: the emperor and his ministers (led by Trương Đăng Quế) chose the younger, more learned son Hồng Nhậm (Tự Đức) over the elder Hồng Bảo. Cast aside, Hồng Bảo later plotted for the throne, bringing tragedy to the royal house. Thiệu Trị was buried at Xương Lăng; his successor Tự Đức would face the storm of the French invasion."
       },
       "pullQuote": {
-        "text": { "vi": "Bỏ trưởng lập thứ, tuy được người hiền, mà gieo mầm bất hòa; buổi yên ả cuối cùng khép lại, giông bão đã gần kề.", "en": "To pass over the elder for the younger won a worthy heir, yet sowed discord; the last calm age closed, and the storm drew near." },
-        "attribution": { "vi": "lời bàn của người đời sau", "en": "the judgment of later generations" }
+        "text": {
+          "vi": "Bỏ trưởng lập thứ, tuy được người hiền, mà gieo mầm bất hòa; buổi yên ả cuối cùng khép lại, giông bão đã gần kề.",
+          "en": "To pass over the elder for the younger won a worthy heir, yet sowed discord; the last calm age closed, and the storm drew near."
+        },
+        "attribution": {
+          "vi": "lời bàn của người đời sau",
+          "en": "the judgment of later generations"
+        }
       },
       "hero": {
         "id": "vua-bang-truyen-ngoi-hero",
@@ -262,11 +397,17 @@
         "flagship": "eras/thieu-tri/events/vua-bang-truyen-ngoi.png",
         "reduced": "eras/thieu-tri/events/vua-bang-truyen-ngoi.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Chính biên · Đệ tam kỷ · Quyển 7", "en": "Primary Compilation · Third Reign · Book 7" },
+        "section": {
+          "vi": "Chính biên · Đệ tam kỷ · Quyển 7",
+          "en": "Primary Compilation · Third Reign · Book 7"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     }

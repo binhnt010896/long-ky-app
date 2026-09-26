@@ -4,15 +4,27 @@
   "slug": "tien-le",
   "order": 11,
   "period": "ngo-dinh-tien-le",
-  "title": { "vi": "Lê Đại Hành", "en": "Lê Đại Hành" },
-  "kicker": { "vi": "Kỷ nhà Tiền Lê", "en": "The Early Lê dynasty" },
-  "subtitle": { "vi": "Khoác long bào chống Tống, thân chinh bình Chiêm.", "en": "The robe donned against the Song, the throne carried into Champa." },
+  "title": {
+    "vi": "Lê Đại Hành",
+    "en": "Lê Đại Hành"
+  },
+  "kicker": {
+    "vi": "Kỷ nhà Tiền Lê",
+    "en": "The Early Lê dynasty"
+  },
+  "subtitle": {
+    "vi": "Khoác long bào chống Tống, thân chinh bình Chiêm.",
+    "en": "The robe donned against the Song, the throne carried into Champa."
+  },
   "overview": {
     "vi": "Đinh Tiên Hoàng bị hại, con nhỏ là Đinh Toàn nối ngôi, Thập đạo tướng quân Lê Hoàn nhiếp chính. Bấy giờ nhà Tống thấy nước ta có tang, vua còn thơ ấu, bèn sai Hầu Nhân Bảo đem đại quân sang xâm lược. Giữa lúc nước sôi lửa bỏng, tướng Phạm Cự Lạng cùng quân sĩ sắp ra trận đều tôn Lê Hoàn lên; Dương Thái hậu thuận theo lòng người, lấy áo long bào khoác lên mình ông. Lê Hoàn lên ngôi Hoàng đế — tức Lê Đại Hành, đặt niên hiệu Thiên Phúc, lập nên nhà Tiền Lê. Năm Tân Tỵ (981), vua thân cầm quân, theo kế đóng cọc của Ngô Quyền, đại phá quân Tống trên sông Bạch Đằng, chém Hầu Nhân Bảo, bắt tướng Tống đem về Hoa Lư. Năm sau (982), vì Chiêm Thành bắt giữ sứ giả, vua thân chinh phương Nam, chém vua Chiêm là Bê Mi Thuế, hạ kinh đô. Trong nước, vua cày ruộng tịch điền khuyến nông, dựng cung điện, đào kênh, đúc tiền — dựng nền một nước có vua. Năm Ất Tỵ (1005) vua băng; các con tranh ngôi, Lê Long Đĩnh cướp ngôi làm vua bạo ngược, nhà Tiền Lê suy — mở lối sang nhà Lý.",
     "en": "When Đinh Tiên Hoàng was slain and the boy Đinh Toàn succeeded under the regency of the Commander of the Ten Armies, Lê Hoàn, the Song saw our nation in mourning under a child-king and sent Hou Renbao with a great army to invade. In that hour of crisis the general Phạm Cự Lạng and the soldiers, on the eve of the march, acclaimed Lê Hoàn; and Empress Dowager Dương, yielding to the will of all, took the dragon robe and draped it upon him. Lê Hoàn took the imperial throne — Lê Đại Hành — proclaimed the era Thiên Phúc, and founded the Early Lê. In the year Tân Tỵ (981) he took the field himself and, using Ngô Quyền's stratagem of the driven stakes, shattered the Song on the Bạch Đằng, cut down Hou Renbao, and brought captured Song generals back to Hoa Lư. The next year (982), Champa having seized his envoys, he led a campaign to the South, killed the Cham king Bê Mi Thuế and took the capital. At home he plowed the sacred field to promote farming, raised palaces, dug canals and cast coin — building the order of a nation with its own sovereign. In the year Ất Tỵ (1005) he died; his sons fought for the throne, Lê Long Đĩnh seized it and ruled with cruelty, and the Early Lê declined — opening the road to the Lý."
   },
   "yearRange": {
-    "display": { "vi": "980 – 1005 SCN", "en": "980 – 1005 CE" },
+    "display": {
+      "vi": "980 – 1005 SCN",
+      "en": "980 – 1005 CE"
+    },
     "startYear": 980,
     "endYear": 1005
   },
@@ -36,31 +48,69 @@
     "flagship": "eras/tien-le/cover.png",
     "reduced": "eras/tien-le/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/tien-le/scene/sky.png", "reduced": "eras/tien-le/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/tien-le/scene/sky.png",
+        "reduced": "eras/tien-le/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Bản kỷ", "en": "Basic Records" },
+    "section": {
+      "vi": "Bản kỷ",
+      "en": "Basic Records"
+    },
     "author": "Ngô Sĩ Liên"
   },
   "characters": [
-    { "ref": "le-hoan", "epithet": { "vi": "Lê Đại Hành · Hoàng đế phá Tống bình Chiêm", "en": "Lê Đại Hành · the emperor who broke the Song and subdued Champa" } },
-    { "ref": "duong-van-nga" },
-    { "ref": "pham-cu-lang" },
-    { "ref": "hau-nhan-bao" },
-    { "ref": "le-long-dinh" }
+    {
+      "ref": "le-hoan",
+      "epithet": {
+        "vi": "Lê Đại Hành · Hoàng đế phá Tống bình Chiêm",
+        "en": "Lê Đại Hành · the emperor who broke the Song and subdued Champa"
+      }
+    },
+    {
+      "ref": "duong-van-nga"
+    },
+    {
+      "ref": "pham-cu-lang"
+    },
+    {
+      "ref": "hau-nhan-bao"
+    },
+    {
+      "ref": "le-long-dinh"
+    }
   ],
   "events": [
     {
       "id": "le-hoan-len-ngoi",
       "slug": "le-hoan-len-ngoi",
-      "figureIds": ["le-hoan", "duong-van-nga", "pham-cu-lang"],
+      "figureIds": [
+        "le-hoan",
+        "duong-van-nga",
+        "pham-cu-lang"
+      ],
       "details": {
         "vi": "Đinh Tiên Hoàng và con trưởng bị hại, con thứ là Vệ Vương Đinh Toàn mới sáu tuổi nối ngôi, Thập đạo tướng quân Lê Hoàn làm Phó vương nhiếp chính. Các đại thần cũ như Định Quốc công Nguyễn Bặc, Ngoại giáp Đinh Điền nghi ngờ Lê Hoàn, dấy binh chống lại nhưng đều thua và bị giết. Bấy giờ nhà Tống nghe tin, sai Hầu Nhân Bảo đem quân sang. Trước thế giặc, tướng Phạm Cự Lạng cùng quân sĩ đang sắp ra trận bèn bàn nhau: vua còn nhỏ, dẫu liều chết đánh giặc thì ai biết cho công; chi bằng trước hãy tôn ông Thập đạo lên làm thiên tử. Dương Thái hậu thấy lòng người đã theo, sai lấy áo long bào khoác lên mình Lê Hoàn. Ông lên ngôi Hoàng đế, tức Lê Đại Hành, đặt niên hiệu Thiên Phúc, lập nên nhà Tiền Lê; giáng Đinh Toàn làm Vệ Vương.",
         "en": "Đinh Tiên Hoàng and his eldest son having been slain, his younger son the Vệ King Đinh Toàn, but six years old, succeeded under the regency of the Commander of the Ten Armies, Lê Hoàn. Old ministers such as Duke Định Quốc Nguyễn Bặc and the Marshal Đinh Điền, suspecting Lê Hoàn, raised troops against him but were defeated and killed. Now the Song, hearing of it, sent Hou Renbao with an army. Facing the threat, the general Phạm Cự Lạng and the soldiers, on the eve of the march, said among themselves: the king is a child; though we die fighting, who will know our merit? Better first to raise the Commander of the Ten Armies to Son of Heaven. Empress Dowager Dương, seeing that all hearts had turned, had the dragon robe brought and draped upon Lê Hoàn. He took the imperial throne as Lê Đại Hành, proclaimed the era Thiên Phúc, and founded the Early Lê, demoting Đinh Toàn to the Vệ King."
@@ -68,11 +118,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "980 SCN", "en": "980 CE" },
+        "display": {
+          "vi": "980 SCN",
+          "en": "980 CE"
+        },
         "value": 980,
         "approximate": false
       },
-      "title": { "vi": "Khoác long bào lên ngôi", "en": "The dragon robe and the throne" },
+      "title": {
+        "vi": "Khoác long bào lên ngôi",
+        "en": "The dragon robe and the throne"
+      },
       "summary": {
         "vi": "Quân sĩ tôn Lê Hoàn; Dương Thái hậu khoác long bào, lập nhà Tiền Lê.",
         "en": "The army acclaims Lê Hoàn; Empress Dương drapes the robe — the Early Lê begins."
@@ -82,8 +138,14 @@
         "en": "Đinh Tiên Hoàng slain and the boy Đinh Toàn on the throne under his regency, with the Song about to invade, the general Phạm Cự Lạng and the soldiers acclaimed Lê Hoàn; Empress Dowager Dương draped the dragon robe upon him. He took the imperial throne as Lê Đại Hành, proclaimed the era Thiên Phúc, and founded the Early Lê."
       },
       "pullQuote": {
-        "text": { "vi": "Nay chúa thượng còn thơ ấu, chúng ta dẫu liều chết chặn giặc, có chút công lao thì ai biết? Chi bằng trước hãy tôn Thập đạo tướng quân làm thiên tử.", "en": "Our lord is a child; though we die to stop the foe, who will know our merit? Better first to make the Commander of the Ten Armies our Son of Heaven." },
-        "attribution": { "vi": "lời quân sĩ, theo Ngô Sĩ Liên", "en": "the soldiers' words, per Ngô Sĩ Liên" }
+        "text": {
+          "vi": "Nay chúa thượng còn thơ ấu, chúng ta dẫu liều chết chặn giặc, có chút công lao thì ai biết? Chi bằng trước hãy tôn Thập đạo tướng quân làm thiên tử.",
+          "en": "Our lord is a child; though we die to stop the foe, who will know our merit? Better first to make the Commander of the Ten Armies our Son of Heaven."
+        },
+        "attribution": {
+          "vi": "lời quân sĩ, theo Ngô Sĩ Liên",
+          "en": "the soldiers' words, per Ngô Sĩ Liên"
+        }
       },
       "hero": {
         "id": "le-hoan-len-ngoi-hero",
@@ -92,18 +154,27 @@
         "flagship": "eras/tien-le/events/le-hoan-len-ngoi.png",
         "reduced": "eras/tien-le/events/le-hoan-len-ngoi.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 1", "en": "Basic Records · Book 1" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 1",
+          "en": "Basic Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "pha-tong-bach-dang",
       "slug": "pha-tong-bach-dang",
-      "figureIds": ["le-hoan", "hau-nhan-bao"],
+      "figureIds": [
+        "le-hoan",
+        "hau-nhan-bao"
+      ],
       "details": {
         "vi": "Năm Tân Tỵ (981), nhà Tống sai Hầu Nhân Bảo, Tôn Toàn Hưng, Lưu Trừng, Trần Khâm Tộ chia đường thủy bộ sang đánh. Lê Đại Hành thân cầm quân chống giặc. Theo kế cũ của Ngô Quyền, vua sai đóng cọc nhọn trên sông để chặn chiến thuyền, lại dùng kế trá hàng dụ chủ tướng Hầu Nhân Bảo tiến vào chỗ hiểm. Khi quân Tống lọt vào trận, quân ta bốn mặt đổ ra đánh, chém Hầu Nhân Bảo tại trận; thủy quân Tống tan vỡ, mất hơn hai trăm chiến thuyền, quân sĩ chết quá nửa. Các tướng Tống là Quách Quân Biện, Triệu Phụng Huân bị bắt sống đem về Hoa Lư. Quân Tống bại trận phải rút về, chưa đầy bốn tháng mà giặc tan.",
         "en": "In the year Tân Tỵ (981) the Song sent Hou Renbao, Sun Quanxing, Liu Cheng and Chen Qinzuo by land and water to attack. Lê Đại Hành took command in person. Following Ngô Quyền's old stratagem, he had sharpened stakes driven into the river to block the war-junks, and by a feigned surrender drew the commander Hou Renbao into a trap. When the Song had entered, our troops fell upon them from all sides and cut down Hou Renbao in the battle; the Song fleet was shattered, losing more than two hundred war-junks, over half their men killed. The Song generals Guo Junbian and Zhao Fengxun were taken alive and brought to Hoa Lư. The beaten Song withdrew — the invasion broken in under four months."
@@ -111,11 +182,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "981 SCN", "en": "981 CE" },
+        "display": {
+          "vi": "981 SCN",
+          "en": "981 CE"
+        },
         "value": 981,
         "approximate": false
       },
-      "title": { "vi": "Đại phá quân Tống trên Bạch Đằng", "en": "The Song shattered on the Bạch Đằng" },
+      "title": {
+        "vi": "Đại phá quân Tống trên Bạch Đằng",
+        "en": "The Song shattered on the Bạch Đằng"
+      },
       "summary": {
         "vi": "Đóng cọc, trá hàng, chém Hầu Nhân Bảo; quân Tống tan vỡ.",
         "en": "Driven stakes and a feigned surrender kill Hou Renbao; the Song break."
@@ -125,8 +202,14 @@
         "en": "In 981 the Song under Hou Renbao attacked by several roads. Lê Đại Hành took the field, drove stakes as Ngô Quyền had and feigned surrender to lure the enemy into a trap, then cut down Hou Renbao in battle. The Song fleet broke, its generals taken to Hoa Lư — the invasion undone in under four months."
       },
       "pullQuote": {
-        "text": { "vi": "Đóng cọc sông theo kế Ngô Quyền, trá hàng dụ giặc — chém Hầu Nhân Bảo, phá tan quân Tống.", "en": "Stakes in the river as Ngô Quyền taught, a feigned surrender to draw the foe — Hou Renbao cut down, the Song broken." },
-        "attribution": { "vi": "theo Đại Việt sử ký toàn thư", "en": "per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Đóng cọc sông theo kế Ngô Quyền, trá hàng dụ giặc — chém Hầu Nhân Bảo, phá tan quân Tống.",
+          "en": "Stakes in the river as Ngô Quyền taught, a feigned surrender to draw the foe — Hou Renbao cut down, the Song broken."
+        },
+        "attribution": {
+          "vi": "theo Đại Việt sử ký toàn thư",
+          "en": "per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "pha-tong-bach-dang-hero",
@@ -135,18 +218,26 @@
         "flagship": "eras/tien-le/events/pha-tong-bach-dang.png",
         "reduced": "eras/tien-le/events/pha-tong-bach-dang.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 1", "en": "Basic Records · Book 1" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 1",
+          "en": "Basic Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "than-chinh-binh-chiem",
       "slug": "than-chinh-binh-chiem",
-      "figureIds": ["le-hoan"],
+      "figureIds": [
+        "le-hoan"
+      ],
       "details": {
         "vi": "Trước đó vua sai sứ là Ngô Tử Canh và Từ Mục sang Chiêm Thành, bị vua Chiêm là Bê Mi Thuế bắt giữ. Vua giận, năm Nhâm Ngọ (982) bèn thân chinh phương Nam, đem thủy quân đánh Chiêm. Quân ta chém được Bê Mi Thuế tại trận, hạ kinh đô nước Chiêm, bắt được quân dân, thu vàng bạc của báu vô số, san phẳng thành trì và tông miếu. Đánh xong, hơn một năm thì vua đem quân về. Từ đó uy nước Đại Cồ Việt lừng lẫy cả phương Bắc lẫn phương Nam.",
         "en": "Earlier the king had sent his envoys Ngô Tử Canh and Từ Mục to Champa, where the Cham king Bê Mi Thuế held them prisoner. Enraged, in the year Nhâm Ngọ (982) Lê Đại Hành led a campaign to the South, taking his fleet against Champa. Our troops cut down Bê Mi Thuế in battle, took the Cham capital, seized its people, gathered gold, silver and treasure beyond counting, and levelled its citadel and ancestral temples. The war won, he brought the army home after more than a year. From then the might of Đại Cồ Việt rang out to North and South alike."
@@ -154,11 +245,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "982 SCN", "en": "982 CE" },
+        "display": {
+          "vi": "982 SCN",
+          "en": "982 CE"
+        },
         "value": 982,
         "approximate": false
       },
-      "title": { "vi": "Thân chinh bình Chiêm", "en": "The southern campaign against Champa" },
+      "title": {
+        "vi": "Thân chinh bình Chiêm",
+        "en": "The southern campaign against Champa"
+      },
       "summary": {
         "vi": "Chiêm bắt sứ; vua thân chinh, chém Bê Mi Thuế, hạ kinh đô.",
         "en": "Champa jails his envoys; the king marches, kills Bê Mi Thuế, takes the capital."
@@ -168,8 +265,14 @@
         "en": "The Cham king Bê Mi Thuế having jailed his envoys, in 982 Lê Đại Hành led his fleet against Champa, killed Bê Mi Thuế in battle, took the capital and its treasure, and returned after more than a year — the realm's might now ringing to North and South."
       },
       "pullQuote": {
-        "text": { "vi": "Chiêm Thành bắt giữ sứ giả, vua giận, thân chinh chém vua Chiêm tại trận, hạ kinh đô.", "en": "Champa having jailed his envoys, the king in his wrath marched himself, cut down the Cham king in battle, and took the capital." },
-        "attribution": { "vi": "theo Đại Việt sử ký toàn thư", "en": "per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Chiêm Thành bắt giữ sứ giả, vua giận, thân chinh chém vua Chiêm tại trận, hạ kinh đô.",
+          "en": "Champa having jailed his envoys, the king in his wrath marched himself, cut down the Cham king in battle, and took the capital."
+        },
+        "attribution": {
+          "vi": "theo Đại Việt sử ký toàn thư",
+          "en": "per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "than-chinh-binh-chiem-hero",
@@ -178,18 +281,26 @@
         "flagship": "eras/tien-le/events/than-chinh-binh-chiem.png",
         "reduced": "eras/tien-le/events/than-chinh-binh-chiem.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 1", "en": "Basic Records · Book 1" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 1",
+          "en": "Basic Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "tich-dien-dung-nuoc",
       "slug": "tich-dien-dung-nuoc",
-      "figureIds": ["le-hoan"],
+      "figureIds": [
+        "le-hoan"
+      ],
       "details": {
         "vi": "Dẹp yên giặc ngoài, vua lo dựng nền trong nước. Năm Đinh Hợi (987), vua đích thân cày ruộng tịch điền ở núi Đọi để khuyến khích nghề nông; cày được hũ nhỏ đựng vàng, lại cày ở nơi khác được hũ đựng bạc, nhân đó đặt tên là ruộng Kim Ngân. Đây là lễ cày tịch điền đầu tiên của vua nước Việt, mở lệ các đời sau noi theo. Vua cho dựng nhiều cung điện ở Hoa Lư, cột nhà dát vàng bạc, mái lợp ngói bạc; sai đào kênh khơi sông cho tiện đường vận, đúc tiền Thiên Phúc trấn bảo. Với nhà Tống, vua nhận tước phong mà vẫn giữ trọn quyền tự chủ, giữ yên bờ cõi.",
         "en": "The foreign threat quelled, the king turned to building the realm within. In the year Đinh Hợi (987) he plowed the sacred field at Đọi Mountain with his own hands to encourage husbandry; his plow turned up a small jar of gold, and at another place a jar of silver, so he named the place the Field of Gold and Silver. This was the first sacred-field plowing by a Việt sovereign, a rite all later ages would follow. He raised many palaces at Hoa Lư, their pillars sheathed in gold and silver and roofs of silver tile; he had canals dug and rivers opened for transport, and cast the Thiên Phúc trấn bảo coin. With the Song he accepted an investiture of rank yet kept his sovereignty entire and his borders at peace."
@@ -197,11 +308,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "987 SCN", "en": "987 CE" },
+        "display": {
+          "vi": "987 SCN",
+          "en": "987 CE"
+        },
         "value": 987,
         "approximate": false
       },
-      "title": { "vi": "Cày tịch điền, dựng cơ nghiệp", "en": "The sacred field and the building of the realm" },
+      "title": {
+        "vi": "Cày tịch điền, dựng cơ nghiệp",
+        "en": "The sacred field and the building of the realm"
+      },
       "summary": {
         "vi": "Vua cày ruộng tịch điền, dựng cung, đào kênh, đúc tiền.",
         "en": "The king plows the sacred field, raises palaces, digs canals, casts coin."
@@ -211,8 +328,14 @@
         "en": "In 987 Lê Đại Hành plowed the sacred field at Đọi Mountain with his own hands to promote farming — the first such rite by a Việt king. He raised palaces at Hoa Lư, dug canals, cast the Thiên Phúc trấn bảo coin, and with the Song accepted an investiture yet kept his sovereignty whole."
       },
       "pullQuote": {
-        "text": { "vi": "Vua đích thân cày ruộng tịch điền ở núi Đọi — lễ cày đầu tiên của vua nước Việt, khuyến dân trọng nghề nông.", "en": "The king plowed the sacred field at Đọi Mountain with his own hands — the first such rite by a Việt sovereign, teaching the people to honour the plow." },
-        "attribution": { "vi": "theo Đại Việt sử ký toàn thư", "en": "per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Vua đích thân cày ruộng tịch điền ở núi Đọi — lễ cày đầu tiên của vua nước Việt, khuyến dân trọng nghề nông.",
+          "en": "The king plowed the sacred field at Đọi Mountain with his own hands — the first such rite by a Việt sovereign, teaching the people to honour the plow."
+        },
+        "attribution": {
+          "vi": "theo Đại Việt sử ký toàn thư",
+          "en": "per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "tich-dien-dung-nuoc-hero",
@@ -221,18 +344,27 @@
         "flagship": "eras/tien-le/events/tich-dien-dung-nuoc.png",
         "reduced": "eras/tien-le/events/tich-dien-dung-nuoc.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 1", "en": "Basic Records · Book 1" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 1",
+          "en": "Basic Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "vua-bang-tien-le-suy",
       "slug": "vua-bang-tien-le-suy",
-      "figureIds": ["le-hoan", "le-long-dinh"],
+      "figureIds": [
+        "le-hoan",
+        "le-long-dinh"
+      ],
       "details": {
         "vi": "Năm Ất Tỵ (1005), Lê Đại Hành băng ở điện Trường Xuân, thọ sáu mươi lăm tuổi, ở ngôi hai mươi lăm năm. Vua trước đã lập con là Long Việt làm thái tử, song các con tranh nhau ngôi báu, đánh nhau ròng rã tám tháng, trong nước không có chủ. Long Việt lên ngôi mới được ba ngày thì bị em là Long Đĩnh sai người giết chết mà cướp lấy ngôi. Long Đĩnh làm vua bạo ngược, hoang dâm, ốm đau quen nằm mà coi chầu nên người đời gọi là Ngọa Triều. Cơ nghiệp Tiền Lê từ đó suy đồi. Đến năm Kỷ Dậu (1009) Long Đĩnh mất, triều thần và sư Vạn Hạnh tôn Điện tiền chỉ huy sứ Lý Công Uẩn lên ngôi — nhà Lý mở ra từ đấy.",
         "en": "In the year Ất Tỵ (1005) Lê Đại Hành died in the Trường Xuân hall, aged sixty-five, after twenty-five years on the throne. He had made his son Long Việt heir, yet the sons fought for the throne, warring for eight months while the realm was without a master. Long Việt had reigned but three days when his younger brother Long Đĩnh had him killed and seized the throne. Long Đĩnh ruled with cruelty and debauchery and, sickly, was given to holding court while lying down — whence the people called him the Recumbent-Court. The fortunes of the Early Lê thus decayed. When Long Đĩnh died in the year Kỷ Dậu (1009), the court and the monk Vạn Hạnh raised the Palace Guard Commander Lý Công Uẩn to the throne — and from there the Lý dynasty began."
@@ -240,11 +372,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1005 SCN", "en": "1005 CE" },
+        "display": {
+          "vi": "1005 SCN",
+          "en": "1005 CE"
+        },
         "value": 1005,
         "approximate": false
       },
-      "title": { "vi": "Vua băng, nhà Tiền Lê suy", "en": "The king dies and the Early Lê declines" },
+      "title": {
+        "vi": "Vua băng, nhà Tiền Lê suy",
+        "en": "The king dies and the Early Lê declines"
+      },
       "summary": {
         "vi": "Lê Đại Hành băng; con tranh ngôi, Long Đĩnh bạo ngược — mở lối nhà Lý.",
         "en": "Lê Đại Hành dies; his sons fight, Long Đĩnh turns tyrant — the road to the Lý."
@@ -254,8 +392,14 @@
         "en": "In 1005 Lê Đại Hành died, aged 65, after 25 years reigning. His sons fought for eight months; Long Đĩnh killed his brother and seized the throne, ruling as a tyrant, the Recumbent-Court, and the Early Lê declined. When he died in 1009, the court raised Lý Công Uẩn — beginning the Lý dynasty."
       },
       "pullQuote": {
-        "text": { "vi": "Long Đĩnh cướp ngôi, làm vua bạo ngược, quen nằm mà coi chầu nên gọi là Ngọa Triều.", "en": "Long Đĩnh seized the throne and ruled as a tyrant, given to holding court while lying down — hence the Recumbent-Court." },
-        "attribution": { "vi": "theo Đại Việt sử ký toàn thư", "en": "per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Long Đĩnh cướp ngôi, làm vua bạo ngược, quen nằm mà coi chầu nên gọi là Ngọa Triều.",
+          "en": "Long Đĩnh seized the throne and ruled as a tyrant, given to holding court while lying down — hence the Recumbent-Court."
+        },
+        "attribution": {
+          "vi": "theo Đại Việt sử ký toàn thư",
+          "en": "per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "vua-bang-tien-le-suy-hero",
@@ -264,11 +408,17 @@
         "flagship": "eras/tien-le/events/vua-bang-tien-le-suy.png",
         "reduced": "eras/tien-le/events/vua-bang-tien-le-suy.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 1", "en": "Basic Records · Book 1" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 1",
+          "en": "Basic Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     }

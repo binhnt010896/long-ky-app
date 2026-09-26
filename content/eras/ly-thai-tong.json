@@ -4,15 +4,27 @@
   "slug": "ly-thai-tong",
   "order": 13,
   "period": "nha-ly",
-  "title": { "vi": "Lý Thái Tông – Thánh Tông", "en": "Lý Thái Tông – Thánh Tông" },
-  "kicker": { "vi": "Kỷ nhà Lý", "en": "The Lý dynasty" },
-  "subtitle": { "vi": "Hình thư, chùa Một Cột, quốc hiệu Đại Việt, Văn Miếu.", "en": "The law code, the One-Pillar Pagoda, the name Đại Việt, the Temple of Literature." },
+  "title": {
+    "vi": "Lý Thái Tông – Thánh Tông",
+    "en": "Lý Thái Tông – Thánh Tông"
+  },
+  "kicker": {
+    "vi": "Kỷ nhà Lý",
+    "en": "The Lý dynasty"
+  },
+  "subtitle": {
+    "vi": "Hình thư, chùa Một Cột, quốc hiệu Đại Việt, Văn Miếu.",
+    "en": "The law code, the One-Pillar Pagoda, the name Đại Việt, the Temple of Literature."
+  },
   "overview": {
     "vi": "Lý Thái Tổ băng, con là Lý Phật Mã nối ngôi sau khi tướng Lê Phụng Hiểu dẹp yên loạn tam vương — tức Lý Thái Tông. Nối chí cha, ông đưa nhà Lý vào thời thịnh trị. Năm Nhâm Ngọ (1042), thương dân khổ vì kiện tụng rắc rối, ông sai định làm bộ Hình thư — bộ luật thành văn đầu tiên của nước Việt. Năm Kỷ Sửu (1049), theo giấc mộng thấy Phật Quan Âm ngồi tòa sen, ông dựng chùa Diên Hựu — tức chùa Một Cột — như đóa sen mọc giữa hồ. Ông mất năm 1054, con là Lý Nhật Tôn lên ngôi, tức Lý Thánh Tông, đổi quốc hiệu Đại Cồ Việt thành Đại Việt. Vua Thánh Tông nhân từ thương dân, lại trọng văn hóa: năm Canh Tuất (1070) dựng Văn Miếu thờ Khổng Tử, mở đầu nền Nho học. Năm Kỷ Dậu (1069), vua thân chinh đánh Chiêm, giao Nguyên phi Ỷ Lan coi việc nước; bà trị nước giỏi, dân yên, được gọi là bà Quan Âm; vua bắt được vua Chiêm Chế Củ, mở mang bờ cõi ba châu phương Nam. Hai triều Thái Tông, Thánh Tông là buổi văn hiến rực rỡ, đặt nền vững cho nước Đại Việt.",
     "en": "When Lý Thái Tổ died, his son Lý Phật Mã succeeded — after the general Lê Phụng Hiểu quelled the Revolt of the Three Princes — as Lý Thái Tông. Carrying on his father's purpose, he brought the Lý into an age of good rule. In the year Nhâm Ngọ (1042), grieved that the people suffered under tangled litigation, he had the Hình thư drawn up — the first written law code of the Việt. In the year Kỷ Sửu (1049), following a dream of the Bodhisattva Quan Âm seated on a lotus, he raised the Diên Hựu temple — the One-Pillar Pagoda — like a single lotus rising from a pool. He died in 1054, and his son Lý Nhật Tôn took the throne as Lý Thánh Tông, changing the state's name from Đại Cồ Việt to Đại Việt. Benevolent and loving toward the people, and honouring culture, in the year Canh Tuất (1070) he raised the Temple of Literature to Confucius, opening the nation's Confucian learning. In the year Kỷ Dậu (1069) he campaigned in person against Champa, entrusting state affairs to his consort Ỷ Lan; she governed so well that the people were at peace and was revered as the Lady Quan Âm; and he captured the Cham king Chế Củ, widening the realm by three southern circuits. The reigns of Thái Tông and Thánh Tông were a brilliant age of civilisation that set the foundation firm for the nation of Đại Việt."
   },
   "yearRange": {
-    "display": { "vi": "1028 – 1072 SCN", "en": "1028 – 1072 CE" },
+    "display": {
+      "vi": "1028 – 1072 SCN",
+      "en": "1028 – 1072 CE"
+    },
     "startYear": 1028,
     "endYear": 1072
   },
@@ -36,29 +48,57 @@
     "flagship": "eras/ly-thai-tong/cover.png",
     "reduced": "eras/ly-thai-tong/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/ly-thai-tong/scene/sky.png", "reduced": "eras/ly-thai-tong/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/ly-thai-tong/scene/sky.png",
+        "reduced": "eras/ly-thai-tong/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Bản kỷ", "en": "Basic Records" },
+    "section": {
+      "vi": "Bản kỷ",
+      "en": "Basic Records"
+    },
     "author": "Ngô Sĩ Liên"
   },
   "characters": [
-    { "ref": "ly-thai-tong" },
-    { "ref": "ly-thanh-tong" },
-    { "ref": "y-lan" }
+    {
+      "ref": "ly-thai-tong"
+    },
+    {
+      "ref": "ly-thanh-tong"
+    },
+    {
+      "ref": "y-lan"
+    }
   ],
   "events": [
     {
       "id": "ban-hinh-thu",
       "slug": "ban-hinh-thu",
-      "figureIds": ["ly-thai-tong"],
+      "figureIds": [
+        "ly-thai-tong"
+      ],
       "details": {
         "vi": "Lý Thái Tông nối ngôi, lo việc trị nước lâu dài. Trước kia việc kiện tụng trong nước phiền nhiễu, quan lại giữ việc thì câu nệ luật văn, cốt làm cho khắc nghiệt, nhiều khi xử oan uổng dân lành. Vua lấy làm thương xót, năm Nhâm Ngọ (1042) bèn sai trung thư san định luật lệnh, chia môn loại, biên rõ điều khoản, làm thành sách gọi là Hình thư, ban ra cho trong nước theo đó mà thi hành. Đây là bộ luật thành văn đầu tiên của nước Việt, khiến việc xử án có phép tắc rõ ràng, dân biết đường mà giữ, quan không thể tùy tiện — một mốc lớn trong việc dựng nền pháp độ của nước nhà.",
         "en": "Lý Thái Tông, having succeeded, looked to the lasting order of the realm. Before this, litigation was vexatious and the officials in charge clung to the letter of the law, bent on harshness, so that innocent folk were often wronged. Grieved by this, in the year Nhâm Ngọ (1042) the emperor ordered the secretariat to revise the statutes, arrange them by category, set out the articles clearly, and make them into a book called the Hình thư, promulgated for the whole realm to follow. This was the first written law code of the Việt, giving judgment a clear rule so that the people knew how to keep within it and officials could not act at whim — a great milestone in building the nation's rule of law."
@@ -66,11 +106,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1042 SCN", "en": "1042 CE" },
+        "display": {
+          "vi": "1042 SCN",
+          "en": "1042 CE"
+        },
         "value": 1042,
         "approximate": false
       },
-      "title": { "vi": "Ban bộ Hình thư", "en": "The Hình thư law code" },
+      "title": {
+        "vi": "Ban bộ Hình thư",
+        "en": "The Hình thư law code"
+      },
       "summary": {
         "vi": "Thương dân khổ vì kiện tụng, vua định bộ luật thành văn đầu tiên.",
         "en": "Grieved by tangled lawsuits, the king sets down the first written code."
@@ -80,8 +126,14 @@
         "en": "Seeing the people suffer under vexatious litigation and officials wronging them by clinging to the letter of the law, in 1042 Lý Thái Tông had the statutes revised into a book, the Hình thư, promulgated across the realm — the first written law code of the Việt, giving judgment a clear rule."
       },
       "pullQuote": {
-        "text": { "vi": "Trước kia việc kiện tụng phiền nhiễu, quan giữ việc cốt làm khắc nghiệt; vua thương dân, sai định làm Hình thư.", "en": "Litigation had been vexatious and the officials bent on harshness; grieved for the people, the king had the Hình thư drawn up." },
-        "attribution": { "vi": "theo Ngô Sĩ Liên", "en": "per Ngô Sĩ Liên" }
+        "text": {
+          "vi": "Trước kia việc kiện tụng phiền nhiễu, quan giữ việc cốt làm khắc nghiệt; vua thương dân, sai định làm Hình thư.",
+          "en": "Litigation had been vexatious and the officials bent on harshness; grieved for the people, the king had the Hình thư drawn up."
+        },
+        "attribution": {
+          "vi": "theo Ngô Sĩ Liên",
+          "en": "per Ngô Sĩ Liên"
+        }
       },
       "hero": {
         "id": "ban-hinh-thu-hero",
@@ -90,18 +142,26 @@
         "flagship": "eras/ly-thai-tong/events/ban-hinh-thu.png",
         "reduced": "eras/ly-thai-tong/events/ban-hinh-thu.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 2", "en": "Basic Records · Book 2" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 2",
+          "en": "Basic Records · Book 2"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "chua-mot-cot",
       "slug": "chua-mot-cot",
-      "figureIds": ["ly-thai-tong"],
+      "figureIds": [
+        "ly-thai-tong"
+      ],
       "details": {
         "vi": "Vốn sùng đạo Phật, năm Kỷ Sửu (1049) Lý Thái Tông nằm mộng thấy Phật Quan Âm ngồi trên tòa sen, dắt tay vua lên tòa. Tỉnh dậy, vua đem chuyện kể với quần thần; có nhà sư khuyên nên dựng chùa để cầu phúc lành. Vua bèn cho dựng ngôi chùa giữa hồ, chôn một cột đá lớn, trên đầu cột làm tòa sen đặt tượng Phật Quan Âm đúng như trong mộng, dáng như một đóa sen mọc vươn khỏi mặt nước. Chùa đặt tên là Diên Hựu, nghĩa là phúc lành dài lâu, tục gọi là chùa Một Cột. Ngôi chùa nhỏ mà thanh thoát ấy trở thành một biểu tượng đẹp của mỹ thuật và lòng mộ đạo đời Lý.",
         "en": "Devout in the Buddha's way, in the year Kỷ Sửu (1049) Lý Thái Tông dreamed that the Bodhisattva Quan Âm sat upon a lotus throne and drew him up onto it by the hand. Waking, he told the dream to his court, and a monk counselled raising a temple to seek blessing. So the emperor had a temple built in the middle of a pool: a single great stone pillar was sunk, and on its crown a lotus throne bearing an image of Quan Âm, just as in the dream — like a single lotus rising above the water. The temple was named Diên Hựu, 'blessing long-enduring,' and is commonly called the One-Pillar Pagoda. That small, ethereal temple became a lovely emblem of Lý-era art and devotion."
@@ -109,11 +169,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1049 SCN", "en": "1049 CE" },
+        "display": {
+          "vi": "1049 SCN",
+          "en": "1049 CE"
+        },
         "value": 1049,
         "approximate": false
       },
-      "title": { "vi": "Dựng chùa Một Cột", "en": "The One-Pillar Pagoda" },
+      "title": {
+        "vi": "Dựng chùa Một Cột",
+        "en": "The One-Pillar Pagoda"
+      },
       "summary": {
         "vi": "Theo giấc mộng hoa sen Quan Âm, vua dựng chùa Diên Hựu giữa hồ.",
         "en": "Following a lotus dream of Quan Âm, the king raises Diên Hựu in a pool."
@@ -123,8 +189,14 @@
         "en": "In 1049 Lý Thái Tông dreamed the Bodhisattva Quan Âm drew him onto a lotus throne. Waking, he raised a temple in a pool upon a single stone pillar, crowned with a lotus throne and an image of Quan Âm as in the dream, named Diên Hựu — the One-Pillar Pagoda, a lovely emblem of Lý-era art."
       },
       "pullQuote": {
-        "text": { "vi": "Vua chiêm bao thấy Phật Quan Âm ngồi trên tòa sen, dắt vua lên — tỉnh dậy bèn dựng chùa Diên Hựu.", "en": "The king dreamed the Bodhisattva Quan Âm on a lotus throne drew him up — and waking, he raised the Diên Hựu temple." },
-        "attribution": { "vi": "theo Đại Việt sử ký toàn thư", "en": "per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Vua chiêm bao thấy Phật Quan Âm ngồi trên tòa sen, dắt vua lên — tỉnh dậy bèn dựng chùa Diên Hựu.",
+          "en": "The king dreamed the Bodhisattva Quan Âm on a lotus throne drew him up — and waking, he raised the Diên Hựu temple."
+        },
+        "attribution": {
+          "vi": "theo Đại Việt sử ký toàn thư",
+          "en": "per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "chua-mot-cot-hero",
@@ -133,18 +205,26 @@
         "flagship": "eras/ly-thai-tong/events/chua-mot-cot.png",
         "reduced": "eras/ly-thai-tong/events/chua-mot-cot.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 2", "en": "Basic Records · Book 2" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 2",
+          "en": "Basic Records · Book 2"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "quoc-hieu-dai-viet",
       "slug": "quoc-hieu-dai-viet",
-      "figureIds": ["ly-thanh-tong"],
+      "figureIds": [
+        "ly-thanh-tong"
+      ],
       "details": {
         "vi": "Năm Giáp Ngọ (1054), Lý Thái Tông băng, con là Lý Nhật Tôn lên ngôi, tức Lý Thánh Tông. Vừa lên ngôi, vua đổi quốc hiệu từ Đại Cồ Việt thành Đại Việt — cái tên gắn với nước ta suốt nhiều trăm năm sau. Vua là người nhân từ, thương dân như con: mùa đông năm Ất Mùi (1055) trời rét đậm, vua nghĩ đến kẻ tù giam trong ngục, sai phát chăn chiếu áo ấm, mỗi ngày cho ăn hai bữa; xử kiện thì cốt khoan hồng, thường răn quan lại chớ để dân oan. Đức nhân ấy làm cho lòng người quy phục, mở đầu một triều đại thịnh trị mang tên nước mới Đại Việt.",
         "en": "In the year Giáp Ngọ (1054) Lý Thái Tông died, and his son Lý Nhật Tôn took the throne as Lý Thánh Tông. Newly enthroned, he changed the state's name from Đại Cồ Việt to Đại Việt — the name bound to our country for many centuries after. He was a benevolent ruler who loved the people as his children: in the deep cold of the winter of the year Ất Mùi (1055), thinking of the prisoners shut in the gaols, he had blankets, mats and warm clothing given out and two meals a day provided; in judging suits he leaned to mercy, and often warned his officials not to leave the people wronged. That benevolence bound men's hearts to him, opening a prosperous reign under the new name of the nation, Đại Việt."
@@ -152,11 +232,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1054 SCN", "en": "1054 CE" },
+        "display": {
+          "vi": "1054 SCN",
+          "en": "1054 CE"
+        },
         "value": 1054,
         "approximate": false
       },
-      "title": { "vi": "Đặt quốc hiệu Đại Việt", "en": "The naming of Đại Việt" },
+      "title": {
+        "vi": "Đặt quốc hiệu Đại Việt",
+        "en": "The naming of Đại Việt"
+      },
       "summary": {
         "vi": "Lý Thánh Tông lên ngôi, đổi tên nước thành Đại Việt; nhân từ thương dân.",
         "en": "Lý Thánh Tông takes the throne, renames the realm Đại Việt; merciful to all."
@@ -166,8 +252,14 @@
         "en": "In 1054 Lý Thánh Tông took the throne and changed the state's name from Đại Cồ Việt to Đại Việt — the name our country kept for centuries. Benevolent toward the people, in the winter cold he gave prisoners blankets and clothing and two meals a day, judged with mercy, and treated the people with a parent's heart."
       },
       "pullQuote": {
-        "text": { "vi": "Trẫm ở trong cung, mặc áo ấm còn rét thế này, nghĩ đến tù nhân đói rét, chưa biết ngay gian — hãy cấp chăn chiếu, mỗi ngày hai bữa ăn.", "en": "In my palace, warmly clothed, I am still cold; thinking of prisoners cold and hungry, their guilt yet unproven — give them blankets and two meals a day." },
-        "attribution": { "vi": "Lý Thánh Tông, theo Đại Việt sử ký toàn thư", "en": "Lý Thánh Tông, per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Trẫm ở trong cung, mặc áo ấm còn rét thế này, nghĩ đến tù nhân đói rét, chưa biết ngay gian — hãy cấp chăn chiếu, mỗi ngày hai bữa ăn.",
+          "en": "In my palace, warmly clothed, I am still cold; thinking of prisoners cold and hungry, their guilt yet unproven — give them blankets and two meals a day."
+        },
+        "attribution": {
+          "vi": "Lý Thánh Tông, theo Đại Việt sử ký toàn thư",
+          "en": "Lý Thánh Tông, per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "quoc-hieu-dai-viet-hero",
@@ -176,18 +268,27 @@
         "flagship": "eras/ly-thai-tong/events/quoc-hieu-dai-viet.png",
         "reduced": "eras/ly-thai-tong/events/quoc-hieu-dai-viet.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 3", "en": "Basic Records · Book 3" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 3",
+          "en": "Basic Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "nam-chinh-y-lan",
       "slug": "nam-chinh-y-lan",
-      "figureIds": ["ly-thanh-tong", "y-lan"],
+      "figureIds": [
+        "ly-thanh-tong",
+        "y-lan"
+      ],
       "details": {
         "vi": "Năm Kỷ Dậu (1069), Lý Thánh Tông thân chinh đem quân đánh Chiêm Thành, giao cho Nguyên phi Ỷ Lan ở lại coi giữ việc nước. Bà trị nước có phép tắc, dân yên nghiệp, trong nước được mùa, người đương thời kính phục gọi là bà Quan Âm. Quân vua đánh Chiêm lâu chưa thắng, giữa đường toan rút về; đến châu Cư Liên, nghe tin Ỷ Lan trị nước giỏi, lòng dân yên vui, vua tự lấy làm thẹn mà nói: một người đàn bà trị nước còn được như thế, ta là nam nhi lại chẳng làm nên việc gì hay sao? Bèn quay lại tiến đánh, bắt được vua Chiêm là Chế Củ. Chế Củ xin dâng ba châu Bố Chính, Địa Lý, Ma Linh để chuộc tội — bờ cõi Đại Việt từ đó mở rộng về phương Nam.",
         "en": "In the year Kỷ Dậu (1069), Lý Thánh Tông led an army in person against Champa, leaving his consort Ỷ Lan to hold the affairs of state. She governed by good order, the people lived at peace, the harvests were full, and her contemporaries revered her as the Lady Quan Âm. The king's campaign dragged on without victory, and midway he thought to turn back; but reaching the district of Cư Liên and hearing how well Ỷ Lan governed and how content the people were, he was ashamed and said: if a woman can govern the realm so, shall I, a man, accomplish nothing? So he turned back and pressed the attack, and captured the Cham king Chế Củ. To redeem himself Chế Củ offered up three circuits — Bố Chính, Địa Lý and Ma Linh — and from then the borders of Đại Việt widened to the south."
@@ -195,11 +296,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1069 SCN", "en": "1069 CE" },
+        "display": {
+          "vi": "1069 SCN",
+          "en": "1069 CE"
+        },
         "value": 1069,
         "approximate": false
       },
-      "title": { "vi": "Nam chinh, Ỷ Lan coi nước", "en": "The southern campaign and Ỷ Lan's regency" },
+      "title": {
+        "vi": "Nam chinh, Ỷ Lan coi nước",
+        "en": "The southern campaign and Ỷ Lan's regency"
+      },
       "summary": {
         "vi": "Vua thân chinh bình Chiêm, bắt Chế Củ; Ỷ Lan nhiếp chính, dân yên.",
         "en": "The king takes Champa and Chế Củ; Ỷ Lan governs at home, and all is at peace."
@@ -209,8 +316,14 @@
         "en": "In 1069 Lý Thánh Tông campaigned against Champa, entrusting the state to Ỷ Lan; she governed so well, at peace, that she was called the Lady Quan Âm. Hearing this, the shamed king pressed on and captured the Cham king Chế Củ, who ceded three circuits — Bố Chính, Địa Lý, Ma Linh — widening the realm southward."
       },
       "pullQuote": {
-        "text": { "vi": "Một người đàn bà trị nước còn được như thế, ta là nam nhi lại chẳng làm nên việc gì hay sao?", "en": "If a woman can govern the realm so, shall I, a man, accomplish nothing?" },
-        "attribution": { "vi": "Lý Thánh Tông, theo Đại Việt sử ký toàn thư", "en": "Lý Thánh Tông, per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Một người đàn bà trị nước còn được như thế, ta là nam nhi lại chẳng làm nên việc gì hay sao?",
+          "en": "If a woman can govern the realm so, shall I, a man, accomplish nothing?"
+        },
+        "attribution": {
+          "vi": "Lý Thánh Tông, theo Đại Việt sử ký toàn thư",
+          "en": "Lý Thánh Tông, per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "nam-chinh-y-lan-hero",
@@ -219,18 +332,26 @@
         "flagship": "eras/ly-thai-tong/events/nam-chinh-y-lan.png",
         "reduced": "eras/ly-thai-tong/events/nam-chinh-y-lan.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 3", "en": "Basic Records · Book 3" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 3",
+          "en": "Basic Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "dung-van-mieu",
       "slug": "dung-van-mieu",
-      "figureIds": ["ly-thanh-tong"],
+      "figureIds": [
+        "ly-thanh-tong"
+      ],
       "details": {
         "vi": "Trọng đạo học, năm Canh Tuất (1070), mùa thu tháng tám, Lý Thánh Tông cho dựng Văn Miếu ở kinh đô Thăng Long. Trong miếu đắp tượng Khổng Tử, Chu Công cùng tứ phối, lại vẽ tượng bảy mươi hai vị hiền, bốn mùa cúng tế theo lễ. Hoàng thái tử được đưa đến học ở đó. Đây là lần đầu nước ta lập nơi thờ đạo Nho và dạy học chính thức, mở đầu cho nền Nho học và về sau là khoa cử chọn người tài — một cái mốc lớn của văn hiến Đại Việt, đặt nền cho việc học hành, thi cử suốt các đời sau.",
         "en": "Honouring learning, in the autumn, eighth month, of the year Canh Tuất (1070), Lý Thánh Tông had the Temple of Literature raised in the capital Thăng Long. Within it were set images of Confucius, the Duke of Zhou and the Four Correlates, with paintings of the Seventy-Two Sages, and sacrifices offered in the four seasons by rite. The crown prince was sent there to study. This was the first time our country established a place of Confucian worship and formal teaching, opening the way to Confucian learning and, later, the examinations that chose men of talent — a great landmark of Đại Việt civilisation, laying the ground for study and examination through all the ages that followed."
@@ -238,11 +359,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1070 SCN", "en": "1070 CE" },
+        "display": {
+          "vi": "1070 SCN",
+          "en": "1070 CE"
+        },
         "value": 1070,
         "approximate": false
       },
-      "title": { "vi": "Dựng Văn Miếu, mở Nho học", "en": "The Temple of Literature" },
+      "title": {
+        "vi": "Dựng Văn Miếu, mở Nho học",
+        "en": "The Temple of Literature"
+      },
       "summary": {
         "vi": "Vua dựng Văn Miếu thờ Khổng Tử, mở đầu nền Nho học nước nhà.",
         "en": "The king raises the Temple of Literature to Confucius, opening Confucian learning."
@@ -252,8 +379,14 @@
         "en": "In 1070 Lý Thánh Tông raised the Temple of Literature in Thăng Long with images of Confucius, the Duke of Zhou and the Four Correlates and the Seventy-Two Sages, with seasonal sacrifices; the crown prince studied there. It was the first place of Confucian worship and teaching in our country, opening Confucian learning and the later examinations."
       },
       "pullQuote": {
-        "text": { "vi": "Mùa thu, tháng tám, làm Văn Miếu, đắp tượng Khổng Tử, Chu Công; hoàng thái tử đến học ở đấy.", "en": "In autumn, the eighth month, the Temple of Literature was made with images of Confucius and the Duke of Zhou; the crown prince studied there." },
-        "attribution": { "vi": "theo Đại Việt sử ký toàn thư", "en": "per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Mùa thu, tháng tám, làm Văn Miếu, đắp tượng Khổng Tử, Chu Công; hoàng thái tử đến học ở đấy.",
+          "en": "In autumn, the eighth month, the Temple of Literature was made with images of Confucius and the Duke of Zhou; the crown prince studied there."
+        },
+        "attribution": {
+          "vi": "theo Đại Việt sử ký toàn thư",
+          "en": "per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "dung-van-mieu-hero",
@@ -262,11 +395,17 @@
         "flagship": "eras/ly-thai-tong/events/dung-van-mieu.png",
         "reduced": "eras/ly-thai-tong/events/dung-van-mieu.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 3", "en": "Basic Records · Book 3" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 3",
+          "en": "Basic Records · Book 3"
+        },
         "author": "Ngô Sĩ Liên"
       }
     }

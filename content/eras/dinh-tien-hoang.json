@@ -4,15 +4,27 @@
   "slug": "dinh-tien-hoang",
   "order": 10,
   "period": "ngo-dinh-tien-le",
-  "title": { "vi": "Đinh Tiên Hoàng", "en": "Đinh Tiên Hoàng" },
-  "kicker": { "vi": "Kỷ nhà Đinh", "en": "The Đinh dynasty" },
-  "subtitle": { "vi": "Dẹp loạn sứ quân, dựng nước Đại Cồ Việt.", "en": "The warlords quelled, the realm of Đại Cồ Việt founded." },
+  "title": {
+    "vi": "Đinh Tiên Hoàng",
+    "en": "Đinh Tiên Hoàng"
+  },
+  "kicker": {
+    "vi": "Kỷ nhà Đinh",
+    "en": "The Đinh dynasty"
+  },
+  "subtitle": {
+    "vi": "Dẹp loạn sứ quân, dựng nước Đại Cồ Việt.",
+    "en": "The warlords quelled, the realm of Đại Cồ Việt founded."
+  },
   "overview": {
     "vi": "Ngô Quyền mất, nhà Ngô suy, đất nước rơi vào loạn mười hai sứ quân, mỗi người hùng cứ một phương. Ở động Hoa Lư có Đinh Bộ Lĩnh, con thứ sử Đinh Công Trứ, thuở nhỏ chăn trâu đã lấy bông lau làm cờ bày trận. Lớn lên, ông dấy binh dẹp yên các sứ quân, được tôn là Vạn Thắng Vương, thu giang sơn về một mối. Năm Mậu Thìn (968), ông lên ngôi Hoàng đế, đặt quốc hiệu Đại Cồ Việt, đóng đô ở Hoa Lư, đặt niên hiệu, định triều nghi, dựng quân đội — vị hoàng đế đầu tiên của nước Việt thống nhất. Từ Đinh Tiên Hoàng, sử nước ta bước sang phần Bản kỷ. Năm 979, ông bị hoạn quan Đỗ Thích giết hại; con nhỏ là Đinh Toàn nối ngôi, Thập đạo tướng quân Lê Hoàn nhiếp chính — mở lối sang nhà Tiền Lê.",
     "en": "When Ngô Quyền died and the Ngô waned, the land fell into the anarchy of the twelve warlords, each lording it over his own quarter. In the Hoa Lư grotto lived Đinh Bộ Lĩnh, son of the governor Đinh Công Trứ, who as a buffalo-herding boy had already used reed flowers as banners to array his mock battles. Grown, he raised troops, pacified the warlords, was honoured as the Ten-Thousand-Victories King, and gathered the realm into one. In the year Mậu Thìn (968) he took the imperial throne, named the state Đại Cồ Việt, set his capital at Hoa Lư, fixed an era name, court rites and an army — the first emperor of a unified Việt nation. With Đinh Tiên Hoàng our history crosses into the Basic Records. In 979 he was murdered by the eunuch Đỗ Thích; his young son Đinh Toàn succeeded under the regency of the Commander of the Ten Armies, Lê Hoàn — opening the road to the Early Lê."
   },
   "yearRange": {
-    "display": { "vi": "966 – 979 SCN", "en": "966 – 979 CE" },
+    "display": {
+      "vi": "966 – 979 SCN",
+      "en": "966 – 979 CE"
+    },
     "startYear": 966,
     "endYear": 979
   },
@@ -36,30 +48,60 @@
     "flagship": "eras/dinh-tien-hoang/cover.png",
     "reduced": "eras/dinh-tien-hoang/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/dinh-tien-hoang/scene/sky.png", "reduced": "eras/dinh-tien-hoang/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/dinh-tien-hoang/scene/sky.png",
+        "reduced": "eras/dinh-tien-hoang/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Bản kỷ", "en": "Basic Records" },
+    "section": {
+      "vi": "Bản kỷ",
+      "en": "Basic Records"
+    },
     "author": "Ngô Sĩ Liên"
   },
   "characters": [
-    { "ref": "dinh-tien-hoang" },
-    { "ref": "nguyen-bac" },
-    { "ref": "le-hoan" },
-    { "ref": "do-thich" }
+    {
+      "ref": "dinh-tien-hoang"
+    },
+    {
+      "ref": "nguyen-bac"
+    },
+    {
+      "ref": "le-hoan"
+    },
+    {
+      "ref": "do-thich"
+    }
   ],
   "events": [
     {
       "id": "loan-12-su-quan",
       "slug": "loan-12-su-quan",
-      "figureIds": ["dinh-tien-hoang"],
+      "figureIds": [
+        "dinh-tien-hoang"
+      ],
       "details": {
         "vi": "Sau khi Ngô Quyền mất, con cháu họ Ngô suy yếu, các hào trưởng nổi lên hùng cứ mỗi người một vùng, sử gọi là loạn mười hai sứ quân. Đất nước chia cắt, dân tình khổ vì binh lửa liên miên. Ở động Hoa Lư châu Đại Hoàng có Đinh Bộ Lĩnh, con thứ sử Đinh Công Trứ; thuở nhỏ chăn trâu ngoài đồng, ông đã tỏ khí tướng: bắt lũ trẻ khoanh tay làm kiệu rước, lấy bông lau làm cờ mà tập trận. Lớn lên, ông có tài thao lược, người trong vùng đều theo về.",
         "en": "After Ngô Quyền died, the Ngô heirs weakened and local strongmen rose to lord it each over his own region — what the chronicle calls the anarchy of the twelve warlords. The land was carved up and the people suffered under ceaseless war. In the Hoa Lư grotto of Đại Hoàng lived Đinh Bộ Lĩnh, son of the governor Đinh Công Trứ; herding buffalo in the fields as a boy, he already showed a commander's bearing — making the other children fold their hands into a palanquin to carry him and using reed flowers as banners to drill his mock battles. Grown, gifted in strategy, the people of the region all rallied to him."
@@ -67,11 +109,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "≈ 966 SCN", "en": "≈ 966 CE" },
+        "display": {
+          "vi": "≈ 966 SCN",
+          "en": "≈ 966 CE"
+        },
         "value": 966,
         "approximate": true
       },
-      "title": { "vi": "Loạn mười hai sứ quân", "en": "The anarchy of the twelve warlords" },
+      "title": {
+        "vi": "Loạn mười hai sứ quân",
+        "en": "The anarchy of the twelve warlords"
+      },
       "summary": {
         "vi": "Nhà Ngô suy, nước chia; cậu bé cờ lau đất Hoa Lư nuôi chí.",
         "en": "The Ngô fade and the land splits; the reed-flag boy of Hoa Lư bides his time."
@@ -81,8 +129,14 @@
         "en": "Ngô Quyền died, the Ngô waned, and the land split among twelve warlords. In Hoa Lư lived Đinh Bộ Lĩnh, son of the governor Đinh Công Trứ; a buffalo-herding boy who drilled mock battles with reed-flower banners, he grew gifted in strategy, and the region rallied to him."
       },
       "pullQuote": {
-        "text": { "vi": "Lấy bông lau làm cờ, bắt trẻ khoanh tay làm kiệu — khí tướng có từ thuở chăn trâu.", "en": "Reed flowers for banners, children's folded hands for a palanquin — the commander showed in the herd-boy." },
-        "attribution": { "vi": "Ngô Sĩ Liên", "en": "Ngô Sĩ Liên" }
+        "text": {
+          "vi": "Lấy bông lau làm cờ, bắt trẻ khoanh tay làm kiệu — khí tướng có từ thuở chăn trâu.",
+          "en": "Reed flowers for banners, children's folded hands for a palanquin — the commander showed in the herd-boy."
+        },
+        "attribution": {
+          "vi": "Ngô Sĩ Liên",
+          "en": "Ngô Sĩ Liên"
+        }
       },
       "hero": {
         "id": "loan-12-su-quan-hero",
@@ -91,18 +145,27 @@
         "flagship": "eras/dinh-tien-hoang/events/loan-12-su-quan.png",
         "reduced": "eras/dinh-tien-hoang/events/loan-12-su-quan.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 1", "en": "Basic Records · Book 1" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 1",
+          "en": "Basic Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "dep-loan-thong-nhat",
       "slug": "dep-loan-thong-nhat",
-      "figureIds": ["dinh-tien-hoang", "nguyen-bac"],
+      "figureIds": [
+        "dinh-tien-hoang",
+        "nguyen-bac"
+      ],
       "details": {
         "vi": "Đinh Bộ Lĩnh dựng cờ ở Hoa Lư, cùng những người tâm phúc như Nguyễn Bặc, Đinh Điền chiêu tập binh mã. Ông đánh đâu thắng đấy, khi thì dùng binh, khi thì lấy nghĩa mà thu phục, lần lượt dẹp yên các sứ quân. Quân sĩ tôn ông là Vạn Thắng Vương. Chỉ trong ít năm, mười hai sứ quân đều bị dẹp hoặc quy hàng, giang sơn thu về một mối, chấm dứt cảnh chia cắt loạn lạc.",
         "en": "Đinh Bộ Lĩnh raised his standard at Hoa Lư and, with trusted men such as Nguyễn Bặc and Đinh Điền, mustered troops and horses. He won wherever he struck — now by arms, now by winning men over with justice — and quelled the warlords one after another. His soldiers honoured him as the Ten-Thousand-Victories King. In only a few years all twelve warlords were subdued or surrendered, the realm gathered into one, and the age of division and turmoil ended."
@@ -110,11 +173,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "≈ 967 SCN", "en": "≈ 967 CE" },
+        "display": {
+          "vi": "≈ 967 SCN",
+          "en": "≈ 967 CE"
+        },
         "value": 967,
         "approximate": true
       },
-      "title": { "vi": "Vạn Thắng Vương dẹp loạn", "en": "The Ten-Thousand-Victories King unifies the land" },
+      "title": {
+        "vi": "Vạn Thắng Vương dẹp loạn",
+        "en": "The Ten-Thousand-Victories King unifies the land"
+      },
       "summary": {
         "vi": "Dẹp yên mười hai sứ quân, thu giang sơn về một mối.",
         "en": "The twelve warlords quelled; the realm gathered into one."
@@ -124,8 +193,14 @@
         "en": "Đinh Bộ Lĩnh raised his standard at Hoa Lư and, with Nguyễn Bặc and Đinh Điền, mustered troops and won wherever he struck — honoured as the Ten-Thousand-Victories King. Within a few years all twelve warlords were subdued or surrendered, and the realm was made one."
       },
       "pullQuote": {
-        "text": { "vi": "Đánh đâu được đấy, nên gọi là Vạn Thắng Vương.", "en": "He won wherever he struck — and so was called the Ten-Thousand-Victories King." },
-        "attribution": { "vi": "Ngô Sĩ Liên", "en": "Ngô Sĩ Liên" }
+        "text": {
+          "vi": "Đánh đâu được đấy, nên gọi là Vạn Thắng Vương.",
+          "en": "He won wherever he struck — and so was called the Ten-Thousand-Victories King."
+        },
+        "attribution": {
+          "vi": "Ngô Sĩ Liên",
+          "en": "Ngô Sĩ Liên"
+        }
       },
       "hero": {
         "id": "dep-loan-thong-nhat-hero",
@@ -134,18 +209,26 @@
         "flagship": "eras/dinh-tien-hoang/events/dep-loan-thong-nhat.png",
         "reduced": "eras/dinh-tien-hoang/events/dep-loan-thong-nhat.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 1", "en": "Basic Records · Book 1" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 1",
+          "en": "Basic Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "lap-dai-co-viet",
       "slug": "lap-dai-co-viet",
-      "figureIds": ["dinh-tien-hoang"],
+      "figureIds": [
+        "dinh-tien-hoang"
+      ],
       "details": {
         "vi": "Năm Mậu Thìn (968), dẹp xong loạn lạc, Đinh Bộ Lĩnh lên ngôi Hoàng đế, tức Đinh Tiên Hoàng. Ông đặt quốc hiệu là Đại Cồ Việt, đóng đô ở Hoa Lư — chốn núi non hiểm trở dựng thành đắp lũy. Đây là lần đầu người Việt, sau khi giành lại độc lập, có một hoàng đế của riêng mình cai quản một quốc gia thống nhất mang quốc hiệu riêng, đứng ngang hàng với hoàng đế phương Bắc. Từ Đinh Tiên Hoàng, sử thần Ngô Sĩ Liên xếp nước ta vào phần Bản kỷ — chính thống của một nước có vua.",
         "en": "In the year Mậu Thìn (968), the turmoil quelled, Đinh Bộ Lĩnh took the imperial throne as Đinh Tiên Hoàng. He named the state Đại Cồ Việt and set his capital at Hoa Lư — raising walls and ramparts amid its guardian mountains. For the first time, having won back independence, the Việt had an emperor of their own ruling a unified nation under its own name, a peer to the emperors of the North. From Đinh Tiên Hoàng the historian Ngô Sĩ Liên placed our history within the Basic Records — the legitimate line of a nation with its own sovereign."
@@ -153,11 +236,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "968 SCN", "en": "968 CE" },
+        "display": {
+          "vi": "968 SCN",
+          "en": "968 CE"
+        },
         "value": 968,
         "approximate": false
       },
-      "title": { "vi": "Lập nước Đại Cồ Việt", "en": "The founding of Đại Cồ Việt" },
+      "title": {
+        "vi": "Lập nước Đại Cồ Việt",
+        "en": "The founding of Đại Cồ Việt"
+      },
       "summary": {
         "vi": "Lên ngôi Hoàng đế, đặt quốc hiệu Đại Cồ Việt, đóng đô Hoa Lư.",
         "en": "He takes the imperial throne, names the realm Đại Cồ Việt, at Hoa Lư."
@@ -167,7 +256,10 @@
         "en": "In 968 Đinh Bộ Lĩnh took the imperial throne as Đinh Tiên Hoàng, named the realm Đại Cồ Việt and set his capital at Hoa Lư. For the first time the Việt had an emperor of their own over a unified nation with its own name — and from here our history enters the Basic Records."
       },
       "pullQuote": {
-        "text": { "vi": "Đặt quốc hiệu Đại Cồ Việt, đóng đô Hoa Lư — nước Việt có hoàng đế của riêng mình.", "en": "Named Đại Cồ Việt, capital at Hoa Lư — the Việt had an emperor of their own." }
+        "text": {
+          "vi": "Đặt quốc hiệu Đại Cồ Việt, đóng đô Hoa Lư — nước Việt có hoàng đế của riêng mình.",
+          "en": "Named Đại Cồ Việt, capital at Hoa Lư — the Việt had an emperor of their own."
+        }
       },
       "hero": {
         "id": "lap-dai-co-viet-hero",
@@ -176,18 +268,27 @@
         "flagship": "eras/dinh-tien-hoang/events/lap-dai-co-viet.png",
         "reduced": "eras/dinh-tien-hoang/events/lap-dai-co-viet.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 1", "en": "Basic Records · Book 1" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 1",
+          "en": "Basic Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "dung-nen-chinh",
       "slug": "dung-nen-chinh",
-      "figureIds": ["dinh-tien-hoang", "le-hoan"],
+      "figureIds": [
+        "dinh-tien-hoang",
+        "le-hoan"
+      ],
       "details": {
         "vi": "Lên ngôi rồi, Đinh Tiên Hoàng lo dựng nền chính của một nước có vua. Ông đặt niên hiệu Thái Bình, cho đúc tiền Thái Bình hưng bảo — đồng tiền riêng đầu tiên của nước Việt; đặt trăm quan, phong Nguyễn Bặc làm Định Quốc công, cất Lê Hoàn làm Thập đạo tướng quân thống lĩnh quân đội. Buổi đầu dựng nước, để trấn kẻ gian, ông đặt hình phạt nghiêm khắc, dựng vạc dầu và nuôi hổ báo mà răn — uy lệnh nhờ đó mà nghiêm, trong nước quy về một mối.",
         "en": "Enthroned, Đinh Tiên Hoàng set about building the order of a nation with its own sovereign. He fixed the era name Thái Bình and cast the Thái Bình hưng bảo coin — the first currency of the Việt; he appointed his hundred officers, made Nguyễn Bặc Duke Định Quốc, and raised Lê Hoàn to Commander of the Ten Armies over all the forces. In the founding days, to overawe the lawless, he set harsh punishments — a cauldron of oil and caged tigers as warning — so that his authority was strict and the realm held to one rule."
@@ -195,11 +296,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "970 SCN", "en": "970 CE" },
+        "display": {
+          "vi": "970 SCN",
+          "en": "970 CE"
+        },
         "value": 970,
         "approximate": false
       },
-      "title": { "vi": "Dựng nền chính, định quân quốc", "en": "Building the state and its army" },
+      "title": {
+        "vi": "Dựng nền chính, định quân quốc",
+        "en": "Building the state and its army"
+      },
       "summary": {
         "vi": "Niên hiệu Thái Bình, đúc tiền, đặt bách quan, thập đạo quân.",
         "en": "The Thái Bình era, the first coinage, a court and the Ten Armies."
@@ -209,7 +316,10 @@
         "en": "Đinh Tiên Hoàng fixed the era name Thái Bình and cast the Thái Bình hưng bảo — the first Việt coin; he appointed his officers, made Nguyễn Bặc Duke Định Quốc and raised Lê Hoàn to Commander of the Ten Armies, and set strict punishments to overawe the lawless."
       },
       "pullQuote": {
-        "text": { "vi": "Đúc đồng tiền riêng, đặt thập đạo quân — nước Việt tự có phép tắc của mình.", "en": "Its own coin struck, its Ten Armies set — the Việt kept an order of their own." }
+        "text": {
+          "vi": "Đúc đồng tiền riêng, đặt thập đạo quân — nước Việt tự có phép tắc của mình.",
+          "en": "Its own coin struck, its Ten Armies set — the Việt kept an order of their own."
+        }
       },
       "hero": {
         "id": "dung-nen-chinh-hero",
@@ -218,18 +328,28 @@
         "flagship": "eras/dinh-tien-hoang/events/dung-nen-chinh.png",
         "reduced": "eras/dinh-tien-hoang/events/dung-nen-chinh.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 1", "en": "Basic Records · Book 1" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 1",
+          "en": "Basic Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     },
     {
       "id": "do-thich-thi-nghich",
       "slug": "do-thich-thi-nghich",
-      "figureIds": ["dinh-tien-hoang", "do-thich", "le-hoan"],
+      "figureIds": [
+        "dinh-tien-hoang",
+        "do-thich",
+        "le-hoan"
+      ],
       "details": {
         "vi": "Năm Kỷ Mão (979), tai họa ập đến từ trong cung. Chi hậu nội nhân Đỗ Thích, nhân nằm mộng thấy sao rơi vào miệng, tưởng là điềm được làm vua, bèn sinh lòng thí nghịch. Một đêm, nhân vua đặt tiệc say nằm ngoài sân, Đỗ Thích lẻn vào giết chết Đinh Tiên Hoàng cùng con trưởng là Nam Việt Vương Đinh Liễn. Triều đình rúng động; Định Quốc công Nguyễn Bặc tìm bắt được Đỗ Thích đem giết. Con thứ là Vệ Vương Đinh Toàn mới sáu tuổi được lập lên nối ngôi, Thập đạo tướng quân Lê Hoàn làm Phó vương nhiếp chính — giữa lúc quân Tống rình rập phương Bắc, cơ nghiệp nhà Đinh chuyển sang một khúc quanh mới.",
         "en": "In the year Kỷ Mão (979) disaster came from within the palace. The eunuch attendant Đỗ Thích, having dreamed that a star fell into his mouth and taking it for an omen of kingship, conceived a design of regicide. One night, as the emperor lay drunk after a feast in the courtyard, Đỗ Thích slipped in and killed Đinh Tiên Hoàng together with his eldest son, the Nam Việt King Đinh Liễn. The court was shaken; Duke Định Quốc Nguyễn Bặc hunted down Đỗ Thích and put him to death. The younger son, the six-year-old Vệ King Đinh Toàn, was set on the throne under the regency of the Commander of the Ten Armies Lê Hoàn — and with the Song lurking to the north, the fortunes of the Đinh turned toward a new bend in the road."
@@ -237,11 +357,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "979 SCN", "en": "979 CE" },
+        "display": {
+          "vi": "979 SCN",
+          "en": "979 CE"
+        },
         "value": 979,
         "approximate": false
       },
-      "title": { "vi": "Đỗ Thích thí nghịch", "en": "The regicide of Đỗ Thích" },
+      "title": {
+        "vi": "Đỗ Thích thí nghịch",
+        "en": "The regicide of Đỗ Thích"
+      },
       "summary": {
         "vi": "Đỗ Thích giết vua và Đinh Liễn; Lê Hoàn nhiếp chính.",
         "en": "Đỗ Thích kills the emperor and Đinh Liễn; Lê Hoàn takes the regency."
@@ -251,8 +377,14 @@
         "en": "In 979 the eunuch Đỗ Thích, seizing on the emperor lying drunk in the courtyard, killed Đinh Tiên Hoàng and his son Đinh Liễn. Nguyễn Bặc caught and killed Đỗ Thích. The six-year-old Đinh Toàn succeeded under the regency of Lê Hoàn — with the Song lurking to the north."
       },
       "pullQuote": {
-        "text": { "vi": "Mộng thấy sao rơi vào miệng, ngỡ điềm làm vua — mà thành kẻ thí nghịch muôn đời.", "en": "He dreamed a star fell into his mouth and thought it a sign of kingship — and became a regicide for all ages." },
-        "attribution": { "vi": "theo Đại Việt sử ký toàn thư", "en": "per Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Mộng thấy sao rơi vào miệng, ngỡ điềm làm vua — mà thành kẻ thí nghịch muôn đời.",
+          "en": "He dreamed a star fell into his mouth and thought it a sign of kingship — and became a regicide for all ages."
+        },
+        "attribution": {
+          "vi": "theo Đại Việt sử ký toàn thư",
+          "en": "per Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "do-thich-thi-nghich-hero",
@@ -261,11 +393,17 @@
         "flagship": "eras/dinh-tien-hoang/events/do-thich-thi-nghich.png",
         "reduced": "eras/dinh-tien-hoang/events/do-thich-thi-nghich.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ · Quyển 1", "en": "Basic Records · Book 1" },
+        "section": {
+          "vi": "Bản kỷ · Quyển 1",
+          "en": "Basic Records · Book 1"
+        },
         "author": "Ngô Sĩ Liên"
       }
     }

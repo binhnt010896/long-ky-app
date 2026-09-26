@@ -4,15 +4,27 @@
   "slug": "trinh-nguyen",
   "order": 20,
   "period": "phan-tranh",
-  "title": { "vi": "Trịnh – Nguyễn phân tranh", "en": "The Trịnh–Nguyễn Division" },
-  "kicker": { "vi": "Đàng Ngoài · Đàng Trong · sông Gianh chia cắt", "en": "The Outer & Inner Regions, split at the Gianh River" },
-  "subtitle": { "vi": "Một dải sông Gianh, chia đôi đất nước gần trăm năm.", "en": "A single river, and a land cut in two for a hundred years." },
+  "title": {
+    "vi": "Trịnh – Nguyễn phân tranh",
+    "en": "The Trịnh–Nguyễn Division"
+  },
+  "kicker": {
+    "vi": "Đàng Ngoài · Đàng Trong · sông Gianh chia cắt",
+    "en": "The Outer & Inner Regions, split at the Gianh River"
+  },
+  "subtitle": {
+    "vi": "Một dải sông Gianh, chia đôi đất nước gần trăm năm.",
+    "en": "A single river, and a land cut in two for a hundred years."
+  },
   "overview": {
     "vi": "Sau khi Trịnh Tùng diệt Mạc, khôi phục nhà Lê ở Thăng Long, nước Đại Việt trên danh nghĩa quy về một mối, nhưng thực quyền ở Đàng Ngoài nằm trọn trong tay chúa Trịnh, còn phương Nam thì họ Nguyễn đã hùng cứ. Nguyễn Hoàng gây dựng cơ nghiệp ở Thuận – Quảng; đến con là Nguyễn Phúc Nguyên (chúa Sãi) thì công khai không nộp thuế, không thần phục họ Trịnh, tách hẳn thành một cõi riêng gọi là Đàng Trong, đối lại với Đàng Ngoài của vua Lê chúa Trịnh. Chúa Sãi trọng dụng bậc kỳ tài Đào Duy Từ — người vì gốc gác 'con nhà xướng ca' mà bị Đàng Ngoài cấm thi, uất chí vào nam — nghe theo kế đắp Lũy Trường Dục và Lũy Thầy chắn ngang dải đất hẹp Quảng Bình. Năm Đinh Mão (1627), chúa Trịnh Tráng lấy cớ phù Lê, phát đại binh nam chinh, mở màn cuộc Trịnh – Nguyễn phân tranh. Suốt gần nửa thế kỷ, hai bên đánh nhau bảy lần lớn quanh sông Gianh và hệ thống lũy; quân Trịnh tuy đông mà không phá được phòng tuyến Đàng Trong, quân Nguyễn cũng không giữ được đất Bắc. Trong khi giao tranh với họ Trịnh, các chúa Nguyễn vẫn không ngừng mở đất về phương Nam, thu phần đất Chiêm Thành còn lại và tiến dần tới đồng bằng sông Cửu Long, lập nên một Đàng Trong trù phú, buôn bán tấp nập ở Hội An. Đến sau chiến dịch thứ bảy (1672), cả hai đã mỏi mệt, bèn ngầm lấy sông Gianh làm giới tuyến mà đình chiến. Từ đó đất nước chia đôi Đàng Ngoài – Đàng Trong, sống trong hòa hoãn hơn một trăm năm, mãi tới thời Tây Sơn mới lại nối liền.",
     "en": "After Trịnh Tùng destroyed the Mạc and restored the Lê at Thăng Long, Đại Việt was one realm in name, but in Đàng Ngoài (the Outer Region) all real power lay with the Trịnh lords, while in the south the Nguyễn had made themselves masters. Nguyễn Hoàng built his domain in Thuận–Quảng; his son Nguyễn Phúc Nguyên (Lord Sãi) then openly refused taxes and submission to the Trịnh, splitting off a realm of his own called Đàng Trong (the Inner Region), set against the Đàng Ngoài of the Lê kings and Trịnh lords. Lord Sãi took into service the brilliant Đào Duy Từ — barred from the examinations in Đàng Ngoài for his 'entertainer' birth, who came south in bitterness — and adopted his plan to build the Trường Dục and Lũy Thầy ramparts across the narrow waist of Quảng Bình. In the year Đinh Mão (1627), the Trịnh lord Trịnh Tráng, in the Lê's name, launched a great southern campaign, opening the Trịnh–Nguyễn war. For nearly half a century the two sides fought seven great campaigns around the Gianh River and its ramparts; the Trịnh, though far more numerous, could not break the Đàng Trong lines, and the Nguyễn could not hold the north. Even while at war with the Trịnh, the Nguyễn lords never ceased their southward expansion, absorbing what remained of Champa and pressing toward the Mekong delta, building a rich Đàng Trong whose port of Hội An bustled with trade. After the seventh campaign (1672) both sides were spent, and they tacitly took the Gianh River as their boundary and ceased fighting. From then the land stayed divided into Đàng Ngoài and Đàng Trong, in an uneasy peace of more than a hundred years, until the Tây Sơn made it one again."
   },
   "yearRange": {
-    "display": { "vi": "1627 – 1672 SCN", "en": "1627 – 1672 CE" },
+    "display": {
+      "vi": "1627 – 1672 SCN",
+      "en": "1627 – 1672 CE"
+    },
     "startYear": 1627,
     "endYear": 1672
   },
@@ -36,17 +48,37 @@
     "flagship": "eras/trinh-nguyen/cover.png",
     "reduced": "eras/trinh-nguyen/cover.png",
     "placeholder": "era-scene",
-    "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+    "caption": {
+      "vi": "Minh họa · phong cách sơn mài",
+      "en": "Illustration · lacquer style"
+    }
   },
   "scene": {
     "layers": [
-      { "id": "sky", "type": "image", "role": "sky", "depth": 0.0, "flagship": "eras/trinh-nguyen/scene/sky.png", "reduced": "eras/trinh-nguyen/scene/sky.png", "placeholder": "era-scene" },
-      { "id": "motes", "type": "particles", "role": "particles", "depth": 1.0, "placeholder": "gold-motes" }
+      {
+        "id": "sky",
+        "type": "image",
+        "role": "sky",
+        "depth": 0.0,
+        "flagship": "eras/trinh-nguyen/scene/sky.png",
+        "reduced": "eras/trinh-nguyen/scene/sky.png",
+        "placeholder": "era-scene"
+      },
+      {
+        "id": "motes",
+        "type": "particles",
+        "role": "particles",
+        "depth": 1.0,
+        "placeholder": "gold-motes"
+      }
     ]
   },
   "primarySource": {
     "work": "Đại Việt sử ký toàn thư",
-    "section": { "vi": "Bản kỷ tục biên", "en": "Basic Records · Continued" },
+    "section": {
+      "vi": "Bản kỷ tục biên",
+      "en": "Basic Records · Continued"
+    },
     "author": "Sử thần triều Lê",
     "note": {
       "vi": "Việc Đàng Ngoài chép theo Đại Việt sử ký toàn thư; việc riêng của Đàng Trong (các chúa Nguyễn, Lũy Thầy, Nam tiến) mà bộ này không chép thì dẫn theo Đại Nam thực lục (Tiền biên) của Quốc sử quán triều Nguyễn.",
@@ -54,17 +86,30 @@
     }
   },
   "characters": [
-    { "ref": "nguyen-phuc-nguyen" },
-    { "ref": "dao-duy-tu" },
-    { "ref": "nguyen-phuc-tan" },
-    { "ref": "trinh-trang" },
-    { "ref": "trinh-tac" }
+    {
+      "ref": "nguyen-phuc-nguyen"
+    },
+    {
+      "ref": "dao-duy-tu"
+    },
+    {
+      "ref": "nguyen-phuc-tan"
+    },
+    {
+      "ref": "trinh-trang"
+    },
+    {
+      "ref": "trinh-tac"
+    }
   ],
   "events": [
     {
       "id": "dang-trong-tach-coi",
       "slug": "dang-trong-tach-coi",
-      "figureIds": ["nguyen-phuc-nguyen", "dao-duy-tu"],
+      "figureIds": [
+        "nguyen-phuc-nguyen",
+        "dao-duy-tu"
+      ],
       "details": {
         "vi": "Nguyễn Hoàng vào trấn Thuận Hóa, gây dựng cơ nghiệp rồi mất (1613), truyền cho con là Nguyễn Phúc Nguyên, tức chúa Sãi. Bấy giờ ở Đàng Ngoài, chúa Trịnh nhân danh vua Lê đòi họ Nguyễn phải nộp thuế, cống phú và chịu sai khiến. Chúa Sãi biết không thể mãi thần phục, bèn công khai chối việc nộp thuế, tự chỉnh đốn quân đội, đặt quan chức riêng, trên thực tế tách Thuận – Quảng thành một cõi riêng gọi là Đàng Trong. Giữa lúc cần người tài, ông thu dụng được Đào Duy Từ — bậc học rộng tài cao ở Thanh Hóa, chỉ vì mang tiếng 'con nhà xướng ca' mà bị lệ Đàng Ngoài cấm thi, uất ức bỏ vào nam, từng phải chăn trâu ở Bình Định. Chúa Sãi trọng ông như thầy, phong làm quân sư, giao cho việc lớn. Có tài lại gặp minh chúa, Đào Duy Từ dốc sức giúp họ Nguyễn dựng nền, khiến Đàng Trong từ chỗ non trẻ mà nhanh chóng đủ sức đối đầu với Đàng Ngoài.",
         "en": "Nguyễn Hoàng, having governed Thuận Hóa and built his domain, died in 1613 and passed it to his son Nguyễn Phúc Nguyên, Lord Sãi. In Đàng Ngoài the Trịnh, in the Lê king's name, demanded that the Nguyễn pay taxes and tribute and take orders. Knowing he could not submit forever, Lord Sãi openly refused the taxes, reformed his own army, appointed his own officials, and in effect split Thuận–Quảng into a realm of its own called Đàng Trong. Needing men of talent, he won the service of Đào Duy Từ — a learned and gifted man of Thanh Hóa who, merely for the stigma of 'entertainer' birth, had been barred from the examinations in Đàng Ngoài and in bitterness had gone south, for a time herding buffalo in Bình Định. Lord Sãi honoured him as a master, made him strategist, and entrusted him with great affairs. Talent meeting a worthy lord, Đào Duy Từ threw himself into building the Nguyễn's foundation, so that a young Đàng Trong swiftly grew able to stand against the Outer Region."
@@ -72,11 +117,17 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "≈ 1627 SCN", "en": "≈ 1627 CE" },
+        "display": {
+          "vi": "≈ 1627 SCN",
+          "en": "≈ 1627 CE"
+        },
         "value": 1627,
         "approximate": true
       },
-      "title": { "vi": "Đàng Trong tách cõi, được Đào Duy Từ", "en": "Đàng Trong breaks away, and gains Đào Duy Từ" },
+      "title": {
+        "vi": "Đàng Trong tách cõi, được Đào Duy Từ",
+        "en": "Đàng Trong breaks away, and gains Đào Duy Từ"
+      },
       "summary": {
         "vi": "Chúa Sãi chối nộp thuế cho họ Trịnh, tách Thuận – Quảng thành Đàng Trong; thu dụng Đào Duy Từ.",
         "en": "Lord Sãi refuses Trịnh taxes and makes Thuận–Quảng into Đàng Trong; he wins Đào Duy Từ."
@@ -86,8 +137,14 @@
         "en": "Nguyễn Hoàng died (1613) and his son Nguyễn Phúc Nguyên (Lord Sãi) succeeded. He openly refused Trịnh taxes and submission, appointed his own officials, and made Thuận–Quảng into the realm of Đàng Trong. He won the service of Đào Duy Từ — a talent barred from Đàng Ngoài's examinations for his 'entertainer' birth — as his strategist, and building hard, made Đàng Trong soon able to face the Outer Region."
       },
       "pullQuote": {
-        "text": { "vi": "Trèo lên cây bưởi hái hoa… ba đồng một mớ trầu cay — người tài đất Bắc, uất chí mà theo về Nam.", "en": "Talent spurned in the North, in bitterness turned south." },
-        "attribution": { "vi": "về việc Đào Duy Từ bỏ Đàng Ngoài vào Nam", "en": "on Đào Duy Từ leaving Đàng Ngoài for the South" }
+        "text": {
+          "vi": "Trèo lên cây bưởi hái hoa… ba đồng một mớ trầu cay — người tài đất Bắc, uất chí mà theo về Nam.",
+          "en": "Talent spurned in the North, in bitterness turned south."
+        },
+        "attribution": {
+          "vi": "về việc Đào Duy Từ bỏ Đàng Ngoài vào Nam",
+          "en": "on Đào Duy Từ leaving Đàng Ngoài for the South"
+        }
       },
       "hero": {
         "id": "dang-trong-tach-coi-hero",
@@ -96,18 +153,26 @@
         "flagship": "eras/trinh-nguyen/events/dang-trong-tach-coi.png",
         "reduced": "eras/trinh-nguyen/events/dang-trong-tach-coi.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Tiền biên · Quyển 2", "en": "Preliminary Records · Book 2" },
+        "section": {
+          "vi": "Tiền biên · Quyển 2",
+          "en": "Preliminary Records · Book 2"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     },
     {
       "id": "chien-tranh-bung-no",
       "slug": "chien-tranh-bung-no",
-      "figureIds": ["trinh-trang"],
+      "figureIds": [
+        "trinh-trang"
+      ],
       "details": {
         "vi": "Thấy họ Nguyễn ngày càng lộng, không chịu thần phục, chúa Trịnh Tráng quyết ra tay. Năm Đinh Mão (1627), ông nhân danh vua Lê, lấy cớ họ Nguyễn không nộp thuế và chống mệnh triều đình, thân cầm đại binh thủy bộ rầm rộ nam tiến đánh vào Đàng Trong. Đây là lần đầu tiên hai họ Trịnh – Nguyễn trực tiếp giao chiến, mở màn cho cuộc phân tranh kéo dài gần nửa thế kỷ. Quân Trịnh đông đảo, khí thế mạnh, nhưng khi tới vùng Nhật Lệ – Quảng Bình thì vấp phải sự chống trả kiên cường của quân Nguyễn dựa vào địa thế và phòng tuyến, đánh mãi không tan. Hai bên giằng co, rốt cuộc quân Trịnh phải lui. Từ đó, dải sông Gianh ở Quảng Bình dần trở thành ranh giới trên thực tế chia cắt Đàng Ngoài với Đàng Trong.",
         "en": "Seeing the Nguyễn grow ever more defiant and refuse submission, the Trịnh lord Trịnh Tráng resolved to act. In the year Đinh Mão (1627), in the Lê king's name and on the pretext that the Nguyễn withheld taxes and defied the court, he led a great army by land and water in a mighty push south into Đàng Trong. This was the first direct clash of the two houses, opening a division that lasted nearly half a century. The Trịnh were numerous and fierce, but reaching the Nhật Lệ–Quảng Bình region they met the stubborn resistance of the Nguyễn, who leaned on the terrain and their lines, and could not be broken. The two sides deadlocked, and in the end the Trịnh had to withdraw. From then the Gianh River in Quảng Bình gradually became the de facto boundary dividing Đàng Ngoài from Đàng Trong."
@@ -115,11 +180,17 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1627 SCN", "en": "1627 CE" },
+        "display": {
+          "vi": "1627 SCN",
+          "en": "1627 CE"
+        },
         "value": 1627,
         "approximate": false
       },
-      "title": { "vi": "Chiến tranh bùng nổ, lấy sông Gianh làm ranh", "en": "War erupts; the Gianh becomes the border" },
+      "title": {
+        "vi": "Chiến tranh bùng nổ, lấy sông Gianh làm ranh",
+        "en": "War erupts; the Gianh becomes the border"
+      },
       "summary": {
         "vi": "Trịnh Tráng phát đại binh nam chinh (1627), mở màn phân tranh; sông Gianh thành ranh giới hai Đàng.",
         "en": "Trịnh Tráng launches the first campaign (1627); the Gianh River becomes the boundary of the two regions."
@@ -129,8 +200,14 @@
         "en": "In 1627 the Trịnh lord Trịnh Tráng, in the Lê's name and citing the Nguyễn's withheld taxes, led a great army south against Đàng Trong — the first clash of the two houses, opening the division. Though numerous, the Trịnh were checked by the Nguyễn's terrain-backed defence at Nhật Lệ, could not break through, and withdrew. From then the Gianh River in Quảng Bình became the boundary of the two regions."
       },
       "pullQuote": {
-        "text": { "vi": "Một dải sông Gianh, từ đấy chia đôi Nam – Bắc, kẻ Đàng Ngoài, người Đàng Trong.", "en": "A single stretch of the Gianh, and from then it split South from North — one people Đàng Ngoài, the other Đàng Trong." },
-        "attribution": { "vi": "Sử thần bàn · Đại Việt sử ký toàn thư", "en": "The historians' judgment · Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Một dải sông Gianh, từ đấy chia đôi Nam – Bắc, kẻ Đàng Ngoài, người Đàng Trong.",
+          "en": "A single stretch of the Gianh, and from then it split South from North — one people Đàng Ngoài, the other Đàng Trong."
+        },
+        "attribution": {
+          "vi": "Sử thần bàn · Đại Việt sử ký toàn thư",
+          "en": "The historians' judgment · Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "chien-tranh-bung-no-hero",
@@ -139,18 +216,27 @@
         "flagship": "eras/trinh-nguyen/events/chien-tranh-bung-no.png",
         "reduced": "eras/trinh-nguyen/events/chien-tranh-bung-no.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ tục biên · Quyển 18", "en": "Basic Records (Continued) · Book 18" },
+        "section": {
+          "vi": "Bản kỷ tục biên · Quyển 18",
+          "en": "Basic Records (Continued) · Book 18"
+        },
         "author": "Sử thần triều Lê"
       }
     },
     {
       "id": "luy-thay",
       "slug": "luy-thay",
-      "figureIds": ["dao-duy-tu", "nguyen-phuc-nguyen"],
+      "figureIds": [
+        "dao-duy-tu",
+        "nguyen-phuc-nguyen"
+      ],
       "details": {
         "vi": "Biết thế mình ít quân, không thể lấy sức chọi sức với Đàng Ngoài, Đào Duy Từ hiến cho chúa Sãi kế lấy phòng thủ làm gốc: đắp những chiến lũy dài chắn ngang dải đất hẹp nhất của Đàng Trong ở Quảng Bình. Năm Canh Ngọ (1630) đắp Lũy Trường Dục, rồi năm sau đắp thêm lũy Nhật Lệ, dân quen gọi chung là Lũy Thầy (lũy của thầy Đào Duy Từ). Lũy cao và dày, dựa vào sông và núi, dài mấy chục dặm, có đặt súng lớn phòng giữ, khiến đại quân Trịnh dù đông đến đâu, mỗi lần nam tiến tới đây đều bị chặn đứng, đánh phá nhiều phen mà không sao vượt qua. Nhờ hệ thống lũy ấy, một Đàng Trong ít người vẫn đủ sức giữ vững cõi bờ trước một Đàng Ngoài đông đúc suốt mấy chục năm. Người đời truyền câu: 'Khôn ngoan qua được Thanh Hà, dẫu rằng có cánh khó qua Lũy Thầy.'",
         "en": "Knowing his forces were few and could not match Đàng Ngoài strength for strength, Đào Duy Từ offered Lord Sãi a strategy rooted in defence: to raise long ramparts across the narrowest waist of Đàng Trong in Quảng Bình. In the year Canh Ngọ (1630) the Trường Dục rampart was built, and the next year the Nhật Lệ rampart, which the people together called the Lũy Thầy — 'the Master's Wall,' after Đào Duy Từ. Tall and thick, anchored on river and mountain, tens of miles long and set with great cannon, the walls stopped the Trịnh armies cold: however numerous, each southward march was halted here and could never break through despite many assaults. By these ramparts a thinly-peopled Đàng Trong held its borders against a populous Đàng Ngoài for decades. A folk couplet ran: 'Cunning may pass the Thanh Hà — but even with wings, none pass the Master's Wall.'"
@@ -158,11 +244,17 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1630 – 1631 SCN", "en": "1630 – 1631 CE" },
+        "display": {
+          "vi": "1630 – 1631 SCN",
+          "en": "1630 – 1631 CE"
+        },
         "value": 1630,
         "approximate": false
       },
-      "title": { "vi": "Đào Duy Từ đắp Lũy Thầy", "en": "Đào Duy Từ raises the Lũy Thầy" },
+      "title": {
+        "vi": "Đào Duy Từ đắp Lũy Thầy",
+        "en": "Đào Duy Từ raises the Lũy Thầy"
+      },
       "summary": {
         "vi": "Đào Duy Từ hiến kế đắp Lũy Trường Dục và Lũy Thầy chắn ngang Quảng Bình, chặn đứng quân Trịnh.",
         "en": "Đào Duy Từ builds the Trường Dục and Lũy Thầy ramparts across Quảng Bình, halting the Trịnh armies."
@@ -172,8 +264,14 @@
         "en": "Few in number, Đào Duy Từ made defence his foundation: in 1630–1631 he built the Trường Dục and Nhật Lệ ramparts — the Lũy Thầy — across the narrow waist of Quảng Bình. Tall and thick, anchored on river and mountain and set with cannon, they halted every Trịnh march. By them a thin Đàng Trong held its borders for decades. As the saying went, 'even with wings, none pass the Master's Wall.'"
       },
       "pullQuote": {
-        "text": { "vi": "Khôn ngoan qua được Thanh Hà, / Dẫu rằng có cánh khó qua Lũy Thầy.", "en": "Cunning may pass the Thanh Hà; / but even with wings, none pass the Master's Wall." },
-        "attribution": { "vi": "ca dao", "en": "folk couplet" }
+        "text": {
+          "vi": "Khôn ngoan qua được Thanh Hà, / Dẫu rằng có cánh khó qua Lũy Thầy.",
+          "en": "Cunning may pass the Thanh Hà; / but even with wings, none pass the Master's Wall."
+        },
+        "attribution": {
+          "vi": "ca dao",
+          "en": "folk couplet"
+        }
       },
       "hero": {
         "id": "luy-thay-hero",
@@ -182,18 +280,27 @@
         "flagship": "eras/trinh-nguyen/events/luy-thay.png",
         "reduced": "eras/trinh-nguyen/events/luy-thay.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Tiền biên · Quyển 2", "en": "Preliminary Records · Book 2" },
+        "section": {
+          "vi": "Tiền biên · Quyển 2",
+          "en": "Preliminary Records · Book 2"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     },
     {
       "id": "bay-lan-giao-tranh",
       "slug": "bay-lan-giao-tranh",
-      "figureIds": ["nguyen-phuc-tan", "trinh-trang"],
+      "figureIds": [
+        "nguyen-phuc-tan",
+        "trinh-trang"
+      ],
       "details": {
         "vi": "Từ năm 1627 đến 1672, họ Trịnh và họ Nguyễn đánh nhau tất cả bảy lần lớn, chiến trường chủ yếu quanh sông Gianh, sông Nhật Lệ và hệ thống lũy ở Quảng Bình. Quân Trịnh cậy đông, nhiều phen vượt sông nam tiến; quân Nguyễn cậy lũy bền và tướng giỏi, kiên trì chống giữ. Đến đời chúa Hiền Nguyễn Phúc Tần, tài cầm quân của Đàng Trong lên cao: năm Mậu Tý (1648) đánh tan một đợt đại tiến công của quân Trịnh ở Quảng Bình, bắt được nhiều tướng sĩ; những năm sau còn thừa thắng đưa quân vượt sông Gianh ra bắc, có thời chiếm giữ được bảy huyện đất Nghệ An. Song rốt cuộc cả hai bên đều không thể tiêu diệt được đối phương: Trịnh không phá nổi lũy, Nguyễn không giữ được đất Bắc lâu dài. Cuộc chiến kéo dài, hao người tốn của, khiến trăm họ hai miền đều lầm than.",
         "en": "From 1627 to 1672 the Trịnh and the Nguyễn fought seven great campaigns in all, the battlegrounds chiefly around the Gianh and Nhật Lệ rivers and the ramparts of Quảng Bình. The Trịnh, trusting in numbers, again and again crossed south; the Nguyễn, trusting in stout walls and able generals, held on stubbornly. Under Lord Hiền, Nguyễn Phúc Tần, Đàng Trong's generalship rose high: in the year Mậu Tý (1648) they shattered a great Trịnh offensive in Quảng Bình and took many officers; in later years, pressing their advantage, they even crossed the Gianh northward and for a time held seven districts of Nghệ An. Yet in the end neither side could destroy the other: the Trịnh could not break the walls, and the Nguyễn could not long hold the north. The war dragged on, costly in men and treasure, and the common folk of both regions suffered."
@@ -201,11 +308,17 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1627 – 1672 SCN", "en": "1627 – 1672 CE" },
+        "display": {
+          "vi": "1627 – 1672 SCN",
+          "en": "1627 – 1672 CE"
+        },
         "value": 1648,
         "approximate": false
       },
-      "title": { "vi": "Bảy lần giao tranh, chúa Hiền giữ nước", "en": "Seven campaigns; Lord Hiền holds the line" },
+      "title": {
+        "vi": "Bảy lần giao tranh, chúa Hiền giữ nước",
+        "en": "Seven campaigns; Lord Hiền holds the line"
+      },
       "summary": {
         "vi": "Hai họ đánh nhau bảy lần quanh sông Gianh; chúa Hiền phá quân Trịnh, có phen chiếm bảy huyện Nghệ An.",
         "en": "Seven campaigns rage around the Gianh; Lord Hiền beats the Trịnh and briefly holds seven Nghệ An districts."
@@ -215,8 +328,14 @@
         "en": "From 1627 to 1672 the two houses fought seven great campaigns around the Gianh and the Quảng Bình walls: the Trịnh crossing in force, the Nguyễn holding behind stout ramparts. Under Lord Hiền, Nguyễn Phúc Tần, Đàng Trong grew strong: in 1648 it shattered a great Trịnh army, and later crossed the Gianh to hold seven Nghệ An districts for a time. But neither could destroy the other; the war dragged on and the people suffered."
       },
       "pullQuote": {
-        "text": { "vi": "Bảy lần đại chiến, sông Gianh vẫn đó; Trịnh chẳng qua nổi lũy, Nguyễn chẳng giữ được đất ngoài.", "en": "Seven great wars, and still the Gianh remained; the Trịnh could not pass the wall, the Nguyễn could not keep the north." },
-        "attribution": { "vi": "Sử thần bàn · Đại Việt sử ký toàn thư", "en": "The historians' judgment · Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Bảy lần đại chiến, sông Gianh vẫn đó; Trịnh chẳng qua nổi lũy, Nguyễn chẳng giữ được đất ngoài.",
+          "en": "Seven great wars, and still the Gianh remained; the Trịnh could not pass the wall, the Nguyễn could not keep the north."
+        },
+        "attribution": {
+          "vi": "Sử thần bàn · Đại Việt sử ký toàn thư",
+          "en": "The historians' judgment · Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "bay-lan-giao-tranh-hero",
@@ -225,18 +344,27 @@
         "flagship": "eras/trinh-nguyen/events/bay-lan-giao-tranh.png",
         "reduced": "eras/trinh-nguyen/events/bay-lan-giao-tranh.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ tục biên · Quyển 18", "en": "Basic Records (Continued) · Book 18" },
+        "section": {
+          "vi": "Bản kỷ tục biên · Quyển 18",
+          "en": "Basic Records (Continued) · Book 18"
+        },
         "author": "Sử thần triều Lê"
       }
     },
     {
       "id": "nam-tien-hoi-an",
       "slug": "nam-tien-hoi-an",
-      "figureIds": ["nguyen-phuc-tan", "nguyen-phuc-nguyen"],
+      "figureIds": [
+        "nguyen-phuc-tan",
+        "nguyen-phuc-nguyen"
+      ],
       "details": {
         "vi": "Trong lúc căng mình chống họ Trịnh ở phía bắc, các chúa Nguyễn vẫn không ngừng mở mang bờ cõi về phương Nam. Họ thu nốt phần đất Chiêm Thành còn lại, lập nên các phủ mới, rồi tiến dần xuống vùng đất của người Chân Lạp ở đồng bằng sông Cửu Long, cho lưu dân người Việt vào khai khẩn, lập làng, dựng phủ, đặt nền cho công cuộc Nam tiến mở rộng cõi bờ về tận Gia Định – Hà Tiên sau này. Cùng với việc mở đất, các chúa Nguyễn coi trọng ngoại thương: thương cảng Hội An (Faifo) ở Quảng Nam trở thành nơi buôn bán sầm uất bậc nhất, thuyền buôn Nhật Bản, Trung Hoa, Bồ Đào Nha, Hà Lan tấp nập ra vào, có cả phố Nhật, phố Khách. Nhờ nguồn lợi thương mại và đất đai mới mở, Đàng Trong tuy ít dân mà trở nên trù phú, đủ sức nuôi quân, giữ vững cơ đồ trước Đàng Ngoài.",
         "en": "Even while straining against the Trịnh in the north, the Nguyễn lords never ceased to widen their borders to the south. They absorbed the last lands of Champa and set up new prefectures, then pressed down into the Khmer (Chân Lạp) lands of the Mekong delta, sending Vietnamese migrants to clear ground, found villages and raise prefectures — laying the foundation for a southward expansion that would one day reach Gia Định and Hà Tiên. Alongside the opening of land, the lords prized foreign trade: the port of Hội An (Faifo) in Quảng Nam became one of the busiest markets of the region, thronged with Japanese, Chinese, Portuguese and Dutch ships and holding a Japanese quarter and a Chinese quarter. By the wealth of trade and newly opened land, a thinly-peopled Đàng Trong grew rich, able to feed its armies and hold its own against Đàng Ngoài."
@@ -244,11 +372,17 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "Thế kỷ 17", "en": "17th century" },
+        "display": {
+          "vi": "Thế kỷ 17",
+          "en": "17th century"
+        },
         "value": 1650,
         "approximate": true
       },
-      "title": { "vi": "Mở đất phương Nam, thương cảng Hội An", "en": "The southward expansion and the port of Hội An" },
+      "title": {
+        "vi": "Mở đất phương Nam, thương cảng Hội An",
+        "en": "The southward expansion and the port of Hội An"
+      },
       "summary": {
         "vi": "Các chúa Nguyễn mở đất về Nam tới đồng bằng Cửu Long; Hội An thành thương cảng sầm uất bậc nhất.",
         "en": "The Nguyễn lords expand south to the Mekong; Hội An becomes a thriving international port."
@@ -258,8 +392,14 @@
         "en": "While fighting the Trịnh, the Nguyễn lords also expanded south: absorbing the rest of Champa, pressing into the Khmer lands of the Mekong, and sending Vietnamese settlers to clear land and found villages — the ground for expansion to Gia Định and Hà Tiên. They prized trade: the port of Hội An (Faifo) thronged with Japanese, Chinese, Portuguese and Dutch ships. By new land and commerce, a thin Đàng Trong grew rich enough to feed its armies."
       },
       "pullQuote": {
-        "text": { "vi": "Đất phương Nam mỗi ngày một rộng, thuyền buôn bốn biển đổ về Hội An — Đàng Trong ít người mà nên giàu mạnh.", "en": "The southern land grew wider by the day, and ships of four seas poured into Hội An — a thin Đàng Trong made rich and strong." },
-        "attribution": { "vi": "theo Đại Nam thực lục (Tiền biên)", "en": "per the Đại Nam thực lục (Preliminary Records)" }
+        "text": {
+          "vi": "Đất phương Nam mỗi ngày một rộng, thuyền buôn bốn biển đổ về Hội An — Đàng Trong ít người mà nên giàu mạnh.",
+          "en": "The southern land grew wider by the day, and ships of four seas poured into Hội An — a thin Đàng Trong made rich and strong."
+        },
+        "attribution": {
+          "vi": "theo Đại Nam thực lục (Tiền biên)",
+          "en": "per the Đại Nam thực lục (Preliminary Records)"
+        }
       },
       "hero": {
         "id": "nam-tien-hoi-an-hero",
@@ -268,18 +408,27 @@
         "flagship": "eras/trinh-nguyen/events/nam-tien-hoi-an.png",
         "reduced": "eras/trinh-nguyen/events/nam-tien-hoi-an.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Nam thực lục",
-        "section": { "vi": "Tiền biên · Quyển 3", "en": "Preliminary Records · Book 3" },
+        "section": {
+          "vi": "Tiền biên · Quyển 3",
+          "en": "Preliminary Records · Book 3"
+        },
         "author": "Quốc sử quán triều Nguyễn"
       }
     },
     {
       "id": "hoa-song-gianh",
       "slug": "hoa-song-gianh",
-      "figureIds": ["trinh-tac", "nguyen-phuc-tan"],
+      "figureIds": [
+        "trinh-tac",
+        "nguyen-phuc-tan"
+      ],
       "details": {
         "vi": "Cuộc chiến kéo dài mấy chục năm mà không phân thắng bại. Đến đời chúa Trịnh Tạc, họ Trịnh mở chiến dịch nam chinh lớn lần thứ bảy (năm Nhâm Tý 1672), huy động đại quân quyết đánh úp Đàng Trong. Nhưng chúa Hiền Nguyễn Phúc Tần cùng các tướng lại một phen nữa dựa vào Lũy Thầy và sông Gianh mà chống giữ vững vàng; quân Trịnh đánh mãi không phá được lũy, lương hết, quân mỏi, đành phải rút về. Sau lần ấy, cả hai bên đều kiệt sức, hiểu rằng không thể tiêu diệt được nhau, bèn ngầm thôi việc binh đao, lấy sông Gianh làm giới tuyến: từ sông Gianh trở ra bắc là Đàng Ngoài của vua Lê chúa Trịnh, từ sông Gianh trở vào nam là Đàng Trong của các chúa Nguyễn. Đất nước từ đó chia đôi trong thế hòa hoãn, mỗi bên một cõi, kéo dài hơn một trăm năm, cho tới khi phong trào Tây Sơn nổi lên mới phá vỡ cục diện ấy.",
         "en": "The war dragged on for decades without decision. Under the Trịnh lord Trịnh Tạc, the Trịnh mounted their seventh great southern campaign (in the year Nhâm Tý 1672), throwing in a huge army to overwhelm Đàng Trong. But Lord Hiền, Nguyễn Phúc Tần, and his generals once more held firm behind the Lũy Thầy and the Gianh; the Trịnh assaulted the walls in vain, ran short of supplies, wearied, and had to withdraw. After this both sides were spent and understood they could not destroy one another, so they tacitly laid down arms and took the Gianh River as their boundary: from the Gianh northward lay Đàng Ngoài of the Lê kings and Trịnh lords, and from the Gianh southward lay Đàng Trong of the Nguyễn lords. From then the country was divided in an uneasy peace, each a realm of its own, for more than a hundred years — until the Tây Sơn movement arose and shattered that order."
@@ -287,11 +436,17 @@
       "order": 5,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1672 SCN", "en": "1672 CE" },
+        "display": {
+          "vi": "1672 SCN",
+          "en": "1672 CE"
+        },
         "value": 1672,
         "approximate": false
       },
-      "title": { "vi": "Đình chiến, sông Gianh chia đôi đất nước", "en": "The truce: the Gianh divides the land" },
+      "title": {
+        "vi": "Đình chiến, sông Gianh chia đôi đất nước",
+        "en": "The truce: the Gianh divides the land"
+      },
       "summary": {
         "vi": "Sau chiến dịch thứ bảy (1672) bất phân thắng bại, hai họ đình chiến, lấy sông Gianh chia đôi Đàng Ngoài – Đàng Trong.",
         "en": "After an indecisive seventh campaign (1672) the two houses cease fighting, splitting the land at the Gianh."
@@ -301,8 +456,14 @@
         "en": "Decades of war brought no decision. The Trịnh lord Trịnh Tạc launched the seventh campaign (1672), but Lord Hiền held behind the Lũy Thầy and the Gianh; the Trịnh could not break through and withdrew. Both spent, they ceased fighting and took the Gianh as their boundary: north the Đàng Ngoài of the Lê kings and Trịnh lords, south the Đàng Trong of the Nguyễn. The land stayed divided for over a hundred years, until the Tây Sơn."
       },
       "pullQuote": {
-        "text": { "vi": "Từ sông Gianh trở ra là Đàng Ngoài, từ sông Gianh trở vào là Đàng Trong — một nước mà hai cõi, ngót trăm năm.", "en": "North of the Gianh, Đàng Ngoài; south of it, Đàng Trong — one country in two realms, for near a hundred years." },
-        "attribution": { "vi": "Sử thần bàn · Đại Việt sử ký toàn thư", "en": "The historians' judgment · Đại Việt sử ký toàn thư" }
+        "text": {
+          "vi": "Từ sông Gianh trở ra là Đàng Ngoài, từ sông Gianh trở vào là Đàng Trong — một nước mà hai cõi, ngót trăm năm.",
+          "en": "North of the Gianh, Đàng Ngoài; south of it, Đàng Trong — one country in two realms, for near a hundred years."
+        },
+        "attribution": {
+          "vi": "Sử thần bàn · Đại Việt sử ký toàn thư",
+          "en": "The historians' judgment · Đại Việt sử ký toàn thư"
+        }
       },
       "hero": {
         "id": "hoa-song-gianh-hero",
@@ -311,11 +472,17 @@
         "flagship": "eras/trinh-nguyen/events/hoa-song-gianh.png",
         "reduced": "eras/trinh-nguyen/events/hoa-song-gianh.png",
         "placeholder": "era-scene",
-        "caption": { "vi": "Minh họa · phong cách sơn mài", "en": "Illustration · lacquer style" }
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
-        "section": { "vi": "Bản kỷ tục biên · Quyển 19", "en": "Basic Records (Continued) · Book 19" },
+        "section": {
+          "vi": "Bản kỷ tục biên · Quyển 19",
+          "en": "Basic Records (Continued) · Book 19"
+        },
         "author": "Sử thần triều Lê"
       }
     }

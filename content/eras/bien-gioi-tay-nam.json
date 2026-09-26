@@ -82,8 +82,12 @@
     "author": "Viện Lịch sử Quân sự Việt Nam"
   },
   "characters": [
-    { "ref": "le-duc-anh" },
-    { "ref": "le-trong-tan" },
+    {
+      "ref": "le-duc-anh"
+    },
+    {
+      "ref": "le-trong-tan"
+    },
     {
       "ref": "vo-nguyen-giap",
       "epithet": {
@@ -104,7 +108,10 @@
       "order": 0,
       "kind": "historical",
       "year": {
-        "display": { "vi": "5/1975 SCN", "en": "May 1975 CE" },
+        "display": {
+          "vi": "5/1975 SCN",
+          "en": "May 1975 CE"
+        },
         "value": 1975,
         "approximate": false
       },
@@ -154,7 +161,9 @@
     {
       "id": "tan-cong-bien-gioi-1977",
       "slug": "tan-cong-bien-gioi-1977",
-      "figureIds": ["le-duc-anh"],
+      "figureIds": [
+        "le-duc-anh"
+      ],
       "details": {
         "vi": "Từ năm 1977, tập đoàn Pol Pot – Ieng Sary leo thang các hoạt động quân sự chống Việt Nam, huy động nhiều sư đoàn tổ chức các cuộc tấn công quy mô lớn vào lãnh thổ Việt Nam dọc tuyến biên giới Tây Nam, đặc biệt là các tỉnh An Giang và Tây Ninh. Ngày 30 tháng 4 năm 1977 — đúng hai năm sau ngày giải phóng miền Nam — quân Khmer Đỏ bất ngờ tấn công nhiều xã biên giới An Giang, tàn sát dân thường. Đến tháng 9 năm 1977, chúng tiếp tục mở cuộc tấn công lớn vào Tây Ninh với lực lượng cấp sư đoàn, có pháo binh chi viện, tàn phá làng mạc, giết hại nhiều đồng bào. Trước tình hình đó, Quân khu 9 dưới sự chỉ huy của tướng Lê Đức Anh cùng các đơn vị bộ đội chủ lực đã tổ chức phòng ngự và phản công, đẩy lùi từng cuộc tấn công, nhưng các hành động khiêu khích của Khmer Đỏ ngày càng dồn dập, cho thấy rõ ý đồ chiến tranh xâm lược quy mô lớn của tập đoàn cầm quyền Pol Pot đối với Việt Nam.",
         "en": "From 1977 the Pol Pot – Ieng Sary clique escalated its military actions against Vietnam, mobilizing several divisions to mount large-scale attacks into Vietnamese territory along the southwestern border, especially An Giang and Tây Ninh provinces. On 30 April 1977 — exactly two years after the liberation of the South — Khmer Rouge forces suddenly attacked several border communes in An Giang, massacring civilians. By September 1977 they launched a further major attack on Tây Ninh with division-strength forces backed by artillery, devastating villages and killing many civilians. In response, Military Region 9 under General Lê Đức Anh, together with main-force units, organized defense and counter-attacks, repelling each assault, but the Khmer Rouge's provocations grew ever more intense, making clear the Pol Pot leadership's intent to wage large-scale aggressive war against Vietnam."
@@ -162,7 +171,10 @@
       "order": 1,
       "kind": "historical",
       "year": {
-        "display": { "vi": "1977 SCN", "en": "1977 CE" },
+        "display": {
+          "vi": "1977 SCN",
+          "en": "1977 CE"
+        },
         "value": 1977,
         "approximate": false
       },
@@ -220,7 +232,10 @@
       "order": 2,
       "kind": "historical",
       "year": {
-        "display": { "vi": "18 – 30/4/1978 SCN", "en": "18–30 April 1978 CE" },
+        "display": {
+          "vi": "18 – 30/4/1978 SCN",
+          "en": "18–30 April 1978 CE"
+        },
         "value": 1978,
         "approximate": false
       },
@@ -271,7 +286,11 @@
     {
       "id": "tong-phan-cong-tay-nam",
       "slug": "tong-phan-cong-tay-nam",
-      "figureIds": ["vo-nguyen-giap", "le-trong-tan", "le-duc-anh"],
+      "figureIds": [
+        "vo-nguyen-giap",
+        "le-trong-tan",
+        "le-duc-anh"
+      ],
       "details": {
         "vi": "Trước các hành động xâm lược và diệt chủng ngày càng leo thang của tập đoàn Pol Pot – Ieng Sary, ngày 23 tháng 12 năm 1978, quân và dân ta đã mở cuộc tổng phản công chiến lược trên toàn tuyến biên giới Tây Nam. Dưới sự chỉ đạo của Bộ Quốc phòng (Đại tướng Võ Nguyên Giáp) và sự chỉ huy trực tiếp của tướng Lê Trọng Tấn — Tư lệnh Mặt trận Tây Nam — cùng các lực lượng Quân khu 9 do tướng Lê Đức Anh chỉ huy, quân ta đã đồng loạt tiến công, đập tan hệ thống phòng ngự của quân Khmer Đỏ dọc biên giới, đẩy lùi chúng trên toàn tuyến chỉ trong thời gian ngắn. Song song với đó, ngày 3 tháng 12 năm 1978, Mặt trận Đoàn kết dân tộc cứu nước Campuchia được thành lập, kêu gọi nhân dân Campuchia cùng đứng lên lật đổ chế độ diệt chủng Pol Pot. Cuộc tổng phản công đã tạo bước ngoặt quyết định, mở đường cho quân tình nguyện Việt Nam cùng lực lượng vũ trang cách mạng Campuchia tiến sâu vào nội địa, hướng tới giải phóng Phnôm Pênh.",
         "en": "Facing the escalating aggression and genocide of the Pol Pot – Ieng Sary clique, on 23 December 1978 Vietnamese forces and people launched a strategic counter-offensive along the whole southwestern border. Under the direction of the Ministry of Defence (General Võ Nguyên Giáp) and the direct command of General Lê Trọng Tấn — Commander of the Southwest Front — together with Military Region 9 forces commanded by General Lê Đức Anh, Vietnamese troops attacked simultaneously, smashing the Khmer Rouge's defensive lines along the border and pushing them back on the whole front within a short time. In parallel, on 3 December 1978, the Kampuchean National United Front for National Salvation was founded, calling on the Cambodian people to rise together to overthrow the Pol Pot genocidal regime. The counter-offensive created a decisive turning point, opening the way for Vietnamese volunteer forces, together with Cambodian revolutionary armed forces, to advance deep into the interior toward the liberation of Phnôm Pênh."
@@ -279,7 +298,10 @@
       "order": 3,
       "kind": "historical",
       "year": {
-        "display": { "vi": "23/12/1978 SCN", "en": "23 December 1978 CE" },
+        "display": {
+          "vi": "23/12/1978 SCN",
+          "en": "23 December 1978 CE"
+        },
         "value": 1978,
         "approximate": false
       },
@@ -329,7 +351,9 @@
     {
       "id": "giai-phong-phnom-penh",
       "slug": "giai-phong-phnom-penh",
-      "figureIds": ["le-duc-anh"],
+      "figureIds": [
+        "le-duc-anh"
+      ],
       "details": {
         "vi": "Tiếp nối thắng lợi của cuộc tổng phản công, quân tình nguyện Việt Nam cùng lực lượng vũ trang của Mặt trận Đoàn kết dân tộc cứu nước Campuchia đã thần tốc tiến công, đập tan các tuyến phòng thủ của quân Khmer Đỏ, và đến ngày 7 tháng 1 năm 1979 đã hoàn toàn giải phóng Thủ đô Phnôm Pênh, lật đổ chế độ diệt chủng Pol Pot – Ieng Sary sau gần bốn năm áp đặt lên nhân dân Campuchia một trong những tội ác diệt chủng đẫm máu nhất của thế kỷ 20. Ngày 8 tháng 1 năm 1979, nước Cộng hoà Nhân dân Campuchia được thành lập. Người dân Phnôm Pênh và các vùng được giải phóng đã đón chào quân tình nguyện Việt Nam và lực lượng cách mạng Campuchia trong niềm hân hoan thoát khỏi hoạ diệt chủng. Chiến thắng này là sự khẳng định rõ ràng: hành động của Việt Nam là chính đáng, xuất phát từ quyền tự vệ chính đáng trước sự xâm lược của Khmer Đỏ, đồng thời thực hiện nghĩa vụ quốc tế cao cả, giúp một dân tộc láng giềng thoát khỏi thảm hoạ diệt chủng.",
         "en": "Building on the counter-offensive's success, Vietnamese volunteer forces together with the armed forces of the Kampuchean National United Front for National Salvation advanced with lightning speed, smashing Khmer Rouge defensive lines, and by 7 January 1979 had fully liberated the capital Phnôm Pênh, overthrowing the Pol Pot – Ieng Sary genocidal regime after nearly four years in which it had imposed one of the bloodiest genocides of the 20th century on the Cambodian people. On 8 January 1979 the People's Republic of Kampuchea was established. The people of Phnôm Pênh and the liberated areas welcomed the Vietnamese volunteer forces and Cambodian revolutionary forces with joy at their deliverance from the genocide. This victory clearly affirmed that Vietnam's action was justified, arising from its legitimate right of self-defense against Khmer Rouge aggression, while also fulfilling a noble international duty in helping a neighboring people escape a genocidal catastrophe."
@@ -337,7 +361,10 @@
       "order": 4,
       "kind": "historical",
       "year": {
-        "display": { "vi": "7/1/1979 SCN", "en": "7 January 1979 CE" },
+        "display": {
+          "vi": "7/1/1979 SCN",
+          "en": "7 January 1979 CE"
+        },
         "value": 1979,
         "approximate": false
       },
@@ -387,7 +414,9 @@
     {
       "id": "quan-tinh-nguyen-ve-nuoc",
       "slug": "quan-tinh-nguyen-ve-nuoc",
-      "figureIds": ["le-duc-anh"],
+      "figureIds": [
+        "le-duc-anh"
+      ],
       "details": {
         "vi": "Sau khi giúp lật đổ chế độ diệt chủng Pol Pot, quân tình nguyện Việt Nam tiếp tục ở lại Campuchia theo lời đề nghị của chính quyền cách mạng nước này, làm nhiệm vụ quốc tế: giúp xây dựng lực lượng vũ trang cách mạng Campuchia, truy quét tàn quân Khmer Đỏ đang co cụm ở vùng biên giới giáp Thái Lan, đồng thời hỗ trợ nhân dân Campuchia khôi phục sản xuất, ổn định đời sống sau những năm tháng bị chế độ diệt chủng tàn phá. Từ năm 1981, tướng Lê Đức Anh giữ chức Tư lệnh Quân tình nguyện Việt Nam tại Campuchia. Khi tình hình Campuchia đã ổn định và theo tiến trình giải quyết chính trị vấn đề Campuchia, quân tình nguyện Việt Nam đã từng bước rút quân qua nhiều giai đoạn, và đến ngày 26 tháng 9 năm 1989, đợt rút quân cuối cùng hoàn tất, quân tình nguyện Việt Nam hoàn thành nghĩa vụ quốc tế cao cả, trở về nước, khép lại 10 năm làm nhiệm vụ giúp nước láng giềng Campuchia.",
         "en": "After helping overthrow the Pol Pot genocidal regime, Vietnamese volunteer forces remained in Cambodia at the request of the country's revolutionary government to carry out an international duty: helping build Cambodia's revolutionary armed forces, hunting down remaining Khmer Rouge forces regrouping near the Thai border, and supporting the Cambodian people in restoring production and stabilizing their lives after the devastation of the genocidal regime. From 1981, General Lê Đức Anh served as Commander of the Vietnamese volunteer forces in Cambodia. Once the situation in Cambodia had stabilized and in step with the political settlement process for the Cambodia question, Vietnamese volunteer forces withdrew gradually over several stages, and on 26 September 1989 the final withdrawal was completed — the Vietnamese volunteer army having fulfilled its noble international duty, returning home and closing out ten years helping its neighbor Cambodia."
@@ -395,7 +424,10 @@
       "order": 5,
       "kind": "historical",
       "year": {
-        "display": { "vi": "9/1989 SCN", "en": "September 1989 CE" },
+        "display": {
+          "vi": "9/1989 SCN",
+          "en": "September 1989 CE"
+        },
         "value": 1989,
         "approximate": false
       },
