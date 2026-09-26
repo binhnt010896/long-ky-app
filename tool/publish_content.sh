@@ -20,6 +20,16 @@ if [[ "${1:-}" == "--dry-run" ]]; then
   exit 0
 fi
 
+# Guard against the CMS/CI and this Mac racing: if an original only exists
+# here and hasn't been pushed to long-ky-sources yet, publishing now would
+# leave the CMS with no copy of it, and the *next* publish from wherever the
+# CMS runs (which starts from long-ky-sources, not this disk) could delete
+# the served image outright. Push first.
+if ! tool/push_sources.sh --check; then
+  echo "✗ refusing to publish: run tool/push_sources.sh first (see above)."
+  exit 1
+fi
+
 # --s3-no-check-bucket: our R2 API token is scoped to this one bucket, with
 # no ListBuckets/HeadBucket permission — rclone's default pre-upload bucket
 # check reads that as "bucket missing," tries to create it, and that create
