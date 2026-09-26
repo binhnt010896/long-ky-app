@@ -94,7 +94,10 @@ void main() {
       expect(figures.map((c) => c.name.vi),
           <String>['Kinh Dương Vương', 'Lạc Long Quân']);
       expect(figures.first.epithet!.resolve(Lang.en), 'Progenitor king');
-      expect(figures.first.portrait?.flagship, isNotNull);
+      // Cycle I retired the legacy 3-part sheet for this era's figures in
+      // favor of dedicated avatar/fullBody art (see [[character-avatar-fullbody]]).
+      expect(figures.first.avatar?.flagship, isNotNull);
+      expect(figures.first.fullBody?.flagship, isNotNull);
       // Legend event with two spirits — Sơn Tinh–Thủy Tinh now sits at index 5.
       final st = era.charactersFor(era.events[5]);
       expect(st.map((c) => c.name.vi), <String>['Sơn Tinh', 'Thủy Tinh']);
@@ -146,15 +149,16 @@ void main() {
           people,
         );
 
-    test('Triệu Đà is one person, reframed per era, with one portrait', () {
+    test('Triệu Đà is one person, reframed per era, with one canonical image', () {
       final inAuLac = loadEra('au-lac').figureById('trieu-da')!;
       final namViet = loadEra('nha-trieu');
       final inNamViet = namViet.figureById('trieu-da')!;
 
-      // One person id, one canonical portrait — never two people.
+      // One person id, one canonical avatar — never two people.
       expect(inAuLac.id, 'trieu-da');
       expect(inNamViet.id, 'trieu-da');
-      expect(inAuLac.portrait, inNamViet.portrait);
+      expect(inAuLac.avatar?.flagship, isNotNull);
+      expect(inAuLac.avatar, inNamViet.avatar);
 
       // Reframed for its era by the Nam Việt override.
       expect(inAuLac.name.vi, 'Triệu Đà');
