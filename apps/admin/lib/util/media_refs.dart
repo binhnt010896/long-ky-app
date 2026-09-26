@@ -54,6 +54,10 @@ Map<String, List<MediaUsage>> collectMediaRefs(ContentDraft draft) {
       if (layers is List) {
         for (var i = 0; i < layers.length; i++) {
           add(sourceOf(layers[i]), group, 'Scene layer ${i + 1}');
+          final layer = layers[i];
+          if (layer is Map) {
+            add(layer['video'] as String?, group, 'Scene layer ${i + 1} — video');
+          }
         }
       }
     }

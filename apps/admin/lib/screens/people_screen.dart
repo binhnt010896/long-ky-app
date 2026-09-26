@@ -4,8 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../state/content_draft.dart';
 import '../util/media_urls.dart';
 import '../util/slug.dart';
-import '../widgets/asset_ref_field.dart';
+import '../util/person_asset_path.dart';
 import '../widgets/localized_text_field.dart';
+import '../widgets/media_replace_dialog.dart';
+import '../widgets/media_slot.dart';
 
 /// Field-by-field editor for the shared `content/people.json` registry
 /// (154 people). A search list on the left, a form on the right — see
@@ -286,25 +288,32 @@ class _PersonDetailPaneState extends ConsumerState<_PersonDetailPane> {
             LocalizedTextField(label: 'Epithet', vi: epithetVi, en: epithetEn),
             LocalizedTextField(label: 'Bio', vi: bioVi, en: bioEn, maxLines: 6),
             const SizedBox(height: 8),
-            AssetRefField(
+            _PersonImageSlot(
               label: 'Avatar',
-              assetRef: person['avatar'] as Map<String, dynamic>?,
+              field: 'avatar',
+              suffix: 'avatar',
+              person: person,
+              usedIn: usedIn,
               manifest: manifest,
             ),
-            AssetRefField(
+            _PersonImageSlot(
               label: 'Full body',
-              assetRef: person['fullBody'] as Map<String, dynamic>?,
+              field: 'fullBody',
+              suffix: 'full',
+              person: person,
+              usedIn: usedIn,
               manifest: manifest,
             ),
-            AssetRefField(
-              label: 'Portrait',
-              caption: person['avatar'] != null || person['fullBody'] != null
-                  ? 'Legacy — not shown while Avatar/Full body are set.'
-                  : "Legacy 3-part sheet — the app crops this era's figures "
-                        'from it since there is no dedicated Avatar/Full body yet.',
-              assetRef: person['portrait'] as Map<String, dynamic>?,
-              manifest: manifest,
-            ),
+            if (person['portrait'] != null)
+              MediaSlot(
+                label: 'Portrait',
+                path: _sourcePath(person['portrait']),
+                manifest: manifest,
+                caption: person['avatar'] != null || person['fullBody'] != null
+                    ? 'Legacy — not shown while Avatar/Full body are set.'
+                    : "Legacy 3-part sheet — the app crops this era's figures "
+                          'from it since there is no dedicated Avatar/Full body yet.',
+              ),
             if (hasPhoto) ...[
               const SizedBox(height: 8),
               CheckboxListTile(
@@ -339,5 +348,65 @@ class _PersonDetailPaneState extends ConsumerState<_PersonDetailPane> {
       c.dispose();
     }
     super.dispose();
+  }
+}
+
+String? _sourcePath(Object? assetRef) {
+  if (assetRef is! Map) return null;
+  return (assetRef['flagship'] as String?) ?? (assetRef['reduced'] as String?);
+}
+
+/// Avatar/full body, with an "Add…" action when the person has neither yet
+/// (Cycle I's I-3) — creates the asset ref at the conventional path, then
+/// opens the same upload dialog a MediaSlot's own Replace button would.
+class _PersonImageSlot extends ConsumerWidget {
+  const _PersonImageSlot({
+    required this.label,
+    required this.field,
+    required this.suffix,
+    required this.person,
+    required this.usedIn,
+    required this.manifest,
+  });
+
+  final String label;
+  final String field; // 'avatar' or 'fullBody'
+  final String suffix; // 'avatar' or 'full' — the filename suffix
+  final Map<String, dynamic> person;
+  final List<String> usedIn;
+  final MediaManifest manifest;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final assetRef = person[field] as Map<String, dynamic>?;
+    if (assetRef != null) {
+      return MediaSlot(label: label, path: _sourcePath(assetRef), manifest: manifest);
+    }
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Row(
+        children: [
+          SizedBox(width: 100, child: Text(label, style: Theme.of(context).textTheme.labelLarge)),
+          OutlinedButton.icon(
+            icon: const Icon(Icons.add_photo_alternate_outlined),
+            label: Text('Add $label'),
+            onPressed: () => _add(context, ref),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _add(BuildContext context, WidgetRef ref) {
+    final id = person['id'] as String;
+    final path = personAssetPath(id: id, usedIn: usedIn, suffix: suffix);
+    ref.read(contentDraftProvider.notifier).updatePerson(id, (p) {
+      p[field] = {'id': '$id-$suffix', 'type': 'image', 'flagship': path, 'reduced': path};
+      return p;
+    });
+    showDialog<void>(
+      context: context,
+      builder: (context) => MediaReplaceDialog(path: path, manifest: manifest),
+    );
   }
 }

@@ -37,6 +37,11 @@ dependencies:
   # Persists the admin's own theme choice (light/dark, accent colour)
   # across sessions — via localStorage on web.
   shared_preferences: ^2.3.3
+  # Previews the two published scene-layer loop videos (era.schema.json's
+  # `video`) in the Media library / Media slots — network playback only, a
+  # picked replacement file's video isn't decoded client-side (see
+  # EXECUTION.md's Cycle I scope note).
+  video_player: ^2.9.2
 
 dev_dependencies:
   flutter_test:

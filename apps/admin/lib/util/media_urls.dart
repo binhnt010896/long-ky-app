@@ -4,6 +4,10 @@ import 'dart:convert';
 /// `apps/mobile/lib/theme/content_assets.dart` points at by default.
 const cdnMediaBase = 'https://pub-3e1d5dacc331435e8651e740cd635e56.r2.dev/media';
 
+/// Sources are always PNG/JPG or `.mp4` (see .gitignore's media list) —
+/// extension alone is enough to tell a video slot from an image one.
+bool isVideoPath(String path) => path.toLowerCase().endsWith('.mp4');
+
 /// `content/media-manifest.json` (schema v2): source path → `{key, v}` for
 /// the published, cache-busted WebP. A path with no entry here has never
 /// been published — [[event-count-follows-source]]'s sibling bug, the

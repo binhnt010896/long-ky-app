@@ -5,10 +5,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../state/content_draft.dart';
+import '../util/media_urls.dart';
 import '../util/slug.dart';
 import '../widgets/citation_field.dart';
 import '../widgets/hex_color_field.dart';
 import '../widgets/localized_text_field.dart';
+import '../widgets/media_slot.dart';
 import '../widgets/year_range_field.dart';
 
 /// Periods (in `order`) with their eras nested (in `order`), replacing the
@@ -415,6 +417,12 @@ class _PeriodDetailPaneState extends ConsumerState<_PeriodDetailPane> {
               onChanged: (v) => _accent = v,
             ),
             const SizedBox(height: 16),
+            MediaSlot(
+              label: 'Cover',
+              path: _coverSource(period['cover']),
+              manifest: MediaManifest.fromJson(draft.files['content/media-manifest.json']!),
+            ),
+            const SizedBox(height: 16),
             FilledButton(onPressed: _save, child: const Text('Stage changes')),
           ],
         ),
@@ -615,3 +623,8 @@ class _NewEraDialogState extends State<_NewEraDialog> {
 }
 
 String _slugFrom(String text) => slugify(text);
+
+String? _coverSource(Object? assetRef) {
+  if (assetRef is! Map) return null;
+  return (assetRef['flagship'] as String?) ?? (assetRef['reduced'] as String?);
+}

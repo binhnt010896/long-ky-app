@@ -6,9 +6,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../state/content_draft.dart';
+import '../util/media_urls.dart';
+import '../widgets/media_slot.dart';
+
+enum _EraTab { guided, images, raw }
 
 /// Edits `content/eras/<slug>.json`. Title/kicker/subtitle/overview get a
-/// guided bilingual form (the fields an admin touches most); events,
+/// guided bilingual form (the fields an admin touches most); an Images tab
+/// covers cover/scene-layer/event-hero art inline (Cycle I); events,
 /// characters, citations and everything else go through the raw-JSON
 /// fallback, still gated by the same [ContentValidator] the CLI/CI use.
 class EraEditorScreen extends ConsumerStatefulWidget {
@@ -21,7 +26,7 @@ class EraEditorScreen extends ConsumerStatefulWidget {
 }
 
 class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
-  bool _rawMode = false;
+  _EraTab _tab = _EraTab.guided;
   late TextEditingController _rawController;
   String? _rawError;
   bool _draft = false;
@@ -143,13 +148,14 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
                     ),
                   ],
                   const Spacer(),
-                  SegmentedButton<bool>(
+                  SegmentedButton<_EraTab>(
                     segments: const [
-                      ButtonSegment(value: false, label: Text('Guided')),
-                      ButtonSegment(value: true, label: Text('Raw JSON')),
+                      ButtonSegment(value: _EraTab.guided, label: Text('Guided')),
+                      ButtonSegment(value: _EraTab.images, label: Text('Images')),
+                      ButtonSegment(value: _EraTab.raw, label: Text('Raw JSON')),
                     ],
-                    selected: {_rawMode},
-                    onSelectionChanged: (s) => setState(() => _rawMode = s.first),
+                    selected: {_tab},
+                    onSelectionChanged: (s) => setState(() => _tab = s.first),
                   ),
                   const SizedBox(width: 8),
                   IconButton(
@@ -175,7 +181,13 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
                 ),
               ],
               const SizedBox(height: 16),
-              Expanded(child: _rawMode ? _buildRaw() : _buildGuided()),
+              Expanded(
+                child: switch (_tab) {
+                  _EraTab.guided => _buildGuided(),
+                  _EraTab.images => _buildImages(draft, text),
+                  _EraTab.raw => _buildRaw(),
+                },
+              ),
             ],
           ),
         );
@@ -212,6 +224,79 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
           ),
           const SizedBox(height: 16),
           FilledButton(onPressed: _saveGuided, child: const Text('Stage changes')),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildImages(ContentDraft draft, String eraJsonText) {
+    Map<String, dynamic> era;
+    try {
+      era = jsonDecode(eraJsonText) as Map<String, dynamic>;
+    } catch (e) {
+      return Center(child: Text('Invalid JSON — fix it in Raw JSON first: $e'));
+    }
+    final manifest = MediaManifest.fromJson(draft.files['content/media-manifest.json']!);
+    String? sourceOf(Object? ref) =>
+        ref is Map ? ((ref['flagship'] as String?) ?? (ref['reduced'] as String?)) : null;
+
+    final layers = ((era['scene'] as Map?)?['layers'] as List?) ?? const [];
+    final events = (era['events'] as List? ?? const []).cast<Map<String, dynamic>>();
+
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          MediaSlot(label: 'Cover', path: sourceOf(era['cover']), manifest: manifest),
+          const SizedBox(height: 20),
+          if (layers.isNotEmpty) ...[
+            Text('Scene layers', style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 8),
+            for (var i = 0; i < layers.length; i++) ...[
+              if (layers[i] is Map && sourceOf(layers[i]) != null)
+                MediaSlot(
+                  label: 'Layer ${i + 1} — ${layers[i]['role'] ?? layers[i]['id'] ?? ''}',
+                  path: sourceOf(layers[i]),
+                  manifest: manifest,
+                  size: 120,
+                )
+              else
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Text(
+                    'Layer ${i + 1} — ${layers[i]['type']} (no image, e.g. particles/gradient)',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+              if (layers[i] is Map && (layers[i] as Map)['video'] != null)
+                MediaSlot(
+                  label: 'Layer ${i + 1} — video',
+                  path: (layers[i] as Map)['video'] as String?,
+                  manifest: manifest,
+                  size: 120,
+                ),
+            ],
+            const SizedBox(height: 20),
+          ],
+          if (events.isNotEmpty) ...[
+            Text('Event heroes', style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 8),
+            for (final e in events)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: e['hero'] != null
+                    ? MediaSlot(
+                        label: (e['title'] as Map?)?['en'] as String? ?? e['id'] as String? ?? '',
+                        path: sourceOf(e['hero']),
+                        manifest: manifest,
+                        size: 120,
+                      )
+                    : Text(
+                        '${(e['title'] as Map?)?['en'] ?? e['id']} — no hero image',
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+              ),
+          ],
         ],
       ),
     );
