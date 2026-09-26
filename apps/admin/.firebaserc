@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "long-ky-app"
+  },
+  "targets": {
+    "long-ky-app": {
+      "hosting": {
+        "long-ky-admin": [
+          "long-ky-admin"
+        ]
+      }
+    }
+  }
+}

@@ -43,3 +43,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Firebase CLI's local hosting-deploy cache (not config — .firebaserc and
+# firebase.json are both committed).
+.firebase/
