@@ -4,9 +4,31 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: PLANNING Cycle I (CMS: retire legacy Portraits, inline image/video
-replace on the Era, Period and People pages). Nothing built yet. Three
-decisions (I1–I3) need the user before execution.**
+**Status: Cycle I shipped. Decisions: I1 regenerate, I2 drop `portrait` from
+the 17, I3 replace-only video.**
+
+- **CMS (I-0…I-3, `9ca27d1`)**: shared `MediaSlot` + `MediaReplaceDialog`
+  + `mediaSessionProvider`; an Images tab on the Era page; a Cover slot in
+  the Period pane; inline Replace/Upload plus "Add avatar / Add full
+  body" on People. The Media library now lists the two scene-layer
+  `.mp4` loops. Deployed to `long-ky-admin.web.app`.
+  - **Scope cut:** a *picked* replacement video's dimensions/duration
+    aren't decoded in the browser, only its size; the current published
+    video plays via `video_player`.
+- **Portraits (I-4, `854d683`, `7ef2710`)**: all 17 legacy people now
+  have dedicated avatar (2048²) and full-body (1696×2528) art; no one in
+  `people.json` uses `portrait` any more. The user approved each era from
+  a contact sheet.
+  - Four images were regenerated after review:
+    - Lữ Gia's full body, twice: white side bars, then a seal badge that
+      read as text.
+    - Triệu Văn Đế's avatar: a modern haircut.
+    - Triệu Ai Vương's avatar (modern fringe) and full body (cartoonish).
+  - `era_test.dart` was updated to check avatar/fullBody instead of
+    portrait (`84b93c5`); the CI dry run caught the stale assertion.
+- **Published** all 17 in one real publish, with the user's yes: run
+  [36326346024](https://github.com/binhnt010896/long-ky-app/actions/runs/36326346024),
+  green end to end, content pack `37194fb` (2026-09-27T14:44:10Z).
 
 ## Audit of the previous plan (before adding Cycle I)
 
