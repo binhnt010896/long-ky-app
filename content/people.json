@@ -393,11 +393,17 @@
         "vi": "Húy là Hồ, cháu nội Triệu Vũ Đế. Vì con của Vũ Đế mất sớm, ông được truyền ngôi, tức Văn Đế. Ông giữ nếp vừa xưng thần với Hán vừa tự chủ trong nước, nối đời cơ nghiệp nhà Triệu ở đất Nam Việt.",
         "en": "Personal name Hồ, grandson of Triệu Vũ Đế. As the founder's own son had died early, the throne passed to him — Văn Đế. He kept the balance his grandfather set, vassal to Han in name yet sovereign at home, carrying on the Triệu line over Nam Việt."
       },
-      "portrait": {
-        "id": "trieu-van-de-portrait",
+      "avatar": {
+        "id": "trieu-van-de-avatar",
         "type": "image",
-        "flagship": "eras/nha-trieu/characters/trieu-van-de.png",
-        "reduced": "eras/nha-trieu/characters/trieu-van-de.png"
+        "flagship": "eras/nha-trieu/characters/trieu-van-de-avatar.png",
+        "reduced": "eras/nha-trieu/characters/trieu-van-de-avatar.png"
+      },
+      "fullBody": {
+        "id": "trieu-van-de-full",
+        "type": "image",
+        "flagship": "eras/nha-trieu/characters/trieu-van-de-full.png",
+        "reduced": "eras/nha-trieu/characters/trieu-van-de-full.png"
       }
     },
     {
@@ -414,11 +420,17 @@
         "vi": "Tể tướng nước Nam Việt, ba đời làm tướng, tông tộc hiển vinh, rất được lòng dân. Khi Cù thái hậu mưu đem nước hàng Hán, một mình ông cương quyết chống lại, rồi khởi binh giết thái hậu và vua nhỏ, lập Kiến Đức, đưa quân chống nhà Hán đến cùng. Ông là biểu tượng của lòng trung nghĩa và ý chí giữ nước trong Kỷ nhà Triệu.",
         "en": "Chancellor of Nam Việt, minister across three reigns, his clan honoured and the people behind him. When the queen dowager Cù plotted to surrender the realm to Han, he alone stood firm — then rose in arms, cut down the dowager and the boy king, set Kiến Đức on the throne, and fought Han to the end. He stands as the emblem of loyalty and the will to hold the land in the Chronicle of the Triệu."
       },
-      "portrait": {
-        "id": "lu-gia-portrait",
+      "avatar": {
+        "id": "lu-gia-avatar",
         "type": "image",
-        "flagship": "eras/nha-trieu/characters/lu-gia.png",
-        "reduced": "eras/nha-trieu/characters/lu-gia.png"
+        "flagship": "eras/nha-trieu/characters/lu-gia-avatar.png",
+        "reduced": "eras/nha-trieu/characters/lu-gia-avatar.png"
+      },
+      "fullBody": {
+        "id": "lu-gia-full",
+        "type": "image",
+        "flagship": "eras/nha-trieu/characters/lu-gia-full.png",
+        "reduced": "eras/nha-trieu/characters/lu-gia-full.png"
       }
     },
     {
@@ -435,11 +447,17 @@
         "vi": "Người Hán, vợ của Minh Vương Anh Tề, mẹ vua Ai Vương. Khi con còn nhỏ lên ngôi, bà buông rèm nhiếp chính. Nhà Hán sai người tình cũ của bà là An Quốc Thiếu Quý sang dụ; bà nghe theo, muốn đem nước Nam Việt nội thuộc nhà Hán — mưu ấy bị tể tướng Lữ Gia chống lại và bà bị giết.",
         "en": "A woman of Han, wife of Minh Vương Anh Tề and mother of the boy king Ai Vương. When her young son took the throne she ruled from behind the screen. Han sent her former lover An Quốc Thiếu Quý to court her back; she agreed, and would have made Nam Việt a Han dependency — a design the chancellor Lữ Gia resisted, and for which she was killed."
       },
-      "portrait": {
-        "id": "cu-thi-portrait",
+      "avatar": {
+        "id": "cu-thi-avatar",
         "type": "image",
-        "flagship": "eras/nha-trieu/characters/cu-thi.png",
-        "reduced": "eras/nha-trieu/characters/cu-thi.png"
+        "flagship": "eras/nha-trieu/characters/cu-thi-avatar.png",
+        "reduced": "eras/nha-trieu/characters/cu-thi-avatar.png"
+      },
+      "fullBody": {
+        "id": "cu-thi-full",
+        "type": "image",
+        "flagship": "eras/nha-trieu/characters/cu-thi-full.png",
+        "reduced": "eras/nha-trieu/characters/cu-thi-full.png"
       }
     },
     {
@@ -456,11 +474,17 @@
         "vi": "Húy là Hưng, con Minh Vương và Cù thị, lên ngôi khi còn nhỏ nên thái hậu nhiếp chính. Ông là vị vua bị kẹt giữa mẹ muốn hàng Hán và tể tướng muốn giữ nước; khi Lữ Gia khởi binh, ông bị giết cùng thái hậu.",
         "en": "Personal name Hưng, son of Minh Vương and the lady Cù, enthroned as a child under his mother's regency. He was the king caught between a mother who would submit to Han and a chancellor who would not; when Lữ Gia rose, he was killed alongside the dowager."
       },
-      "portrait": {
-        "id": "trieu-ai-vuong-portrait",
+      "avatar": {
+        "id": "trieu-ai-vuong-avatar",
         "type": "image",
-        "flagship": "eras/nha-trieu/characters/trieu-ai-vuong.png",
-        "reduced": "eras/nha-trieu/characters/trieu-ai-vuong.png"
+        "flagship": "eras/nha-trieu/characters/trieu-ai-vuong-avatar.png",
+        "reduced": "eras/nha-trieu/characters/trieu-ai-vuong-avatar.png"
+      },
+      "fullBody": {
+        "id": "trieu-ai-vuong-full",
+        "type": "image",
+        "flagship": "eras/nha-trieu/characters/trieu-ai-vuong-full.png",
+        "reduced": "eras/nha-trieu/characters/trieu-ai-vuong-full.png"
       }
     },
     {
@@ -477,11 +501,17 @@
         "vi": "Con trưởng của Minh Vương, mẹ là người Việt, được Lữ Gia lập lên ngôi sau khi giết Ai Vương và Cù hậu. Ông làm vua chưa được bao lâu thì quân Hán sang đánh; Phiên Ngung thất thủ, ông cùng Lữ Gia chạy ra biển, bị bắt và giết — vị vua cuối cùng của nhà Triệu.",
         "en": "Eldest son of Minh Vương by a Việt mother, raised to the throne by Lữ Gia after the killing of Ai Vương and the dowager Cù. He had reigned only briefly when the Han armies came; Phiên Ngung fell, and he fled to the sea with Lữ Gia, was caught and killed — the last king of the House of Triệu."
       },
-      "portrait": {
-        "id": "trieu-kien-duc-portrait",
+      "avatar": {
+        "id": "trieu-kien-duc-avatar",
         "type": "image",
-        "flagship": "eras/nha-trieu/characters/trieu-kien-duc.png",
-        "reduced": "eras/nha-trieu/characters/trieu-kien-duc.png"
+        "flagship": "eras/nha-trieu/characters/trieu-kien-duc-avatar.png",
+        "reduced": "eras/nha-trieu/characters/trieu-kien-duc-avatar.png"
+      },
+      "fullBody": {
+        "id": "trieu-kien-duc-full",
+        "type": "image",
+        "flagship": "eras/nha-trieu/characters/trieu-kien-duc-full.png",
+        "reduced": "eras/nha-trieu/characters/trieu-kien-duc-full.png"
       }
     },
     {
