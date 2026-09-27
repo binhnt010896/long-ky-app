@@ -1,25 +1,45 @@
 {
   "schemaVersion": 2,
   "files": {
-    "eras/au-lac/characters/cao-lo.png": {
-      "key": "eras/au-lac/characters/cao-lo.webp",
-      "v": "6192e76d94"
+    "eras/au-lac/characters/cao-lo-avatar.png": {
+      "key": "eras/au-lac/characters/cao-lo-avatar.webp",
+      "v": "596485acee"
     },
-    "eras/au-lac/characters/my-chau.png": {
-      "key": "eras/au-lac/characters/my-chau.webp",
-      "v": "6ef05c0f23"
+    "eras/au-lac/characters/cao-lo-full.png": {
+      "key": "eras/au-lac/characters/cao-lo-full.webp",
+      "v": "27819cf15b"
     },
-    "eras/au-lac/characters/than-kim-quy.png": {
-      "key": "eras/au-lac/characters/than-kim-quy.webp",
-      "v": "cfb1a9d491"
+    "eras/au-lac/characters/my-chau-avatar.png": {
+      "key": "eras/au-lac/characters/my-chau-avatar.webp",
+      "v": "0cd99d7d16"
     },
-    "eras/au-lac/characters/trieu-da.png": {
-      "key": "eras/au-lac/characters/trieu-da.webp",
-      "v": "bcb52497f9"
+    "eras/au-lac/characters/my-chau-full.png": {
+      "key": "eras/au-lac/characters/my-chau-full.webp",
+      "v": "91244aed56"
     },
-    "eras/au-lac/characters/trong-thuy.png": {
-      "key": "eras/au-lac/characters/trong-thuy.webp",
-      "v": "d98af8934b"
+    "eras/au-lac/characters/than-kim-quy-avatar.png": {
+      "key": "eras/au-lac/characters/than-kim-quy-avatar.webp",
+      "v": "eb7ce37dcc"
+    },
+    "eras/au-lac/characters/than-kim-quy-full.png": {
+      "key": "eras/au-lac/characters/than-kim-quy-full.webp",
+      "v": "625fb4b086"
+    },
+    "eras/au-lac/characters/trieu-da-avatar.png": {
+      "key": "eras/au-lac/characters/trieu-da-avatar.webp",
+      "v": "79246a583d"
+    },
+    "eras/au-lac/characters/trieu-da-full.png": {
+      "key": "eras/au-lac/characters/trieu-da-full.webp",
+      "v": "35a5207e34"
+    },
+    "eras/au-lac/characters/trong-thuy-avatar.png": {
+      "key": "eras/au-lac/characters/trong-thuy-avatar.webp",
+      "v": "ef1d24455d"
+    },
+    "eras/au-lac/characters/trong-thuy-full.png": {
+      "key": "eras/au-lac/characters/trong-thuy-full.webp",
+      "v": "5e5ec717e1"
     },
     "eras/au-lac/cover.png": {
       "key": "eras/au-lac/cover.webp",
@@ -869,21 +889,37 @@
       "key": "eras/hoi-nhap-quoc-te/scene/sky.webp",
       "v": "fa69139fcb"
     },
-    "eras/hong-bang/characters/an-duong-vuong.png": {
-      "key": "eras/hong-bang/characters/an-duong-vuong.webp",
-      "v": "a003c707c4"
+    "eras/hong-bang/characters/an-duong-vuong-avatar.png": {
+      "key": "eras/hong-bang/characters/an-duong-vuong-avatar.webp",
+      "v": "dfe9736746"
     },
-    "eras/hong-bang/characters/au-co.png": {
-      "key": "eras/hong-bang/characters/au-co.webp",
-      "v": "7659075d21"
+    "eras/hong-bang/characters/an-duong-vuong-full.png": {
+      "key": "eras/hong-bang/characters/an-duong-vuong-full.webp",
+      "v": "20321e7067"
     },
-    "eras/hong-bang/characters/kinh-duong-vuong.png": {
-      "key": "eras/hong-bang/characters/kinh-duong-vuong.webp",
-      "v": "72357d615f"
+    "eras/hong-bang/characters/au-co-avatar.png": {
+      "key": "eras/hong-bang/characters/au-co-avatar.webp",
+      "v": "da9855ff97"
     },
-    "eras/hong-bang/characters/lac-long-quan.png": {
-      "key": "eras/hong-bang/characters/lac-long-quan.webp",
-      "v": "d519d3162d"
+    "eras/hong-bang/characters/au-co-full.png": {
+      "key": "eras/hong-bang/characters/au-co-full.webp",
+      "v": "ba763e78ac"
+    },
+    "eras/hong-bang/characters/kinh-duong-vuong-avatar.png": {
+      "key": "eras/hong-bang/characters/kinh-duong-vuong-avatar.webp",
+      "v": "c3cf94592a"
+    },
+    "eras/hong-bang/characters/kinh-duong-vuong-full.png": {
+      "key": "eras/hong-bang/characters/kinh-duong-vuong-full.webp",
+      "v": "41384c4335"
+    },
+    "eras/hong-bang/characters/lac-long-quan-avatar.png": {
+      "key": "eras/hong-bang/characters/lac-long-quan-avatar.webp",
+      "v": "64a64406d3"
+    },
+    "eras/hong-bang/characters/lac-long-quan-full.png": {
+      "key": "eras/hong-bang/characters/lac-long-quan-full.webp",
+      "v": "a9571708b7"
     },
     "eras/hong-bang/characters/lang-lieu-avatar.png": {
       "key": "eras/hong-bang/characters/lang-lieu-avatar.webp",
@@ -893,9 +929,13 @@
       "key": "eras/hong-bang/characters/lang-lieu-full.webp",
       "v": "b11b4f1c8a"
     },
-    "eras/hong-bang/characters/son-tinh.png": {
-      "key": "eras/hong-bang/characters/son-tinh.webp",
-      "v": "fa34df0ef5"
+    "eras/hong-bang/characters/son-tinh-avatar.png": {
+      "key": "eras/hong-bang/characters/son-tinh-avatar.webp",
+      "v": "ad2373cf12"
+    },
+    "eras/hong-bang/characters/son-tinh-full.png": {
+      "key": "eras/hong-bang/characters/son-tinh-full.webp",
+      "v": "f745bc1388"
     },
     "eras/hong-bang/characters/thanh-giong-avatar.png": {
       "key": "eras/hong-bang/characters/thanh-giong-avatar.webp",
@@ -905,13 +945,21 @@
       "key": "eras/hong-bang/characters/thanh-giong-full.webp",
       "v": "cf8ee60d18"
     },
-    "eras/hong-bang/characters/thuy-tinh.png": {
-      "key": "eras/hong-bang/characters/thuy-tinh.webp",
-      "v": "05c2f33342"
+    "eras/hong-bang/characters/thuy-tinh-avatar.png": {
+      "key": "eras/hong-bang/characters/thuy-tinh-avatar.webp",
+      "v": "deeac2a074"
     },
-    "eras/hong-bang/characters/vua-hung.png": {
-      "key": "eras/hong-bang/characters/vua-hung.webp",
-      "v": "0a7997afed"
+    "eras/hong-bang/characters/thuy-tinh-full.png": {
+      "key": "eras/hong-bang/characters/thuy-tinh-full.webp",
+      "v": "50a789afca"
+    },
+    "eras/hong-bang/characters/vua-hung-avatar.png": {
+      "key": "eras/hong-bang/characters/vua-hung-avatar.webp",
+      "v": "f033e36025"
+    },
+    "eras/hong-bang/characters/vua-hung-full.png": {
+      "key": "eras/hong-bang/characters/vua-hung-full.webp",
+      "v": "a3f5978088"
     },
     "eras/hong-bang/cover.png": {
       "key": "eras/hong-bang/cover.webp",
@@ -1621,25 +1669,45 @@
       "key": "eras/ngo-quyen/scene/sky.webp",
       "v": "eca6d5c3b0"
     },
-    "eras/nha-trieu/characters/cu-thi.png": {
-      "key": "eras/nha-trieu/characters/cu-thi.webp",
-      "v": "b9388a9fa1"
+    "eras/nha-trieu/characters/cu-thi-avatar.png": {
+      "key": "eras/nha-trieu/characters/cu-thi-avatar.webp",
+      "v": "e4c6a651ba"
     },
-    "eras/nha-trieu/characters/lu-gia.png": {
-      "key": "eras/nha-trieu/characters/lu-gia.webp",
-      "v": "dfa5cff4e3"
+    "eras/nha-trieu/characters/cu-thi-full.png": {
+      "key": "eras/nha-trieu/characters/cu-thi-full.webp",
+      "v": "e029847e8b"
     },
-    "eras/nha-trieu/characters/trieu-ai-vuong.png": {
-      "key": "eras/nha-trieu/characters/trieu-ai-vuong.webp",
-      "v": "6ac3a2496a"
+    "eras/nha-trieu/characters/lu-gia-avatar.png": {
+      "key": "eras/nha-trieu/characters/lu-gia-avatar.webp",
+      "v": "116a7d0971"
     },
-    "eras/nha-trieu/characters/trieu-kien-duc.png": {
-      "key": "eras/nha-trieu/characters/trieu-kien-duc.webp",
-      "v": "9e5c0fc7a4"
+    "eras/nha-trieu/characters/lu-gia-full.png": {
+      "key": "eras/nha-trieu/characters/lu-gia-full.webp",
+      "v": "ae77826b15"
     },
-    "eras/nha-trieu/characters/trieu-van-de.png": {
-      "key": "eras/nha-trieu/characters/trieu-van-de.webp",
-      "v": "3df338a9a9"
+    "eras/nha-trieu/characters/trieu-ai-vuong-avatar.png": {
+      "key": "eras/nha-trieu/characters/trieu-ai-vuong-avatar.webp",
+      "v": "435d6d428d"
+    },
+    "eras/nha-trieu/characters/trieu-ai-vuong-full.png": {
+      "key": "eras/nha-trieu/characters/trieu-ai-vuong-full.webp",
+      "v": "3c183d91ab"
+    },
+    "eras/nha-trieu/characters/trieu-kien-duc-avatar.png": {
+      "key": "eras/nha-trieu/characters/trieu-kien-duc-avatar.webp",
+      "v": "8e579c73f1"
+    },
+    "eras/nha-trieu/characters/trieu-kien-duc-full.png": {
+      "key": "eras/nha-trieu/characters/trieu-kien-duc-full.webp",
+      "v": "477da685e1"
+    },
+    "eras/nha-trieu/characters/trieu-van-de-avatar.png": {
+      "key": "eras/nha-trieu/characters/trieu-van-de-avatar.webp",
+      "v": "fc089940ed"
+    },
+    "eras/nha-trieu/characters/trieu-van-de-full.png": {
+      "key": "eras/nha-trieu/characters/trieu-van-de-full.webp",
+      "v": "628887afe1"
     },
     "eras/nha-trieu/cover.png": {
       "key": "eras/nha-trieu/cover.webp",
