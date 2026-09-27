@@ -4,245 +4,279 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: Cycle I shipped. Decisions: I1 regenerate, I2 drop `portrait` from
-the 17, I3 replace-only video.**
+**Status: Cycle J planned, not started. Waiting on decisions J1–J4.**
 
-- **CMS (I-0…I-3, `9ca27d1`)**: shared `MediaSlot` + `MediaReplaceDialog`
-  + `mediaSessionProvider`; an Images tab on the Era page; a Cover slot in
-  the Period pane; inline Replace/Upload plus "Add avatar / Add full
-  body" on People. The Media library now lists the two scene-layer
-  `.mp4` loops. Deployed to `long-ky-admin.web.app`.
-  - **Scope cut:** a *picked* replacement video's dimensions/duration
-    aren't decoded in the browser, only its size; the current published
-    video plays via `video_player`.
-- **Portraits (I-4, `854d683`, `7ef2710`)**: all 17 legacy people now
-  have dedicated avatar (2048²) and full-body (1696×2528) art; no one in
-  `people.json` uses `portrait` any more. The user approved each era from
-  a contact sheet.
-  - Four images were regenerated after review:
-    - Lữ Gia's full body, twice: white side bars, then a seal badge that
-      read as text.
-    - Triệu Văn Đế's avatar: a modern haircut.
-    - Triệu Ai Vương's avatar (modern fringe) and full body (cartoonish).
-  - `era_test.dart` was updated to check avatar/fullBody instead of
-    portrait (`84b93c5`); the CI dry run caught the stale assertion.
-- **Published** all 17 in one real publish, with the user's yes: run
-  [36326346024](https://github.com/binhnt010896/long-ky-app/actions/runs/36326346024),
-  green end to end, content pack `37194fb` (2026-09-27T14:44:10Z).
+## Audit of the previous plan (before adding Cycle J)
 
-## Audit of the previous plan (before adding Cycle I)
+**Cycle I is fully shipped.**
+- CMS inline media (I-0…I-3): `9ca27d1`, deployed to `long-ky-admin.web.app`.
+- The 17 legacy people have dedicated avatar/full-body art (I-4): `854d683`,
+  `7ef2710`, `84b93c5`.
+  - Published in run
+    [36326346024](https://github.com/binhnt010896/long-ky-app/actions/runs/36326346024),
+    content pack `37194fb` (2026-09-27T14:44:10Z).
+  - No one in `people.json` uses `portrait` any more.
+- Still open from I: the user checks on Android that the 17 figures show the
+  new art.
 
-**Everything Claude owned is done.**
-- Cycle H: shipped in `0bddd08`.
-- The four live-feedback fixes after it:
-  - Preview removed; Appearance settings (light/dark/auto plus an accent
-    colour) with a neutral hand-built colour scheme instead of the pink
-    `fromSeed` derivation — `d211289`.
-  - Invisible icons and unresponsive Appearance clicks — `0e10f42`.
-  - The Appearance entry clipped off in short windows, now a single `⋮`
-    menu — `6751575`.
-- The only open item from the user's last check: confirm that the `⋮` menu
-  shows and the theme options respond.
-
-**Still open, in the user's hands (unchanged, none of it blocks Cycle I):**
-1. Firebase console → Analytics → Custom definitions: register
-   `era_slug`, `event_id`, `figure_id`.
-2. Deploy the privacy page (the portfolio site is a single-page app, so
-   `curl` gets a 200 for any route and can't confirm it's live). Make Play
-   Console's Data safety form match
-   `docs/play-store/data-safety-and-listing.md` before uploading 1.0.1+3.
-3. Upload the 1.0.1+3 `.aab`.
-4. From Cycle E: payments verification, the `long_ky_tea*` products,
-   license testing, a test purchase, screenshots and the feature graphic.
-5. Optional: delete the unused Hosting site `admin-long-ky.web.app`. It
-   still exists (checked with `firebase hosting:sites:list`).
+**Still open, in the user's hands:**
+1. **Play closed test (new, it gates production):** get at least 12 testers
+   opted in and keep them opted in for 14 days in a row. Aim for about 15, so
+   one person dropping out doesn't reset the clock. Ask testers to install
+   the app and open it a few times, because the production application asks
+   about engagement.
+   - 1.0.1+3 is already on the closed track, so Cycle J ships as a **new
+     build, 1.0.2+4**.
+2. Firebase console → Analytics → Custom definitions: register `era_slug`,
+   `event_id`, `figure_id`.
+3. Deploy the privacy page. Make Play's Data safety form match
+   `docs/play-store/data-safety-and-listing.md`.
+4. From Cycle E: the `long_ky_tea*` products, license testing, a test
+   purchase, screenshots and the feature graphic.
+5. Optional: delete the unused Hosting site `admin-long-ky.web.app`.
 
 **Known caveat, not a task:** an era with `draft: true` is kept out of
-over-the-air packs but would still ship in a fresh mobile *build*. Clear
-`draft` before cutting a release.
+over-the-air packs but would still ship in a fresh mobile *build*. No era is
+a draft today.
 
-## Facts Cycle I is built on (checked, not assumed)
+## The feedback (from the user's own testing)
 
-- **Legacy Portraits: 17 people**, all portrait-only; no person mixes
-  portrait with avatar/full body.
-  - Hồng Bàng (7): Kinh Dương Vương, Lạc Long Quân, Âu Cơ, Vua Hùng, Sơn
-    Tinh, Thủy Tinh — plus An Dương Vương, whose sheet lives in this
-    folder.
-  - Âu Lạc (5): Cao Lỗ, Thần Kim Quy (a turtle), Mỵ Châu, Trọng Thủy,
-    Triệu Đà.
-  - Nhà Triệu (5): Triệu Văn Đế, Lữ Gia, Cù Thị, Triệu Ai Vương, Triệu
-    Kiến Đức.
-  - Each sheet is **1254×1254**, 3 panels: full body on the left half,
-    bust top-right, action pose bottom-right.
-  - Modern art for comparison: avatar **2048×2048** (1:1), full body
-    **1696×2528** (2:3).
-  - No era overrides a character's image (`characters[]` carries no
-    portrait/avatar/fullBody), so switching a person switches them
-    everywhere.
-- **Where Portrait is used in the app:**
-  - `event_figures.dart` crops the bust from the sheet when there's no
-    avatar.
-  - `character_detail_screen.dart` crops the full body from the sheet when
-    there's no fullBody.
-  - Every shipped app version already prefers `avatar`/`fullBody`, so
-    giving these 17 people dedicated art works on phones already installed.
-- **Cropping the old sheets isn't good enough:**
-  - The full-body panel is about 627×1254, a 1:2 shape rather than 2:3.
-  - The bust is about 550 px wide, a quarter of a modern avatar.
-  - The sheets have the margin problem that retired this format in the
-    first place ([[character-sheet-bust-crop]]).
-- **Era imagery:**
-  - 38 covers, 84 scene layers, 237 event hero images.
-  - All 17 periods have a cover.
-- **Video:**
-  - Two looping `.mp4`s exist, on the **sky scene layer** (`scene.layers[].video`),
-    not the cover: Điện Biên Phủ and Đại thắng mùa Xuân.
-  - Publishing copies them as-is (no WebP conversion); both are in the
-    manifest.
-- **CMS gap:** `collectMediaRefs` only reads `flagship`/`reduced`, so **the
-  two `.mp4`s don't appear in the Media library at all** today.
-  - The replace flow decodes files with `instantiateImageCodec`, which
-    can't read a video.
-  - The Worker already accepts `video/mp4`, up to 100 MB.
+1. Switching to English in the Sảnh leaves **Home** in Vietnamese.
+2. The **era event list** is hard to read because the background is too
+   bright.
+3. The **Atlas** is always in Vietnamese.
+4. Getting from the first period to the last on Home takes too long. The user
+   wants something like the iPhone Contacts index: **grab the side indicator
+   and drag** to scrub through periods.
+
+## Facts Cycle J is built on (checked, not assumed)
+
+- **Language state:** `langProvider` is a plain
+  `StateProvider<Lang>((_) => Lang.vi)` in `lib/state/providers.dart:55`.
+  - It is **not saved**, so every relaunch starts in Vietnamese even after
+    choosing EN.
+  - The toggle (`LangToggle`) lives in the Sảnh. Era Hub, Timeline, Event,
+    Character, Quiz and Global timeline already read `langProvider`.
+- **Home ignores the language entirely** (`home_screen.dart`, `era_scene_view.dart`):
+  - Three hard-coded `Lang.vi`: the era hero (`EraSceneView(lang: Lang.vi)`,
+    line 214) and the dynasty title and years in the top chrome (lines 298,
+    305).
+  - Hard-coded labels: `'KHÁM PHÁ'` (explore affordance), `'ĐỈNH CAO'`
+    (flagship badge, also in `global_timeline_screen.dart:719`), and the
+    `'No dynasties'` error.
+  - The content is ready: all 17 periods and every era already carry `en`
+    titles, subtitles and year displays.
+- **Other hard-coded UI strings found in a sweep:**
+  - `TimelineBar` always prints `"500 TCN"`, never `BCE` (`timeline_bar.dart:43`).
+  - `SealButton`'s semantics label `'Sảnh Long Ký'`, and the splash
+    kicker `'NGHÌN NĂM SỬ VIỆT'`.
+    - The splash is shown before the saved language could be read, so it
+      stays Vietnamese (brand moment).
+  - **The Chào cờ anthem lyrics stay Vietnamese by design.** It's the
+    national anthem.
+- **Era event list** (`era_timeline_screen.dart`, `timeline_event_card.dart`):
+  - The backdrop is the era's scene with `scrim: 0.1`, a 10% dark veil.
+  - Each card's fill is `inkPrimary` at **3% alpha**, so the card is
+    essentially transparent.
+  - The text is light (cream), so on bright dawn skies the summary line has
+    almost no contrast.
+  - For comparison: Home uses a flat 50% black plus a gradient scrim, and
+    Character detail uses a 0.4 scrim.
+- **Atlas** (`screens/prototype/territory_map_demo_screen.dart`, data in
+  `territory_atlas_data.dart`):
+  - The data is **generated** by `tool/geo/gen_atlas.py`: 26 snapshots, about
+    130 unique Vietnamese-only strings (region names, subtitles, snapshot
+    titles, the two boundary labels).
+  - `AtlasRegion` and `AtlasSnapshot` hold plain `String`s with no English
+    slot.
+  - Screen chrome is hard-coded:
+    - The header `'BẢN ĐỒ LÃNH THỔ'` and the two-line hint.
+    - `'Ranh giới ngày nay'`.
+    - The four island labels and subtitles (Phú Quốc, Côn Đảo, Hoàng Sa,
+      Trường Sa).
+  - `territory_map.dart:471` appends `' (bảo hộ)'` to protectorate names.
+- **Home period rail** (`_SideDots` in `home_screen.dart`):
+  - 17 periods. The rail is 17 dots, 6 px wide, about 262 px tall, and
+    16 px from the right edge.
+  - It is **display-only**: no gestures, and it can't be tapped or dragged.
+  - Moving between periods is one vertical swipe per page, so the first to
+    the last takes 16 swipes.
+  - A page change already updates `hubDynastyIndexProvider` and queues
+    `MediaPrefetcher` for the neighbouring pages.
 
 ## Decisions needed
 
-- **I1 — How the 17 get avatar and full-body art.** *Recommend: regenerate
-  with Higgsfield* (nano_banana_pro).
-  - Two single-subject images per person: 1:1 avatar and 2:3 full body.
-  - Painterly lacquer realism, prompts faithful to the chronicle
-    ([[stay-close-to-dvsktt]], [[art-style-painterly-realism]]).
-  - **The existing sheet goes in as the reference image**, so each figure
-    keeps their current look.
-  - Cost: 34 images at about 2 credits each, around 70 credits plus
-    retries.
-  - Alternative: crop the old sheets. That's free but low-res, the wrong
-    shape, and keeps the margin artefacts. Not recommended.
-- **I2 — What happens to `portrait` afterwards.** *Recommend:*
-  - Remove the field from those 17 people once their new art is published.
-    The old sheet stays in `long-ky-sources` as the original, and the next
-    publish drops it from the CDN.
-  - Keep `portrait` optional in the schema and keep the app's fallback
-    code. Both are harmless, and ripping them out means a mobile release
-    for no user-visible gain.
-  - The CMS then shows a Portrait slot only on a person who still has one.
-- **I3 — Video scope for inline editing.** *Recommend: replace an existing
-  `.mp4` only.*
-  - Also show the video on its layer and include it in the Media library.
-  - Defer "add a looping video to a layer that has none": it changes the
-    JSON and is a creative call per era.
+- **J1 — Remember the language across launches?** *Recommend: yes.*
+  - Save the choice to a small file in the app-support folder, the same
+    pattern as `FileTelemetrySettingsStore`. No new package needed.
+  - Read it at startup, so Home opens in the chosen language.
+  - First launch stays **VI**, because Vietnamese is canonical.
+    - Alternative: default to EN when the phone's locale isn't Vietnamese.
+      Not recommended: the app is for Vietnamese readers first, and EN is
+      opt-in.
+- **J2 — How names read on the English atlas.** *Recommend:*
+  - **Vietnamese polities keep their Vietnamese names, with diacritics**
+    (Văn Lang, Đại Việt, Nam Việt, Đàng Trong). The English content already
+    works this way.
+  - **Foreign polities get their English names:**
+    - Han / Ming / Qing dynasty.
+    - Champa, Chenla, Siam, Burma.
+    - Laos (for Ai Lao), Cambodia.
+  - **Hoàng Sa and Trường Sa keep their Vietnamese names in English too**,
+    with the subtitle "Archipelago of Vietnam".
+    - Never "Paracel" or "Spratly" as the label on its own. This keeps the
+      atlas aligned with the Vietnamese government's point of view
+      ([[modern-era-sourcing-gov-pov]]).
+  - `TCN` becomes `BCE` on the atlas and every timeline bar.
+- **J3 — How to make the event list readable.** *Recommend: a darker veil
+  plus lacquer cards.*
+  - Raise the scrim from 0.1 to about **0.45**, and give each card a dark
+    lacquer fill of about **55%** alpha.
+  - The scene still shows around and between the cards.
+  - **Target:** the summary text reaches **4.5:1 contrast (WCAG AA)** over
+    the brightest era scene, measured, not eyeballed.
+  - Alternative: frosted-glass blur behind each card. It looks lovely, but
+    real-time blur on a scrolling list is expensive on low-tier phones. Not
+    recommended.
+- **J4 — How the period scrubber behaves.** *Recommend: live, like iPhone
+  Contacts.*
+  - Dragging along the rail moves Home to that period **immediately**.
+  - A small bubble next to your finger shows the period's name and years in
+    the current language.
+  - A light haptic tick at each period.
+  - Tapping a dot jumps straight to it.
+  - Alternative: show only the bubble while dragging and move on release.
+    Cheaper, but it doesn't feel like Contacts.
 
-## Cycle I — spec
+## Cycle J — spec
 
-### I-0 Housekeeping
+### J-1 Home follows the language (feedback 1, J1)
 
-- The Media library indexes `video` paths too, so the two `.mp4`s appear,
-  grouped under their era as "Scene layer N — video".
-- Record the post-H fixes in this file (done above).
+- Home reads `langProvider`:
+  - Pass it to `EraSceneView` (era kicker, title, years, subtitle).
+  - Dynasty title and years in the top chrome.
+  - `KHÁM PHÁ` / **EXPLORE** and `ĐỈNH CAO` / **PEAK** (in both places).
+  - The empty-state message.
+- **Save the language** (J1):
+  - Add a `LangStore` (file in app support) that writes on every toggle.
+  - `main.dart` reads it before the first frame and overrides
+    `langProvider`'s initial value, so nothing flashes Vietnamese first.
+- **Sweep:**
+  - `TimelineBar` prints `BCE` in EN.
+  - `SealButton`'s semantics label reads "Long Ký hall" in EN.
+- No language toggle is added to Home. It stays in the Sảnh
+  ([[delicate-ui-no-nags]]).
 
-### I-1 Shared inline media slot (the foundation for I-2 and I-3)
+### J-2 Readable event list (feedback 2, J3)
 
-- **`MediaSlot` widget**, one per asset path:
-  - Thumbnail: from the CDN for images; a muted looping preview for
-    `.mp4`.
-  - Pixel dimensions (and duration for video), and file size.
-  - A status badge: *Published*, *Missing* (referenced but never
-    published) or *Replaced — publish to go live*.
-  - A **Replace…** button (it reads **Upload…** when the file is missing)
-    and a small "Open in Media library" link.
-- **`MediaReplaceDialog`**: the current replace dialog moved out of
-  `media_library_screen.dart`, unchanged in behaviour, so the Media
-  library and every page share one flow. Kept as-is:
-  - The file must match the path's type.
-  - Old and new side by side.
-  - Warnings for a changed aspect ratio, a smaller image, or lost
-    transparency.
-  - The Worker backs up the old original before overwriting it.
-- **Video in the replace flow** (adds the `video_player` package):
-  - Dimensions and duration come from the video player instead of the
-    image decoder.
-  - Warnings for a changed aspect ratio or lower resolution; files over
-    100 MB are refused up front.
-- **"Replaced this session" moves into a shared provider.** Today it's a
-  map private to the Media library. As a provider, replacing an image on
-  the People page also updates the Media library, the Era page and the
-  Period pane (and vice versa).
-- If an asset's `flagship` and `reduced` point to *different* paths, show
-  one slot per path. Today they're always identical, so users will see one
-  slot.
+- `era_timeline_screen.dart`: `scrim: 0.1` becomes about `0.45`.
+- `timeline_event_card.dart`: the card fill changes from `inkPrimary @ 3%` to
+  `lacquer @ ~55%`, and the hairline border rises slightly so card edges
+  still read.
+  - The summary text colour goes up one step if the contrast target isn't
+    met.
+- **Measure, then tune:**
+  - For every era, sample the brightest region of its scene (sky layer)
+    behind the list area.
+  - Composite the scrim and card fill over it, and compute contrast against
+    the summary text colour.
+  - Tune the two alphas to the lowest values that pass **4.5:1** on the
+    worst era, so the art is dimmed no more than needed.
+  - The measured numbers go into this file.
+- Nothing else on the page changes (spine, progress bar, animations).
 
-### I-2 Images on the Era page and the Period pane
+### J-3 Atlas in English (feedback 3, J2)
 
-- **Era page** (`/eras/:slug`): add an **Images** tab next to Guided and
-  Raw JSON.
-  - **Cover** slot.
-  - **Scene layers** in depth order: each image layer's still, plus its
-    video slot when it has one. Particle and gradient layers are listed as
-    non-image rows so the order still reads correctly.
-  - **Event heroes**: one row per event in timeline order, showing the
-    event title and its hero slot. Events with no hero say so.
-- **Period pane** (in the Content tree): a **Cover** slot under the fields.
-- Images are replaced at the same path, so none of this changes the JSON.
-  There is nothing to commit, only a publish to take it live.
+- **Data:**
+  - `gen_atlas.py` gains English for every region (`name_en`, `sub_en`),
+    snapshot (`title_en`, `sub_en`) and boundary label.
+  - **The generator fails if any English string is missing**, so a future
+    snapshot can't ship Vietnamese-only.
+  - Regenerate `territory_atlas_data.dart`. The geometry is unchanged: same
+    source, same seed.
+- **Model:**
+  - `AtlasRegion` and `AtlasSnapshot` carry `LocalizedText` (from
+    `core_domain`) instead of `String`.
+  - The screen resolves them with `langProvider` before building
+    `TerritoryRegion`s.
+- **Screen chrome:**
+  - Header: `BẢN ĐỒ LÃNH THỔ` / **TERRITORY ATLAS**.
+  - The hint line.
+  - `Ranh giới ngày nay` / **Present-day border**.
+  - The four islands' names and subtitles.
+  - `(bảo hộ)` / **(protectorate)**, passed into `TerritoryMap` as a label so
+    the widget itself holds no language.
+- **Translation rules:** as in J2, following the chronicle's own naming
+  ([[stay-close-to-dvsktt]]). English is written by Claude. The user reviews
+  the full VI → EN table (about 130 rows) before it's merged.
 
-### I-3 Inline replace on People
+### J-4 Period scrubber on Home (feedback 4, J4)
 
-- Avatar / Full body / Portrait become `MediaSlot`s, with inline Replace
-  (or Upload) on the page.
-- **"Add avatar" / "Add full body"** for a person who has neither.
-  - This creates the asset ref at the conventional path
-    `eras/<first era in "Used in">/characters/<id>-avatar.png` (or
-    `-full.png`), then opens Upload.
-  - It is a JSON change, so it gets staged for commit like any other edit.
-  - It's how a future person gets art without touching raw JSON.
+- The rail keeps its delicate look at rest: the same dots and gold pill, no
+  new always-on chrome.
+- **Touch target:**
+  - An invisible 44 px-wide strip over the rail, slightly taller than it.
+  - It sits inset from the screen edge so it doesn't fight Android's
+    edge-swipe back gesture.
+- **While dragging:**
+  - The finger's vertical position maps to a period index across the rail
+    height.
+  - On each index change: `jumpToPage` (no animation), a haptic
+    `selectionClick`, and update `hubDynastyIndexProvider`.
+  - Changes are throttled so a fast fling across all 17 doesn't decode 17
+    scenes in a burst.
+  - The dots swell slightly.
+  - A **bubble** floats left of the finger with the period's crest, name
+    and years in the current language. It's gold-bordered lacquer and
+    matches the app.
+- **On release:** the bubble fades out.
+  - `MediaPrefetcher` is queued once for the final period only, not for
+    every period passed over.
+  - The existing `era_card_view` telemetry is already debounced, so a scrub
+    counts only where you stop.
+- **Tap a dot:** jump to that period.
+- **Swiping between pages still works** exactly as today.
+- **Accessibility:** the rail is a `Semantics` slider: "Period 5 of 17, Nhà
+  Lý", with increase/decrease actions.
 
-### I-4 Replace the 17 legacy Portraits (after I1 and I2 are confirmed)
-
-1. **Generate**, one era at a time. For each person: the 1:1 avatar and
-   2:3 full body, with the old sheet as the reference image.
-   - Thần Kim Quy's avatar is the turtle's head; the full body is the
-     whole turtle.
-   - Checks: a full-bleed image, no text or borders, the correct era
-     dress per the chronicle.
-2. **Review gate (the user):** Claude publishes a contact sheet for each
-   era — old sheet next to the new avatar and full body. Nothing goes into
-   `content/` until the user approves each era. Rejected images are
-   regenerated.
-3. **Wire in** approved art:
-   - Save as `eras/<era>/characters/<id>-avatar.png` and `-full.png`.
-   - Upload with `push_sources.sh`.
-   - Update `people.json`: add `avatar`/`fullBody`, remove `portrait`
-     (per I2).
-   - Validate, dry-run publish, then a **real publish with the user's
-     yes**.
-4. **Verify on the phone** (the user, Android): figure tiles and the
-   character detail hero for these 17 no longer look cropped from a sheet.
-
-### I-5 Verify and ship
+### J-5 Verify and ship
 
 - **Tests:**
-  - `collectMediaRefs` includes video paths.
-  - `MediaSlot` states: published, missing, replaced, video.
-  - The shared replaced-media provider updates every page that uses the
-    same path.
-  - "Add avatar" writes the conventional path, and only its own person.
-  - `melos analyze` and the full test suites stay green.
-- **Browser:**
-  - Claude checks that the build loads with no console errors.
-  - This session's Browser pane has shown stale renders, so the visual
-    check goes to the user and is not claimed as verified.
-- **Deploy** the CMS with `firebase deploy --only hosting:long-ky-admin`.
-  The Worker needs no change for this cycle.
+  - Home renders EN titles, years and `EXPLORE` when `langProvider` is EN.
+  - `LangStore` round-trips and survives a missing or corrupt file.
+  - `TimelineBar` prints BCE / TCN correctly.
+  - Every atlas region and snapshot has non-empty VI and EN.
+  - The atlas header and island labels follow the language.
+  - Scrubber: a drag at y maps to the right index, and ends on the right
+    page. Tapping a dot jumps. Prefetch is queued once on release.
+  - `melos analyze` and every suite stay green.
+- **Contrast:** the J-2 measurement is recorded, with the worst era and its
+  ratio.
+- **Browser (Flutter web, cache-busted):**
+  - Claude checks Home in EN, the event list on the brightest era, the atlas
+    in EN, and a scrub from the first period to the last.
+  - This session's Browser pane has shown stale renders before, so the
+    final look is the user's call on Android.
+- **Release:**
+  - Bump to **1.0.2+4**.
+  - The user builds the AAB (`flutter build appbundle --release`; the
+    keystore stays with the user) and uploads it to the **closed testing**
+    track.
+  - Uploading new builds during the 14-day test is normal.
+- **Order:** J-1 → J-2 → J-3 → J-4 → J-5. J-1 and J-2 are small and could go
+  to testers first if the user wants.
 
-### Out of scope for I
+### Out of scope for J
 
-- Adding a new looping video to a layer that has none (deferred per I3).
-- Removing `portrait` from the schema or app code (per I2).
-- A per-event field editor. Event text stays in the era page's Raw JSON;
-  only the event *hero image* becomes editable here.
+- Translating the Chào cờ anthem lyrics (they stay Vietnamese).
+- A language toggle on Home.
+- Following the phone's locale on first launch (per J1).
+- Any content change. This cycle is app code only, delivered by the new
+  build, not over the air.
 
 ## Next cycles (queued)
 
 Carried-over UX audit findings (top-bar scrims, particles over text, Chào
 cờ lyrics legibility, swipe-hint timing) are still parked — see
-`21fb88b:EXECUTION.md`.
+`21fb88b:EXECUTION.md`. The J-2 scrim work may resolve part of the
+"top-bar scrims" item; re-check it after J ships.
