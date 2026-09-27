@@ -13,6 +13,11 @@ class LangToggle extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final lang = ref.watch(langProvider);
+    void setLang(Lang next) {
+      ref.read(langProvider.notifier).state = next;
+      ref.read(langStoreProvider).save(next);
+    }
+
     return Container(
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
@@ -26,12 +31,12 @@ class LangToggle extends ConsumerWidget {
           _Segment(
             label: 'VI',
             active: lang == Lang.vi,
-            onTap: () => ref.read(langProvider.notifier).state = Lang.vi,
+            onTap: () => setLang(Lang.vi),
           ),
           _Segment(
             label: 'EN',
             active: lang == Lang.en,
-            onTap: () => ref.read(langProvider.notifier).state = Lang.en,
+            onTap: () => setLang(Lang.en),
           ),
         ],
       ),

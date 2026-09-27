@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:core_domain/core_domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../state/providers.dart';
 import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/territory_map.dart';
@@ -76,10 +78,10 @@ class _TerritoryMapDemoScreenState
     return n == 0 ? Offset.zero : Offset(sx / n, sy / n);
   }
 
-  TerritoryRegion _toRegion(AtlasRegion r) => TerritoryRegion(
+  TerritoryRegion _toRegion(AtlasRegion r, Lang lang) => TerritoryRegion(
         id: r.id,
-        name: r.name,
-        subtitle: r.subtitle,
+        name: r.name.resolve(lang),
+        subtitle: r.subtitle?.resolve(lang),
         color: Color(r.color),
         rings: r.rings,
         labelAt: r.labelAt,
@@ -87,25 +89,29 @@ class _TerritoryMapDemoScreenState
 
   @override
   Widget build(BuildContext context) {
+    final lang = ref.watch(langProvider);
+    final en = lang == Lang.en;
     final snap = kAtlas[_index];
     final forces = <TerritoryRegion>[
       for (final r in snap.regions)
-        if (r.role == AtlasRole.core || r.role == AtlasRole.rival) _toRegion(r),
+        if (r.role == AtlasRole.core || r.role == AtlasRole.rival)
+          _toRegion(r, lang),
     ];
     final claims = <TerritoryRegion>[
       for (final r in snap.regions)
-        if (r.role == AtlasRole.protectorate) _toRegion(r),
+        if (r.role == AtlasRole.protectorate) _toRegion(r, lang),
     ];
     final neighbours = <TerritoryRegion>[
       for (final r in snap.regions)
-        if (r.role == AtlasRole.neighbour) _toRegion(r),
+        if (r.role == AtlasRole.neighbour) _toRegion(r, lang),
     ];
     const islandGreen = Color(0xFF4F7A70);
+    final islandOfVietnam = en ? 'Island of Vietnam' : 'Đảo của Việt Nam';
     final islandLands = <TerritoryRegion>[
       TerritoryRegion(
         id: 'phu-quoc',
         name: 'Phú Quốc',
-        subtitle: 'Đảo của Việt Nam',
+        subtitle: islandOfVietnam,
         color: islandGreen,
         rings: kPhuQuoc,
         labelAt: _centroid(kPhuQuoc),
@@ -113,7 +119,7 @@ class _TerritoryMapDemoScreenState
       TerritoryRegion(
         id: 'con-dao',
         name: 'Côn Đảo',
-        subtitle: 'Đảo của Việt Nam',
+        subtitle: islandOfVietnam,
         color: islandGreen,
         rings: kConDao,
         labelAt: _centroid(kConDao),
@@ -144,7 +150,7 @@ class _TerritoryMapDemoScreenState
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'BẢN ĐỒ LÃNH THỔ',
+                          en ? 'TERRITORY ATLAS' : 'BẢN ĐỒ LÃNH THỔ',
                           style: VSType.overline.copyWith(
                             color: VSColors.goldBright,
                             letterSpacing: VSType.track(0.3, 10),
@@ -152,9 +158,10 @@ class _TerritoryMapDemoScreenState
                           ),
                         ),
                         const SizedBox(height: 2),
-                        Text(snap.title, style: VSType.title.copyWith(fontSize: 18)),
+                        Text(snap.title.resolve(lang),
+                            style: VSType.title.copyWith(fontSize: 18)),
                         if (snap.subtitle != null)
-                          Text(snap.subtitle!,
+                          Text(snap.subtitle!.resolve(lang),
                               style: VSType.caption.copyWith(
                                   color: VSColors.gold, fontSize: 12)),
                       ],
@@ -163,13 +170,16 @@ class _TerritoryMapDemoScreenState
                 ],
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
                   VSSpacing.xl, 6, VSSpacing.xl, VSSpacing.sm),
               child: Text(
-                'Kéo thanh thời gian để đổi thời kỳ · chạm một vùng để xem thế lực. '
-                'Nét đứt là ranh giới Việt Nam ngày nay.',
-                style: TextStyle(color: VSColors.inkMuted, fontSize: 12.5),
+                en
+                    ? 'Drag the timeline to change period · tap a region to see who '
+                        'held it. The dashed outline is present-day Vietnam.'
+                    : 'Kéo thanh thời gian để đổi thời kỳ · chạm một vùng để xem thế lực. '
+                        'Nét đứt là ranh giới Việt Nam ngày nay.',
+                style: const TextStyle(color: VSColors.inkMuted, fontSize: 12.5),
               ),
             ),
             Expanded(
@@ -181,19 +191,22 @@ class _TerritoryMapDemoScreenState
                 islandLands: islandLands,
                 mapAspect: snap.mapAspect,
                 boundary: snap.boundary,
-                boundaryLabel: snap.boundaryLabel,
+                boundaryLabel: snap.boundaryLabel?.resolve(lang),
                 reference: kModernVietnam,
-                referenceLabel: 'Ranh giới ngày nay',
-                islands: const <TerritoryIslands>[
+                referenceLabel: en ? 'Present-day border' : 'Ranh giới ngày nay',
+                protectorateSuffix: en ? ' (protectorate)' : ' (bảo hộ)',
+                islands: <TerritoryIslands>[
                   TerritoryIslands(
                     name: 'Hoàng Sa',
-                    subtitle: 'Quần đảo của Việt Nam',
-                    center: Offset(0.722, 0.395),
+                    subtitle:
+                        en ? 'Archipelago of Vietnam' : 'Quần đảo của Việt Nam',
+                    center: const Offset(0.722, 0.395),
                   ),
                   TerritoryIslands(
                     name: 'Trường Sa',
-                    subtitle: 'Quần đảo của Việt Nam',
-                    center: Offset(0.833, 0.758),
+                    subtitle:
+                        en ? 'Archipelago of Vietnam' : 'Quần đảo của Việt Nam',
+                    center: const Offset(0.833, 0.758),
                   ),
                 ],
               ),
@@ -204,6 +217,7 @@ class _TerritoryMapDemoScreenState
               child: TimelineBar(
                 years: <int>[for (final s in kAtlas) s.anchorYear],
                 selected: snap.anchorYear,
+                lang: lang,
                 // The last snapshot ("thong-nhat", 1977) is the territory as
                 // it stands through the current chronicle, not a fixed year.
                 openEnded: true,

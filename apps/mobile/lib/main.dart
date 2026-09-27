@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'app.dart';
 import 'firebase_options.dart';
 import 'state/content_sync.dart';
+import 'state/lang_store.dart';
 import 'state/providers.dart';
 import 'telemetry/firebase_telemetry.dart';
 import 'telemetry/telemetry.dart';
@@ -44,6 +45,10 @@ Future<void> main() async {
   final analyticsEnabled = await FileTelemetrySettingsStore().load();
   await telemetry.setEnabled(analyticsEnabled);
 
+  // The reader's saved VI/EN choice, applied before the first frame so Home
+  // never flashes Vietnamese before switching to a saved English choice.
+  final savedLang = await FileLangStore().load();
+
   await ContentMedia.load();
 
   // Resume any previously-downloaded content pack (validated fresh — see
@@ -68,6 +73,7 @@ Future<void> main() async {
     overrides: <Override>[
       contentRepositoryProvider.overrideWithValue(ContentRepository(ota)),
       activeContentVersionProvider.overrideWith((ref) => activeVersion),
+      langProvider.overrideWith((ref) => savedLang),
       // The exact instance whose error handlers are already wired above, and
       // whose enabled-state main.dart just applied — telemetryEnabledProvider
       // independently reloads the same on-disk setting for its own state.

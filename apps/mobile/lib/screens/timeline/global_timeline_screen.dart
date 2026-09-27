@@ -716,7 +716,7 @@ class _EraChapter extends StatelessWidget {
                           ),
                           const SizedBox(width: 5),
                           Text(
-                            'ĐỈNH CAO',
+                            lang == Lang.en ? 'PEAK' : 'ĐỈNH CAO',
                             style: VSType.overline.copyWith(
                               color: VSColors.goldBright,
                               letterSpacing: VSType.track(0.3, 10),

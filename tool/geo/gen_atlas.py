@@ -20,6 +20,8 @@ import json, math, os, sys
 from shapely.geometry import shape, box
 from shapely.ops import unary_union
 
+from atlas_i18n import translate
+
 _HERE = os.path.dirname(os.path.abspath(__file__))
 _ROOT = os.path.abspath(os.path.join(_HERE, "..", ".."))
 NE = (sys.argv[1] if len(sys.argv) > 1 else
@@ -275,11 +277,25 @@ def fmt_offsets(rs):
 def esc(s):
     return s.replace("'", r"\'")
 
+def loc(vi):
+    """A Dart `LocalizedText(vi: ..., en: ...)` literal — `translate` raises if
+    `vi` has no English counterpart in atlas_i18n.py, so a new label can't
+    ship Vietnamese-only."""
+    en = translate(vi)
+    if en == vi:
+        return f"LocalizedText(vi: '{esc(vi)}')"
+    return f"LocalizedText(vi: '{esc(vi)}', en: '{esc(en)}')"
+
+def loc_opt(vi):
+    return "null" if vi is None else loc(vi)
+
 lines = []
 lines.append("// GENERATED — do not edit. Source: Natural Earth 10m (public domain).")
 lines.append("// Real coastlines; internal borders authored per era from ĐVSKTT/chính sử")
 lines.append("// (the Nam tiến frontier as a marching latitude). See tool/geo/gen_atlas.py.")
 lines.append("import 'dart:ui';")
+lines.append("")
+lines.append("import 'package:core_domain/core_domain.dart';")
 lines.append("import 'territory_atlas_model.dart';")
 lines.append("")
 lines.append(f"const double kAtlasAspect = {ASPECT};")
@@ -301,9 +317,8 @@ lines.append("")
 lines.append("const List<AtlasSnapshot> kAtlas = <AtlasSnapshot>[")
 
 for snap in SNAPSHOTS:
-    lines.append(f"  AtlasSnapshot(id: '{snap['id']}', title: '{esc(snap['title'])}',")
-    sub = "null" if snap["sub"] is None else "'{}'".format(esc(snap["sub"]))
-    lines.append(f"    subtitle: {sub}, anchorYear: {snap['anchor']}, mapAspect: kAtlasAspect,")
+    lines.append(f"  AtlasSnapshot(id: '{snap['id']}', title: {loc(snap['title'])},")
+    lines.append(f"    subtitle: {loc_opt(snap['sub'])}, anchorYear: {snap['anchor']}, mapAspect: kAtlasAspect,")
     eras = ", ".join("'{}'".format(e) for e in snap["eras"])
     lines.append(f"    eras: <String>[{eras}],")
     b = snap.get("boundary")
@@ -311,7 +326,7 @@ for snap in SNAPSHOTS:
         lat, lon0, lon1 = b
         p0 = proj(lon0, lat); p1 = proj(lon1, lat)
         lines.append(f"    boundary: <Offset>[Offset({p0[0]},{p0[1]}), Offset({p1[0]},{p1[1]})],")
-        lines.append(f"    boundaryLabel: '{esc(snap['boundary_label'])}',")
+        lines.append(f"    boundaryLabel: {loc(snap['boundary_label'])},")
     lines.append("    regions: <AtlasRegion>[")
     for r in snap["regs"]:
         rs = CONST_RINGS[r["const"]] if r["const"] else rings(r["geom"])
@@ -319,11 +334,10 @@ for snap in SNAPSHOTS:
         if not rs:
             continue
         lab = "Offset({},{})".format(*centroid_norm(rs)) if r["label"] else "null"
-        sub = "null" if r["sub"] is None else "'{}'".format(esc(r["sub"]))
         lines.append(
-            "      AtlasRegion(id: '{id}', name: '{n}', subtitle: {s}, "
+            "      AtlasRegion(id: '{id}', name: {n}, subtitle: {s}, "
             "color: 0x{c:08X}, role: AtlasRole.{role}, labelAt: {lab}, rings: {rg}),".format(
-                id=r["id"], n=esc(r["name"]), s=sub, c=r["color"],
+                id=r["id"], n=loc(r["name"]), s=loc_opt(r["sub"]), c=r["color"],
                 role=r["role"], lab=lab, rg=rg))
     lines.append("    ]),")
 lines.append("];")

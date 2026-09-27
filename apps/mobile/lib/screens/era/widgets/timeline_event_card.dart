@@ -85,8 +85,10 @@ class TimelineEventCard extends StatelessWidget {
                 margin: const EdgeInsets.only(bottom: VSSpacing.md),
                 padding: EdgeInsets.all(active ? VSSpacing.lg : VSSpacing.md - 3),
                 decoration: BoxDecoration(
-                  color: VSColors.inkPrimary
-                      .withValues(alpha: active ? 0.07 : 0.03),
+                  // Near-opaque lacquer so the summary text stays readable
+                  // over even the brightest era scene — see the contrast note
+                  // on era_timeline_screen.dart's TiltedBackdrop scrim.
+                  color: VSColors.lacquer.withValues(alpha: active ? 0.9 : 0.82),
                   borderRadius: VSRadii.cardAll,
                   border: Border.all(
                     color: active

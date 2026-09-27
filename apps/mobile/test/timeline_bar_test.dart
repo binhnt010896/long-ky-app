@@ -1,3 +1,4 @@
+import 'package:core_domain/core_domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:viet_su/widgets/timeline_bar.dart';
@@ -13,6 +14,7 @@ Future<int?> _pump(WidgetTester tester, int selected) async {
             child: TimelineBar(
               years: const <int>[200, 900, 1650, 2010],
               selected: selected,
+              lang: Lang.vi,
               onChanged: (y) => picked = y,
             ),
           ),
@@ -47,6 +49,7 @@ void main() {
               child: TimelineBar(
                 years: const <int>[200, 900, 1650, 2010],
                 selected: 2010,
+                lang: Lang.vi,
                 openEnded: true,
                 onChanged: (y) => picked = y,
               ),
@@ -73,6 +76,7 @@ void main() {
               child: TimelineBar(
                 years: const <int>[-500, 900, 1650, 1977],
                 selected: 1977,
+                lang: Lang.vi,
                 openEnded: true,
                 onChanged: (_) {},
               ),
@@ -87,6 +91,61 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('prints BCE in English, TCN in Vietnamese', (tester) async {
+    Future<void> pump(Lang lang) => tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: Center(
+                child: SizedBox(
+                  width: 360,
+                  child: TimelineBar(
+                    years: const <int>[-500, 900, 1650],
+                    selected: -500,
+                    lang: lang,
+                    onChanged: (_) {},
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+
+    await pump(Lang.vi);
+    await tester.pumpAndSettle();
+    expect(find.text('500 TCN'), findsOneWidget);
+
+    await pump(Lang.en);
+    await tester.pumpAndSettle();
+    expect(find.text('500 BCE'), findsOneWidget);
+    expect(find.text('500 TCN'), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('open-ended span reads "present" in English, "nay" in Vietnamese',
+      (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: Center(
+            child: SizedBox(
+              width: 360,
+              child: TimelineBar(
+                years: const <int>[900, 1650, 1977],
+                selected: 1977,
+                lang: Lang.en,
+                openEnded: true,
+                onChanged: (_) {},
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('1977 – present'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('tap fires onChanged with the nearest year', (tester) async {
     int? picked;
     await tester.pumpWidget(
@@ -98,6 +157,7 @@ void main() {
               child: TimelineBar(
                 years: const <int>[200, 900, 1650, 2010],
                 selected: 200,
+                lang: Lang.vi,
                 onChanged: (y) => picked = y,
               ),
             ),

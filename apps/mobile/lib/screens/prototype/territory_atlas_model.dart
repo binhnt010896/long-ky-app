@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:core_domain/core_domain.dart';
+
 /// How a region reads on the map.
 /// - [core]: the era's own state(s), bright and legend-listed.
 /// - [rival]: a competing Vietnamese state in a split era (Mạc vs Lê–Trịnh,
@@ -23,8 +25,8 @@ class AtlasRegion {
   });
 
   final String id;
-  final String name;
-  final String? subtitle;
+  final LocalizedText name;
+  final LocalizedText? subtitle;
   final int color;
   final AtlasRole role;
   final Offset? labelAt;
@@ -49,12 +51,12 @@ class AtlasSnapshot {
   });
 
   final String id;
-  final String title;
-  final String? subtitle;
+  final LocalizedText title;
+  final LocalizedText? subtitle;
   final int anchorYear;
   final List<String> eras;
   final double mapAspect;
   final List<AtlasRegion> regions;
   final List<Offset>? boundary;
-  final String? boundaryLabel;
+  final LocalizedText? boundaryLabel;
 }

@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../telemetry/telemetry.dart';
 import '../telemetry/telemetry_settings.dart';
+import 'lang_store.dart';
 
 /// The active experience tier.
 ///
@@ -50,9 +51,15 @@ final eraProvider = FutureProvider.family<Era, String>((ref, slug) {
   return ref.watch(contentRepositoryProvider).loadEra(slug);
 });
 
-/// The active reading language. Vietnamese is canonical; the VI/EN toggle in the
-/// Era Hub flips this, and Hub / Timeline / Detail read it.
+/// The active reading language. Vietnamese is canonical and is the default
+/// until [FileLangStore] has loaded a saved choice — main.dart overrides this
+/// provider's initial value with that load's result before the first frame.
+/// The Sảnh's [LangToggle] flips this (and persists the choice via
+/// [langStoreProvider]); every language-aware screen reads it.
 final langProvider = StateProvider<Lang>((ref) => Lang.vi);
+
+/// Persists the VI/EN choice — see `state/lang_store.dart`.
+final langStoreProvider = Provider<LangStore>((ref) => FileLangStore());
 
 /// Remembered scroll position of the Home dynasty hub, so returning to Home
 /// restores where the user left off. Needed because the hub's page views hold

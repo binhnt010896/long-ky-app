@@ -68,6 +68,7 @@ class TerritoryMap extends StatefulWidget {
     this.islands = const <TerritoryIslands>[],
     this.reference,
     this.referenceLabel,
+    this.protectorateSuffix = ' (bảo hộ)',
   });
 
   final List<TerritoryRegion> forces;
@@ -90,6 +91,10 @@ class TerritoryMap extends StatefulWidget {
   /// today. Purely a visual guide: never filled, never tappable, never legended.
   final List<List<Offset>>? reference;
   final String? referenceLabel;
+
+  /// Appended to a claim/protectorate's legend name (already localized by the
+  /// caller, like every other label here).
+  final String protectorateSuffix;
 
   @override
   State<TerritoryMap> createState() => _TerritoryMapState();
@@ -217,7 +222,8 @@ class _TerritoryMapState extends State<TerritoryMap> {
               _Legend(
                   forces: widget.forces,
                   claims: widget.claims,
-                  selectedId: _selectedId),
+                  selectedId: _selectedId,
+                  protectorateSuffix: widget.protectorateSuffix),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: _InfoCard(data: _card()),
@@ -443,11 +449,16 @@ class _TerritoryPainter extends CustomPainter {
 // ─────────────────────────── overlays ───────────────────────────
 
 class _Legend extends StatelessWidget {
-  const _Legend(
-      {required this.forces, required this.claims, required this.selectedId});
+  const _Legend({
+    required this.forces,
+    required this.claims,
+    required this.selectedId,
+    required this.protectorateSuffix,
+  });
   final List<TerritoryRegion> forces;
   final List<TerritoryRegion> claims;
   final String? selectedId;
+  final String protectorateSuffix;
 
   Widget _row(TerritoryRegion r, {required bool claim}) {
     final sel = r.id == selectedId;
@@ -468,7 +479,7 @@ class _Legend extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 7),
-          Text(claim ? '${r.name} (bảo hộ)' : r.name,
+          Text(claim ? '${r.name}$protectorateSuffix' : r.name,
               style: VSType.caption.copyWith(
                 fontSize: 11,
                 fontStyle: claim ? FontStyle.italic : FontStyle.normal,

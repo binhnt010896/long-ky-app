@@ -91,7 +91,7 @@ class _EraHero extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             if (era.flagship) ...<Widget>[
-              const _FlagshipBadge(),
+              _FlagshipBadge(lang: lang),
               const SizedBox(height: VSSpacing.md),
             ],
             Text(era.kicker.resolve(lang).toUpperCase(), style: VSType.kicker),
@@ -141,7 +141,8 @@ class _EraHero extends StatelessWidget {
 /// A small gilt "peak" badge shown above the kicker on a flagship era's Home
 /// hero — the visual crown that sets a rare high point apart from the rest.
 class _FlagshipBadge extends StatelessWidget {
-  const _FlagshipBadge();
+  const _FlagshipBadge({required this.lang});
+  final Lang lang;
 
   @override
   Widget build(BuildContext context) {
@@ -157,7 +158,7 @@ class _FlagshipBadge extends StatelessWidget {
         children: <Widget>[
           const Icon(Icons.star_rounded, size: 13, color: VSColors.goldBright),
           const SizedBox(width: 6),
-          Text('ĐỈNH CAO', style: VSType.kicker),
+          Text(lang == Lang.en ? 'PEAK' : 'ĐỈNH CAO', style: VSType.kicker),
         ],
       ),
     );

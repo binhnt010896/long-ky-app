@@ -1,3 +1,4 @@
+import 'package:core_domain/core_domain.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
@@ -11,12 +12,14 @@ class TimelineBar extends StatelessWidget {
     required this.years,
     required this.selected,
     required this.onChanged,
+    required this.lang,
     this.openEnded = false,
   });
 
   final List<int> years;
   final int selected;
   final ValueChanged<int> onChanged;
+  final Lang lang;
 
   /// True when the *last* (largest) year in [years] is a snapshot that still
   /// holds today — e.g. the territory atlas's final snapshot covers 1977
@@ -40,8 +43,11 @@ class TimelineBar extends StatelessWidget {
       years.isEmpty ? 0 : years.reduce((a, b) => a > b ? a : b);
 
   String _label(int y) {
-    final base = y < 0 ? '${-y} TCN' : '$y';
-    return openEnded && y == _latestYear && y > 0 ? '$base – nay' : base;
+    final base = y < 0
+        ? '${-y} ${lang == Lang.en ? 'BCE' : 'TCN'}'
+        : '$y';
+    final open = lang == Lang.en ? 'present' : 'nay';
+    return openEnded && y == _latestYear && y > 0 ? '$base – $open' : base;
   }
 
   /// A rough per-character width at the pill's bold 12px, floored at the old

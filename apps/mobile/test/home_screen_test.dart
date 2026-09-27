@@ -77,7 +77,11 @@ PageController _eraController(WidgetTester tester) {
   return pagers.last.controller!;
 }
 
-Future<void> _pumpHome(WidgetTester tester, ExperienceTier tier) async {
+Future<void> _pumpHome(
+  WidgetTester tester,
+  ExperienceTier tier, {
+  Lang lang = Lang.vi,
+}) async {
   final dynasty =
       Dynasty(period: _loadHongBangPeriod(), eras: <Era>[_loadHongBang()]);
   await tester.pumpWidget(
@@ -85,6 +89,7 @@ Future<void> _pumpHome(WidgetTester tester, ExperienceTier tier) async {
       overrides: <Override>[
         tierProvider.overrideWithValue(tier),
         dynastiesProvider.overrideWith((ref) async => <Dynasty>[dynasty]),
+        langProvider.overrideWith((ref) => lang),
       ],
       child: MaterialApp(
         home: ExperienceScope(tier: tier, child: const HomeScreen()),
@@ -192,6 +197,69 @@ void main() {
       // Opens on the 2nd dynasty (Nhà Triệu), not the first.
       expect(find.text('Nhà Triệu'), findsWidgets);
       expect(find.text('Hồng Bàng – Âu Lạc'), findsNothing);
+      expect(tester.takeException(), isNull);
+    });
+  });
+
+  group('language (Cycle J)', () {
+    testWidgets('renders the era hero and dynasty chrome in English',
+        (tester) async {
+      await _pumpHome(tester, ExperienceTier.reduced, lang: Lang.en);
+
+      expect(find.text('THE FOUNDING ERA'), findsOneWidget);
+      expect(find.text('2879 – 258 BCE'), findsOneWidget); // era hero
+      expect(find.text('2879 – 208 BCE'), findsOneWidget); // dynasty chrome
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('EXPLORE reads KHÁM PHÁ in Vietnamese, EXPLORE in English',
+        (tester) async {
+      await _pumpHub(tester, _twoDynasties(),
+          overrides: <Override>[langProvider.overrideWith((ref) => Lang.vi)]);
+      expect(find.text('KHÁM PHÁ'), findsOneWidget);
+
+      await _pumpHub(tester, _twoDynasties(),
+          overrides: <Override>[langProvider.overrideWith((ref) => Lang.en)]);
+      expect(find.text('EXPLORE'), findsOneWidget);
+    });
+  });
+
+  group('period rail (Cycle J)', () {
+    testWidgets(
+        'KHÁM PHÁ animates to the next period and disappears on the last',
+        (tester) async {
+      await _pumpHub(tester, _twoDynasties());
+      expect(find.text('Hồng Bàng – Âu Lạc'), findsWidgets);
+      // Two dynasties, so the affordance shows on the first.
+      expect(find.text('KHÁM PHÁ'), findsOneWidget);
+
+      await tester.tap(find.text('KHÁM PHÁ'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Nhà Triệu'), findsWidgets);
+      expect(find.text('Hồng Bàng – Âu Lạc'), findsNothing);
+      // On the last period, the affordance is gone.
+      expect(find.text('KHÁM PHÁ'), findsNothing);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('dragging the rail scrubs to the target period live',
+        (tester) async {
+      final container = await _pumpHub(tester, _twoDynasties());
+
+      final rail = find.byWidgetPredicate(
+          (w) => w is GestureDetector && w.onVerticalDragUpdate != null);
+      final railBox = tester.getRect(rail.first);
+      final gesture =
+          await tester.startGesture(Offset(railBox.center.dx, railBox.top));
+      await tester.pump();
+      await gesture.moveTo(Offset(railBox.center.dx, railBox.bottom));
+      await tester.pump();
+      await gesture.up();
+      await tester.pumpAndSettle();
+
+      expect(container.read(hubDynastyIndexProvider), 1);
+      expect(find.text('Nhà Triệu'), findsWidgets);
       expect(tester.takeException(), isNull);
     });
   });
