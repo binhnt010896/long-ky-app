@@ -48,6 +48,9 @@ a draft today.
 4. Getting from the first period to the last on Home takes too long. The user
    wants something like the iPhone Contacts index: **grab the side indicator
    and drag** to scrub through periods.
+5. The **"KHÁM PHÁ" up arrow** on Home doesn't do anything useful.
+   - Tapping it should scroll to the next period.
+   - On the last period, the arrow and label shouldn't show.
 
 ## Facts Cycle J is built on (checked, not assumed)
 
@@ -103,6 +106,13 @@ a draft today.
     the last takes 16 swipes.
   - A page change already updates `hubDynastyIndexProvider` and queues
     `MediaPrefetcher` for the neighbouring pages.
+- **The "KHÁM PHÁ" affordance** (`_ExploreAffordance` in `home_screen.dart`):
+  - It sits at the bottom of every period page, under the era strip.
+  - Tapping it calls `onOpenEra(active)`, which **does exactly what tapping
+    the scene already does**. That's why it feels useless.
+  - It shows on every period, including the last.
+  - Its up arrow reads as "swipe up for more", which matches the pager: the
+    next period is below, reached by swiping up.
 
 ## Decisions needed
 
@@ -210,7 +220,20 @@ a draft today.
   ([[stay-close-to-dvsktt]]). English is written by Claude. The user reviews
   the full VI → EN table (about 130 rows) before it's merged.
 
-### J-4 Period scrubber on Home (feedback 4, J4)
+### J-4 Period navigation on Home (feedback 4 and 5, J4)
+
+**The "KHÁM PHÁ" arrow goes to the next period** (feedback 5, as the user
+specified):
+- Tapping the arrow or the label **animates** the period pager to the next
+  period (`animateToPage(i + 1)`, about 450 ms, ease-in-out).
+  - Same end state as a swipe: prefetch, remembered index, telemetry.
+- **On the last period** (Kỷ nguyên mới), the arrow and label are hidden.
+  - The era strip above keeps its position, so nothing jumps when you reach
+    the end.
+- The label stays `KHÁM PHÁ` / **EXPLORE** (J-1).
+- Entering an era is unchanged: tap the scene.
+
+**Period scrubber** (feedback 4):
 
 - The rail keeps its delicate look at rest: the same dots and gold pill, no
   new always-on chrome.
@@ -249,12 +272,15 @@ a draft today.
   - The atlas header and island labels follow the language.
   - Scrubber: a drag at y maps to the right index, and ends on the right
     page. Tapping a dot jumps. Prefetch is queued once on release.
+  - The arrow: tapping it on period *i* lands on period *i + 1*, and it is
+    absent on the last period.
   - `melos analyze` and every suite stay green.
 - **Contrast:** the J-2 measurement is recorded, with the worst era and its
   ratio.
 - **Browser (Flutter web, cache-busted):**
   - Claude checks Home in EN, the event list on the brightest era, the atlas
-    in EN, and a scrub from the first period to the last.
+    in EN, a scrub from the first period to the last, and the arrow on the
+    second-to-last and last periods.
   - This session's Browser pane has shown stale renders before, so the
     final look is the user's call on Android.
 - **Release:**
