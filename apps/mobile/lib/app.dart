@@ -6,6 +6,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 import 'app_router.dart';
 import 'screens/splash/splash_gate.dart';
+import 'state/firestore_content_sync.dart';
 import 'state/providers.dart';
 
 /// Root of the Việt Sử app.
@@ -22,6 +23,10 @@ class VietSuApp extends ConsumerWidget {
     // Instantiates the screen-view listener for the app's lifetime; also
     // ensures a router exists before we read it below.
     ref.watch(routeTelemetryObserverProvider);
+    // Instantiates the Firestore live-content listener (Cycle K5/K6) for the
+    // app's lifetime. Safe even before Firestore is enabled for the project
+    // or the app is offline — see FirestoreContentSource's doc comment.
+    ref.watch(firestoreContentSyncProvider);
 
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,

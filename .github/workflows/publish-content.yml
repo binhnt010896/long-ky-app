@@ -185,6 +185,20 @@ jobs:
         if: ${{ inputs.mode == 'incremental' && !inputs.dry_run }}
         run: dart run tool/write_media_ledger.dart
 
+      # Cycle K5 — era/people/periods text, live-readable by the app via
+      # Firestore, on top of the R2 pack every app version can already read.
+      # Runs for both modes: this reads content/*.json from the checkout
+      # directly, nothing media-pipeline-specific. Skips itself cleanly (see
+      # the script) if FIREBASE_SERVICE_ACCOUNT_KEY isn't set up yet.
+      - name: Write era/people/periods text to Firestore
+        if: ${{ !inputs.dry_run }}
+        working-directory: tool
+        run: |
+          npm ci --omit=dev --no-audit --no-fund
+          node publish_firestore.mjs
+        env:
+          FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+
       # Every mode's real publish ends here — this runner has no one to
       # commit the resulting bump by hand, so it does that itself.
       - name: Commit the published version bump

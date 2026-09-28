@@ -46,6 +46,11 @@ dependencies:
   firebase_core: ^3.8.0
   firebase_analytics: ^11.3.6
   firebase_crashlytics: ^4.1.6
+  # Era/people/periods text over Firestore's live listeners (Cycle K5) — an
+  # edit published from the CMS reaches an open app in about a second,
+  # instead of the two-cold-starts delay the R2-pack OTA check had. Media
+  # (images/video) is unaffected — still R2/CDN, see lib/state/content_sync.dart.
+  cloud_firestore: ^5.5.0
 
 dev_dependencies:
   flutter_test:

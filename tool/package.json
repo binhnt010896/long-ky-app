@@ -1,0 +1,9 @@
+{
+  "name": "long-ky-tools",
+  "private": true,
+  "type": "module",
+  "description": "Node-based content tools (publish_firestore.mjs). The Dart tools alongside this need no package.json; see tool/*.dart directly.",
+  "dependencies": {
+    "firebase-admin": "^13.0.0"
+  }
+}

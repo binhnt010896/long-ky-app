@@ -1,0 +1,26 @@
+rules_version = '2';
+
+// Cycle K5 — the live text mirror tool/publish_firestore.mjs writes to and
+// FirestoreContentSource (apps/mobile/lib/state/firestore_content_source.dart)
+// reads from. Public read (anyone with the app can read history text — no
+// accounts in this app, see [[no-accounts]] style decisions elsewhere).
+// Writes only ever come from the publish script's service-account
+// credential, which the Admin SDK it uses always bypasses these rules for —
+// so `allow write: if false` here is not a formality, it's the only thing
+// stopping a client from writing directly to these collections.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /eras/{slug} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /singletons/{doc} {
+      allow read: if true;
+      allow write: if false;
+    }
+    // Everything else stays closed by default.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

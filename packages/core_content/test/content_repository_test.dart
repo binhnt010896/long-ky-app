@@ -147,5 +147,47 @@ void main() {
       final ota = OtaContentSource(bundled: DiskContentSource(contentRoot));
       expect(ota.overlay, isNull);
     });
+
+    // --- liveOverlay (Cycle K5 — Firestore, tried before the OTA pack) ----
+
+    test('liveOverlay is preferred over overlay, which is preferred over bundled',
+        () async {
+      final bundled = DiskContentSource(contentRoot);
+      final ota = OtaContentSource(bundled: bundled)
+        ..overlay = MemoryContentSource({'au-lac': 'from-pack'})
+        ..liveOverlay = MemoryContentSource({'au-lac': 'from-firestore'});
+
+      expect(await ota.loadEraJson('au-lac'), 'from-firestore');
+    });
+
+    test('a slug only liveOverlay lacks falls through to overlay', () async {
+      final bundled = DiskContentSource(contentRoot);
+      final ota = OtaContentSource(bundled: bundled)
+        ..overlay = MemoryContentSource({'au-lac': 'from-pack'})
+        ..liveOverlay = MemoryContentSource(const {}); // e.g. not synced yet
+
+      expect(await ota.loadEraJson('au-lac'), 'from-pack');
+    });
+
+    test('a liveOverlay that lacks everything falls all the way to bundled',
+        () async {
+      final bundled = DiskContentSource(contentRoot);
+      final ota = OtaContentSource(bundled: bundled)
+        ..liveOverlay = MemoryContentSource(const {});
+
+      // No exception, no hang — just the bundled copy.
+      expect(await ota.loadEraJson('au-lac'), isNotEmpty);
+    });
+
+    test('availableSlugs unions bundled, overlay and liveOverlay', () async {
+      final bundled = DiskContentSource(contentRoot);
+      final ota = OtaContentSource(bundled: bundled)
+        ..overlay = MemoryContentSource({'from-pack-only': ''})
+        ..liveOverlay = MemoryContentSource({'from-firestore-only': ''});
+
+      final slugs = await ota.availableSlugs();
+      expect(slugs, containsAll(['from-pack-only', 'from-firestore-only']));
+      expect(slugs, contains('au-lac')); // still has the bundled set too
+    });
   });
 }
