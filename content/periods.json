@@ -514,8 +514,8 @@
       },
       "yearRange": {
         "display": {
-          "vi": "2020 – 2025",
-          "en": "2020 – 2025 CE"
+          "vi": "2020 – now",
+          "en": "2020 – now"
         },
         "startYear": 2020,
         "endYear": 2025
