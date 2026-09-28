@@ -151,5 +151,87 @@ void main() {
       expect(result.isValid, isTrue);
       expect(result.lines.any((l) => l.contains('index.json')), isFalse);
     });
+
+    // --- Event integrity (Cycle K's events editor relies on these) --------
+
+    Map<String, String> _erasWithFirstEventEdited(
+        Map<String, dynamic> Function(Map<String, dynamic> firstEvent) edit) {
+      final eraFiles = <String, String>{
+        for (final f in _eraFiles()) f.uri.pathSegments.last: f.readAsStringSync(),
+      };
+      final broken = Map<String, String>.of(eraFiles);
+      final oneName = broken.keys.first;
+      final data = jsonDecode(broken[oneName]!) as Map<String, dynamic>;
+      final events = (data['events'] as List).cast<Map<String, dynamic>>();
+      events[0] = edit(Map<String, dynamic>.of(events[0]));
+      data['events'] = events;
+      broken[oneName] = jsonEncode(data);
+      return broken;
+    }
+
+    ContentValidationResult _validate(Map<String, String> eraFiles) =>
+        ContentValidator.validateAll(
+          eraSchemaJson: _read('era.schema.json'),
+          peopleSchemaJson: _read('people.schema.json'),
+          periodSchemaJson: _read('period.schema.json'),
+          eraFiles: eraFiles,
+          peopleJson: _read('people.json'),
+          periodsJson: _read('periods.json'),
+        );
+
+    test('flags an event whose slug disagrees with its id', () {
+      final broken = _erasWithFirstEventEdited((e) => e..['slug'] = 'wrong-slug');
+      final result = _validate(broken);
+      expect(result.isValid, isFalse);
+      expect(result.issues.any((i) => i.message.contains('!= id')), isTrue);
+    });
+
+    test('flags a duplicate event id across two different eras', () {
+      final eraFiles = <String, String>{
+        for (final f in _eraFiles()) f.uri.pathSegments.last: f.readAsStringSync(),
+      };
+      final names = eraFiles.keys.toList()..sort();
+      final firstData = jsonDecode(eraFiles[names[0]]!) as Map<String, dynamic>;
+      final firstEventId =
+          ((firstData['events'] as List).first as Map<String, dynamic>)['id'];
+
+      final broken = Map<String, String>.of(eraFiles);
+      final secondData = jsonDecode(broken[names[1]]!) as Map<String, dynamic>;
+      final secondEvents = (secondData['events'] as List).cast<Map<String, dynamic>>();
+      secondEvents[0] = Map<String, dynamic>.of(secondEvents[0])
+        ..['id'] = firstEventId
+        ..remove('slug');
+      secondData['events'] = secondEvents;
+      broken[names[1]] = jsonEncode(secondData);
+
+      final result = _validate(broken);
+      expect(result.isValid, isFalse);
+      expect(
+        result.issues.any((i) => i.message.contains('also used in ${names[0]}')),
+        isTrue,
+      );
+    });
+
+    test('flags a non-contiguous event order', () {
+      final broken = _erasWithFirstEventEdited((e) => e..['order'] = 99);
+      final result = _validate(broken);
+      expect(result.isValid, isFalse);
+      expect(result.issues.any((i) => i.message.contains('contiguous')), isTrue);
+    });
+
+    test('flags a relatedEventIds entry pointing at an unknown event', () {
+      final broken =
+          _erasWithFirstEventEdited((e) => e..['relatedEventIds'] = <String>['no-such-event-xyz']);
+      final result = _validate(broken);
+      expect(result.isValid, isFalse);
+      expect(result.issues.any((i) => i.message.contains('unknown event')), isTrue);
+    });
+
+    test('flags an event that relates to itself', () {
+      final broken = _erasWithFirstEventEdited((e) => e..['relatedEventIds'] = <String>[e['id'] as String]);
+      final result = _validate(broken);
+      expect(result.isValid, isFalse);
+      expect(result.issues.any((i) => i.message.contains('references itself')), isTrue);
+    });
   });
 }

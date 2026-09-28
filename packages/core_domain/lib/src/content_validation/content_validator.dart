@@ -110,6 +110,11 @@ abstract final class ContentValidator {
     }
 
     final slugsOnDisk = <String>{};
+    // Event ids are public (app links, quiz questions, analytics) and must
+    // be unique across the whole chronicle, not just within one era — this
+    // map is filled era by era below and used to catch a collision the
+    // moment the second era with the offending id is checked.
+    final eventIdOwner = <String, String>{};
     final sortedNames = eraFiles.keys.toList()..sort();
     for (final name in sortedNames) {
       final data = jsonDecode(eraFiles[name]!);
@@ -165,6 +170,50 @@ abstract final class ContentValidator {
         }
         if (badPeriod) {
           final msg = 'unknown period: $period';
+          lines.add('    $msg');
+          issues.add(ContentIssue(name, msg));
+        }
+        continue;
+      }
+
+      // Event integrity: id == slug (when a slug is given), ids unique
+      // across the whole chronicle, order is a contiguous 0..n-1 run, and
+      // relatedEventIds resolve within this era and never self-reference.
+      // The schema alone can express none of this.
+      final events =
+          (eraMap['events'] as List? ?? const <dynamic>[]).cast<Map<String, dynamic>>();
+      final eventErrors = <String>[];
+      final eventIdsHere = <String>{for (final e in events) e['id'] as String};
+      final orders = <int>[];
+      for (final e in events) {
+        final id = e['id'] as String;
+        final eSlug = e['slug'];
+        if (eSlug is String && eSlug != id) {
+          eventErrors.add('event "$id": slug "$eSlug" != id "$id"');
+        }
+        final owner = eventIdOwner[id];
+        if (owner != null && owner != name) {
+          eventErrors.add('event id "$id" also used in $owner');
+        } else {
+          eventIdOwner[id] = name;
+        }
+        orders.add(e['order'] as int);
+        for (final rel in (e['relatedEventIds'] as List? ?? const <dynamic>[])) {
+          if (rel == id) {
+            eventErrors.add('event "$id": relatedEventIds references itself');
+          } else if (!eventIdsHere.contains(rel)) {
+            eventErrors.add('event "$id": relatedEventIds has unknown event "$rel"');
+          }
+        }
+      }
+      final sortedOrders = [...orders]..sort();
+      if (sortedOrders.asMap().entries.any((e) => e.value != e.key)) {
+        eventErrors.add(
+            'events\' order is not a contiguous 0..${events.length - 1} run: $sortedOrders');
+      }
+      if (eventErrors.isNotEmpty) {
+        lines.add('✗ $name (events)');
+        for (final msg in eventErrors) {
           lines.add('    $msg');
           issues.add(ContentIssue(name, msg));
         }

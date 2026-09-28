@@ -367,6 +367,137 @@ class ContentDraftController extends AsyncNotifier<ContentDraft> {
     }
   }
 
+  // --- Events -----------------------------------------------------------
+
+  /// Suggests an id from a title, like [suggestPersonId]/[suggestPeriodId].
+  /// An event's id is also its `slug` (Cycle K's validator enforces the
+  /// two match) — both are set from this suggestion when an event is
+  /// created.
+  String suggestEventId(String title) => slugify(title);
+
+  /// Appends a new event to `content/eras/<slug>.json`'s `events`, with
+  /// `order` set to run after the existing ones and `id`/`slug` both set to
+  /// [id]. Every event created this way already satisfies the validator's
+  /// event-integrity rules (K7) — the id/slug pairing and a contiguous
+  /// order — so only genuinely missing content (a hero image, say) can fail
+  /// review afterwards.
+  void addEvent(String eraSlug, String id, Map<String, dynamic> event) {
+    _update((d) {
+      final path = 'content/eras/$eraSlug.json';
+      final era = jsonDecode(d.files[path]!) as Map<String, dynamic>;
+      final events = (era['events'] as List? ?? const <dynamic>[])
+          .cast<Map<String, dynamic>>()
+          .toList();
+      event['id'] = id;
+      event['slug'] = id;
+      event['order'] = events.length;
+      era['events'] = [...events, event];
+      return d.withFile(path, ContentFormatter.format(era));
+    });
+  }
+
+  void updateEvent(
+    String eraSlug,
+    String eventId,
+    Map<String, dynamic> Function(Map<String, dynamic>) update,
+  ) {
+    _update((d) {
+      final path = 'content/eras/$eraSlug.json';
+      final era = jsonDecode(d.files[path]!) as Map<String, dynamic>;
+      final events = (era['events'] as List).cast<Map<String, dynamic>>();
+      era['events'] = [
+        for (final e in events)
+          if (e['id'] == eventId) update({...e}) else e,
+      ];
+      return d.withFile(path, ContentFormatter.format(era));
+    });
+  }
+
+  /// Removes the event, renumbers the remaining `order`s to stay
+  /// contiguous, and drops it from every other event's `relatedEventIds` in
+  /// the same era — a dangling reference is exactly what the K7 validator
+  /// rejects, so this can never leave one behind. Call
+  /// [eventsReferencing] first to show the admin what will be cleaned.
+  void deleteEvent(String eraSlug, String eventId) {
+    _update((d) {
+      final path = 'content/eras/$eraSlug.json';
+      final era = jsonDecode(d.files[path]!) as Map<String, dynamic>;
+      final events = (era['events'] as List).cast<Map<String, dynamic>>();
+      final remaining = events.where((e) => e['id'] != eventId).toList()
+        ..sort((a, b) => (a['order'] as int).compareTo(b['order'] as int));
+      for (var i = 0; i < remaining.length; i++) {
+        final related = (remaining[i]['relatedEventIds'] as List? ?? const <dynamic>[])
+            .cast<String>()
+            .where((r) => r != eventId)
+            .toList();
+        remaining[i] = {...remaining[i], 'order': i};
+        if (related.isEmpty) {
+          remaining[i].remove('relatedEventIds');
+        } else {
+          remaining[i]['relatedEventIds'] = related;
+        }
+      }
+      era['events'] = remaining;
+      return d.withFile(path, ContentFormatter.format(era));
+    });
+  }
+
+  /// Other events in the same era whose `relatedEventIds` name [eventId] —
+  /// the CMS shows this before a delete so the admin knows what will change.
+  List<String> eventsReferencing(String eraSlug, String eventId) {
+    final path = 'content/eras/$eraSlug.json';
+    final text = state.valueOrNull?.files[path];
+    if (text == null) return const [];
+    final era = _tryDecode(text);
+    if (era == null) return const [];
+    final events = (era['events'] as List? ?? const <dynamic>[]).cast<Map<String, dynamic>>();
+    return [
+      for (final e in events)
+        if (e['id'] != eventId &&
+            (e['relatedEventIds'] as List? ?? const <dynamic>[]).contains(eventId))
+          e['id'] as String,
+    ];
+  }
+
+  /// Moves the event at [eventId] to [newIndex] among its era's other
+  /// events, renumbering `order` for the whole era (mirrors
+  /// [reorderPeriod]).
+  void reorderEvent(String eraSlug, String eventId, int newIndex) {
+    _update((d) {
+      final path = 'content/eras/$eraSlug.json';
+      final era = jsonDecode(d.files[path]!) as Map<String, dynamic>;
+      final events = (era['events'] as List).cast<Map<String, dynamic>>().toList()
+        ..sort((a, b) => (a['order'] as int).compareTo(b['order'] as int));
+      final moving = events.removeAt(events.indexWhere((e) => e['id'] == eventId));
+      events.insert(newIndex.clamp(0, events.length), moving);
+      for (var i = 0; i < events.length; i++) {
+        events[i]['order'] = i;
+      }
+      era['events'] = events;
+      return d.withFile(path, ContentFormatter.format(era));
+    });
+  }
+
+  /// Adds [personId] to the era's `characters` roster as a plain `{ref}`
+  /// entry (no per-era overrides) if it isn't already there — used when an
+  /// event's Figures picker chooses someone outside the current roster, so
+  /// the figureId the event needs always resolves (the K7 validator
+  /// requires it).
+  void ensureInRoster(String eraSlug, String personId) {
+    _update((d) {
+      final path = 'content/eras/$eraSlug.json';
+      final era = jsonDecode(d.files[path]!) as Map<String, dynamic>;
+      final roster = (era['characters'] as List? ?? const <dynamic>[])
+          .cast<Map<String, dynamic>>();
+      if (roster.any((c) => c['ref'] == personId)) return d;
+      era['characters'] = [
+        ...roster,
+        <String, dynamic>{'ref': personId},
+      ];
+      return d.withFile(path, ContentFormatter.format(era));
+    });
+  }
+
   /// Commits every pending edit as one atomic commit, then folds the new
   /// head sha back into the draft as its new baseline. Throws
   /// [CommitConflictException] if `main` moved — the caller should show

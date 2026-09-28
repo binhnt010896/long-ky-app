@@ -292,6 +292,154 @@ void main() {
     });
   });
 
+  group('ContentDraftController — events', () {
+    Map<String, dynamic> _era(ProviderContainer c, String slug) =>
+        jsonDecode(c.read(contentDraftProvider).requireValue.eraFiles['$slug.json']!)
+            as Map<String, dynamic>;
+    List<Map<String, dynamic>> _events(ProviderContainer c, String slug) =>
+        (_era(c, slug)['events'] as List).cast<Map<String, dynamic>>();
+
+    test('addEvent sets id, slug and the next order', () async {
+      final container = await _containerWith(_fixtureFiles());
+      addTearDown(container.dispose);
+
+      container.read(contentDraftProvider.notifier).addEvent('era-a', 'first-event', {
+        'kind': 'historical',
+        'year': {
+          'display': {'vi': '2000'},
+          'value': 2000,
+        },
+        'title': {'vi': 'Sự kiện một'},
+        'summary': {'vi': 'Tóm tắt'},
+        'citation': {'work': 'ĐVSKTT'},
+      });
+
+      final events = _events(container, 'era-a');
+      expect(events, hasLength(1));
+      expect(events.single['id'], 'first-event');
+      expect(events.single['slug'], 'first-event');
+      expect(events.single['order'], 0);
+    });
+
+    test('updateEvent only touches the targeted event', () async {
+      final container = await _containerWith(_fixtureFiles());
+      addTearDown(container.dispose);
+      final notifier = container.read(contentDraftProvider.notifier);
+      notifier.addEvent('era-a', 'e1', {
+        'kind': 'historical',
+        'year': {
+          'display': {'vi': '1'},
+        },
+        'title': {'vi': 'E1'},
+        'summary': {'vi': 's'},
+        'citation': {'work': 'w'},
+      });
+      notifier.addEvent('era-a', 'e2', {
+        'kind': 'historical',
+        'year': {
+          'display': {'vi': '2'},
+        },
+        'title': {'vi': 'E2'},
+        'summary': {'vi': 's'},
+        'citation': {'work': 'w'},
+      });
+
+      notifier.updateEvent('era-a', 'e1', (e) => e..['title'] = {'vi': 'Đổi tên'});
+
+      final events = _events(container, 'era-a');
+      expect((events.firstWhere((e) => e['id'] == 'e1')['title'] as Map)['vi'], 'Đổi tên');
+      expect((events.firstWhere((e) => e['id'] == 'e2')['title'] as Map)['vi'], 'E2');
+    });
+
+    test('deleteEvent renumbers order and cleans relatedEventIds', () async {
+      final container = await _containerWith(_fixtureFiles());
+      addTearDown(container.dispose);
+      final notifier = container.read(contentDraftProvider.notifier);
+      for (final id in ['e1', 'e2', 'e3']) {
+        notifier.addEvent('era-a', id, {
+          'kind': 'historical',
+          'year': {
+            'display': {'vi': id},
+          },
+          'title': {'vi': id},
+          'summary': {'vi': 's'},
+          'citation': {'work': 'w'},
+        });
+      }
+      notifier.updateEvent('era-a', 'e3', (e) => e..['relatedEventIds'] = ['e1', 'e2']);
+
+      notifier.deleteEvent('era-a', 'e1');
+
+      final events = _events(container, 'era-a')
+        ..sort((a, b) => (a['order'] as int).compareTo(b['order'] as int));
+      expect(events.map((e) => e['id']), ['e2', 'e3']);
+      expect(events.map((e) => e['order']), [0, 1]);
+      expect(
+        (events.firstWhere((e) => e['id'] == 'e3')['relatedEventIds'] as List?),
+        ['e2'],
+      );
+    });
+
+    test('eventsReferencing finds who points at an event before it is deleted', () async {
+      final container = await _containerWith(_fixtureFiles());
+      addTearDown(container.dispose);
+      final notifier = container.read(contentDraftProvider.notifier);
+      for (final id in ['e1', 'e2']) {
+        notifier.addEvent('era-a', id, {
+          'kind': 'historical',
+          'year': {
+            'display': {'vi': id},
+          },
+          'title': {'vi': id},
+          'summary': {'vi': 's'},
+          'citation': {'work': 'w'},
+        });
+      }
+      notifier.updateEvent('era-a', 'e2', (e) => e..['relatedEventIds'] = ['e1']);
+
+      expect(notifier.eventsReferencing('era-a', 'e1'), ['e2']);
+      expect(notifier.eventsReferencing('era-a', 'e2'), isEmpty);
+    });
+
+    test('reorderEvent renumbers the whole era', () async {
+      final container = await _containerWith(_fixtureFiles());
+      addTearDown(container.dispose);
+      final notifier = container.read(contentDraftProvider.notifier);
+      for (final id in ['e1', 'e2', 'e3']) {
+        notifier.addEvent('era-a', id, {
+          'kind': 'historical',
+          'year': {
+            'display': {'vi': id},
+          },
+          'title': {'vi': id},
+          'summary': {'vi': 's'},
+          'citation': {'work': 'w'},
+        });
+      }
+
+      notifier.reorderEvent('era-a', 'e3', 0);
+
+      final events = _events(container, 'era-a')
+        ..sort((a, b) => (a['order'] as int).compareTo(b['order'] as int));
+      expect(events.map((e) => e['id']), ['e3', 'e1', 'e2']);
+    });
+
+    test('ensureInRoster adds a person only if missing', () async {
+      final container = await _containerWith(_fixtureFiles());
+      addTearDown(container.dispose);
+      final notifier = container.read(contentDraftProvider.notifier);
+
+      // person-1 is already on era-a's roster.
+      notifier.ensureInRoster('era-a', 'person-1');
+      var characters = (_era(container, 'era-a')['characters'] as List);
+      expect(characters, hasLength(1));
+
+      notifier.ensureInRoster('era-a', 'person-2');
+      characters = (_era(container, 'era-a')['characters'] as List);
+      expect(characters.cast<Map>().map((c) => c['ref']), ['person-1', 'person-2']);
+    });
+  });
+
   group('ContentDraftController — commit', () {
     test('commit sends exactly the pending diff and settles the new sha', () async {
       final files = _fixtureFiles();

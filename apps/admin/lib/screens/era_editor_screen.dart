@@ -7,15 +7,17 @@ import 'package:go_router/go_router.dart';
 
 import '../state/content_draft.dart';
 import '../util/media_urls.dart';
+import '../widgets/event_dialog.dart';
 import '../widgets/media_slot.dart';
 
-enum _EraTab { guided, images, raw }
+enum _EraTab { guided, events, images, raw }
 
 /// Edits `content/eras/<slug>.json`. Title/kicker/subtitle/overview get a
-/// guided bilingual form (the fields an admin touches most); an Images tab
-/// covers cover/scene-layer/event-hero art inline (Cycle I); events,
-/// characters, citations and everything else go through the raw-JSON
-/// fallback, still gated by the same [ContentValidator] the CLI/CI use.
+/// guided bilingual form (the fields an admin touches most); an Events tab
+/// (Cycle K) covers add/edit/delete/reorder for every event; an Images tab
+/// covers cover/scene-layer/event-hero art inline (Cycle I); characters,
+/// citations and everything else go through the raw-JSON fallback, still
+/// gated by the same [ContentValidator] the CLI/CI use.
 class EraEditorScreen extends ConsumerStatefulWidget {
   const EraEditorScreen({required this.slug, super.key});
 
@@ -151,6 +153,7 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
                   SegmentedButton<_EraTab>(
                     segments: const [
                       ButtonSegment(value: _EraTab.guided, label: Text('Guided')),
+                      ButtonSegment(value: _EraTab.events, label: Text('Events')),
                       ButtonSegment(value: _EraTab.images, label: Text('Images')),
                       ButtonSegment(value: _EraTab.raw, label: Text('Raw JSON')),
                     ],
@@ -184,6 +187,7 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
               Expanded(
                 child: switch (_tab) {
                   _EraTab.guided => _buildGuided(),
+                  _EraTab.events => _buildEvents(draft, text),
                   _EraTab.images => _buildImages(draft, text),
                   _EraTab.raw => _buildRaw(),
                 },
@@ -218,8 +222,8 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
           _bilingualRow('Overview', _overviewVi, _overviewEn, maxLines: 6),
           const SizedBox(height: 16),
           Text(
-            'Events, characters, citations and everything else are edited '
-            'via Raw JSON for now.',
+            'Characters, citations and everything else not covered by the '
+            'Events or Images tabs are edited via Raw JSON for now.',
             style: Theme.of(context).textTheme.bodySmall,
           ),
           const SizedBox(height: 16),
@@ -300,6 +304,136 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
         ],
       ),
     );
+  }
+
+  Widget _buildEvents(ContentDraft draft, String eraJsonText) {
+    Map<String, dynamic> era;
+    try {
+      era = jsonDecode(eraJsonText) as Map<String, dynamic>;
+    } catch (e) {
+      return Center(child: Text('Invalid JSON — fix it in Raw JSON first: $e'));
+    }
+    final events = (era['events'] as List? ?? const [])
+        .cast<Map<String, dynamic>>()
+        .toList()
+      ..sort((a, b) => (a['order'] as int).compareTo(b['order'] as int));
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Align(
+          alignment: Alignment.centerRight,
+          child: FilledButton.icon(
+            onPressed: () => showDialog<void>(
+              context: context,
+              builder: (context) => EventDialog(eraSlug: widget.slug),
+            ),
+            icon: const Icon(Icons.add),
+            label: const Text('Add event'),
+          ),
+        ),
+        const SizedBox(height: 8),
+        Expanded(
+          child: events.isEmpty
+              ? const Center(child: Text('No events yet.'))
+              : ListView.builder(
+                  itemCount: events.length,
+                  itemBuilder: (context, i) {
+                    final e = events[i];
+                    final id = e['id'] as String;
+                    final title = (e['title'] as Map?)?['vi'] as String? ?? id;
+                    final year = (e['year'] as Map?)?['display'] as Map?;
+                    return Card(
+                      child: ListTile(
+                        leading: CircleAvatar(child: Text('${i + 1}')),
+                        title: Text(title),
+                        subtitle: Text(
+                          '${year?['vi'] ?? ''} · ${e['kind']} · $id',
+                        ),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              tooltip: 'Move up',
+                              icon: const Icon(Icons.arrow_upward),
+                              onPressed: i == 0
+                                  ? null
+                                  : () => ref
+                                      .read(contentDraftProvider.notifier)
+                                      .reorderEvent(widget.slug, id, i - 1),
+                            ),
+                            IconButton(
+                              tooltip: 'Move down',
+                              icon: const Icon(Icons.arrow_downward),
+                              onPressed: i == events.length - 1
+                                  ? null
+                                  : () => ref
+                                      .read(contentDraftProvider.notifier)
+                                      .reorderEvent(widget.slug, id, i + 1),
+                            ),
+                            IconButton(
+                              tooltip: 'Edit',
+                              icon: const Icon(Icons.edit_outlined),
+                              onPressed: () => showDialog<void>(
+                                context: context,
+                                builder: (context) =>
+                                    EventDialog(eraSlug: widget.slug, eventId: id, initial: e),
+                              ),
+                            ),
+                            IconButton(
+                              tooltip: 'Delete',
+                              icon: const Icon(Icons.delete_outline),
+                              onPressed: () => _confirmDeleteEvent(id, title),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+        ),
+      ],
+    );
+  }
+
+  Future<void> _confirmDeleteEvent(String eventId, String title) async {
+    final referencedBy =
+        ref.read(contentDraftProvider.notifier).eventsReferencing(widget.slug, eventId);
+    final controller = TextEditingController();
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Delete "$title"'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('This permanently removes event "$eventId" and renumbers the '
+                'others. Type the id to confirm:'),
+            if (referencedBy.isNotEmpty) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Also removed from "Related events" on: ${referencedBy.join(', ')}',
+                style: TextStyle(color: Theme.of(context).colorScheme.error),
+              ),
+            ],
+            const SizedBox(height: 12),
+            TextField(controller: controller, decoration: InputDecoration(hintText: eventId)),
+          ],
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancel')),
+          FilledButton(
+            style: FilledButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.error),
+            onPressed: () => Navigator.pop(context, controller.text.trim() == eventId),
+            child: const Text('Delete'),
+          ),
+        ],
+      ),
+    );
+    controller.dispose();
+    if (confirmed != true) return;
+    ref.read(contentDraftProvider.notifier).deleteEvent(widget.slug, eventId);
   }
 
   Widget _bilingualRow(
