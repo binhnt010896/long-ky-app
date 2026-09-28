@@ -3,7 +3,12 @@
 // pointer, for tool/publish_content.sh to upload. Refuses to build on stale or
 // invalid content, so a broken publish never reaches phones.
 //
-// Usage: dart run tool/build_content_pack.dart
+// Usage: dart run tool/build_content_pack.dart [--only <file>]
+//   --only <file>: incremental mode (Cycle K) — forwarded to
+//   gen_media_manifest.dart --check --only <file>, so the staleness check
+//   only needs the paths tool/media_ledger.dart found changed to be present
+//   on disk (an incremental CI runner never downloads the rest). Omit for
+//   a full-mode run, where every original is already present locally.
 //
 // Writes:
 //   - build/pack/<version>.json   the pack itself
@@ -20,11 +25,14 @@ import 'package:crypto/crypto.dart';
 /// couldn't handle; see ContentPack.parseAndValidate's schemaVersion gate.
 const int kPackSchemaVersion = 1;
 
-Future<void> main() async {
-  exitCode = await _run();
+Future<void> main(List<String> args) async {
+  String? onlyFile;
+  final onlyIdx = args.indexOf('--only');
+  if (onlyIdx != -1 && onlyIdx + 1 < args.length) onlyFile = args[onlyIdx + 1];
+  exitCode = await _run(onlyFile: onlyFile);
 }
 
-Future<int> _run() async {
+Future<int> _run({String? onlyFile}) async {
   final root = Directory.current;
 
   stdout.writeln('→ validating content…');
@@ -40,7 +48,13 @@ Future<int> _run() async {
 
   stdout.writeln('→ checking media manifest is up to date…');
   final manifestCheck = await Process.run(
-      'dart', <String>['run', 'tool/gen_media_manifest.dart', '--check'],
+      'dart',
+      <String>[
+        'run',
+        'tool/gen_media_manifest.dart',
+        '--check',
+        if (onlyFile != null) ...['--only', onlyFile],
+      ],
       workingDirectory: root.path);
   stdout.write(manifestCheck.stdout);
   if (manifestCheck.exitCode != 0) {

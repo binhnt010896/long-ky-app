@@ -160,10 +160,20 @@ jobs:
         if: ${{ inputs.mode == 'incremental' && !inputs.dry_run }}
         run: tool/sync_media_changed.sh
 
-      - name: "[incremental] Build and upload the content pack"
+      # Runs in both dry-run and real incremental publishes — mirrors the
+      # full-mode dry-run/publish split (tool/publish_content.sh --dry-run)
+      # so a dry run actually exercises the pack build + the media-manifest
+      # staleness check (`--only`, so it needs only the changed originals a
+      # CI runner actually downloaded, not all 646) instead of skipping it
+      # entirely — the gap that let a stale-manifest failure reach a real
+      # publish undetected once (see the incident note below).
+      - name: "[incremental] Build the content pack"
+        if: ${{ inputs.mode == 'incremental' }}
+        run: dart run tool/build_content_pack.dart --only build/media-changed-sources.txt
+
+      - name: "[incremental] Upload the content pack"
         if: ${{ inputs.mode == 'incremental' && !inputs.dry_run }}
         run: |
-          dart run tool/build_content_pack.dart
           VERSION=$(python3 -c "import json; print(json.load(open('build/pack/latest.json'))['version'])")
           rclone copyto "build/pack/${VERSION}.json" \
             "r2:long-ky-content/content/packs/${VERSION}.json" \
