@@ -13,6 +13,7 @@ import '../state/media_session.dart';
 import '../util/image_probe.dart';
 import '../util/media_refs.dart';
 import '../util/media_urls.dart';
+import '../util/web_download.dart';
 
 enum _Bg { checker, black, white, magenta }
 
@@ -28,12 +29,17 @@ class MediaReplaceDialog extends ConsumerStatefulWidget {
     required this.path,
     this.usages = const [],
     required this.manifest,
+    this.saveFile = triggerBrowserDownload,
     super.key,
   });
 
   final String path;
   final List<MediaUsage> usages;
   final MediaManifest manifest;
+
+  /// Hands off the downloaded original to the browser's save flow.
+  /// Overridable so widget tests don't need a real browser.
+  final void Function(Uint8List bytes, String filename, {String? mimeType}) saveFile;
 
   @override
   ConsumerState<MediaReplaceDialog> createState() => _MediaReplaceDialogState();
@@ -50,6 +56,9 @@ class _MediaReplaceDialogState extends ConsumerState<MediaReplaceDialog> {
   ImageDims? _pickedDims;
   bool _uploading = false;
   String? _error;
+
+  bool _downloading = false;
+  int? _downloadedOriginalBytes;
 
   bool get _isVideo => isVideoPath(widget.path);
 
@@ -169,6 +178,26 @@ class _MediaReplaceDialogState extends ConsumerState<MediaReplaceDialog> {
     }
   }
 
+  /// Fetches the untouched original from `long-ky-sources` (not the served,
+  /// recompressed WebP the preview above shows) and hands it to the
+  /// browser's normal download flow.
+  Future<void> _downloadOriginal() async {
+    setState(() {
+      _downloading = true;
+      _error = null;
+    });
+    try {
+      final bytes = await ref.read(cmsApiClientProvider).getMedia(widget.path);
+      final filename = widget.path.split('/').last;
+      widget.saveFile(bytes, filename, mimeType: lookupMimeType(filename));
+      if (mounted) setState(() => _downloadedOriginalBytes = bytes.length);
+    } on CmsApiException catch (e) {
+      setState(() => _error = 'Download failed: ${e.message}');
+    } finally {
+      if (mounted) setState(() => _downloading = false);
+    }
+  }
+
   Color? get _bgColor => switch (_bg) {
     _Bg.checker => null,
     _Bg.black => Colors.black,
@@ -212,9 +241,13 @@ class _MediaReplaceDialogState extends ConsumerState<MediaReplaceDialog> {
                       child: Column(
                         children: [
                           if (!_isVideo)
-                            Row(
+                            Wrap(
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               children: [
-                                const Text('Background: '),
+                                const Padding(
+                                  padding: EdgeInsets.only(right: 4),
+                                  child: Text('Background: '),
+                                ),
                                 for (final b in _Bg.values)
                                   Padding(
                                     padding: const EdgeInsets.only(right: 4),
@@ -247,11 +280,18 @@ class _MediaReplaceDialogState extends ConsumerState<MediaReplaceDialog> {
                               '${_currentVideo!.value.duration.inSeconds}s',
                             )
                           else if (_currentDims != null)
-                            Text('${_currentDims!.width}×${_currentDims!.height} · ${(_currentDims!.bytes / 1024).toStringAsFixed(0)} KB')
+                            Text(
+                              '${_currentDims!.width}×${_currentDims!.height} · served WebP '
+                              '${(_currentDims!.bytes / 1024).toStringAsFixed(0)} KB',
+                            )
                           else if (!published)
                             const Text('Not published yet — no preview to show.')
                           else
                             const Text('Could not load a preview.'),
+                          if (_downloadedOriginalBytes != null)
+                            Text(
+                              'Downloaded original: ${(_downloadedOriginalBytes! / 1024 / 1024).toStringAsFixed(1)} MB',
+                            ),
                         ],
                       ),
                     ),
@@ -261,6 +301,14 @@ class _MediaReplaceDialogState extends ConsumerState<MediaReplaceDialog> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          OutlinedButton.icon(
+                            onPressed: _downloading ? null : _downloadOriginal,
+                            icon: _downloading
+                                ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
+                                : const Icon(Icons.download),
+                            label: const Text('Download original'),
+                          ),
+                          const SizedBox(height: 16),
                           Text(published ? 'Replace' : 'Upload', style: Theme.of(context).textTheme.titleSmall),
                           const SizedBox(height: 8),
                           OutlinedButton.icon(

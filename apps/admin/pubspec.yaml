@@ -42,6 +42,9 @@ dependencies:
   # picked replacement file's video isn't decoded client-side (see
   # EXECUTION.md's Cycle I scope note).
   video_player: ^2.9.2
+  # Triggers a browser file-save for "Download original" in the media
+  # dialog (Cycle L) — the admin is web-only, so no non-web fallback needed.
+  web: ^1.1.0
 
 dev_dependencies:
   flutter_test:
