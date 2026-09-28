@@ -14,9 +14,17 @@
 // Files the content doesn't reference (raw sources, .DS_Store, stray originals
 // kept next to a restored image) are never staged or listed.
 //
-// Usage: dart run tool/gen_media_manifest.dart [--check]
+// Usage: dart run tool/gen_media_manifest.dart [--check] [--only <file>]
 //   --check: recompute versions in memory (no cwebp, no staging) and exit 1
 //   if content/media-manifest.json would differ, without writing anything.
+//   --only <file>: incremental mode (Cycle K) — <file> lists source paths
+//   (one per line) that actually need converting/copying, e.g. because
+//   tool/media_ledger.dart found them added or changed. Every other
+//   referenced path reuses its `key`/`v` verbatim from the *existing*
+//   content/media-manifest.json on disk instead of reading its bytes, so a
+//   CI runner only needs the changed originals downloaded, not all of them.
+//   A path outside the list that's also missing from the existing manifest
+//   is an error — it must be in the list.
 
 import 'dart:convert';
 import 'dart:io';
@@ -41,10 +49,13 @@ const _convertibleExtensions = <String>{'.png', '.jpg', '.jpeg'};
 const kEncoderTag = 'webp-q85-m6';
 
 Future<void> main(List<String> args) async {
-  exitCode = await _run(check: args.contains('--check'));
+  String? onlyFile;
+  final onlyIdx = args.indexOf('--only');
+  if (onlyIdx != -1 && onlyIdx + 1 < args.length) onlyFile = args[onlyIdx + 1];
+  exitCode = await _run(check: args.contains('--check'), onlyFile: onlyFile);
 }
 
-Future<int> _run({required bool check}) async {
+Future<int> _run({required bool check, String? onlyFile}) async {
   final root = Directory.current;
   final contentDir = Directory('${root.path}/content');
   final indexFile = File('${contentDir.path}/index.json');
@@ -57,6 +68,30 @@ Future<int> _run({required bool check}) async {
   if (!check && !await _cwebpAvailable()) {
     stderr.writeln('✗ cwebp not found — brew install webp');
     return 1;
+  }
+
+  Set<String>? only;
+  Map<String, dynamic>? existingManifest;
+  if (onlyFile != null) {
+    final f = File(onlyFile);
+    if (!f.existsSync()) {
+      stderr.writeln('✗ --only file not found: $onlyFile');
+      return 1;
+    }
+    only = f
+        .readAsLinesSync()
+        .map((l) => l.trim())
+        .where((l) => l.isNotEmpty)
+        .toSet();
+    final manifestFile = File('${contentDir.path}/media-manifest.json');
+    if (!manifestFile.existsSync()) {
+      stderr.writeln(
+          '✗ --only needs an existing content/media-manifest.json to reuse unchanged entries from');
+      return 1;
+    }
+    existingManifest =
+        (jsonDecode(manifestFile.readAsStringSync()) as Map<String, dynamic>)['files']
+            as Map<String, dynamic>;
   }
 
   final jsonFiles = <File>[
@@ -80,6 +115,12 @@ Future<int> _run({required bool check}) async {
   final missing = <String>[];
   var sourceBytes = 0;
 
+  // Paths reused verbatim from the existing manifest (--only mode) need
+  // neither their bytes nor collision recomputation — the existing manifest
+  // already resolved that for them. Only paths actually being (re)built
+  // below need it.
+  bool needsBuild(String path) => only == null || only.contains(path);
+
   // Two distinct source paths can compute the same served key — e.g. a
   // converted `foo.png` -> `foo.webp` colliding with a hand-authored
   // `foo.webp` (an animated hero, say) referenced alongside it as a static
@@ -89,6 +130,7 @@ Future<int> _run({required bool check}) async {
   // file and nothing races or silently overwrites another asset.
   final keyOwners = <String, List<String>>{};
   for (final path in sortedPaths) {
+    if (!needsBuild(path)) continue;
     if (!File('${contentDir.path}/$path').existsSync()) continue;
     keyOwners.putIfAbsent(_servedKey(path), () => <String>[]).add(path);
   }
@@ -98,6 +140,16 @@ Future<int> _run({required bool check}) async {
   };
 
   for (final path in sortedPaths) {
+    if (!needsBuild(path)) {
+      final reused = existingManifest![path] as Map<String, dynamic>?;
+      if (reused == null) {
+        missing.add(path);
+        continue;
+      }
+      entries[path] =
+          _ManifestEntry(key: reused['key'] as String, v: reused['v'] as String);
+      continue;
+    }
     final file = File('${contentDir.path}/$path');
     if (!file.existsSync()) {
       missing.add(path);
@@ -169,12 +221,24 @@ Future<int> _run({required bool check}) async {
   var converted = 0;
   var skipped = 0;
   var processed = 0;
-  final total = entries.length;
-  final newStamps = <String, String>{};
+  // Reused entries (--only mode) keep their stamp as-is, so a local
+  // incremental run doesn't forget them for next time even though this run
+  // never touched their file.
+  final newStamps = <String, String>{
+    for (final e in entries.entries)
+      if (!needsBuild(e.key)) e.value.key: e.value.v,
+  };
 
   // A small worker pool over the entry list; each worker pulls the next
   // index off a shared cursor so slow conversions don't block fast copies.
-  final work = entries.entries.toList();
+  // In --only mode, a reused entry's source bytes were never read above and
+  // may not even exist on disk (a CI runner only downloads the changed
+  // originals) — skip staging it entirely, not just fast-path it via stamps.
+  final work = [
+    for (final e in entries.entries)
+      if (needsBuild(e.key)) e,
+  ];
+  final total = work.length;
   var cursor = 0;
   final poolSize =
       Platform.numberOfProcessors.clamp(1, 6);
@@ -234,6 +298,11 @@ Future<int> _run({required bool check}) async {
 
   File('${buildDir.path}/media-files.txt').writeAsStringSync(
       '${entries.values.map((e) => e.key).toList().join('\n')}\n');
+  // The served keys actually (re)built this run — what an incremental
+  // upload needs (`rclone copy --files-from`, never `sync`, since most
+  // served keys were never staged locally and would look "missing" to sync).
+  File('${buildDir.path}/media-changed-keys.txt').writeAsStringSync(
+      '${work.map((e) => e.value.key).toList().join('\n')}\n');
 
   for (final path in missing) {
     stderr.writeln('⚠ referenced media not found on disk: $path');

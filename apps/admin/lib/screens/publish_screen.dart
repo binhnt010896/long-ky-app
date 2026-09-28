@@ -25,6 +25,12 @@ class _PublishScreenState extends ConsumerState<PublishScreen> {
   PublishRunStatus? _lastRun;
   Timer? _pollTimer;
 
+  // The K3 publish gate: true only once a dry run of the exact commit
+  // that's about to be published has succeeded — not just "some run
+  // succeeded once," which was the old (weaker) check.
+  bool _dryRunOk = false;
+  String? _dryRunOkForSha;
+
   Future<void> _commit() async {
     setState(() {
       _busy = true;
@@ -48,7 +54,11 @@ class _PublishScreenState extends ConsumerState<PublishScreen> {
       _status = null;
     });
     try {
-      await ref.read(cmsApiClientProvider).publish(dryRun: dryRun);
+      final sha = ref.read(contentDraftProvider).valueOrNull?.baseSha;
+      await ref.read(cmsApiClientProvider).publish(
+        dryRun: dryRun,
+        expectedSha: dryRun ? null : sha,
+      );
       setState(() => _status = '${dryRun ? "Dry run" : "Publish"} triggered — polling status…');
       _startPolling();
     } catch (e) {
@@ -73,6 +83,24 @@ class _PublishScreenState extends ConsumerState<PublishScreen> {
       }
     } catch (_) {
       // Keep polling — a transient GitHub API hiccup shouldn't stop the loop.
+    }
+    await _refreshDryRunGate();
+  }
+
+  Future<void> _refreshDryRunGate() async {
+    final sha = ref.read(contentDraftProvider).valueOrNull?.baseSha;
+    if (sha == null) return;
+    try {
+      final ok = await ref.read(cmsApiClientProvider).dryRunOk(sha);
+      if (mounted) {
+        setState(() {
+          _dryRunOk = ok;
+          _dryRunOkForSha = sha;
+        });
+      }
+    } catch (_) {
+      // Leave the gate as it was — a transient failure here should not
+      // spuriously unlock or lock Publish.
     }
   }
 
@@ -100,6 +128,11 @@ class _PublishScreenState extends ConsumerState<PublishScreen> {
         error: (e, st) => Center(child: Text('Failed to load: $e')),
         data: (draft) {
           final result = draft.validate();
+          if (_dryRunOkForSha != draft.baseSha) {
+            // Fire-and-forget: re-checks the gate for the sha now on screen
+            // (a fresh load, or right after a commit changed baseSha).
+            WidgetsBinding.instance.addPostFrameCallback((_) => _refreshDryRunGate());
+          }
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -171,7 +204,7 @@ class _PublishScreenState extends ConsumerState<PublishScreen> {
                           ),
                           const SizedBox(width: 12),
                           FilledButton(
-                            onPressed: _busy || _lastRun == null || !_lastRun!.succeeded
+                            onPressed: _busy || !(_dryRunOkForSha == draft.baseSha && _dryRunOk)
                                 ? null
                                 : () => _triggerPublish(dryRun: false),
                             child: const Text('Publish for real'),
@@ -183,6 +216,13 @@ class _PublishScreenState extends ConsumerState<PublishScreen> {
                             tooltip: 'Refresh run status',
                           ),
                         ],
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        _dryRunOkForSha == draft.baseSha && _dryRunOk
+                            ? 'A dry run of this exact commit succeeded — Publish is unlocked.'
+                            : 'Run a successful dry run of this exact commit to unlock Publish.',
+                        style: Theme.of(context).textTheme.bodySmall,
                       ),
                       const SizedBox(height: 8),
                       if (_lastRun != null)
@@ -197,7 +237,9 @@ class _PublishScreenState extends ConsumerState<PublishScreen> {
                                   : (_lastRun!.succeeded ? Colors.green : Theme.of(context).colorScheme.error),
                             ),
                             const SizedBox(width: 8),
-                            Text('${_lastRun!.status} · ${_lastRun!.conclusion ?? "running"}'),
+                            Text(
+                              '${_lastRun!.title ?? "run"} · ${_lastRun!.status} · ${_lastRun!.conclusion ?? "running"}',
+                            ),
                             const SizedBox(width: 8),
                             TextButton(
                               onPressed: () => launchUrlString(_lastRun!.htmlUrl),

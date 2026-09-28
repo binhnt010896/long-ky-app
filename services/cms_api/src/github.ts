@@ -175,11 +175,17 @@ export async function commitFiles(
   return { sha: newCommit.sha };
 }
 
-/** Triggers `.github/workflows/publish-content.yml` on `main`. */
+/** Triggers `.github/workflows/publish-content.yml` on `main`. [mode]
+ * defaults to `incremental` (Cycle K) — only what actually changed since
+ * the last publish. [expectedSha], when given, makes a real (non-dry-run)
+ * publish refuse to run if `main` has moved past it — the workflow's own
+ * "Refuse to publish over a moved main" step. */
 export async function triggerPublish(
   env: Env,
   dryRun: boolean,
   fetchFn: FetchFn = fetch,
+  mode: 'incremental' | 'full' = 'incremental',
+  expectedSha?: string,
 ): Promise<void> {
   const repo = `/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}`;
   await ghFetch(
@@ -188,7 +194,14 @@ export async function triggerPublish(
     {
       method: 'POST',
       // workflow_dispatch inputs are always strings.
-      body: { ref: 'main', inputs: { dry_run: String(dryRun) } },
+      body: {
+        ref: 'main',
+        inputs: {
+          dry_run: String(dryRun),
+          mode,
+          ...(expectedSha ? { expected_sha: expectedSha } : {}),
+        },
+      },
     },
     fetchFn,
   );
@@ -199,6 +212,31 @@ export interface PublishRunStatus {
   conclusion: string | null; // "success" | "failure" | null while running
   htmlUrl: string;
   createdAt: string;
+  headSha: string;
+  /** The run's display title, e.g. "dry run (incremental) a1b2c3d" — see
+   * the workflow's `run-name`. Used to tell a dry run from a real publish
+   * without needing the original dispatch inputs back. */
+  title: string;
+}
+
+type GhRun = {
+  status: string;
+  conclusion: string | null;
+  html_url: string;
+  created_at: string;
+  head_sha: string;
+  display_title: string;
+};
+
+function toStatus(run: GhRun): PublishRunStatus {
+  return {
+    status: run.status,
+    conclusion: run.conclusion,
+    htmlUrl: run.html_url,
+    createdAt: run.created_at,
+    headSha: run.head_sha,
+    title: run.display_title,
+  };
 }
 
 /** The most recent `publish-content` run, for the CMS's Publish page to
@@ -213,20 +251,31 @@ export async function getLatestPublishRun(
     `${repo}/actions/workflows/publish-content.yml/runs?per_page=1`,
     {},
     fetchFn,
-  )) as {
-    workflow_runs: Array<{
-      status: string;
-      conclusion: string | null;
-      html_url: string;
-      created_at: string;
-    }>;
-  };
+  )) as { workflow_runs: GhRun[] };
   const run = runs.workflow_runs[0];
-  if (!run) return null;
-  return {
-    status: run.status,
-    conclusion: run.conclusion,
-    htmlUrl: run.html_url,
-    createdAt: run.created_at,
-  };
+  return run ? toStatus(run) : null;
+}
+
+/** True when the most recent successful dry run among the last 15 publish
+ * runs was for [sha] — the CMS's "Publish for real" gate (decision K3):
+ * publishing should require a dry run of *this exact* content, not just
+ * "some run succeeded at some point," which today's weaker check allows. */
+export async function hasSuccessfulDryRunFor(
+  env: Env,
+  sha: string,
+  fetchFn: FetchFn = fetch,
+): Promise<boolean> {
+  const repo = `/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}`;
+  const runs = (await ghFetch(
+    env,
+    `${repo}/actions/workflows/publish-content.yml/runs?per_page=15`,
+    {},
+    fetchFn,
+  )) as { workflow_runs: GhRun[] };
+  return runs.workflow_runs.some(
+    (r) =>
+      r.head_sha === sha &&
+      r.conclusion === 'success' &&
+      r.display_title.startsWith('dry run'),
+  );
 }

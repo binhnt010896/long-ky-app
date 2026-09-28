@@ -1,14 +1,23 @@
 name: publish-content
 
-# Runs the exact same publish pipeline tool/publish_content.sh runs locally,
-# but starting from `long-ky-sources` (the shared originals bucket) instead
-# of whatever happens to be on one Mac's disk — so the CMS's own Publish
-# button (via the Cloudflare Worker, once G-3/G-4 exist) and `gh workflow run
-# publish-content` both publish from the same source of truth.
+# Publishes content/ to R2, starting from `long-ky-sources` (the shared
+# originals bucket) instead of whatever happens to be on one Mac's disk —
+# so the CMS's Publish button and `gh workflow run publish-content` both
+# publish from the same source of truth.
 #
 # Manual trigger only: publishing is never automatic. `dry_run: true`
 # previews (formats, validates, converts media, reports what would change)
 # without touching R2 or committing anything.
+#
+# `mode: incremental` (the default, Cycle K) only downloads/converts/uploads
+# the media that actually changed since the last publish, using
+# `content/media-sources.json` (a ledger of what's live) and a fast,
+# metadata-only listing of long-ky-sources — no more re-pulling all 3.7 GB
+# and re-encoding all ~650 images on every run. `mode: full` is the old
+# unconditional pipeline: every original re-pulled, every image
+# re-converted, a full `rclone sync --delete-excluded`. Use it to bootstrap
+# the ledger, after an encoder-settings change, or if incremental ever
+# looks wrong and a clean rebuild is worth the ~15-20 min.
 on:
   workflow_dispatch:
     inputs:
@@ -16,6 +25,23 @@ on:
         description: "Preview only — don't upload to R2 or commit"
         type: boolean
         default: false
+      mode:
+        description: "incremental (fast, only what changed) or full (rebuild everything)"
+        type: choice
+        options: [incremental, full]
+        default: incremental
+      expected_sha:
+        description: "Optional — real publish fails if main has moved past this commit since the dry run that approved it"
+        type: string
+        default: ""
+
+concurrency:
+  group: publish-content
+  cancel-in-progress: false
+
+run-name: >-
+  ${{ inputs.dry_run && 'dry run' || 'publish' }}
+  (${{ inputs.mode }}) ${{ github.sha }}
 
 jobs:
   publish:
@@ -25,15 +51,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Refuse to publish over a moved main
+        if: ${{ !inputs.dry_run && inputs.expected_sha != '' && inputs.expected_sha != github.sha }}
+        run: |
+          echo "✗ main is at ${{ github.sha }}, but this publish was approved by a dry run of ${{ inputs.expected_sha }}."
+          echo "  Content changed since that dry run — dry run again before publishing."
+          exit 1
+
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+          cache: true
 
-      - name: Install rclone
-        run: curl https://rclone.org/install.sh | sudo bash
-
-      - name: Install cwebp
-        run: sudo apt-get update && sudo apt-get install -y webp
+      - name: Install a pinned rclone
+        run: |
+          curl -sL https://downloads.rclone.org/v1.68.2/rclone-v1.68.2-linux-amd64.deb -o /tmp/rclone.deb
+          sudo dpkg -i /tmp/rclone.deb
 
       - name: Configure the r2 rclone remote
         run: |
@@ -50,11 +83,8 @@ jobs:
       - name: dart pub get (workspace)
         run: dart pub get
 
-      - name: Pull originals from long-ky-sources
-        run: tool/pull_sources.sh
-
-      # Same gate as content-check.yml — a pull that somehow landed something
-      # unformatted or invalid must never reach a real publish.
+      # Same gate as content-check.yml — content must already be clean
+      # before anyone tries to publish it.
       - name: Canonical content formatting
         run: dart run tool/format_content.dart --check
 
@@ -65,23 +95,104 @@ jobs:
         working-directory: packages/core_domain
         run: flutter test
 
-      - name: Publish (dry run)
-        if: ${{ inputs.dry_run }}
+      # ---------------------------------------------------------------
+      # mode: full — today's unconditional pipeline.
+      # ---------------------------------------------------------------
+      - name: "[full] Pull every original from long-ky-sources"
+        if: ${{ inputs.mode == 'full' }}
+        run: tool/pull_sources.sh
+
+      - name: "[full] Install cwebp"
+        if: ${{ inputs.mode == 'full' }}
+        run: sudo apt-get update && sudo apt-get install -y webp
+
+      - name: "[full] Publish (dry run)"
+        if: ${{ inputs.mode == 'full' && inputs.dry_run }}
         run: tool/publish_content.sh --dry-run
 
-      - name: Publish
-        if: ${{ !inputs.dry_run }}
+      - name: "[full] Publish"
+        if: ${{ inputs.mode == 'full' && !inputs.dry_run }}
         run: tool/publish_content.sh
 
-      # publish_content.sh updates content/content-version.json and
-      # content/media-manifest.json on disk but — unlike a local run — this
-      # runner has no one to commit them by hand, so it does that itself.
+      - name: "[full] Refresh the media ledger"
+        if: ${{ inputs.mode == 'full' && !inputs.dry_run }}
+        run: dart run tool/write_media_ledger.dart
+
+      # ---------------------------------------------------------------
+      # mode: incremental — only what changed (Cycle K).
+      # ---------------------------------------------------------------
+      - name: "[incremental] Plan the publish (no downloads)"
+        if: ${{ inputs.mode == 'incremental' }}
+        run: dart run tool/media_ledger.dart --mode incremental
+
+      - name: "[incremental] Job summary"
+        if: ${{ inputs.mode == 'incremental' }}
+        run: |
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          cat build/media-plan.json >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: "[incremental] Download only the changed originals"
+        if: ${{ inputs.mode == 'incremental' }}
+        run: |
+          if grep -q '[^[:space:]]' build/media-changed-sources.txt; then
+            rclone copy r2:long-ky-sources content/ \
+              --files-from build/media-changed-sources.txt \
+              --s3-no-check-bucket --progress
+          else
+            echo "✓ nothing changed — no originals to download."
+          fi
+
+      - name: "[incremental] Install cwebp"
+        if: ${{ inputs.mode == 'incremental' }}
+        run: |
+          if grep -q '[^[:space:]]' build/media-changed-sources.txt; then
+            sudo apt-get update && sudo apt-get install -y webp
+          else
+            echo "✓ nothing to convert — skipping cwebp install."
+          fi
+
+      - name: "[incremental] Convert only the changed media"
+        if: ${{ inputs.mode == 'incremental' }}
+        run: dart run tool/gen_media_manifest.dart --only build/media-changed-sources.txt
+
+      - name: "[incremental] Upload the changed media"
+        if: ${{ inputs.mode == 'incremental' && !inputs.dry_run }}
+        run: tool/sync_media_changed.sh
+
+      - name: "[incremental] Build and upload the content pack"
+        if: ${{ inputs.mode == 'incremental' && !inputs.dry_run }}
+        run: |
+          dart run tool/build_content_pack.dart
+          VERSION=$(python3 -c "import json; print(json.load(open('build/pack/latest.json'))['version'])")
+          rclone copyto "build/pack/${VERSION}.json" \
+            "r2:long-ky-content/content/packs/${VERSION}.json" \
+            --header-upload "Cache-Control: public, max-age=31536000, immutable" \
+            --s3-no-check-bucket
+          rclone copyto "build/pack/latest.json" \
+            "r2:long-ky-content/content/latest.json" \
+            --header-upload "Cache-Control: no-cache" \
+            --s3-no-check-bucket
+          echo "✓ published content pack ${VERSION}"
+
+      # Deletions happen only after the new pack is live (decision K2) — a
+      # phone still on the old pack must never see a missing image.
+      - name: "[incremental] Remove media no longer referenced"
+        if: ${{ inputs.mode == 'incremental' && !inputs.dry_run }}
+        run: tool/delete_media.sh
+
+      - name: "[incremental] Refresh the media ledger"
+        if: ${{ inputs.mode == 'incremental' && !inputs.dry_run }}
+        run: dart run tool/write_media_ledger.dart
+
+      # Every mode's real publish ends here — this runner has no one to
+      # commit the resulting bump by hand, so it does that itself.
       - name: Commit the published version bump
         if: ${{ !inputs.dry_run }}
         run: |
           git config user.name "long-ky-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add content/content-version.json content/media-manifest.json
+          git add content/content-version.json content/media-manifest.json content/media-sources.json
           if git diff --cached --quiet; then
             echo "Nothing to commit."
           else

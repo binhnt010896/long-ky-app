@@ -33,6 +33,8 @@ class PublishRunStatus {
     required this.conclusion,
     required this.htmlUrl,
     required this.createdAt,
+    this.headSha,
+    this.title,
   });
 
   factory PublishRunStatus.fromJson(Map<String, dynamic> json) => PublishRunStatus(
@@ -40,12 +42,16 @@ class PublishRunStatus {
     conclusion: json['conclusion'] as String?,
     htmlUrl: json['htmlUrl'] as String,
     createdAt: json['createdAt'] as String,
+    headSha: json['headSha'] as String?,
+    title: json['title'] as String?,
   );
 
   final String status;
   final String? conclusion;
   final String htmlUrl;
   final String createdAt;
+  final String? headSha;
+  final String? title;
 
   bool get isRunning => status != 'completed';
   bool get succeeded => status == 'completed' && conclusion == 'success';
@@ -126,11 +132,22 @@ class CmsApiClient {
     return res.bodyBytes;
   }
 
-  Future<void> publish({required bool dryRun}) async {
+  /// [mode] defaults to `incremental` (Cycle K) — only what actually
+  /// changed. [expectedSha] makes a real publish refuse to run if `main`
+  /// has moved past the commit its dry run previewed.
+  Future<void> publish({
+    required bool dryRun,
+    String mode = 'incremental',
+    String? expectedSha,
+  }) async {
     final res = await _client.post(
       Uri.parse('$baseUrl/publish'),
       headers: await _headers(contentType: 'application/json'),
-      body: jsonEncode({'dryRun': dryRun}),
+      body: jsonEncode({
+        'dryRun': dryRun,
+        'mode': mode,
+        if (expectedSha != null) 'expectedSha': expectedSha,
+      }),
     );
     _throwIfError(res);
   }
@@ -144,6 +161,18 @@ class CmsApiClient {
     final body = jsonDecode(_text(res));
     if (body == null) return null;
     return PublishRunStatus.fromJson(body as Map<String, dynamic>);
+  }
+
+  /// The CMS's Publish gate (decision K3): true only when [sha] already has
+  /// a successful dry run behind it, not just "some run succeeded once."
+  Future<bool> dryRunOk(String sha) async {
+    final res = await _client.get(
+      Uri.parse('$baseUrl/publish/dry-run-ok').replace(queryParameters: {'sha': sha}),
+      headers: await _headers(),
+    );
+    _throwIfError(res);
+    final body = jsonDecode(_text(res)) as Map<String, dynamic>;
+    return body['ok'] as bool;
   }
 
   /// Always UTF-8 — `res.body` falls back to Latin-1 when the response has

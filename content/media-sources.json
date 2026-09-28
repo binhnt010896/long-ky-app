@@ -1,0 +1,2590 @@
+{
+  "schemaVersion": 1,
+  "encoderTag": "webp-q85-m6",
+  "files": {
+    "eras/au-lac/characters/cao-lo-avatar.png": {
+      "md5": "4fb6412ae807266711932bba0d51d2c2",
+      "size": 5359336
+    },
+    "eras/au-lac/characters/cao-lo-full.png": {
+      "md5": "2dfe6b24851b34484296d5401bddd96b",
+      "size": 7633070
+    },
+    "eras/au-lac/characters/my-chau-avatar.png": {
+      "md5": "a1fa9342fc29c5fe61632f38ed534f86",
+      "size": 5565819
+    },
+    "eras/au-lac/characters/my-chau-full.png": {
+      "md5": "0558fa8750e77a0348301a313638c089",
+      "size": 6250165
+    },
+    "eras/au-lac/characters/than-kim-quy-avatar.png": {
+      "md5": "28648f25ba3c05ea1b7c642769303dd2",
+      "size": 3773371
+    },
+    "eras/au-lac/characters/than-kim-quy-full.png": {
+      "md5": "a748afb51354c2acef5ceae8241b98d2",
+      "size": 6446936
+    },
+    "eras/au-lac/characters/trieu-da-avatar.png": {
+      "md5": "fd0d105bf474468794c4ce72bb7d2593",
+      "size": 5493419
+    },
+    "eras/au-lac/characters/trieu-da-full.png": {
+      "md5": "21311dcb6470a662e040427e4badc4c6",
+      "size": 6885891
+    },
+    "eras/au-lac/characters/trong-thuy-avatar.png": {
+      "md5": "9c9dfe73e5ee11b6804d4765b36b214a",
+      "size": 4081049
+    },
+    "eras/au-lac/characters/trong-thuy-full.png": {
+      "md5": "2c17295c34b26dcccf3e63bb9bd8002e",
+      "size": 5362578
+    },
+    "eras/au-lac/cover.png": {
+      "md5": "404a9ffab6812288eba1e7ea5c1ec780",
+      "size": 3275717
+    },
+    "eras/au-lac/events/an-duong-vuong-lap-au-lac.png": {
+      "md5": "35d2a21e4a6fb9f044216d5ee3eb9751",
+      "size": 3361337
+    },
+    "eras/au-lac/events/au-lac-mat-nuoc.png": {
+      "md5": "dba259e20ba151477febc872448f94cd",
+      "size": 3336267
+    },
+    "eras/au-lac/events/co-loa-thanh.png": {
+      "md5": "8a6adbbcb6b5e901accf11123806a9c7",
+      "size": 3272931
+    },
+    "eras/au-lac/events/my-chau-trong-thuy.png": {
+      "md5": "58cfe2c4e9968d91630214991226fd9b",
+      "size": 3282486
+    },
+    "eras/au-lac/events/no-than-kim-quy.png": {
+      "md5": "1c3fff5f8388b68dcdc35369eaffad08",
+      "size": 3485602
+    },
+    "eras/au-lac/scene/ridge-far.png": {
+      "md5": "fc25420a7e7fffe3be3d9bf8e51ed4ab",
+      "size": 1486727
+    },
+    "eras/au-lac/scene/ridge-near.png": {
+      "md5": "452bacf080608184b09628683aa0d329",
+      "size": 1456261
+    },
+    "eras/au-lac/scene/sky.png": {
+      "md5": "5caeeeee736c73ada9cddac77b083ea8",
+      "size": 2833696
+    },
+    "eras/ba-trieu/characters/ba-trieu-avatar.png": {
+      "md5": "7e7dec825eaa725979f1d4f7cc67fd77",
+      "size": 7703601
+    },
+    "eras/ba-trieu/characters/ba-trieu-full.png": {
+      "md5": "f0a0779dc6cbe491bac298dd21a5fa7b",
+      "size": 7170944
+    },
+    "eras/ba-trieu/characters/luc-dan-avatar.png": {
+      "md5": "2e5677ea8c3b8f7cfb43f7d34a30ed2c",
+      "size": 7719573
+    },
+    "eras/ba-trieu/characters/luc-dan-full.png": {
+      "md5": "e658f4fa2b18b04bb111eb3a431e16bf",
+      "size": 6504386
+    },
+    "eras/ba-trieu/characters/trieu-quoc-dat-avatar.png": {
+      "md5": "e0b8d8d38142fe1cd0058a998bae5246",
+      "size": 7673219
+    },
+    "eras/ba-trieu/characters/trieu-quoc-dat-full.png": {
+      "md5": "ed4448357785dd0b16e430bf2e1c93a8",
+      "size": 8201853
+    },
+    "eras/ba-trieu/cover.png": {
+      "md5": "b02d515ce00d295e009b34800c614821",
+      "size": 6345661
+    },
+    "eras/ba-trieu/events/ach-do-ho-nha-ngo.png": {
+      "md5": "40c5f37f65b511ebb472820f083b55b5",
+      "size": 9035480
+    },
+    "eras/ba-trieu/events/ba-trieu-tuan-tiet.png": {
+      "md5": "543cca15b75a02a5c64ba35b2de0eb91",
+      "size": 7516781
+    },
+    "eras/ba-trieu/events/khoi-nghia-mau-thin.png": {
+      "md5": "15ec0dd4f6703a8702a3b96adaadb68d",
+      "size": 8667890
+    },
+    "eras/ba-trieu/events/nguoi-con-gai-cuu-chan.png": {
+      "md5": "6f6b0855490a9c5d10a95ac5663f8bc4",
+      "size": 7283848
+    },
+    "eras/ba-trieu/scene/sky.png": {
+      "md5": "9ade9e0889655d7760c7453053c6357d",
+      "size": 7341275
+    },
+    "eras/bien-gioi-phia-bac/characters/dam-quang-trung-avatar.png": {
+      "md5": "8238998e007e51486c87af8be50a8ef1",
+      "size": 846291
+    },
+    "eras/bien-gioi-phia-bac/characters/dam-quang-trung-full.png": {
+      "md5": "763dfd688f9bed3d8120006210af40cf",
+      "size": 1989254
+    },
+    "eras/bien-gioi-phia-bac/characters/vu-lap-avatar.png": {
+      "md5": "7a050fa673925a3da4796d70ad40d052",
+      "size": 960091
+    },
+    "eras/bien-gioi-phia-bac/characters/vu-lap-full.png": {
+      "md5": "be0438f6497538c13b9c7ca6d8775592",
+      "size": 2693324
+    },
+    "eras/bien-gioi-phia-bac/cover.png": {
+      "md5": "79d50b28084c0bbff2c252dcba5e5ac5",
+      "size": 2936830
+    },
+    "eras/bien-gioi-phia-bac/events/chien-dau-lang-son-cao-bang-lao-cai.png": {
+      "md5": "24f178cce3d0d01eedd8785c8f38be18",
+      "size": 2415180
+    },
+    "eras/bien-gioi-phia-bac/events/khep-lai-chien-tranh.png": {
+      "md5": "6dfce3dac007343139b52ea386c5a20c",
+      "size": 2618852
+    },
+    "eras/bien-gioi-phia-bac/events/mat-tran-vi-xuyen.png": {
+      "md5": "38e2cce99ab7ebb5e1d41efef5946a10",
+      "size": 2784229
+    },
+    "eras/bien-gioi-phia-bac/events/tong-dong-vien-1979.png": {
+      "md5": "18a982b5e5bc12a1438146e055d2dcbf",
+      "size": 2810271
+    },
+    "eras/bien-gioi-phia-bac/events/xam-luoc-17-2-1979.png": {
+      "md5": "ed0cc777fd7ab0ef59266baba3ba5ba1",
+      "size": 2609581
+    },
+    "eras/bien-gioi-phia-bac/scene/sky.png": {
+      "md5": "79d50b28084c0bbff2c252dcba5e5ac5",
+      "size": 2936830
+    },
+    "eras/bien-gioi-tay-nam/characters/le-duc-anh-avatar.png": {
+      "md5": "95223c355660a979975ba9036dd60061",
+      "size": 859457
+    },
+    "eras/bien-gioi-tay-nam/characters/le-duc-anh-full.png": {
+      "md5": "a0e0950bdb80b308cdd9fe9a7fe1b2c9",
+      "size": 1998298
+    },
+    "eras/bien-gioi-tay-nam/characters/le-trong-tan-avatar.png": {
+      "md5": "7da41c40db012ed5f45a4bb976f86235",
+      "size": 920949
+    },
+    "eras/bien-gioi-tay-nam/characters/le-trong-tan-full.png": {
+      "md5": "a47d2febc8ddcb4917099608ce37cc63",
+      "size": 2161095
+    },
+    "eras/bien-gioi-tay-nam/cover.png": {
+      "md5": "9a9600b53b52c5a33ae92fd995455747",
+      "size": 2911159
+    },
+    "eras/bien-gioi-tay-nam/events/giai-phong-phnom-penh.png": {
+      "md5": "522d22b545fcd8c301a4373d47098c7f",
+      "size": 2546288
+    },
+    "eras/bien-gioi-tay-nam/events/khmer-do-chiem-tho-chu.png": {
+      "md5": "f205ffc96324e411f59819c1370b735a",
+      "size": 5352083
+    },
+    "eras/bien-gioi-tay-nam/events/quan-tinh-nguyen-ve-nuoc.png": {
+      "md5": "7834e7331ed45d7e7ae2350c957d2750",
+      "size": 3604260
+    },
+    "eras/bien-gioi-tay-nam/events/tan-cong-bien-gioi-1977.png": {
+      "md5": "2b135f9097923f7f4b1434d139a05df1",
+      "size": 2263810
+    },
+    "eras/bien-gioi-tay-nam/events/tham-sat-ba-chuc.png": {
+      "md5": "786dd70ca463734f7f73e06d29f4094b",
+      "size": 3327788
+    },
+    "eras/bien-gioi-tay-nam/events/tong-phan-cong-tay-nam.png": {
+      "md5": "70bc21dfddfd8a49dcb2c09ebe579a52",
+      "size": 2551423
+    },
+    "eras/bien-gioi-tay-nam/scene/sky.png": {
+      "md5": "9a9600b53b52c5a33ae92fd995455747",
+      "size": 2911159
+    },
+    "eras/cach-mang-thang-tam/characters/bao-dai-avatar.png": {
+      "md5": "ec80cf4a4cf7603e842d65152a9542c0",
+      "size": 835996
+    },
+    "eras/cach-mang-thang-tam/characters/bao-dai-full.png": {
+      "md5": "a6b1a4305bd17fcbede37daf169a6708",
+      "size": 2198340
+    },
+    "eras/cach-mang-thang-tam/characters/ho-chi-minh-avatar.png": {
+      "md5": "b4d1f8ca95058761f93085c6a24e1a13",
+      "size": 843346
+    },
+    "eras/cach-mang-thang-tam/characters/ho-chi-minh-full.png": {
+      "md5": "8c6550060bea9d5339a11d099a492c42",
+      "size": 425185
+    },
+    "eras/cach-mang-thang-tam/characters/nguyen-thi-minh-khai-avatar.png": {
+      "md5": "4b128e6030c10acb3e2a60593b5a8c0f",
+      "size": 688099
+    },
+    "eras/cach-mang-thang-tam/characters/nguyen-thi-minh-khai-full.png": {
+      "md5": "3c37a120fc9e10a97ca0499c14d0f26b",
+      "size": 1577656
+    },
+    "eras/cach-mang-thang-tam/characters/tran-phu-avatar.png": {
+      "md5": "ac460eb767035cfaad0da3a18dffb891",
+      "size": 924324
+    },
+    "eras/cach-mang-thang-tam/characters/tran-phu-full.png": {
+      "md5": "48d6f694405cd71a813bcf0e8609a5fc",
+      "size": 1948939
+    },
+    "eras/cach-mang-thang-tam/characters/vo-nguyen-giap-avatar.png": {
+      "md5": "b636848dbe6b02e61dea4a62a3231abd",
+      "size": 881402
+    },
+    "eras/cach-mang-thang-tam/characters/vo-nguyen-giap-full.png": {
+      "md5": "b838959310dc4635b0c78e0a0e15c1b4",
+      "size": 2122861
+    },
+    "eras/cach-mang-thang-tam/cover.png": {
+      "md5": "314eb6efcfae02e5a6b6af986bee507f",
+      "size": 2855674
+    },
+    "eras/cach-mang-thang-tam/events/cach-mang-thang-tam.png": {
+      "md5": "314eb6efcfae02e5a6b6af986bee507f",
+      "size": 2855674
+    },
+    "eras/cach-mang-thang-tam/events/dang-cong-san-ra-doi.png": {
+      "md5": "028f7494dd871e5a8ae5e1137d90cb48",
+      "size": 3258136
+    },
+    "eras/cach-mang-thang-tam/events/khoi-nghia-1940.png": {
+      "md5": "e069644a7733b246d0f089a71266b2a5",
+      "size": 2927402
+    },
+    "eras/cach-mang-thang-tam/events/mat-tran-viet-minh.png": {
+      "md5": "b4cc3e6d8dfd16db5ffe83f6359f2e23",
+      "size": 2975414
+    },
+    "eras/cach-mang-thang-tam/events/nan-doi-at-dau.png": {
+      "md5": "f7bad9d17875092066cb60e649ca1fbe",
+      "size": 2250475
+    },
+    "eras/cach-mang-thang-tam/events/nhat-dao-chinh-phap.png": {
+      "md5": "5d86043e70018c924cf2017c78fad867",
+      "size": 3565094
+    },
+    "eras/cach-mang-thang-tam/events/phong-trao-dan-chu.png": {
+      "md5": "cc243eaf362dbc239d43648ff8c5017c",
+      "size": 2696618
+    },
+    "eras/cach-mang-thang-tam/events/xo-viet-nghe-tinh.png": {
+      "md5": "ffa6af775c04fb2df9f85d68cbbbbad4",
+      "size": 3153367
+    },
+    "eras/cach-mang-thang-tam/scene/sky.png": {
+      "md5": "314eb6efcfae02e5a6b6af986bee507f",
+      "size": 2855674
+    },
+    "eras/can-vuong/characters/dong-khanh-avatar.png": {
+      "md5": "495c8b4245dfa3129ad6fde18ed79001",
+      "size": 2635618
+    },
+    "eras/can-vuong/characters/dong-khanh-full.png": {
+      "md5": "6f70838806a8e27a3aa8300e576f7964",
+      "size": 7698960
+    },
+    "eras/can-vuong/characters/ham-nghi-avatar.png": {
+      "md5": "98bca2984cd8da9afb909891e0f78253",
+      "size": 3073387
+    },
+    "eras/can-vuong/characters/ham-nghi-full.png": {
+      "md5": "d28aa958f627ee53676a2aad2c5d571d",
+      "size": 5941563
+    },
+    "eras/can-vuong/characters/hoang-hoa-tham-avatar.png": {
+      "md5": "2502fe45245a9fe3360415f90bf9577e",
+      "size": 3550258
+    },
+    "eras/can-vuong/characters/hoang-hoa-tham-full.png": {
+      "md5": "cef11dff5f9c7cff703d3c793cc55c67",
+      "size": 6172318
+    },
+    "eras/can-vuong/characters/nguyen-thien-thuat-avatar.png": {
+      "md5": "ac1c036c43ae145099adaa36e1360672",
+      "size": 4946851
+    },
+    "eras/can-vuong/characters/nguyen-thien-thuat-full.png": {
+      "md5": "582ac6a18ca2d34f8bb846b40eb9c15a",
+      "size": 6688357
+    },
+    "eras/can-vuong/characters/phan-dinh-phung-avatar.png": {
+      "md5": "b855c0488d45137d62175038e2e00f11",
+      "size": 5207346
+    },
+    "eras/can-vuong/characters/phan-dinh-phung-full.png": {
+      "md5": "ec7a715987716614dcb1a0ec6ceb5676",
+      "size": 7035377
+    },
+    "eras/can-vuong/characters/ton-that-thuyet-avatar.png": {
+      "md5": "302abe05844ae7e653ccd5a745d492e6",
+      "size": 5135720
+    },
+    "eras/can-vuong/characters/ton-that-thuyet-full.png": {
+      "md5": "aa7d99b69073118d6d22c59b9f1e3299",
+      "size": 8357399
+    },
+    "eras/can-vuong/cover.png": {
+      "md5": "7cf46d5f45c65baf334272206cd6d005",
+      "size": 9257950
+    },
+    "eras/can-vuong/events/chieu-can-vuong.png": {
+      "md5": "cb9ec01a4103cddab99cff7ff0ca03fe",
+      "size": 6872601
+    },
+    "eras/can-vuong/events/ham-nghi-bi-bat.png": {
+      "md5": "603c1a8001bbd3798bc5a10cfffe090e",
+      "size": 5138309
+    },
+    "eras/can-vuong/events/hoa-uoc-bao-ho.png": {
+      "md5": "01a2cadbb094ee4996d0132b81cddc37",
+      "size": 8460145
+    },
+    "eras/can-vuong/events/khoi-nghia-huong-khe.png": {
+      "md5": "d1f8d1af40d114ea593c3a218069d4a0",
+      "size": 7562890
+    },
+    "eras/can-vuong/events/khoi-nghia-yen-the.png": {
+      "md5": "0e3ac516f7025b11780a2db8def74c7a",
+      "size": 10384278
+    },
+    "eras/can-vuong/events/phong-trao-can-vuong.png": {
+      "md5": "ab71c5de6e028d4991bde2608147b1e7",
+      "size": 11400071
+    },
+    "eras/can-vuong/events/that-thu-kinh-do.png": {
+      "md5": "12311d0b94472c421abf80f8868ed943",
+      "size": 6013854
+    },
+    "eras/can-vuong/scene/sky.png": {
+      "md5": "c9db9a568abff1d04a2796153cb27b4a",
+      "size": 7280807
+    },
+    "eras/cong-cuoc-doi-moi/characters/do-muoi-avatar.png": {
+      "md5": "d25db7b1924ece8b0a7e0e9189debae3",
+      "size": 877912
+    },
+    "eras/cong-cuoc-doi-moi/characters/do-muoi-full.png": {
+      "md5": "910e86d62ecda3d4ad5d70966bf2a8f3",
+      "size": 2602108
+    },
+    "eras/cong-cuoc-doi-moi/characters/nguyen-van-linh-avatar.png": {
+      "md5": "141b63aaede2da11348e5a40f8f0838c",
+      "size": 736110
+    },
+    "eras/cong-cuoc-doi-moi/characters/nguyen-van-linh-full.png": {
+      "md5": "d4663c111b839c14b108f196976d70df",
+      "size": 2050619
+    },
+    "eras/cong-cuoc-doi-moi/characters/tran-van-phuong-avatar.png": {
+      "md5": "05c26f0efd9989d648683f2b8642f472",
+      "size": 925357
+    },
+    "eras/cong-cuoc-doi-moi/characters/tran-van-phuong-full.png": {
+      "md5": "2fd3f54ee87020621a7a71716d921b7f",
+      "size": 2090897
+    },
+    "eras/cong-cuoc-doi-moi/characters/vo-van-kiet-avatar.png": {
+      "md5": "84d9fe0376acb541f6a80eb50188cd23",
+      "size": 892633
+    },
+    "eras/cong-cuoc-doi-moi/characters/vo-van-kiet-full.png": {
+      "md5": "ad0862672cfc7e77f687689ee7e81368",
+      "size": 2149675
+    },
+    "eras/cong-cuoc-doi-moi/cover.png": {
+      "md5": "0702f4bbc541aff77648144245ab636c",
+      "size": 3196835
+    },
+    "eras/cong-cuoc-doi-moi/events/dai-hoi-vi.png": {
+      "md5": "15f20e1e6ae917847f528172abc309fe",
+      "size": 2555534
+    },
+    "eras/cong-cuoc-doi-moi/events/dai-hoi-vii.png": {
+      "md5": "4475e0a96d9c727828e3804cbcb754cf",
+      "size": 2627240
+    },
+    "eras/cong-cuoc-doi-moi/events/gac-ma.png": {
+      "md5": "666030b4b6c4d0deae43efb98cd83a00",
+      "size": 1937484
+    },
+    "eras/cong-cuoc-doi-moi/events/hien-phap-1992.png": {
+      "md5": "4ff1e7081f7e38534798e35bc17b64af",
+      "size": 2007808
+    },
+    "eras/cong-cuoc-doi-moi/events/hoi-nhap-1995.png": {
+      "md5": "2a6e00a6e22fac45b66ff81422a57ffa",
+      "size": 3384691
+    },
+    "eras/cong-cuoc-doi-moi/events/khoan-10.png": {
+      "md5": "870993a66a419bea0d3567253299bee2",
+      "size": 2869914
+    },
+    "eras/cong-cuoc-doi-moi/events/luat-dau-tu-nuoc-ngoai.png": {
+      "md5": "654129904a40637bdb3a484ed194131a",
+      "size": 2389502
+    },
+    "eras/cong-cuoc-doi-moi/events/my-bo-cam-van.png": {
+      "md5": "8cb7bd226b3f4b1d2ef9e61f5aaab358",
+      "size": 2437588
+    },
+    "eras/cong-cuoc-doi-moi/events/xuat-khau-gao-1989.png": {
+      "md5": "afc5adc98041a576a0992468a8ff6415",
+      "size": 2790368
+    },
+    "eras/cong-cuoc-doi-moi/scene/sky.png": {
+      "md5": "0702f4bbc541aff77648144245ab636c",
+      "size": 3196835
+    },
+    "eras/dai-thang-mua-xuan/characters/le-duan-avatar.png": {
+      "md5": "42e88c85aba6e32b61d2aa91f74864b6",
+      "size": 970015
+    },
+    "eras/dai-thang-mua-xuan/characters/le-duan-full.png": {
+      "md5": "5e5a1e8c1d292134454658213addad62",
+      "size": 2215273
+    },
+    "eras/dai-thang-mua-xuan/characters/nguyen-thi-binh-avatar.png": {
+      "md5": "4b80280c655abea36febf364b25e7df1",
+      "size": 917152
+    },
+    "eras/dai-thang-mua-xuan/characters/nguyen-thi-binh-full.png": {
+      "md5": "03a7a921b4fdafff6139afd56c8a890c",
+      "size": 2183591
+    },
+    "eras/dai-thang-mua-xuan/characters/nguyen-thi-dinh-avatar.png": {
+      "md5": "267f114f2223a9230a43bc8284ae9a24",
+      "size": 873165
+    },
+    "eras/dai-thang-mua-xuan/characters/nguyen-thi-dinh-full.png": {
+      "md5": "f6c8531b7cab45d491e587702e42f782",
+      "size": 2206127
+    },
+    "eras/dai-thang-mua-xuan/characters/van-tien-dung-avatar.png": {
+      "md5": "3d66fbdd0972c6f00ce00c1370ef97f9",
+      "size": 832694
+    },
+    "eras/dai-thang-mua-xuan/characters/van-tien-dung-full.png": {
+      "md5": "8a31fb48f2b055d3923c2249688593c1",
+      "size": 2479646
+    },
+    "eras/dai-thang-mua-xuan/cover.mp4": {
+      "md5": "298514e24665566dc088c69757f1df98",
+      "size": 3305213
+    },
+    "eras/dai-thang-mua-xuan/cover.png": {
+      "md5": "edad7c069885eb0e55bbcfcee710c27f",
+      "size": 2531367
+    },
+    "eras/dai-thang-mua-xuan/events/bac-ho-qua-doi.png": {
+      "md5": "b5c8943c3661bf23e10addbfe778aceb",
+      "size": 2348456
+    },
+    "eras/dai-thang-mua-xuan/events/chien-dich-ho-chi-minh.png": {
+      "md5": "f8c1563d19444ac3505664cf4d7240aa",
+      "size": 2542225
+    },
+    "eras/dai-thang-mua-xuan/events/chien-dich-tay-nguyen.png": {
+      "md5": "f4c70b128f29de94c52a2463fe3c8478",
+      "size": 1748548
+    },
+    "eras/dai-thang-mua-xuan/events/chien-tranh-cuc-bo.png": {
+      "md5": "a49e50a37280825aa7c21feebe1ddbde",
+      "size": 5199498
+    },
+    "eras/dai-thang-mua-xuan/events/danh-bai-chien-tranh-dac-biet.png": {
+      "md5": "8a22f4d69c98a4fb284da3a22a983cc1",
+      "size": 2766971
+    },
+    "eras/dai-thang-mua-xuan/events/dat-nuoc-chia-doi.png": {
+      "md5": "f08825e482058602aae9b95653fea925",
+      "size": 1679962
+    },
+    "eras/dai-thang-mua-xuan/events/dien-bien-phu-tren-khong.png": {
+      "md5": "01088ca5ab95020a1b71988c9ee16a83",
+      "size": 2205167
+    },
+    "eras/dai-thang-mua-xuan/events/dong-khoi.png": {
+      "md5": "de3855ae26ba791185c68b5e4252c396",
+      "size": 2532086
+    },
+    "eras/dai-thang-mua-xuan/events/duong-truong-son.png": {
+      "md5": "75d27d9ac77ecb9cd5a18f3ebe608aa2",
+      "size": 2356610
+    },
+    "eras/dai-thang-mua-xuan/events/hiep-dinh-paris.png": {
+      "md5": "b7bfeb6a7ebf9ca1df1978c73053e453",
+      "size": 1798002
+    },
+    "eras/dai-thang-mua-xuan/events/tet-mau-than-1968.png": {
+      "md5": "70a4d6fe0049a8056e79d812349409cd",
+      "size": 2042217
+    },
+    "eras/dai-thang-mua-xuan/scene/sky.png": {
+      "md5": "edad7c069885eb0e55bbcfcee710c27f",
+      "size": 2531367
+    },
+    "eras/dien-bien-phu/characters/pham-van-dong-avatar.png": {
+      "md5": "7c36864e76992c2888bf579ca7d27668",
+      "size": 923569
+    },
+    "eras/dien-bien-phu/characters/pham-van-dong-full.png": {
+      "md5": "606bb75fc5dc4b55ce90f2a2da54e7f9",
+      "size": 1942100
+    },
+    "eras/dien-bien-phu/characters/phan-dinh-giot-avatar.png": {
+      "md5": "a413eac5b804fdcd50f5b3ca5318ea9a",
+      "size": 914381
+    },
+    "eras/dien-bien-phu/characters/phan-dinh-giot-full.png": {
+      "md5": "70c4b2f4b80df2955df5c59275d73d36",
+      "size": 2278357
+    },
+    "eras/dien-bien-phu/characters/truong-chinh-avatar.png": {
+      "md5": "0b285fd7532874a84d8134586806b8d0",
+      "size": 389404
+    },
+    "eras/dien-bien-phu/characters/truong-chinh-full.png": {
+      "md5": "5115e29c121574344a34b50f44fa3f68",
+      "size": 1527645
+    },
+    "eras/dien-bien-phu/cover.mp4": {
+      "md5": "504810d3c1390aa1581c5f58475fb80c",
+      "size": 767096
+    },
+    "eras/dien-bien-phu/cover.png": {
+      "md5": "0764a3590d88b36931a89840f4981726",
+      "size": 3657519
+    },
+    "eras/dien-bien-phu/events/chien-dich-bien-gioi.png": {
+      "md5": "f2ace35982fff2945446ba7f8564edcf",
+      "size": 2241474
+    },
+    "eras/dien-bien-phu/events/chien-dich-viet-bac.png": {
+      "md5": "9eb23333741e764959276e56b5673d0c",
+      "size": 2715003
+    },
+    "eras/dien-bien-phu/events/dai-hoi-dang-lan-hai.png": {
+      "md5": "aa8ebfc6e52468ad5ebd059b5f6fe1da",
+      "size": 3566236
+    },
+    "eras/dien-bien-phu/events/dien-bien-phu.png": {
+      "md5": "6aed4dbff254e6dbe8bcd6d8ab9cd2c4",
+      "size": 2276422
+    },
+    "eras/dien-bien-phu/events/giac-doi-giac-dot.png": {
+      "md5": "70976f3aff3ddd21c29761399d1b7daa",
+      "size": 2266989
+    },
+    "eras/dien-bien-phu/events/hiep-dinh-geneve.png": {
+      "md5": "5c384699ef8cc77e6916a2bb72597d09",
+      "size": 2863230
+    },
+    "eras/dien-bien-phu/events/hiep-dinh-so-bo.png": {
+      "md5": "619de22309a69a584dd06ebb1e9b3485",
+      "size": 2302708
+    },
+    "eras/dien-bien-phu/events/toan-quoc-khang-chien.png": {
+      "md5": "a7ee1b68734ac733b987c3b22a4cf410",
+      "size": 2345583
+    },
+    "eras/dien-bien-phu/scene/sky.png": {
+      "md5": "0764a3590d88b36931a89840f4981726",
+      "size": 3657519
+    },
+    "eras/dinh-tien-hoang/characters/dinh-tien-hoang-avatar.png": {
+      "md5": "d135308011f1b06f7f1504f250ee5686",
+      "size": 4218663
+    },
+    "eras/dinh-tien-hoang/characters/dinh-tien-hoang-full.png": {
+      "md5": "b01450140274019f0e95a6b5fc1f34e9",
+      "size": 7131251
+    },
+    "eras/dinh-tien-hoang/characters/do-thich-avatar.png": {
+      "md5": "943007071efda2d56727ffb6da5bcd62",
+      "size": 7807650
+    },
+    "eras/dinh-tien-hoang/characters/do-thich-full.png": {
+      "md5": "accfff8279ee00a5e9742a11944ca6d4",
+      "size": 7647427
+    },
+    "eras/dinh-tien-hoang/characters/le-hoan-avatar.png": {
+      "md5": "b424ac0c6eb3e5a8793eccb577712ba2",
+      "size": 8545636
+    },
+    "eras/dinh-tien-hoang/characters/le-hoan-full.png": {
+      "md5": "3c7c7f202fafcd2cb141c529802fa2bd",
+      "size": 9457094
+    },
+    "eras/dinh-tien-hoang/characters/nguyen-bac-avatar.png": {
+      "md5": "a2c2b055cda10bfd45362c9688e3e776",
+      "size": 6879596
+    },
+    "eras/dinh-tien-hoang/characters/nguyen-bac-full.png": {
+      "md5": "a767fbe3f500cea2524d4d1d41f53ac4",
+      "size": 7225347
+    },
+    "eras/dinh-tien-hoang/cover.png": {
+      "md5": "95fc4c24d5e849d693686ff4b4bb7107",
+      "size": 9771620
+    },
+    "eras/dinh-tien-hoang/events/dep-loan-thong-nhat.png": {
+      "md5": "2b0b924f01ea46d4e8c0fa53a7040be4",
+      "size": 9745772
+    },
+    "eras/dinh-tien-hoang/events/do-thich-thi-nghich.png": {
+      "md5": "439cca4aa2918ceb18f7c0771762b937",
+      "size": 8086799
+    },
+    "eras/dinh-tien-hoang/events/dung-nen-chinh.png": {
+      "md5": "91de8174435889f188f047a6efaf870d",
+      "size": 8878532
+    },
+    "eras/dinh-tien-hoang/events/lap-dai-co-viet.png": {
+      "md5": "f8d096d7e7f60a31e2b31bd565b163ff",
+      "size": 10448467
+    },
+    "eras/dinh-tien-hoang/events/loan-12-su-quan.png": {
+      "md5": "83a86d7270dce80088d4345c54854bc5",
+      "size": 10424102
+    },
+    "eras/dinh-tien-hoang/scene/sky.png": {
+      "md5": "056c2d9bc2186c806cd6bf89fdd0bb8b",
+      "size": 10086518
+    },
+    "eras/gia-long/characters/ba-da-loc-avatar.png": {
+      "md5": "0126adff2fa57418b5f223c272d87a46",
+      "size": 4271785
+    },
+    "eras/gia-long/characters/ba-da-loc-full.png": {
+      "md5": "17072a216f1cbd884204a91c798c9cb4",
+      "size": 5399115
+    },
+    "eras/gia-long/characters/gia-long-avatar.png": {
+      "md5": "89de776bc213f8487bf30c88b6c55ab8",
+      "size": 4749510
+    },
+    "eras/gia-long/characters/gia-long-full.png": {
+      "md5": "c197958fc820baa2a053218270cb1943",
+      "size": 7051306
+    },
+    "eras/gia-long/characters/le-van-duyet-avatar.png": {
+      "md5": "7fdfe4d3351f67986886473903f2246c",
+      "size": 5611544
+    },
+    "eras/gia-long/characters/le-van-duyet-full.png": {
+      "md5": "b673f0f8029243bdae2c1bb9d2737aa3",
+      "size": 5684687
+    },
+    "eras/gia-long/characters/nguyen-van-thanh-avatar.png": {
+      "md5": "54f9932905377c8cd3f5d6569b3039aa",
+      "size": 6636021
+    },
+    "eras/gia-long/characters/nguyen-van-thanh-full.png": {
+      "md5": "c88589e65c07ba403465df60922f4d18",
+      "size": 6159443
+    },
+    "eras/gia-long/cover.png": {
+      "md5": "59fac2a744b47f16a17d36c8249941cc",
+      "size": 9448319
+    },
+    "eras/gia-long/events/bac-tien-thong-nhat.png": {
+      "md5": "2501f78401515a58980cad3a2ae41ed4",
+      "size": 11410004
+    },
+    "eras/gia-long/events/cau-vien-ba-da-loc.png": {
+      "md5": "5befa34408d3a767e296924333b8113f",
+      "size": 9186415
+    },
+    "eras/gia-long/events/gia-dinh-lon-manh.png": {
+      "md5": "4bc138fb72c0c7ce90b05cbbbb3ac726",
+      "size": 9329868
+    },
+    "eras/gia-long/events/gian-nan-phuc-quoc.png": {
+      "md5": "e70263b7c4f4d5725bc037736512b85d",
+      "size": 8025694
+    },
+    "eras/gia-long/events/kinh-do-hue-luat-gia-long.png": {
+      "md5": "af2551d359f8ce081aae0b018b206244",
+      "size": 8339321
+    },
+    "eras/gia-long/events/len-ngoi-viet-nam.png": {
+      "md5": "7a3189d9ac0eb38bd7376789f625fa31",
+      "size": 10168584
+    },
+    "eras/gia-long/scene/sky.png": {
+      "md5": "8159981acf8e2860f0a7b079db817463",
+      "size": 9561135
+    },
+    "eras/hai-ba-trung/characters/ma-vien-avatar.png": {
+      "md5": "56d57c2a1f0446a7ba3e569134813fa9",
+      "size": 7545243
+    },
+    "eras/hai-ba-trung/characters/ma-vien-full.png": {
+      "md5": "f96254e0f5b2e9e71a9c6c40b414c9f7",
+      "size": 7472117
+    },
+    "eras/hai-ba-trung/characters/thi-sach-avatar.png": {
+      "md5": "54e3e246d35a53b5952676fadb9c2584",
+      "size": 8928043
+    },
+    "eras/hai-ba-trung/characters/thi-sach-full.png": {
+      "md5": "36b33a04ff45131545319074c7064751",
+      "size": 8341759
+    },
+    "eras/hai-ba-trung/characters/to-dinh-avatar.png": {
+      "md5": "b5849452a4907761cf4db8ddda19713e",
+      "size": 6154848
+    },
+    "eras/hai-ba-trung/characters/to-dinh-full.png": {
+      "md5": "20c5af783d34ba19ee395eb49ae419a0",
+      "size": 5577366
+    },
+    "eras/hai-ba-trung/characters/trung-nhi-avatar.png": {
+      "md5": "0acfeb3aa76a63377b85e1769c56a2b2",
+      "size": 8137444
+    },
+    "eras/hai-ba-trung/characters/trung-nhi-full.png": {
+      "md5": "062a4b67c6354860d71971699162b17b",
+      "size": 7473448
+    },
+    "eras/hai-ba-trung/characters/trung-trac-avatar.png": {
+      "md5": "1aded0ac6938b3fad8e7a32356daabc4",
+      "size": 8877646
+    },
+    "eras/hai-ba-trung/characters/trung-trac-full.png": {
+      "md5": "828996dea86a3d941009b53a31ff5cb7",
+      "size": 8919027
+    },
+    "eras/hai-ba-trung/cover.png": {
+      "md5": "602b4f77c37e3f74e3a1c495110f9f89",
+      "size": 10461305
+    },
+    "eras/hai-ba-trung/events/ach-do-ho-nha-han.png": {
+      "md5": "199211f258ad6229a9d7922562f4544d",
+      "size": 8451798
+    },
+    "eras/hai-ba-trung/events/duoi-to-dinh.png": {
+      "md5": "7d777e507c4757bde8d1ea0ab6e42723",
+      "size": 10767834
+    },
+    "eras/hai-ba-trung/events/hai-ba-trung-khoi-nghia.png": {
+      "md5": "1f1f64b7bc2c928b14c6f4fb0899f470",
+      "size": 10465212
+    },
+    "eras/hai-ba-trung/events/hai-ba-tuan-tiet.png": {
+      "md5": "113b381393af6a01cf945b291952448a",
+      "size": 9080666
+    },
+    "eras/hai-ba-trung/events/ma-vien-phan-cong.png": {
+      "md5": "7475b6c7d583ed1bfdc386c7eeae7fa4",
+      "size": 7053303
+    },
+    "eras/hai-ba-trung/events/trung-nu-vuong.png": {
+      "md5": "af3eb062b70c4c46417ab42ed2912b68",
+      "size": 10394994
+    },
+    "eras/hai-ba-trung/scene/ridge-far.png": {
+      "md5": "ed67b1c03d2332d88761cfcfdce0b43b",
+      "size": 6481568
+    },
+    "eras/hai-ba-trung/scene/ridge-near.png": {
+      "md5": "fb3215ce3268573b04acfd7baf939468",
+      "size": 5384582
+    },
+    "eras/hai-ba-trung/scene/sky.png": {
+      "md5": "6ebebe3483da94228f2941306e7eb82f",
+      "size": 6966707
+    },
+    "eras/hoi-nhap-quoc-te/characters/le-kha-phieu-avatar.png": {
+      "md5": "15d23eec78b09a5a7a98057a239a2092",
+      "size": 639562
+    },
+    "eras/hoi-nhap-quoc-te/characters/le-kha-phieu-full.png": {
+      "md5": "199c059a63aee87aa781a999fdbf63b4",
+      "size": 1233381
+    },
+    "eras/hoi-nhap-quoc-te/characters/nong-duc-manh-avatar.png": {
+      "md5": "ff36fc870b4ee3c8767bbf8a09d14581",
+      "size": 574161
+    },
+    "eras/hoi-nhap-quoc-te/characters/nong-duc-manh-full.png": {
+      "md5": "d1d8bcd1e5377d8086cb1b023828a674",
+      "size": 1191144
+    },
+    "eras/hoi-nhap-quoc-te/characters/phan-van-khai-avatar.png": {
+      "md5": "3f6c192634f2d86ad341138b03a1beaa",
+      "size": 932066
+    },
+    "eras/hoi-nhap-quoc-te/characters/phan-van-khai-full.png": {
+      "md5": "e9413fd6b31f6d6c65453626d9653f62",
+      "size": 1976367
+    },
+    "eras/hoi-nhap-quoc-te/characters/tran-duc-luong-avatar.png": {
+      "md5": "632244a9467e7d46aefabe4a34c071f9",
+      "size": 544127
+    },
+    "eras/hoi-nhap-quoc-te/characters/tran-duc-luong-full.png": {
+      "md5": "a8a26b93d53b084bf4cbc52182d7815d",
+      "size": 1155750
+    },
+    "eras/hoi-nhap-quoc-te/cover.png": {
+      "md5": "31ae7b4800c015457732dba27e97b646",
+      "size": 2991154
+    },
+    "eras/hoi-nhap-quoc-te/events/apec-2006.png": {
+      "md5": "d178675a72d27170bd959b33d09743c3",
+      "size": 309253
+    },
+    "eras/hoi-nhap-quoc-te/events/dai-hoi-viii.png": {
+      "md5": "cf5cb73cfec32409b70a34a325322af9",
+      "size": 2447626
+    },
+    "eras/hoi-nhap-quoc-te/events/gia-nhap-apec.png": {
+      "md5": "9208ed629834f1eea18296cea2310651",
+      "size": 1008073
+    },
+    "eras/hoi-nhap-quoc-te/events/gia-nhap-wto.png": {
+      "md5": "e4562fb3c4c55bf7fc584276a1a25505",
+      "size": 753270
+    },
+    "eras/hoi-nhap-quoc-te/events/hiep-dinh-thuong-mai-viet-my.png": {
+      "md5": "5d51a4f5baa6cbae7dbcdbdf7c6201e0",
+      "size": 1239646
+    },
+    "eras/hoi-nhap-quoc-te/events/luat-doanh-nghiep-1999.png": {
+      "md5": "717b6bf2a8f77f824bd62cf57e0a1ade",
+      "size": 2636072
+    },
+    "eras/hoi-nhap-quoc-te/events/phan-dinh-bien-gioi.png": {
+      "md5": "3faa1c943be182b6c476e41e93deb419",
+      "size": 207252
+    },
+    "eras/hoi-nhap-quoc-te/events/sea-games-22.png": {
+      "md5": "32c80259510586abf01d89ddc38da9fd",
+      "size": 498894
+    },
+    "eras/hoi-nhap-quoc-te/scene/sky.png": {
+      "md5": "31ae7b4800c015457732dba27e97b646",
+      "size": 2991154
+    },
+    "eras/hong-bang/characters/an-duong-vuong-avatar.png": {
+      "md5": "c62342c87e267e29938e4d7a479a6cca",
+      "size": 5000776
+    },
+    "eras/hong-bang/characters/an-duong-vuong-full.png": {
+      "md5": "61f04b04b0729fbd9cfd3efd9f3bcc15",
+      "size": 6116922
+    },
+    "eras/hong-bang/characters/au-co-avatar.png": {
+      "md5": "98a5ad553601fd21233bf4316a0b4730",
+      "size": 3498914
+    },
+    "eras/hong-bang/characters/au-co-full.png": {
+      "md5": "8e21337c7a564bcc8cc64689d9e6e567",
+      "size": 5313263
+    },
+    "eras/hong-bang/characters/kinh-duong-vuong-avatar.png": {
+      "md5": "8937f541ddb0709e3e234f7f6485fede",
+      "size": 5001937
+    },
+    "eras/hong-bang/characters/kinh-duong-vuong-full.png": {
+      "md5": "d55f04024f6e686f39e1135c95628f22",
+      "size": 7457098
+    },
+    "eras/hong-bang/characters/lac-long-quan-avatar.png": {
+      "md5": "1024d88d49caf5778b10dae4ecf6fde1",
+      "size": 4575449
+    },
+    "eras/hong-bang/characters/lac-long-quan-full.png": {
+      "md5": "05d12b569113ee3d5b518a1a534baab3",
+      "size": 4942578
+    },
+    "eras/hong-bang/characters/lang-lieu-avatar.png": {
+      "md5": "8cbce0051b7d148487947c052ed45547",
+      "size": 9444516
+    },
+    "eras/hong-bang/characters/lang-lieu-full.png": {
+      "md5": "a12aa94ac38884f1be163cd97ad180a7",
+      "size": 7614586
+    },
+    "eras/hong-bang/characters/son-tinh-avatar.png": {
+      "md5": "5f60a8a6e97a82426a1f1e36526ef22d",
+      "size": 4446809
+    },
+    "eras/hong-bang/characters/son-tinh-full.png": {
+      "md5": "0d2a448b52d43006d63cde034e6f6a25",
+      "size": 6046026
+    },
+    "eras/hong-bang/characters/thanh-giong-avatar.png": {
+      "md5": "77e2163f362e6cabc4fba99badfb98a6",
+      "size": 9521346
+    },
+    "eras/hong-bang/characters/thanh-giong-full.png": {
+      "md5": "337ad832d11045ceb3bfe198189a2970",
+      "size": 8267573
+    },
+    "eras/hong-bang/characters/thuy-tinh-avatar.png": {
+      "md5": "434a826b0a6d1c444a5646156fdbe2d3",
+      "size": 5206465
+    },
+    "eras/hong-bang/characters/thuy-tinh-full.png": {
+      "md5": "ad87ec6442384a54e60698f9b3fca1d9",
+      "size": 7885045
+    },
+    "eras/hong-bang/characters/vua-hung-avatar.png": {
+      "md5": "1ea3dc50f06978f4cb26e6920dc63c6a",
+      "size": 4794160
+    },
+    "eras/hong-bang/characters/vua-hung-full.png": {
+      "md5": "b49b2484477c0eccbd0ab4d8fadb0990",
+      "size": 5990661
+    },
+    "eras/hong-bang/cover.png": {
+      "md5": "1959affbceb9a3b1b9ee6d26785404e4",
+      "size": 3056296
+    },
+    "eras/hong-bang/events/banh-chung-banh-giay.png": {
+      "md5": "1f22d3da2a34ea5ddd0b6ade8df260d7",
+      "size": 10078108
+    },
+    "eras/hong-bang/events/kinh-duong-vuong.png": {
+      "md5": "e4a834b3083433f5b2161ef1506b3af6",
+      "size": 2978132
+    },
+    "eras/hong-bang/events/lac-long-quan-au-co.png": {
+      "md5": "4a6c28941cee1a3a4ac677e519b48cca",
+      "size": 3034542
+    },
+    "eras/hong-bang/events/son-tinh-thuy-tinh.png": {
+      "md5": "1b00bacbb926052bf9af8bb7710fcf3d",
+      "size": 3073583
+    },
+    "eras/hong-bang/events/thanh-giong.png": {
+      "md5": "67289a0963d2bb690b52707319c3aa46",
+      "size": 10981774
+    },
+    "eras/hong-bang/events/thuc-phan-co-loa.png": {
+      "md5": "f595040533d1ae94218f7ce48b0c1f00",
+      "size": 2938520
+    },
+    "eras/hong-bang/events/van-lang.png": {
+      "md5": "d8e79bd6927b3d1140010de776bcf372",
+      "size": 2872168
+    },
+    "eras/hong-bang/scene/ridge-far.png": {
+      "md5": "76ef40f85e03a6309e6cb433f447b55e",
+      "size": 1414327
+    },
+    "eras/hong-bang/scene/ridge-near.png": {
+      "md5": "6e592923daa6f031e42227636cffac77",
+      "size": 1356119
+    },
+    "eras/hong-bang/scene/sky.png": {
+      "md5": "46ab97a02d0f13299615ddfa205d78c6",
+      "size": 2870059
+    },
+    "eras/khuc-thua-du/characters/khuc-hao-avatar.png": {
+      "md5": "ae1b6c1d35ddcd0b1f3ed371457d9f74",
+      "size": 10046172
+    },
+    "eras/khuc-thua-du/characters/khuc-hao-full.png": {
+      "md5": "eac7abb0568ecbc4c81d0eddd98195e9",
+      "size": 7224487
+    },
+    "eras/khuc-thua-du/characters/khuc-thua-du-avatar.png": {
+      "md5": "99e9098eecf4247762348e36054cc585",
+      "size": 4211935
+    },
+    "eras/khuc-thua-du/characters/khuc-thua-du-full.png": {
+      "md5": "d2cfeb1759079ecf146f43ed1414dc39",
+      "size": 7770341
+    },
+    "eras/khuc-thua-du/characters/khuc-thua-my-avatar.png": {
+      "md5": "fba7cd0ff43c3931cb5e9d0b0127a3dd",
+      "size": 8383799
+    },
+    "eras/khuc-thua-du/characters/khuc-thua-my-full.png": {
+      "md5": "e868181457832f7ba5820e56e8a45994",
+      "size": 8235070
+    },
+    "eras/khuc-thua-du/cover.png": {
+      "md5": "942548be174b31891d9d48a8c4622eea",
+      "size": 10479571
+    },
+    "eras/khuc-thua-du/events/khuc-hao-cai-cach.png": {
+      "md5": "8d8153891358da7afb9dd103c0648c3f",
+      "size": 10131732
+    },
+    "eras/khuc-thua-du/events/khuc-thua-du-tu-chu.png": {
+      "md5": "4b567af6ce6943cd87a1765136ca1b82",
+      "size": 10163938
+    },
+    "eras/khuc-thua-du/events/khuc-thua-my-nam-han.png": {
+      "md5": "cb776bd028123d2aab4cf19dbf2b9108",
+      "size": 9928295
+    },
+    "eras/khuc-thua-du/events/nha-duong-suy-vong.png": {
+      "md5": "e4ec32e051c6db4be1887b8cb027f823",
+      "size": 8167439
+    },
+    "eras/khuc-thua-du/scene/sky.png": {
+      "md5": "96d54deff1e49b9df36187d8e4602110",
+      "size": 9810483
+    },
+    "eras/ky-nguyen-vuon-minh/characters/luong-cuong-avatar.png": {
+      "md5": "26413b208e81657acede45ebbc6ede4e",
+      "size": 793177
+    },
+    "eras/ky-nguyen-vuon-minh/characters/luong-cuong-full.png": {
+      "md5": "fa1c2674855cbbf704287e72d1601a9f",
+      "size": 1600786
+    },
+    "eras/ky-nguyen-vuon-minh/characters/pham-minh-chinh-avatar.png": {
+      "md5": "cc6da67d23fe46bc6d90a1996ed3fef0",
+      "size": 1078995
+    },
+    "eras/ky-nguyen-vuon-minh/characters/pham-minh-chinh-full.png": {
+      "md5": "7aeee20e183ead9352eb9d108b68beca",
+      "size": 2243284
+    },
+    "eras/ky-nguyen-vuon-minh/characters/to-lam-avatar.png": {
+      "md5": "6708b22fae81122536f9ffce6f37a02d",
+      "size": 720082
+    },
+    "eras/ky-nguyen-vuon-minh/characters/to-lam-full.png": {
+      "md5": "78267a37366a02cc0c7e6d97b28f8db1",
+      "size": 1292860
+    },
+    "eras/ky-nguyen-vuon-minh/cover.png": {
+      "md5": "55f2fa87dc03211e251cf6b23df0e5c7",
+      "size": 3363920
+    },
+    "eras/ky-nguyen-vuon-minh/events/a80.png": {
+      "md5": "7fedc44928ec229a94bf40be7fbe7639",
+      "size": 3388533
+    },
+    "eras/ky-nguyen-vuon-minh/events/chong-dich-covid-19.png": {
+      "md5": "67a9a1d7041d0afb5d4d727376a7fc06",
+      "size": 695437
+    },
+    "eras/ky-nguyen-vuon-minh/events/chu-tich-asean-rcep.png": {
+      "md5": "5fe8f69dd285c9c7d7b6ebd2851052b9",
+      "size": 833442
+    },
+    "eras/ky-nguyen-vuon-minh/events/dai-hoi-xiii.png": {
+      "md5": "a022acd62aa974ebde5d077f90a6a054",
+      "size": 2138624
+    },
+    "eras/ky-nguyen-vuon-minh/events/ky-niem-50-nam-thong-nhat.png": {
+      "md5": "0210f6d1ec4d0a3bf788ea6f5a861660",
+      "size": 1404420
+    },
+    "eras/ky-nguyen-vuon-minh/events/nghi-quyet-57.png": {
+      "md5": "90f5a7a6eb75a08f59d227c6c48ae7b7",
+      "size": 3056701
+    },
+    "eras/ky-nguyen-vuon-minh/events/ngoai-giao-cay-tre.png": {
+      "md5": "998df2c62908adc8729cd874ea009f57",
+      "size": 704882
+    },
+    "eras/ky-nguyen-vuon-minh/events/sap-xep-34-tinh.png": {
+      "md5": "f43921782722db69b5fa9853a22e9896",
+      "size": 219671
+    },
+    "eras/ky-nguyen-vuon-minh/events/tang-truong-2025.png": {
+      "md5": "0f2a80a8cc37a56e34631cc4c9da9e33",
+      "size": 2711974
+    },
+    "eras/ky-nguyen-vuon-minh/events/tong-bi-thu-nguyen-phu-trong-tu-tran.png": {
+      "md5": "42377c2abbbcbbdf61d22d52473e52ff",
+      "size": 1350996
+    },
+    "eras/ky-nguyen-vuon-minh/scene/sky.png": {
+      "md5": "55f2fa87dc03211e251cf6b23df0e5c7",
+      "size": 3363920
+    },
+    "eras/le-loi/characters/le-lai-avatar.png": {
+      "md5": "a387b68837368332c7446c28ff53cc5f",
+      "size": 8355677
+    },
+    "eras/le-loi/characters/le-lai-full.png": {
+      "md5": "8468dd63d06b00e2a6fcd487b57ddc24",
+      "size": 7070603
+    },
+    "eras/le-loi/characters/le-loi-avatar.png": {
+      "md5": "b98222bc0b0ea9c56a9aefbb0f8ca4fd",
+      "size": 9154266
+    },
+    "eras/le-loi/characters/le-loi-full.png": {
+      "md5": "f41a2771ff326ddb3851b5514da92f7e",
+      "size": 8315365
+    },
+    "eras/le-loi/characters/lieu-thang-avatar.png": {
+      "md5": "9cfc2001b0016655672556d575cf1c6e",
+      "size": 8650714
+    },
+    "eras/le-loi/characters/lieu-thang-full.png": {
+      "md5": "4fa56ee660b38c0aaaca70fe4bbb0758",
+      "size": 7704483
+    },
+    "eras/le-loi/characters/nguyen-chich-avatar.png": {
+      "md5": "619c17bc34d5854a472b3c9a2497ca89",
+      "size": 8463224
+    },
+    "eras/le-loi/characters/nguyen-chich-full.png": {
+      "md5": "5ab67844c9ba4fe0d4f8f975c42b1ea2",
+      "size": 7209160
+    },
+    "eras/le-loi/characters/nguyen-trai-avatar.png": {
+      "md5": "65ee7975dfbe373b5dcbb637dd557859",
+      "size": 8176857
+    },
+    "eras/le-loi/characters/nguyen-trai-full.png": {
+      "md5": "83a7b0125a15a5de7a64ab1b9d20a980",
+      "size": 6185695
+    },
+    "eras/le-loi/cover.png": {
+      "md5": "4cc21ed53f7352b90c43870472ede745",
+      "size": 7569552
+    },
+    "eras/le-loi/events/binh-ngo-dai-cao.png": {
+      "md5": "5ce682ddd8b7330f724e1f64cfaa1481",
+      "size": 10424896
+    },
+    "eras/le-loi/events/chi-lang-xuong-giang.png": {
+      "md5": "5a5d78518d40c8d7ca747e9df98beb45",
+      "size": 10603957
+    },
+    "eras/le-loi/events/chi-lang-xuong-giang.webp": {
+      "md5": "5faeb70a880d9d1889b7b7b9e47d94cc",
+      "size": 2565206
+    },
+    "eras/le-loi/events/dung-co-lam-son.png": {
+      "md5": "d935da5591a759a4be7ca9ca6471310d",
+      "size": 10564380
+    },
+    "eras/le-loi/events/le-lai-cuu-chua.png": {
+      "md5": "82aa6c8145d48a452230d1bfb91cf80b",
+      "size": 9172306
+    },
+    "eras/le-loi/events/thuoc-minh.png": {
+      "md5": "7b9ceafa982d20f45b09e2ec5d48217d",
+      "size": 9231130
+    },
+    "eras/le-loi/events/tien-vao-nghe-an.png": {
+      "md5": "cfc2478ce01b404edf3a0515ba17f788",
+      "size": 10080680
+    },
+    "eras/le-loi/scene/sky.png": {
+      "md5": "e1c2832aea8e2355d5a607bfef73d1f2",
+      "size": 7108019
+    },
+    "eras/le-thanh-tong/characters/le-thanh-tong-avatar.png": {
+      "md5": "a58420d2514d7c4a5a0bc7fff9f3706f",
+      "size": 7598751
+    },
+    "eras/le-thanh-tong/characters/le-thanh-tong-full.png": {
+      "md5": "7543c519aba967612fe84d14d1192d50",
+      "size": 7451466
+    },
+    "eras/le-thanh-tong/characters/ngo-si-lien-avatar.png": {
+      "md5": "3084c728d0de8740decb59b8b87db186",
+      "size": 7304601
+    },
+    "eras/le-thanh-tong/characters/ngo-si-lien-full.png": {
+      "md5": "eef49f49743f961c8c658169861e6aac",
+      "size": 5767660
+    },
+    "eras/le-thanh-tong/characters/nguyen-xi-avatar.png": {
+      "md5": "9c3926270f875ecb6161905c4adbdc01",
+      "size": 7304510
+    },
+    "eras/le-thanh-tong/characters/nguyen-xi-full.png": {
+      "md5": "d039ad5e203af70134b62d7e17a8780f",
+      "size": 6443033
+    },
+    "eras/le-thanh-tong/characters/than-nhan-trung-avatar.png": {
+      "md5": "6ac96158eeb5d4b62e60523c7bfcd187",
+      "size": 6952128
+    },
+    "eras/le-thanh-tong/characters/than-nhan-trung-full.png": {
+      "md5": "0303815e8836926b51f8b7a7d81327d9",
+      "size": 6354449
+    },
+    "eras/le-thanh-tong/cover.png": {
+      "md5": "65b527221d8e9b5a223c6af8c602f32d",
+      "size": 7448209
+    },
+    "eras/le-thanh-tong/events/binh-chiem-do-ban.png": {
+      "md5": "3faf8425d8aa2214db50022cc8c4b2fd",
+      "size": 10095466
+    },
+    "eras/le-thanh-tong/events/binh-nan-nghi-dan.png": {
+      "md5": "0657deeafa746f0b3e79fbb4b7200680",
+      "size": 10207500
+    },
+    "eras/le-thanh-tong/events/dinh-che-do.png": {
+      "md5": "ba21927e3094fbe647e0caaf32750e64",
+      "size": 9348414
+    },
+    "eras/le-thanh-tong/events/hong-duc-thinh-tri.png": {
+      "md5": "7a2d0fd385d1fd80f3e2d7f52bca6513",
+      "size": 10821063
+    },
+    "eras/le-thanh-tong/events/luat-hong-duc.png": {
+      "md5": "2d23f85d02976418fb808b8c974821bb",
+      "size": 8843653
+    },
+    "eras/le-thanh-tong/events/van-hien-tao-dan.png": {
+      "md5": "3346f92f44b6666a08c6f92248f96359",
+      "size": 9338252
+    },
+    "eras/le-thanh-tong/scene/sky.png": {
+      "md5": "c377fe12def2e8cb47dbe2d28ceeb25e",
+      "size": 6370085
+    },
+    "eras/ly-nhan-tong/characters/ly-nhan-tong-avatar.png": {
+      "md5": "21f12a7ffa7d1b39862563d08811ab53",
+      "size": 8040649
+    },
+    "eras/ly-nhan-tong/characters/ly-nhan-tong-full.png": {
+      "md5": "441eec14836a84871e4b45f1e9a8f791",
+      "size": 6720762
+    },
+    "eras/ly-nhan-tong/characters/ly-thuong-kiet-avatar.png": {
+      "md5": "62a03218da419eb49d1c715889e45a47",
+      "size": 7383751
+    },
+    "eras/ly-nhan-tong/characters/ly-thuong-kiet-full.png": {
+      "md5": "ec4c716fc1fae0bde67cf278b86a9f3f",
+      "size": 8088522
+    },
+    "eras/ly-nhan-tong/cover.png": {
+      "md5": "97e5d6e48798aab8f862c160503c221e",
+      "size": 6247405
+    },
+    "eras/ly-nhan-tong/events/giang-hoa-thinh-tri.png": {
+      "md5": "4c25318c3862104e5c11617558430bb2",
+      "size": 10011015
+    },
+    "eras/ly-nhan-tong/events/khoa-thi-quoc-tu-giam.png": {
+      "md5": "7f183f7b55e67c7bd50d9960c7fe009d",
+      "size": 11352436
+    },
+    "eras/ly-nhan-tong/events/nhan-tong-len-ngoi.png": {
+      "md5": "4dd743ca1ac25774b6c0516f6c95ed35",
+      "size": 10167803
+    },
+    "eras/ly-nhan-tong/events/nhu-nguyet-nam-quoc-son-ha.png": {
+      "md5": "d1a429d36ea39366ba393b54bea01e6a",
+      "size": 8987945
+    },
+    "eras/ly-nhan-tong/events/tien-phat-che-nhan.png": {
+      "md5": "024e6ca43ea1427cf13da910a50a1862",
+      "size": 8007631
+    },
+    "eras/ly-nhan-tong/scene/sky.png": {
+      "md5": "e87a2e2711d13805dfa7bbec963ca4a9",
+      "size": 6322650
+    },
+    "eras/ly-thai-to/characters/dao-cam-moc-avatar.png": {
+      "md5": "f229348a05bf3ef77d66895dc3dbbcbb",
+      "size": 7452353
+    },
+    "eras/ly-thai-to/characters/dao-cam-moc-full.png": {
+      "md5": "b09e72ed3fe1513cb45cc670d42021e0",
+      "size": 7114937
+    },
+    "eras/ly-thai-to/characters/le-phung-hieu-avatar.png": {
+      "md5": "2ca2e2a043c151241220842e9e90c38d",
+      "size": 8862928
+    },
+    "eras/ly-thai-to/characters/le-phung-hieu-full.png": {
+      "md5": "7bcac529eb3d550a1314cd0bcbbf69ab",
+      "size": 5716977
+    },
+    "eras/ly-thai-to/characters/ly-thai-to-avatar.png": {
+      "md5": "8ccec276ca57147ec9f72f0198e67888",
+      "size": 9928104
+    },
+    "eras/ly-thai-to/characters/ly-thai-to-full.png": {
+      "md5": "419c05964912c2afffbb02e832dadff4",
+      "size": 7623434
+    },
+    "eras/ly-thai-to/characters/van-hanh-avatar.png": {
+      "md5": "357aef8fb16328520a357f56601d9f80",
+      "size": 9273532
+    },
+    "eras/ly-thai-to/characters/van-hanh-full.png": {
+      "md5": "cff2e01b4c1f41a1a6c6118eed6450e7",
+      "size": 8230838
+    },
+    "eras/ly-thai-to/cover.png": {
+      "md5": "4072bfcf58b2eac7e3c1963744a996b2",
+      "size": 11108953
+    },
+    "eras/ly-thai-to/events/chieu-doi-do.png": {
+      "md5": "93f94d1a8f6737836028c4495a0a553c",
+      "size": 11252897
+    },
+    "eras/ly-thai-to/events/dung-kinh-dinh-che.png": {
+      "md5": "a086fc18112c4c7d41b1aeda3a9aec8d",
+      "size": 11308309
+    },
+    "eras/ly-thai-to/events/ly-cong-uan-len-ngoi.png": {
+      "md5": "cd712860f2b4eabf1b0b708ba0d233ca",
+      "size": 9192315
+    },
+    "eras/ly-thai-to/events/sung-phat-an-dan.png": {
+      "md5": "81a436e008b7bed1714d1685f7a2395b",
+      "size": 10719575
+    },
+    "eras/ly-thai-to/events/vua-bang-loan-tam-vuong.png": {
+      "md5": "d11c61f212d5ddd4f6eecfedbe155f58",
+      "size": 9777563
+    },
+    "eras/ly-thai-to/scene/sky.png": {
+      "md5": "27bbbf4a0a1e4d4363201c47816777b1",
+      "size": 8632499
+    },
+    "eras/ly-thai-tong/characters/ly-thai-tong-avatar.png": {
+      "md5": "15f5e518ef9aee52deb6e5d1c3ea66ca",
+      "size": 8641790
+    },
+    "eras/ly-thai-tong/characters/ly-thai-tong-full.png": {
+      "md5": "cf4ae28e16eb5c02a1edfdecc730d1d5",
+      "size": 6825226
+    },
+    "eras/ly-thai-tong/characters/ly-thanh-tong-avatar.png": {
+      "md5": "9d523d7eee52326147d2330dd6f43812",
+      "size": 8997036
+    },
+    "eras/ly-thai-tong/characters/ly-thanh-tong-full.png": {
+      "md5": "a59f331efdffb4ba4cd1199c36fbbe29",
+      "size": 6482050
+    },
+    "eras/ly-thai-tong/characters/y-lan-avatar.png": {
+      "md5": "91445ef7f5d7c4580b0b91bb32987d37",
+      "size": 8469642
+    },
+    "eras/ly-thai-tong/characters/y-lan-full.png": {
+      "md5": "6803b2b1fb9a7e2a757a6b8fb2eea229",
+      "size": 7534936
+    },
+    "eras/ly-thai-tong/cover.png": {
+      "md5": "a0b96c623ca37036bb6c944287d6d27f",
+      "size": 10745767
+    },
+    "eras/ly-thai-tong/events/ban-hinh-thu.png": {
+      "md5": "b86821ed948e665746cefa6a4980e50a",
+      "size": 8438644
+    },
+    "eras/ly-thai-tong/events/chua-mot-cot.png": {
+      "md5": "35f707fc79b67aa274be41d723cb8fae",
+      "size": 10778400
+    },
+    "eras/ly-thai-tong/events/dung-van-mieu.png": {
+      "md5": "dc84b6344babdf7615e4f5e8f4af9c8f",
+      "size": 9326916
+    },
+    "eras/ly-thai-tong/events/nam-chinh-y-lan.png": {
+      "md5": "6be9958dfa9cb23b8cdfe2d1dd10e1d9",
+      "size": 9058266
+    },
+    "eras/ly-thai-tong/events/quoc-hieu-dai-viet.png": {
+      "md5": "71fe547d798b0d064b4a174903108331",
+      "size": 9551103
+    },
+    "eras/ly-thai-tong/scene/sky.png": {
+      "md5": "e0a802eaeb1e5ffc9732b6d6744fe8cb",
+      "size": 5670802
+    },
+    "eras/mai-hac-de/characters/duong-tu-huc-avatar.png": {
+      "md5": "c0ee67cf0da16cdbfd5f7ce0a996f795",
+      "size": 8286731
+    },
+    "eras/mai-hac-de/characters/duong-tu-huc-full.png": {
+      "md5": "c4aa6b04e30a2e3d93b610a4171e4c75",
+      "size": 5795217
+    },
+    "eras/mai-hac-de/characters/mai-hac-de-avatar.png": {
+      "md5": "03c044db79cc43325f2a7817224788ba",
+      "size": 7856444
+    },
+    "eras/mai-hac-de/characters/mai-hac-de-full.png": {
+      "md5": "e0e83e95185e8b684fbc424d0756c8ba",
+      "size": 7776549
+    },
+    "eras/mai-hac-de/characters/quang-so-khach-avatar.png": {
+      "md5": "94b1e0a602ec8a4a5fde98f9781850be",
+      "size": 6953537
+    },
+    "eras/mai-hac-de/characters/quang-so-khach-full.png": {
+      "md5": "cc7bf7e695796d01f349c4642e216056",
+      "size": 6443313
+    },
+    "eras/mai-hac-de/cover.png": {
+      "md5": "723d90d37e664f33d95fbf402ff01044",
+      "size": 9535468
+    },
+    "eras/mai-hac-de/events/ach-do-ho-nha-duong.png": {
+      "md5": "bc4d6254ae62a4048b2480694a67d3b8",
+      "size": 9536373
+    },
+    "eras/mai-hac-de/events/duong-tu-huc-dan-ap.png": {
+      "md5": "bbd241d4ca6044341bc104b6f233c9ff",
+      "size": 7464688
+    },
+    "eras/mai-hac-de/events/lien-ket-ha-tong-binh.png": {
+      "md5": "83fc2e1530e172d00e4819676a256769",
+      "size": 10561994
+    },
+    "eras/mai-hac-de/events/mai-thuc-loan-day-binh.png": {
+      "md5": "7c41795b15830b4e1ae44a1e1d06038d",
+      "size": 9089738
+    },
+    "eras/mai-hac-de/events/xung-hac-de-dung-van-an.png": {
+      "md5": "dbbabd18120bd3a6358b81af46c57a76",
+      "size": 9566410
+    },
+    "eras/mai-hac-de/scene/sky.png": {
+      "md5": "ffed63214b35bf9e90591eb11d7579b4",
+      "size": 7601922
+    },
+    "eras/minh-mang/characters/le-van-khoi-avatar.png": {
+      "md5": "c24a65ff1fc4dfc7716d8a8c875f4d94",
+      "size": 6705860
+    },
+    "eras/minh-mang/characters/le-van-khoi-full.png": {
+      "md5": "aecbf491fe4fc01189279a5d94486d74",
+      "size": 5831245
+    },
+    "eras/minh-mang/characters/minh-mang-avatar.png": {
+      "md5": "772b9440de3cfd5b182eb4cd5cae0b4a",
+      "size": 6994734
+    },
+    "eras/minh-mang/characters/minh-mang-full.png": {
+      "md5": "c4060020d1f6e81c1f35e062a4d8d8e4",
+      "size": 6328227
+    },
+    "eras/minh-mang/characters/nguyen-cong-tru-avatar.png": {
+      "md5": "c8cbbc3bccc70a8e1568a34652104a3f",
+      "size": 5372567
+    },
+    "eras/minh-mang/characters/nguyen-cong-tru-full.png": {
+      "md5": "a2a9907a32ef22b0c940b10dde864dfe",
+      "size": 6686746
+    },
+    "eras/minh-mang/characters/truong-minh-giang-avatar.png": {
+      "md5": "2f3a32f1dd02ac96ebb3500d9fd20174",
+      "size": 4939535
+    },
+    "eras/minh-mang/characters/truong-minh-giang-full.png": {
+      "md5": "8bd3c4eedf340a3db24cdaeceabfaf29",
+      "size": 5609220
+    },
+    "eras/minh-mang/cover.png": {
+      "md5": "e741804cfe1bb2384d6b2ee99072490e",
+      "size": 9442499
+    },
+    "eras/minh-mang/events/cai-cach-hanh-chinh.png": {
+      "md5": "b96442eb927775c419456bd29d398e2a",
+      "size": 9804551
+    },
+    "eras/minh-mang/events/cam-dao-be-quan.png": {
+      "md5": "c64113f0b46ef94e6ae51da97d24005d",
+      "size": 9128227
+    },
+    "eras/minh-mang/events/khai-hoang-van-tri.png": {
+      "md5": "584009b8ae2821696f0cc1818ec2a752",
+      "size": 10393261
+    },
+    "eras/minh-mang/events/len-ngoi-minh-mang.png": {
+      "md5": "e9e56c9f88a06af90201328df49eb069",
+      "size": 9241928
+    },
+    "eras/minh-mang/events/loan-le-van-khoi.png": {
+      "md5": "f065d868da7ad8ce107267e8a590e848",
+      "size": 9256771
+    },
+    "eras/minh-mang/events/mo-coi-dai-nam.png": {
+      "md5": "ef16fbba3cad7c8061ef7c6df80a1965",
+      "size": 9707806
+    },
+    "eras/minh-mang/scene/sky.png": {
+      "md5": "3a926fe776e934d12b7e86f9142de174",
+      "size": 8147712
+    },
+    "eras/nam-bac-trieu/characters/mac-dang-dung-avatar.png": {
+      "md5": "4fc845e637f7189c736b974aa68d5a93",
+      "size": 6651427
+    },
+    "eras/nam-bac-trieu/characters/mac-dang-dung-full.png": {
+      "md5": "c3ff26bd81622b129b91f38559ae5f1d",
+      "size": 6053459
+    },
+    "eras/nam-bac-trieu/characters/nguyen-hoang-avatar.png": {
+      "md5": "e96234e949db23d6a332043773124b20",
+      "size": 6723628
+    },
+    "eras/nam-bac-trieu/characters/nguyen-hoang-full.png": {
+      "md5": "0d8d2dc4cbb08fd5c16848f38db5a090",
+      "size": 7443566
+    },
+    "eras/nam-bac-trieu/characters/nguyen-kim-avatar.png": {
+      "md5": "ef7e2e360ec90247ff8fe2096a8750bf",
+      "size": 5951117
+    },
+    "eras/nam-bac-trieu/characters/nguyen-kim-full.png": {
+      "md5": "42eb3eceed13ca09a285d0da21428cdd",
+      "size": 6189887
+    },
+    "eras/nam-bac-trieu/characters/trinh-kiem-avatar.png": {
+      "md5": "9ab9de66ed299da80d34ca5f272559b6",
+      "size": 4537977
+    },
+    "eras/nam-bac-trieu/characters/trinh-kiem-full.png": {
+      "md5": "6fb4efb44b82f7c9cd1004967bf98fa0",
+      "size": 5655188
+    },
+    "eras/nam-bac-trieu/characters/trinh-tung-avatar.png": {
+      "md5": "99a72233ea370975450c4b5f65623008",
+      "size": 6954221
+    },
+    "eras/nam-bac-trieu/characters/trinh-tung-full.png": {
+      "md5": "0a3c27d65a2748948a1a7ce05a009ebc",
+      "size": 6044684
+    },
+    "eras/nam-bac-trieu/cover.png": {
+      "md5": "01ce4050f48c73499341b17b91ee6a5a",
+      "size": 8782074
+    },
+    "eras/nam-bac-trieu/events/le-trung-hung.png": {
+      "md5": "1fcf6f9a644e5b3647f0514d7c46cf29",
+      "size": 9183904
+    },
+    "eras/nam-bac-trieu/events/mac-dang-dung-cuop-ngoi.png": {
+      "md5": "ce32a5676fff2ee8df022a4ccb92a621",
+      "size": 8487474
+    },
+    "eras/nam-bac-trieu/events/mac-hang-minh.png": {
+      "md5": "2e881712954dbc955834e065fac6b519",
+      "size": 7181986
+    },
+    "eras/nam-bac-trieu/events/nguyen-hoang-nam-tien.png": {
+      "md5": "80a5e5df1b77453ddc67905e1233c841",
+      "size": 10140373
+    },
+    "eras/nam-bac-trieu/events/trinh-kiem-nam-quyen.png": {
+      "md5": "8702081823f43f0e8fde6c4bb1beda46",
+      "size": 9031733
+    },
+    "eras/nam-bac-trieu/events/trinh-tung-diet-mac.png": {
+      "md5": "19fbcab1201adb6bcd19b337eec61d12",
+      "size": 8387193
+    },
+    "eras/nam-bac-trieu/scene/sky.png": {
+      "md5": "4ddb7a22cfac3990b97a7791ce3f7a88",
+      "size": 7606156
+    },
+    "eras/ngo-quyen/characters/duong-dinh-nghe-avatar.png": {
+      "md5": "9f6f8bdadd5e8af2ec1728ba1ff2090f",
+      "size": 9929892
+    },
+    "eras/ngo-quyen/characters/duong-dinh-nghe-full.png": {
+      "md5": "122fd70958948350852477127dd155f7",
+      "size": 7862007
+    },
+    "eras/ngo-quyen/characters/kieu-cong-tien-avatar.png": {
+      "md5": "02631c4be02c1f6b9b3d2fabbe6fd355",
+      "size": 5094258
+    },
+    "eras/ngo-quyen/characters/kieu-cong-tien-full.png": {
+      "md5": "e777cf9323b7c3498c01d1e55d9809e3",
+      "size": 6606628
+    },
+    "eras/ngo-quyen/characters/luu-hoang-thao-avatar.png": {
+      "md5": "002c8fa9c2dc1c193b45215be5042333",
+      "size": 9931404
+    },
+    "eras/ngo-quyen/characters/luu-hoang-thao-full.png": {
+      "md5": "bfa6f127f262a72ff13b785761b1b9d6",
+      "size": 5999458
+    },
+    "eras/ngo-quyen/characters/ngo-quyen-avatar.png": {
+      "md5": "50e108aa319dadd37e216a2a89fb0bd3",
+      "size": 8626968
+    },
+    "eras/ngo-quyen/characters/ngo-quyen-full.png": {
+      "md5": "13e7445a276e47cddef3db75c460f8f2",
+      "size": 7517905
+    },
+    "eras/ngo-quyen/cover.png": {
+      "md5": "fc15f8fafccc3acab30ad4490a670eca",
+      "size": 9244211
+    },
+    "eras/ngo-quyen/events/chien-thang-bach-dang.png": {
+      "md5": "43c205853ce448382b8882a9051a8edb",
+      "size": 10559014
+    },
+    "eras/ngo-quyen/events/duong-dinh-nghe-bi-hai.png": {
+      "md5": "4de70f0162d46aa0e8cd6d2dbb744885",
+      "size": 6613665
+    },
+    "eras/ngo-quyen/events/ke-dong-coc-bach-dang.png": {
+      "md5": "46b10646e6f68fa0a87150b3fde22af0",
+      "size": 9345718
+    },
+    "eras/ngo-quyen/events/ngo-quyen-hoi-toi.png": {
+      "md5": "bddc291af9d9f0e743a80644917a8478",
+      "size": 8440029
+    },
+    "eras/ngo-quyen/events/ngo-quyen-xung-vuong.png": {
+      "md5": "6fff431bcca2151490a14d52acf34d12",
+      "size": 9878268
+    },
+    "eras/ngo-quyen/scene/sky.png": {
+      "md5": "a435fccf13b604c0f258fee89ea0a3b9",
+      "size": 6666825
+    },
+    "eras/nha-trieu/characters/cu-thi-avatar.png": {
+      "md5": "f41c111441ac59201ffe221705856ee5",
+      "size": 5019098
+    },
+    "eras/nha-trieu/characters/cu-thi-full.png": {
+      "md5": "a7f875ffc3e977ed2e0cf109f0d95189",
+      "size": 6529317
+    },
+    "eras/nha-trieu/characters/lu-gia-avatar.png": {
+      "md5": "1fa8f111034fb319bf05bf209bf35ff9",
+      "size": 4509112
+    },
+    "eras/nha-trieu/characters/lu-gia-full.png": {
+      "md5": "353ffbe629c8b38232f36691d396f0e6",
+      "size": 5675321
+    },
+    "eras/nha-trieu/characters/trieu-ai-vuong-avatar.png": {
+      "md5": "17445482a0588ecf982100866cd2edb2",
+      "size": 3991029
+    },
+    "eras/nha-trieu/characters/trieu-ai-vuong-full.png": {
+      "md5": "9960eca1da975c6a385dbb3d6d838e05",
+      "size": 5643313
+    },
+    "eras/nha-trieu/characters/trieu-kien-duc-avatar.png": {
+      "md5": "05990c23019627e461568fc84723611a",
+      "size": 4736797
+    },
+    "eras/nha-trieu/characters/trieu-kien-duc-full.png": {
+      "md5": "a2636900bb226348a37d95192862b08a",
+      "size": 5493022
+    },
+    "eras/nha-trieu/characters/trieu-van-de-avatar.png": {
+      "md5": "1e584225a872a40c843310f4216818ed",
+      "size": 4373492
+    },
+    "eras/nha-trieu/characters/trieu-van-de-full.png": {
+      "md5": "2d1fd96fc6ce9e58f8feae641b694bdb",
+      "size": 6994432
+    },
+    "eras/nha-trieu/cover.png": {
+      "md5": "372eef6ee62bfc6bbc6f45aaeef7411b",
+      "size": 3099232
+    },
+    "eras/nha-trieu/events/cu-hau-va-lu-gia.png": {
+      "md5": "d330f83be84447015de8d8cfeb56e9b4",
+      "size": 3022614
+    },
+    "eras/nha-trieu/events/nha-trieu-mat-nuoc.png": {
+      "md5": "4a33194b2863eeb049e51efdb7bd8a9b",
+      "size": 3095857
+    },
+    "eras/nha-trieu/events/trieu-vu-de-lap-nam-viet.png": {
+      "md5": "afb323decfd8365698d3cd5351b9ec26",
+      "size": 3167686
+    },
+    "eras/nha-trieu/events/van-de-noi-nghiep.png": {
+      "md5": "ab33abe24be865c2b9fd283835796c49",
+      "size": 3228656
+    },
+    "eras/nha-trieu/events/xung-de-hoa-han.png": {
+      "md5": "ac6823fc12452174078d0bf1985d9b11",
+      "size": 3111896
+    },
+    "eras/nha-trieu/scene/ridge-far.png": {
+      "md5": "675b1e38341c6c2571dab3219f0a5a99",
+      "size": 1558090
+    },
+    "eras/nha-trieu/scene/ridge-near.png": {
+      "md5": "24955ff58d7eb03786288bba95280a9f",
+      "size": 1569339
+    },
+    "eras/nha-trieu/scene/sky.png": {
+      "md5": "f562d6b2c9a3228ed6e6f40b532b507e",
+      "size": 2638888
+    },
+    "eras/phong-trao-yeu-nuoc/characters/duy-tan-avatar.png": {
+      "md5": "d3d05dad7459c3246caa6555a879403c",
+      "size": 875784
+    },
+    "eras/phong-trao-yeu-nuoc/characters/duy-tan-full.png": {
+      "md5": "1be361826cc35ecc96308ca2fc9b367b",
+      "size": 1949831
+    },
+    "eras/phong-trao-yeu-nuoc/characters/luong-van-can-avatar.png": {
+      "md5": "52f8591d4243e5aef375bcbdb826605a",
+      "size": 1037230
+    },
+    "eras/phong-trao-yeu-nuoc/characters/luong-van-can-full.png": {
+      "md5": "f9a54bed313a84161887e40b2c27cced",
+      "size": 2400842
+    },
+    "eras/phong-trao-yeu-nuoc/characters/nguyen-thai-hoc-avatar.png": {
+      "md5": "ddec752b08ca764adc2c0a7805c0d637",
+      "size": 785856
+    },
+    "eras/phong-trao-yeu-nuoc/characters/nguyen-thai-hoc-full.png": {
+      "md5": "476921588ec36f53475febf902cfae7d",
+      "size": 1803788
+    },
+    "eras/phong-trao-yeu-nuoc/characters/phan-boi-chau-avatar.png": {
+      "md5": "c1f1e755cbed91ba006cfc5e9686ee72",
+      "size": 415947
+    },
+    "eras/phong-trao-yeu-nuoc/characters/phan-boi-chau-full.png": {
+      "md5": "18f8e4342146157f382ff51f3a431fe0",
+      "size": 383841
+    },
+    "eras/phong-trao-yeu-nuoc/characters/phan-chau-trinh-avatar.png": {
+      "md5": "4d841a4b753bfd4307a68fde807f5cb0",
+      "size": 871860
+    },
+    "eras/phong-trao-yeu-nuoc/characters/phan-chau-trinh-full.png": {
+      "md5": "b92da20c8d3f79f20bc1508dcc4538c2",
+      "size": 1909232
+    },
+    "eras/phong-trao-yeu-nuoc/characters/thanh-thai-avatar.png": {
+      "md5": "9b453eca4550668306d5f65d5e94ad84",
+      "size": 846002
+    },
+    "eras/phong-trao-yeu-nuoc/characters/thanh-thai-full.png": {
+      "md5": "c43322be929cd2355643f7b112e0c1a5",
+      "size": 2165455
+    },
+    "eras/phong-trao-yeu-nuoc/cover.png": {
+      "md5": "436ad46c020cfd3405fb13d85d1884af",
+      "size": 2604559
+    },
+    "eras/phong-trao-yeu-nuoc/events/chong-thue-trung-ky.png": {
+      "md5": "5cf19a7e2bcb104c039f1561e5572582",
+      "size": 3599086
+    },
+    "eras/phong-trao-yeu-nuoc/events/dong-du-phan-boi-chau.png": {
+      "md5": "ebfa30d76d081098d475cf581e9cfd54",
+      "size": 3333535
+    },
+    "eras/phong-trao-yeu-nuoc/events/dong-kinh-nghia-thuc.png": {
+      "md5": "00bc00c0b8ba4a3d6c08448e7f42ea9a",
+      "size": 3001635
+    },
+    "eras/phong-trao-yeu-nuoc/events/duy-tan-phan-chau-trinh.png": {
+      "md5": "d84e486dd7d79bbf6544dddf5d13185a",
+      "size": 3043041
+    },
+    "eras/phong-trao-yeu-nuoc/events/khai-thac-thuoc-dia.png": {
+      "md5": "5cdfa93be7886e494a04d66d89ba92fe",
+      "size": 2730714
+    },
+    "eras/phong-trao-yeu-nuoc/events/khoi-nghia-yen-bai.png": {
+      "md5": "9b9f90b3eb9d89da26926bab7c3b12dc",
+      "size": 2283942
+    },
+    "eras/phong-trao-yeu-nuoc/events/vua-duy-tan-khoi-nghia.png": {
+      "md5": "b027f60d5474788a0569a53770b90c61",
+      "size": 2385456
+    },
+    "eras/phong-trao-yeu-nuoc/scene/sky.png": {
+      "md5": "436ad46c020cfd3405fb13d85d1884af",
+      "size": 2604559
+    },
+    "eras/phung-hung/characters/cao-chinh-binh-avatar.png": {
+      "md5": "dbd170186be374c6fe643681fe0e58b6",
+      "size": 8008336
+    },
+    "eras/phung-hung/characters/cao-chinh-binh-full.png": {
+      "md5": "7055158ee5cde995d04efaf8b700a12b",
+      "size": 8206505
+    },
+    "eras/phung-hung/characters/phung-an-avatar.png": {
+      "md5": "1f7d95ad36f25589590c7525f596c70b",
+      "size": 7446477
+    },
+    "eras/phung-hung/characters/phung-an-full.png": {
+      "md5": "9f0e14e16233e79913249d5fbe252beb",
+      "size": 6182231
+    },
+    "eras/phung-hung/characters/phung-hai-avatar.png": {
+      "md5": "4f7117e061ec39e5cc2b0bc2e4d9cc9c",
+      "size": 9259423
+    },
+    "eras/phung-hung/characters/phung-hai-full.png": {
+      "md5": "91158344773dbc469f0def76479852a7",
+      "size": 7891850
+    },
+    "eras/phung-hung/characters/phung-hung-avatar.png": {
+      "md5": "c88725fa1638980e93ecd5b5bf450d3e",
+      "size": 9657321
+    },
+    "eras/phung-hung/characters/phung-hung-full.png": {
+      "md5": "1eb2ccad61656fd4e02dfefdc3849541",
+      "size": 7833718
+    },
+    "eras/phung-hung/cover.png": {
+      "md5": "179e2710be61dca1b66519208f4bace7",
+      "size": 9428907
+    },
+    "eras/phung-hung/events/ach-do-ho-cao-chinh-binh.png": {
+      "md5": "82c2c6a8760c5684b6782622c6ed4279",
+      "size": 8083403
+    },
+    "eras/phung-hung/events/bo-cai-dai-vuong.png": {
+      "md5": "a2e243092168aa2a1fce0b73acc25226",
+      "size": 10246769
+    },
+    "eras/phung-hung/events/phung-hung-day-binh.png": {
+      "md5": "f12d421b24246759ede7875aadad22db",
+      "size": 10264375
+    },
+    "eras/phung-hung/events/vay-phu-chinh-binh-chet.png": {
+      "md5": "94f5e2688e1f615e5d51fd7649d2ec95",
+      "size": 9384124
+    },
+    "eras/phung-hung/scene/sky.png": {
+      "md5": "bcd4e91dfc64b934fc6476f4268b19e4",
+      "size": 8328191
+    },
+    "eras/tay-son/characters/ngo-thi-nham-avatar.png": {
+      "md5": "159b77da6a9d71c5122c4a02788bab70",
+      "size": 5530038
+    },
+    "eras/tay-son/characters/ngo-thi-nham-full.png": {
+      "md5": "e5051d2025dcdb3247d81aa4c70c7083",
+      "size": 5370149
+    },
+    "eras/tay-son/characters/nguyen-nhac-avatar.png": {
+      "md5": "29e42b77a98c38f2d540b31e74cac665",
+      "size": 6757224
+    },
+    "eras/tay-son/characters/nguyen-nhac-full.png": {
+      "md5": "5cfd229131c1130b774095b13fc86d5f",
+      "size": 6377741
+    },
+    "eras/tay-son/characters/nguyen-thiep-avatar.png": {
+      "md5": "3d88e9ae7018790f35cc32446b898bcc",
+      "size": 7054944
+    },
+    "eras/tay-son/characters/nguyen-thiep-full.png": {
+      "md5": "f3e99eff2897e809eb777d92fe2f8d1b",
+      "size": 5434123
+    },
+    "eras/tay-son/characters/quang-trung-avatar.png": {
+      "md5": "8526c3b6dc1295352d518b0d8229522e",
+      "size": 6723130
+    },
+    "eras/tay-son/characters/quang-trung-full.png": {
+      "md5": "59534aef88d11f2ec4ce79c81fd7fe7a",
+      "size": 5967139
+    },
+    "eras/tay-son/characters/ton-si-nghi-avatar.png": {
+      "md5": "fc9fec40e9a4fc907016d9705e1a65dd",
+      "size": 5727738
+    },
+    "eras/tay-son/characters/ton-si-nghi-full.png": {
+      "md5": "b45bfc67cbedfe17683e824ff0466f05",
+      "size": 6486989
+    },
+    "eras/tay-son/cover.png": {
+      "md5": "7f547648c4222a40e4bd18dff35de7a8",
+      "size": 9278874
+    },
+    "eras/tay-son/events/canh-tan-bang-ha.png": {
+      "md5": "63342b458b4719ca18001213685e0d81",
+      "size": 9191489
+    },
+    "eras/tay-son/events/dung-nghia-tay-son.png": {
+      "md5": "46fbf3a5a00be147251fabfdbc6b5ad8",
+      "size": 10230554
+    },
+    "eras/tay-son/events/len-ngoi-than-toc.png": {
+      "md5": "b5938c3b777e92be4eaae0cc8eea0196",
+      "size": 9002513
+    },
+    "eras/tay-son/events/ngoc-hoi-dong-da.png": {
+      "md5": "18223d5fb0d15510e61e91671327fef8",
+      "size": 9871365
+    },
+    "eras/tay-son/events/phu-le-diet-trinh.png": {
+      "md5": "23f0b431968bfe269fae39eebc138b8c",
+      "size": 9710811
+    },
+    "eras/tay-son/events/rach-gam-xoai-mut.png": {
+      "md5": "2c074fc5c9247c01c67e1a19e3f6e274",
+      "size": 8795228
+    },
+    "eras/tay-son/scene/sky.png": {
+      "md5": "2fa55964068ef4d88814da6a6c1d9c31",
+      "size": 9700291
+    },
+    "eras/thieu-tri/characters/nguyen-tri-phuong-avatar.png": {
+      "md5": "72ddd347738f513757ec579f3ff94c1b",
+      "size": 6148191
+    },
+    "eras/thieu-tri/characters/nguyen-tri-phuong-full.png": {
+      "md5": "0a48248e413d00b5ddfdfcc8d8e6da22",
+      "size": 5301795
+    },
+    "eras/thieu-tri/characters/thieu-tri-avatar.png": {
+      "md5": "c1295a4b9e2edebd544d358f06f74a83",
+      "size": 6264005
+    },
+    "eras/thieu-tri/characters/thieu-tri-full.png": {
+      "md5": "a8f586fe4088be7c4ca8d887141de9db",
+      "size": 6646405
+    },
+    "eras/thieu-tri/characters/truong-dang-que-avatar.png": {
+      "md5": "cfbdc16eef93c803c7fd1ed2430bb52b",
+      "size": 7035633
+    },
+    "eras/thieu-tri/characters/truong-dang-que-full.png": {
+      "md5": "c1964dfa51f0902d41e6ceed0527c2b9",
+      "size": 6514385
+    },
+    "eras/thieu-tri/cover.png": {
+      "md5": "2d794447587a1c2adcfb16554781cc69",
+      "size": 9943002
+    },
+    "eras/thieu-tri/events/len-ngoi-thieu-tri.png": {
+      "md5": "1b0c24a810fcc796ea9572941d32434a",
+      "size": 11039887
+    },
+    "eras/thieu-tri/events/phao-ham-da-nang.png": {
+      "md5": "b644588ebf2c157486e2cd670bd0257c",
+      "size": 8622982
+    },
+    "eras/thieu-tri/events/rut-khoi-tran-tay.png": {
+      "md5": "da259167989756bc8fd8820181b090a8",
+      "size": 6348069
+    },
+    "eras/thieu-tri/events/vua-bang-truyen-ngoi.png": {
+      "md5": "b7f9b8747c8adf13d4cf9c9693da699c",
+      "size": 8759505
+    },
+    "eras/thieu-tri/events/vua-thi-nhan.png": {
+      "md5": "c17f46f61b1b5085c40b66b50238db24",
+      "size": 7042972
+    },
+    "eras/thieu-tri/scene/sky.png": {
+      "md5": "27618ba0bc6f066a1383c54720cb2fb9",
+      "size": 8856035
+    },
+    "eras/thong-nhat-dat-nuoc/characters/ton-duc-thang-avatar.png": {
+      "md5": "7ef0f42d841540f1cc0b7596627c52c7",
+      "size": 1045607
+    },
+    "eras/thong-nhat-dat-nuoc/characters/ton-duc-thang-full.png": {
+      "md5": "8d7f8745de096e3688d3867de2d28043",
+      "size": 2502122
+    },
+    "eras/thong-nhat-dat-nuoc/cover.png": {
+      "md5": "2a99d39660bcced6fd380d9a72c5fe7f",
+      "size": 2371854
+    },
+    "eras/thong-nhat-dat-nuoc/events/dai-hoi-iv.png": {
+      "md5": "83b4cec372f95689686c9e8e3ecb6b10",
+      "size": 2520988
+    },
+    "eras/thong-nhat-dat-nuoc/events/dai-hoi-v.png": {
+      "md5": "3909c1cf91fb58d81a7ab7b2b3f30441",
+      "size": 2569193
+    },
+    "eras/thong-nhat-dat-nuoc/events/gia-luong-tien-1985.png": {
+      "md5": "0bfb9c933b57dfc411fac6d71524e3ef",
+      "size": 2654062
+    },
+    "eras/thong-nhat-dat-nuoc/events/gia-nhap-lien-hop-quoc.png": {
+      "md5": "4faec857304d108e931c32924f4aa999",
+      "size": 3987904
+    },
+    "eras/thong-nhat-dat-nuoc/events/gia-nhap-sev.png": {
+      "md5": "07eb3b9ea89c55ae958823b7ad072e45",
+      "size": 2055460
+    },
+    "eras/thong-nhat-dat-nuoc/events/hien-phap-1980.png": {
+      "md5": "d4fdfe7119fcc4754e33e3861ebb9303",
+      "size": 5881417
+    },
+    "eras/thong-nhat-dat-nuoc/events/hoi-nghi-hiep-thuong.png": {
+      "md5": "9143572476d9cc646c5632bb08051aeb",
+      "size": 3035705
+    },
+    "eras/thong-nhat-dat-nuoc/events/khoan-100.png": {
+      "md5": "738227694088c15b8b24faaf7814e917",
+      "size": 3974756
+    },
+    "eras/thong-nhat-dat-nuoc/events/nhung-nam-bao-cap.png": {
+      "md5": "5a01e5a2025bcc1587d34fed8a6f2137",
+      "size": 4380329
+    },
+    "eras/thong-nhat-dat-nuoc/events/nuoc-chxhcn-viet-nam.png": {
+      "md5": "c3abc43f5ad11f1ec25785def0fc2c7c",
+      "size": 2371226
+    },
+    "eras/thong-nhat-dat-nuoc/events/tong-tuyen-cu-1976.png": {
+      "md5": "f37f160a05ba47e0fb336c81f700bd6b",
+      "size": 2119342
+    },
+    "eras/thong-nhat-dat-nuoc/scene/sky.png": {
+      "md5": "2a99d39660bcced6fd380d9a72c5fe7f",
+      "size": 2371854
+    },
+    "eras/tien-le/characters/duong-van-nga-avatar.png": {
+      "md5": "2a983e4a59932e412d795d21f7a95065",
+      "size": 8486014
+    },
+    "eras/tien-le/characters/duong-van-nga-full.png": {
+      "md5": "9240e2f7d5cd8a3f0ee6cc346177e61f",
+      "size": 9544554
+    },
+    "eras/tien-le/characters/hau-nhan-bao-avatar.png": {
+      "md5": "bc1c4692b60524eaf89b7edd8d10c064",
+      "size": 7596971
+    },
+    "eras/tien-le/characters/hau-nhan-bao-full.png": {
+      "md5": "fd10a89c2ebe436c3ce5e8066c99a8fb",
+      "size": 6146211
+    },
+    "eras/tien-le/characters/le-long-dinh-avatar.png": {
+      "md5": "64364e8563bdf0000b13d241744ce7bb",
+      "size": 7907048
+    },
+    "eras/tien-le/characters/le-long-dinh-full.png": {
+      "md5": "ed9e9d555cd956d0394d6608f288eec2",
+      "size": 7883264
+    },
+    "eras/tien-le/characters/pham-cu-lang-avatar.png": {
+      "md5": "fd979e4960c10e1b671fc5299abf67d5",
+      "size": 9403836
+    },
+    "eras/tien-le/characters/pham-cu-lang-full.png": {
+      "md5": "86bd45bfb7523ec2c18fae067ee9bc54",
+      "size": 8408843
+    },
+    "eras/tien-le/cover.png": {
+      "md5": "dd81e7773c953cf2feb3fe7f8b5c3472",
+      "size": 7480880
+    },
+    "eras/tien-le/events/le-hoan-len-ngoi.png": {
+      "md5": "9b123a7c1f13d114d6e6f10c88f4a67c",
+      "size": 9599494
+    },
+    "eras/tien-le/events/pha-tong-bach-dang.png": {
+      "md5": "3e16a47c38d979f70e75f049af7c7634",
+      "size": 10472608
+    },
+    "eras/tien-le/events/than-chinh-binh-chiem.png": {
+      "md5": "47d32682c64bc83f1139232dff292303",
+      "size": 9166198
+    },
+    "eras/tien-le/events/tich-dien-dung-nuoc.png": {
+      "md5": "e73e8ede1e301bf452bced3e5f24b140",
+      "size": 10513957
+    },
+    "eras/tien-le/events/vua-bang-tien-le-suy.png": {
+      "md5": "008d818b8bc065a97b8477b40ed0f331",
+      "size": 9515405
+    },
+    "eras/tien-le/scene/sky.png": {
+      "md5": "459abca80b8c85dad7ae55e256edbf37",
+      "size": 8354756
+    },
+    "eras/tran-hung-dao/characters/o-ma-nhi-avatar.png": {
+      "md5": "e90066fb2d6acf61addaa854b11d0dd3",
+      "size": 5731897
+    },
+    "eras/tran-hung-dao/characters/o-ma-nhi-full.png": {
+      "md5": "3d15a0db6b6013dfd90036b1d19bf1ef",
+      "size": 7115141
+    },
+    "eras/tran-hung-dao/characters/tran-hung-dao-avatar.png": {
+      "md5": "506a439b4c9f09920f94a63ca70ae8d4",
+      "size": 6784921
+    },
+    "eras/tran-hung-dao/characters/tran-hung-dao-full.png": {
+      "md5": "70ff0391405d80f365d24fbac7fb4923",
+      "size": 7322208
+    },
+    "eras/tran-hung-dao/characters/tran-khanh-du-avatar.png": {
+      "md5": "0c859023421b3f978e247c0476963093",
+      "size": 8047873
+    },
+    "eras/tran-hung-dao/characters/tran-khanh-du-full.png": {
+      "md5": "ea5750cc91ec5bfd6ab799b93fc8f9ef",
+      "size": 6197204
+    },
+    "eras/tran-hung-dao/characters/tran-nhan-tong-avatar.png": {
+      "md5": "637cb7cf94517838e58858e836639f37",
+      "size": 7190093
+    },
+    "eras/tran-hung-dao/characters/tran-nhan-tong-full.png": {
+      "md5": "d6a10bb466c537bd8a32bb24158aa10a",
+      "size": 7274849
+    },
+    "eras/tran-hung-dao/characters/tran-nhat-duat-avatar.png": {
+      "md5": "a5395da44c3fa6ca6f396dfaff99e962",
+      "size": 8515373
+    },
+    "eras/tran-hung-dao/characters/tran-nhat-duat-full.png": {
+      "md5": "82260dd30d8cf0c840ed4d70c6a4c2de",
+      "size": 6926140
+    },
+    "eras/tran-hung-dao/characters/tran-quang-khai-avatar.png": {
+      "md5": "f90f3fde77cee3769de558ded986309c",
+      "size": 7514049
+    },
+    "eras/tran-hung-dao/characters/tran-quang-khai-full.png": {
+      "md5": "714665dbacd086bebdd90205c81caf00",
+      "size": 7045375
+    },
+    "eras/tran-hung-dao/characters/tran-quoc-toan-avatar.png": {
+      "md5": "517bbcffd1055efc4f81bf2ca71ed139",
+      "size": 8911415
+    },
+    "eras/tran-hung-dao/characters/tran-quoc-toan-full.png": {
+      "md5": "b106a02b99fd3a5142d1b9fa23006c49",
+      "size": 7533364
+    },
+    "eras/tran-hung-dao/cover.png": {
+      "md5": "ee3ce99826ea1fce9fc3e7094e5ed6f5",
+      "size": 10640540
+    },
+    "eras/tran-hung-dao/events/bach-dang-1288.png": {
+      "md5": "14f887b6a5e412776243aa3d21a975ad",
+      "size": 7668071
+    },
+    "eras/tran-hung-dao/events/bach-dang-1288.webp": {
+      "md5": "7f0a83998de3f093006118aa359697bd",
+      "size": 3234446
+    },
+    "eras/tran-hung-dao/events/dien-hong-hich-tuong-si.png": {
+      "md5": "ad8afb375f30d5b5e609f202e5b5c98b",
+      "size": 10145742
+    },
+    "eras/tran-hung-dao/events/duc-thanh-tran.png": {
+      "md5": "933570c42632fdebbd030f0401717fe1",
+      "size": 8029261
+    },
+    "eras/tran-hung-dao/events/hao-khi-dong-a.png": {
+      "md5": "df80b4cea16d778c2c8d1f8010521b3c",
+      "size": 8999726
+    },
+    "eras/tran-hung-dao/events/khai-hoan-khoan-thu.png": {
+      "md5": "15dfaacde97f9d2ddc69579b010a385b",
+      "size": 11079649
+    },
+    "eras/tran-hung-dao/events/khang-chien-lan-hai.png": {
+      "md5": "f9019fa8b70c8f80523a4c33207d3c5c",
+      "size": 9817899
+    },
+    "eras/tran-hung-dao/scene/sky.png": {
+      "md5": "729de045696a808e5977c4ce7ccd3218",
+      "size": 6431990
+    },
+    "eras/tran-thai-tong/characters/ly-chieu-hoang-avatar.png": {
+      "md5": "da70f0c6cae9d731d1547c8fc3ecc1fb",
+      "size": 6787739
+    },
+    "eras/tran-thai-tong/characters/ly-chieu-hoang-full.png": {
+      "md5": "90a263ef07c2b6019071bbe914ca5b2a",
+      "size": 5888740
+    },
+    "eras/tran-thai-tong/characters/tran-thai-tong-avatar.png": {
+      "md5": "622b1e8a85677ea87f6deabab43487f3",
+      "size": 8705671
+    },
+    "eras/tran-thai-tong/characters/tran-thai-tong-full.png": {
+      "md5": "c6bcf05e518fd7b035f36b64cd3a202e",
+      "size": 6140596
+    },
+    "eras/tran-thai-tong/characters/tran-thu-do-avatar.png": {
+      "md5": "2b9c719679b1cc95a7a43d8db5198ba5",
+      "size": 6312900
+    },
+    "eras/tran-thai-tong/characters/tran-thu-do-full.png": {
+      "md5": "d7d57d8f3e61cdc90565f7e1d0c04a6f",
+      "size": 6474988
+    },
+    "eras/tran-thai-tong/cover.png": {
+      "md5": "bfda17a0700ac6cb7a9df1612dc30d80",
+      "size": 10831331
+    },
+    "eras/tran-thai-tong/events/khang-chien-mong-co-lan-mot.png": {
+      "md5": "d79f8fd6fd5bfd8cb950120f99591e3e",
+      "size": 6375951
+    },
+    "eras/tran-thai-tong/events/ly-chieu-hoang-nhuong-ngoi.png": {
+      "md5": "75f383789d6a67ccdaa151284880af53",
+      "size": 9192948
+    },
+    "eras/tran-thai-tong/events/sung-thien-nhuong-ngoi.png": {
+      "md5": "969cb94078697f150d20f4aa36c4397d",
+      "size": 8252686
+    },
+    "eras/tran-thai-tong/events/tran-thu-do-dung-nen.png": {
+      "md5": "5f7243246795356e514fb2d89cbd360f",
+      "size": 9440080
+    },
+    "eras/tran-thai-tong/events/vua-len-yen-tu.png": {
+      "md5": "841533c5b5837de5959ce4bead509f95",
+      "size": 10337276
+    },
+    "eras/tran-thai-tong/scene/sky.png": {
+      "md5": "23146f3b5cbc1f7838b694440d07a98b",
+      "size": 5940083
+    },
+    "eras/trinh-nguyen/characters/dao-duy-tu-avatar.png": {
+      "md5": "32e49f2b52cab542030a5e8351552ab2",
+      "size": 6194965
+    },
+    "eras/trinh-nguyen/characters/dao-duy-tu-full.png": {
+      "md5": "70cfa9cc0acb4e79a583e8b4fe849638",
+      "size": 5582089
+    },
+    "eras/trinh-nguyen/characters/nguyen-phuc-nguyen-avatar.png": {
+      "md5": "2ce41ff6cae55f6bd0f77c1e9b2faedf",
+      "size": 5423429
+    },
+    "eras/trinh-nguyen/characters/nguyen-phuc-nguyen-full.png": {
+      "md5": "b7836d090b4e53b9c059dc9df0f0bf91",
+      "size": 5769738
+    },
+    "eras/trinh-nguyen/characters/nguyen-phuc-tan-avatar.png": {
+      "md5": "3357b9223b9eeb641a9e1de2863b986f",
+      "size": 6484574
+    },
+    "eras/trinh-nguyen/characters/nguyen-phuc-tan-full.png": {
+      "md5": "2ee7a55838b0e7ac2d284d1e8aeb060d",
+      "size": 6114006
+    },
+    "eras/trinh-nguyen/characters/trinh-tac-avatar.png": {
+      "md5": "35711aa1422d9799e11f5cf2f9a856af",
+      "size": 7043699
+    },
+    "eras/trinh-nguyen/characters/trinh-tac-full.png": {
+      "md5": "5770dc7ea2c12b181782aaddb0df24e1",
+      "size": 5400990
+    },
+    "eras/trinh-nguyen/characters/trinh-trang-avatar.png": {
+      "md5": "585480b5128805729d7d0ffbb68ef6a6",
+      "size": 5325255
+    },
+    "eras/trinh-nguyen/characters/trinh-trang-full.png": {
+      "md5": "6bd82aa9665833b3fb7824f7d5dc4c2a",
+      "size": 5225945
+    },
+    "eras/trinh-nguyen/cover.png": {
+      "md5": "e90d2236aba623df12d3abdf28ae2727",
+      "size": 7160978
+    },
+    "eras/trinh-nguyen/events/bay-lan-giao-tranh.png": {
+      "md5": "2059b08c9d4ade83b898ff5458319f98",
+      "size": 9300560
+    },
+    "eras/trinh-nguyen/events/chien-tranh-bung-no.png": {
+      "md5": "694d7dce5c24b457d9ee21c90ea0b640",
+      "size": 10366777
+    },
+    "eras/trinh-nguyen/events/dang-trong-tach-coi.png": {
+      "md5": "c5d99fef988e26107735038fdd13d625",
+      "size": 10060671
+    },
+    "eras/trinh-nguyen/events/hoa-song-gianh.png": {
+      "md5": "f8c5d9e211131d29b0bf0bc79faba62f",
+      "size": 7757026
+    },
+    "eras/trinh-nguyen/events/luy-thay.png": {
+      "md5": "e282041593e13e658c846bfe73f4082e",
+      "size": 9753881
+    },
+    "eras/trinh-nguyen/events/nam-tien-hoi-an.png": {
+      "md5": "852d06ed36c5ead95cf921b353520dc0",
+      "size": 11135787
+    },
+    "eras/trinh-nguyen/scene/sky.png": {
+      "md5": "c01dd03602cd84d4b726488a4381911b",
+      "size": 6576467
+    },
+    "eras/tu-duc/characters/nguyen-trung-truc-avatar.png": {
+      "md5": "a0fe8ed6ca0d857e994eb75538d2dca3",
+      "size": 6011596
+    },
+    "eras/tu-duc/characters/nguyen-trung-truc-full.png": {
+      "md5": "313220e6a59b745afef91c684dc2e4ce",
+      "size": 6549007
+    },
+    "eras/tu-duc/characters/truong-dinh-avatar.png": {
+      "md5": "8c72dae3750e7bb4d6b6360878ac7622",
+      "size": 4869393
+    },
+    "eras/tu-duc/characters/truong-dinh-full.png": {
+      "md5": "2bf6a8ea57d4c88b372b02778e3ff85f",
+      "size": 6913910
+    },
+    "eras/tu-duc/cover.png": {
+      "md5": "1b3a8c45e7928f94a4e75b7c6f6352a0",
+      "size": 7140491
+    },
+    "eras/tu-duc/events/ha-noi-that-thu.png": {
+      "md5": "140fa018bda86b9adf84fb0b7bfceee2",
+      "size": 6387233
+    },
+    "eras/tu-duc/events/mat-gia-dinh-hoa-uoc.png": {
+      "md5": "1bfa2530a26b39937802b3312da91ef6",
+      "size": 9489632
+    },
+    "eras/tu-duc/events/mat-luc-tinh-nam-ky.png": {
+      "md5": "f00745b16bb8bc3b0fed393d77cec10e",
+      "size": 6886223
+    },
+    "eras/tu-duc/events/nghia-quan-nam-ky.png": {
+      "md5": "e10c12c4dcb4e8079d82167459af6f37",
+      "size": 6308346
+    },
+    "eras/tu-duc/events/phap-danh-da-nang.png": {
+      "md5": "15ce517e5b316abdf3ac2931ca70ea00",
+      "size": 6277835
+    },
+    "eras/tu-duc/events/tu-duc-boi-canh.png": {
+      "md5": "a8df9210f0e14eaf11abf125054442f5",
+      "size": 8623143
+    },
+    "eras/tu-duc/scene/sky.png": {
+      "md5": "79dc548b0f77ad7fb047f69ed7afbb32",
+      "size": 7381733
+    },
+    "eras/van-xuan/characters/ly-nam-de-avatar.png": {
+      "md5": "7bd4c47385a859481fcd57730c87bb23",
+      "size": 9819013
+    },
+    "eras/van-xuan/characters/ly-nam-de-full.png": {
+      "md5": "d7b60d7eaff340db976f3cfbe0dc528a",
+      "size": 8456643
+    },
+    "eras/van-xuan/characters/pham-tu-avatar.png": {
+      "md5": "e3913a82f3372136371689194c18dc61",
+      "size": 7776490
+    },
+    "eras/van-xuan/characters/pham-tu-full.png": {
+      "md5": "585499d2c97d956b8d3e278a5c01f10e",
+      "size": 9031496
+    },
+    "eras/van-xuan/characters/tinh-thieu-avatar.png": {
+      "md5": "1e5eb915114d84e29ec1733cbd12fb46",
+      "size": 6271617
+    },
+    "eras/van-xuan/characters/tinh-thieu-full.png": {
+      "md5": "c71b374a5ef55a43e80594ca927d18b4",
+      "size": 7004081
+    },
+    "eras/van-xuan/characters/tran-ba-tien-avatar.png": {
+      "md5": "447d160d12274d65a84dcbc496a3f41b",
+      "size": 7481840
+    },
+    "eras/van-xuan/characters/tran-ba-tien-full.png": {
+      "md5": "80800a0ea6bea5c68a0223d4a81d521a",
+      "size": 8264265
+    },
+    "eras/van-xuan/characters/trieu-quang-phuc-avatar.png": {
+      "md5": "8d47c1e3b656af0cde19916980b8fe6b",
+      "size": 8184913
+    },
+    "eras/van-xuan/characters/trieu-quang-phuc-full.png": {
+      "md5": "0b76361f397ca69345d72d22c64dd011",
+      "size": 7136958
+    },
+    "eras/van-xuan/cover.png": {
+      "md5": "367a18fe98ed28e929db4c89b418f600",
+      "size": 7969791
+    },
+    "eras/van-xuan/events/ach-do-ho-nha-luong.png": {
+      "md5": "b5e86d617b52dd5fd690678932105a2b",
+      "size": 8265993
+    },
+    "eras/van-xuan/events/lap-nuoc-van-xuan.png": {
+      "md5": "3a9f5a8958f04226e36c3fa3ae77352f",
+      "size": 8172781
+    },
+    "eras/van-xuan/events/ly-bi-khoi-nghia.png": {
+      "md5": "6072f78a5976f7b3ac83830ae1581b7f",
+      "size": 10284950
+    },
+    "eras/van-xuan/events/pha-luong-va-lam-ap.png": {
+      "md5": "21f40ecd2c7f67485d5346b26a1ea8a3",
+      "size": 10835356
+    },
+    "eras/van-xuan/events/tran-ba-tien-sang-danh.png": {
+      "md5": "15947845b25a43e51868c16f4d71ca00",
+      "size": 8629943
+    },
+    "eras/van-xuan/events/trieu-viet-vuong-da-trach.png": {
+      "md5": "a3d5efb0fb895390c494b958bba2bd17",
+      "size": 8476520
+    },
+    "eras/van-xuan/scene/sky.png": {
+      "md5": "53562825a23474e1ad9e3748f7d1c6ea",
+      "size": 7972724
+    },
+    "eras/vi-the-moi/characters/nguyen-phu-trong-avatar.png": {
+      "md5": "3fc880bd3d40038b8f778e01affc25ba",
+      "size": 957140
+    },
+    "eras/vi-the-moi/characters/nguyen-phu-trong-full.png": {
+      "md5": "de9aee8a8b45c7573eb19f10a94b1551",
+      "size": 1834768
+    },
+    "eras/vi-the-moi/characters/nguyen-tan-dung-avatar.png": {
+      "md5": "52907fe2741ca76c735a2914a0bb1492",
+      "size": 611357
+    },
+    "eras/vi-the-moi/characters/nguyen-tan-dung-full.png": {
+      "md5": "8816b32afe83a48279962342ff4c7e28",
+      "size": 1110557
+    },
+    "eras/vi-the-moi/cover.png": {
+      "md5": "9b1cc05b80fa9a48c9ebb45047c7def7",
+      "size": 3311032
+    },
+    "eras/vi-the-moi/events/apec-2017.png": {
+      "md5": "d64be144d2357559f74f3cfdc2a9ec1e",
+      "size": 429453
+    },
+    "eras/vi-the-moi/events/cptpp-evfta.png": {
+      "md5": "c93cfd70fee477239e554d5c9dcfc60b",
+      "size": 460440
+    },
+    "eras/vi-the-moi/events/dai-le-1000-nam.png": {
+      "md5": "733400d4baa801c6b54834d42577fe8c",
+      "size": 511336
+    },
+    "eras/vi-the-moi/events/hien-phap-2013.png": {
+      "md5": "5d50e9b818212cfdd6e724d17969a4ca",
+      "size": 615528
+    },
+    "eras/vi-the-moi/events/hoi-dong-bao-an.png": {
+      "md5": "6369c38836402d670e6d153200bce49f",
+      "size": 1422267
+    },
+    "eras/vi-the-moi/events/mo-rong-ha-noi.png": {
+      "md5": "675bf9c7f521ff5ef6d2a0a14b531848",
+      "size": 338991
+    },
+    "eras/vi-the-moi/events/thoat-thu-nhap-thap.png": {
+      "md5": "27559aebceaa6d6b594481ece5112225",
+      "size": 296861
+    },
+    "eras/vi-the-moi/scene/sky.png": {
+      "md5": "9b1cc05b80fa9a48c9ebb45047c7def7",
+      "size": 3311032
+    },
+    "periods/bac-thuoc.png": {
+      "md5": "0f9dadb94984def2a182e1011748ab2a",
+      "size": 3546543
+    },
+    "periods/chien-tranh-bien-gioi.png": {
+      "md5": "070b8cda0a8c6b00825aa6c5f62d7464",
+      "size": 2209983
+    },
+    "periods/doi-moi.png": {
+      "md5": "a11ac3c1d6ed2bac7fb39a2adb11603a",
+      "size": 2342170
+    },
+    "periods/hau-le.png": {
+      "md5": "2355841692dfe75ab47b0d071acd3c14",
+      "size": 3419494
+    },
+    "periods/hong-bang.png": {
+      "md5": "8f52afd5bfa65eb7b5b3515d70bb2447",
+      "size": 3715296
+    },
+    "periods/khang-chien-chong-my.png": {
+      "md5": "8e6f9c6122ed7dfdc8c49ce3e0b97feb",
+      "size": 2543297
+    },
+    "periods/khang-chien-chong-phap.png": {
+      "md5": "763d5a995d5e7b73cfdac26d19bc2c0a",
+      "size": 2798090
+    },
+    "periods/ky-nguyen-moi.png": {
+      "md5": "4973fc9a86c306b144947e45033589dc",
+      "size": 1883314
+    },
+    "periods/ngo-dinh-tien-le.png": {
+      "md5": "06c1cf3551bbff4a263dbf68652496cc",
+      "size": 3220217
+    },
+    "periods/nguyen.png": {
+      "md5": "c8ff3b78f455305cbc5db54131c964e5",
+      "size": 3231544
+    },
+    "periods/nha-ly.png": {
+      "md5": "eac9da0b7fc7d189405e86296337a17a",
+      "size": 3379498
+    },
+    "periods/nha-tran.png": {
+      "md5": "ad2a9285644b4fa30011aa53f2fe3e9d",
+      "size": 3575818
+    },
+    "periods/nha-trieu.png": {
+      "md5": "cd5d5983a4a727cf1a213bfe4a8fb0ef",
+      "size": 3198415
+    },
+    "periods/phan-tranh.png": {
+      "md5": "456127756b404a524677be1c17da5f70",
+      "size": 3390888
+    },
+    "periods/phap-thuoc.png": {
+      "md5": "036098c19b3b88f80a191b03992db792",
+      "size": 2239270
+    },
+    "periods/tay-son.png": {
+      "md5": "0f419ea65ceca21365604a5c9810cdc3",
+      "size": 3728896
+    },
+    "periods/thong-nhat.png": {
+      "md5": "40feef279d68ca520fc4b284c42fd39b",
+      "size": 1879041
+    }
+  }
+}

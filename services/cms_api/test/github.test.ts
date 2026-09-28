@@ -1,7 +1,14 @@
 import { env } from 'cloudflare:test';
 import { describe, expect, it } from 'vitest';
 
-import { ConflictError, commitFiles, decodeBase64Utf8, getContentAtHead } from '../src/github';
+import {
+  ConflictError,
+  commitFiles,
+  decodeBase64Utf8,
+  getContentAtHead,
+  hasSuccessfulDryRunFor,
+  triggerPublish,
+} from '../src/github';
 import type { Env } from '../src/types';
 
 const testEnv = env as unknown as Env;
@@ -122,5 +129,109 @@ describe('commitFiles', () => {
         fetchFn,
       ),
     ).rejects.toThrow(/422/);
+  });
+});
+
+describe('triggerPublish', () => {
+  it('defaults to incremental mode and omits expectedSha when not given', async () => {
+    let sentBody: unknown;
+    const fetchFn = mockFetch({
+      [`POST ${api('/actions/workflows/publish-content.yml/dispatches')}`]: { status: 204 },
+    });
+    const capturingFetch: typeof fetch = async (input, init) => {
+      sentBody = init?.body ? JSON.parse(init.body as string) : undefined;
+      return fetchFn(input, init);
+    };
+
+    await triggerPublish(testEnv, true, capturingFetch);
+
+    expect(sentBody).toEqual({
+      ref: 'main',
+      inputs: { dry_run: 'true', mode: 'incremental' },
+    });
+  });
+
+  it('passes mode and expectedSha through when given', async () => {
+    let sentBody: unknown;
+    const fetchFn = mockFetch({
+      [`POST ${api('/actions/workflows/publish-content.yml/dispatches')}`]: { status: 204 },
+    });
+    const capturingFetch: typeof fetch = async (input, init) => {
+      sentBody = init?.body ? JSON.parse(init.body as string) : undefined;
+      return fetchFn(input, init);
+    };
+
+    await triggerPublish(testEnv, false, capturingFetch, 'full', 'abc1234');
+
+    expect(sentBody).toEqual({
+      ref: 'main',
+      inputs: { dry_run: 'false', mode: 'full', expected_sha: 'abc1234' },
+    });
+  });
+});
+
+describe('hasSuccessfulDryRunFor', () => {
+  it('is true only for a successful dry run of exactly that sha', async () => {
+    const fetchFn = mockFetch({
+      [`GET ${api('/actions/workflows/publish-content.yml/runs?per_page=15')}`]: {
+        json: {
+          workflow_runs: [
+            {
+              status: 'completed',
+              conclusion: 'success',
+              html_url: 'https://x',
+              created_at: 'now',
+              head_sha: 'good-sha',
+              display_title: 'dry run (incremental) good-sh',
+            },
+          ],
+        },
+      },
+    });
+
+    expect(await hasSuccessfulDryRunFor(testEnv, 'good-sha', fetchFn)).toBe(true);
+    expect(await hasSuccessfulDryRunFor(testEnv, 'other-sha', fetchFn)).toBe(false);
+  });
+
+  it('ignores a real publish run — only a dry run satisfies the gate', async () => {
+    const fetchFn = mockFetch({
+      [`GET ${api('/actions/workflows/publish-content.yml/runs?per_page=15')}`]: {
+        json: {
+          workflow_runs: [
+            {
+              status: 'completed',
+              conclusion: 'success',
+              html_url: 'https://x',
+              created_at: 'now',
+              head_sha: 'the-sha',
+              display_title: 'publish (incremental) the-sha',
+            },
+          ],
+        },
+      },
+    });
+
+    expect(await hasSuccessfulDryRunFor(testEnv, 'the-sha', fetchFn)).toBe(false);
+  });
+
+  it('ignores a failed dry run', async () => {
+    const fetchFn = mockFetch({
+      [`GET ${api('/actions/workflows/publish-content.yml/runs?per_page=15')}`]: {
+        json: {
+          workflow_runs: [
+            {
+              status: 'completed',
+              conclusion: 'failure',
+              html_url: 'https://x',
+              created_at: 'now',
+              head_sha: 'the-sha',
+              display_title: 'dry run (incremental) the-sha',
+            },
+          ],
+        },
+      },
+    });
+
+    expect(await hasSuccessfulDryRunFor(testEnv, 'the-sha', fetchFn)).toBe(false);
   });
 });

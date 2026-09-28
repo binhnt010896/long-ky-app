@@ -293,11 +293,11 @@ void main() {
   });
 
   group('ContentDraftController — events', () {
-    Map<String, dynamic> _era(ProviderContainer c, String slug) =>
+    Map<String, dynamic> eraJson(ProviderContainer c, String slug) =>
         jsonDecode(c.read(contentDraftProvider).requireValue.eraFiles['$slug.json']!)
             as Map<String, dynamic>;
-    List<Map<String, dynamic>> _events(ProviderContainer c, String slug) =>
-        (_era(c, slug)['events'] as List).cast<Map<String, dynamic>>();
+    List<Map<String, dynamic>> eraEvents(ProviderContainer c, String slug) =>
+        (eraJson(c, slug)['events'] as List).cast<Map<String, dynamic>>();
 
     test('addEvent sets id, slug and the next order', () async {
       final container = await _containerWith(_fixtureFiles());
@@ -314,7 +314,7 @@ void main() {
         'citation': {'work': 'ĐVSKTT'},
       });
 
-      final events = _events(container, 'era-a');
+      final events = eraEvents(container, 'era-a');
       expect(events, hasLength(1));
       expect(events.single['id'], 'first-event');
       expect(events.single['slug'], 'first-event');
@@ -346,7 +346,7 @@ void main() {
 
       notifier.updateEvent('era-a', 'e1', (e) => e..['title'] = {'vi': 'Đổi tên'});
 
-      final events = _events(container, 'era-a');
+      final events = eraEvents(container, 'era-a');
       expect((events.firstWhere((e) => e['id'] == 'e1')['title'] as Map)['vi'], 'Đổi tên');
       expect((events.firstWhere((e) => e['id'] == 'e2')['title'] as Map)['vi'], 'E2');
     });
@@ -370,7 +370,7 @@ void main() {
 
       notifier.deleteEvent('era-a', 'e1');
 
-      final events = _events(container, 'era-a')
+      final events = eraEvents(container, 'era-a')
         ..sort((a, b) => (a['order'] as int).compareTo(b['order'] as int));
       expect(events.map((e) => e['id']), ['e2', 'e3']);
       expect(events.map((e) => e['order']), [0, 1]);
@@ -419,7 +419,7 @@ void main() {
 
       notifier.reorderEvent('era-a', 'e3', 0);
 
-      final events = _events(container, 'era-a')
+      final events = eraEvents(container, 'era-a')
         ..sort((a, b) => (a['order'] as int).compareTo(b['order'] as int));
       expect(events.map((e) => e['id']), ['e3', 'e1', 'e2']);
     });
@@ -431,11 +431,11 @@ void main() {
 
       // person-1 is already on era-a's roster.
       notifier.ensureInRoster('era-a', 'person-1');
-      var characters = (_era(container, 'era-a')['characters'] as List);
+      var characters = (eraJson(container, 'era-a')['characters'] as List);
       expect(characters, hasLength(1));
 
       notifier.ensureInRoster('era-a', 'person-2');
-      characters = (_era(container, 'era-a')['characters'] as List);
+      characters = (eraJson(container, 'era-a')['characters'] as List);
       expect(characters.cast<Map>().map((c) => c['ref']), ['person-1', 'person-2']);
     });
   });

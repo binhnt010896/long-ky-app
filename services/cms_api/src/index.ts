@@ -7,6 +7,7 @@ import {
   commitFiles,
   getContentAtHead,
   getLatestPublishRun,
+  hasSuccessfulDryRunFor,
   triggerPublish,
 } from './github';
 import { MediaError, getMedia, putMedia } from './media';
@@ -92,14 +93,33 @@ app.get('/media', async (c) => {
 });
 
 app.post('/publish', async (c) => {
-  const body = await c.req.json().catch(() => ({}));
-  await triggerPublish(c.env, Boolean((body as { dryRun?: boolean }).dryRun));
+  const body = (await c.req.json().catch(() => ({}))) as {
+    dryRun?: boolean;
+    mode?: 'incremental' | 'full';
+    expectedSha?: string;
+  };
+  await triggerPublish(
+    c.env,
+    Boolean(body.dryRun),
+    fetch,
+    body.mode ?? 'incremental',
+    body.expectedSha,
+  );
   return c.json({ ok: true });
 });
 
 app.get('/publish/status', async (c) => {
   const status = await getLatestPublishRun(c.env);
   return c.json(status);
+});
+
+/** Whether [sha] (?sha=) already has a successful dry run behind it — the
+ * CMS's Publish gate (decision K3). */
+app.get('/publish/dry-run-ok', async (c) => {
+  const sha = c.req.query('sha');
+  if (!sha) return c.json({ error: 'sha is required' }, 400);
+  const ok = await hasSuccessfulDryRunFor(c.env, sha);
+  return c.json({ ok });
 });
 
 export default app;
