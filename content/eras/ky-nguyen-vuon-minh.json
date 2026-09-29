@@ -520,15 +520,11 @@
       }
     },
     {
-      "id": "tang-truong-2025",
-      "slug": "tang-truong-2025",
-      "figureIds": [],
-      "order": 9,
       "kind": "historical",
       "year": {
         "display": {
-          "vi": "2025 SCN (công bố 5/1/2026)",
-          "en": "2025 CE (released 5 Jan 2026)"
+          "vi": "2025 SCN",
+          "en": "2025 CE"
         },
         "value": 2025,
         "approximate": false
@@ -545,6 +541,15 @@
         "vi": "Theo công bố của Cục Thống kê Quốc gia ngày 5/1/2026, tổng sản phẩm trong nước (GDP) năm 2025 tăng 8,02% — mức cao thứ hai trong giai đoạn 2011–2025 — đưa quy mô nền kinh tế vượt 514 tỷ USD.",
         "en": "Per the National Statistics Office's release on 5 Jan 2026, Vietnam's GDP grew 8.02% in 2025 — the second-highest rate of 2011–2025 — taking the economy's size past 514 billion USD."
       },
+      "citation": {
+        "work": "Cục Thống kê Quốc gia",
+        "section": {
+          "vi": "Báo cáo tình hình kinh tế – xã hội năm 2025",
+          "en": "The 2025 socio-economic report"
+        }
+      },
+      "slug": "tang-truong-2025",
+      "order": 9,
       "hero": {
         "id": "tang-truong-2025-hero",
         "type": "image",
@@ -557,13 +562,7 @@
         "flagship": "eras/ky-nguyen-vuon-minh/events/tang-truong-2025.png",
         "reduced": "eras/ky-nguyen-vuon-minh/events/tang-truong-2025.png"
       },
-      "citation": {
-        "work": "Cục Thống kê Quốc gia",
-        "section": {
-          "vi": "Báo cáo tình hình kinh tế – xã hội năm 2025",
-          "en": "The 2025 socio-economic report"
-        }
-      }
+      "id": "tang-truong-2025"
     }
   ]
 }
