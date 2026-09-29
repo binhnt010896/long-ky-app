@@ -90,7 +90,7 @@ Future<int> _run() async {
       Set<String>? geoIds;
       final geomRel = map['geometry'];
       if (geomRel is String) {
-        final g = File('${root.path}/sources/$geomRel');
+        final g = File('${root.path}/content/$geomRel');
         if (g.existsSync()) {
           geoIds = <String>{
             for (final feat in (jsonDecode(g.readAsStringSync())

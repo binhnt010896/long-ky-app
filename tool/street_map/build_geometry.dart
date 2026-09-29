@@ -1,13 +1,13 @@
 // Builds streets/<city>-streets.geojson from the APPROVED streets in
 // content/streets/<city>.json and the cached OSM ways (M-A step 3).
 //
-// Output goes to <sources>/streets/ (default: sources/streets/, the local
-// mirror of the long-ky-sources bucket) — it is GENERATED, never hand-edited,
-// and reaches phones through the media pipeline (gen_media_manifest.dart
-// copies .geojson as-is).
+// Output goes to content/streets/<city>-streets.geojson — next to the media
+// originals, where gen_media_manifest.dart and push_sources.sh look. It is
+// GENERATED, git-ignored (like the PNGs), never hand-edited, and reaches
+// phones through the media pipeline (.geojson is copied as-is).
 //
 // Usage: dart run tool/street_map/build_geometry.dart [--city hcm]
-//        [--out sources/streets/hcm-streets.geojson]
+//        [--out content/streets/hcm-streets.geojson]
 
 import 'dart:convert';
 import 'dart:io';
@@ -23,7 +23,7 @@ void main(List<String> args) {
   }
 
   final city = opt('--city', 'hcm');
-  final outPath = opt('--out', 'sources/streets/$city-streets.geojson');
+  final outPath = opt('--out', 'content/streets/$city-streets.geojson');
   final file = StreetMapFile.fromJson(
       jsonDecode(File('content/streets/$city.json').readAsStringSync())
           as Map<String, dynamic>);
