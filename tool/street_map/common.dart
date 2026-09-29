@@ -19,24 +19,38 @@ const overpassMirrors = <String>[
 /// The date the old (pre-merger) HCMC territory is read as of.
 const boundaryDate = '2025-06-01T00:00:00Z';
 
+/// Runs [query] against the mirrors, three rounds with growing pauses. Throws
+/// only when every mirror failed in every round.
 Future<Map<String, dynamic>> overpass(String query) async {
   Object? last;
-  for (final url in overpassMirrors) {
-    final client = HttpClient()..connectionTimeout = const Duration(seconds: 30);
-    try {
-      final req = await client.postUrl(Uri.parse(url));
-      req.headers.contentType =
-          ContentType('application', 'x-www-form-urlencoded', charset: 'utf-8');
-      req.headers.set('User-Agent', 'long-ky-app street tool (binhnt.010896@gmail.com)');
-      req.write('data=${Uri.encodeQueryComponent(query)}');
-      final res = await req.close();
-      final body = await res.transform(utf8.decoder).join();
-      if (res.statusCode == 200) return jsonDecode(body) as Map<String, dynamic>;
-      last = 'HTTP ${res.statusCode} from $url';
-    } catch (e) {
-      last = '$e ($url)';
-    } finally {
-      client.close();
+  for (var round = 0; round < 3; round++) {
+    if (round > 0) await Future<void>.delayed(Duration(seconds: 20 * round));
+    for (final url in overpassMirrors) {
+      final client = HttpClient()..connectionTimeout = const Duration(seconds: 30);
+      try {
+        final req = await client.postUrl(Uri.parse(url));
+        req.headers.contentType =
+            ContentType('application', 'x-www-form-urlencoded', charset: 'utf-8');
+        req.headers.set('User-Agent', 'long-ky-app street tool (binhnt.010896@gmail.com)');
+        req.write('data=${Uri.encodeQueryComponent(query)}');
+        final res = await req.close().timeout(const Duration(seconds: 200));
+        final body = await res.transform(utf8.decoder).join();
+        if (res.statusCode == 200) {
+          final json = jsonDecode(body) as Map<String, dynamic>;
+          // Overpass reports a server-side timeout as 200 + a remark.
+          if (json['remark'] is String &&
+              (json['remark'] as String).contains('runtime error')) {
+            last = json['remark'];
+            continue;
+          }
+          return json;
+        }
+        last = 'HTTP ${res.statusCode} from $url';
+      } catch (e) {
+        last = '$e ($url)';
+      } finally {
+        client.close();
+      }
     }
   }
   throw StateError('all Overpass mirrors failed; last: $last');

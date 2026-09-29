@@ -75,32 +75,57 @@ Future<void> _downloadWays(String city, File cache) async {
   final n = all.map((p) => p.y).reduce((a, b) => a > b ? a : b);
   final w = all.map((p) => p.x).reduce((a, b) => a < b ? a : b);
   final e = all.map((p) => p.x).reduce((a, b) => a > b ? a : b);
-  // Tiled: one bbox-wide query times out on the public mirrors. Street NAMES
-  // don't change with the July-2025 merger, and the boundary polygon (an
-  // as-of-2025-06-01 read) decides territory, so this reads current data.
-  // Only road classes that carry street names; footways/paths/tracks are out.
-  const roads = 'motorway|trunk|primary|secondary|tertiary|unclassified|'
-      'residential|living_street|service|pedestrian|'
-      'motorway_link|trunk_link|primary_link|secondary_link|tertiary_link';
+  // Tiled and RESUMABLE: one bbox-wide query times out on the public mirrors,
+  // and a long run must survive a bad mirror. Each tile is cached in
+  // build/streets/tiles/; a tile that keeps failing is split into quarters.
+  // Street NAMES don't change with the July-2025 merger, and the boundary
+  // polygon (an as-of-2025-06-01 read) decides territory, so this reads
+  // current data. Only road classes that carry street names.
   const step = 0.1;
   final byName = <String, List<List<List<double>>>>{};
   final seenWays = <int>{};
+
+  bool touchesBoundary(double x, double y, double x2, double y2) {
+    final probe = [
+      GeoPt(x, y), GeoPt(x2, y), GeoPt(x, y2), GeoPt(x2, y2),
+      GeoPt((x + x2) / 2, (y + y2) / 2),
+    ];
+    return probe.any((p) => pointInRings(p, rings)) ||
+        rings.expand((r) => r).any((p) => p.x >= x && p.x <= x2 && p.y >= y && p.y <= y2);
+  }
+
+  Future<List<Map<String, dynamic>>> tile(
+      double x, double y, double x2, double y2, int depth) async {
+    final f = File('build/streets/tiles/${x.toStringAsFixed(5)}_${y.toStringAsFixed(5)}_'
+        '${x2.toStringAsFixed(5)}_${y2.toStringAsFixed(5)}.json');
+    if (f.existsSync()) {
+      return (jsonDecode(f.readAsStringSync()) as List).cast<Map<String, dynamic>>();
+    }
+    List<Map<String, dynamic>> els;
+    try {
+      final res = await overpass('[out:json][timeout:120];'
+          'way["highway"~"^($_roads)\$"]["name"]($y,$x,$y2,$x2);out geom tags;');
+      els = (res['elements'] as List).cast<Map<String, dynamic>>();
+    } on StateError {
+      if (depth >= 3) rethrow;
+      stdout.writeln('  splitting tile ($x,$y) — depth ${depth + 1}');
+      final mx = (x + x2) / 2, my = (y + y2) / 2;
+      els = [
+        for (final q in [(x, y, mx, my), (mx, y, x2, my), (x, my, mx, y2), (mx, my, x2, y2)])
+          ...await tile(q.$1, q.$2, q.$3, q.$4, depth + 1),
+      ];
+    }
+    f.parent.createSync(recursive: true);
+    f.writeAsStringSync(jsonEncode(els));
+    return els;
+  }
+
   for (var y = s; y < n; y += step) {
     for (var x = w; x < e; x += step) {
       final y2 = y + step > n ? n : y + step;
       final x2 = x + step > e ? e : x + step;
-      // Skip tiles wholly outside the boundary (corners of the bbox).
-      final probe = [
-        GeoPt(x, y), GeoPt(x2, y), GeoPt(x, y2), GeoPt(x2, y2),
-        GeoPt((x + x2) / 2, (y + y2) / 2),
-      ];
-      if (!probe.any((p) => pointInRings(p, rings)) &&
-          !rings.expand((r) => r).any((p) => p.x >= x && p.x <= x2 && p.y >= y && p.y <= y2)) {
-        continue;
-      }
-      final res = await overpass('[out:json][timeout:120];'
-          'way["highway"~"^($roads)\$"]["name"]($y,$x,$y2,$x2);out geom tags;');
-      for (final el in (res['elements'] as List).cast<Map<String, dynamic>>()) {
+      if (!touchesBoundary(x, y, x2, y2)) continue;
+      for (final el in await tile(x, y, x2, y2, 0)) {
         if (!seenWays.add(el['id'] as int)) continue;
         final geom = (el['geometry'] as List?) ?? const [];
         if (geom.length < 2) continue;
@@ -123,3 +148,7 @@ Future<void> _downloadWays(String city, File cache) async {
   cache.writeAsStringSync(jsonEncode(byName));
   stdout.writeln('✓ ${cache.path}: ${byName.length} distinct names');
 }
+
+const _roads = 'motorway|trunk|primary|secondary|tertiary|unclassified|'
+    'residential|living_street|service|pedestrian|'
+    'motorway_link|trunk_link|primary_link|secondary_link|tertiary_link';
