@@ -94,6 +94,17 @@ const List<_Section> _sections = <_Section>[
         'Modern archival photographs are colour-restored, keeping the faces '
         'and details of the originals.', false),
   ]),
+  _Section('BẢN ĐỒ ĐƯỜNG PHỐ', 'STREET MAP', <(String, bool)>[
+    ('Dữ liệu bản đồ © những người đóng góp OpenStreetMap, theo giấy phép ODbL; '
+        'nền bản đồ do Protomaps cung cấp. Tập dữ liệu tên đường mang tên sử '
+        'do Long Ký tổng hợp từ OpenStreetMap cũng được công bố công khai theo '
+        'ODbL.', false),
+  ], <(String, bool)>[
+    ('Map data © OpenStreetMap contributors, under the ODbL licence; basemap '
+        'by Protomaps. Long Ký\'s derived dataset of history-named streets, '
+        'built from OpenStreetMap, is likewise openly available under the '
+        'ODbL.', false),
+  ]),
   _Section('MIỄN PHÍ, KHÔNG QUẢNG CÁO', 'FREE, NO ADS', <(String, bool)>[
     ('Long Ký là ứng dụng miễn phí do người Việt, vì người Việt và sẽ không '
         'bao giờ có quảng cáo.', false),

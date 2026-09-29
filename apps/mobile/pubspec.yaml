@@ -51,6 +51,12 @@ dependencies:
   # instead of the two-cold-starts delay the R2-pack OTA check had. Media
   # (images/video) is unaffected — still R2/CDN, see lib/state/content_sync.dart.
   cloud_firestore: ^5.5.0
+  # Cycle M street map: flutter_map + Protomaps PMTiles vector basemap.
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
+  vector_map_tiles: ^8.0.0
+  vector_map_tiles_pmtiles: ^1.5.0
+  vector_tile_renderer: ^5.2.1
 
 dev_dependencies:
   flutter_test:
@@ -86,4 +92,7 @@ flutter:
     - assets/content/media-manifest.json
     - assets/content/content-version.json
     - assets/content/eras/
+    # Cycle M: street mapping + old-HCMC boundary (the street GeoJSON itself is
+    # media, served from the R2 CDN).
+    - assets/content/streets/
     - assets/content/chao-co/

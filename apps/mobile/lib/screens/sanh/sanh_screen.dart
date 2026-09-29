@@ -64,6 +64,14 @@ const List<_SanhItem> _items = <_SanhItem>[
     route: '/map',
   ),
   _SanhItem(
+    icon: Icons.signpost_outlined,
+    titleVi: 'Đường phố mang tên sử',
+    titleEn: 'Streets named for history',
+    subtitleVi: 'Những con đường TP.HCM mang tên người và sự kiện',
+    subtitleEn: 'Ho Chi Minh City streets named for people and events',
+    route: '/duong-pho',
+  ),
+  _SanhItem(
     icon: Icons.auto_stories_outlined,
     titleVi: 'Về Long Ký',
     titleEn: 'About Long Ký',

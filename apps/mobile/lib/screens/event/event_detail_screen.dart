@@ -10,6 +10,7 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../state/providers.dart';
 import '../../theme/content_assets.dart';
 import '../../theme/era_palette_mapping.dart';
+import '../streets/street_reverse_chip.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
 import '../era/widgets/era_scene_backdrop.dart';
@@ -446,6 +447,7 @@ class _EventBody extends StatelessWidget {
           const SizedBox(height: VSSpacing.xl),
           EventFigures(figures: figures, slug: era.slug, lang: lang),
         ],
+        StreetReverseChip(type: StreetTargetType.event, id: event.id),
         const SizedBox(height: VSSpacing.xl),
         CitationCard(citation: event.citation, lang: lang),
       ],

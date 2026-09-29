@@ -15,6 +15,7 @@ import 'screens/quiz/quiz_home_screen.dart';
 import 'screens/quiz/quiz_play_screen.dart';
 import 'screens/sanh/about_screen.dart';
 import 'screens/sanh/sanh_screen.dart';
+import 'screens/streets/street_map_screen.dart';
 import 'screens/timeline/global_timeline_screen.dart';
 import 'telemetry/route_telemetry.dart';
 import 'telemetry/telemetry.dart';
@@ -27,6 +28,8 @@ import 'telemetry/telemetry.dart';
 ///  - `/sanh/gioi-thieu`        Về Long Ký — sources, images, version.
 ///  - `/chao-co`                Chào cờ — the daily flag salute.
 ///  - `/map`                    Territory atlas.
+///  - `/duong-pho`              Streets named for history (old HCMC);
+///                              optional `?street=<id>` opens on that street.
 ///  - `/era/:slug`              Era Hub — parallax hero + facets.
 ///  - `/era/:slug/timeline`     Era Timeline — this era's events.
 ///  - `/era/:slug/event/:id`    Event Detail — hero, body, pull-quote, citation.
@@ -49,6 +52,13 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/map',
         builder: (context, state) => TerritoryMapDemoScreen(
           initialEra: state.uri.queryParameters['era'],
+        ),
+      ),
+      // Đường phố mang tên sử — old-HCMC streets named after a figure/event.
+      GoRoute(
+        path: '/duong-pho',
+        builder: (context, state) => StreetMapScreen(
+          initialStreetId: state.uri.queryParameters['street'],
         ),
       ),
       // The Sảnh opens out of the seal in Home's top-right corner.

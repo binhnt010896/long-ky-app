@@ -224,6 +224,10 @@ void main() {
           mapUriToScreen(Uri.parse('/map')), 'atlas', const <String, Object>{});
       expectScreen(mapUriToScreen(Uri.parse('/map?era=au-lac')), 'atlas',
           const <String, Object>{'era_slug': 'au-lac'});
+      expectScreen(mapUriToScreen(Uri.parse('/duong-pho')), 'street_map',
+          const <String, Object>{});
+      expectScreen(mapUriToScreen(Uri.parse('/duong-pho?street=le-loi')),
+          'street_map', const <String, Object>{'street_id': 'le-loi'});
       expectScreen(
           mapUriToScreen(Uri.parse('/sanh')), 'sanh', const <String, Object>{});
       expectScreen(mapUriToScreen(Uri.parse('/sanh/gioi-thieu')), 'about',

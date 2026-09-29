@@ -42,6 +42,14 @@ ScreenView? mapUriToScreen(Uri uri) {
         );
       }
       return null;
+    case 'duong-pho':
+      if (segments.length == 1) {
+        return (
+          name: 'street_map',
+          params: params(<String, String?>{'street_id': paramOrNull('street')}),
+        );
+      }
+      return null;
     case 'sanh':
       if (segments.length == 1) {
         return (name: 'sanh', params: const <String, Object>{});

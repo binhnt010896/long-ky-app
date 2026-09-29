@@ -8,6 +8,48 @@
 history-named streets). M1–M5 are confirmed as recommended (below). Nothing
 is built yet; the next step is an EXECUTION session.**
 
+## Cycle M — execution status (branch `m-cycle`)
+
+**Built and tested (no network needed):**
+- **M-A code:** `core_domain/src/street_map/` (name normalization, matcher with
+  home-era resolution, never-unapprove merge, Douglas–Peucker + segment
+  chaining, hit-testing, `StreetMapValidator`), with 20 tests.
+  `tool/street_map/{fetch_boundary,suggest,build_geometry}.dart`,
+  `content/streets/aliases.json` (9 curated aliases, real ids),
+  `validate_content` runs the street rules, and the media ledger/manifest
+  carry `.geojson`.
+- **M-B (partial):** the Protomaps dark v4 theme minus `water_label_ocean`,
+  `boundaries_country` and `pois` (sovereignty guard, unit-tested); camera
+  locked with `CameraConstraint.contain` + min zoom 10.
+- **M-C:** `/duong-pho` screen (gold streets, outside-mask, tap → card,
+  search, `?street=`, attribution, `street_tap`/`street_open_detail`).
+- **M-D:** Sảnh entry, reverse chip on Character and Event pages, About-page
+  OSM/Protomaps/ODbL note.
+- **Checked:** 169 app tests + 58 core_domain tests pass, analyzer clean, web
+  build compiles, and a real-browser run against a throw-away fixture showed
+  the streets, the tap → card and the attribution.
+
+**Not done, and why:**
+1. **Overpass is blocked by this environment's network policy**
+   (`overpass-api.de`, `overpass.kumi.systems`, `overpass.private.coffee`,
+   geoBoundaries, Nominatim → 403/tunnel refused). So the boundary, the
+   suggestions, `content/streets/hcm.json`, the geometry, and therefore the
+   **M3 review table** do not exist yet. The 82 / ~100 figures above were
+   measured earlier and are **not reproduced here**. Run, from a machine with
+   access: `fetch_boundary.dart` → `suggest.dart` → review → `build_geometry.dart`.
+2. **The PMTiles extract and its R2 upload, and the r2.dev `Range` check.**
+   Needs a Protomaps planet build and R2 credentials. `STREET_BASEMAP_URL`
+   (dart-define) is empty until then, so the map shows the lacquer ground with
+   the gold streets only. The basemap was **not visually verified**.
+3. **Not in-house styled:** the basemap uses Protomaps' stock dark theme.
+4. **Mapping ships bundled, not OTA:** `content/streets/*.json` is a bundled
+   asset (`assets/content/streets/`), because the content pack and Firestore
+   sync only know eras/people/periods. The geometry is OTA (media CDN). Making
+   the mapping OTA means extending the pack + Firestore path.
+5. Until `hcm.json` and `hcm-boundary.geojson` exist, the screen shows a calm
+   "not ready" message; the Sảnh entry is therefore best held back from a
+   build until the data is committed.
+
 ## Audit of the previous plan
 
 **Cycle L is fully shipped:**

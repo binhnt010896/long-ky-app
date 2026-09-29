@@ -1489,15 +1489,8 @@ void main() {
       await _pumpAt(tester, '/sanh/gioi-thieu', ExperienceTier.reduced,
           contentVersion: 20260923153357);
 
-      final scrollable = find.byType(Scrollable).first;
-      await tester.scrollUntilVisible(
-        find.textContaining('bản 20260923153357'),
-        300,
-        scrollable: scrollable,
-      );
-      expect(find.textContaining('do người Việt, vì người Việt',
-          findRichText: true), findsOneWidget);
-
+      // The page is a lazy list: check the (near-top) sources first, before
+      // scrolling to the version line drops them from the built tree.
       TextSpan? workSpan;
       for (final rt in tester.widgetList<RichText>(find.byType(RichText))) {
         rt.text.visitChildren((span) {
@@ -1511,6 +1504,15 @@ void main() {
       expect(workSpan, isNotNull);
       expect(workSpan!.style?.color, VSColors.goldBright);
       expect(workSpan!.style?.fontWeight, FontWeight.w600);
+
+      final scrollable = find.byType(Scrollable).first;
+      await tester.scrollUntilVisible(
+        find.textContaining('bản 20260923153357'),
+        300,
+        scrollable: scrollable,
+      );
+      expect(find.textContaining('do người Việt, vì người Việt',
+          findRichText: true), findsOneWidget);
     });
 
     testWidgets('Home carries no Chào cờ pill (reachable only via the Sảnh)',

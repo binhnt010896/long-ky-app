@@ -7,6 +7,7 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../state/providers.dart';
 import '../../theme/content_assets.dart';
 import '../../theme/era_palette_mapping.dart';
+import '../streets/street_reverse_chip.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/figure_bust.dart';
 import '../../widgets/lang_toggle.dart';
@@ -234,6 +235,7 @@ class _FigureSheet extends StatelessWidget {
                   const SizedBox(height: VSSpacing.sm),
                 ],
               ],
+              StreetReverseChip(type: StreetTargetType.person, id: figure.id),
               const SizedBox(height: VSSpacing.xl),
               // Provenance line — the era's single chronicle.
               Row(
