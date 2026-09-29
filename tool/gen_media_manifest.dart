@@ -65,11 +65,6 @@ Future<int> _run({required bool check, String? onlyFile}) async {
     return 1;
   }
 
-  if (!check && !await _cwebpAvailable()) {
-    stderr.writeln('✗ cwebp not found — brew install webp');
-    return 1;
-  }
-
   Set<String>? only;
   Map<String, dynamic>? existingManifest;
   if (onlyFile != null) {
@@ -120,6 +115,17 @@ Future<int> _run({required bool check, String? onlyFile}) async {
   // already resolved that for them. Only paths actually being (re)built
   // below need it.
   bool needsBuild(String path) => only == null || only.contains(path);
+
+  // cwebp is only needed if something will actually be converted. An
+  // incremental run with nothing (or nothing convertible) changed — a
+  // text-only edit — must not demand it: CI deliberately skips installing
+  // it in that case.
+  if (!check &&
+      sortedPaths.any((p) => needsBuild(p) && _isConvertible(p)) &&
+      !await _cwebpAvailable()) {
+    stderr.writeln('✗ cwebp not found — brew install webp');
+    return 1;
+  }
 
   // Two distinct source paths can compute the same served key — e.g. a
   // converted `foo.png` -> `foo.webp` colliding with a hand-authored
