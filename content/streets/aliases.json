@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "note": "Hand-curated street-name → target aliases for tool/street_map/suggest.dart. Alias matches are never auto-approved (M3).",
+  "aliases": [
+    {
+      "street": "Điện Biên Phủ",
+      "targets": [
+        {
+          "type": "event",
+          "id": "dien-bien-phu",
+          "era": "dien-bien-phu"
+        }
+      ]
+    },
+    {
+      "street": "Cách Mạng Tháng Tám",
+      "targets": [
+        {
+          "type": "event",
+          "id": "cach-mang-thang-tam",
+          "era": "cach-mang-thang-tam"
+        }
+      ]
+    },
+    {
+      "street": "Đồng Khởi",
+      "targets": [
+        {
+          "type": "event",
+          "id": "dong-khoi",
+          "era": "dai-thang-mua-xuan"
+        }
+      ]
+    },
+    {
+      "street": "Xô Viết Nghệ Tĩnh",
+      "targets": [
+        {
+          "type": "event",
+          "id": "xo-viet-nghe-tinh",
+          "era": "cach-mang-thang-tam"
+        }
+      ]
+    },
+    {
+      "street": "Nam Kỳ Khởi Nghĩa",
+      "targets": [
+        {
+          "type": "event",
+          "id": "khoi-nghia-1940",
+          "era": "cach-mang-thang-tam"
+        }
+      ]
+    },
+    {
+      "street": "Bạch Đằng",
+      "targets": [
+        {
+          "type": "event",
+          "id": "chien-thang-bach-dang",
+          "era": "ngo-quyen"
+        },
+        {
+          "type": "event",
+          "id": "pha-tong-bach-dang",
+          "era": "tien-le"
+        },
+        {
+          "type": "event",
+          "id": "bach-dang-1288",
+          "era": "tran-hung-dao"
+        }
+      ]
+    },
+    {
+      "street": "Hồng Bàng",
+      "targets": [
+        {
+          "type": "era",
+          "id": "hong-bang-van-lang",
+          "era": "hong-bang-van-lang"
+        }
+      ]
+    },
+    {
+      "street": "Nguyễn Tất Thành",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ho-chi-minh"
+        }
+      ]
+    },
+    {
+      "street": "Hai Bà Trưng",
+      "targets": [
+        {
+          "type": "person",
+          "id": "trung-trac"
+        },
+        {
+          "type": "person",
+          "id": "trung-nhi"
+        }
+      ]
+    }
+  ]
+}

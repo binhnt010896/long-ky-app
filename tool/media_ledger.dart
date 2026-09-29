@@ -51,6 +51,16 @@ Future<int> _run(String mode) async {
   }
   _collectMediaPaths(readJson('people.json'), referenced);
   _collectMediaPaths(readJson('periods.json'), referenced);
+  // Cycle M: a city street map's `geometry` GeoJSON is media like any other.
+  final streetsDir = Directory('${contentDir.path}/streets');
+  if (streetsDir.existsSync()) {
+    for (final f in streetsDir.listSync().whereType<File>()) {
+      final n = f.uri.pathSegments.last;
+      if (n.endsWith('.json') && !n.startsWith('aliases')) {
+        _collectMediaPaths(jsonDecode(f.readAsStringSync()), referenced);
+      }
+    }
+  }
 
   final ledgerFile = File('${contentDir.path}/media-sources.json');
   final manifestFile = File('${contentDir.path}/media-manifest.json');
@@ -190,7 +200,7 @@ void _collectMediaPaths(Object? node, Set<String> out) {
   }
 }
 
-const _mediaExtensions = <String>{'.png', '.jpg', '.jpeg', '.webp', '.gif', '.mp4'};
+const _mediaExtensions = <String>{'.png', '.jpg', '.jpeg', '.webp', '.gif', '.mp4', '.geojson'};
 
 bool _looksLikeMediaPath(String s) {
   final dot = s.lastIndexOf('.');

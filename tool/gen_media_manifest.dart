@@ -38,6 +38,7 @@ const _mediaExtensions = <String>{
   '.webp',
   '.gif',
   '.mp4',
+  '.geojson',
 };
 
 /// Source extensions cwebp can convert. Everything else (already .webp, .gif,
@@ -94,6 +95,16 @@ Future<int> _run({required bool check, String? onlyFile}) async {
       File('${contentDir.path}/eras/$slug.json'),
     File('${contentDir.path}/people.json'),
     File('${contentDir.path}/periods.json'),
+    // Cycle M: each city's street map names its generated GeoJSON in a
+    // `geometry` field, which then rides the normal media pipeline (copied
+    // as-is — .geojson is not convertible).
+    ...(Directory('${contentDir.path}/streets').existsSync()
+        ? (Directory('${contentDir.path}/streets').listSync().whereType<File>().where((f) {
+            final n = f.uri.pathSegments.last;
+            return n.endsWith('.json') && !n.startsWith('aliases');
+          }).toList()
+          ..sort((a, b) => a.path.compareTo(b.path)))
+        : const <File>[]),
   ];
 
   final referenced = <String>{};
