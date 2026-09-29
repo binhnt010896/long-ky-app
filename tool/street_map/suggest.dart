@@ -75,21 +75,49 @@ Future<void> _downloadWays(String city, File cache) async {
   final n = all.map((p) => p.y).reduce((a, b) => a > b ? a : b);
   final w = all.map((p) => p.x).reduce((a, b) => a < b ? a : b);
   final e = all.map((p) => p.x).reduce((a, b) => a > b ? a : b);
-  final res = await overpass('[out:json][timeout:300][date:"$boundaryDate"];'
-      'way["highway"]["name"]($s,$w,$n,$e);out geom;');
+  // Tiled: one bbox-wide query times out on the public mirrors. Street NAMES
+  // don't change with the July-2025 merger, and the boundary polygon (an
+  // as-of-2025-06-01 read) decides territory, so this reads current data.
+  // Only road classes that carry street names; footways/paths/tracks are out.
+  const roads = 'motorway|trunk|primary|secondary|tertiary|unclassified|'
+      'residential|living_street|service|pedestrian|'
+      'motorway_link|trunk_link|primary_link|secondary_link|tertiary_link';
+  const step = 0.1;
   final byName = <String, List<List<List<double>>>>{};
-  for (final el in (res['elements'] as List).cast<Map<String, dynamic>>()) {
-    final geom = (el['geometry'] as List?) ?? const [];
-    if (geom.length < 2) continue;
-    final mid = geom[geom.length ~/ 2];
-    if (!pointInRings(
-        GeoPt((mid['lon'] as num).toDouble(), (mid['lat'] as num).toDouble()), rings)) {
-      continue;
+  final seenWays = <int>{};
+  for (var y = s; y < n; y += step) {
+    for (var x = w; x < e; x += step) {
+      final y2 = y + step > n ? n : y + step;
+      final x2 = x + step > e ? e : x + step;
+      // Skip tiles wholly outside the boundary (corners of the bbox).
+      final probe = [
+        GeoPt(x, y), GeoPt(x2, y), GeoPt(x, y2), GeoPt(x2, y2),
+        GeoPt((x + x2) / 2, (y + y2) / 2),
+      ];
+      if (!probe.any((p) => pointInRings(p, rings)) &&
+          !rings.expand((r) => r).any((p) => p.x >= x && p.x <= x2 && p.y >= y && p.y <= y2)) {
+        continue;
+      }
+      final res = await overpass('[out:json][timeout:120];'
+          'way["highway"~"^($roads)\$"]["name"]($y,$x,$y2,$x2);out geom tags;');
+      for (final el in (res['elements'] as List).cast<Map<String, dynamic>>()) {
+        if (!seenWays.add(el['id'] as int)) continue;
+        final geom = (el['geometry'] as List?) ?? const [];
+        if (geom.length < 2) continue;
+        final mid = geom[geom.length ~/ 2];
+        if (!pointInRings(
+            GeoPt((mid['lon'] as num).toDouble(), (mid['lat'] as num).toDouble()),
+            rings)) {
+          continue;
+        }
+        final name = (el['tags'] as Map)['name'] as String;
+        (byName[name] ??= []).add([
+          for (final g in geom)
+            [(g['lon'] as num).toDouble(), (g['lat'] as num).toDouble()],
+        ]);
+      }
+      stdout.writeln('  tile ($x,$y): ${byName.length} names so far');
     }
-    final name = (el['tags'] as Map)['name'] as String;
-    (byName[name] ??= []).add([
-      for (final g in geom) [(g['lon'] as num).toDouble(), (g['lat'] as num).toDouble()],
-    ]);
   }
   cache.parent.createSync(recursive: true);
   cache.writeAsStringSync(jsonEncode(byName));
