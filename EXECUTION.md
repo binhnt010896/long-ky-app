@@ -4,8 +4,9 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: PLANNING — Cycle M (a map of Ho Chi Minh City's history-named
-streets). Waiting on the user's answers to M1–M5.**
+**Status: PLANNING COMPLETE — Cycle M (a map of Ho Chi Minh City's
+history-named streets). M1–M5 are confirmed as recommended (below). Nothing
+is built yet; the next step is an EXECUTION session.**
 
 ## Audit of the previous plan
 
@@ -197,28 +198,38 @@ The last real publish was `3d717ea` (pack `20260929070006`), and it was green.
     deep links;
   - a check in a web build at localhost (`flutter_map` runs on web).
 
-## Decisions for the user
+## Decisions (all confirmed by the user as recommended)
 
-- **M1 — Basemap.** Recommend **self-hosted Protomaps PMTiles on R2**: about
-  $0, styled to match, nothing new to sign up for. Alternative: MapTiler's
-  free tier, which is less setup but adds an external account, usage caps,
-  and less control over the style.
-- **M2 — Streets without a page.** Recommend **don't draw them as
-  tappable**: only streets with a page are gold and tappable, and everything
-  else is plain basemap. Alternative: draw them greyed, with a "no page yet"
-  card.
-- **M3 — Reviewing the matches.** Recommend: **exact name matches are
-  approved automatically** (about 82, and all of them look right). Anything
-  from aliases, event titles, or with several targets (about 20–30) comes to
-  you as one review table before it ships. Alternative: you review all of
-  them.
-- **M4 — Entry points.** Recommend **both** the Sảnh entry and the reverse
-  chip on detail pages. Alternative: the Sảnh entry only.
-- **M5 — The backlog of famous streets with no page** (Nguyễn Hữu Cảnh, Lê
-  Hồng Phong, Võ Thị Sáu, …). Recommend **not in Cycle M**; queue it as its
-  own content cycle, since new figures need ĐVSKTT or Viện Sử học sourcing
-  and art. Alternative: add Nguyễn Hữu Cảnh now, because he founded Saigon
-  and belongs on this map.
+- **M1 — Basemap: self-hosted Protomaps PMTiles on R2.**
+  - It costs about $0, gets styled to match the lacquer look, and needs no
+    new account.
+  - **Early check in execution:** confirm that r2.dev serves `Range` requests
+    correctly. If it doesn't, fall back to MapTiler's free tier and tell the
+    user first.
+- **M2 — Streets without a page are not tappable.** Only streets with a page
+  are gold and tappable; everything else is plain basemap.
+- **M3 — Review of matches.**
+  - Exact name matches are auto-approved (about 82).
+  - Matches from aliases, event titles, or several targets (about 20–30) come
+    to the user as **one review table before anything ships**. Execution
+    stops at that table and waits for the user's yes.
+- **M4 — Entry points: both** the Sảnh entry and the reverse chip on
+  Character and Event detail pages. No Home pill.
+- **M5 — The famous-streets-with-no-page backlog (Nguyễn Hữu Cảnh, Lê Hồng
+  Phong, Võ Thị Sáu, …) stays out of Cycle M.** It's queued below as its own
+  content cycle, because new figures need ĐVSKTT or Viện Sử học sourcing and
+  art.
+
+## Execution order
+
+1. **M-A** street tools, validator rules and tests. This ends at the **M3
+   review table**, and nothing ships until the user approves it.
+2. **M-B** the PMTiles extract, hosted on R2, with the `Range` check first.
+3. **M-C** the map screen, with hit-testing and card tests, verified in a web
+   build.
+4. **M-D** the Sảnh entry and the reverse chip.
+5. Publish the street content through the normal dry run → the user's yes →
+   real publish. The screen itself waits for the next app build.
 
 ## Next cycles (queued)
 
@@ -233,7 +244,10 @@ The last real publish was `3d717ea` (pack `20260929070006`), and it was green.
   new city is mostly data plus a review.
 - **A CMS editor for street mappings** (approve, re-target, add aliases),
   instead of editing `hcm.json` by hand.
-- **Content backlog from the unmatched-streets list** (see M5).
+- **Content cycle for the famous streets with no page yet** (M5): Nguyễn
+  Hữu Cảnh first (founder of Saigon, 1698), then Lê Hồng Phong, Võ Thị Sáu,
+  Phan Văn Trị, Nguyễn An Ninh, Hoàng Văn Thụ, Trần Văn Giàu. Each needs
+  sourcing and art, and each adds itself to the street map once published.
 - **Media manifest live via Firestore** (carried over from K5).
 - **Carried-over UX audit findings:** particles over text, Chào cờ lyrics
   legibility, swipe-hint timing. See `21fb88b:EXECUTION.md`.
