@@ -4,142 +4,236 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: PLANNING — Cycle L (download originals from the CMS; swap the art
-of eras 36/37). Waiting on the user's answers to L1–L3.**
+**Status: PLANNING — Cycle M (a map of Ho Chi Minh City's history-named
+streets). Waiting on the user's answers to M1–M5.**
 
 ## Audit of the previous plan
 
-**Cycle K is fully shipped in code** (`5a9ec5b`, `a988e2b`, `979cb3f`,
-pushed; every suite green): the CMS events editor (K7), the incremental
-publish pipeline (K1–K4), and Firestore as the live text layer with the
-"swap only on Home" rule (K5–K6). Nothing Claude-side is left, so the Cycle K
-spec is cleared from this file.
+**Cycle L is fully shipped:**
+- **Download original** in the CMS media dialog (`30b5e7b`). It fetches the
+  untouched file from `long-ky-sources`. The size label now says "served
+  WebP", and I fixed a layout overflow the dialog already had.
+- **Eras 36/37 art swapped.** All four originals were backed up to
+  `_replaced/2026-09-28T14-31-03Z/` first. The swap is published and I
+  checked it on the live CDN.
+- **"2020 – now" → "2020 – nay"** (`4b672ed`), published.
+- **The CMS is deployed** to long-ky-admin.web.app, so the events editor
+  (K7) is live now.
+
+**Two pipeline bugs came up while publishing, and both are fixed:**
+- `4f27b82`: the incremental content-pack check needed every original on
+  disk. Dry runs never caught it because they skipped that step; they now
+  build the pack too.
+- `6b8fba8`: a text-only publish (nothing to convert) demanded cwebp anyway.
+
+The last real publish was `3d717ea` (pack `20260929070006`), and it was green.
 
 **Still open, in the user's hands** (unchanged, carried forward):
-1. **Turn Firestore on** — until then the app keeps using the R2 pack, exactly
-   as before. Enable Firestore → paste `firestore.rules` into its Rules tab →
-   create a service account and add its key as the GitHub secret
-   `FIREBASE_SERVICE_ACCOUNT_KEY` → run the one-time bootstrap
-   (`cd tool && npm ci --omit=dev`, then
-   `FIREBASE_SERVICE_ACCOUNT_KEY="$(cat /path/to/key.json)" node publish_firestore.mjs`).
-   Full detail: `979cb3f:EXECUTION.md`.
-2. **Build and upload a new app version** — bundles `cloud_firestore` and all
-   the Cycle J/K app work (1.0.2+4 was never uploaded). Live updates only run
-   in release builds, not `flutter run` debug builds.
-3. Play closed test: 12+ testers opted in for 14 days straight (aim for ~15).
-4. Firebase → Analytics → Custom definitions: `era_slug`, `event_id`,
+1. **Turn Firestore on.** Until then the app keeps using the R2 pack. Full
+   steps are in `979cb3f:EXECUTION.md`:
+   - enable Firestore;
+   - paste in `firestore.rules`;
+   - add the `FIREBASE_SERVICE_ACCOUNT_KEY` GitHub secret;
+   - run the one-time bootstrap.
+2. **Build and upload a new app version.** 1.0.2+4 was never uploaded, so
+   Cycles J, K and M all ride on the next build.
+3. **Play closed test:** 12+ testers opted in for 14 days straight.
+4. **Firebase → Analytics → Custom definitions:** `era_slug`, `event_id`,
    `figure_id`.
-5. Deploy the privacy page; make Play's Data safety form match
-   `docs/play-store/data-safety-and-listing.md`.
-6. From Cycle E: the `long_ky_tea*` products, license testing, a test
-   purchase, screenshots, the feature graphic.
-7. Optional: delete the unused Hosting site `admin-long-ky.web.app`.
+5. **Privacy page:** deploy it, and make Play's Data safety form match it.
+6. **From Cycle E:** the `long_ky_tea*` products, license testing, a test
+   purchase, screenshots, and the feature graphic.
+7. **Optional:** delete the unused Hosting site `admin-long-ky.web.app`.
 
-**Wording issue, still open:** `periods.json`'s Kỷ nguyên mới
-`yearRange.display.vi` and `ky-nguyen-vuon-minh`'s `kicker.vi` still read
-"2020 – now" (from the CMS edit `70b6f12`) — the Vietnamese should probably
-be "2020 – nay". See L3 — Claude can fix it in the same commit as the swap.
+## Cycle M — what the user asked for
 
-## Cycle L — what the user asked for
+> A map of HCMC (other cities later), built on OpenStreetMap. Tap a street to
+> see its name and who or what it's named after (a hero or an event), with a
+> button that goes straight to that Character or Event detail page.
 
-1. "Add feature to download the media file. Download the image as original
-   size."
-2. "Swap the era image of 'Vị thế mới' and 'Kỷ nguyên vươn mình'."
+**Decided already:**
+- **Area:** only the **old (pre-July-2025) HCMC territory**. That excludes
+  what was Bình Dương and Bà Rịa–Vũng Tàu.
+- **"Streets near me":** a good idea, but it **comes later**. It needs
+  location permission and a Data safety update. It's listed under "Queued"
+  below and is not in this cycle.
 
-### What I found
+### What I measured (real OSM data, 2026-09-29)
 
-**The dialog doesn't show the original today.** The media dialog in the
-screenshot (`MediaReplaceDialog`) loads its preview from the **public CDN**
-(`manifest.urlFor(path)`), i.e. the *served* WebP q85. Same pixel size (the
-publish step doesn't resize), but not the same file: Nhà Triệu's cover is
-1086×1448 either way, but the "463 KB" in the dialog is the WebP — the real
-original PNG in `long-ky-sources` is **3.0 MB**. So "download what the
-preview shows" would hand back a recompressed copy, not the original.
+- **Size of the area:** inside the old HCMC boundary there are **34,185 named
+  road segments** and **15,435 distinct street names**.
+- **Exact matches:** **82 street names** match a figure or era we already have
+  a page for, with no aliasing needed. That covers about **2,450 segments /
+  17k points**, or about **360 KB of GeoJSON raw (~100 KB gzipped)**. Only
+  these get drawn, so the map layer stays small.
+- **Why events matched zero:** our event titles are written as events, not
+  street names ("Chiến thắng Điện Biên Phủ", "Cách mạng Tháng Tám và Tuyên
+  ngôn Độc lập", "Phong trào Đồng khởi", "Cao trào Xô viết Nghệ – Tĩnh").
+  Streets named Điện Biên Phủ, Cách Mạng Tháng Tám, Đồng Khởi, Xô Viết Nghệ
+  Tĩnh, Bạch Đằng, Nam Kỳ Khởi Nghĩa and Hồng Bàng need a short curated alias
+  list. Figure names need the same: "Quang Trung" ↔ "Nguyễn Huệ · Quang
+  Trung", "Nguyễn Tất Thành" ↔ "Chủ tịch Hồ Chí Minh". With aliases I expect
+  **about 100 streets**.
+- **One street, several targets:**
+  - "Bạch Đằng" is three battles (Ngô Quyền, Lê Hoàn, Trần Hưng Đạo).
+  - "Trần Hưng Đạo", "Lê Lợi", "Ngô Quyền" and others are a person **and** an
+    era.
+  - "Hai Bà Trưng" is two people.
+- **People have no home era.** `people.json` has none, but the figure route
+  is `/era/:slug/figure/:id`, so each person needs one.
+- **The busiest streets with no page yet** (a content backlog, not this
+  cycle): Nguyễn Hữu Cảnh (founded Saigon, 1698), Lê Hồng Phong, Võ Thị Sáu,
+  Phan Văn Trị, Nguyễn An Ninh, Hoàng Văn Thụ, Trần Văn Giàu. HCMC also has
+  **Hoàng Sa** and **Trường Sa** streets.
 
-The Worker already has an authenticated `GET /media?path=…` that streams
-the original out of `long-ky-sources`, and the admin client already has
-`CmsApiClient.getMedia(path)` — nothing in the UI calls it yet. That's the
-right source for the download.
+### M-A — street data (a tool plus a content file)
 
-**The two eras' art really is crossed.** Both eras use one picture for the
-cover *and* the scene sky layer (identical files, md5-verified against the
-ledger):
-- `vi-the-moi` (era 36, *Vị thế mới*, 2008–2019) has the **gold Nhật Tân
-  bridge + fireworks** picture, but a **red** palette (`#b8322a`).
-- `ky-nguyen-vuon-minh` (era 37, *Kỷ nguyên vươn mình*, 2020–2025) has the
-  **sea of red flags + doves** picture, but a **gold** palette (`#e0b43c`).
+1. **Old boundary.** `tool/street_map/fetch_boundary.dart` asks Overpass for
+   HCMC's admin relation **as it was on 2025-06-01** (an "attic" query). It
+   writes `content/streets/hcm-boundary.geojson`, which is committed and
+   small. The fallback is geoBoundaries' pre-2025 polygon, but that one is
+   coarse (115 points) near the Dĩ An/Thuận An edge.
+2. **Suggest matches.** `tool/street_map/suggest.dart`:
+   - fetches the named `highway=*` ways inside the boundary and normalizes
+     their names (drops "Đường / Phố / Đại lộ", folds case);
+   - matches them against people names (splitting on "·", dropping titles
+     like "Đại tướng", "Chủ tịch"), era titles, event titles, and
+     `content/streets/aliases.json` (curated by hand);
+   - writes or merges `content/streets/hcm.json`:
+     `{schemaVersion, city, osmSnapshot, streets: [{id, name, targets:
+     [{type: person|event|era, id, era}], status: suggested|approved}]}`.
+   - **Only `approved` streets ship.** A re-run never un-approves anything or
+     overwrites a hand edit.
+3. **Geometry.** `tool/street_map/build_geometry.dart`:
+   - takes the approved streets' segments;
+   - merges them per street and simplifies them (Douglas–Peucker, about 5 m);
+   - rounds coordinates to 5 decimals;
+   - writes `streets/hcm-streets.geojson`.
 
-Each era's palette matches the *other* era's picture, so the pictures were
-most likely assigned the wrong way round when they were generated. Swapping
-the pictures (and leaving the palettes alone) makes both eras consistent.
-No other content references these four files.
+   This is **generated, not hand-edited**. It's stored in `long-ky-sources`
+   like any media original and reaches phones through the existing media
+   pipeline. `gen_media_manifest.dart` learns `.geojson` (copied as-is, not
+   converted). K1–K4's incremental publish then ships it only when it
+   changes.
+4. **Validator rules** (`content_validation`, with tests):
+   - every target resolves (the person exists, the era slug exists, the
+     event id exists in that era);
+   - street ids are unique;
+   - every approved street is present in the geometry.
+5. **Home era for figures.** Default: the earliest era (by `order`) whose
+   roster lists the person. A target can override it with `era`.
 
-### L-A — "Download original" in the media dialog
+### M-B — the basemap
 
-- A **Download original** button in `MediaReplaceDialog`, in the right-hand
-  column above "Replace" (the dialog opens from every media slot in the era
-  editor *and* from the Media library, so one button covers both).
-- It calls `getMedia(path)` → the exact bytes in `long-ky-sources` → saves a
-  file named after the path's last segment (`cover.png`, `sky.png`,
-  `trieu-vu-de-lap-nam-viet.png`…). Browser download via a `Blob` + an
-  `<a download>` click (`package:web`, already in the workspace lockfile;
-  the admin is web-only). The Worker needs no change.
-- Works for video (`.mp4`) too — same endpoint, same button.
-- Shows a small spinner while fetching; a 404 (art that was never uploaded)
-  or network error shows in the dialog's existing error line.
-- If the image was **replaced earlier in this browser session** (not yet
-  published), the download gives that new file — which is also what
-  `long-ky-sources` holds now, so it's the same thing either way.
-- Fix the misleading size label: the preview line becomes
-  "1086×1448 · served WebP 463 KB", and once a download has run it adds
-  "original 3.0 MB". (Optional — see L2.)
-- Tests: a widget test that the button calls `getMedia` with the dialog's
-  path and hands the bytes + filename to a swappable saver (the real saver
-  is the browser-only `Blob` code, kept behind a tiny function so the test
-  doesn't need a browser). Verify live in the browser pane against the real
-  CMS: download Nhà Triệu's cover and confirm 3,099,232 bytes, PNG.
+- **Recommended (M1):** a **Protomaps PMTiles extract** of the old HCMC bbox
+  (z ≤ 15), hosted on `long-ky-content` R2. The app reads it with
+  `flutter_map` + `vector_map_tiles` (+ its PMTiles provider), fetching only
+  the tiles on screen through HTTP range requests.
+  - Styled in-house to match the lacquer look: a dark ground and muted roads,
+    so the gold history streets stand out.
+  - Labels use `name:vi`/`name`.
+  - Size gets measured during execution; I expect tens of MB on R2, and a
+    phone only downloads what it views.
+  - Execution checks early that r2.dev serves `Range` correctly. If it
+    doesn't, fall back to MapTiler's free tier.
+- **Sovereignty guard (hard requirement):**
+  - the camera is locked to the old-HCMC boundary plus a small margin, with a
+    minimum zoom of about 10, so the open sea and the island chains never
+    come into view;
+  - the style hides sea and ocean labels.
+- **Attribution (ODbL):**
+  - "© OpenStreetMap contributors" is always visible on the map, and the
+    About page lists OSM + Protomaps.
+  - The derived street GeoJSON is an ODbL database. It stays openly available
+    (it's on a public bucket anyway), and the About page says so.
 
-### L-B — swap the two eras' pictures
+### M-C — the street map screen
 
-Swap the **bytes**, not the JSON paths — each era keeps its own
-`eras/<slug>/cover.png` and `scene/sky.png`, so paths stay tidy and the
-incremental publish sees exactly four changed files.
+- **Route and title:** `/duong-pho`, titled **"Đường phố mang tên sử"** /
+  "Streets named for history". It follows the EN toggle.
+- **What's drawn:** the basemap, a soft mask outside the old boundary, and
+  the approved streets as **gold polylines**. Nothing else can be tapped
+  (M2).
+- **Tap a street:**
+  - Hit-testing uses a pure function (nearest polyline within about 24 dp),
+    so thin streets are easy to hit. It's unit-tested.
+  - A small card opens with the street name, then one row per target:
+    - person: name, epithet, and a line of the bio → **Xem nhân vật**;
+    - event: title and year → **Xem sự kiện**;
+    - era: title and year range → **Xem thời kỳ**.
+  - Streets with several targets list every row.
+  - Each button deep-links to the existing
+    `/era/:slug/figure/:id`, `/era/:slug/event/:id` or `/era/:slug`.
+- **Search:** a light "Tìm tên đường" field over the approved streets that
+  flies the camera to the one you pick. The list is only about 100 names, so
+  it's cheap.
+- **Arriving from a detail page:** `?street=<id>` opens the map already
+  zoomed to that street with its card showing.
+- **Analytics:** `street_tap` and `street_open_detail`, both carrying
+  `street_id` and `target`.
 
-1. Back up all four current originals in `long-ky-sources` to
-   `_replaced/<timestamp>/…` (the same convention the CMS's Replace already
-   uses), so this is reversible.
-2. Upload crosswise with `rclone copyto`: fireworks → `ky-nguyen-vuon-minh/
-   {cover,scene/sky}.png`, flags → `vi-the-moi/{cover,scene/sky}.png`. Copy
-   the same files into local `content/` so the Mac matches.
-3. Verify: md5 of each uploaded object matches the other era's old md5.
-4. `media_ledger.dart --mode incremental` must report **exactly 4 changed,
-   0 added, 0 removed**.
-5. Dry run (incremental) via the workflow → show the user the plan → a real
-   publish **only after the user says yes**. Each served WebP gets a new
-   `v`, so phones pick up the new pictures on the next media refresh; no
-   app update needed.
+### M-D — entry points (M4)
+
+- **Sảnh:** a new entry, "Đường phố mang tên sử". There is **no Home pill**,
+  per the delicate-UI rule.
+- **Reverse chip** on Character and Event detail pages, shown only when that
+  page is a target of an approved street: "Một con đường ở TP.HCM mang tên
+  này → Xem trên bản đồ".
+
+### Scope notes
+
+- **What ships over the air:** the mapping and geometry are content, so they
+  ship OTA like the rest. The screen and the new map packages are app code,
+  so they need the **next app build** (the same build as J/K).
+- **Modern leaders' streets** (Võ Văn Kiệt, Đỗ Mười, …) use the existing
+  short, dated, record-only bios. No new political text is written for this
+  feature (history-not-politics).
+- **Tests:**
+  - the tool's pure parts (name normalization, alias and title matching,
+    merge that never un-approves, simplification);
+  - the validator rules;
+  - hit-testing;
+  - widget tests for the card with one and with several targets, and for
+    deep links;
+  - a check in a web build at localhost (`flutter_map` runs on web).
 
 ## Decisions for the user
 
-- **L1 — Where the download button lives.** Recommend: **in the media dialog
-  only** (it opens from everywhere already). Alternative: also a download
-  icon on each Media-library tile, for grabbing art without opening it.
-- **L2 — Size label.** Recommend: **yes**, relabel the dialog's size line as
-  "served WebP" and show the original's size after a download, so nobody
-  mistakes 463 KB for the real file again. Alternative: leave the label as
-  is.
-- **L3 — The swap.** Recommend: **Claude does it** as above (backups first,
-  then dry run, then publish only on your yes), and fixes "2020 – now" →
-  "2020 – nay" in the same content commit (both `periods.json` and
-  `ky-nguyen-vuon-minh`'s kicker; English stays "now"). Alternative: you do
-  the swap yourself in the CMS once L-A ships — download both originals,
-  then Replace each of the four slots with the other era's file.
+- **M1 — Basemap.** Recommend **self-hosted Protomaps PMTiles on R2**: about
+  $0, styled to match, nothing new to sign up for. Alternative: MapTiler's
+  free tier, which is less setup but adds an external account, usage caps,
+  and less control over the style.
+- **M2 — Streets without a page.** Recommend **don't draw them as
+  tappable**: only streets with a page are gold and tappable, and everything
+  else is plain basemap. Alternative: draw them greyed, with a "no page yet"
+  card.
+- **M3 — Reviewing the matches.** Recommend: **exact name matches are
+  approved automatically** (about 82, and all of them look right). Anything
+  from aliases, event titles, or with several targets (about 20–30) comes to
+  you as one review table before it ships. Alternative: you review all of
+  them.
+- **M4 — Entry points.** Recommend **both** the Sảnh entry and the reverse
+  chip on detail pages. Alternative: the Sảnh entry only.
+- **M5 — The backlog of famous streets with no page** (Nguyễn Hữu Cảnh, Lê
+  Hồng Phong, Võ Thị Sáu, …). Recommend **not in Cycle M**; queue it as its
+  own content cycle, since new figures need ĐVSKTT or Viện Sử học sourcing
+  and art. Alternative: add Nguyễn Hữu Cảnh now, because he founded Saigon
+  and belongs on this map.
 
 ## Next cycles (queued)
 
-- Fold the media manifest into the Firestore live path too, so a replaced
-  image's new URL also arrives without a restart (deferred from K5).
-- Carried-over UX audit findings (particles over text, Chào cờ lyrics
-  legibility, swipe-hint timing) are still parked — see
-  `21fb88b:EXECUTION.md`. Re-check against Cycle J's scrim work before
-  re-proposing.
+- **Streets near me** (deferred from M at the user's request). It needs:
+  - "while using the app" location permission, used only on the device and
+    never sent anywhere;
+  - a Play Data safety update;
+  - a "Gần tôi" button that centers the map and lists the nearest history
+    streets.
+- **More cities:** Hà Nội first (its streets are densely named after
+  history), then Huế and Đà Nẵng. The M-A tools take a city argument, so each
+  new city is mostly data plus a review.
+- **A CMS editor for street mappings** (approve, re-target, add aliases),
+  instead of editing `hcm.json` by hand.
+- **Content backlog from the unmatched-streets list** (see M5).
+- **Media manifest live via Firestore** (carried over from K5).
+- **Carried-over UX audit findings:** particles over text, Chào cờ lyrics
+  legibility, swipe-hint timing. See `21fb88b:EXECUTION.md`.
