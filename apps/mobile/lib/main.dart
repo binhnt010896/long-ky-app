@@ -24,22 +24,29 @@ Future<void> main() async {
   // once here and handed to the widget tree below via an override, so
   // main()'s error handlers and every screen's ref.watch(telemetryProvider)
   // are the exact same object.
-  final Telemetry telemetry;
+  Telemetry telemetry = const NoopTelemetry();
   if (!kIsWeb && kReleaseMode) {
-    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-    telemetry = FirebaseTelemetry();
-    // Uncaught errors — fatal by definition, reported with no PII.
-    FlutterError.onError = (details) {
-      FlutterError.presentError(details);
-      telemetry.recordError(details.exception, details.stack ?? StackTrace.empty,
-          reason: 'FlutterError.onError', fatal: true);
-    };
-    PlatformDispatcher.instance.onError = (error, stack) {
-      telemetry.recordError(error, stack, reason: 'PlatformDispatcher.onError', fatal: true);
-      return true;
-    };
-  } else {
-    telemetry = const NoopTelemetry();
+    // Telemetry must never be able to stop the app from starting: a Firebase
+    // failure here (a stripped registrar, a Play Services hiccup) once left
+    // every release install on a black screen, because main() died before
+    // runApp. Any failure just means this session runs without telemetry.
+    try {
+      await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+      final firebaseTelemetry = FirebaseTelemetry();
+      telemetry = firebaseTelemetry;
+      // Uncaught errors — fatal by definition, reported with no PII.
+      FlutterError.onError = (details) {
+        FlutterError.presentError(details);
+        firebaseTelemetry.recordError(details.exception, details.stack ?? StackTrace.empty,
+            reason: 'FlutterError.onError', fatal: true);
+      };
+      PlatformDispatcher.instance.onError = (error, stack) {
+        firebaseTelemetry.recordError(error, stack, reason: 'PlatformDispatcher.onError', fatal: true);
+        return true;
+      };
+    } catch (_) {
+      telemetry = const NoopTelemetry();
+    }
   }
   // The Về Long Ký switch, applied before the first event goes out.
   final analyticsEnabled = await FileTelemetrySettingsStore().load();
