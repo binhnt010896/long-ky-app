@@ -4,117 +4,49 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: PLANNING COMPLETE — Cycle M (a map of Ho Chi Minh City's
-history-named streets). M1–M5 are confirmed as recommended (below). Nothing
-is built yet; the next step is an EXECUTION session.**
-
-## Cycle M — execution status (branch `m-cycle`)
-
-**Built and tested (no network needed):**
-- **M-A code:** `core_domain/src/street_map/` (name normalization, matcher with
-  home-era resolution, never-unapprove merge, Douglas–Peucker + segment
-  chaining, hit-testing, `StreetMapValidator`), with 20 tests.
-  `tool/street_map/{fetch_boundary,suggest,build_geometry}.dart`,
-  `content/streets/aliases.json` (9 curated aliases, real ids),
-  `validate_content` runs the street rules, and the media ledger/manifest
-  carry `.geojson`.
-- **M-B (partial):** the Protomaps dark v4 theme minus `water_label_ocean`,
-  `boundaries_country` and `pois` (sovereignty guard, unit-tested); camera
-  locked with `CameraConstraint.contain` + min zoom 10.
-- **M-C:** `/duong-pho` screen (gold streets, outside-mask, tap → card,
-  search, `?street=`, attribution, `street_tap`/`street_open_detail`).
-- **M-D:** Sảnh entry, reverse chip on Character and Event pages, About-page
-  OSM/Protomaps/ODbL note.
-- **Checked:** 169 app tests + 58 core_domain tests pass, analyzer clean, web
-  build compiles, and a real-browser run against a throw-away fixture showed
-  the streets, the tap → card and the attribution.
-
-**Street data (done):** `hcm-boundary.geojson` (old HCMC, 10.14–11.16 N,
-106.36–107.03 E) and `hcm.json` are committed: **92 streets, all approved**
-(74 exact matches + 18 reviewed alias/multi-target rows, approved by the user
-on 2026-09-30). `hcm-streets.geojson` (92 streets, 659 lines, 3,145 points,
-75 KB) is generated and git-ignored; `validate_content` checks it.
-Fixes found while running it: OSM spells some names with the look-alike
-**Ð (U+00D0)** — Đồng Khởi was invisible because of it — so names are now
-folded to Đ and NFC-normalized; the download is tiled, cached and resumable
-(`build/streets/tiles/`, use `suggest.dart --offline` to re-match without
-network); geometry is written to `content/streets/` (where the media pipeline
-reads it).
-
-**Still to do (yours):**
-1. `tool/push_sources.sh` to put `content/streets/hcm-streets.geojson` in
-   `long-ky-sources`, then the normal publish (dry run → yes → real).
-2. **The PMTiles extract** (bbox from the boundary + 0.05° margin, z ≤ 15),
-   its R2 upload, and the r2.dev `Range` check. `STREET_BASEMAP_URL` is empty
-   until then, so the map shows the lacquer ground and gold streets only. The
-   basemap has not been visually verified.
-3. A new app build (the screen and its packages are app code).
-
-**Deviations:** the basemap uses Protomaps' stock dark theme (not in-house
-styled); the street mapping ships bundled (`assets/content/streets/`), not OTA,
-because the content pack and Firestore sync only carry eras/people/periods.
-
-## Cycle N — planned: events separate from eras (decisions confirmed)
-
-> An event not yet in any era can simply be a standalone event. Make events
-> independent of era and period.
-
-**Decided:**
-- **At most one era per event.** An event is in one era or none.
-- **A standalone event needs only its own citation** (no era `primarySource`).
-- **Order:** Cycle M finishes first; this is Cycle N.
-
-**Design (recommended B — the people pattern):**
-- `content/events.json` is the registry of every event (+ schema). Eras list
-  `events: [{ref}]` in reading order; an event no era lists is standalone.
-  Event `order` stops being era-relative (the era's list order is the order).
-- A migration script moves all events out of the 38 era files, text unchanged,
-  verified by rebuilding and diffing the inlined eras.
-- **Compatibility:** the content pack and Firestore keep inlining events into
-  each era, so installed apps parse them as today; the app also learns refs for
-  the bundled files. Whether any installed build reads the OTA pack still has
-  to be confirmed — treat compatibility as required until it is.
-- **Validation:** event ids unique; every ref resolves; an event in two eras is
-  an error; every event has a citation; relatedEventIds may cross eras.
-- **App:** standalone route `/su-kien/:id` (neutral lacquer look); standalone
-  events join the global timeline by year and the quiz; street targets for
-  events no longer need an era.
-- **CMS:** an Events screen (create/edit/assign to an era); the era editor
-  picks from it and orders them.
-- **Open in N:** default palette/backdrop for standalone events; how a
-  standalone event's year places it on the timeline; whether the era
-  `minItems: 1` on events relaxes.
+**Status: PLANNING — Cycle N (events independent of eras). Three decisions
+are confirmed (N-D1–N-D3); seven more (N1–N7) wait for the user, and **N7 also
+gates the Cycle M merge**. Nothing in N is built.** Cycle M's full spec is at
+`cfa220a:EXECUTION.md`.
 
 ## Audit of the previous plan
 
-**Cycle L is fully shipped:**
-- **Download original** in the CMS media dialog (`30b5e7b`). It fetches the
-  untouched file from `long-ky-sources`. The size label now says "served
-  WebP", and I fixed a layout overflow the dialog already had.
-- **Eras 36/37 art swapped.** All four originals were backed up to
-  `_replaced/2026-09-28T14-31-03Z/` first. The swap is published and I
-  checked it on the live CDN.
-- **"2020 – now" → "2020 – nay"** (`4b672ed`), published.
-- **The CMS is deployed** to long-ky-admin.web.app, so the events editor
-  (K7) is live now.
+**Cycle M is code- and data-complete on branch `m-cycle`** (not merged, no PR):
+- **M-A:** the street tools, matcher, geometry, validator rules and tests.
+  - Real data: `hcm-boundary.geojson` (as of 2025-06-01) and `hcm.json`, with
+    **92 streets, all approved**: 74 exact matches, plus 18 alias or
+    multi-target rows the user approved on 2026-09-30.
+  - `hcm-streets.geojson` is generated (75 KB, 3,145 points), git-ignored,
+    and validated.
+- **M-C/M-D:** the `/duong-pho` screen, the Sảnh entry, the reverse chip and
+  the About note. It was checked in a web build against a fixture.
+- **Fixed while running on real data:**
+  - OSM spells some names with the look-alike **Ð (U+00D0)**; Đồng Khởi was
+    invisible because of it. Names are now folded to Đ and NFC-normalized
+    (`f4322a2`).
+  - The download is tiled and resumable.
+  - The geometry now goes to `content/streets/`.
+- **Deviations:**
+  - The basemap uses Protomaps' stock dark theme, not an in-house style.
+  - The street mapping ships bundled, not over the air.
+  - The 74 exact matches are name-only and were not hand-checked.
 
-**Two pipeline bugs came up while publishing, and both are fixed:**
-- `4f27b82`: the incremental content-pack check needed every original on
-  disk. Dry runs never caught it because they skipped that step; they now
-  build the pack too.
-- `6b8fba8`: a text-only publish (nothing to convert) demanded cwebp anyway.
+**Cycle M, still open (the user's):**
+1. **Check the Workers plan before merging `m-cycle`** (see N7): on Workers
+   Free, merging M breaks the CMS content load.
+2. Run `tool/push_sources.sh` (it uploads `hcm-streets.geojson`), then the
+   normal publish: dry run, the user's yes, the real publish.
+3. The PMTiles extract, its R2 upload, and the r2.dev `Range` check. Until
+   then `STREET_BASEMAP_URL` is empty, and the map shows gold streets on a
+   plain ground. The basemap has not been visually verified.
+4. A new app build.
 
-The last real publish was `3d717ea` (pack `20260929070006`), and it was green.
-
-**Still open, in the user's hands** (unchanged, carried forward):
-1. **Turn Firestore on.** Until then the app keeps using the R2 pack. Full
-   steps are in `979cb3f:EXECUTION.md`:
-   - enable Firestore;
-   - paste in `firestore.rules`;
-   - add the `FIREBASE_SERVICE_ACCOUNT_KEY` GitHub secret;
-   - run the one-time bootstrap.
+**Still open from before** (unchanged, carried forward):
+1. **Turn Firestore on.** The steps are in `979cb3f:EXECUTION.md`. Note N4:
+   Firestore's layout changes in this cycle, and doing that before it's
+   enabled is free.
 2. **Build and upload a new app version.** 1.0.2+4 was never uploaded, so
-   Cycles J, K and M all ride on the next build.
+   J, K, M and N all ride on the next build.
 3. **Play closed test:** 12+ testers opted in for 14 days straight.
 4. **Firebase → Analytics → Custom definitions:** `era_slug`, `event_id`,
    `figure_id`.
@@ -123,208 +55,275 @@ The last real publish was `3d717ea` (pack `20260929070006`), and it was green.
    purchase, screenshots, and the feature graphic.
 7. **Optional:** delete the unused Hosting site `admin-long-ky.web.app`.
 
-## Cycle M — what the user asked for
+## Cycle N — what the user asked for
 
-> A map of HCMC (other cities later), built on OpenStreetMap. Tap a street to
-> see its name and who or what it's named after (a hero or an event), with a
-> button that goes straight to that Character or Event detail page.
+> If an event is not in an era yet, we can simply create a standalone event.
+> Make events separate from eras and periods.
 
-**Decided already:**
-- **Area:** only the **old (pre-July-2025) HCMC territory**. That excludes
-  what was Bình Dương and Bà Rịa–Vũng Tàu.
-- **"Streets near me":** a good idea, but it **comes later**. It needs
-  location permission and a Data safety update. It's listed under "Queued"
-  below and is not in this cycle.
+**Confirmed (2026-09-30):**
+- **N-D1: approach B, the people pattern.** Events live in one registry, and
+  eras reference them. An event that no era references is standalone.
+- **N-D2: at most one era per event.** An event is in one era or in none.
+- **N-D3: a standalone event's own `citation` is enough.** It needs no era
+  `primarySource`; every event still must have a citation.
 
-### What I measured (real OSM data, 2026-09-29)
+Periods need no work. Events never pointed at a period; they get one only
+through their era.
 
-- **Size of the area:** inside the old HCMC boundary there are **34,185 named
-  road segments** and **15,435 distinct street names**.
-- **Exact matches:** **82 street names** match a figure or era we already have
-  a page for, with no aliasing needed. That covers about **2,450 segments /
-  17k points**, or about **360 KB of GeoJSON raw (~100 KB gzipped)**. Only
-  these get drawn, so the map layer stays small.
-- **Why events matched zero:** our event titles are written as events, not
-  street names ("Chiến thắng Điện Biên Phủ", "Cách mạng Tháng Tám và Tuyên
-  ngôn Độc lập", "Phong trào Đồng khởi", "Cao trào Xô viết Nghệ – Tĩnh").
-  Streets named Điện Biên Phủ, Cách Mạng Tháng Tám, Đồng Khởi, Xô Viết Nghệ
-  Tĩnh, Bạch Đằng, Nam Kỳ Khởi Nghĩa and Hồng Bàng need a short curated alias
-  list. Figure names need the same: "Quang Trung" ↔ "Nguyễn Huệ · Quang
-  Trung", "Nguyễn Tất Thành" ↔ "Chủ tịch Hồ Chí Minh". With aliases I expect
-  **about 100 streets**.
-- **One street, several targets:**
-  - "Bạch Đằng" is three battles (Ngô Quyền, Lê Hoàn, Trần Hưng Đạo).
-  - "Trần Hưng Đạo", "Lê Lợi", "Ngô Quyền" and others are a person **and** an
-    era.
-  - "Hai Bà Trưng" is two people.
-- **People have no home era.** `people.json` has none, but the figure route
-  is `/era/:slug/figure/:id`, so each person needs one.
-- **The busiest streets with no page yet** (a content backlog, not this
-  cycle): Nguyễn Hữu Cảnh (founded Saigon, 1698), Lê Hồng Phong, Võ Thị Sáu,
-  Phan Văn Trị, Nguyễn An Ninh, Hoàng Văn Thụ, Trần Văn Giàu. HCMC also has
-  **Hoàng Sa** and **Trường Sa** streets.
+### What I measured (2026-09-30, `m-cycle`)
 
-### M-A — street data (a tool plus a content file)
+- **Volume:** 237 events across 38 eras, 4–11 per era.
+  - Every event has a `hero` and a `citation`; 236 have `figureIds`.
+  - Only 12 use `relatedEventIds`.
+  - Heroes are stored under `eras/<slug>/events/…`.
+- **Six events have no `year.value`.** All six are legends: `no-than-kim-quy`,
+  `my-chau-trong-thuy`, `lac-long-quan-au-co`, `thanh-giong-pha-giac-an`,
+  `banh-chung-banh-giay`, `son-tinh-thuy-tinh`.
+- **Size:** all events together are **989,344 bytes** as compact JSON. The
+  canonical pretty-printed file is larger. `people.json` is 305 KB.
+- **Firestore's limit is 1 MiB per document** (1,048,576 bytes; firebase.google.com
+  › Firestore › Quotas). So all events **cannot be one Firestore document**,
+  the way `people.json` is today.
+- **Cloudflare Workers Free allows 50 subrequests per request** (Paid allows
+  10,000; developers.cloudflare.com › Workers › Limits). The CMS content load
+  (`services/cms_api/src/github.ts:63-104`) makes one GitHub request per
+  `content/**/*.json` file, plus 3 more.
+  - On `main` that is 47 + 3 = **50, exactly the Free limit.**
+  - `m-cycle` adds two files, making **52**.
+  - I don't know which plan this Worker is on.
+- **Installed-app contract:**
+  - The app parses each era with `Era.fromJson`, which **requires an integer
+    `order` on every event** (`history_event.dart:101`).
+  - `ContentPack` reads only the keys it knows, so extra top-level keys are
+    ignored (`content_pack.dart:59-77`).
+  - The pack schema gate is `kSupportedPackSchema = 1`.
+  - So a pack that keeps events **inlined inside each era, with `order`**,
+    still parses on any build already out.
+- **Everything that assumes an event has an era:**
+  - Route `/era/:slug/event/:id` and its 6 call sites.
+  - The event page's palette, backdrop, figures, "section" line, "3 / 12"
+    counter, and cross-era pager.
+  - `eventsWithFigure` and `relatedEventsFor`, both era-scoped.
+  - The global timeline, which groups by era.
+  - The quiz's `(era, event)` pairs and its "which era?" question.
+  - Media prefetch.
+  - Route telemetry (`event_detail` with `era_slug` + `event_id`).
+  - Street targets, which carry an era.
+  - The CMS: `addEvent`, `updateEvent`, `deleteEvent`, `reorderEvent`,
+    `eventsReferencing` and `ensureInRoster` (all per era), `EventDialog`
+    (roster-based figure picker), the era editor's Events tab, the content
+    tree, and `media_refs`.
+  - The validator: figures must be on the era's roster, related events must
+    be in the same era, and `order` must be a contiguous 0..n-1 run per era.
 
-1. **Old boundary.** `tool/street_map/fetch_boundary.dart` asks Overpass for
-   HCMC's admin relation **as it was on 2025-06-01** (an "attic" query). It
-   writes `content/streets/hcm-boundary.geojson`, which is committed and
-   small. The fallback is geoBoundaries' pre-2025 polygon, but that one is
-   coarse (115 points) near the Dĩ An/Thuận An edge.
-2. **Suggest matches.** `tool/street_map/suggest.dart`:
-   - fetches the named `highway=*` ways inside the boundary and normalizes
-     their names (drops "Đường / Phố / Đại lộ", folds case);
-   - matches them against people names (splitting on "·", dropping titles
-     like "Đại tướng", "Chủ tịch"), era titles, event titles, and
-     `content/streets/aliases.json` (curated by hand);
-   - writes or merges `content/streets/hcm.json`:
-     `{schemaVersion, city, osmSnapshot, streets: [{id, name, targets:
-     [{type: person|event|era, id, era}], status: suggested|approved}]}`.
-   - **Only `approved` streets ship.** A re-run never un-approves anything or
-     overwrites a hand edit.
-3. **Geometry.** `tool/street_map/build_geometry.dart`:
-   - takes the approved streets' segments;
-   - merges them per street and simplifies them (Douglas–Peucker, about 5 m);
-   - rounds coordinates to 5 decimals;
-   - writes `streets/hcm-streets.geojson`.
+### N-A — the data model
 
-   This is **generated, not hand-edited**. It's stored in `long-ky-sources`
-   like any media original and reaches phones through the existing media
-   pipeline. `gen_media_manifest.dart` learns `.geojson` (copied as-is, not
-   converted). K1–K4's incremental publish then ships it only when it
-   changes.
-4. **Validator rules** (`content_validation`, with tests):
-   - every target resolves (the person exists, the era slug exists, the
-     event id exists in that era);
-   - street ids are unique;
-   - every approved street is present in the geometry.
-5. **Home era for figures.** Default: the earliest era (by `order`) whose
-   roster lists the person. A target can override it with `era`.
+- **Registry:** events live in `content/events.json` (N1) plus
+  `content/event.schema.json`. Each event keeps every field it has today
+  **except `order`**. Eras switch to `events: [{"ref": "<id>"}, …]`, and the
+  list order *is* the reading order.
+- **Standalone** means no era references the event.
+- **Media:** hero paths don't move, since a path is only a string. New
+  standalone events use `events/<id>/…`.
+- **Domain code:**
+  - an `EventRegistry` modeled on `PeopleRegistry`;
+  - `Era.fromJson` accepts **both** an inlined event and a `{ref}` item. That
+    one parser serves the bundled files (refs) and the pack or Firestore
+    (inlined).
+  - `Era.order` for each event becomes its index in the list.
+- **Validator rules (all tested):**
+  - event ids are unique;
+  - every `ref` resolves;
+  - an event is referenced by **at most one** era (N-D2);
+  - an era has at least one event (`minItems: 1` stays; N5);
+  - every event has a `citation` (N-D3), and the schema already requires it.
+  - **Standalone events** must have a `year.value` and a `hero` (N5). Their
+    `figureIds` must be people who appear on at least one era roster (N3).
+  - **In-era events:** `figureIds` must be on that era's roster, as today.
+  - `relatedEventIds` may point across eras and at standalone events.
+  - The street validator follows the new event model.
 
-### M-B — the basemap
+### N-B — the migration (one script, text unchanged)
 
-- **Recommended (M1):** a **Protomaps PMTiles extract** of the old HCMC bbox
-  (z ≤ 15), hosted on `long-ky-content` R2. The app reads it with
-  `flutter_map` + `vector_map_tiles` (+ its PMTiles provider), fetching only
-  the tiles on screen through HTTP range requests.
-  - Styled in-house to match the lacquer look: a dark ground and muted roads,
-    so the gold history streets stand out.
-  - Labels use `name:vi`/`name`.
-  - Size gets measured during execution; I expect tens of MB on R2, and a
-    phone only downloads what it views.
-  - Execution checks early that r2.dev serves `Range` correctly. If it
-    doesn't, fall back to MapTiler's free tier.
-- **Sovereignty guard (hard requirement):**
-  - the camera is locked to the old-HCMC boundary plus a small margin, with a
-    minimum zoom of about 10, so the open sea and the island chains never
-    come into view;
-  - the style hides sea and ocean labels.
-- **Attribution (ODbL):**
-  - "© OpenStreetMap contributors" is always visible on the map, and the
-    About page lists OSM + Protomaps.
-  - The derived street GeoJSON is an ODbL database. It stays openly available
-    (it's on a public bucket anyway), and the About page says so.
+`tool/migrate_events.dart` moves every event out of the 38 era files into
+`events.json`, replaces each era's list with refs, and drops `order`.
 
-### M-C — the street map screen
+It then verifies itself: it rebuilds every era with events inlined and
+re-numbered `order`, and requires that output to be **byte-identical** to the
+canonical pre-migration era file. The script runs once; it is committed for
+the record, and rerunning it is a no-op.
 
-- **Route and title:** `/duong-pho`, titled **"Đường phố mang tên sử"** /
-  "Streets named for history". It follows the EN toggle.
-- **What's drawn:** the basemap, a soft mask outside the old boundary, and
-  the approved streets as **gold polylines**. Nothing else can be tapped
-  (M2).
-- **Tap a street:**
-  - Hit-testing uses a pure function (nearest polyline within about 24 dp),
-    so thin streets are easy to hit. It's unit-tested.
-  - A small card opens with the street name, then one row per target:
-    - person: name, epithet, and a line of the bio → **Xem nhân vật**;
-    - event: title and year → **Xem sự kiện**;
-    - era: title and year range → **Xem thời kỳ**.
-  - Streets with several targets list every row.
-  - Each button deep-links to the existing
-    `/era/:slug/figure/:id`, `/era/:slug/event/:id` or `/era/:slug`.
-- **Search:** a light "Tìm tên đường" field over the approved streets that
-  flies the camera to the one you pick. The list is only about 100 names, so
-  it's cheap.
-- **Arriving from a detail page:** `?street=<id>` opens the map already
-  zoomed to that street with its card showing.
-- **Analytics:** `street_tap` and `street_open_detail`, both carrying
-  `street_id` and `target`.
+### N-C — publishing (no change for installed apps)
 
-### M-D — entry points (M4)
+- **`build_content_pack.dart`:** the pack keeps the same shape and
+  `schemaVersion: 1`.
+  - Each era keeps its events **inlined, with `order`**, so every existing
+    build parses it.
+  - A new top-level `standaloneEvents` key is ignored by old builds and read
+    by new ones.
+- **`publish_firestore.mjs`** (N4):
+  - era documents are written **inlined**, as now;
+  - each standalone event gets its own document in an `events/<id>`
+    collection.
+  - A cold start reads 40 documents plus the standalone count, instead of
+    237 + 40.
+- **`gen_media_manifest` and `media_ledger`** also walk `events.json`.
+- **CI** (`content-check.yml`) runs the new validator rules.
 
-- **Sảnh:** a new entry, "Đường phố mang tên sử". There is **no Home pill**,
-  per the delicate-UI rule.
-- **Reverse chip** on Character and Event detail pages, shown only when that
-  page is a target of an approved street: "Một con đường ở TP.HCM mang tên
-  này → Xem trên bản đồ".
+### N-D — the app
+
+- **Content source:** `ContentSource` gains `loadEventsJson()`. The bundled
+  source reads `events.json`; the pack and Firestore sources serve the
+  standalone events. `ContentRepository` exposes the registry and
+  `standaloneEvents()`.
+- **Route (N2):** `/su-kien/:id`.
+  - An in-era event **redirects** to `/era/:slug/event/:id`, so existing links
+    and analytics keep working.
+  - A standalone event opens a new page.
+  - Every internal link that only knows an event id (streets, quiz, related
+    events) uses `/su-kien/:id`.
+- **Standalone event page:** the same body, pull-quote, citation and figures
+  as an in-era event.
+  - Its look is a neutral lacquer ground with a gold accent and the event's
+    own hero, since there is no era scene.
+  - It has no "3 / 12" counter and no pager (N6).
+  - Figure chips link to each person's **home era** (the earliest era by
+    `order` that lists them), the same rule the streets use.
+- **Global timeline:** standalone events appear as their own nodes, placed by
+  `year.value` (N6). Search covers them too.
+- **Quiz:** standalone events join the year, who, quote and order questions.
+  They are excluded from "which era?".
+- **Character page:** a short "Cũng xuất hiện trong" row lists standalone
+  events featuring the person. `eventsWithFigure` stays era-scoped for the
+  main list.
+- **Street map:**
+  - `StreetTarget.era` becomes optional for events;
+  - `routeForTarget` uses `/su-kien/:id`;
+  - the reverse chip works on standalone pages.
+  - `hcm.json` is re-validated; no mapping changes.
+- **Telemetry:** `/su-kien/:id` logs as `event_detail` with `event_id`, and
+  `era_slug` only when the event has an era.
+- **Tests:**
+  - dual-mode `Era.fromJson`;
+  - registry resolution;
+  - the redirect;
+  - the standalone page;
+  - timeline placement;
+  - quiz exclusion from "which era?";
+  - the pack still parsing on the current parser (a golden test against
+    today's `ContentPack`).
+
+### N-E — the CMS
+
+- **A new Events screen:**
+  - lists every event, filterable by era, "standalone", or text;
+  - creates a standalone event;
+  - edits an event;
+  - moves an event into an era, or out of one (it then becomes standalone;
+    it is never deleted).
+  - Delete lists and cleans every reference: its era, `relatedEventIds`,
+    and street targets.
+- **Era editor, Events tab:**
+  - add an existing standalone event or create a new one;
+  - reorder;
+  - remove from the era (the event becomes standalone).
+- **`EventDialog`:**
+  - For an in-era event, keep today's roster auto-add.
+  - For a standalone event, pick from people who are on some roster (N3).
+- **`ContentDraft.validate()`**, the content tree and `media_refs` learn
+  about `events.json`.
+- **Content load: one subrequest (N7).** Replace the per-file blob fetches
+  with **one** request that returns every `content/**/*.json` text.
+  - The candidate is a single GitHub GraphQL query:
+    `object(expression: "main:content")` with its nested tree entries' blob
+    `text`.
+  - A spike checks that it works first. It must return every file untruncated
+    (`isTruncated` must be false for all files, including `events.json` at
+    about 1 MB). If it doesn't, the fallback is the repo tarball, with its
+    CPU cost measured.
 
 ### Scope notes
 
-- **What ships over the air:** the mapping and geometry are content, so they
-  ship OTA like the rest. The screen and the new map packages are app code,
-  so they need the **next app build** (the same build as J/K).
-- **Modern leaders' streets** (Võ Văn Kiệt, Đỗ Mười, …) use the existing
-  short, dated, record-only bios. No new political text is written for this
-  feature (history-not-politics).
-- **Tests:**
-  - the tool's pure parts (name normalization, alias and title matching,
-    merge that never un-approves, simplification);
-  - the validator rules;
-  - hit-testing;
-  - widget tests for the card with one and with several targets, and for
-    deep links;
-  - a check in a web build at localhost (`flutter_map` runs on web).
+- **Out of scope:**
+  - writing any new standalone events (content, done later in the CMS);
+  - an event in two eras (ruled out by N-D2);
+  - a pager across standalone events;
+  - Home changes. Home stays an era stack, so standalone events are not on
+    Home.
+- **What ships over the air:** the data migration is invisible to installed
+  apps. Standalone events and `/su-kien/:id` need **the next app build**.
+- **Order:**
+  - N7's CMS fix comes first if the Worker is on Free.
+  - Ideally Firestore is enabled **after** N lands (the layout changes).
+  - Cycle M merges **before** N. N then rebases, and the street event
+    targets simplify.
 
-## Decisions (all confirmed by the user as recommended)
+## Decisions for the user (N1–N7)
 
-- **M1 — Basemap: self-hosted Protomaps PMTiles on R2.**
-  - It costs about $0, gets styled to match the lacquer look, and needs no
-    new account.
-  - **Early check in execution:** confirm that r2.dev serves `Range` requests
-    correctly. If it doesn't, fall back to MapTiler's free tier and tell the
-    user first.
-- **M2 — Streets without a page are not tappable.** Only streets with a page
-  are gold and tappable; everything else is plain basemap.
-- **M3 — Review of matches.**
-  - Exact name matches are auto-approved (about 82).
-  - Matches from aliases, event titles, or several targets (about 20–30) come
-    to the user as **one review table before anything ships**. Execution
-    stops at that table and waits for the user's yes.
-- **M4 — Entry points: both** the Sảnh entry and the reverse chip on
-  Character and Event detail pages. No Home pill.
-- **M5 — The famous-streets-with-no-page backlog (Nguyễn Hữu Cảnh, Lê Hồng
-  Phong, Võ Thị Sáu, …) stays out of Cycle M.** It's queued below as its own
-  content cycle, because new figures need ĐVSKTT or Viện Sử học sourcing and
-  art.
+- **N1: storage. Recommended: one `content/events.json`,** like `people.json`.
+  - For: one file to load, validate, bundle and index. The Firestore size
+    limit doesn't matter, because Firestore stores it split (N4). Git diffs
+    stay line-based because the file is canonically formatted.
+  - Against: a ~1 MB file that the CMS rewrites whole on every edit.
+  - Alternative: one file per event (`content/events/<id>.json`). That
+    scales better, but adds 237 files, needs an index listing them, and would
+    make N7 mandatory even on Workers Paid.
+- **N2: address. Recommended: `/su-kien/:id` for every event**, redirecting
+  in-era ones to their era route.
+  - Alternative: `/su-kien/:id` for standalone events only. Links then still
+    need to know an event's era.
+- **N3: standalone events' figures. Recommended: only people on at least one
+  era roster,** so every figure chip opens a page.
+  - Alternative: allow anyone in `people.json`. A person with no era shows
+    as a plain name with no link.
+- **N4: Firestore layout. Recommended: eras inlined, plus `events/<id>` for
+  standalone events only.** This keeps reads per cold start at about 40.
+  - Alternative: all 237 events as documents. That is 237 more reads per
+    cold start against the daily free quota (I have not measured traffic).
+- **N5: validation. Recommended:**
+  - standalone events need a `year.value` and a `hero`;
+  - an era keeps at least one event.
+  - The six undated legends already sit in eras, so they're unaffected.
+- **N6: timeline placement. Recommended:** a standalone event shows as its
+  own node, **right after the era group whose `startYear` is the latest one
+  ≤ its year**, marked "Sự kiện riêng". Its page has no pager.
+  - Alternative: a separate "Sự kiện riêng" section at the end.
+- **N7: the Cloudflare Workers plan (a check, not a choice).** In the
+  Cloudflare dashboard, open Workers & Pages → Plans and tell me Free or
+  Paid.
+  - **Free:** the one-subrequest content load (N-E) ships **first**, before
+    `m-cycle` merges, because M takes the load from 50 to 52.
+  - **Paid:** it's still worth doing (loading ~50 files over 6 connections
+    is slow), but it no longer blocks anything.
 
 ## Execution order
 
-1. **M-A** street tools, validator rules and tests. This ends at the **M3
-   review table**, and nothing ships until the user approves it.
-2. **M-B** the PMTiles extract, hosted on R2, with the `Range` check first.
-3. **M-C** the map screen, with hit-testing and card tests, verified in a web
-   build.
-4. **M-D** the Sảnh entry and the reverse chip.
-5. Publish the street content through the normal dry run → the user's yes →
-   real publish. The screen itself waits for the next app build.
+1. **N7 check.** If on Free, build the CMS one-subrequest load now (spike,
+   then implement, then test against the real repo), before merging M.
+2. **N-A:** schema, `EventRegistry`, dual-mode `Era.fromJson`, validator
+   rules, tests.
+3. **N-B:** the migration script, the byte-identical round-trip check, and
+   one migration commit.
+4. **N-C:** pack builder, Firestore publisher, media walkers, CI. Includes
+   the golden test showing today's parser accepts the new pack.
+5. **N-D:** app changes, tests, and a check in a web build at localhost.
+6. **N-E:** CMS screens and dialog, the draft validator and media refs, and
+   deploying the CMS.
+7. **Publish:** dry run, the user's yes, the real publish. The app side
+   waits for the next build.
 
 ## Next cycles (queued)
 
-- **Streets near me** (deferred from M at the user's request). It needs:
-  - "while using the app" location permission, used only on the device and
-    never sent anywhere;
-  - a Play Data safety update;
-  - a "Gần tôi" button that centers the map and lists the nearest history
-    streets.
-- **More cities:** Hà Nội first (its streets are densely named after
-  history), then Huế and Đà Nẵng. The M-A tools take a city argument, so each
-  new city is mostly data plus a review.
-- **A CMS editor for street mappings** (approve, re-target, add aliases),
-  instead of editing `hcm.json` by hand.
-- **Content cycle for the famous streets with no page yet** (M5): Nguyễn
-  Hữu Cảnh first (founder of Saigon, 1698), then Lê Hồng Phong, Võ Thị Sáu,
-  Phan Văn Trị, Nguyễn An Ninh, Hoàng Văn Thụ, Trần Văn Giàu. Each needs
-  sourcing and art, and each adds itself to the street map once published.
+- **Streets near me** (deferred from M). It needs "while using the app"
+  location permission (on-device only), a Play Data safety update, and a
+  "Gần tôi" button.
+- **More cities:** Hà Nội first, then Huế and Đà Nẵng. The M-A tools take a
+  city argument.
+- **A CMS editor for street mappings** (approve, re-target, add aliases).
+- **Content cycle for famous streets with no page yet:** Nguyễn Hữu Cảnh,
+  Lê Hồng Phong, Võ Thị Sáu, Phan Văn Trị, Nguyễn An Ninh, Hoàng Văn Thụ,
+  Trần Văn Giàu. After N, a street can also point at a standalone event.
+- **Street mapping over the air** (it ships bundled today).
 - **Media manifest live via Firestore** (carried over from K5).
 - **Carried-over UX audit findings:** particles over text, Chào cờ lyrics
   legibility, swipe-hint timing. See `21fb88b:EXECUTION.md`.
