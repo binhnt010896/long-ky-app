@@ -7,6 +7,7 @@ import '../screens/content_tree_screen.dart';
 import '../screens/dashboard_screen.dart';
 import '../screens/era_editor_screen.dart';
 import '../screens/media_library_screen.dart';
+import '../screens/events_screen.dart';
 import '../screens/people_screen.dart';
 import '../screens/publish_screen.dart';
 import '../screens/shell_screen.dart';
@@ -43,6 +44,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             path: '/eras/:slug',
             builder: (context, state) => EraEditorScreen(slug: state.pathParameters['slug']!),
           ),
+          GoRoute(path: '/events', builder: (context, state) => const EventsScreen()),
           GoRoute(path: '/people', builder: (context, state) => const PeopleScreen()),
           GoRoute(
             path: '/media',

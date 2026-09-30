@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,11 +8,17 @@ import 'event_year_field.dart';
 import 'localized_text_field.dart';
 import 'media_slot.dart';
 
-/// Add or edit one event on an era (Cycle K's events tab). [eventId] is
-/// null when creating; the id is then generated from the title and shown
-/// read-only once saved (an event id is public — app links, quiz questions,
-/// analytics — so it's locked immediately, not just after a real publish,
-/// to avoid a stale link the moment this dialog closes).
+/// Add or edit one event — in an era, or standalone (Cycle N). [eraSlug] is
+/// the era the event is (or will be) listed in, or null for a standalone event.
+/// [eventId] is null when creating; the id is then generated from the title
+/// and shown read-only once saved (an event id is public — app links, quiz
+/// questions, analytics — so it's locked immediately, not just after a real
+/// publish, to avoid a stale link the moment this dialog closes).
+///
+/// In an era, picking a figure who isn't on the roster adds them. A standalone
+/// event has no roster, so it can only feature people who are on some era's
+/// roster (every figure chip must open a page), and it must carry a dated year
+/// and a hero image — the validator requires both.
 class EventDialog extends ConsumerStatefulWidget {
   const EventDialog({
     required this.eraSlug,
@@ -23,7 +27,8 @@ class EventDialog extends ConsumerStatefulWidget {
     super.key,
   });
 
-  final String eraSlug;
+  /// The era this event is (or will be) listed in; null for a standalone event.
+  final String? eraSlug;
 
   /// Null when creating a new event.
   final String? eventId;
@@ -89,6 +94,12 @@ class _EventDialogState extends ConsumerState<EventDialog> {
   late final Set<String> _relatedEventIds =
       (widget.initial?['relatedEventIds'] as List? ?? const []).cast<String>().toSet();
   bool _idEdited = false;
+  String _relatedQuery = '';
+
+  /// Whether to create a hero image slot (an assetRef pointing at a path the
+  /// admin then uploads to). Only offered while the event has none.
+  bool _addHero = false;
+  final heroPathController = TextEditingController();
 
   bool get _isNew => widget.eventId == null;
 
@@ -101,13 +112,33 @@ class _EventDialogState extends ConsumerState<EventDialog> {
   @override
   Widget build(BuildContext context) {
     final draft = ref.watch(contentDraftProvider).valueOrNull;
-    final eraText = draft?.files['content/eras/${widget.eraSlug}.json'];
-    final era = eraText == null ? null : _tryDecode(eraText);
-    final otherEvents = (era?['events'] as List? ?? const [])
-        .cast<Map<String, dynamic>>()
-        .where((e) => e['id'] != widget.eventId)
-        .toList();
-    final people = draft?.people ?? const [];
+    final standalone = widget.eraSlug == null;
+    final eraEvents = widget.eraSlug == null
+        ? const <String>[]
+        : (draft?.eventIdsByEra[widget.eraSlug] ?? const <String>[]);
+    final allEvents = [
+      for (final e in draft?.events ?? const <Map<String, dynamic>>[])
+        if (e['id'] != widget.eventId) e,
+    ];
+    // A standalone event may only feature people on some era's roster.
+    final onRoster = draft?.peopleOnAnyRoster ?? const <String>{};
+    final people = [
+      for (final p in draft?.people ?? const <Map<String, dynamic>>[])
+        if (!standalone || onRoster.contains(p['id']) || _figureIds.contains(p['id'])) p,
+    ];
+    final q = _relatedQuery.trim().toLowerCase();
+    bool matches(Map<String, dynamic> e) {
+      final t = e['title'] as Map?;
+      return '${t?['vi'] ?? ''} ${t?['en'] ?? ''} ${e['id']}'.toLowerCase().contains(q);
+    }
+    // 237 events is too many chips: show what's selected, plus this era's
+    // neighbours (or whatever the search finds).
+    final relatedShown = [
+      for (final e in allEvents)
+        if (_relatedEventIds.contains(e['id']) ||
+            (q.isEmpty ? eraEvents.contains(e['id']) : matches(e)))
+          e,
+    ].take(40).toList();
 
     return AlertDialog(
       title: Text(_isNew ? 'New event' : 'Edit event'),
@@ -147,6 +178,9 @@ class _EventDialogState extends ConsumerState<EventDialog> {
               const SizedBox(height: 8),
               DropdownButtonFormField<String>(
                 initialValue: _kind,
+                // Expanded: the longest item ("Semi-historical — recorded but
+                // disputed/embellished") overflowed the dialog's width.
+                isExpanded: true,
                 decoration: const InputDecoration(labelText: 'Kind'),
                 items: const [
                   DropdownMenuItem(
@@ -184,7 +218,9 @@ class _EventDialogState extends ConsumerState<EventDialog> {
               const SizedBox(height: 8),
               Text('Figures', style: Theme.of(context).textTheme.labelLarge),
               Text(
-                'Picking someone not yet in this era\'s roster adds them automatically.',
+                standalone
+                    ? 'Only people on at least one era\'s roster — each chip has to open a page.'
+                    : 'Picking someone not yet in this era\'s roster adds them automatically.',
                 style: Theme.of(context).textTheme.bodySmall,
               ),
               Wrap(
@@ -205,12 +241,26 @@ class _EventDialogState extends ConsumerState<EventDialog> {
                 ],
               ),
               const SizedBox(height: 8),
-              if (otherEvents.isNotEmpty) ...[
+              if (allEvents.isNotEmpty) ...[
                 Text('Related events', style: Theme.of(context).textTheme.labelLarge),
+                Text(
+                  'Any event — in this era, another era, or standalone. '
+                  '${q.isEmpty ? (standalone ? 'Search to find one.' : 'Showing this era\'s events; search for others.') : ''}',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                TextField(
+                  decoration: const InputDecoration(
+                    isDense: true,
+                    prefixIcon: Icon(Icons.search, size: 18),
+                    hintText: 'Search events…',
+                  ),
+                  onChanged: (v) => setState(() => _relatedQuery = v),
+                ),
+                const SizedBox(height: 4),
                 Wrap(
                   spacing: 8,
                   children: [
-                    for (final e in otherEvents)
+                    for (final e in relatedShown)
                       FilterChip(
                         label: Text((e['title'] as Map?)?['vi'] as String? ?? e['id'] as String),
                         selected: _relatedEventIds.contains(e['id']),
@@ -226,7 +276,7 @@ class _EventDialogState extends ConsumerState<EventDialog> {
                 ),
                 const SizedBox(height: 8),
               ],
-              if (!_isNew && draft != null)
+              if (!_isNew && draft != null && widget.initial?['hero'] != null)
                 MediaSlot(
                   label: 'Hero image',
                   path: (widget.initial?['hero'] as Map?)?['flagship'] as String? ??
@@ -235,11 +285,33 @@ class _EventDialogState extends ConsumerState<EventDialog> {
                     draft.files['content/media-manifest.json']!,
                   ),
                 )
-              else
-                Text(
-                  'The hero image can be added from the Images tab once this event is created.',
-                  style: Theme.of(context).textTheme.bodySmall,
+              else ...[
+                CheckboxListTile(
+                  contentPadding: EdgeInsets.zero,
+                  controlAffinity: ListTileControlAffinity.leading,
+                  value: _addHero,
+                  title: Text(standalone
+                      ? 'Hero image (required for a standalone event)'
+                      : 'Hero image'),
+                  subtitle: const Text(
+                    'Creates the image slot. Save, then edit this event again to upload the picture.',
+                  ),
+                  onChanged: (v) => setState(() {
+                    _addHero = v ?? false;
+                    if (_addHero && heroPathController.text.isEmpty) {
+                      heroPathController.text = _defaultHeroPath();
+                    }
+                  }),
                 ),
+                if (_addHero)
+                  TextField(
+                    controller: heroPathController,
+                    decoration: const InputDecoration(
+                      labelText: 'Source path in long-ky-sources',
+                      helperText: 'Where the original goes once uploaded (a .png or .jpg).',
+                    ),
+                  ),
+              ],
             ],
           ),
         ),
@@ -279,36 +351,52 @@ class _EventDialogState extends ConsumerState<EventDialog> {
         },
       if (_figureIds.isNotEmpty) 'figureIds': _figureIds.toList(),
       if (_relatedEventIds.isNotEmpty) 'relatedEventIds': _relatedEventIds.toList(),
-      // `slug`/`order`/`hero` aren't edited by this form — carried over
-      // as-is from the event being edited so a save can never silently
-      // drop them (order especially: losing it would break the K7
-      // contiguous-order rule for the whole era).
-      if (!_isNew) ...{
-        'slug': id,
-        'order': widget.initial!['order'],
-        if (widget.initial?['hero'] != null) 'hero': widget.initial!['hero'],
-      },
+      // `hero` isn't edited by this form beyond creating the slot — an
+      // existing one is carried over as-is so a save can never silently drop it.
+      if (!_isNew && widget.initial?['hero'] != null)
+        'hero': widget.initial!['hero']
+      else if (_addHero && heroPathController.text.trim().isNotEmpty)
+        'hero': _heroRef(id, heroPathController.text.trim()),
     };
 
     final controller = ref.read(contentDraftProvider.notifier);
-    for (final personId in _figureIds) {
-      controller.ensureInRoster(widget.eraSlug, personId);
+    final era = widget.eraSlug;
+    if (era != null) {
+      for (final personId in _figureIds) {
+        controller.ensureInRoster(era, personId);
+      }
     }
     if (_isNew) {
-      controller.addEvent(widget.eraSlug, id, event);
+      if (era != null) {
+        controller.addEvent(era, id, event);
+      } else {
+        controller.addStandaloneEvent(id, event);
+      }
     } else {
-      controller.updateEvent(widget.eraSlug, widget.eventId!, (_) => event..['id'] = id);
+      controller.updateEvent(widget.eventId!, (_) => event..['id'] = id);
     }
     Navigator.pop(context);
   }
 
-  Map<String, dynamic>? _tryDecode(String text) {
-    try {
-      return jsonDecode(text) as Map<String, dynamic>;
-    } catch (_) {
-      return null;
-    }
+  String _defaultHeroPath() {
+    final id = idController.text.trim().isEmpty ? 'su-kien-moi' : idController.text.trim();
+    final era = widget.eraSlug;
+    // The repo's convention for an in-era hero; standalone events get their own
+    // folder since there is no era to put them under.
+    return era == null ? 'events/$id/hero.png' : 'eras/$era/events/$id.png';
   }
+
+  static Map<String, dynamic> _heroRef(String id, String path) => <String, dynamic>{
+        'id': '$id-hero',
+        'type': 'image',
+        'role': 'hero',
+        'flagship': path,
+        'reduced': path,
+        'caption': <String, dynamic>{
+          'vi': 'Minh họa · phong cách sơn mài',
+          'en': 'Illustration · lacquer style',
+        },
+      };
 
   @override
   void dispose() {
@@ -326,6 +414,7 @@ class _EventDialogState extends ConsumerState<EventDialog> {
       attributionVi,
       attributionEn,
       idController,
+      heroPathController,
     ]) {
       c.dispose();
     }

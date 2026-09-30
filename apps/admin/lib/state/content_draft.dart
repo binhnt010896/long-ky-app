@@ -79,6 +79,127 @@ class ContentDraft {
   String get peopleSchemaJson => files['content/people.schema.json']!;
   String get periodSchemaJson => files['content/period.schema.json']!;
 
+  /// `content/events.json` — every event, defined once (Cycle N). Tolerates a
+  /// repo that predates the registry (an empty one), so the draft still loads.
+  String get eventsJson =>
+      files['content/events.json'] ?? '{"schemaVersion":1,"events":[]}';
+  String? get eventSchemaJson => files['content/event.schema.json'];
+  bool get hasEventRegistry => files.containsKey('content/events.json');
+
+  Map<String, dynamic> get eventsDecoded => jsonDecode(eventsJson) as Map<String, dynamic>;
+
+  /// Every event in the registry, in file order.
+  List<Map<String, dynamic>> get events =>
+      (eventsDecoded['events'] as List).cast<Map<String, dynamic>>();
+
+  Map<String, dynamic>? eventById(String id) {
+    for (final e in events) {
+      if (e['id'] == id) return e;
+    }
+    return null;
+  }
+
+  /// Era slug → the ids of its events, in reading order (a `{ref}` item's
+  /// `ref`, or an inlined event's `id`).
+  Map<String, List<String>> get eventIdsByEra {
+    final out = <String, List<String>>{};
+    for (final entry in eraFiles.entries) {
+      try {
+        final era = jsonDecode(entry.value) as Map<String, dynamic>;
+        out[entry.key.replaceAll('.json', '')] = [
+          for (final item in (era['events'] as List? ?? const <dynamic>[]))
+            if (item is Map<String, dynamic>)
+              (item['ref'] ?? item['id']) as String,
+        ];
+      } catch (_) {
+        // Skip an era whose draft text isn't valid JSON right now.
+      }
+    }
+    return out;
+  }
+
+  /// The slug of the era that lists [eventId], or null if it is standalone.
+  String? eraSlugOfEvent(String eventId) {
+    for (final entry in eventIdsByEra.entries) {
+      if (entry.value.contains(eventId)) return entry.key;
+    }
+    return null;
+  }
+
+  /// Registry events no era lists.
+  List<Map<String, dynamic>> get standaloneEvents {
+    final listed = {for (final ids in eventIdsByEra.values) ...ids};
+    return [
+      for (final e in events)
+        if (!listed.contains(e['id'])) e,
+    ];
+  }
+
+  /// People on at least one era's roster — the only people a standalone event
+  /// may feature (every chip has to open a page).
+  Set<String> get peopleOnAnyRoster {
+    final out = <String>{};
+    for (final entry in eraFiles.entries) {
+      try {
+        final era = jsonDecode(entry.value) as Map<String, dynamic>;
+        for (final c in (era['characters'] as List? ?? const <dynamic>[])) {
+          out.add((c as Map<String, dynamic>)['ref'] as String);
+        }
+      } catch (_) {}
+    }
+    return out;
+  }
+
+  /// Registry events that name [personId] in `figureIds` and belong to no era —
+  /// they'd be left with a dangling figure if the person were deleted.
+  List<String> standaloneEventsFeaturing(String personId) => [
+        for (final e in standaloneEvents)
+          if ((e['figureIds'] as List? ?? const <dynamic>[]).contains(personId))
+            e['id'] as String,
+      ];
+
+  /// Everything that points at [eventId] — what a delete has to clean up.
+  EventReferences referencesTo(String eventId) {
+    final streets = <StreetReference>[];
+    for (final entry in files.entries) {
+      final path = entry.key;
+      if (!path.startsWith('content/streets/') ||
+          !path.endsWith('.json') ||
+          path.contains('aliases')) {
+        continue;
+      }
+      try {
+        final doc = jsonDecode(entry.value) as Map<String, dynamic>;
+        for (final st in (doc['streets'] as List? ?? const <dynamic>[])) {
+          final street = st as Map<String, dynamic>;
+          final targets = (street['targets'] as List? ?? const <dynamic>[])
+              .cast<Map<String, dynamic>>();
+          final hits = targets
+              .where((t) => t['type'] == 'event' && t['id'] == eventId)
+              .length;
+          if (hits > 0) {
+            streets.add(StreetReference(
+              file: path,
+              streetId: street['id'] as String,
+              name: street['name'] as String? ?? street['id'] as String,
+              losesLastTarget: targets.length == hits,
+            ));
+          }
+        }
+      } catch (_) {}
+    }
+    return EventReferences(
+      eraSlug: eraSlugOfEvent(eventId),
+      relatedFrom: [
+        for (final e in events)
+          if (e['id'] != eventId &&
+              (e['relatedEventIds'] as List? ?? const <dynamic>[]).contains(eventId))
+            e['id'] as String,
+      ],
+      streets: streets,
+    );
+  }
+
   Map<String, dynamic> get peopleDecoded => jsonDecode(peopleJson) as Map<String, dynamic>;
   Map<String, dynamic> get periodsDecoded => jsonDecode(periodsJson) as Map<String, dynamic>;
   Map<String, dynamic> get indexDecoded => jsonDecode(indexJson) as Map<String, dynamic>;
@@ -128,7 +249,47 @@ class ContentDraft {
     peopleJson: peopleJson,
     periodsJson: periodsJson,
     indexJson: indexJson,
+    eventSchemaJson: hasEventRegistry ? eventSchemaJson : null,
+    eventsJson: hasEventRegistry && eventSchemaJson != null ? eventsJson : null,
   );
+}
+
+/// What points at one event — shown before a delete, cleaned by it.
+class EventReferences {
+  const EventReferences({
+    required this.eraSlug,
+    required this.relatedFrom,
+    required this.streets,
+  });
+
+  /// The era that lists it, or null if it is standalone.
+  final String? eraSlug;
+
+  /// Other events whose `relatedEventIds` name it.
+  final List<String> relatedFrom;
+
+  /// Street-map targets that name it.
+  final List<StreetReference> streets;
+
+  bool get isEmpty => eraSlug == null && relatedFrom.isEmpty && streets.isEmpty;
+}
+
+/// One street-map street that has the event as a target.
+class StreetReference {
+  const StreetReference({
+    required this.file,
+    required this.streetId,
+    required this.name,
+    required this.losesLastTarget,
+  });
+
+  final String file;
+  final String streetId;
+  final String name;
+
+  /// Removing the event would leave the street with no targets — so it goes
+  /// too (an approved street with no targets is invalid).
+  final bool losesLastTarget;
 }
 
 class ContentDraftController extends AsyncNotifier<ContentDraft> {
@@ -198,8 +359,9 @@ class ContentDraftController extends AsyncNotifier<ContentDraft> {
   void deletePerson(String id) {
     final current = state.requireValue;
     final refs = current.erasReferencingPerson(id);
-    if (refs.isNotEmpty) {
-      throw StateError('Referenced by: ${refs.join(', ')}');
+    final events = current.standaloneEventsFeaturing(id);
+    if (refs.isNotEmpty || events.isNotEmpty) {
+      throw StateError('Referenced by: ${[...refs, ...events].join(', ')}');
     }
     _update((d) {
       final decoded = d.peopleDecoded;
@@ -289,6 +451,21 @@ class ContentDraftController extends AsyncNotifier<ContentDraft> {
     });
     era['order'] = maxOrder + 1;
     _update((d) {
+      // Events handed in inline (the new-era dialog's placeholder) go to the
+      // registry, and the era lists them by ref — the only shape the repo uses.
+      final inline = (era['events'] as List? ?? const <dynamic>[])
+          .whereType<Map<String, dynamic>>()
+          .where((e) => !e.containsKey('ref'))
+          .toList();
+      if (inline.isNotEmpty) {
+        final entries = [
+          for (final e in inline) <String, dynamic>{...e, 'slug': e['id']}..remove('order'),
+        ];
+        d = _withEvents(d, [...d.events, ...entries]);
+        era['events'] = [
+          for (final e in inline) <String, dynamic>{'ref': e['id']},
+        ];
+      }
       var next = d.withFile('content/eras/$slug.json', ContentFormatter.format(era));
       final index = next.indexDecoded;
       final eras = (index['eras'] as List).cast<String>();
@@ -368,114 +545,194 @@ class ContentDraftController extends AsyncNotifier<ContentDraft> {
   }
 
   // --- Events -----------------------------------------------------------
+  //
+  // Since Cycle N an event is defined once in `content/events.json`; an era
+  // lists the events it contains as `{"ref": id}` items (list position = reading
+  // order) and an event no era lists is *standalone*. Every operation below keeps
+  // the two sides consistent, so a draft built only through them never trips
+  // the validator's event rules.
 
   /// Suggests an id from a title, like [suggestPersonId]/[suggestPeriodId].
-  /// An event's id is also its `slug` (Cycle K's validator enforces the
-  /// two match) — both are set from this suggestion when an event is
-  /// created.
+  /// An event's id is also its `slug` (the validator enforces the two match) —
+  /// both are set from this suggestion when an event is created.
   String suggestEventId(String title) => slugify(title);
 
-  /// Appends a new event to `content/eras/<slug>.json`'s `events`, with
-  /// `order` set to run after the existing ones and `id`/`slug` both set to
-  /// [id]. Every event created this way already satisfies the validator's
-  /// event-integrity rules (K7) — the id/slug pairing and a contiguous
-  /// order — so only genuinely missing content (a hero image, say) can fail
-  /// review afterwards.
+  ContentDraft _withEvents(ContentDraft d, List<Map<String, dynamic>> events) {
+    final decoded = d.hasEventRegistry
+        ? d.eventsDecoded
+        : <String, dynamic>{'schemaVersion': 1};
+    decoded['events'] = events;
+    return d.withFile('content/events.json', ContentFormatter.format(decoded));
+  }
+
+  ContentDraft _withEraEvents(ContentDraft d, String eraSlug, List<dynamic> items) {
+    final path = 'content/eras/$eraSlug.json';
+    final era = jsonDecode(d.files[path]!) as Map<String, dynamic>;
+    era['events'] = items;
+    return d.withFile(path, ContentFormatter.format(era));
+  }
+
+  List<dynamic> _eraItems(ContentDraft d, String eraSlug) {
+    final era = jsonDecode(d.files['content/eras/$eraSlug.json']!) as Map<String, dynamic>;
+    return (era['events'] as List? ?? const <dynamic>[]).toList();
+  }
+
+  static bool _isRefTo(dynamic item, String id) =>
+      item is Map && (item['ref'] ?? item['id']) == id;
+
+  /// Creates a new event in the registry and lists it at the end of
+  /// `content/eras/<eraSlug>.json`. `id`/`slug` are both set to [id]; there is
+  /// no `order` — the list position is the order.
   void addEvent(String eraSlug, String id, Map<String, dynamic> event) {
     _update((d) {
-      final path = 'content/eras/$eraSlug.json';
-      final era = jsonDecode(d.files[path]!) as Map<String, dynamic>;
-      final events = (era['events'] as List? ?? const <dynamic>[])
-          .cast<Map<String, dynamic>>()
-          .toList();
-      event['id'] = id;
-      event['slug'] = id;
-      event['order'] = events.length;
-      era['events'] = [...events, event];
-      return d.withFile(path, ContentFormatter.format(era));
+      final registry = d.events.toList();
+      final entry = <String, dynamic>{...event, 'id': id, 'slug': id}..remove('order');
+      var next = _withEvents(d, [...registry, entry]);
+      next = _withEraEvents(next, eraSlug, [
+        ..._eraItems(next, eraSlug),
+        <String, dynamic>{'ref': id},
+      ]);
+      return next;
     });
   }
 
-  void updateEvent(
-    String eraSlug,
-    String eventId,
-    Map<String, dynamic> Function(Map<String, dynamic>) update,
-  ) {
+  /// Creates a standalone event — in the registry, listed by no era.
+  void addStandaloneEvent(String id, Map<String, dynamic> event) {
     _update((d) {
-      final path = 'content/eras/$eraSlug.json';
-      final era = jsonDecode(d.files[path]!) as Map<String, dynamic>;
-      final events = (era['events'] as List).cast<Map<String, dynamic>>();
-      era['events'] = [
-        for (final e in events)
-          if (e['id'] == eventId) update({...e}) else e,
-      ];
-      return d.withFile(path, ContentFormatter.format(era));
+      final entry = <String, dynamic>{...event, 'id': id, 'slug': id}..remove('order');
+      return _withEvents(d, [...d.events, entry]);
     });
   }
 
-  /// Removes the event, renumbers the remaining `order`s to stay
-  /// contiguous, and drops it from every other event's `relatedEventIds` in
-  /// the same era — a dangling reference is exactly what the K7 validator
-  /// rejects, so this can never leave one behind. Call
-  /// [eventsReferencing] first to show the admin what will be cleaned.
-  void deleteEvent(String eraSlug, String eventId) {
+  /// Edits one event wherever it lives. [update] gets a copy; the event's
+  /// `id` and `order` are never changed here (the id is permanent, and the
+  /// list position is the order).
+  void updateEvent(String eventId, Map<String, dynamic> Function(Map<String, dynamic>) update) {
     _update((d) {
-      final path = 'content/eras/$eraSlug.json';
-      final era = jsonDecode(d.files[path]!) as Map<String, dynamic>;
-      final events = (era['events'] as List).cast<Map<String, dynamic>>();
-      final remaining = events.where((e) => e['id'] != eventId).toList()
-        ..sort((a, b) => (a['order'] as int).compareTo(b['order'] as int));
-      for (var i = 0; i < remaining.length; i++) {
-        final related = (remaining[i]['relatedEventIds'] as List? ?? const <dynamic>[])
+      final registry = d.events;
+      if (!registry.any((e) => e['id'] == eventId)) return d;
+      return _withEvents(d, [
+        for (final e in registry)
+          if (e['id'] == eventId)
+            <String, dynamic>{...update({...e}), 'id': eventId}..remove('order')
+          else
+            e,
+      ]);
+    });
+  }
+
+  /// Removes the event from the registry and from the era that lists it, drops
+  /// it from every other event's `relatedEventIds`, and from every street
+  /// that names it (a street left with no targets goes too — an approved
+  /// street with none is invalid). Call [ContentDraft.referencesTo] first to
+  /// show the admin exactly what will change.
+  void deleteEvent(String eventId) {
+    _update((d) {
+      final refs = d.referencesTo(eventId);
+      final registry = <Map<String, dynamic>>[];
+      for (final e in d.events) {
+        if (e['id'] == eventId) continue;
+        final related = (e['relatedEventIds'] as List? ?? const <dynamic>[])
             .cast<String>()
             .where((r) => r != eventId)
             .toList();
-        remaining[i] = {...remaining[i], 'order': i};
+        final copy = {...e};
         if (related.isEmpty) {
-          remaining[i].remove('relatedEventIds');
+          copy.remove('relatedEventIds');
         } else {
-          remaining[i]['relatedEventIds'] = related;
+          copy['relatedEventIds'] = related;
         }
+        registry.add(copy);
       }
-      era['events'] = remaining;
-      return d.withFile(path, ContentFormatter.format(era));
+      var next = _withEvents(d, registry);
+      final era = refs.eraSlug;
+      if (era != null) {
+        next = _withEraEvents(next, era, [
+          for (final item in _eraItems(next, era))
+            if (!_isRefTo(item, eventId)) item,
+        ]);
+      }
+      for (final file in {for (final s in refs.streets) s.file}) {
+        final doc = jsonDecode(next.files[file]!) as Map<String, dynamic>;
+        final streets = <dynamic>[];
+        for (final st in (doc['streets'] as List).cast<Map<String, dynamic>>()) {
+          final targets = (st['targets'] as List? ?? const <dynamic>[])
+              .cast<Map<String, dynamic>>()
+              .where((t) => !(t['type'] == 'event' && t['id'] == eventId))
+              .toList();
+          if (targets.isEmpty && (st['targets'] as List? ?? const []).isNotEmpty) continue;
+          streets.add({...st, 'targets': targets});
+        }
+        doc['streets'] = streets;
+        next = next.withFile(file, ContentFormatter.format(doc));
+      }
+      return next;
     });
   }
 
-  /// Other events in the same era whose `relatedEventIds` name [eventId] —
-  /// the CMS shows this before a delete so the admin knows what will change.
-  List<String> eventsReferencing(String eraSlug, String eventId) {
-    final path = 'content/eras/$eraSlug.json';
-    final text = state.valueOrNull?.files[path];
-    if (text == null) return const [];
-    final era = _tryDecode(text);
-    if (era == null) return const [];
-    final events = (era['events'] as List? ?? const <dynamic>[]).cast<Map<String, dynamic>>();
-    return [
-      for (final e in events)
-        if (e['id'] != eventId &&
-            (e['relatedEventIds'] as List? ?? const <dynamic>[]).contains(eventId))
-          e['id'] as String,
-    ];
-  }
+  /// Every event whose `relatedEventIds` names [eventId] — the CMS shows this
+  /// before a delete so the admin knows what will change.
+  List<String> eventsReferencing(String eventId) =>
+      state.valueOrNull?.referencesTo(eventId).relatedFrom ?? const [];
 
-  /// Moves the event at [eventId] to [newIndex] among its era's other
-  /// events, renumbering `order` for the whole era (mirrors
-  /// [reorderPeriod]).
+  /// Moves the event at [eventId] to [newIndex] among its era's other events.
   void reorderEvent(String eraSlug, String eventId, int newIndex) {
     _update((d) {
-      final path = 'content/eras/$eraSlug.json';
-      final era = jsonDecode(d.files[path]!) as Map<String, dynamic>;
-      final events = (era['events'] as List).cast<Map<String, dynamic>>().toList()
-        ..sort((a, b) => (a['order'] as int).compareTo(b['order'] as int));
-      final moving = events.removeAt(events.indexWhere((e) => e['id'] == eventId));
-      events.insert(newIndex.clamp(0, events.length), moving);
-      for (var i = 0; i < events.length; i++) {
-        events[i]['order'] = i;
-      }
-      era['events'] = events;
-      return d.withFile(path, ContentFormatter.format(era));
+      final items = _eraItems(d, eraSlug);
+      final from = items.indexWhere((i) => _isRefTo(i, eventId));
+      if (from == -1) return d;
+      final moving = items.removeAt(from);
+      items.insert(newIndex.clamp(0, items.length), moving);
+      return _withEraEvents(d, eraSlug, items);
     });
+  }
+
+  /// Takes the event out of the era that lists it; it becomes a standalone
+  /// event (never deleted). Throws [StateError] if it is the era's only event —
+  /// an era keeps at least one.
+  void removeEventFromEra(String eventId) {
+    final d = state.requireValue;
+    final era = d.eraSlugOfEvent(eventId);
+    if (era == null) return;
+    if (_eraItems(d, era).length <= 1) {
+      throw StateError('An era needs at least one event');
+    }
+    _update((d) => _withEraEvents(d, era, [
+          for (final item in _eraItems(d, era))
+            if (!_isRefTo(item, eventId)) item,
+        ]));
+  }
+
+  /// Lists the event at the end of [eraSlug], taking it out of whichever era
+  /// lists it now (or out of the standalone pool). An event is in at most one
+  /// era. People it features who aren't on [eraSlug]'s roster are added, so its
+  /// figure chips still resolve. Throws [StateError] if leaving would empty the
+  /// era it comes from.
+  void moveEventToEra(String eventId, String eraSlug) {
+    final current = state.requireValue;
+    final from = current.eraSlugOfEvent(eventId);
+    if (from == eraSlug) return;
+    if (from != null && _eraItems(current, from).length <= 1) {
+      throw StateError('An era needs at least one event');
+    }
+    _update((d) {
+      var next = d;
+      if (from != null) {
+        next = _withEraEvents(next, from, [
+          for (final item in _eraItems(next, from))
+            if (!_isRefTo(item, eventId)) item,
+        ]);
+      }
+      return _withEraEvents(next, eraSlug, [
+        ..._eraItems(next, eraSlug),
+        <String, dynamic>{'ref': eventId},
+      ]);
+    });
+    final figures = (current.eventById(eventId)?['figureIds'] as List? ?? const <dynamic>[])
+        .cast<String>();
+    for (final id in figures) {
+      ensureInRoster(eraSlug, id);
+    }
   }
 
   /// Adds [personId] to the era's `characters` roster as a plain `{ref}`

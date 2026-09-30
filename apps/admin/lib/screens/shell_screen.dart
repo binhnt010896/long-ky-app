@@ -8,6 +8,7 @@ import '../state/theme_prefs.dart';
 const _destinations = [
   (path: '/', icon: Icons.dashboard_outlined, label: 'Dashboard'),
   (path: '/eras', icon: Icons.account_tree_outlined, label: 'Content'),
+  (path: '/events', icon: Icons.event_note_outlined, label: 'Events'),
   (path: '/people', icon: Icons.people_outline, label: 'People'),
   (path: '/media', icon: Icons.image_outlined, label: 'Media'),
   (path: '/publish', icon: Icons.cloud_upload_outlined, label: 'Publish'),

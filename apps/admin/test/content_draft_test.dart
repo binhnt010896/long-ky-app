@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:admin/api/api_providers.dart';
 import 'package:admin/api/cms_api_client.dart';
@@ -15,6 +16,31 @@ Map<String, String> _fixtureFiles() => {
   'content/era.schema.json': '{"type":"object"}',
   'content/people.schema.json': '{"type":"object"}',
   'content/period.schema.json': '{"type":"object"}',
+  'content/event.schema.json': '{"type":"object"}',
+  'content/events.json': jsonEncode({'schemaVersion': 1, 'events': <dynamic>[]}),
+  'content/streets/hcm.json': jsonEncode({
+    'schemaVersion': 1,
+    'city': 'hcm',
+    'streets': [
+      {
+        'id': 'only-e1',
+        'name': 'Only E1',
+        'status': 'approved',
+        'targets': [
+          {'type': 'event', 'id': 'e1', 'era': 'era-a'},
+        ],
+      },
+      {
+        'id': 'e1-and-person',
+        'name': 'E1 and person',
+        'status': 'approved',
+        'targets': [
+          {'type': 'event', 'id': 'e1', 'era': 'era-a'},
+          {'type': 'person', 'id': 'person-1', 'era': 'era-a'},
+        ],
+      },
+    ],
+  }),
   'content/index.json': jsonEncode({
     'schemaVersion': 1,
     'eras': ['era-a', 'era-b'],
@@ -292,151 +318,325 @@ void main() {
     });
   });
 
-  group('ContentDraftController — events', () {
+  group('ContentDraftController — events (registry)', () {
     Map<String, dynamic> eraJson(ProviderContainer c, String slug) =>
         jsonDecode(c.read(contentDraftProvider).requireValue.eraFiles['$slug.json']!)
             as Map<String, dynamic>;
-    List<Map<String, dynamic>> eraEvents(ProviderContainer c, String slug) =>
-        (eraJson(c, slug)['events'] as List).cast<Map<String, dynamic>>();
+    List<String> eraRefs(ProviderContainer c, String slug) => [
+          for (final i in (eraJson(c, slug)['events'] as List)) (i as Map)['ref'] as String,
+        ];
+    ContentDraft draftOf(ProviderContainer c) => c.read(contentDraftProvider).requireValue;
+    Map<String, dynamic> ev(String id, {List<String>? related, List<String>? figures}) => {
+          'kind': 'historical',
+          'year': {
+            'display': {'vi': id},
+            'value': 1000,
+          },
+          'title': {'vi': id},
+          'summary': {'vi': 's'},
+          'citation': {'work': 'w'},
+          if (related != null) 'relatedEventIds': related,
+          if (figures != null) 'figureIds': figures,
+        };
 
-    test('addEvent sets id, slug and the next order', () async {
-      final container = await _containerWith(_fixtureFiles());
-      addTearDown(container.dispose);
+    Future<(ProviderContainer, ContentDraftController)> start() async {
+      final c = await _containerWith(_fixtureFiles());
+      addTearDown(c.dispose);
+      return (c, c.read(contentDraftProvider.notifier));
+    }
 
-      container.read(contentDraftProvider.notifier).addEvent('era-a', 'first-event', {
-        'kind': 'historical',
-        'year': {
-          'display': {'vi': '2000'},
-          'value': 2000,
-        },
-        'title': {'vi': 'Sự kiện một'},
-        'summary': {'vi': 'Tóm tắt'},
-        'citation': {'work': 'ĐVSKTT'},
-      });
+    test('addEvent puts the event in the registry and lists a ref in the era', () async {
+      final (c, n) = await start();
+      n.addEvent('era-a', 'first-event', ev('first-event'));
 
-      final events = eraEvents(container, 'era-a');
-      expect(events, hasLength(1));
-      expect(events.single['id'], 'first-event');
-      expect(events.single['slug'], 'first-event');
-      expect(events.single['order'], 0);
+      final e = draftOf(c).eventById('first-event')!;
+      expect(e['slug'], 'first-event');
+      expect(e.containsKey('order'), isFalse, reason: 'list position is the order');
+      expect(eraRefs(c, 'era-a'), ['first-event']);
+      expect(draftOf(c).eraSlugOfEvent('first-event'), 'era-a');
+      expect(draftOf(c).standaloneEvents, isEmpty);
     });
 
-    test('updateEvent only touches the targeted event', () async {
-      final container = await _containerWith(_fixtureFiles());
-      addTearDown(container.dispose);
-      final notifier = container.read(contentDraftProvider.notifier);
-      notifier.addEvent('era-a', 'e1', {
-        'kind': 'historical',
-        'year': {
-          'display': {'vi': '1'},
-        },
-        'title': {'vi': 'E1'},
-        'summary': {'vi': 's'},
-        'citation': {'work': 'w'},
-      });
-      notifier.addEvent('era-a', 'e2', {
-        'kind': 'historical',
-        'year': {
-          'display': {'vi': '2'},
-        },
-        'title': {'vi': 'E2'},
-        'summary': {'vi': 's'},
-        'citation': {'work': 'w'},
-      });
+    test('addStandaloneEvent is in the registry and in no era', () async {
+      final (c, n) = await start();
+      n.addStandaloneEvent('alone', ev('alone'));
 
-      notifier.updateEvent('era-a', 'e1', (e) => e..['title'] = {'vi': 'Đổi tên'});
-
-      final events = eraEvents(container, 'era-a');
-      expect((events.firstWhere((e) => e['id'] == 'e1')['title'] as Map)['vi'], 'Đổi tên');
-      expect((events.firstWhere((e) => e['id'] == 'e2')['title'] as Map)['vi'], 'E2');
+      expect(draftOf(c).eventById('alone'), isNotNull);
+      expect(draftOf(c).eraSlugOfEvent('alone'), isNull);
+      expect(draftOf(c).standaloneEvents.map((e) => e['id']), ['alone']);
+      expect(eraRefs(c, 'era-a'), isEmpty);
     });
 
-    test('deleteEvent renumbers order and cleans relatedEventIds', () async {
-      final container = await _containerWith(_fixtureFiles());
-      addTearDown(container.dispose);
-      final notifier = container.read(contentDraftProvider.notifier);
+    test('updateEvent only touches the targeted event, never its id or order', () async {
+      final (c, n) = await start();
+      n.addEvent('era-a', 'e1', ev('e1'));
+      n.addEvent('era-a', 'e2', ev('e2'));
+
+      n.updateEvent('e1', (e) => e..['title'] = {'vi': 'Đổi tên'}..['id'] = 'hijack'..['order'] = 9);
+
+      expect((draftOf(c).eventById('e1')!['title'] as Map)['vi'], 'Đổi tên');
+      expect(draftOf(c).eventById('hijack'), isNull, reason: 'the id is permanent');
+      expect(draftOf(c).eventById('e1')!.containsKey('order'), isFalse);
+      expect((draftOf(c).eventById('e2')!['title'] as Map)['vi'], 'e2');
+    });
+
+    test('deleteEvent removes it everywhere: registry, era, related links, streets', () async {
+      final (c, n) = await start();
+      n.addEvent('era-a', 'e1', ev('e1'));
+      n.addEvent('era-a', 'e2', ev('e2', related: ['e1']));
+      n.addStandaloneEvent('alone', ev('alone', related: ['e1', 'e2']));
+
+      n.deleteEvent('e1');
+
+      final d = draftOf(c);
+      expect(d.eventById('e1'), isNull);
+      expect(eraRefs(c, 'era-a'), ['e2']);
+      expect(d.eventById('e2')!.containsKey('relatedEventIds'), isFalse);
+      expect(d.eventById('alone')!['relatedEventIds'], ['e2']);
+      final streets = (jsonDecode(d.files['content/streets/hcm.json']!) as Map)['streets'] as List;
+      // The street that named only e1 is gone; the one with another target stays.
+      expect(streets.map((s) => (s as Map)['id']), ['e1-and-person']);
+      expect(((streets.single as Map)['targets'] as List).single['type'], 'person');
+    });
+
+    test('referencesTo lists the era, the events relating to it, and the streets', () async {
+      final (c, n) = await start();
+      n.addEvent('era-a', 'e1', ev('e1'));
+      n.addStandaloneEvent('alone', ev('alone', related: ['e1']));
+
+      final refs = draftOf(c).referencesTo('e1');
+      expect(refs.eraSlug, 'era-a');
+      expect(refs.relatedFrom, ['alone']);
+      expect(refs.streets.map((s) => s.streetId), ['only-e1', 'e1-and-person']);
+      expect(refs.streets.firstWhere((s) => s.streetId == 'only-e1').losesLastTarget, isTrue);
+      expect(refs.streets.firstWhere((s) => s.streetId == 'e1-and-person').losesLastTarget, isFalse);
+      expect(n.eventsReferencing('e1'), ['alone']);
+      // A standalone event nothing points at has nothing to clean up.
+      expect(draftOf(c).referencesTo('alone').isEmpty, isTrue);
+      expect(draftOf(c).referencesTo('nothing-points-here').isEmpty, isTrue);
+    });
+
+    test('reorderEvent reorders the refs in the era', () async {
+      final (c, n) = await start();
       for (final id in ['e1', 'e2', 'e3']) {
-        notifier.addEvent('era-a', id, {
-          'kind': 'historical',
-          'year': {
-            'display': {'vi': id},
-          },
-          'title': {'vi': id},
-          'summary': {'vi': 's'},
-          'citation': {'work': 'w'},
-        });
+        n.addEvent('era-a', id, ev(id));
       }
-      notifier.updateEvent('era-a', 'e3', (e) => e..['relatedEventIds'] = ['e1', 'e2']);
-
-      notifier.deleteEvent('era-a', 'e1');
-
-      final events = eraEvents(container, 'era-a')
-        ..sort((a, b) => (a['order'] as int).compareTo(b['order'] as int));
-      expect(events.map((e) => e['id']), ['e2', 'e3']);
-      expect(events.map((e) => e['order']), [0, 1]);
-      expect(
-        (events.firstWhere((e) => e['id'] == 'e3')['relatedEventIds'] as List?),
-        ['e2'],
-      );
+      n.reorderEvent('era-a', 'e3', 0);
+      expect(eraRefs(c, 'era-a'), ['e3', 'e1', 'e2']);
     });
 
-    test('eventsReferencing finds who points at an event before it is deleted', () async {
-      final container = await _containerWith(_fixtureFiles());
-      addTearDown(container.dispose);
-      final notifier = container.read(contentDraftProvider.notifier);
-      for (final id in ['e1', 'e2']) {
-        notifier.addEvent('era-a', id, {
-          'kind': 'historical',
-          'year': {
-            'display': {'vi': id},
-          },
-          'title': {'vi': id},
-          'summary': {'vi': 's'},
-          'citation': {'work': 'w'},
-        });
-      }
-      notifier.updateEvent('era-a', 'e2', (e) => e..['relatedEventIds'] = ['e1']);
+    test('removeEventFromEra keeps the event, as a standalone one', () async {
+      final (c, n) = await start();
+      n.addEvent('era-a', 'e1', ev('e1'));
+      n.addEvent('era-a', 'e2', ev('e2'));
 
-      expect(notifier.eventsReferencing('era-a', 'e1'), ['e2']);
-      expect(notifier.eventsReferencing('era-a', 'e2'), isEmpty);
+      n.removeEventFromEra('e1');
+
+      expect(eraRefs(c, 'era-a'), ['e2']);
+      expect(draftOf(c).eventById('e1'), isNotNull);
+      expect(draftOf(c).standaloneEvents.map((e) => e['id']), ['e1']);
     });
 
-    test('reorderEvent renumbers the whole era', () async {
-      final container = await _containerWith(_fixtureFiles());
-      addTearDown(container.dispose);
-      final notifier = container.read(contentDraftProvider.notifier);
-      for (final id in ['e1', 'e2', 'e3']) {
-        notifier.addEvent('era-a', id, {
-          'kind': 'historical',
-          'year': {
-            'display': {'vi': id},
+    test('an era keeps at least one event: removing or moving the last one throws', () async {
+      final (c, n) = await start();
+      n.addEvent('era-a', 'only', ev('only'));
+
+      expect(() => n.removeEventFromEra('only'), throwsStateError);
+      expect(() => n.moveEventToEra('only', 'era-b'), throwsStateError);
+      expect(eraRefs(c, 'era-a'), ['only'], reason: 'a refused change changes nothing');
+    });
+
+    test('moveEventToEra takes a standalone event into an era, and adds its figures to the roster', () async {
+      final (c, n) = await start();
+      n.addStandaloneEvent('alone', ev('alone', figures: ['person-1']));
+
+      n.moveEventToEra('alone', 'era-b');
+
+      expect(eraRefs(c, 'era-b'), ['alone']);
+      expect(draftOf(c).standaloneEvents, isEmpty);
+      final roster = (eraJson(c, 'era-b')['characters'] as List).cast<Map>().map((p) => p['ref']);
+      expect(roster, ['person-1'], reason: 'the figure chip has to resolve in the new era');
+    });
+
+    test('moveEventToEra between eras leaves the event in exactly one', () async {
+      final (c, n) = await start();
+      n.addEvent('era-a', 'e1', ev('e1'));
+      n.addEvent('era-a', 'e2', ev('e2'));
+
+      n.moveEventToEra('e1', 'era-b');
+
+      expect(eraRefs(c, 'era-a'), ['e2']);
+      expect(eraRefs(c, 'era-b'), ['e1']);
+      expect(draftOf(c).eraSlugOfEvent('e1'), 'era-b');
+    });
+
+    test('moving an event to the era it is already in changes nothing', () async {
+      final (c, n) = await start();
+      n.addEvent('era-a', 'e1', ev('e1'));
+      final before = draftOf(c).files['content/eras/era-a.json'];
+      n.moveEventToEra('e1', 'era-a');
+      expect(draftOf(c).files['content/eras/era-a.json'], before);
+    });
+
+    test('addEra moves an inline placeholder event into the registry', () async {
+      final (c, n) = await start();
+      n.addEra({
+        'id': 'era-c',
+        'slug': 'era-c',
+        'period': 'period-2',
+        'title': {'vi': 'Era C'},
+        'events': [
+          {
+            'id': 'era-c-event-1',
+            'order': 0,
+            'kind': 'historical',
+            'year': {'display': {'vi': ''}},
+            'title': {'vi': 'Sự kiện mới'},
+            'summary': {'vi': 'x'},
+            'citation': {'work': 'w'},
           },
-          'title': {'vi': id},
-          'summary': {'vi': 's'},
-          'citation': {'work': 'w'},
-        });
-      }
+        ],
+      });
 
-      notifier.reorderEvent('era-a', 'e3', 0);
+      expect(eraRefs(c, 'era-c'), ['era-c-event-1']);
+      expect(draftOf(c).eventById('era-c-event-1')!.containsKey('order'), isFalse);
+      expect(draftOf(c).eventById('era-c-event-1')!['slug'], 'era-c-event-1');
+    });
 
-      final events = eraEvents(container, 'era-a')
-        ..sort((a, b) => (a['order'] as int).compareTo(b['order'] as int));
-      expect(events.map((e) => e['id']), ['e3', 'e1', 'e2']);
+    test('deleting an era keeps its events, now standalone', () async {
+      final (c, n) = await start();
+      n.addEvent('era-b', 'kept', ev('kept'));
+      n.deleteEra('era-b');
+      expect(draftOf(c).eventById('kept'), isNotNull);
+      expect(draftOf(c).standaloneEvents.map((e) => e['id']), ['kept']);
+    });
+
+    test('deletePerson refuses while a standalone event features them', () async {
+      final (c, n) = await start();
+      n.ensureInRoster('era-b', 'person-2');
+      n.addStandaloneEvent('alone', ev('alone', figures: ['person-2']));
+      n.updatePerson('person-1', (p) => p); // no-op: keep the fixture honest
+      // person-1 is still on era-a's roster; free it so only the event blocks.
+      n.updateEra('era-a', (e) => e..['characters'] = <dynamic>[]);
+      n.addStandaloneEvent('alone-2', ev('alone-2', figures: ['person-1']));
+
+      expect(() => n.deletePerson('person-1'), throwsStateError);
     });
 
     test('ensureInRoster adds a person only if missing', () async {
-      final container = await _containerWith(_fixtureFiles());
-      addTearDown(container.dispose);
-      final notifier = container.read(contentDraftProvider.notifier);
-
-      // person-1 is already on era-a's roster.
-      notifier.ensureInRoster('era-a', 'person-1');
-      var characters = (eraJson(container, 'era-a')['characters'] as List);
+      final (c, n) = await start();
+      n.ensureInRoster('era-a', 'person-1');
+      var characters = (eraJson(c, 'era-a')['characters'] as List);
       expect(characters, hasLength(1));
 
-      notifier.ensureInRoster('era-a', 'person-2');
-      characters = (eraJson(container, 'era-a')['characters'] as List);
-      expect(characters.cast<Map>().map((c) => c['ref']), ['person-1', 'person-2']);
+      n.ensureInRoster('era-a', 'person-2');
+      characters = (eraJson(c, 'era-a')['characters'] as List);
+      expect(characters.cast<Map>().map((p) => p['ref']), ['person-1', 'person-2']);
+    });
+
+    test('peopleOnAnyRoster and standaloneEventsFeaturing reflect the draft', () async {
+      final (c, n) = await start();
+      n.addStandaloneEvent('alone', ev('alone', figures: ['person-1']));
+      expect(draftOf(c).peopleOnAnyRoster, {'person-1'});
+      expect(draftOf(c).standaloneEventsFeaturing('person-1'), ['alone']);
+      expect(draftOf(c).standaloneEventsFeaturing('person-9'), isEmpty);
+    });
+  });
+
+  // The fixture above is deliberately schema-free. This group runs the same
+  // operations over the REAL content and checks the REAL validator after every
+  // step: a draft built only through the controller must never trip a rule.
+  group('ContentDraftController — events over the real content', () {
+    Map<String, String> realFiles() {
+      final root = Directory('../../content');
+      final out = <String, String>{};
+      for (final f in root.listSync(recursive: true).whereType<File>()) {
+        if (!f.path.endsWith('.json')) continue;
+        out['content/${f.path.substring(root.path.length + 1)}'] = f.readAsStringSync();
+      }
+      return out;
+    }
+
+    Future<(ProviderContainer, ContentDraftController)> startReal() async {
+      final c = await _containerWith(realFiles());
+      addTearDown(c.dispose);
+      return (c, c.read(contentDraftProvider.notifier));
+    }
+
+    void expectValid(ProviderContainer c, String step) {
+      final result = c.read(contentDraftProvider).requireValue.validate();
+      expect(result.isValid, isTrue, reason: '$step: ${result.issues.join('; ')}');
+    }
+
+    Map<String, dynamic> standalone({List<String> figures = const []}) => {
+          'kind': 'historical',
+          'year': {
+            'display': {'vi': '1500'},
+            'value': 1500,
+          },
+          'title': {'vi': 'Sự kiện riêng'},
+          'summary': {'vi': 'Tóm tắt'},
+          'citation': {'work': 'Đại Việt sử ký toàn thư'},
+          'hero': {
+            'id': 'rieng-hero',
+            'type': 'image',
+            'role': 'hero',
+            'flagship': 'events/rieng/hero.png',
+            'reduced': 'events/rieng/hero.png',
+          },
+          if (figures.isNotEmpty) 'figureIds': figures,
+        };
+
+    test('the real content loads and validates through the draft', () async {
+      final (c, _) = await startReal();
+      expectValid(c, 'untouched');
+      final d = c.read(contentDraftProvider).requireValue;
+      expect(d.events, hasLength(237));
+      expect(d.standaloneEvents, isEmpty);
+    });
+
+    test('create standalone → move into an era → out again → delete, valid at every step', () async {
+      final (c, n) = await startReal();
+      final d0 = c.read(contentDraftProvider).requireValue;
+      // A person already on a roster, so the standalone rule is satisfied.
+      final person = d0.peopleOnAnyRoster.first;
+
+      n.addStandaloneEvent('rieng', standalone(figures: [person]));
+      expectValid(c, 'create standalone');
+      expect(c.read(contentDraftProvider).requireValue.standaloneEvents.map((e) => e['id']), ['rieng']);
+
+      n.moveEventToEra('rieng', 'nha-trieu');
+      expectValid(c, 'move into nha-trieu');
+      expect(c.read(contentDraftProvider).requireValue.eraSlugOfEvent('rieng'), 'nha-trieu');
+
+      n.removeEventFromEra('rieng');
+      expectValid(c, 'remove from era');
+
+      n.deleteEvent('rieng');
+      expectValid(c, 'delete');
+      expect(c.read(contentDraftProvider).requireValue.events, hasLength(237));
+    });
+
+    test('adding an event to an era and deleting an existing one stay valid', () async {
+      final (c, n) = await startReal();
+      n.addEvent('nha-trieu', 'moi-trong-nha-trieu', standalone());
+      expectValid(c, 'add to era');
+      n.deleteEvent('moi-trong-nha-trieu');
+      expectValid(c, 'delete it again');
+      // An existing event: related links and any streets must be cleaned.
+      final d = c.read(contentDraftProvider).requireValue;
+      final withStreet = d.referencesTo('chien-thang-bach-dang');
+      n.deleteEvent('chien-thang-bach-dang');
+      expectValid(c, 'delete a real event (${withStreet.streets.length} streets, ${withStreet.relatedFrom.length} related)');
+    });
+
+    test('moving an existing event to another era keeps everything valid', () async {
+      final (c, n) = await startReal();
+      final d = c.read(contentDraftProvider).requireValue;
+      final id = d.eventIdsByEra['nha-trieu']!.first;
+      n.moveEventToEra(id, 'au-lac');
+      expectValid(c, 'move $id nha-trieu → au-lac');
+      expect(c.read(contentDraftProvider).requireValue.eraSlugOfEvent(id), 'au-lac');
     });
   });
 

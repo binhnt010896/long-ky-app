@@ -61,14 +61,24 @@ Map<String, List<MediaUsage>> collectMediaRefs(ContentDraft draft) {
         }
       }
     }
+    // Events: a `{ref}` item's hero lives in the registry; an event still
+    // inlined in the era file carries its own.
     final events = era['events'];
     if (events is List) {
-      for (final e in events) {
-        if (e is! Map) continue;
+      for (final item in events) {
+        if (item is! Map) continue;
+        final e = item.containsKey('ref') ? draft.eventById(item['ref'] as String) : item;
+        if (e == null) continue;
         final title = (e['title'] as Map?)?['en'] as String? ?? e['id'] as String? ?? '';
         add(sourceOf(e['hero']), group, 'Event hero: $title');
       }
     }
+  }
+
+  // Standalone events (no era) — their heroes are media like any other.
+  for (final e in draft.standaloneEvents) {
+    final title = (e['title'] as Map?)?['en'] as String? ?? e['id'] as String? ?? '';
+    add(sourceOf(e['hero']), 'Standalone events', 'Event hero: $title');
   }
 
   for (final person in draft.people) {

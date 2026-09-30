@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 
 import '../state/content_draft.dart';
 import '../util/media_urls.dart';
+import '../widgets/event_delete_dialog.dart';
 import '../widgets/event_dialog.dart';
 import '../widgets/media_slot.dart';
 
@@ -245,7 +246,7 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
         ref is Map ? ((ref['flagship'] as String?) ?? (ref['reduced'] as String?)) : null;
 
     final layers = ((era['scene'] as Map?)?['layers'] as List?) ?? const [];
-    final events = (era['events'] as List? ?? const []).cast<Map<String, dynamic>>();
+    final events = _resolvedEvents(draft, era);
 
     return SingleChildScrollView(
       child: Column(
@@ -306,6 +307,21 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
     );
   }
 
+  /// An era's events in reading order. Each `{ref}` item is looked up in the
+  /// registry (`content/events.json`); an event still inlined in the era file is
+  /// used as it is. A ref with no registry entry is skipped — the validator
+  /// reports it.
+  List<Map<String, dynamic>> _resolvedEvents(ContentDraft draft, Map<String, dynamic> era) {
+    return [
+      for (final item in (era['events'] as List? ?? const []))
+        if (item is Map<String, dynamic>)
+          if (item.containsKey('ref'))
+            ...[if (draft.eventById(item['ref'] as String) case final e?) e]
+          else
+            item,
+    ];
+  }
+
   Widget _buildEvents(ContentDraft draft, String eraJsonText) {
     Map<String, dynamic> era;
     try {
@@ -313,23 +329,33 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
     } catch (e) {
       return Center(child: Text('Invalid JSON — fix it in Raw JSON first: $e'));
     }
-    final events = (era['events'] as List? ?? const [])
-        .cast<Map<String, dynamic>>()
-        .toList()
-      ..sort((a, b) => (a['order'] as int).compareTo(b['order'] as int));
+    final events = _resolvedEvents(draft, era);
+    final controller = ref.read(contentDraftProvider.notifier);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Align(
           alignment: Alignment.centerRight,
-          child: FilledButton.icon(
-            onPressed: () => showDialog<void>(
-              context: context,
-              builder: (context) => EventDialog(eraSlug: widget.slug),
-            ),
-            icon: const Icon(Icons.add),
-            label: const Text('Add event'),
+          child: Wrap(
+            spacing: 8,
+            children: [
+              OutlinedButton.icon(
+                onPressed: draft.standaloneEvents.isEmpty
+                    ? null
+                    : () => _addExistingEvent(draft),
+                icon: const Icon(Icons.link),
+                label: Text('Add existing event (${draft.standaloneEvents.length} standalone)'),
+              ),
+              FilledButton.icon(
+                onPressed: () => showDialog<void>(
+                  context: context,
+                  builder: (context) => EventDialog(eraSlug: widget.slug),
+                ),
+                icon: const Icon(Icons.add),
+                label: const Text('Add event'),
+              ),
+            ],
           ),
         ),
         const SizedBox(height: 8),
@@ -358,18 +384,14 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
                               icon: const Icon(Icons.arrow_upward),
                               onPressed: i == 0
                                   ? null
-                                  : () => ref
-                                      .read(contentDraftProvider.notifier)
-                                      .reorderEvent(widget.slug, id, i - 1),
+                                  : () => controller.reorderEvent(widget.slug, id, i - 1),
                             ),
                             IconButton(
                               tooltip: 'Move down',
                               icon: const Icon(Icons.arrow_downward),
                               onPressed: i == events.length - 1
                                   ? null
-                                  : () => ref
-                                      .read(contentDraftProvider.notifier)
-                                      .reorderEvent(widget.slug, id, i + 1),
+                                  : () => controller.reorderEvent(widget.slug, id, i + 1),
                             ),
                             IconButton(
                               tooltip: 'Edit',
@@ -381,9 +403,19 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
                               ),
                             ),
                             IconButton(
-                              tooltip: 'Delete',
+                              tooltip: events.length <= 1
+                                  ? 'An era keeps at least one event'
+                                  : 'Remove from era (it becomes a standalone event)',
+                              icon: const Icon(Icons.link_off),
+                              onPressed: events.length <= 1
+                                  ? null
+                                  : () => _removeFromEra(id, title),
+                            ),
+                            IconButton(
+                              tooltip: 'Delete permanently',
                               icon: const Icon(Icons.delete_outline),
-                              onPressed: () => _confirmDeleteEvent(id, title),
+                              onPressed: () =>
+                                  confirmAndDeleteEvent(context, ref, eventId: id, title: title),
                             ),
                           ],
                         ),
@@ -396,44 +428,36 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
     );
   }
 
-  Future<void> _confirmDeleteEvent(String eventId, String title) async {
-    final referencedBy =
-        ref.read(contentDraftProvider.notifier).eventsReferencing(widget.slug, eventId);
-    final controller = TextEditingController();
-    final confirmed = await showDialog<bool>(
+  /// Takes the event out of this era — it is kept, as a standalone event.
+  void _removeFromEra(String eventId, String title) {
+    try {
+      ref.read(contentDraftProvider.notifier).removeEventFromEra(eventId);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('"$title" is now a standalone event (it needs a dated year and a hero image).'),
+      ));
+    } on StateError catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message)));
+    }
+  }
+
+  /// Lists a standalone event at the end of this era.
+  Future<void> _addExistingEvent(ContentDraft draft) async {
+    final picked = await showDialog<String>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text('Delete "$title"'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('This permanently removes event "$eventId" and renumbers the '
-                'others. Type the id to confirm:'),
-            if (referencedBy.isNotEmpty) ...[
-              const SizedBox(height: 8),
-              Text(
-                'Also removed from "Related events" on: ${referencedBy.join(', ')}',
-                style: TextStyle(color: Theme.of(context).colorScheme.error),
-              ),
-            ],
-            const SizedBox(height: 12),
-            TextField(controller: controller, decoration: InputDecoration(hintText: eventId)),
-          ],
-        ),
-        actions: [
-          TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancel')),
-          FilledButton(
-            style: FilledButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.error),
-            onPressed: () => Navigator.pop(context, controller.text.trim() == eventId),
-            child: const Text('Delete'),
-          ),
+      builder: (context) => SimpleDialog(
+        title: const Text('Add a standalone event to this era'),
+        children: [
+          for (final e in draft.standaloneEvents)
+            SimpleDialogOption(
+              onPressed: () => Navigator.pop(context, e['id'] as String),
+              child: Text('${(e['title'] as Map?)?['vi'] ?? e['id']}  ·  '
+                  '${((e['year'] as Map?)?['display'] as Map?)?['vi'] ?? ''}'),
+            ),
         ],
       ),
     );
-    controller.dispose();
-    if (confirmed != true) return;
-    ref.read(contentDraftProvider.notifier).deleteEvent(widget.slug, eventId);
+    if (picked == null || !mounted) return;
+    ref.read(contentDraftProvider.notifier).moveEventToEra(picked, widget.slug);
   }
 
   Widget _bilingualRow(
@@ -496,6 +520,10 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
 
   Future<void> _confirmDelete() async {
     final controller = TextEditingController();
+    // Its events are not deleted with it: they stay in the registry, as
+    // standalone events (which then need a dated year and a hero image).
+    final eventCount =
+        ref.read(contentDraftProvider).valueOrNull?.eventIdsByEra[widget.slug]?.length ?? 0;
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
@@ -505,7 +533,14 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('This permanently removes content/eras/${widget.slug}.json and its '
-                'index.json entry. Type the slug to confirm:'),
+                'index.json entry.'),
+            if (eventCount > 0) ...[
+              const SizedBox(height: 8),
+              Text('Its $eventCount events are kept, as standalone events — they will need a '
+                  'dated year and a hero image to pass validation.'),
+            ],
+            const SizedBox(height: 8),
+            const Text('Type the slug to confirm:'),
             const SizedBox(height: 12),
             TextField(controller: controller, decoration: InputDecoration(hintText: widget.slug)),
           ],
@@ -520,7 +555,8 @@ class _EraEditorScreenState extends ConsumerState<EraEditorScreen> {
         ],
       ),
     );
-    controller.dispose();
+    // Not disposed here: the dialog's closing animation is still building the
+    // field, and a controller with no listeners is simply garbage-collected.
     if (confirmed != true) return;
     ref.read(contentDraftProvider.notifier).deleteEra(widget.slug);
     if (mounted) context.go('/eras');
