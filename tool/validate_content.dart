@@ -86,6 +86,12 @@ Future<int> _run() async {
         ? eventJsonById(
             jsonDecode(eventsFile.readAsStringSync()) as Map<String, dynamic>)
         : const <String, Map<String, dynamic>>{};
+    final rawEraMaps = <Map<String, dynamic>>[
+      for (final f in eraFiles)
+        jsonDecode(f.readAsStringSync()) as Map<String, dynamic>,
+    ];
+    final standaloneIds =
+        standaloneEventIds(rawEraMaps, eventsById.keys).toSet();
     final eras = <Map<String, dynamic>>[
       for (final f in eraFiles)
         inlineEraEvents(
@@ -119,6 +125,7 @@ Future<int> _run() async {
         peopleIds: peopleIds,
         eras: eras,
         geometryStreetIds: geoIds,
+        standaloneEventIds: standaloneIds,
       );
       if (problems.isEmpty) {
         stdout.writeln('✓ streets/$n${geoIds == null ? ' (geometry not checked)' : ''}');
