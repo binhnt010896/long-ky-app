@@ -10,6 +10,7 @@ environment:
 dependencies:
   meta: ^1.15.0
   json_schema: ^5.1.0
+  unorm_dart: ^0.3.2
 
 dev_dependencies:
   test: ^1.25.0

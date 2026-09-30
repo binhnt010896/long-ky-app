@@ -168,6 +168,19 @@
       "reason": "exact"
     },
     {
+      "id": "dong-khoi",
+      "name": "Đồng Khởi",
+      "targets": [
+        {
+          "type": "event",
+          "id": "dong-khoi",
+          "era": "dai-thang-mua-xuan"
+        }
+      ],
+      "status": "suggested",
+      "reason": "alias"
+    },
+    {
       "id": "duong-dinh-nghe",
       "name": "Dương Đình Nghệ",
       "targets": [

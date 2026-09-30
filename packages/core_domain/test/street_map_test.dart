@@ -29,6 +29,16 @@ void main() {
       expect(normalizeName('Xô Viết Nghệ–Tĩnh'), 'xô viết nghệ tĩnh');
     });
 
+    test('folds the look-alike Ð (U+00D0) to Đ and normalizes to NFC', () {
+      // OSM's HCMC `Ðồng Khởi` uses the Icelandic Eth.
+      expect(normalizeName('\u00D0ồng Khởi'), normalizeName('Đồng Khởi'));
+      expect(normalizeName('Tôn \u00D0ức Thắng'), 'tôn đức thắng');
+      // Decomposed "ồ" (o + U+0302 + U+0300) equals the precomposed form.
+      expect(normalizeName('Đo\u0302\u0300ng Khởi'), normalizeName('Đồng Khởi'));
+      expect(canonicalSpelling('\u00D0ồng Khởi'), 'Đồng Khởi');
+      expect(streetSlug('\u00D0ồng Khởi'), 'dong-khoi');
+    });
+
     test('personNameVariants splits on · and drops titles', () {
       expect(personNameVariants('Nguyễn Huệ · Quang Trung'),
           ['nguyễn huệ', 'quang trung']);
@@ -110,6 +120,17 @@ void main() {
       expect(s.reason, 'multi');
       expect(s.targets, hasLength(2));
       expect(s.status, StreetStatus.suggested);
+    });
+
+    test('an Eth-spelled OSM name matches and is stored with Đ', () {
+      final m = StreetMatcher.fromContent(people: [], eras: [
+        _era('e', 0, events: [
+          {'id': 'dong-khoi', 'title': {'vi': 'Đồng Khởi'}},
+        ]),
+      ]);
+      final s = m.suggest(['\u00D0ồng Khởi']).single;
+      expect(s.id, 'dong-khoi');
+      expect(s.name, 'Đồng Khởi');
     });
 
     test('duplicate OSM names collapse to one street', () {

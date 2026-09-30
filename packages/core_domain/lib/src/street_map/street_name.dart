@@ -1,3 +1,13 @@
+import 'package:unorm_dart/unorm_dart.dart' as unorm;
+
+/// Canonical spelling of a raw name: Unicode NFC (OSM has some names in
+/// decomposed form) and the Vietnamese Đ/đ (U+0110/U+0111) in place of the
+/// look-alike Icelandic Ð/ð (U+00D0/U+00F0) that some OSM editors type —
+/// e.g. OSM's HCMC `Ðồng Khởi`. Without this, such streets silently fail to
+/// match, and their segments drop out of a street's geometry.
+String canonicalSpelling(String raw) =>
+    unorm.nfc(raw).replaceAll('\u00D0', '\u0110').replaceAll('\u00F0', '\u0111');
+
 /// Prefixes OSM street names carry that carry no identity ("Đường Lê Lợi",
 /// "Phố Huế"). Compared after case folding, longest first.
 const _prefixes = <String>[
@@ -33,7 +43,7 @@ const _titles = <String>[
 /// Diacritics are deliberately kept: Vietnamese names differ by them
 /// ("Lý Thường Kiệt" vs "Lý Thường Kiết"), and OSM names are NFC.
 String normalizeName(String raw, {bool stripStreetPrefix = false}) {
-  var s = raw
+  var s = canonicalSpelling(raw)
       .toLowerCase()
       .replaceAll(RegExp(r'[–—\-–—]'), ' ')
       .replaceAll(RegExp(r'[.,;:()"“”]'), ' ')

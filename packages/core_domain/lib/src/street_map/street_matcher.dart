@@ -117,7 +117,7 @@ class StreetMatcher {
           : (aliasHit != null ? 'alias' : 'exact');
       out.add(MappedStreet(
         id: streetSlug(raw),
-        name: raw.replaceFirst(
+        name: canonicalSpelling(raw).replaceFirst(
             RegExp(r'^(Đại lộ|Đường|Phố)\s+', caseSensitive: false), ''),
         targets: targets,
         status:
