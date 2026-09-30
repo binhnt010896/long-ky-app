@@ -51,16 +51,48 @@ export function decodeBase64Utf8(b64: string): string {
   return new TextDecoder('utf-8', { fatal: true, ignoreBOM: false }).decode(bytes);
 }
 
-interface GitTreeEntry {
-  path: string;
-  mode: string;
-  type: string;
-  sha: string;
+/** How many directory levels below `content/` the GraphQL query expands
+ * (`content/eras/x.json` is one). A directory deeper than this would be
+ * missing from the load, so the walk below fails loudly if it meets one. */
+const CONTENT_TREE_DEPTH = 4;
+
+/** One query for the whole content tree: every entry's name, and every blob's
+ * `text`. GraphQL can't say "recurse", so the nesting is spelled out to
+ * [CONTENT_TREE_DEPTH]. */
+function contentTreeQuery(): string {
+  const blob = '... on Blob { oid text isTruncated }';
+  const tree = (depth: number): string =>
+    depth === 0 ? blob : `... on Tree { entries { name object { ${tree(depth - 1)} } } } ${blob}`;
+  return (
+    'query($owner:String!,$repo:String!,$expr:String!){ ' +
+    'repository(owner:$owner,name:$repo){ ' +
+    `object(expression:$expr){ ${tree(CONTENT_TREE_DEPTH)} } } }`
+  );
+}
+
+interface GqlBlob {
+  oid: string;
+  text: string | null;
+  isTruncated: boolean;
+}
+interface GqlNode extends Partial<GqlBlob> {
+  entries?: { name: string; object: GqlNode | null }[];
 }
 
 /** Reads every `content/**\/*.json` file at `main`'s current head. Returns
  * the head commit's sha (the CMS's "baseSha" for a later [commitFiles]
- * call) alongside each file's raw text, keyed by its repo-relative path. */
+ * call) alongside each file's raw text, keyed by its repo-relative path.
+ *
+ * Cloudflare Workers Free allows 50 subrequests per request, and the old
+ * loader spent one per file plus three (exactly 50 at 47 files). This spends
+ * three, however many files there are:
+ *   1. the head sha (REST);
+ *   2. one GraphQL query for the whole `content/` tree, pinned to that exact
+ *      commit (`<sha>:content`) so the files and the sha can never disagree;
+ *   3. one REST blob read per *truncated* file. GraphQL cuts a blob's `text`
+ *      off somewhere below ~790 KB (measured: a 787,843-byte file came back
+ *      `isTruncated: true`; a 305 KB one did not), and `events.json` is
+ *      bigger than that. Today that is zero or one extra request. */
 export async function getContentAtHead(
   env: Env,
   fetchFn: FetchFn = fetch,
@@ -72,30 +104,58 @@ export async function getContentAtHead(
   };
   const headSha = ref.object.sha;
 
-  const commit = (await ghFetch(env, `${repo}/git/commits/${headSha}`, {}, fetchFn)) as {
-    tree: { sha: string };
-  };
-
-  const tree = (await ghFetch(
+  const gql = (await ghFetch(
     env,
-    `${repo}/git/trees/${commit.tree.sha}?recursive=1`,
-    {},
+    '/graphql',
+    {
+      method: 'POST',
+      body: {
+        query: contentTreeQuery(),
+        variables: { owner: env.GITHUB_OWNER, repo: env.GITHUB_REPO, expr: `${headSha}:content` },
+      },
+    },
     fetchFn,
-  )) as { tree: GitTreeEntry[] };
-
-  const contentEntries = tree.tree.filter(
-    (e) => e.type === 'blob' && e.path.startsWith('content/') && e.path.endsWith('.json'),
-  );
+  )) as {
+    data?: { repository?: { object: GqlNode | null } | null } | null;
+    errors?: { message: string }[];
+  };
+  if (gql.errors?.length || !gql.data?.repository) {
+    throw new GitHubApiError(
+      `GitHub GraphQL content read failed: ${gql.errors?.map((e) => e.message).join('; ') ?? 'no data'}`,
+      502,
+    );
+  }
 
   const files: Record<string, string> = {};
+  const needsBlobRead: { path: string; oid: string }[] = [];
+
+  const walk = (node: GqlNode | null, path: string): void => {
+    if (!node) return;
+    if (node.entries) {
+      for (const e of node.entries) walk(e.object, `${path}/${e.name}`);
+      return;
+    }
+    // A directory below the expanded depth comes back as an empty object
+    // (neither `entries` nor a blob's `oid`) — never drop it silently.
+    if (node.oid === undefined) {
+      throw new GitHubApiError(`content/ nests deeper than ${CONTENT_TREE_DEPTH} levels at ${path}`, 502);
+    }
+    if (!path.endsWith('.json')) return;
+    if (node.isTruncated || node.text == null) {
+      needsBlobRead.push({ path, oid: node.oid });
+    } else {
+      files[path] = node.text;
+    }
+  };
+  walk(gql.data.repository.object, 'content');
+
   await Promise.all(
-    contentEntries.map(async (entry) => {
-      const blob = (await ghFetch(env, `${repo}/git/blobs/${entry.sha}`, {}, fetchFn)) as {
+    needsBlobRead.map(async ({ path, oid }) => {
+      const blob = (await ghFetch(env, `${repo}/git/blobs/${oid}`, {}, fetchFn)) as {
         content: string;
         encoding: string;
       };
-      files[entry.path] =
-        blob.encoding === 'base64' ? decodeBase64Utf8(blob.content) : blob.content;
+      files[path] = blob.encoding === 'base64' ? decodeBase64Utf8(blob.content) : blob.content;
     }),
   );
 

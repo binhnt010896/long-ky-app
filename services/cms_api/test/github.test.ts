@@ -31,30 +31,161 @@ function mockFetch(handlers: Record<string, { status?: number; json?: unknown }>
   }) as typeof fetch;
 }
 
+/** A `fetch` that also records every call it serves, so a test can assert how
+ * many subrequests a Worker request really spends (Workers Free allows 50). */
+function recordingFetch(
+  handlers: Record<string, { status?: number; json?: unknown }>,
+  calls: string[],
+): typeof fetch {
+  const inner = mockFetch(handlers);
+  return (async (input: RequestInfo | URL, init?: RequestInit) => {
+    calls.push(`${init?.method ?? 'GET'} ${typeof input === 'string' ? input : input.toString()}`);
+    return inner(input, init);
+  }) as typeof fetch;
+}
+
+const gqlUrl = 'https://api.github.com/graphql';
+const blobNode = (text: string | null, opts: { oid?: string; isTruncated?: boolean } = {}) => ({
+  oid: opts.oid ?? 'oid',
+  text,
+  isTruncated: opts.isTruncated ?? false,
+});
+
 describe('getContentAtHead', () => {
   it('reads every content/**/*.json file at head, ignoring everything else', async () => {
     const fetchFn = mockFetch({
       [`GET ${api('/git/ref/heads/main')}`]: { json: { object: { sha: 'head-sha' } } },
-      [`GET ${api('/git/commits/head-sha')}`]: { json: { tree: { sha: 'tree-sha' } } },
-      [`GET ${api('/git/trees/tree-sha?recursive=1')}`]: {
+      [`POST ${gqlUrl}`]: {
         json: {
-          tree: [
-            { path: 'content/au-lac.json', type: 'blob', sha: 'blob-1' },
-            { path: 'content/eras/notes.md', type: 'blob', sha: 'blob-2' },
-            { path: 'README.md', type: 'blob', sha: 'blob-3' },
-          ],
+          data: {
+            repository: {
+              object: {
+                entries: [
+                  { name: 'au-lac.json', object: blobNode('{"slug":"au-lac"}') },
+                  { name: 'FIELD-REFERENCE.md', object: blobNode('# notes') },
+                  {
+                    name: 'eras',
+                    object: {
+                      entries: [{ name: 'ba-trieu.json', object: blobNode('{"slug":"ba-trieu"}') }],
+                    },
+                  },
+                ],
+              },
+            },
+          },
         },
-      },
-      [`GET ${api('/git/blobs/blob-1')}`]: {
-        json: { content: btoa('{"slug":"au-lac"}'), encoding: 'base64' },
       },
     });
 
     const result = await getContentAtHead(testEnv, fetchFn);
 
     expect(result.sha).toBe('head-sha');
-    expect(Object.keys(result.files)).toEqual(['content/au-lac.json']);
+    expect(Object.keys(result.files).sort()).toEqual([
+      'content/au-lac.json',
+      'content/eras/ba-trieu.json',
+    ]);
     expect(result.files['content/au-lac.json']).toBe('{"slug":"au-lac"}');
+  });
+
+  it('pins the GraphQL read to the head commit, so files and sha cannot disagree', async () => {
+    let body: { variables: { expr: string } } | undefined;
+    const fetchFn = (async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = input.toString();
+      if (url === gqlUrl) {
+        body = JSON.parse(init!.body as string);
+        return new Response(JSON.stringify({ data: { repository: { object: { entries: [] } } } }));
+      }
+      return new Response(JSON.stringify({ object: { sha: 'abc123' } }));
+    }) as typeof fetch;
+
+    await getContentAtHead(testEnv, fetchFn);
+
+    expect(body?.variables.expr).toBe('abc123:content');
+  });
+
+  it('re-reads only the truncated files through the blob endpoint', async () => {
+    const big = '{"events":"' + 'x'.repeat(50) + '"}';
+    const calls: string[] = [];
+    const fetchFn = recordingFetch(
+      {
+        [`GET ${api('/git/ref/heads/main')}`]: { json: { object: { sha: 'head-sha' } } },
+        [`POST ${gqlUrl}`]: {
+          json: {
+            data: {
+              repository: {
+                object: {
+                  entries: [
+                    { name: 'small.json', object: blobNode('{"a":1}') },
+                    {
+                      name: 'events.json',
+                      object: blobNode('{"events":"xx', { oid: 'big-oid', isTruncated: true }),
+                    },
+                  ],
+                },
+              },
+            },
+          },
+        },
+        [`GET ${api('/git/blobs/big-oid')}`]: {
+          json: { content: btoa(big), encoding: 'base64' },
+        },
+      },
+      calls,
+    );
+
+    const result = await getContentAtHead(testEnv, fetchFn);
+
+    expect(result.files['content/events.json']).toBe(big);
+    expect(result.files['content/small.json']).toBe('{"a":1}');
+    // ref + graphql + the one truncated blob — not one request per file.
+    expect(calls).toHaveLength(3);
+  });
+
+  it('spends three subrequests however many files there are', async () => {
+    const calls: string[] = [];
+    const entries = Array.from({ length: 200 }, (_, i) => ({
+      name: `f${i}.json`,
+      object: blobNode(`{"i":${i}}`),
+    }));
+    const fetchFn = recordingFetch(
+      {
+        [`GET ${api('/git/ref/heads/main')}`]: { json: { object: { sha: 'head-sha' } } },
+        [`POST ${gqlUrl}`]: { json: { data: { repository: { object: { entries } } } } },
+      },
+      calls,
+    );
+
+    const result = await getContentAtHead(testEnv, fetchFn);
+
+    expect(Object.keys(result.files)).toHaveLength(200);
+    expect(calls).toHaveLength(2);
+  });
+
+  it('fails loudly on a GraphQL error rather than returning a partial draft', async () => {
+    const fetchFn = mockFetch({
+      [`GET ${api('/git/ref/heads/main')}`]: { json: { object: { sha: 'head-sha' } } },
+      [`POST ${gqlUrl}`]: { json: { data: null, errors: [{ message: 'Something went wrong' }] } },
+    });
+
+    await expect(getContentAtHead(testEnv, fetchFn)).rejects.toThrow(/Something went wrong/);
+  });
+
+  it('fails loudly on a directory nested deeper than the query expands', async () => {
+    const fetchFn = mockFetch({
+      [`GET ${api('/git/ref/heads/main')}`]: { json: { object: { sha: 'head-sha' } } },
+      [`POST ${gqlUrl}`]: {
+        json: {
+          data: {
+            repository: {
+              // An unexpanded directory comes back as an empty object.
+              object: { entries: [{ name: 'deep', object: {} }] },
+            },
+          },
+        },
+      },
+    });
+
+    await expect(getContentAtHead(testEnv, fetchFn)).rejects.toThrow(/nests deeper/);
   });
 });
 
