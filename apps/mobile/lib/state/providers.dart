@@ -25,6 +25,7 @@ final contentRepositoryProvider = Provider<ContentRepository>((ref) {
       eraDir: 'assets/content/eras',
       peoplePath: 'assets/content/people.json',
       periodsPath: 'assets/content/periods.json',
+      eventsPath: 'assets/content/events.json',
     ),
   );
 });
@@ -44,6 +45,20 @@ final dynastiesProvider = FutureProvider<List<Dynasty>>((ref) {
 /// timeline under dynasty headers.
 final periodsProvider = FutureProvider<PeriodRegistry>((ref) {
   return ref.watch(contentRepositoryProvider).loadPeriods();
+});
+
+/// Events no era lists (Cycle N), in source order. Empty until one is
+/// authored. Drives the standalone event page, the global timeline's "Sự kiện
+/// riêng" nodes, the quiz, and the Character page's "Cũng xuất hiện trong".
+final standaloneEventsProvider = FutureProvider<List<HistoryEvent>>((ref) {
+  return ref.watch(contentRepositoryProvider).loadStandaloneEvents();
+});
+
+/// The event with [id] and, if it sits in an era, that era — or null when no
+/// such event exists. Drives `/su-kien/:id`.
+final eventLocationProvider =
+    FutureProvider.family<EventLocation?, String>((ref, id) {
+  return ref.watch(contentRepositoryProvider).findEvent(id);
 });
 
 /// One era by slug (cached by the repository). Drives Hub / Timeline / Detail.

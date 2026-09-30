@@ -83,6 +83,8 @@ class FirestoreContentSync {
     _ref.invalidate(erasProvider);
     _ref.invalidate(periodsProvider);
     _ref.invalidate(eraProvider);
+    _ref.invalidate(standaloneEventsProvider);
+    _ref.invalidate(eventLocationProvider);
   }
 
   void dispose() {

@@ -9,10 +9,15 @@ PeopleRegistry _people() => PeopleRegistry.fromJson(
     jsonDecode(File('../../content/people.json').readAsStringSync())
         as Map<String, dynamic>);
 
+EventRegistry _events() => EventRegistry.fromJson(
+    jsonDecode(File('../../content/events.json').readAsStringSync())
+        as Map<String, dynamic>);
+
 Era _loadEra(String slug) => Era.fromJson(
     jsonDecode(File('../../content/eras/$slug.json').readAsStringSync())
         as Map<String, dynamic>,
-    _people());
+    _people(),
+    _events());
 
 Period _loadPeriod(String id) {
   final registry = PeriodRegistry.fromJson(

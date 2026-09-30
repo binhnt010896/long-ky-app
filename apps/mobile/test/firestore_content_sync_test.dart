@@ -31,6 +31,9 @@ class _FakeLiveSource implements LiveContentSource {
   @override
   Future<String> loadPeriodsJson() async =>
       throw ContentSourceException('not in fake');
+  @override
+  Future<String> loadStandaloneEventsJson() async =>
+      throw ContentSourceException('not in fake');
 }
 
 GoRouter _routerAt(String location) => GoRouter(
@@ -184,4 +187,7 @@ class _StubBundled implements ContentSource {
     periodsReads++;
     return '{"schemaVersion":1,"periods":[]}';
   }
+  @override
+  Future<String> loadStandaloneEventsJson() async =>
+      '{"schemaVersion":1,"events":[]}';
 }

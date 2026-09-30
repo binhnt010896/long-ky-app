@@ -1,4 +1,6 @@
 /// Test support: a [ContentSource] over the repo's real `content/` directory.
+/// Reads are synchronous on purpose — widget tests run under a fake clock and
+/// real async file I/O would never complete under `tester.pump`.
 ///
 /// Not part of `core_content.dart` — the app never imports it, so `dart:io`
 /// stays out of every app build. The runtime uses [BundledContentSource]
@@ -46,11 +48,11 @@ class DiskContentSource implements ContentSource {
   }
 
   @override
-  Future<String> loadPeopleJson() async => _file('people.json').readAsString();
+  Future<String> loadPeopleJson() async => _file('people.json').readAsStringSync();
 
   @override
   Future<String> loadPeriodsJson() async =>
-      _file('periods.json').readAsString();
+      _file('periods.json').readAsStringSync();
 
   @override
   Future<String> loadStandaloneEventsJson() async {

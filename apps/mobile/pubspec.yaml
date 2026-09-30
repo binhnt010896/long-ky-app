@@ -88,6 +88,7 @@ flutter:
     # JSON, the media manifest, brand and Chào cờ assets are bundled here.
     - assets/content/index.json
     - assets/content/people.json
+    - assets/content/events.json
     - assets/content/periods.json
     - assets/content/media-manifest.json
     - assets/content/content-version.json

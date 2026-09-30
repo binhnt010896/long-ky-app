@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:core_content/core_content.dart';
@@ -38,6 +39,7 @@ class FirestoreContentSource implements LiveContentSource {
   static const _timeout = Duration(seconds: 3);
 
   CollectionReference<Map<String, dynamic>> get _eras => _db.collection('eras');
+  CollectionReference<Map<String, dynamic>> get _events => _db.collection('events');
   DocumentReference<Map<String, dynamic>> get _people =>
       _db.collection('singletons').doc('people');
   DocumentReference<Map<String, dynamic>> get _periods =>
@@ -75,6 +77,29 @@ class FirestoreContentSource implements LiveContentSource {
   @override
   Future<String> loadPeriodsJson() => _singleton(_periods, 'periods');
 
+  /// The standalone events (Cycle N) — one small `events/<id>` document each.
+  /// An empty collection means "Firestore has no word on them" (not yet
+  /// written, or the last one was deleted), so it defers to the pack and the
+  /// bundle rather than answering "none".
+  @override
+  Future<String> loadStandaloneEventsJson() async {
+    try {
+      final snap = await _events.get().timeout(_timeout);
+      final events = <Object?>[
+        for (final d in snap.docs)
+          if (d.data()['json'] is String) jsonDecode(d.data()['json'] as String),
+      ];
+      if (events.isEmpty) {
+        throw ContentSourceException('no standalone events in Firestore');
+      }
+      return jsonEncode(<String, Object?>{'schemaVersion': 1, 'events': events});
+    } on ContentSourceException {
+      rethrow;
+    } catch (e) {
+      throw ContentSourceException('Firestore standalone events unavailable: $e');
+    }
+  }
+
   Future<String> _singleton(
       DocumentReference<Map<String, dynamic>> ref, String name) async {
     try {
@@ -91,7 +116,7 @@ class FirestoreContentSource implements LiveContentSource {
     }
   }
 
-  /// Fires whenever any era, people or periods document changes — the
+  /// Fires whenever any era, event, people or periods document changes — the
   /// live-update signal [ContentSwapGate] listens to. Never closes on its
   /// own: a snapshot-stream error (e.g. a network blip) is swallowed rather
   /// than silencing future updates, since there is no one to restart the
@@ -111,6 +136,7 @@ class FirestoreContentSource implements LiveContentSource {
     controller.onListen = () {
       subs = [
         _eras.snapshots().listen(emit, onError: onError),
+        _events.snapshots().listen(emit, onError: onError),
         _people.snapshots().listen(emit, onError: onError),
         _periods.snapshots().listen(emit, onError: onError),
       ];

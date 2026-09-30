@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:core_content/core_content.dart';
+import 'package:core_content/testing.dart';
 import 'package:core_domain/core_domain.dart';
 import 'package:experience/experience.dart';
 import 'package:flutter/material.dart';
@@ -75,74 +76,19 @@ class _MemoryQuizStore implements QuizStore {
   }
 }
 
-/// Content source backed by the repo's real content/ directory on disk —
-/// mirrors era_screens_test.dart's `_DiskSource` (the quiz generator needs
-/// the full corpus to reliably produce 5 daily questions at seed=1, exactly
-/// as that file's own quiz tests rely on).
-class _DiskSource implements ContentSource {
-  @override
-  Future<List<String>> availableSlugs() async => <String>[
-        'hong-bang-van-lang',
-        'au-lac',
-        'nha-trieu',
-        'hai-ba-trung',
-        'ba-trieu',
-        'van-xuan',
-        'mai-hac-de',
-        'phung-hung',
-        'khuc-thua-du',
-        'ngo-quyen',
-        'dinh-tien-hoang',
-        'tien-le',
-        'ly-thai-to',
-        'ly-thai-tong',
-        'ly-nhan-tong',
-        'tran-thai-tong',
-        'tran-hung-dao',
-        'le-loi',
-        'le-thanh-tong',
-        'nam-bac-trieu',
-        'trinh-nguyen',
-        'tay-son',
-        'gia-long',
-        'minh-mang',
-        'thieu-tri',
-        'tu-duc',
-        'can-vuong',
-        'phong-trao-yeu-nuoc',
-        'cach-mang-thang-tam',
-        'dien-bien-phu',
-        'dai-thang-mua-xuan',
-        'thong-nhat-dat-nuoc',
-        'bien-gioi-tay-nam',
-        'bien-gioi-phia-bac',
-        'cong-cuoc-doi-moi',
-        'hoi-nhap-quoc-te',
-        'vi-the-moi',
-        'ky-nguyen-vuon-minh',
-      ];
-
-  @override
-  Future<String> loadEraJson(String slug) async =>
-      File('../../content/eras/$slug.json').readAsStringSync();
-
-  @override
-  Future<String> loadPeopleJson() async =>
-      File('../../content/people.json').readAsStringSync();
-
-  @override
-  Future<String> loadPeriodsJson() async =>
-      File('../../content/periods.json').readAsStringSync();
-}
 
 Era _loadEra(String slug) {
   final people = PeopleRegistry.fromJson(
       jsonDecode(File('../../content/people.json').readAsStringSync())
           as Map<String, dynamic>);
+  final events = EventRegistry.fromJson(
+      jsonDecode(File('../../content/events.json').readAsStringSync())
+          as Map<String, dynamic>);
   return Era.fromJson(
       jsonDecode(File('../../content/eras/$slug.json').readAsStringSync())
           as Map<String, dynamic>,
-      people);
+      people,
+      events);
 }
 
 Period _loadPeriod(String id) {
@@ -163,7 +109,7 @@ Future<GoRouter> _pumpAt(
 }) async {
   final container = ProviderContainer(overrides: <Override>[
     tierProvider.overrideWithValue(ExperienceTier.reduced),
-    contentRepositoryProvider.overrideWithValue(ContentRepository(_DiskSource())),
+    contentRepositoryProvider.overrideWithValue(ContentRepository(DiskContentSource(Directory('../../content')))),
     tipStoreProvider.overrideWithValue(null),
     quizStoreProvider.overrideWithValue(quizStore ?? _MemoryQuizStore()),
     activeContentVersionProvider.overrideWith((ref) => 0),

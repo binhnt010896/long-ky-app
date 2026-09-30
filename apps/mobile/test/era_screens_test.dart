@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:core_content/core_content.dart';
+import 'package:core_content/testing.dart';
 import 'package:experience/experience.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -60,64 +61,6 @@ class _MemoryQuizStore implements QuizStore {
   }
 }
 
-/// Content source backed by the repo's real content/ directory on disk.
-class _DiskSource implements ContentSource {
-  @override
-  Future<List<String>> availableSlugs() async => <String>[
-        'hong-bang-van-lang',
-        'au-lac',
-        'nha-trieu',
-        'hai-ba-trung',
-        'ba-trieu',
-        'van-xuan',
-        'mai-hac-de',
-        'phung-hung',
-        'khuc-thua-du',
-        'ngo-quyen',
-        'dinh-tien-hoang',
-        'tien-le',
-        'ly-thai-to',
-        'ly-thai-tong',
-        'ly-nhan-tong',
-        'tran-thai-tong',
-        'tran-hung-dao',
-        'le-loi',
-        'le-thanh-tong',
-        'nam-bac-trieu',
-        'trinh-nguyen',
-        'tay-son',
-        'gia-long',
-        'minh-mang',
-        'thieu-tri',
-        'tu-duc',
-        'can-vuong',
-        'phong-trao-yeu-nuoc',
-        'cach-mang-thang-tam',
-        'dien-bien-phu',
-        'dai-thang-mua-xuan',
-        'thong-nhat-dat-nuoc',
-        'bien-gioi-tay-nam',
-        'bien-gioi-phia-bac',
-        'cong-cuoc-doi-moi',
-        'hoi-nhap-quoc-te',
-        'vi-the-moi',
-        'ky-nguyen-vuon-minh',
-      ];
-
-  @override
-  Future<String> loadEraJson(String slug) async =>
-      // Sync read so the future resolves on a microtask the test clock flushes
-      // (real async disk I/O would not complete under tester.pump).
-      File('../../content/eras/$slug.json').readAsStringSync();
-
-  @override
-  Future<String> loadPeopleJson() async =>
-      File('../../content/people.json').readAsStringSync();
-
-  @override
-  Future<String> loadPeriodsJson() async =>
-      File('../../content/periods.json').readAsStringSync();
-}
 
 Future<GoRouter> _pumpAt(
   WidgetTester tester,
@@ -130,7 +73,7 @@ Future<GoRouter> _pumpAt(
   final container = ProviderContainer(overrides: <Override>[
     tierProvider.overrideWithValue(tier),
     contentRepositoryProvider
-        .overrideWithValue(ContentRepository(_DiskSource())),
+        .overrideWithValue(ContentRepository(DiskContentSource(Directory('../../content')))),
     tipStoreProvider.overrideWithValue(tipStore),
     quizStoreProvider.overrideWithValue(quizStore ?? _MemoryQuizStore()),
     activeContentVersionProvider.overrideWith((ref) => contentVersion),

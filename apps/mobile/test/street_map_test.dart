@@ -1,7 +1,7 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:core_content/core_content.dart';
+import 'package:core_content/testing.dart';
 import 'package:core_domain/core_domain.dart';
 import 'package:experience/experience.dart';
 import 'package:flutter/material.dart';
@@ -22,26 +22,6 @@ import 'package:viet_su/state/providers.dart';
 import 'package:viet_su/telemetry/route_telemetry.dart';
 import 'package:viet_su/telemetry/telemetry.dart';
 
-class _DiskSource implements ContentSource {
-  @override
-  Future<List<String>> availableSlugs() async => [
-        for (final s in (jsonDecode(File('../../content/index.json').readAsStringSync())
-            as Map<String, dynamic>)['eras'] as List)
-          s as String,
-      ];
-
-  @override
-  Future<String> loadEraJson(String slug) async =>
-      File('../../content/eras/$slug.json').readAsStringSync();
-
-  @override
-  Future<String> loadPeopleJson() async =>
-      File('../../content/people.json').readAsStringSync();
-
-  @override
-  Future<String> loadPeriodsJson() async =>
-      File('../../content/periods.json').readAsStringSync();
-}
 
 class _Events implements Telemetry {
   final List<(String, Map<String, Object>)> events = [];
@@ -120,7 +100,7 @@ Future<(GoRouter, _Events)> _pump(
 }) async {
   final telemetry = _Events();
   final container = ProviderContainer(overrides: [
-    contentRepositoryProvider.overrideWithValue(ContentRepository(_DiskSource())),
+    contentRepositoryProvider.overrideWithValue(ContentRepository(DiskContentSource(Directory('../../content')))),
     streetDataSourceProvider.overrideWithValue(source),
     telemetryProvider.overrideWithValue(telemetry),
   ]);
