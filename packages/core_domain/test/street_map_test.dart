@@ -226,12 +226,23 @@ void main() {
             [String status = 'approved']) =>
         {'id': id, 'name': id, 'targets': t, 'status': status};
 
-    List<String> run(List<Map<String, dynamic>> s, {Set<String>? geo}) =>
+    List<String> run(List<Map<String, dynamic>> s,
+            {Set<String>? geo, Set<String> standalone = const {}}) =>
         StreetMapValidator.validate(
             streetsJson: file(s),
             peopleIds: {'p1'},
             eras: eras,
-            geometryStreetIds: geo);
+            geometryStreetIds: geo,
+            standaloneEventIds: standalone);
+
+    test('an event with no era is valid only if it is a standalone event', () {
+      final targets = [
+        {'type': 'event', 'id': 'alone', 'era': ''}
+      ];
+      expect(run([street('a', targets)], standalone: {'alone'}), isEmpty);
+      expect(run([street('a', targets)]).join('\n'),
+          contains('has no era and is not a standalone event'));
+    });
 
     test('a good file passes', () {
       expect(

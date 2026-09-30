@@ -7,12 +7,14 @@ import 'street_map.dart';
 abstract final class StreetMapValidator {
   /// [eras] are the decoded era maps; [peopleIds] the registry ids;
   /// [geometryStreetIds] the `properties.id`s in the generated GeoJSON, or
-  /// null to skip the geometry cross-check.
+  /// null to skip the geometry cross-check. [standaloneEventIds] are the events
+  /// no era lists (Cycle N): an event target with no `era` must be one of them.
   static List<String> validate({
     required String streetsJson,
     required Set<String> peopleIds,
     required List<Map<String, dynamic>> eras,
     Set<String>? geometryStreetIds,
+    Set<String> standaloneEventIds = const <String>{},
   }) {
     final problems = <String>[];
     final StreetMapFile file;
@@ -30,6 +32,14 @@ abstract final class StreetMapValidator {
         problems.add('street "${s.id}" is approved but has no targets');
       }
       for (final t in s.targets) {
+        // An event with no era is a standalone event: it opens by id alone.
+        if (t.type == StreetTargetType.event && t.era.isEmpty) {
+          if (!standaloneEventIds.contains(t.id)) {
+            problems.add(
+                'street "${s.id}": event "${t.id}" has no era and is not a standalone event');
+          }
+          continue;
+        }
         final era = eraBySlug[t.era];
         if (era == null) {
           problems.add('street "${s.id}": unknown era "${t.era}"');

@@ -8,9 +8,11 @@ import '../../state/providers.dart';
 import '../../telemetry/telemetry.dart';
 
 /// The route a street target opens (existing routes — see app_router.dart).
+/// An event opens by id alone (`/su-kien/:id`): the router sends one that sits
+/// in an era on to `/era/:slug/event/:id`, and a standalone one has no era.
 String routeForTarget(StreetTarget t) => switch (t.type) {
       StreetTargetType.person => '/era/${t.era}/figure/${t.id}',
-      StreetTargetType.event => '/era/${t.era}/event/${t.id}',
+      StreetTargetType.event => '/su-kien/${t.id}',
       StreetTargetType.era => '/era/${t.era}',
     };
 
@@ -80,15 +82,23 @@ class _TargetRow extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final era = ref.watch(eraProvider(target.era)).valueOrNull;
-    if (era == null) return const SizedBox.shrink();
+    // An event resolves by id alone — it may sit in an era or be standalone.
+    final found = target.type == StreetTargetType.event
+        ? ref.watch(eventLocationProvider(target.id)).valueOrNull
+        : null;
+    final era = target.type == StreetTargetType.event
+        ? null
+        : ref.watch(eraProvider(target.era)).valueOrNull;
+    if (target.type == StreetTargetType.event ? found == null : era == null) {
+      return const SizedBox.shrink();
+    }
 
     final String title;
     final String line;
     final String button;
     switch (target.type) {
       case StreetTargetType.person:
-        final f = era.figureById(target.id);
+        final f = era!.figureById(target.id);
         if (f == null) return const SizedBox.shrink();
         title = f.name.resolve(lang);
         line = [
@@ -97,13 +107,12 @@ class _TargetRow extends ConsumerWidget {
         ].whereType<String>().where((s) => s.isNotEmpty).join(' — ');
         button = lang == Lang.vi ? 'Xem nhân vật' : 'View figure';
       case StreetTargetType.event:
-        final e = era.events.where((e) => e.id == target.id).firstOrNull;
-        if (e == null) return const SizedBox.shrink();
+        final e = found!.event;
         title = e.title.resolve(lang);
         line = e.year.display.resolve(lang);
         button = lang == Lang.vi ? 'Xem sự kiện' : 'View event';
       case StreetTargetType.era:
-        title = era.title.resolve(lang);
+        title = era!.title.resolve(lang);
         line = era.yearRange.display.resolve(lang);
         button = lang == Lang.vi ? 'Xem thời kỳ' : 'View era';
     }

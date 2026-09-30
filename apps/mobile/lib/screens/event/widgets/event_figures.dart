@@ -14,6 +14,7 @@ class EventFigures extends StatelessWidget {
     required this.figures,
     required this.slug,
     required this.lang,
+    this.slugFor,
     super.key,
   });
 
@@ -22,6 +23,10 @@ class EventFigures extends StatelessWidget {
   /// Era slug, for routing to `/era/:slug/figure/:figureId`.
   final String slug;
   final Lang lang;
+
+  /// Overrides [slug] per figure. A standalone event has no era, so each chip
+  /// opens the figure in their home era instead.
+  final String Function(Character)? slugFor;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +71,7 @@ class EventFigures extends StatelessWidget {
               character: figures[i],
               lang: lang,
               onTap: () =>
-                  context.push('/era/$slug/figure/${figures[i].id}'),
+                  context.push('/era/${slugFor?.call(figures[i]) ?? slug}/figure/${figures[i].id}'),
             ),
           ),
         ),

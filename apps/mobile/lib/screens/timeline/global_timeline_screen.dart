@@ -8,6 +8,7 @@ import '../../state/providers.dart';
 import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
+import 'standalone_placement.dart';
 
 /// Global Timeline — every era's events threaded onto one continuous chronology,
 /// so the whole sweep of Việt history reads as a single line. Era chapters break
@@ -37,6 +38,10 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
     final erasAsync = ref.watch(erasProvider);
     final periods = ref.watch(periodsProvider).valueOrNull;
     final lang = ref.watch(langProvider);
+    // Events no era lists (none until one is authored): their own nodes.
+    final standalone =
+        ref.watch(standaloneEventsProvider).valueOrNull ?? const <HistoryEvent>[];
+    final people = ref.watch(peopleProvider).valueOrNull;
 
     return Scaffold(
       backgroundColor: VSColors.lacquer,
@@ -49,9 +54,11 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
           error: (e, _) => Center(child: Text('$e', style: VSType.bodySmall)),
           data: (eras) {
             final totalEvents = eras.fold<int>(
-              0,
-              (sum, e) => sum + e.events.length,
-            );
+                  0,
+                  (sum, e) => sum + e.events.length,
+                ) +
+                standalone.length;
+            final placed = StandalonePlacement.place(eras, standalone);
 
             // Filter: match each event's own text and its era/dynasty context,
             // both folded to remove diacritics so an unaccented query still
@@ -59,14 +66,21 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
             final query = _foldSearch(_query.trim());
             final filtering = query.isNotEmpty;
             final matches = <_EraMatch>[];
+            final standaloneMatches = <HistoryEvent>[];
             var resultCount = 0;
             if (filtering) {
+              for (final event in standalone) {
+                if (_eventHaystack(null, event, people).contains(query)) {
+                  standaloneMatches.add(event);
+                }
+              }
+              resultCount += standaloneMatches.length;
               for (final era in eras) {
                 final eraHay = _eraHaystack(era, periods);
                 final hit = <HistoryEvent>[];
                 for (final event in era.events) {
                   if (eraHay.contains(query) ||
-                      _eventHaystack(era, event).contains(query)) {
+                      _eventHaystack(era, event, people).contains(query)) {
                     hit.add(event);
                   }
                 }
@@ -135,6 +149,9 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
                         },
                       ),
                       if (!filtering)
+                        for (final event in placed.beforeFirst)
+                          _standaloneEntry(context, event, lang),
+                      if (!filtering)
                         for (var ei = 0; ei < eras.length; ei++) ...<Widget>[
                           if (ei == 0 || eras[ei].period != eras[ei - 1].period)
                             _PeriodHeader(
@@ -151,15 +168,16 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
                           ),
                           for (final event in eras[ei].events)
                             _EventEntry(
-                              era: eras[ei],
                               event: event,
                               lang: lang,
                               onTap: () => context.push(
                                 '/era/${eras[ei].slug}/event/${event.id}',
                               ),
                             ),
+                          for (final event in placed.afterEra[ei] ?? const <HistoryEvent>[])
+                            _standaloneEntry(context, event, lang),
                         ]
-                      else if (matches.isEmpty)
+                      else if (matches.isEmpty && standaloneMatches.isEmpty)
                         _EmptyResults(lang: lang, query: _query.trim())
                       else
                         for (var mi = 0; mi < matches.length; mi++) ...<Widget>[
@@ -181,7 +199,6 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
                           ),
                           for (final event in matches[mi].events)
                             _EventEntry(
-                              era: matches[mi].era,
                               event: event,
                               lang: lang,
                               onTap: () => context.push(
@@ -189,7 +206,11 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
                               ),
                             ),
                         ],
-                      if (!filtering || matches.isNotEmpty) const _EndCap(),
+                      if (filtering)
+                        for (final event in standaloneMatches)
+                          _standaloneEntry(context, event, lang),
+                      if (!filtering || matches.isNotEmpty || standaloneMatches.isNotEmpty)
+                        const _EndCap(),
                     ]),
                   ),
                 ),
@@ -201,6 +222,15 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
     );
   }
 }
+
+/// One standalone event's node — opens `/su-kien/:id`.
+Widget _standaloneEntry(BuildContext context, HistoryEvent event, Lang lang) =>
+    _EventEntry(
+      event: event,
+      lang: lang,
+      standalone: true,
+      onTap: () => context.push('/su-kien/${event.id}'),
+    );
 
 /// An era paired with the subset of its events that matched the active query.
 class _EraMatch {
@@ -243,7 +273,7 @@ String _eraHaystack(Era era, PeriodRegistry? periods) {
 
 /// Searchable key for one event: its title, summary, displayed year and the
 /// names/epithets of the figures who appear in it (both languages).
-String _eventHaystack(Era era, HistoryEvent event) {
+String _eventHaystack(Era? era, HistoryEvent event, PeopleRegistry? people) {
   final parts = <String>[
     event.title.vi,
     event.title.en ?? '',
@@ -252,7 +282,14 @@ String _eventHaystack(Era era, HistoryEvent event) {
     event.year.display.vi,
     event.year.display.en ?? '',
   ];
-  for (final c in era.charactersFor(event)) {
+  // A standalone event has no era roster: its figures come from the registry.
+  final figures = era != null
+      ? era.charactersFor(event)
+      : <Character>[
+          for (final id in event.figureIds)
+            if (people?[id] case final c?) c,
+        ];
+  for (final c in figures) {
     parts
       ..add(c.name.vi)
       ..add(c.name.en ?? '')
@@ -773,16 +810,18 @@ class _EraChapter extends StatelessWidget {
 
 class _EventEntry extends StatelessWidget {
   const _EventEntry({
-    required this.era,
     required this.event,
     required this.lang,
     required this.onTap,
+    this.standalone = false,
   });
 
-  final Era era;
   final HistoryEvent event;
   final Lang lang;
   final VoidCallback onTap;
+
+  /// A standalone event (no era), marked "Sự kiện riêng" under its year.
+  final bool standalone;
 
   @override
   Widget build(BuildContext context) {
@@ -822,6 +861,18 @@ class _EventEntry extends StatelessWidget {
                             event.title.resolve(lang),
                             style: VSType.cardTitle.copyWith(fontSize: 15),
                           ),
+                          if (standalone)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 3),
+                              child: Text(
+                                lang == Lang.vi ? 'Sự kiện riêng' : 'Standalone event',
+                                style: VSType.caption.copyWith(
+                                  color: VSColors.inkMuted,
+                                  letterSpacing: VSType.track(0.14, 10),
+                                  fontSize: 10,
+                                ),
+                              ),
+                            ),
                         ],
                       ),
                     ),

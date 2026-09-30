@@ -4,6 +4,7 @@ import '../character.dart';
 import '../era.dart';
 import '../history_event.dart';
 import '../localized_text.dart';
+import '../people.dart';
 import 'question.dart';
 
 /// The scope a quiz draws its questions from.
@@ -27,7 +28,8 @@ enum QuizMode {
 /// per launch.
 int dailySeed(DateTime day) => day.year * 10000 + day.month * 100 + day.day;
 
-typedef _EE = (Era, HistoryEvent);
+/// An event and the era it sits in — null for a standalone event.
+typedef _EE = (Era?, HistoryEvent);
 
 String _yearLabel(int v) => v < 0 ? '${-v} TCN' : '$v';
 
@@ -43,9 +45,22 @@ LocalizedText _l(String vi, String en) => LocalizedText(vi: vi, en: en);
 /// history-not-politics stance. Their events still surface in the other four
 /// question types.
 class QuizGenerator {
-  const QuizGenerator(this.eras);
+  const QuizGenerator(
+    this.eras, {
+    this.standalone = const <HistoryEvent>[],
+    this.people = PeopleRegistry.empty,
+  });
 
   final List<Era> eras;
+
+  /// Events no era lists (Cycle N). They join the year, who, quote and order
+  /// questions of the unscoped modes (daily, random) — a scoped quiz is about
+  /// an era or period, and they belong to neither — and are never asked "which
+  /// era?", since they have none.
+  final List<HistoryEvent> standalone;
+
+  /// Resolves a standalone event's `figureIds` (it has no era roster).
+  final PeopleRegistry people;
 
   /// Tổng Bí thư / Chủ tịch nước / Thủ tướng figures from 1975 on. Their
   /// events remain fair game for every question type except "who".
@@ -148,16 +163,31 @@ class QuizGenerator {
       case QuizMode.random:
         selected = eras;
     }
+    final unscoped = mode == QuizMode.daily || mode == QuizMode.random;
     return <_EE>[
       for (final era in selected)
         for (final event in era.events) (era, event),
+      if (unscoped)
+        for (final event in standalone) (null, event),
     ];
   }
 
   List<_EE> _allEvents() => <_EE>[
         for (final era in eras)
           for (final event in era.events) (era, event),
+        for (final event in standalone) (null, event),
       ];
+
+  /// The figures of an event: its era's roster entries (with per-era
+  /// overrides), or — for a standalone event — the registry's base people.
+  List<Character> _figuresOf(_EE ee) {
+    final era = ee.$1;
+    if (era != null) return era.charactersFor(ee.$2);
+    return <Character>[
+      for (final id in ee.$2.figureIds)
+        if (people[id] case final c?) c,
+    ];
+  }
 
   // ---- Q1: year ----------------------------------------------------------
 
@@ -235,7 +265,7 @@ class QuizGenerator {
   List<Question> _buildWho(List<_EE> scope, Random rng) {
     final scopeFigures = <String, Character>{};
     for (final ee in scope) {
-      for (final c in ee.$1.characters) {
+      for (final c in ee.$1?.characters ?? _figuresOf(ee)) {
         if (!excludedLeaderIds.contains(c.id)) scopeFigures[c.id] = c;
       }
     }
@@ -245,11 +275,15 @@ class QuizGenerator {
         if (!excludedLeaderIds.contains(c.id)) globalFigures[c.id] = c;
       }
     }
+    for (final event in standalone) {
+      for (final c in _figuresOf((null, event))) {
+        if (!excludedLeaderIds.contains(c.id)) globalFigures[c.id] = c;
+      }
+    }
 
     final out = <Question>[];
     for (final ee in scope) {
-      final figs = ee.$1
-          .charactersFor(ee.$2)
+      final figs = _figuresOf(ee)
           .where((c) => !excludedLeaderIds.contains(c.id))
           .toList();
       if (figs.isEmpty) continue;
@@ -286,7 +320,7 @@ class QuizGenerator {
       final quote = ee.$2.pullQuote;
       if (quote == null) continue;
       final sameEra = <_EE>[
-        for (final other in ee.$1.events)
+        for (final other in ee.$1?.events ?? const <HistoryEvent>[])
           if (other.id != ee.$2.id) (ee.$1, other),
       ];
       final distractors = _pickFarObjects<_EE>(
@@ -346,7 +380,7 @@ class QuizGenerator {
               OrderItem(
                 title: ee.$2.title,
                 year: ee.$2.year.value!,
-                eraSlug: ee.$1.slug,
+                eraSlug: ee.$1?.slug ?? '',
                 eventId: ee.$2.id,
               ),
           ],
@@ -363,6 +397,8 @@ class QuizGenerator {
     final out = <Question>[];
     for (final ee in scope) {
       final era = ee.$1;
+      // A standalone event has no era to ask about.
+      if (era == null) continue;
       final samePeriod =
           eras.where((e) => e.slug != era.slug && e.period == era.period);
       final others = eras.where((e) => e.slug != era.slug);
@@ -393,7 +429,7 @@ class QuizGenerator {
   // ---- shared helpers -----------------------------------------------------
 
   QuestionSource _sourceOf(_EE ee, {LocalizedText? note}) => QuestionSource(
-        eraSlug: ee.$1.slug,
+        eraSlug: ee.$1?.slug ?? '',
         eventId: ee.$2.id,
         citation: ee.$2.citation,
         summary: ee.$2.summary,

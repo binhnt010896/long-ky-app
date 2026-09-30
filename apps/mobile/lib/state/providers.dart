@@ -61,6 +61,26 @@ final eventLocationProvider =
   return ref.watch(contentRepositoryProvider).findEvent(id);
 });
 
+/// The people registry (`content/people.json`).
+final peopleProvider = FutureProvider<PeopleRegistry>((ref) {
+  return ref.watch(contentRepositoryProvider).loadPeople();
+});
+
+/// For each person on at least one era's roster, the slug of their *home era*:
+/// the earliest era (by [Era.order]) that lists them. A standalone event has
+/// no era of its own, so its figure chips open the figure's page in this era —
+/// the same rule the street map uses.
+final homeEraSlugsProvider = FutureProvider<Map<String, String>>((ref) async {
+  final eras = await ref.watch(erasProvider.future);
+  final home = <String, String>{};
+  for (final era in eras) {
+    for (final c in era.characters) {
+      home.putIfAbsent(c.id, () => era.slug);
+    }
+  }
+  return home;
+});
+
 /// One era by slug (cached by the repository). Drives Hub / Timeline / Detail.
 final eraProvider = FutureProvider.family<Era, String>((ref, slug) {
   return ref.watch(contentRepositoryProvider).loadEra(slug);

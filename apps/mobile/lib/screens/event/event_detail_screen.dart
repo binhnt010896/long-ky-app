@@ -217,7 +217,13 @@ class _EventPage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(
               VSSpacing.xl, VSSpacing.xl, VSSpacing.xl, 40),
-          child: _EventBody(era: era, event: event, lang: lang),
+          child: EventBody(
+            event: event,
+            figures: era.charactersFor(event),
+            figureSlug: era.slug,
+            section: era.primarySource.section?.resolve(lang),
+            lang: lang,
+          ),
         ),
       ],
     );
@@ -382,17 +388,32 @@ class _EventHero extends StatelessWidget {
   }
 }
 
-class _EventBody extends StatelessWidget {
-  const _EventBody({required this.era, required this.event, required this.lang});
+/// The scrolling body under an event's hero: year line, title, body, details,
+/// pull-quote, figures, street chip and citation. Shared by the in-era page and
+/// the standalone page — the only differences are the optional [section] line
+/// (an era's source section) and where a figure chip leads ([figureSlug]).
+class EventBody extends StatelessWidget {
+  const EventBody({
+    required this.event,
+    required this.figures,
+    required this.figureSlug,
+    required this.lang,
+    this.section,
+    this.figureSlugFor,
+    super.key,
+  });
 
-  final Era era;
   final HistoryEvent event;
+  final List<Character> figures;
+
+  /// Era slug used for figure chips (overridden per figure by [figureSlugFor]).
+  final String figureSlug;
+  final String Function(Character)? figureSlugFor;
+  final String? section;
   final Lang lang;
 
   @override
   Widget build(BuildContext context) {
-    final section = era.primarySource.section?.resolve(lang);
-    final figures = era.charactersFor(event);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -413,7 +434,7 @@ class _EventBody extends StatelessWidget {
               const SizedBox(width: VSSpacing.sm),
               Expanded(
                 child: Text(
-                  section,
+                  section!,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: VSType.caption.copyWith(
@@ -445,7 +466,11 @@ class _EventBody extends StatelessWidget {
         ],
         if (figures.isNotEmpty) ...<Widget>[
           const SizedBox(height: VSSpacing.xl),
-          EventFigures(figures: figures, slug: era.slug, lang: lang),
+          EventFigures(
+              figures: figures,
+              slug: figureSlug,
+              slugFor: figureSlugFor,
+              lang: lang),
         ],
         StreetReverseChip(type: StreetTargetType.event, id: event.id),
         const SizedBox(height: VSSpacing.xl),

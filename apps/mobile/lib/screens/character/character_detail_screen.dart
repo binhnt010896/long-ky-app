@@ -48,6 +48,13 @@ class CharacterDetailScreen extends ConsumerWidget {
             );
           }
           final appearances = era.eventsWithFigure(figureId);
+          // Events no era lists that feature this person (none until one is
+          // authored). The main list above stays era-scoped.
+          final alsoIn = <HistoryEvent>[
+            for (final e in ref.watch(standaloneEventsProvider).valueOrNull ??
+                const <HistoryEvent>[])
+              if (e.figureIds.contains(figureId)) e,
+          ];
           return TiltedBackdrop(
             era: era,
             palette: paletteForEra(era),
@@ -64,6 +71,7 @@ class CharacterDetailScreen extends ConsumerWidget {
                         era: era,
                         figure: figure,
                         appearances: appearances,
+                        alsoIn: alsoIn,
                         lang: lang,
                       ),
                     ],
@@ -182,12 +190,16 @@ class _FigureSheet extends StatelessWidget {
     required this.era,
     required this.figure,
     required this.appearances,
+    required this.alsoIn,
     required this.lang,
   });
 
   final Era era;
   final Character figure;
   final List<HistoryEvent> appearances;
+
+  /// Standalone events featuring this person — "Cũng xuất hiện trong".
+  final List<HistoryEvent> alsoIn;
   final Lang lang;
 
   @override
@@ -231,6 +243,21 @@ class _FigureSheet extends StatelessWidget {
                     lang: lang,
                     onTap: () =>
                         context.push('/era/${era.slug}/event/${e.id}'),
+                  ),
+                  const SizedBox(height: VSSpacing.sm),
+                ],
+              ],
+              if (alsoIn.isNotEmpty) ...<Widget>[
+                const SizedBox(height: VSSpacing.xl),
+                _SectionHeader(
+                  label: lang == Lang.vi ? 'CŨNG XUẤT HIỆN TRONG' : 'ALSO APPEARS IN',
+                ),
+                const SizedBox(height: VSSpacing.md),
+                for (final e in alsoIn) ...<Widget>[
+                  _AppearanceRow(
+                    event: e,
+                    lang: lang,
+                    onTap: () => context.push('/su-kien/${e.id}'),
                   ),
                   const SizedBox(height: VSSpacing.sm),
                 ],

@@ -20,6 +20,7 @@ class QuestionSource {
     this.note,
   });
 
+  /// Empty for a standalone event (it has no era); open it by id alone.
   final String eraSlug;
   final String eventId;
   final Citation citation;

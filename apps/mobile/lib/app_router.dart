@@ -8,7 +8,9 @@ import 'screens/chao_co/chao_co_screen.dart';
 import 'screens/character/character_detail_screen.dart';
 import 'screens/era/era_hub_screen.dart';
 import 'screens/era/era_timeline_screen.dart';
+import 'state/providers.dart';
 import 'screens/event/event_detail_screen.dart';
+import 'screens/event/standalone_event_screen.dart';
 import 'screens/home/home_screen.dart';
 import 'screens/prototype/territory_map_demo_screen.dart';
 import 'screens/quiz/quiz_home_screen.dart';
@@ -33,6 +35,9 @@ import 'telemetry/telemetry.dart';
 ///  - `/era/:slug`              Era Hub — parallax hero + facets.
 ///  - `/era/:slug/timeline`     Era Timeline — this era's events.
 ///  - `/era/:slug/event/:id`    Event Detail — hero, body, pull-quote, citation.
+///  - `/su-kien/:id`            Any event by id only. An event in an era
+///                              redirects to its `/era/:slug/event/:id`; a
+///                              standalone one (no era) opens its own page.
 ///  - `/era/:slug/figure/:id`   Character Detail — portrait, bio, appearances.
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
@@ -118,6 +123,27 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/chao-co',
         builder: (context, state) => const ChaoCoScreen(),
+      ),
+      // Any event by id alone (street map, quiz, a link that knows no era). An
+      // event inside an era is redirected to its own route *here*, before a
+      // location exists for the telemetry observer to log — so nothing is
+      // double-counted; only a standalone event reaches the screen.
+      GoRoute(
+        path: '/su-kien/:id',
+        redirect: (context, state) async {
+          final id = state.pathParameters['id']!;
+          try {
+            final found =
+                await ref.read(contentRepositoryProvider).findEvent(id);
+            final era = found?.era;
+            if (era != null) return '/era/${era.slug}/event/$id';
+          } catch (_) {
+            // Content unreadable: fall through to the screen, which shows it.
+          }
+          return null;
+        },
+        builder: (context, state) =>
+            StandaloneEventScreen(eventId: state.pathParameters['id']!),
       ),
       GoRoute(
         path: '/era/:slug',

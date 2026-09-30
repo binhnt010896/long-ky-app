@@ -27,7 +27,7 @@ class ContentRepository {
   List<HistoryEvent>? _standalone;
 
   /// Load and cache the people registry (`content/people.json`).
-  Future<PeopleRegistry> _loadPeople() async {
+  Future<PeopleRegistry> loadPeople() async {
     final cached = _people;
     if (cached != null) return cached;
     final raw = await source.loadPeopleJson();
@@ -76,7 +76,7 @@ class ContentRepository {
     final cached = _cache[slug];
     if (cached != null) return cached;
 
-    final people = await _loadPeople();
+    final people = await loadPeople();
     final raw = await source.loadEraJson(slug);
     final decoded = jsonDecode(raw);
     if (decoded is! Map<String, dynamic>) {

@@ -73,6 +73,17 @@ ScreenView? mapUriToScreen(Uri uri) {
         );
       }
       return null;
+    case 'su-kien':
+      // A standalone event (no era). An event in an era never gets here: its
+      // /su-kien/:id is redirected to /era/:slug/event/:id before any
+      // location exists, so it logs as that route instead.
+      if (segments.length == 2) {
+        return (
+          name: 'event_detail',
+          params: <String, Object>{'event_id': segments[1]},
+        );
+      }
+      return null;
     case 'chao-co':
       if (segments.length == 1) {
         return (name: 'chao_co', params: const <String, Object>{});

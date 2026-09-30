@@ -176,10 +176,11 @@ void main() {
     });
   });
 
-  test('routeForTarget uses the existing detail routes', () {
+  test('routeForTarget: people and eras use their era routes; an event opens by id', () {
     expect(routeForTarget(_le.targets.single), '/era/le-loi/figure/le-loi');
-    expect(routeForTarget(_bach.targets[0]),
-        '/era/ngo-quyen/event/chien-thang-bach-dang');
+    // An event opens by id alone — the router sends one that sits in an era on
+    // to its era route, and a standalone event has no era.
+    expect(routeForTarget(_bach.targets[0]), '/su-kien/chien-thang-bach-dang');
     expect(routeForTarget(_bach.targets[2]), '/era/hong-bang-van-lang');
   });
 

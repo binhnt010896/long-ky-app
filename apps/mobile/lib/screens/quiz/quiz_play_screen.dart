@@ -72,7 +72,16 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
   Future<void> _load() async {
     try {
       final eras = await ref.read(erasProvider.future);
-      final generator = QuizGenerator(eras);
+      // Standalone events (no era) join the unscoped quizzes; `people` resolves
+      // their figures. A failure to read them must not cost the reader the quiz.
+      final standalone = await ref
+          .read(standaloneEventsProvider.future)
+          .catchError((Object _) => const <HistoryEvent>[]);
+      final people = await ref
+          .read(peopleProvider.future)
+          .catchError((Object _) => PeopleRegistry.empty);
+      final generator =
+          QuizGenerator(eras, standalone: standalone, people: people);
       final questions = generator.generate(
         mode: widget.mode,
         seed: widget.seed,
@@ -498,11 +507,11 @@ class _FeedbackPanel extends ConsumerWidget {
           GestureDetector(
             onTap: () {
               ref.read(telemetryProvider).event('source_link_open', <String, Object>{
-                'era_slug': source.eraSlug,
+                if (source.eraSlug.isNotEmpty) 'era_slug': source.eraSlug,
                 'event_id': source.eventId,
               });
               GoRouter.of(context)
-                  .push('/era/${source.eraSlug}/event/${source.eventId}');
+                  .push(_eventRoute(source.eraSlug, source.eventId));
             },
             child: Text(
               en ? 'Read the event ›' : 'Đọc sự kiện ›',
@@ -800,7 +809,7 @@ class _MissedRow extends StatelessWidget {
     };
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () => GoRouter.of(context).push('/era/$eraSlug/event/$eventId'),
+      onTap: () => GoRouter.of(context).push(_eventRoute(eraSlug, eventId)),
       child: Container(
         padding: const EdgeInsets.symmetric(
             horizontal: VSSpacing.md, vertical: VSSpacing.sm + 2),
@@ -818,3 +827,8 @@ class _MissedRow extends StatelessWidget {
     );
   }
 }
+
+/// An event's page: under its era, or — for a standalone event, whose era slug
+/// is empty — by id alone.
+String _eventRoute(String eraSlug, String eventId) =>
+    eraSlug.isEmpty ? '/su-kien/$eventId' : '/era/$eraSlug/event/$eventId';

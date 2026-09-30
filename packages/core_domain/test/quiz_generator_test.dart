@@ -272,4 +272,96 @@ void main() {
       expect(qs, isEmpty);
     });
   });
+
+  group('standalone events (Cycle N)', () {
+    HistoryEvent standalone(String id, int year, {List<String> figures = const []}) =>
+        HistoryEvent.fromJson(<String, dynamic>{
+          'id': id,
+          'order': 0,
+          'kind': 'historical',
+          'year': {'value': year, 'display': {'vi': '$year'}},
+          'title': {'vi': 'Sự kiện $id'},
+          'summary': {'vi': 'Tóm tắt $id'},
+          'citation': {'work': 'Đại Việt sử ký toàn thư'},
+          'figureIds': figures,
+          'pullQuote': {'text': {'vi': 'Lời của $id'}},
+        });
+
+    List<Question> ask(QuizGenerator gen, QuizMode mode, {int seed = 1, String? era}) =>
+        gen.generate(mode: mode, seed: seed, count: 200, eraSlug: era);
+
+    Set<String> sourceIds(List<Question> qs, QuestionType type) => {
+          for (final q in qs)
+            if (q is McqQuestion && q.type == type) q.source.eventId,
+        };
+
+    test('with none, nothing changes: same questions as without the argument', () {
+      final a = QuizGenerator(eras).generate(mode: QuizMode.random, seed: 7, count: 12);
+      final b = QuizGenerator(eras, standalone: const <HistoryEvent>[])
+          .generate(mode: QuizMode.random, seed: 7, count: 12);
+      expect([for (final q in a) q.type], [for (final q in b) q.type]);
+    });
+
+    test('a standalone event is asked about in year questions, with no era slug', () {
+      final gen = QuizGenerator(eras, standalone: [standalone('rieng-1', 1234)]);
+      final qs = ask(gen, QuizMode.random);
+      final year = qs.whereType<McqQuestion>().where(
+          (q) => q.type == QuestionType.year && q.source.eventId == 'rieng-1');
+      expect(year, isNotEmpty);
+      expect(year.first.source.eraSlug, isEmpty);
+    });
+
+    // A quiz asks about each event at most once, so which question type gets
+    // it depends on the seed — these look across seeds.
+    Set<String> acrossSeeds(QuizGenerator gen, QuestionType type) => {
+          for (var seed = 0; seed < 40; seed++)
+            ...sourceIds(ask(gen, QuizMode.random, seed: seed), type),
+        };
+
+    test('quote questions cover a standalone event too', () {
+      final gen = QuizGenerator(eras, standalone: [standalone('rieng-1', 1234)]);
+      expect(acrossSeeds(gen, QuestionType.quote), contains('rieng-1'));
+    });
+
+    test('a standalone event is never asked "which era?"', () {
+      final gen = QuizGenerator(eras, standalone: [standalone('rieng-1', 1234)]);
+      for (var seed = 0; seed < 10; seed++) {
+        expect(sourceIds(ask(gen, QuizMode.random, seed: seed), QuestionType.era),
+            isNot(contains('rieng-1')));
+      }
+    });
+
+    test('its figures come from the people registry, for "who" questions', () {
+      final people = _loadPeople();
+      final figure = people.byId.keys.firstWhere((id) => !QuizGenerator.excludedLeaderIds.contains(id));
+      final gen = QuizGenerator(eras,
+          standalone: [standalone('rieng-1', 1234, figures: [figure])], people: people);
+      expect(acrossSeeds(gen, QuestionType.who), contains('rieng-1'));
+    });
+
+    test('a scoped quiz (by era) never includes a standalone event', () {
+      final gen = QuizGenerator(eras, standalone: [standalone('rieng-1', 1234)]);
+      final qs = ask(gen, QuizMode.byEra, era: eras.first.slug);
+      expect(
+        [
+          for (final q in qs)
+            if (q is McqQuestion) q.source.eventId
+        ],
+        isNot(contains('rieng-1')),
+      );
+    });
+
+    test('ordering questions can include a standalone event', () {
+      final gen = QuizGenerator(eras, standalone: [
+        for (var i = 0; i < 40; i++) standalone('rieng-$i', 100 + i * 37),
+      ]);
+      final items = {
+        for (var seed = 0; seed < 30; seed++)
+          for (final q in ask(gen, QuizMode.random, seed: seed))
+            if (q is OrderQuestion)
+              for (final i in q.items) if (i.eventId.startsWith('rieng-')) i.eventId,
+      };
+      expect(items, isNotEmpty);
+    });
+  });
 }
