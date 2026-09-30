@@ -29,26 +29,61 @@ is built yet; the next step is an EXECUTION session.**
   build compiles, and a real-browser run against a throw-away fixture showed
   the streets, the tap → card and the attribution.
 
-**Not done, and why:**
-1. **Overpass is blocked by this environment's network policy**
-   (`overpass-api.de`, `overpass.kumi.systems`, `overpass.private.coffee`,
-   geoBoundaries, Nominatim → 403/tunnel refused). So the boundary, the
-   suggestions, `content/streets/hcm.json`, the geometry, and therefore the
-   **M3 review table** do not exist yet. The 82 / ~100 figures above were
-   measured earlier and are **not reproduced here**. Run, from a machine with
-   access: `fetch_boundary.dart` → `suggest.dart` → review → `build_geometry.dart`.
-2. **The PMTiles extract and its R2 upload, and the r2.dev `Range` check.**
-   Needs a Protomaps planet build and R2 credentials. `STREET_BASEMAP_URL`
-   (dart-define) is empty until then, so the map shows the lacquer ground with
-   the gold streets only. The basemap was **not visually verified**.
-3. **Not in-house styled:** the basemap uses Protomaps' stock dark theme.
-4. **Mapping ships bundled, not OTA:** `content/streets/*.json` is a bundled
-   asset (`assets/content/streets/`), because the content pack and Firestore
-   sync only know eras/people/periods. The geometry is OTA (media CDN). Making
-   the mapping OTA means extending the pack + Firestore path.
-5. Until `hcm.json` and `hcm-boundary.geojson` exist, the screen shows a calm
-   "not ready" message; the Sảnh entry is therefore best held back from a
-   build until the data is committed.
+**Street data (done):** `hcm-boundary.geojson` (old HCMC, 10.14–11.16 N,
+106.36–107.03 E) and `hcm.json` are committed: **92 streets, all approved**
+(74 exact matches + 18 reviewed alias/multi-target rows, approved by the user
+on 2026-09-30). `hcm-streets.geojson` (92 streets, 659 lines, 3,145 points,
+75 KB) is generated and git-ignored; `validate_content` checks it.
+Fixes found while running it: OSM spells some names with the look-alike
+**Ð (U+00D0)** — Đồng Khởi was invisible because of it — so names are now
+folded to Đ and NFC-normalized; the download is tiled, cached and resumable
+(`build/streets/tiles/`, use `suggest.dart --offline` to re-match without
+network); geometry is written to `content/streets/` (where the media pipeline
+reads it).
+
+**Still to do (yours):**
+1. `tool/push_sources.sh` to put `content/streets/hcm-streets.geojson` in
+   `long-ky-sources`, then the normal publish (dry run → yes → real).
+2. **The PMTiles extract** (bbox from the boundary + 0.05° margin, z ≤ 15),
+   its R2 upload, and the r2.dev `Range` check. `STREET_BASEMAP_URL` is empty
+   until then, so the map shows the lacquer ground and gold streets only. The
+   basemap has not been visually verified.
+3. A new app build (the screen and its packages are app code).
+
+**Deviations:** the basemap uses Protomaps' stock dark theme (not in-house
+styled); the street mapping ships bundled (`assets/content/streets/`), not OTA,
+because the content pack and Firestore sync only carry eras/people/periods.
+
+## Cycle N — planned: events separate from eras (decisions confirmed)
+
+> An event not yet in any era can simply be a standalone event. Make events
+> independent of era and period.
+
+**Decided:**
+- **At most one era per event.** An event is in one era or none.
+- **A standalone event needs only its own citation** (no era `primarySource`).
+- **Order:** Cycle M finishes first; this is Cycle N.
+
+**Design (recommended B — the people pattern):**
+- `content/events.json` is the registry of every event (+ schema). Eras list
+  `events: [{ref}]` in reading order; an event no era lists is standalone.
+  Event `order` stops being era-relative (the era's list order is the order).
+- A migration script moves all events out of the 38 era files, text unchanged,
+  verified by rebuilding and diffing the inlined eras.
+- **Compatibility:** the content pack and Firestore keep inlining events into
+  each era, so installed apps parse them as today; the app also learns refs for
+  the bundled files. Whether any installed build reads the OTA pack still has
+  to be confirmed — treat compatibility as required until it is.
+- **Validation:** event ids unique; every ref resolves; an event in two eras is
+  an error; every event has a citation; relatedEventIds may cross eras.
+- **App:** standalone route `/su-kien/:id` (neutral lacquer look); standalone
+  events join the global timeline by year and the quiz; street targets for
+  events no longer need an era.
+- **CMS:** an Events screen (create/edit/assign to an era); the era editor
+  picks from it and orders them.
+- **Open in N:** default palette/backdrop for standalone events; how a
+  standalone event's year places it on the timeline; whether the era
+  `minItems: 1` on events relaxes.
 
 ## Audit of the previous plan
 

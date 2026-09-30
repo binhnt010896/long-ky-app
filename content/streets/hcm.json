@@ -45,7 +45,7 @@
           "era": "ba-trieu"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "multi"
     },
     {
@@ -68,7 +68,7 @@
           "era": "tran-hung-dao"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "multi"
     },
     {
@@ -81,7 +81,7 @@
           "era": "cach-mang-thang-tam"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "alias"
     },
     {
@@ -133,7 +133,7 @@
           "era": "dien-bien-phu"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "alias"
     },
     {
@@ -151,7 +151,7 @@
           "era": "dinh-tien-hoang"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "multi"
     },
     {
@@ -177,7 +177,7 @@
           "era": "dai-thang-mua-xuan"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "alias"
     },
     {
@@ -239,7 +239,7 @@
           "era": "hai-ba-trung"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "multi"
     },
     {
@@ -278,7 +278,7 @@
           "era": "hong-bang-van-lang"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "alias"
     },
     {
@@ -387,7 +387,7 @@
           "era": "le-loi"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "multi"
     },
     {
@@ -496,7 +496,7 @@
           "era": "ly-thai-to"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "multi"
     },
     {
@@ -553,7 +553,7 @@
           "era": "mai-hac-de"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "multi"
     },
     {
@@ -566,7 +566,7 @@
           "era": "cach-mang-thang-tam"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "alias"
     },
     {
@@ -584,7 +584,7 @@
           "era": "ngo-quyen"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "multi"
     },
     {
@@ -701,7 +701,7 @@
           "era": "cach-mang-thang-tam"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "alias"
     },
     {
@@ -914,7 +914,7 @@
           "era": "phung-hung"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "multi"
     },
     {
@@ -1023,7 +1023,7 @@
           "era": "tran-hung-dao"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "multi"
     },
     {
@@ -1106,7 +1106,7 @@
           "era": "tran-thai-tong"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "multi"
     },
     {
@@ -1249,7 +1249,7 @@
           "era": "cach-mang-thang-tam"
         }
       ],
-      "status": "suggested",
+      "status": "approved",
       "reason": "alias"
     },
     {
