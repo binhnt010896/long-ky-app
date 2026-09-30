@@ -86,11 +86,16 @@ class HistoryEvent {
   /// Ids into the era's character roster of figures appearing in this event.
   final List<String> figureIds;
 
-  /// Ids of related events within the era.
+  /// Ids of related events — in the same era, another era, or standalone.
   final List<String> relatedEventIds;
 
+  /// [defaultOrder] stands in when the JSON has no `order` of its own: events
+  /// in `content/events.json` carry none (an era's list position is their
+  /// order), so the registry parses them with 0 and [Era.fromJson] re-stamps
+  /// the real position with [withOrder].
   factory HistoryEvent.fromJson(Map<String, dynamic> json,
-      [String at = 'event']) {
+      [String at = 'event', int? defaultOrder]) {
+    final order = json.integerOrNull('order', at: at) ?? defaultOrder;
     final body = json.objOrNull('body', at: at);
     final details = json.objOrNull('details', at: at);
     final pullQuote = json.objOrNull('pullQuote', at: at);
@@ -98,7 +103,7 @@ class HistoryEvent {
     return HistoryEvent(
       id: json.str('id', at: at),
       slug: json.strOrNull('slug', at: at),
-      order: json.integer('order', at: at),
+      order: order ?? json.integer('order', at: at),
       kind: _eventKind(json.str('kind', at: at), at),
       year: YearRef.fromJson(json.obj('year', at: at), '$at.year'),
       title: LocalizedText.fromJson(json.obj('title', at: at), '$at.title'),
@@ -116,6 +121,24 @@ class HistoryEvent {
       relatedEventIds: json.stringList('relatedEventIds', at: at),
     );
   }
+
+  /// This event at position [order] in an era's reading order.
+  HistoryEvent withOrder(int order) => HistoryEvent(
+        id: id,
+        order: order,
+        kind: kind,
+        year: year,
+        title: title,
+        summary: summary,
+        citation: citation,
+        slug: slug,
+        body: body,
+        details: details,
+        pullQuote: pullQuote,
+        hero: hero,
+        figureIds: figureIds,
+        relatedEventIds: relatedEventIds,
+      );
 
   @override
   bool operator ==(Object other) =>

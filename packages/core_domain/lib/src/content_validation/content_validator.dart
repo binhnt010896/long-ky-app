@@ -2,6 +2,9 @@ import 'dart:convert';
 
 import 'package:json_schema/json_schema.dart';
 
+import '../event_inlining.dart';
+import '../json_util.dart' show ContentFormatException;
+
 /// One validation failure, tied to the file it came from — e.g. the CMS's
 /// per-era validation badge groups these by [file].
 class ContentIssue {
@@ -25,6 +28,8 @@ class ContentValidationResult {
     required this.peopleCount,
     required this.periodCount,
     required this.eraCount,
+    this.eventCount = 0,
+    this.standaloneEventCount = 0,
   });
 
   final List<String> lines;
@@ -32,6 +37,11 @@ class ContentValidationResult {
   final int peopleCount;
   final int periodCount;
   final int eraCount;
+
+  /// Events in `events.json` (0 when no registry was supplied) and how many
+  /// of those no era lists.
+  final int eventCount;
+  final int standaloneEventCount;
 
   bool get isValid => issues.isEmpty;
 }
@@ -41,6 +51,11 @@ class ContentValidationResult {
 /// character ref must exist in the people registry, an event's figureIds
 /// must be part of that era's own roster, an era's period must exist in the
 /// period registry, and `index.json` must list exactly the eras on disk).
+///
+/// Events may live in `events.json` (an era lists `{ref}` items) or inline in
+/// an era. An event no era lists is *standalone*: it needs a dated `year`, a
+/// `hero`, and figures who appear on some era's roster; every event, in an era
+/// or not, needs a citation (the schema requires it).
 ///
 /// Pure — takes raw JSON text/maps in, never touches the filesystem — so
 /// `tool/validate_content.dart` (reading from disk) and the CMS (reading a
@@ -58,6 +73,8 @@ abstract final class ContentValidator {
     required String peopleJson,
     required String periodsJson,
     String? indexJson,
+    String? eventSchemaJson,
+    String? eventsJson,
   }) {
     final lines = <String>[];
     final issues = <ContentIssue>[];
@@ -109,6 +126,54 @@ abstract final class ContentValidator {
       lines.add('✓ periods.json (${periodIds.length} periods)');
     }
 
+    // The event registry (optional): validate it, then index its events.
+    Map<String, Map<String, dynamic>>? eventsById;
+    if (eventsJson != null) {
+      final eventSchema = JsonSchema.create(
+        jsonDecode(eventSchemaJson!) as Object,
+        schemaVersion: SchemaVersion.draft2020_12,
+      );
+      final eventsData = jsonDecode(eventsJson);
+      final eventsResult = eventSchema.validate(eventsData);
+      if (!eventsResult.isValid) {
+        lines.add('✗ events.json');
+        for (final error in eventsResult.errors) {
+          lines.add('    ${error.instancePath}: ${error.message}');
+          issues.add(ContentIssue('events.json', error.message));
+        }
+      } else {
+        try {
+          eventsById = eventJsonById(eventsData as Map<String, dynamic>);
+        } on ContentFormatException catch (e) {
+          lines.add('✗ events.json');
+          lines.add('    ${e.message}');
+          issues.add(ContentIssue('events.json', e.message));
+        }
+      }
+    }
+
+    // Every event id anywhere — the registry plus events inlined in an era —
+    // so `relatedEventIds` can point across eras and at standalone events.
+    final allEventIds = <String>{...?eventsById?.keys};
+    final inlineEventIds = <String>{};
+    for (final name in eraFiles.keys) {
+      final data = jsonDecode(eraFiles[name]!);
+      if (data is! Map<String, dynamic>) continue;
+      for (final e in (data['events'] as List? ?? const <dynamic>[])) {
+        if (e is Map<String, dynamic> && e['id'] is String) {
+          allEventIds.add(e['id'] as String);
+          inlineEventIds.add(e['id'] as String);
+        }
+      }
+    }
+    // Ids the eras list (by ref or inline), and every roster's people — the
+    // standalone checks below need both once the era loop has run.
+    final listedEventIds = <String>{};
+    final rosterPeople = <String>{};
+    // Which era file listed each registry event first — an event belongs to
+    // at most one era.
+    final refOwner = <String, String>{};
+
     final slugsOnDisk = <String>{};
     // Event ids are public (app links, quiz questions, analytics) and must
     // be unique across the whole chronicle, not just within one era — this
@@ -139,15 +204,77 @@ abstract final class ContentValidator {
         continue;
       }
 
+      // Resolve `{ref}` event items against the registry; everything below
+      // sees full events with an `order`, exactly as a pack or a pre-registry
+      // era file would carry them.
+      var eraForEvents = eraMap;
+      final rawEvents = eraMap['events'] as List? ?? const <dynamic>[];
+      // Listed even if this era fails below, so its events aren't then
+      // misreported as standalone.
+      for (final item in rawEvents) {
+        if (item is! Map<String, dynamic>) continue;
+        final id = isEventRef(item) ? item['ref'] : item['id'];
+        if (id is String) listedEventIds.add(id);
+      }
+      if (rawEvents.any(isEventRef)) {
+        final refIds = <String>[
+          for (final item in rawEvents)
+            if (isEventRef(item)) (item as Map<String, dynamic>)['ref'] as String,
+        ];
+        final dup = <String>{
+          for (final id in refIds)
+            if (refIds.where((x) => x == id).length > 1) id,
+        };
+        if (eventsById == null) {
+          const msg = 'lists event refs but events.json is missing or invalid';
+          lines.add('✗ $name (events)');
+          lines.add('    $msg');
+          issues.add(ContentIssue(name, msg));
+          continue;
+        }
+        final taken = <String>[
+          for (final id in refIds)
+            if (refOwner[id] != null && refOwner[id] != name)
+              'event id "$id" also used in ${refOwner[id]}',
+        ];
+        if (taken.isNotEmpty) {
+          lines.add('✗ $name (events)');
+          for (final msg in taken) {
+            lines.add('    $msg');
+            issues.add(ContentIssue(name, msg));
+          }
+          continue;
+        }
+        for (final id in refIds) {
+          refOwner.putIfAbsent(id, () => name);
+        }
+        if (dup.isNotEmpty) {
+          final msg = 'lists event(s) more than once: ${dup.join(', ')}';
+          lines.add('✗ $name (events)');
+          lines.add('    $msg');
+          issues.add(ContentIssue(name, msg));
+          continue;
+        }
+        try {
+          eraForEvents = inlineEraEvents(eraMap, eventsById);
+        } on ContentFormatException catch (e) {
+          lines.add('✗ $name (events)');
+          lines.add('    ${e.message}');
+          issues.add(ContentIssue(name, e.message));
+          continue;
+        }
+      }
+
       // Referential integrity: character refs must exist in the registry,
       // and event figureIds must be part of this era's roster.
       final refs = <String>{
         for (final c in (eraMap['characters'] as List? ?? const <dynamic>[]))
           (c as Map<String, dynamic>)['ref'] as String,
       };
+      rosterPeople.addAll(refs);
       final badRefs = refs.difference(peopleIds);
       final badFigures = <String>{};
-      for (final e in (eraMap['events'] as List? ?? const <dynamic>[])) {
+      for (final e in (eraForEvents['events'] as List? ?? const <dynamic>[])) {
         for (final fid in ((e as Map<String, dynamic>)['figureIds'] as List? ??
             const <dynamic>[])) {
           if (!refs.contains(fid)) badFigures.add(fid as String);
@@ -178,12 +305,12 @@ abstract final class ContentValidator {
 
       // Event integrity: id == slug (when a slug is given), ids unique
       // across the whole chronicle, order is a contiguous 0..n-1 run, and
-      // relatedEventIds resolve within this era and never self-reference.
-      // The schema alone can express none of this.
-      final events =
-          (eraMap['events'] as List? ?? const <dynamic>[]).cast<Map<String, dynamic>>();
+      // relatedEventIds resolve to an event anywhere (this era, another era,
+      // or a standalone event) and never self-reference. The schema alone can
+      // express none of this.
+      final events = (eraForEvents['events'] as List? ?? const <dynamic>[])
+          .cast<Map<String, dynamic>>();
       final eventErrors = <String>[];
-      final eventIdsHere = <String>{for (final e in events) e['id'] as String};
       final orders = <int>[];
       for (final e in events) {
         final id = e['id'] as String;
@@ -191,6 +318,13 @@ abstract final class ContentValidator {
         if (eSlug is String && eSlug != id) {
           eventErrors.add('event "$id": slug "$eSlug" != id "$id"');
         }
+        if (eventsById != null &&
+            eventsById.containsKey(id) &&
+            inlineEventIds.contains(id) &&
+            !rawEvents.any((i) => isEventRef(i) && (i as Map)['ref'] == id)) {
+          eventErrors.add('event "$id" is inlined here and also defined in events.json');
+        }
+        listedEventIds.add(id);
         final owner = eventIdOwner[id];
         if (owner != null && owner != name) {
           eventErrors.add('event id "$id" also used in $owner');
@@ -201,7 +335,7 @@ abstract final class ContentValidator {
         for (final rel in (e['relatedEventIds'] as List? ?? const <dynamic>[])) {
           if (rel == id) {
             eventErrors.add('event "$id": relatedEventIds references itself');
-          } else if (!eventIdsHere.contains(rel)) {
+          } else if (!allEventIds.contains(rel)) {
             eventErrors.add('event "$id": relatedEventIds has unknown event "$rel"');
           }
         }
@@ -222,6 +356,53 @@ abstract final class ContentValidator {
 
       slugsOnDisk.add(slug as String);
       lines.add('✓ $name');
+    }
+
+    // Standalone events (in the registry, listed by no era): the rules that
+    // an era's own context would otherwise supply.
+    var standaloneCount = 0;
+    if (eventsById != null) {
+      for (final entry in eventsById.entries) {
+        if (listedEventIds.contains(entry.key)) continue;
+        standaloneCount++;
+        final e = entry.value;
+        final problems = <String>[];
+        final slug = e['slug'];
+        if (slug is String && slug != entry.key) {
+          problems.add('slug "$slug" != id "${entry.key}"');
+        }
+        final year = e['year'];
+        if (year is! Map || year['value'] is! int) {
+          problems.add('needs a dated year (year.value)');
+        }
+        if (e['hero'] == null) problems.add('needs a hero image');
+        final offRoster = <String>{
+          for (final f in (e['figureIds'] as List? ?? const <dynamic>[]))
+            if (!rosterPeople.contains(f)) f as String,
+        };
+        if (offRoster.isNotEmpty) {
+          problems.add(
+              'figureId(s) on no era roster: ${offRoster.join(', ')}');
+        }
+        for (final rel in (e['relatedEventIds'] as List? ?? const <dynamic>[])) {
+          if (rel == entry.key) {
+            problems.add('relatedEventIds references itself');
+          } else if (!allEventIds.contains(rel)) {
+            problems.add('relatedEventIds has unknown event "$rel"');
+          }
+        }
+        if (problems.isNotEmpty) {
+          lines.add('✗ events.json: standalone event "${entry.key}"');
+          for (final msg in problems) {
+            lines.add('    $msg');
+            issues.add(ContentIssue('events.json', 'event "${entry.key}": $msg'));
+          }
+        }
+      }
+      if (!issues.any((i) => i.file == 'events.json')) {
+        lines.add(
+            '✓ events.json (${eventsById.length} events, $standaloneCount standalone)');
+      }
     }
 
     // The bundled manifest must list exactly the era files present.
@@ -255,6 +436,8 @@ abstract final class ContentValidator {
       peopleCount: peopleIds.length,
       periodCount: periodIds.length,
       eraCount: slugsOnDisk.length,
+      eventCount: eventsById?.length ?? 0,
+      standaloneEventCount: standaloneCount,
     );
   }
 }

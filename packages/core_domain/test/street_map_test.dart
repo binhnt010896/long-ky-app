@@ -279,9 +279,16 @@ void main() {
   test('real content: the matcher runs and only yields resolvable targets', () {
     final people = (jsonDecode(File('../../content/people.json').readAsStringSync())
         as Map<String, dynamic>)['people'] as List;
+    final events = eventJsonById(
+        jsonDecode(File('../../content/events.json').readAsStringSync())
+            as Map<String, dynamic>);
     final eras = [
-      for (final f in Directory('../../content/eras').listSync().whereType<File>())
-        jsonDecode(f.readAsStringSync()) as Map<String, dynamic>,
+      for (final f in Directory('../../content/eras')
+          .listSync()
+          .whereType<File>()
+          .where((f) => f.path.endsWith('.json')))
+        inlineEraEvents(
+            jsonDecode(f.readAsStringSync()) as Map<String, dynamic>, events),
     ];
     final m = StreetMatcher.fromContent(
         people: people.cast<Map<String, dynamic>>(), eras: eras);

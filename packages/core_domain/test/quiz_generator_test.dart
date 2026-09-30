@@ -8,7 +8,12 @@ PeopleRegistry _loadPeople() => PeopleRegistry.fromJson(
     jsonDecode(File('../../content/people.json').readAsStringSync())
         as Map<String, dynamic>);
 
+EventRegistry _loadEvents() => EventRegistry.fromJson(
+    jsonDecode(File('../../content/events.json').readAsStringSync())
+        as Map<String, dynamic>);
+
 List<Era> _loadAllEras(PeopleRegistry people) {
+  final events = _loadEvents();
   final dir = Directory('../../content/eras');
   final files = dir.listSync().whereType<File>().toList()
     ..sort((a, b) => a.path.compareTo(b.path));
@@ -18,6 +23,7 @@ List<Era> _loadAllEras(PeopleRegistry people) {
         Era.fromJson(
           jsonDecode(f.readAsStringSync()) as Map<String, dynamic>,
           people,
+          events,
         ),
   ];
   eras.sort((a, b) => a.order.compareTo(b.order));

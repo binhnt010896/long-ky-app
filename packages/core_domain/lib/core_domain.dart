@@ -11,6 +11,8 @@ export 'src/citation.dart';
 export 'src/content_validation/content_formatter.dart';
 export 'src/content_validation/content_validator.dart';
 export 'src/era.dart';
+export 'src/event_inlining.dart';
+export 'src/event_registry.dart';
 export 'src/history_event.dart';
 export 'src/json_util.dart' show ContentFormatException;
 export 'src/localized_text.dart';

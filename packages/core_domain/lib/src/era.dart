@@ -3,6 +3,7 @@ import 'package:meta/meta.dart';
 import 'asset_ref.dart';
 import 'character.dart';
 import 'citation.dart';
+import 'event_registry.dart';
 import 'history_event.dart';
 import 'json_util.dart';
 import 'localized_text.dart';
@@ -159,7 +160,15 @@ class Era {
 
   /// Parse an era. Character entries are references into [people] (the registry
   /// from `content/people.json`), resolved here with any per-era overrides.
-  factory Era.fromJson(Map<String, dynamic> json, PeopleRegistry people) {
+  ///
+  /// An `events` item is either a full event (a content pack, a fixture) or a
+  /// `{"ref": "<id>"}` into [events] (`content/events.json`); a ref's `order`
+  /// is its position in the era's list.
+  factory Era.fromJson(
+    Map<String, dynamic> json,
+    PeopleRegistry people, [
+    EventRegistry events = EventRegistry.empty,
+  ]) {
     const at = 'era';
     final cover = json.objOrNull('cover', at: at);
     final scene = json.objOrNull('scene', at: at);
@@ -167,8 +176,7 @@ class Era {
         ? const <AssetRef>[]
         : scene.list<AssetRef>('layers', AssetRef.fromJson, at: '$at.scene');
 
-    final events = json.list<HistoryEvent>('events', HistoryEvent.fromJson,
-        at: at)
+    final eraEvents = _parseEvents(json, events, at)
       ..sort((a, b) => a.order.compareTo(b.order));
 
     final refs = json['characters'] == null
@@ -205,7 +213,7 @@ class Era {
       palette: EraPalette.fromJson(json.obj('palette', at: at), '$at.palette'),
       primarySource: Citation.fromJson(
           json.obj('primarySource', at: at), '$at.primarySource'),
-      events: List<HistoryEvent>.unmodifiable(events),
+      events: List<HistoryEvent>.unmodifiable(eraEvents),
       cover: cover == null ? null : AssetRef.fromJson(cover, '$at.cover'),
       sceneLayers: List<AssetRef>.unmodifiable(layers),
       characters: List<Character>.unmodifiable(characters),
@@ -254,6 +262,41 @@ class Era {
         Object.hashAll(sceneLayers),
         Object.hashAll(characters),
       );
+}
+
+List<HistoryEvent> _parseEvents(
+    Map<String, dynamic> json, EventRegistry registry, String at) {
+  final raw = json['events'];
+  if (raw is! List) {
+    throw ContentFormatException(
+      raw == null ? 'missing required list `events`' : '`events` is not a list',
+      path: '$at.events',
+    );
+  }
+  final byId = <String, HistoryEvent>{for (final e in registry.events) e.id: e};
+  return <HistoryEvent>[
+    for (var i = 0; i < raw.length; i++)
+      if (raw[i] is! Map<String, dynamic>)
+        throw ContentFormatException('element is not an object',
+            path: '$at.events[$i]')
+      else if ((raw[i] as Map<String, dynamic>).containsKey('ref'))
+        _resolveRef(raw[i] as Map<String, dynamic>, byId, i, at)
+      else
+        HistoryEvent.fromJson(raw[i] as Map<String, dynamic>, '$at.events[$i]'),
+  ];
+}
+
+HistoryEvent _resolveRef(Map<String, dynamic> item,
+    Map<String, HistoryEvent> byId, int index, String at) {
+  final id = item['ref'];
+  final event = id is String ? byId[id] : null;
+  if (event == null) {
+    throw ContentFormatException(
+      'unknown event ref `$id` (not in content/events.json)',
+      path: '$at.events[$index]',
+    );
+  }
+  return event.withOrder(index);
 }
 
 bool _listEq<T>(List<T>? a, List<T>? b) {

@@ -11,6 +11,10 @@ File get _hongBangFile =>
 
 File get _peopleFile => File('../../content/people.json');
 
+EventRegistry _loadEvents() => EventRegistry.fromJson(
+    jsonDecode(File('../../content/events.json').readAsStringSync())
+        as Map<String, dynamic>);
+
 PeopleRegistry _loadPeople() => PeopleRegistry.fromJson(
     jsonDecode(_peopleFile.readAsStringSync()) as Map<String, dynamic>);
 
@@ -22,7 +26,7 @@ void main() {
       final people = _loadPeople();
       final json = jsonDecode(_hongBangFile.readAsStringSync())
           as Map<String, dynamic>;
-      era = Era.fromJson(json, people);
+      era = Era.fromJson(json, people, _loadEvents());
     });
 
     test('parses era-level fields with diacritics intact', () {
@@ -147,6 +151,7 @@ void main() {
           jsonDecode(File('../../content/eras/$slug.json').readAsStringSync())
               as Map<String, dynamic>,
           people,
+          _loadEvents(),
         );
 
     test('Triệu Đà is one person, reframed per era, with one canonical image', () {

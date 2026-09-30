@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viet-su.app/schema/event.schema.json",
+  "title": "Việt Sử Event registry",
+  "description": "Every event, defined once. An era lists the events it contains as {\"ref\": id} items (list position = reading order); an event no era lists is a standalone event. Events carry no `order` of their own.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "events"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/historyEvent"
+      }
+    }
+  },
+  "$defs": {
+    "localizedText": {
+      "description": "Localized string. vi is canonical and required; en is an optional toggle.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vi"
+      ],
+      "properties": {
+        "vi": {
+          "type": "string",
+          "minLength": 1
+        },
+        "en": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "hexColor": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "citation": {
+      "description": "A visible source citation. Rendered on every event — a feature, not fine print.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "work"
+      ],
+      "properties": {
+        "work": {
+          "description": "Title of the chronicle/work, e.g. \"Đại Việt sử ký toàn thư\".",
+          "type": "string",
+          "minLength": 1
+        },
+        "section": {
+          "description": "Locus within the work, e.g. \"Ngoại kỷ · Quyển 1\".",
+          "$ref": "#/$defs/localizedText"
+        },
+        "author": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "note": {
+          "$ref": "#/$defs/localizedText"
+        }
+      }
+    },
+    "yearRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "display"
+      ],
+      "properties": {
+        "display": {
+          "description": "Label as shown, e.g. \"≈ 2879 TCN\", \"Huyền sử\".",
+          "$ref": "#/$defs/localizedText"
+        },
+        "value": {
+          "description": "Numeric year for sorting/placement. Negative = BCE (TCN). null for pure legend with no fixed date.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "approximate": {
+          "description": "True when the date is circa (≈).",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "assetRef": {
+      "description": "A tier-aware asset. flagship may be Rive/animated; reduced is the static fallback; placeholder names a built-in stand-in (e.g. era gradient) until real art lands.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "image",
+            "rive",
+            "particles",
+            "gradient"
+          ]
+        },
+        "role": {
+          "description": "Semantic slot for parallax/composition.",
+          "type": "string",
+          "enum": [
+            "cover",
+            "hero",
+            "sky",
+            "mid",
+            "foreground",
+            "overlay",
+            "particles"
+          ]
+        },
+        "depth": {
+          "description": "Parallax depth 0 (far) → 1 (near).",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "flagship": {
+          "type": "string"
+        },
+        "reduced": {
+          "type": "string"
+        },
+        "video": {
+          "description": "Optional looping video source (e.g. an animated cover mp4). Played on flagship where supported; reduced/flagship image remains the fallback.",
+          "type": "string"
+        },
+        "placeholder": {
+          "type": "string"
+        },
+        "caption": {
+          "$ref": "#/$defs/localizedText"
+        },
+        "credit": {
+          "type": "string"
+        }
+      }
+    },
+    "historyEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "year",
+        "title",
+        "summary",
+        "citation"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "kind": {
+          "description": "Historiographic status.",
+          "type": "string",
+          "enum": [
+            "legend",
+            "semi-historical",
+            "historical"
+          ]
+        },
+        "year": {
+          "$ref": "#/$defs/yearRef"
+        },
+        "title": {
+          "$ref": "#/$defs/localizedText"
+        },
+        "summary": {
+          "description": "One-line timeline subtitle.",
+          "$ref": "#/$defs/localizedText"
+        },
+        "body": {
+          "description": "Long-form event text for the detail screen.",
+          "$ref": "#/$defs/localizedText"
+        },
+        "details": {
+          "description": "Fuller account revealed under \"read more\", drawn from the chronicle.",
+          "$ref": "#/$defs/localizedText"
+        },
+        "relatedEventIds": {
+          "description": "Ids of other events — in this event's era, in another era, or standalone.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "pullQuote": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "text"
+          ],
+          "properties": {
+            "text": {
+              "$ref": "#/$defs/localizedText"
+            },
+            "attribution": {
+              "$ref": "#/$defs/localizedText"
+            }
+          }
+        },
+        "hero": {
+          "$ref": "#/$defs/assetRef"
+        },
+        "citation": {
+          "$ref": "#/$defs/citation"
+        },
+        "figureIds": {
+          "description": "Ids of the people (in content/people.json) appearing in this event. For an event in an era they must be on that era's roster; for a standalone event, on at least one era's roster.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

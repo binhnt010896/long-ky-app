@@ -28,6 +28,8 @@ Future<int> _run() async {
   final peopleSchemaFile = File('${root.path}/content/people.schema.json');
   final periodsFile = File('${root.path}/content/periods.json');
   final periodsSchemaFile = File('${root.path}/content/period.schema.json');
+  final eventsFile = File('${root.path}/content/events.json');
+  final eventsSchemaFile = File('${root.path}/content/event.schema.json');
 
   if (!schemaFile.existsSync()) {
     stderr.writeln('✗ schema not found: ${schemaFile.path}');
@@ -63,6 +65,9 @@ Future<int> _run() async {
     peopleJson: peopleFile.readAsStringSync(),
     periodsJson: periodsFile.readAsStringSync(),
     indexJson: indexFile.existsSync() ? indexFile.readAsStringSync() : null,
+    eventSchemaJson:
+        eventsFile.existsSync() ? eventsSchemaFile.readAsStringSync() : null,
+    eventsJson: eventsFile.existsSync() ? eventsFile.readAsStringSync() : null,
   );
 
   for (final line in result.lines) {
@@ -75,8 +80,17 @@ Future<int> _run() async {
   var streetsOk = true;
   final streetsDir = Directory('${root.path}/content/streets');
   if (streetsDir.existsSync() && result.isValid) {
+    // Street targets name an era's events, so hand the street rules eras with
+    // their `{ref}` events inlined (the registry is already validated above).
+    final eventsById = eventsFile.existsSync()
+        ? eventJsonById(
+            jsonDecode(eventsFile.readAsStringSync()) as Map<String, dynamic>)
+        : const <String, Map<String, dynamic>>{};
     final eras = <Map<String, dynamic>>[
-      for (final f in eraFiles) jsonDecode(f.readAsStringSync()) as Map<String, dynamic>,
+      for (final f in eraFiles)
+        inlineEraEvents(
+            jsonDecode(f.readAsStringSync()) as Map<String, dynamic>,
+            eventsById),
     ];
     final peopleIds = <String>{
       for (final p in (jsonDecode(peopleFile.readAsStringSync())
