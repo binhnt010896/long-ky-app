@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../telemetry/telemetry.dart';
 import '../telemetry/telemetry_settings.dart';
+import 'bundled_content.dart';
 import 'lang_store.dart';
 
 /// The active experience tier.
@@ -19,15 +20,7 @@ final tierProvider = Provider<ExperienceTier>((ref) => ExperienceTier.flagship);
 /// Asset keys match the app pubspec: `assets/content/…` (a symlink to the
 /// canonical repo-root `content/`).
 final contentRepositoryProvider = Provider<ContentRepository>((ref) {
-  return ContentRepository.withOta(
-    BundledContentSource(
-      manifestPath: 'assets/content/index.json',
-      eraDir: 'assets/content/eras',
-      peoplePath: 'assets/content/people.json',
-      periodsPath: 'assets/content/periods.json',
-      eventsPath: 'assets/content/events.json',
-    ),
-  );
+  return ContentRepository.withOta(appBundledContent());
 });
 
 /// All eras, sorted by [Era.order]. Drives the global timeline.

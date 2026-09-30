@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app.dart';
 import 'firebase_options.dart';
+import 'state/bundled_content.dart';
 import 'state/content_sync.dart';
 import 'state/lang_store.dart';
 import 'state/providers.dart';
@@ -62,12 +63,7 @@ Future<void> main() async {
   // ContentSync.startup) layered over the bundled content, so a phone that
   // already has a newer pack opens straight to it rather than the baseline.
   final (source: ota, activeVersion: activeVersion) =
-      await ContentSync.startup(BundledContentSource(
-    manifestPath: 'assets/content/index.json',
-    eraDir: 'assets/content/eras',
-    peoplePath: 'assets/content/people.json',
-    periodsPath: 'assets/content/periods.json',
-  ));
+      await ContentSync.startup(appBundledContent());
   // A pack downloaded in the background during a previous session only takes
   // effect now, at this launch — the splash logs the other case (a pack that
   // arrives and is adopted live, while the splash is still up).
