@@ -4,9 +4,11 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: PLANNING — Cycle N (events independent of eras). Three decisions
-are confirmed (N-D1–N-D3); seven more (N1–N7) wait for the user, and **N7 also
-gates the Cycle M merge**. Nothing in N is built.** Cycle M's full spec is at
+**Status: PLANNING COMPLETE — Cycle N (events independent of eras). All
+decisions are confirmed: N-D1–N-D3, and N1–N6 as recommended (2026-09-30).
+N7: the Worker is on **Workers Free**, so the CMS one-subrequest content load
+is step 1 and **blocks merging `m-cycle`**. Nothing in N is built; the next
+step is an EXECUTION session.** Cycle M's full spec is at
 `cfa220a:EXECUTION.md`.
 
 ## Audit of the previous plan
@@ -32,8 +34,9 @@ gates the Cycle M merge**. Nothing in N is built.** Cycle M's full spec is at
   - The 74 exact matches are name-only and were not hand-checked.
 
 **Cycle M, still open (the user's):**
-1. **Check the Workers plan before merging `m-cycle`** (see N7): on Workers
-   Free, merging M breaks the CMS content load.
+1. **Do not merge `m-cycle` until N step 1 has shipped.** The Worker is on
+   Workers Free (confirmed 2026-09-30). M takes the CMS content load from 50
+   to 52 subrequests, past the limit of 50.
 2. Run `tool/push_sources.sh` (it uploads `hcm-streets.geojson`), then the
    normal publish: dry run, the user's yes, the real publish.
 3. The PMTiles extract, its R2 upload, and the r2.dev `Range` check. Until
@@ -253,14 +256,14 @@ the record, and rerunning it is a no-op.
 - **What ships over the air:** the data migration is invisible to installed
   apps. Standalone events and `/su-kien/:id` need **the next app build**.
 - **Order:**
-  - N7's CMS fix comes first if the Worker is on Free.
+  - N7's CMS fix comes first (the Worker is on Free).
   - Ideally Firestore is enabled **after** N lands (the layout changes).
   - Cycle M merges **before** N. N then rebases, and the street event
     targets simplify.
 
-## Decisions for the user (N1–N7)
+## Decisions (N1–N6 confirmed as recommended on 2026-09-30; N7 answered: Free)
 
-- **N1: storage. Recommended: one `content/events.json`,** like `people.json`.
+- **N1: storage. Confirmed: one `content/events.json`,** like `people.json`.
   - For: one file to load, validate, bundle and index. The Firestore size
     limit doesn't matter, because Firestore stores it split (N4). Git diffs
     stay line-based because the file is canonically formatted.
@@ -268,38 +271,35 @@ the record, and rerunning it is a no-op.
   - Alternative: one file per event (`content/events/<id>.json`). That
     scales better, but adds 237 files, needs an index listing them, and would
     make N7 mandatory even on Workers Paid.
-- **N2: address. Recommended: `/su-kien/:id` for every event**, redirecting
+- **N2: address. Confirmed: `/su-kien/:id` for every event**, redirecting
   in-era ones to their era route.
   - Alternative: `/su-kien/:id` for standalone events only. Links then still
     need to know an event's era.
-- **N3: standalone events' figures. Recommended: only people on at least one
+- **N3: standalone events' figures. Confirmed: only people on at least one
   era roster,** so every figure chip opens a page.
   - Alternative: allow anyone in `people.json`. A person with no era shows
     as a plain name with no link.
-- **N4: Firestore layout. Recommended: eras inlined, plus `events/<id>` for
+- **N4: Firestore layout. Confirmed: eras inlined, plus `events/<id>` for
   standalone events only.** This keeps reads per cold start at about 40.
   - Alternative: all 237 events as documents. That is 237 more reads per
     cold start against the daily free quota (I have not measured traffic).
-- **N5: validation. Recommended:**
+- **N5: validation. Confirmed:**
   - standalone events need a `year.value` and a `hero`;
   - an era keeps at least one event.
   - The six undated legends already sit in eras, so they're unaffected.
-- **N6: timeline placement. Recommended:** a standalone event shows as its
+- **N6: timeline placement. Confirmed:** a standalone event shows as its
   own node, **right after the era group whose `startYear` is the latest one
   ≤ its year**, marked "Sự kiện riêng". Its page has no pager.
   - Alternative: a separate "Sự kiện riêng" section at the end.
-- **N7: the Cloudflare Workers plan (a check, not a choice).** In the
-  Cloudflare dashboard, open Workers & Pages → Plans and tell me Free or
-  Paid.
-  - **Free:** the one-subrequest content load (N-E) ships **first**, before
-    `m-cycle` merges, because M takes the load from 50 to 52.
-  - **Paid:** it's still worth doing (loading ~50 files over 6 connections
-    is slow), but it no longer blocks anything.
+- **N7: the Cloudflare Workers plan — answered: Workers Free.** So the
+  one-subrequest content load (N-E) ships **first**, before `m-cycle` merges,
+  because M takes the load from 50 to 52 subrequests.
 
 ## Execution order
 
-1. **N7 check.** If on Free, build the CMS one-subrequest load now (spike,
-   then implement, then test against the real repo), before merging M.
+1. **CMS one-subrequest content load** (the Worker is on Free): a spike of
+   the GraphQL query, then the implementation, then a test against the real
+   repo, then deploying the CMS. Only then merge `m-cycle` into `main`.
 2. **N-A:** schema, `EventRegistry`, dual-mode `Era.fromJson`, validator
    rules, tests.
 3. **N-B:** the migration script, the byte-identical round-trip check, and
