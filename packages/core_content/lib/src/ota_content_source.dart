@@ -66,4 +66,8 @@ class OtaContentSource implements ContentSource {
 
   @override
   Future<String> loadPeriodsJson() => _preferred((s) => s.loadPeriodsJson());
+
+  @override
+  Future<String> loadStandaloneEventsJson() =>
+      _preferred((s) => s.loadStandaloneEventsJson());
 }

@@ -19,6 +19,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:core_domain/core_domain.dart';
 import 'package:crypto/crypto.dart';
 
 /// Bump only if a pack's top-level shape changes in a way old app builds
@@ -78,8 +79,16 @@ Future<int> _run({String? onlyFile}) async {
     for (final s in index['eras'] as List)
       if (s is String) s,
   ];
-  final allEras = <String, dynamic>{
+  final rawEras = <String, Map<String, dynamic>>{
     for (final slug in allSlugs) slug: readJson('eras/$slug.json'),
+  };
+  // Events live in content/events.json and eras list them as `{ref}` items.
+  // The pack keeps every era's events *inlined, with `order`* — the shape
+  // every installed app build already parses — and carries the standalone
+  // events (listed by no era) under a new key those builds never read.
+  final eventsById = eventJsonById(readJson('events.json'));
+  final allEras = <String, dynamic>{
+    for (final e in rawEras.entries) e.key: inlineEraEvents(e.value, eventsById),
   };
 
   // Draft eras (see era.schema.json's `draft`) are still authored, valid
@@ -98,6 +107,10 @@ Future<int> _run({String? onlyFile}) async {
 
   final version = _versionStamp(DateTime.now().toUtc());
 
+  // Standalone = listed by no era at all, drafts included — an event only a
+  // draft era lists must not leak out as a standalone one.
+  final standaloneIds = standaloneEventIds(rawEras.values, eventsById.keys);
+
   final pack = <String, dynamic>{
     'schemaVersion': kPackSchemaVersion,
     'version': version,
@@ -106,6 +119,10 @@ Future<int> _run({String? onlyFile}) async {
     'periods': periods,
     'media': media,
     'eras': eras,
+    'standaloneEvents': <String, dynamic>{
+      'schemaVersion': 1,
+      'events': [for (final id in standaloneIds) eventsById[id]],
+    },
   };
 
   if (draftSlugs.isNotEmpty) {
@@ -135,7 +152,7 @@ Future<int> _run({String? onlyFile}) async {
 
   final sizeKb = packJson.length / 1024;
   stdout.writeln(
-      '✓ built pack version $version · ${slugs.length} eras · ${sizeKb.toStringAsFixed(0)} KB · sha256 ${sha256Hex.substring(0, 12)}…');
+      '✓ built pack version $version · ${slugs.length} eras · ${standaloneIds.length} standalone events · ${sizeKb.toStringAsFixed(0)} KB · sha256 ${sha256Hex.substring(0, 12)}…');
   stdout.writeln(
       '  Remember to commit content/content-version.json so the next app build knows this baseline.');
   return 0;

@@ -13,6 +13,9 @@ on:
       - "packages/core_domain/**"
       - "tool/format_content.dart"
       - "tool/validate_content.dart"
+      - "tool/event_inline.mjs"
+      - "tool/event_inline.test.mjs"
+      - "tool/publish_firestore.mjs"
       - ".github/workflows/content-check.yml"
   pull_request:
     paths:
@@ -20,6 +23,9 @@ on:
       - "packages/core_domain/**"
       - "tool/format_content.dart"
       - "tool/validate_content.dart"
+      - "tool/event_inline.mjs"
+      - "tool/event_inline.test.mjs"
+      - "tool/publish_firestore.mjs"
       - ".github/workflows/content-check.yml"
   workflow_dispatch: {}
 
@@ -41,6 +47,11 @@ jobs:
 
       - name: Content schema + referential-integrity validation
         run: dart run tool/validate_content.dart
+
+      # The Firestore publisher inlines events in JS; this proves it follows the
+      # same rule as the Dart code that builds the R2 pack.
+      - name: Event inlining (JS twin used by the Firestore publisher)
+        run: node --test tool/event_inline.test.mjs
 
       - name: core_domain tests (loads the full content corpus)
         working-directory: packages/core_domain

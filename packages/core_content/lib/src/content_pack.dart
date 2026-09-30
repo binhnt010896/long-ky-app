@@ -23,6 +23,7 @@ class ContentPack {
     required this.periods,
     required this.media,
     required this.eras,
+    this.standaloneEvents,
   });
 
   final int schemaVersion;
@@ -37,8 +38,14 @@ class ContentPack {
   final Map<String, dynamic> periods;
   final Map<String, dynamic> media;
 
-  /// Every era's raw JSON, keyed by slug.
+  /// Every era's raw JSON, keyed by slug — events always inlined with their
+  /// `order`, exactly the shape every app build has parsed since day one.
   final Map<String, Map<String, dynamic>> eras;
+
+  /// Events no era lists (Cycle N), as `{schemaVersion, events}`. Absent from
+  /// a pack built before they existed, and ignored by an app build that
+  /// predates them — which is why adding it needed no `schemaVersion` bump.
+  final Map<String, dynamic>? standaloneEvents;
 
   /// Parses and fully validates a pack downloaded as raw JSON text — every
   /// check that would let a phone actually render this content, not just
@@ -129,6 +136,20 @@ class ContentPack {
       eras[entry.key] = eraJson;
     }
 
+    final standalone = decoded['standaloneEvents'];
+    if (standalone != null) {
+      if (standalone is! Map<String, dynamic>) {
+        throw ContentSourceException(
+            'content pack standaloneEvents is not an object');
+      }
+      try {
+        EventRegistry.fromJson(standalone);
+      } catch (e) {
+        throw ContentSourceException(
+            'content pack standaloneEvents is invalid: $e');
+      }
+    }
+
     return ContentPack(
       schemaVersion: schemaVersion,
       version: version,
@@ -137,6 +158,7 @@ class ContentPack {
       periods: periods,
       media: media,
       eras: eras,
+      standaloneEvents: standalone as Map<String, dynamic>?,
     );
   }
 }
@@ -167,4 +189,15 @@ class PackContentSource implements ContentSource {
 
   @override
   Future<String> loadPeriodsJson() async => jsonEncode(pack.periods);
+
+  @override
+  Future<String> loadStandaloneEventsJson() async {
+    final standalone = pack.standaloneEvents;
+    // A pack with no word on standalone events (built before they existed)
+    // must not answer "none" over a bundle that has some — defer instead.
+    if (standalone == null) {
+      throw ContentSourceException('content pack predates standalone events');
+    }
+    return jsonEncode(standalone);
+  }
 }

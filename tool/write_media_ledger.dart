@@ -32,6 +32,8 @@ Future<int> _run() async {
     _collectMediaPaths(readJson('eras/$slug.json'), referenced);
   }
   _collectMediaPaths(readJson('people.json'), referenced);
+  // Events live in their own registry since Cycle N — heroes included.
+  _collectMediaPaths(readJson('events.json'), referenced);
   _collectMediaPaths(readJson('periods.json'), referenced);
 
   stdout.writeln('→ listing long-ky-sources…');

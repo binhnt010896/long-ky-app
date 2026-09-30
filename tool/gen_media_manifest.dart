@@ -1,4 +1,5 @@
-// Walks content/eras/*.json, content/people.json and content/periods.json for
+// Walks content/eras/*.json, content/events.json, content/people.json and
+// content/periods.json for
 // every referenced media path, converts each into a served WebP (or copies it
 // unchanged if it can't be converted) into a staging dir, and writes:
 //   - content/media-manifest.json  schema v2: { path: { key, v } }. `key` is
@@ -95,6 +96,8 @@ Future<int> _run({required bool check, String? onlyFile}) async {
       File('${contentDir.path}/eras/$slug.json'),
     File('${contentDir.path}/people.json'),
     File('${contentDir.path}/periods.json'),
+    // Events live in their own registry since Cycle N — heroes included.
+    File('${contentDir.path}/events.json'),
     // Cycle M: each city's street map names its generated GeoJSON in a
     // `geometry` field, which then rides the normal media pipeline (copied
     // as-is — .geojson is not convertible).

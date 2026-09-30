@@ -50,6 +50,10 @@ Future<int> _run(String mode) async {
     _collectMediaPaths(readJson('eras/$slug.json'), referenced);
   }
   _collectMediaPaths(readJson('people.json'), referenced);
+  // Events live in their own registry since Cycle N — heroes included. Miss
+  // this and every event hero looks unreferenced (an incremental publish
+  // would then plan to delete them).
+  _collectMediaPaths(readJson('events.json'), referenced);
   _collectMediaPaths(readJson('periods.json'), referenced);
   // Cycle M: a city street map's `geometry` GeoJSON is media like any other.
   final streetsDir = Directory('${contentDir.path}/streets');

@@ -24,6 +24,7 @@ class ContentRepository {
   final Map<String, Era> _cache = <String, Era>{};
   PeopleRegistry? _people;
   PeriodRegistry? _periods;
+  List<HistoryEvent>? _standalone;
 
   /// Load and cache the people registry (`content/people.json`).
   Future<PeopleRegistry> _loadPeople() async {
@@ -103,10 +104,48 @@ class ContentRepository {
     return List<Era>.unmodifiable(eras);
   }
 
+  /// The standalone events — events no era lists — in source order. Cached.
+  Future<List<HistoryEvent>> loadStandaloneEvents() async {
+    final cached = _standalone;
+    if (cached != null) return cached;
+    final decoded = jsonDecode(await source.loadStandaloneEventsJson());
+    if (decoded is! Map<String, dynamic>) {
+      throw ContentFormatException('standalone events JSON is not an object',
+          path: 'standaloneEvents');
+    }
+    return _standalone =
+        List<HistoryEvent>.unmodifiable(EventRegistry.fromJson(decoded).events);
+  }
+
+  /// Finds the event with [id], wherever it lives: inside an era (returned
+  /// with that era) or standalone (era null). Null if there is no such event.
+  Future<EventLocation?> findEvent(String id) async {
+    for (final era in await loadAllEras()) {
+      for (final e in era.events) {
+        if (e.id == id) return EventLocation(e, era);
+      }
+    }
+    for (final e in await loadStandaloneEvents()) {
+      if (e.id == id) return EventLocation(e, null);
+    }
+    return null;
+  }
+
   /// Drop cached eras and people (e.g. after an OTA [OtaContentSource.sync]).
   void invalidate() {
     _cache.clear();
     _people = null;
     _periods = null;
+    _standalone = null;
   }
+}
+
+/// An event and the era that contains it — null for a standalone event.
+class EventLocation {
+  const EventLocation(this.event, this.era);
+
+  final HistoryEvent event;
+  final Era? era;
+
+  bool get isStandalone => era == null;
 }
