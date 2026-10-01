@@ -4,124 +4,152 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: Cycle N is built, tested and pushed on branch `m-cycle` (with Cycle
-M). Nothing from M or N is on `main`, published, or in a build yet. What is
-left needs the user, in a fixed order — see "What's left, in order" below.
-The Worker's new content loader (N step 1) is already deployed.**
+**Status: PLANNING — Cycle O (a base map under the street map). Waiting on the
+user's answers to O1–O4. Nothing in O is built.**
 
-Cycle N's spec, with its decisions (N-D1–N-D3, N1–N7), is at
-`92e699f:EXECUTION.md`.
+Cycles M and N are built and pushed on branch `m-cycle`, kept separate from
+`main` at the user's request. Their specs: `cfa220a:EXECUTION.md` (M) and
+`92e699f:EXECUTION.md` (N); what shipped in N: `9ddc32a:EXECUTION.md`.
 
-## What shipped in Cycle N
+## Audit of the previous plan
 
-**Step 1 — the CMS content load (deployed).** The Worker is on Workers Free
-(50 subrequests per request); the old loader spent one per content file plus
-three. Now it spends **2–3, however many files there are**: the head sha, one
-GraphQL query pinned to that exact commit (so the files and the sha can't
-disagree), and a REST blob read only for files GraphQL truncates.
-- **Spike finding that changed the plan:** GraphQL truncates a blob's text
-  somewhere below ~790 KB (a 787,843-byte file came back `isTruncated`; a 305
-  KB one didn't). `events.json` is 1.1 MB, so it *is* truncated — the plan's
-  tarball fallback wasn't needed; a per-file REST read for just the truncated
-  ones is cheaper.
-- Verified on the real repo: 47 files in 2 subrequests, byte-identical to git.
-  Worker deployed as version `3626c306`. Commit `6962901`.
+Done since the last plan:
+- **The CMS loads through the new Worker loader** — confirmed by the user.
+- **The street geometry exists.** `hcm-streets.geojson` was regenerated from
+  fresh OSM data on this Mac (the approved mapping came out unchanged: 92
+  streets, all approved), validated against the mapping, and uploaded to
+  `long-ky-sources`. A CI dry run of `m-cycle` then passed end to end
+  (`1 added · 0 missing`, run `36807478902`).
+- **A preview copy is on the CDN** at `media/streets/hcm-streets.geojson`
+  (5-minute cache), so the street map can be tried in a dev build before any
+  publish. The user's dev build now draws the gold streets.
+- The street tools now inline `{ref}` events before matching (`fdf365f`).
 
-**N-A/B — the registry and the migration** (`1204260`). `content/events.json`
-(237 events), `event.schema.json`, eras list `{"ref": id}` with list position as
-the order. `tool/migrate_events.dart` moved all 237 out of the 38 eras and
-verified every era re-inlines to its original **value for value** (37 of 38
-byte-identical; the one exception is the era whose events had an unusual key
-order — same data). A second run is a no-op.
-- Validator: registry schema; unknown, duplicate and twice-listed refs; an event
-  in at most one era; related events across eras and standalone; a standalone
-  event needs a dated year, a hero, and figures on some era's roster.
+**Carried forward, in order (unchanged; all wait on the user's go):**
+1. Merge `m-cycle` into `main`, then deploy the new CMS right away (the deployed
+   CMS can't read the migrated content). The Worker's loader code only lives on
+   `m-cycle` — redeploying the Worker from `main` before the merge would revert
+   it to the old 50-request loader.
+2. Publish: dry run → the user's yes → real publish.
+3. Firestore (still off): steps in `979cb3f:EXECUTION.md`, plus the updated
+   `firestore.rules` (public read of `events/`).
+4. A new app build for M, N and O.
+5. From before: the Play closed test (last build `1.0.3+6`), Analytics custom
+   definitions, the privacy page and Data safety form, Cycle E's items, and
+   optionally deleting `admin-long-ky.web.app`.
 
-**N-C — publishing** (`2a5bc3f`). Packs, Firestore and the media tools follow
-the registry. The pack keeps every era's events **inlined with `order`** and
-adds an optional `standaloneEvents` key, so **every installed app build still
-parses it** — proved by parsing a real built pack with the pre-Cycle-N parser
-(38 eras, 237 events, same 1,304 KB). The media tools read `events.json`
-(without that, every event hero looks unreferenced and an incremental publish
-would delete them — the CI dry run confirms `0 to remove`).
+## Cycle O — what the user asked for
 
-**N-D — the app** (`954c092`, `9dcf931`). `/su-kien/:id` (an event in an era
-redirects to its era route *before* telemetry sees a location; a standalone one
-opens its own page), global-timeline nodes marked "Sự kiện riêng" and placed per
-N6, quiz, "Cũng xuất hiện trong" on the Character page, street targets.
+> Shouldn't we have a background map overlay? Looking at this, I don't know
+> where is where.
 
-**N-E — the CMS** (`93e4480`). A new Events screen, the era editor's "Add
-existing event" / "Remove from era", standalone mode in the event dialog
-(including creating a hero slot — previously an event without a hero had no way
-to get one), cross-era related events with search, and deletes that clean the
-era, every related link and every street that names the event.
+Right now the street map shows gold lines on a plain dark ground — no river, no
+districts, no labels. The screen already supports a base map (Cycle M's M-B);
+what's missing is the map file itself, so `STREET_BASEMAP_URL` is empty and the
+screen falls back to the plain ground on purpose.
 
-### Bugs found and fixed along the way
-- **The running app never loaded `events.json`** (`9dcf931`). `main.dart` built
-  its own bundled source without the new path; every test swaps in a disk
-  source, so all were green while every era would have failed on a phone.
-  Found only by a real browser build. Now one shared `appBundledContent()`, and
-  a test loads the real wiring through the real asset bundle (verified to fail
-  when the path is dropped).
-- `publish_firestore.mjs` read `content/…` relative to the working directory,
-  but CI and the bootstrap instructions run it from `tool/` — it would have
-  crashed the first time a key existed (a Cycle K bug). Fixed; `--dry-run` no
-  longer needs credentials.
-- The CMS event dialog's Kind dropdown overflowed its width, and the typed-
-  confirm delete dialogs disposed their text controller while still animating
-  (both latent; found by the new widget tests).
+### What I checked (read-only, 2026-10-01)
 
-### Verified
-core_domain 93, core_content 28, mobile 187, admin 55, Worker 30, JS 6;
-`melos analyze` clean; content formatted and valid (51 files). A real browser
-build of the app: `/su-kien/trieu-vu-de-lap-nam-viet` redirects to its era
-route, the event renders in full, the timeline shows "38 eras · 237 events".
-CMS flows are tested over the **real content with the real validator after every
-step** (create standalone → move into an era → out → delete). A CI dry run of
-the branch passes every check up to the media plan; its one failure is the
-Cycle M geometry upload below.
+- **The CDN serves partial requests.** A `Range: bytes=0-99` request to
+  `r2.dev` returns `206 Partial Content` with `Accept-Ranges: bytes`, and keeps
+  the CORS header for a browser origin. That was decision M1's open risk; the
+  hosted-provider fallback is not needed.
+- **Protomaps publishes a fresh world build daily**: `20261001.pmtiles`,
+  138.5 GB, format v4.15.2 — the v4 the app's theme
+  (`vector_map_tiles_pmtiles`, `themes/v4`) expects. We never download the
+  whole thing: the extract tool reads only the parts inside our box.
+- **The app side exists**: `street_basemap.dart` builds the Protomaps dark theme
+  minus `water_label_ocean`, `boundaries_country` and `pois`; the camera is
+  locked to the old-HCMC bounds plus a margin, minimum zoom 10.
 
-**Not verified:** the CMS screens in a real browser (they sit behind your Google
-sign-in), and the Worker loader against production's own GitHub token — only
-against the same repo through your `gh` login.
+### The steps
 
-## What's left, in order
+**O-1 — Make the extract.**
+- Install the `pmtiles` command-line tool (`go install` from
+  `github.com/protomaps/go-pmtiles`; Go is already on this Mac).
+- Cut old HCMC out of the latest build:
+  `pmtiles extract https://build.protomaps.com/<date>.pmtiles
+  build/basemap/hcm-basemap.pmtiles --bbox=<boundary + margin> --minzoom=10
+  --maxzoom=15` (O2). The box comes from `content/streets/hcm-boundary.geojson`
+  plus the same margin the camera lock uses, so the map never shows an edge.
+- Check it with `pmtiles show`: its bounds, its zoom range (nothing below 10),
+  and its size (expected: tens of MB — measured here, reported before anything
+  is uploaded).
 
-1. **Open the CMS and confirm it loads.** The new loader is live; if it fails
-   to load (most likely cause: the Worker's token can't use GraphQL), roll back
-   and tell me:
-   ```bash
-   cd services/cms_api && npx wrangler rollback
-   ```
-2. **Upload the street geometry** (Cycle M's step): `tool/push_sources.sh`. The
-   CI dry run fails at the media plan without it (`streets/hcm-streets.geojson`
-   is referenced but not in `long-ky-sources`).
-3. **Merge `m-cycle` into `main`** (Cycle M + N together), **then deploy the
-   CMS immediately after.** Between the merge and the deploy the *currently
-   deployed* CMS can't read the migrated content (events are refs now), so keep
-   that gap to minutes and don't edit in the old CMS after the merge. Order
-   matters: never merge before step 1 is confirmed.
-4. **Publish:** dry run → your yes → real publish. Installed apps are
-   unaffected (same pack shape); Firestore skips itself until set up.
-5. **Firestore** (still not turned on): the steps are in `979cb3f:EXECUTION.md`.
-   Two additions from this cycle: paste the updated `firestore.rules` (it now
-   allows public read of `events/`), and run the bootstrap **from `tool/`** as
-   written there — it works from there now.
-6. **A new app build** for Cycles M and N (standalone events, the street map).
-   Hold the Sảnh street entry back until `hcm-streets.geojson` and the basemap
-   are in place (Cycle M's open items: PMTiles extract and its R2 upload).
+**O-2 — Ship it the way the street geometry ships (O1).**
+- `content/streets/hcm.json` gains `"basemap": "streets/hcm-basemap.pmtiles"`,
+  next to its `"geometry"`. The app reads the served URL from the media manifest,
+  exactly like the geometry — versioned (`?v=…`), cached, and replaceable by a
+  publish, **no app update needed** to refresh the map.
+- `gen_media_manifest`, `media_ledger` and `write_media_ledger` learn
+  `.pmtiles` (copied as-is, never converted).
+- `STREET_BASEMAP_URL` stays as a dev override (a build-time setting wins over
+  the manifest), so a local test can point anywhere.
+- The validator checks a street map's `basemap` path is a `.pmtiles` media path.
+- Tests: the street-data parser reads `basemap`; the URL resolves through the
+  manifest; with no basemap the screen still shows the plain ground (today's
+  behaviour, kept as the fallback).
 
-**Still open from before** (unchanged): the Play closed test (12+ testers
-opted in for 14 days; the last build is `1.0.3+6`), Firebase Analytics custom
-definitions (`era_slug`, `event_id`, `figure_id`), the privacy page and Data
-safety form, Cycle E's tea products / license testing / screenshots / feature
-graphic, and optionally deleting the unused Hosting site
-`admin-long-ky.web.app`.
+**O-3 — Upload** (needs the user's yes).
+- The original goes to `long-ky-sources` (`tool/push_sources.sh`, add-only).
+- For a preview before the merge, the same file is copied to the CDN path the
+  app asks for — as was done for the geometry — with a short cache.
+
+**O-4 — Check it in a browser** (the dev build the user already runs).
+- Rivers, roads and district/ward names appear under the gold streets; the gold
+  stays clearly on top (O3).
+- **Sovereignty guard holds:** the camera can't leave the old-HCMC box or zoom
+  out past 10; no sea or ocean labels; no national borders. With nothing below
+  zoom 10 in the file, the low-zoom tiles that cover the open sea and the island
+  chains don't exist to be shown at all.
+- Labels are in Vietnamese (O4).
+- Attribution reads "© OpenStreetMap contributors · Protomaps" and stays
+  visible (ODbL).
+- Network: panning loads only small range requests (tens of KB), not the file.
+- Screenshots at a few zoom levels, sent to the user.
+
+**O-5 — Check it on a phone.** A release build on the user's Android phone:
+smooth panning and zooming, and the first map paint within a few seconds on a
+normal connection.
+
+**O-6 — Commit on `m-cycle`** (the user keeps it separate from `main`) and
+update this file. The base map reaches readers with the next merge, publish and
+app build — the same path as the rest of M and N.
+
+### Scope notes
+
+- **Not in O:** an in-house lacquer map style (queued); other cities; "streets
+  near me".
+- **Refreshing the map later** is the same three commands (extract → upload →
+  publish); OSM changes slowly, so once or twice a year is plenty.
+- **Licensing:** Protomaps' basemap is built from OpenStreetMap (ODbL). The
+  in-app credit and the About page note from Cycle M already cover it.
+
+## Decisions for the user
+
+- **O1 — Where the app gets the map's address.** Recommend **through the media
+  manifest** (a `basemap` field in `hcm.json`, like the street geometry): one
+  pipeline, versioned, and a refreshed map ships with a publish, not an app
+  update. Alternative: bake the URL into the app build — simpler, but every map
+  refresh needs a new app version.
+- **O2 — Zoom range.** Recommend **zoom 10–15**: it matches the camera's limits,
+  keeps the file small, and means the low-zoom tiles that would include the open
+  sea and the island chains are never in the file at all. Alternative: 0–15, a
+  bigger file with nothing the camera can show.
+- **O3 — Style.** Recommend **Protomaps' stock dark theme for now** (minus the
+  layers already hidden), checked by eye that the gold streets read clearly on
+  top; an in-house lacquer style is its own later cycle. Alternative: design the
+  in-house style now — a few more days, and a visual review loop.
+- **O4 — Label language.** Recommend **Vietnamese labels** (OSM's `name`, which
+  in Vietnam is Vietnamese), with English place names only where OSM has no
+  Vietnamese one. Alternative: follow the app's VI/EN toggle — more work, and
+  most HCMC places have no separate English name anyway.
 
 ## Next cycles (queued)
 
+- **An in-house lacquer style for the base map** (if O3 keeps the stock theme).
 - **Write the first standalone events** in the CMS — the machinery is done; no
-  real standalone event exists yet (the app's tests use a fixture).
+  real standalone event exists yet.
 - **Streets near me** (deferred from M): "while using the app" location
   permission, on-device only, a Play Data safety update, a "Gần tôi" button.
 - **More cities:** Hà Nội first, then Huế and Đà Nẵng.
