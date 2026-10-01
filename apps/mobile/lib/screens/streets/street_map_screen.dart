@@ -23,6 +23,11 @@ import 'street_landmarks.dart';
 const double kStreetMinZoom = 10;
 const double kStreetMaxZoom = 17;
 
+/// Gold streets at rest: gold pulled toward the ground, opaque (so crossings
+/// don't brighten), dim enough that the selected street's bright gold stands
+/// out against them.
+final Color _kRestingStreet = Color.lerp(VSColors.gold, VSColors.lacquer, 0.4)!;
+
 /// "Đường phố mang tên sử" — a map of the streets in old HCMC that are named
 /// after a Character or Event in the chronicle. Tap a gold street for its
 /// name and what it honours, with a button to that page.
@@ -182,6 +187,7 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                   if (p == null) return const SizedBox.shrink();
                   return VectorTileLayer(
                     theme: _basemapTheme,
+                    cacheFolder: basemapCacheFolder,
                     tileProviders: _tileProviders ??=
                         TileProviders(<String, VectorTileProvider>{
                       'protomaps': p,
@@ -209,8 +215,8 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                   for (final line in e.value)
                     Polyline(
                         points: line,
-                        strokeWidth: 3,
-                        color: VSColors.gold,
+                        strokeWidth: 2.5,
+                        color: _kRestingStreet,
                         strokeCap: StrokeCap.round,
                         strokeJoin: StrokeJoin.round),
               if (_selected != null)

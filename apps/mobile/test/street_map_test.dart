@@ -213,6 +213,10 @@ void main() {
       }
     });
 
+    test('the tile cache is not the library default (it holds label-less tiles)', () {
+      expect(kBasemapCacheFolder, isNot('.vector_map'));
+    });
+
     test('the filtered theme still parses', () {
       expect(buildStreetBasemapTheme(), isNotNull);
     });

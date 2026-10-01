@@ -1,5 +1,8 @@
 // ignore_for_file: implementation_imports
+import 'dart:io' show Directory;
+
 import 'package:core_domain/core_domain.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:vector_map_tiles_pmtiles/src/themes/v4/_package.dart' as v4;
 import 'package:vector_map_tiles_pmtiles/vector_map_tiles_pmtiles.dart';
 import 'package:vector_tile_renderer/vector_tile_renderer.dart' as vtr;
@@ -71,3 +74,13 @@ Map<String, Object> _withPlainLabels(Map<String, Object> layer) {
 /// understand in the theme.
 vtr.Theme buildStreetBasemapTheme({vtr.Logger? logger}) =>
     ProtomapsThemes(logger: logger).build(streetBasemapLayers());
+
+/// The on-disk tile cache's folder. Not the library's default (`.vector_map`):
+/// that one holds tiles cached while the labels were still being dropped, and
+/// the cache keeps tiles for weeks — a phone that had visited the map would
+/// have stayed label-less. **Bump the suffix whenever the theme changes in a
+/// way cached tiles must not outlive.** (Never called on web: no disk there.)
+const String kBasemapCacheFolder = '.long_ky_basemap_v2';
+
+Future<Directory> basemapCacheFolder() async =>
+    Directory('${(await getTemporaryDirectory()).path}/$kBasemapCacheFolder');
