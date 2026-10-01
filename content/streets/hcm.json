@@ -3,6 +3,7 @@
   "city": "hcm",
   "osmSnapshot": "2026-09-30",
   "geometry": "streets/hcm-streets.geojson",
+  "basemap": "streets/hcm-basemap.pmtiles",
   "streets": [
     {
       "id": "an-duong-vuong",

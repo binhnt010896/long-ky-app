@@ -1,16 +1,35 @@
 // ignore_for_file: implementation_imports
+import 'package:core_domain/core_domain.dart';
 import 'package:vector_map_tiles_pmtiles/src/themes/v4/_package.dart' as v4;
 import 'package:vector_map_tiles_pmtiles/vector_map_tiles_pmtiles.dart';
 import 'package:vector_tile_renderer/vector_tile_renderer.dart' as vtr;
 
-/// The Protomaps PMTiles extract of old HCMC, hosted on `long-ky-content` R2
-/// (decision M1). Override per build with `--dart-define=STREET_BASEMAP_URL=…`.
-///
-/// Empty by default until the extract is uploaded: the screen then shows the
-/// plain lacquer ground with the gold streets, which is a complete (if
-/// sparse) map rather than a broken one.
+import '../../theme/content_assets.dart';
+
+/// A build-time override of the base map's address
+/// (`--dart-define=STREET_BASEMAP_URL=…`) — for trying another extract locally.
+/// Empty in a normal build: see [streetBasemapUrl].
 const String kStreetBasemapUrl =
     String.fromEnvironment('STREET_BASEMAP_URL', defaultValue: '');
+
+/// Where the base map comes from (Cycle O, decisions M1/O1): the Protomaps
+/// PMTiles extract of old HCMC, hosted on the media CDN like the street
+/// geometry and era art, so a refreshed map ships with a *publish* — its
+/// version changes in the media manifest — not with an app update.
+///
+/// [override] (the dart-define) wins; otherwise the mapping's `basemap` media
+/// path is resolved through [mediaUrl]. Empty = no base map: the screen shows
+/// the plain lacquer ground with the gold streets, a complete if sparse map
+/// rather than a broken one.
+String streetBasemapUrl(
+  StreetMapFile file, {
+  String override = kStreetBasemapUrl,
+  String Function(String path) mediaUrl = ContentMedia.url,
+}) {
+  if (override.isNotEmpty) return override;
+  if (file.basemap.isEmpty) return '';
+  return mediaUrl(file.basemap);
+}
 
 /// Layers dropped from the Protomaps dark theme:
 ///  - `water_label_ocean` — sovereignty guard: no sea/ocean labels;

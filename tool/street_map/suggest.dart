@@ -53,6 +53,9 @@ Future<void> main(List<String> args) async {
         geometry: existing.geometry.isEmpty
             ? 'streets/$city-streets.geojson'
             : existing.geometry,
+        // The base map is hand-set (tool/street_map/ has no step that makes it
+        // in this file), so a re-run must carry it over, never drop it.
+        basemap: existing.basemap,
       ).toJson());
 
   final pending = merged.where((s) => !s.isApproved).toList();

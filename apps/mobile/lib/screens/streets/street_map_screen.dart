@@ -1,5 +1,6 @@
 import 'package:core_domain/core_domain.dart';
 import 'package:flutter/material.dart';
+import 'package:vector_tile_renderer/vector_tile_renderer.dart' as vtr;
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -39,14 +40,31 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   String? _selected;
   final TextEditingController _query = TextEditingController();
   Future<PmTilesVectorTileProvider>? _tiles;
+  String _tilesUrl = '';
+
+  // Built ONCE. The vector layer restarts its tile loading whenever the theme
+  // or the provider map it is handed changes identity, so creating either in
+  // build() (which runs on every selection, search keystroke and data refresh)
+  // would keep it from ever finishing a first paint.
+  final vtr.Theme _basemapTheme = buildStreetBasemapTheme();
+  TileProviders? _tileProviders;
 
   @override
   void initState() {
     super.initState();
     _selected = widget.initialStreetId;
-    if (kStreetBasemapUrl.isNotEmpty) {
-      _tiles = PmTilesVectorTileProvider.fromSource(kStreetBasemapUrl);
+  }
+
+  /// The tile provider for [url], created once per address (the mapping — and
+  /// so the address — only arrives with the data, after the first frame).
+  Future<PmTilesVectorTileProvider>? _tilesFor(String url) {
+    if (url.isEmpty) return null;
+    if (url != _tilesUrl) {
+      _tilesUrl = url;
+      _tileProviders = null;
+      _tiles = PmTilesVectorTileProvider.fromSource(url);
     }
+    return _tiles;
   }
 
   @override
@@ -116,6 +134,8 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   }
 
   Widget _body(BuildContext context, StreetMapData data, Lang lang) {
+    final basemapUrl = streetBasemapUrl(data.file);
+    final tiles = _tilesFor(basemapUrl);
     final selected = _selected == null ? null : data.street(_selected!);
     final selectedPts = _selected == null
         ? const <LatLng>[]
@@ -146,15 +166,20 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
             onTap: (_, at) => _onTap(data, at),
           ),
           children: <Widget>[
-            if (_tiles != null)
+            if (tiles != null)
               FutureBuilder<PmTilesVectorTileProvider>(
-                future: _tiles,
+                future: tiles,
                 builder: (context, snap) {
                   final p = snap.data;
+                  if (snap.hasError) {
+                    // The map still works without a base map; just say why.
+                    debugPrint('street basemap unavailable: ${snap.error}');
+                  }
                   if (p == null) return const SizedBox.shrink();
                   return VectorTileLayer(
-                    theme: buildStreetBasemapTheme(),
-                    tileProviders: TileProviders(<String, VectorTileProvider>{
+                    theme: _basemapTheme,
+                    tileProviders: _tileProviders ??=
+                        TileProviders(<String, VectorTileProvider>{
                       'protomaps': p,
                     }),
                   );
@@ -209,7 +234,7 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: Text(
-                    kStreetBasemapUrl.isEmpty
+                    basemapUrl.isEmpty
                         ? '© OpenStreetMap contributors'
                         : '© OpenStreetMap contributors · Protomaps',
                     maxLines: 1,

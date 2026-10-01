@@ -24,3 +24,12 @@ dev_dependencies:
   # fine under plain `dart run`, unlike core_content which needs Flutter).
   core_domain:
     path: packages/core_domain
+
+# The street map's base map (Cycle O) reads a PMTiles file. Upstream `pmtiles`
+# uses ByteData.getUint64, which dart2js doesn't support, so on Flutter *web*
+# the archive never opens. This is that package with the one header read fixed
+# — see third_party/pmtiles/NOTICE-LONGKY.md. Android and iOS are unaffected
+# either way.
+dependency_overrides:
+  pmtiles:
+    path: third_party/pmtiles

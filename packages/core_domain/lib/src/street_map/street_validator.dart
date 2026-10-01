@@ -24,6 +24,10 @@ abstract final class StreetMapValidator {
       return ['streets file unreadable: $e'];
     }
 
+    if (file.basemap.isNotEmpty && !file.basemap.endsWith('.pmtiles')) {
+      problems.add('basemap "${file.basemap}" must be a .pmtiles media path');
+    }
+
     final eraBySlug = {for (final e in eras) e['slug'] as String: e};
     final ids = <String>{};
     for (final s in file.streets) {

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:core_content/core_content.dart';
@@ -182,6 +183,34 @@ void main() {
     // to its era route, and a standalone event has no era.
     expect(routeForTarget(_bach.targets[0]), '/su-kien/chien-thang-bach-dang');
     expect(routeForTarget(_bach.targets[2]), '/era/hong-bang-van-lang');
+  });
+
+  group('streetBasemapUrl', () {
+    StreetMapFile file(String basemap) => StreetMapFile(
+        city: 'hcm', osmSnapshot: 't', streets: const [], basemap: basemap);
+    String media(String p) => 'https://cdn.test/media/$p?v=abc';
+
+    test('comes from the mapping, through the media manifest', () {
+      expect(streetBasemapUrl(file('streets/hcm-basemap.pmtiles'), override: '', mediaUrl: media),
+          'https://cdn.test/media/streets/hcm-basemap.pmtiles?v=abc');
+    });
+
+    test('a build-time override wins', () {
+      expect(
+          streetBasemapUrl(file('streets/hcm-basemap.pmtiles'),
+              override: 'http://localhost:9/x.pmtiles', mediaUrl: media),
+          'http://localhost:9/x.pmtiles');
+    });
+
+    test('no basemap means none — the plain ground, not an error', () {
+      expect(streetBasemapUrl(file(''), override: '', mediaUrl: media), isEmpty);
+    });
+  });
+
+  test('the shipped mapping names the base map', () {
+    final json = jsonDecode(File('../../content/streets/hcm.json').readAsStringSync())
+        as Map<String, dynamic>;
+    expect(StreetMapFile.fromJson(json).basemap, 'streets/hcm-basemap.pmtiles');
   });
 
   test('telemetry maps /duong-pho', () {

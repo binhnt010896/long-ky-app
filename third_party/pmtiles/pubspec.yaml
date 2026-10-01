@@ -1,0 +1,30 @@
+name: pmtiles
+description:
+  A library for parsing Protomaps PMTiles files. A single file archive format
+  for storing raster or vector map tiles.
+version: 1.2.0
+repository: https://github.com/bramp/pmtiles-dart
+
+environment:
+  sdk: ^3.1.4
+
+dependencies:
+  archive: ^4.0.0 # LONG KY PATCH: pure-Dart gzip for web (lib/src/gzip_web.dart)
+  collection: ^1.18.0
+  http: ^1.2.0
+  meta: ^1.10.0
+  path: ^1.8.3
+
+  # latlong2 is maybe overkill, but anyone consuming this package is most likely already using it.
+  latlong2: ^0.9.0
+
+  # I only need CodedBufferReader from the protobuf package, because it's very useful for
+  # reading varints.
+  protobuf: ^3.1.0
+
+  pool: ^1.5.1
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.25.2
+  trotter: 2.2.0

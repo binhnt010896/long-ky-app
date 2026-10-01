@@ -103,7 +103,7 @@ void _collectMediaPaths(Object? node, Set<String> out) {
   }
 }
 
-const _mediaExtensions = <String>{'.png', '.jpg', '.jpeg', '.webp', '.gif', '.mp4'};
+const _mediaExtensions = <String>{'.png', '.jpg', '.jpeg', '.webp', '.gif', '.mp4', '.geojson', '.pmtiles'};
 
 bool _looksLikeMediaPath(String s) {
   final dot = s.lastIndexOf('.');

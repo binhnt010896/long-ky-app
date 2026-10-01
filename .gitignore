@@ -72,6 +72,9 @@ content/**/*.m4a
 content/**/*.mp4
 # Generated street geometry (Cycle M) — media, lives in long-ky-sources.
 content/streets/*-streets.geojson
+# Cycle O: the base map extract (tens of MB) — built by pmtiles extract, lives in
+# long-ky-sources and reaches phones through the media pipeline.
+content/streets/*.pmtiles
 
 # services/cms_api (Cycle G's Cloudflare Worker) — Node tooling and local
 # wrangler state. .dev.vars would hold local secret overrides for `wrangler

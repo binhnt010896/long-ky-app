@@ -96,12 +96,18 @@ class StreetMapFile {
     required this.osmSnapshot,
     required this.streets,
     this.geometry = '',
+    this.basemap = '',
   });
 
   final String city;
 
   /// Media path of the generated GeoJSON (`streets/hcm-streets.geojson`).
   final String geometry;
+
+  /// Media path of the base map's PMTiles extract
+  /// (`streets/hcm-basemap.pmtiles`) — the roads, rivers and place names drawn
+  /// under the gold streets. Empty = no base map (the plain ground).
+  final String basemap;
   final String osmSnapshot;
   final List<MappedStreet> streets;
 
@@ -109,6 +115,7 @@ class StreetMapFile {
         city: json['city'] as String,
         osmSnapshot: (json['osmSnapshot'] as String?) ?? '',
         geometry: (json['geometry'] as String?) ?? '',
+        basemap: (json['basemap'] as String?) ?? '',
         streets: [
           for (final s in json['streets'] as List)
             MappedStreet.fromJson(s as Map<String, dynamic>),
@@ -120,6 +127,7 @@ class StreetMapFile {
         'city': city,
         'osmSnapshot': osmSnapshot,
         if (geometry.isNotEmpty) 'geometry': geometry,
+        if (basemap.isNotEmpty) 'basemap': basemap,
         'streets': [for (final s in streets) s.toJson()],
       };
 

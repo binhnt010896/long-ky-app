@@ -4,8 +4,9 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: PLANNING — Cycle O (a base map under the street map). Waiting on the
-user's answers to O1–O4. Nothing in O is built.**
+**Status: Cycle O (a base map under the street map) is partly built: the file
+is made, uploaded and wired through the pipeline, but the map still does not
+draw — see "Where O stands". O1–O4 were all confirmed as recommended.**
 
 Cycles M and N are built and pushed on branch `m-cycle`, kept separate from
 `main` at the user's request. Their specs: `cfa220a:EXECUTION.md` (M) and
@@ -37,6 +38,53 @@ Done since the last plan:
 5. From before: the Play closed test (last build `1.0.3+6`), Analytics custom
    definitions, the privacy page and Data safety form, Cycle E's items, and
    optionally deleting `admin-long-ky.web.app`.
+
+## Where O stands (2026-10-01)
+
+**Done and verified**
+- **O-1:** `hcm-basemap.pmtiles` extracted from Protomaps build `20261001`:
+  **37 MB**, zoom 10–15 only, bounds exactly old HCMC plus the camera margin
+  (`pmtiles show`). Nothing below zoom 10 exists, so the open sea and the island
+  chains cannot appear.
+- **O-2:** `hcm.json` has `"basemap": "streets/hcm-basemap.pmtiles"`;
+  `StreetMapFile.basemap`, the validator rule (`.pmtiles` only), `.pmtiles` in
+  all three media tools, `.gitignore`, and the app resolving the address through
+  the media manifest (a dart-define still overrides). Tests added (core_domain
+  95, mobile 191, analysis clean).
+- **O-3:** uploaded to `long-ky-sources` and, as a preview, to the CDN at
+  `media/streets/hcm-basemap.pmtiles` (5-minute cache); both hashes match.
+  A browser range request returns `206` with CORS.
+- The credit line reads "© OpenStreetMap contributors · Protomaps".
+- **The file and the library are good:** the app's own `pmtiles` library opens
+  the CDN file and returns real tiles (94–142 KB) at zoom 10, 12 and 14.
+- Also fixed on the way: `write_media_ledger.dart` did not know `.geojson`, so
+  the ledger would have forgotten the street geometry after every publish.
+
+**Found and fixed for Flutter web** (`third_party/pmtiles`, a patched copy wired
+in by `dependency_overrides`; see its `NOTICE-LONGKY.md`): upstream `pmtiles`
+reads 64-bit header fields with `getUint64` (dart2js can't) and gunzips with
+`dart:io` zlib (not on web). Both patched; Android and iOS never needed it.
+
+**NOT working: the map does not draw.** In a web build the file's header is read
+(180 ms) and then the tile layer never requests a single tile, with no error.
+I also cached the theme and the tile-provider map (they were rebuilt every
+frame, which restarts the vector layer) — no change on web. **Not yet known
+whether this is web-only:** the phone was disconnected when I got to it
+(`adb: no devices`), so Android is untested. The base map has therefore not been
+seen on any screen, and O-4 and O-5 are not done.
+
+### What to do next
+1. **Reconnect the phone** and run the release APK (already built) to see
+   whether Android draws the map. Everything after depends on this answer:
+   - **Draws on Android:** the base map is shippable for the app (the real
+     product); web stays a dev preview without it, or gets one more fix.
+   - **Doesn't draw on Android either:** the problem is in how the vector layer
+     is used (not the file or web). Next suspects: the layer waiting on assets
+     the Protomaps theme needs, or its zoom/camera interplay with the camera
+     constraint. If that stays stubborn, the fallback is rendering the same file
+     with a different Flutter map layer.
+2. Then O-4 (the visual and sovereignty checklist, with screenshots) and O-5.
+3. Commit on `m-cycle` (done for the work above; nothing is on `main`).
 
 ## Cycle O — what the user asked for
 

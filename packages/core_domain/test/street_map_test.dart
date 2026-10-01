@@ -235,6 +235,34 @@ void main() {
             geometryStreetIds: geo,
             standaloneEventIds: standalone);
 
+    test('a basemap must be a .pmtiles media path', () {
+      String withBasemap(String b) => jsonEncode({
+            'schemaVersion': 1,
+            'city': 'hcm',
+            'osmSnapshot': 't',
+            'basemap': b,
+            'streets': <dynamic>[],
+          });
+      List<String> check(String b) => StreetMapValidator.validate(
+          streetsJson: withBasemap(b), peopleIds: {}, eras: const []);
+      expect(check('streets/hcm-basemap.pmtiles'), isEmpty);
+      expect(check('streets/hcm-basemap.png').join(), contains('.pmtiles'));
+      expect(check(''), isEmpty, reason: 'no base map is allowed — the plain ground');
+    });
+
+    test('StreetMapFile round-trips the basemap path, and omits it when empty', () {
+      final f = StreetMapFile.fromJson({
+        'city': 'hcm',
+        'osmSnapshot': 't',
+        'geometry': 'streets/hcm-streets.geojson',
+        'basemap': 'streets/hcm-basemap.pmtiles',
+        'streets': <dynamic>[],
+      });
+      expect(f.basemap, 'streets/hcm-basemap.pmtiles');
+      expect(f.toJson()['basemap'], 'streets/hcm-basemap.pmtiles');
+      expect(StreetMapFile.fromJson({'city': 'x', 'streets': <dynamic>[]}).toJson().containsKey('basemap'), isFalse);
+    });
+
     test('an event with no era is valid only if it is a standalone event', () {
       final targets = [
         {'type': 'event', 'id': 'alone', 'era': ''}
