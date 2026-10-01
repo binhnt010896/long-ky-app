@@ -2584,6 +2584,14 @@
     "periods/thong-nhat.png": {
       "key": "periods/thong-nhat.webp",
       "v": "d403bf6911"
+    },
+    "streets/hcm-basemap.pmtiles": {
+      "key": "streets/hcm-basemap.pmtiles",
+      "v": "25dea60c88"
+    },
+    "streets/hcm-streets.geojson": {
+      "key": "streets/hcm-streets.geojson",
+      "v": "4bd4311067"
     }
   }
 }
