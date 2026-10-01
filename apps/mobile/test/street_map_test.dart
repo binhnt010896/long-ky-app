@@ -193,6 +193,7 @@ void main() {
       final ids = [for (final l in streetBasemapLayers()) l['id']];
       expect(ids, isNot(contains('water_label_ocean')));
       expect(ids, isNot(contains('boundaries_country')));
+      expect(ids, isNot(contains('places_subplace'))); // "Khu phố n" clutter
       expect(ids, contains('water'));
       expect(ids, contains('roads_highway'));
     });
@@ -211,6 +212,14 @@ void main() {
       for (final l in labels) {
         expect((l['layout'] as Map)['text-field'], kBasemapLabelField, reason: '${l['id']}');
       }
+    });
+
+    test('side-street names wait for zoom 16; main roads and rivers stay', () {
+      final byId = {for (final l in streetBasemapLayers()) l['id']: l};
+      expect(byId['roads_labels_minor']!['minzoom'], 16);
+      expect(byId['roads_labels_major'], isNotNull);
+      expect(byId['water_waterway_label'], isNotNull);
+      expect(byId['places_locality'], isNotNull);
     });
 
     test('the tile cache is not the library default (it holds label-less tiles)', () {

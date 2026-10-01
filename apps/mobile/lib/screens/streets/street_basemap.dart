@@ -37,11 +37,20 @@ String streetBasemapUrl(
 /// Layers dropped from the Protomaps dark theme:
 ///  - `water_label_ocean` — sovereignty guard: no sea/ocean labels;
 ///  - `boundaries_country` — national borders are not this map's business;
-///  - `pois` — needs the sprite sheet, and would compete with the gold streets.
+///  - `pois` — needs the sprite sheet, and would compete with the gold streets;
+///  - `places_subplace` — "Khu phố 9", "Ấp 37"…: dozens of neighbourhood
+///    labels that tell a reader nothing and bury the ones that do.
 const Set<String> kHiddenBasemapLayers = {
   'water_label_ocean',
   'boundaries_country',
   'pois',
+  'places_subplace',
+};
+
+/// Per-layer minimum zoom, overriding the theme's: side-street names only
+/// once the reader is close enough to need them (the theme says 15).
+const Map<String, int> kBasemapLabelMinZoom = {
+  'roads_labels_minor': 16,
 };
 
 /// What a label shows: the place's own name, which in Vietnam is Vietnamese
@@ -63,8 +72,10 @@ Map<String, Object> _withPlainLabels(Map<String, Object> layer) {
   if (layer['type'] != 'symbol' || layout is! Map || !layout.containsKey('text-field')) {
     return layer;
   }
+  final minZoom = kBasemapLabelMinZoom[layer['id']];
   return {
     ...layer,
+    if (minZoom != null) 'minzoom': minZoom,
     'layout': {...layout, 'text-field': kBasemapLabelField},
   };
 }
