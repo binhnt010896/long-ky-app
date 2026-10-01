@@ -341,4 +341,139 @@ void main() {
     );
     expect(problems, isEmpty);
   });
+
+  group('landmarks and the opening view (Cycle P)', () {
+    // A unit square around (lng 106..107, lat 10..11) as the "old city".
+    const boundary =
+        '{"type":"Polygon","coordinates":'
+        '[[[106,10],[107,10],[107,11],[106,11],[106,10]]]}';
+
+    Map<String, dynamic> lm(
+      String id, {
+      double lat = 10.5,
+      double lng = 106.5,
+      String kind = 'market',
+      Map<String, String>? name,
+    }) => {
+      'id': id,
+      'name': name ?? {'vi': 'Chợ', 'en': 'Market'},
+      'kind': kind,
+      'lat': lat,
+      'lng': lng,
+    };
+
+    List<String> check(
+      List<Map<String, dynamic>> landmarks, {
+      Map<String, dynamic>? start,
+      String? b = boundary,
+    }) => StreetMapValidator.validate(
+      boundaryJson: b,
+      streetsJson: jsonEncode({
+        'schemaVersion': 1,
+        'city': 'x',
+        if (start != null) 'start': start,
+        'landmarks': landmarks,
+        'streets': <Object>[],
+      }),
+      peopleIds: const {},
+      eras: const [],
+    );
+
+    test('parse and round-trip, in order', () {
+      final f = StreetMapFile.fromJson({
+        'city': 'x',
+        'start': {'lat': 10.5, 'lng': 106.5, 'zoom': 13},
+        'landmarks': [lm('a'), lm('b', kind: 'palace')],
+        'streets': <Object>[],
+      });
+      expect(f.landmarks.map((l) => l.id), ['a', 'b']);
+      expect(f.landmarks[1].kind, LandmarkKind.palace);
+      expect(f.landmarks.first.name.resolve(Lang.en), 'Market');
+      expect(f.start!.zoom, 13);
+      expect(StreetMapFile.fromJson(f.toJson()).toJson(), f.toJson());
+    });
+
+    test('a file with neither still parses (both are optional)', () {
+      final f = StreetMapFile.fromJson({'city': 'x', 'streets': <Object>[]});
+      expect(f.landmarks, isEmpty);
+      expect(f.start, isNull);
+      expect(f.toJson().containsKey('landmarks'), isFalse);
+      expect(f.toJson().containsKey('start'), isFalse);
+    });
+
+    test('an unknown kind is refused', () {
+      expect(
+        () => StreetLandmark.fromJson(lm('a', kind: 'castle')),
+        throwsA(isA<ContentFormatException>()),
+      );
+    });
+
+    test('valid data passes', () {
+      expect(
+        check(
+          [lm('a'), lm('b', lat: 10.9)],
+          start: {'lat': 10.5, 'lng': 106.5, 'zoom': 13},
+        ),
+        isEmpty,
+      );
+    });
+
+    test('each rule fires', () {
+      expect(
+        check([lm('a'), lm('a')]),
+        contains('landmark id "a" is not unique'),
+      );
+      expect(
+        check([lm('a', lat: 12)]),
+        contains('landmark "a" is outside the old-city boundary'),
+      );
+      expect(
+        check([
+          lm('a', name: {'vi': 'Chợ'}),
+        ]),
+        contains('landmark "a" has no English name'),
+      );
+      expect(
+        check([
+          lm('a', name: {'vi': ' ', 'en': 'M'}),
+        ]),
+        contains('landmark "a" has no Vietnamese name'),
+      );
+      expect(
+        check([], start: {'lat': 12, 'lng': 106.5, 'zoom': 13}),
+        contains('start centre is outside the old-city boundary'),
+      );
+      expect(
+        check([], start: {'lat': 10.5, 'lng': 106.5, 'zoom': 9}),
+        contains('start zoom 9.0 is outside the camera range 10–17'),
+      );
+    });
+
+    test('without a boundary the position checks are skipped', () {
+      expect(check([lm('a', lat: 12)], b: null), isEmpty);
+    });
+
+    test('real content: the six landmarks and the start are valid', () {
+      final raw = File('../../content/streets/hcm.json').readAsStringSync();
+      final f = StreetMapFile.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+      expect(f.landmarks.map((l) => l.id), [
+        'cho-ben-thanh',
+        'dinh-doc-lap',
+        'nha-tho-duc-ba',
+        'ho-con-rua',
+        'landmark-81',
+        'san-bay-tan-son-nhat',
+      ]);
+      expect(f.start!.zoom, 13);
+      final problems = StreetMapValidator.validate(
+        boundaryJson: File(
+          '../../content/streets/hcm-boundary.geojson',
+        ).readAsStringSync(),
+        streetsJson: raw,
+        peopleIds: const {},
+        eras: const [],
+      ).where((p) => p.contains('landmark') || p.contains('start'));
+      expect(problems, isEmpty);
+    });
+  });
 }

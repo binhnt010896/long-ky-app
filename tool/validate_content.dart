@@ -120,7 +120,9 @@ Future<int> _run() async {
           };
         }
       }
+      final boundaryFile = File('${streetsDir.path}/${n.replaceAll('.json', '')}-boundary.geojson');
       final problems = StreetMapValidator.validate(
+        boundaryJson: boundaryFile.existsSync() ? boundaryFile.readAsStringSync() : null,
         streetsJson: f.readAsStringSync(),
         peopleIds: peopleIds,
         eras: eras,

@@ -1,4 +1,5 @@
 import '../json_util.dart' show ContentFormatException;
+import '../localized_text.dart';
 
 enum StreetTargetType { person, event, era }
 
@@ -89,6 +90,73 @@ class MappedStreet {
       );
 }
 
+/// What kind of place a [StreetLandmark] is — picks its badge icon.
+enum LandmarkKind { market, palace, church, lake, tower, airport }
+
+/// A place to find your way by (Cycle P): drawn on the street map as a small
+/// badge with its name. Not content — it has no page and no sources.
+class StreetLandmark {
+  const StreetLandmark({
+    required this.id,
+    required this.name,
+    required this.kind,
+    required this.lat,
+    required this.lng,
+    this.osm = '',
+  });
+
+  final String id;
+  final LocalizedText name;
+  final LandmarkKind kind;
+  final double lat;
+  final double lng;
+
+  /// The OpenStreetMap object the point was taken from (`way/39514795`), so a
+  /// later check can find it again. Informational; may be empty.
+  final String osm;
+
+  factory StreetLandmark.fromJson(Map<String, dynamic> json) {
+    final kind = LandmarkKind.values.asNameMap()[json['kind']];
+    if (kind == null) {
+      throw ContentFormatException('landmark ${json['id']}: bad kind ${json['kind']}');
+    }
+    return StreetLandmark(
+      id: json['id'] as String,
+      name: LocalizedText.fromJson(json['name'] as Map<String, dynamic>, 'landmark ${json['id']}.name'),
+      kind: kind,
+      lat: (json['lat'] as num).toDouble(),
+      lng: (json['lng'] as num).toDouble(),
+      osm: (json['osm'] as String?) ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': {'vi': name.vi, if (name.en != null) 'en': name.en},
+        'kind': kind.name,
+        'lat': lat,
+        'lng': lng,
+        if (osm.isNotEmpty) 'osm': osm,
+      };
+}
+
+/// Where the street map opens: a centre and a zoom (Cycle P).
+class StreetStart {
+  const StreetStart({required this.lat, required this.lng, required this.zoom});
+
+  final double lat;
+  final double lng;
+  final double zoom;
+
+  factory StreetStart.fromJson(Map<String, dynamic> json) => StreetStart(
+        lat: (json['lat'] as num).toDouble(),
+        lng: (json['lng'] as num).toDouble(),
+        zoom: (json['zoom'] as num).toDouble(),
+      );
+
+  Map<String, dynamic> toJson() => {'lat': lat, 'lng': lng, 'zoom': zoom};
+}
+
 /// `content/streets/<city>.json`.
 class StreetMapFile {
   const StreetMapFile({
@@ -97,9 +165,17 @@ class StreetMapFile {
     required this.streets,
     this.geometry = '',
     this.basemap = '',
+    this.landmarks = const [],
+    this.start,
   });
 
   final String city;
+
+  /// Places drawn on the map to find your way by. Empty is fine.
+  final List<StreetLandmark> landmarks;
+
+  /// Where the map opens; null = fit the whole camera lock.
+  final StreetStart? start;
 
   /// Media path of the generated GeoJSON (`streets/hcm-streets.geojson`).
   final String geometry;
@@ -116,6 +192,11 @@ class StreetMapFile {
         osmSnapshot: (json['osmSnapshot'] as String?) ?? '',
         geometry: (json['geometry'] as String?) ?? '',
         basemap: (json['basemap'] as String?) ?? '',
+        landmarks: [
+          for (final l in (json['landmarks'] as List?) ?? const [])
+            StreetLandmark.fromJson(l as Map<String, dynamic>),
+        ],
+        start: json['start'] == null ? null : StreetStart.fromJson(json['start'] as Map<String, dynamic>),
         streets: [
           for (final s in json['streets'] as List)
             MappedStreet.fromJson(s as Map<String, dynamic>),
@@ -128,6 +209,8 @@ class StreetMapFile {
         'osmSnapshot': osmSnapshot,
         if (geometry.isNotEmpty) 'geometry': geometry,
         if (basemap.isNotEmpty) 'basemap': basemap,
+        if (start != null) 'start': start!.toJson(),
+        if (landmarks.isNotEmpty) 'landmarks': [for (final l in landmarks) l.toJson()],
         'streets': [for (final s in streets) s.toJson()],
       };
 

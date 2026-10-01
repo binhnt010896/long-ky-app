@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'street_geometry.dart';
 import 'street_map.dart';
 
 /// Referential-integrity rules for `content/streets/<city>.json` (M-A step 4),
@@ -9,12 +10,15 @@ abstract final class StreetMapValidator {
   /// [geometryStreetIds] the `properties.id`s in the generated GeoJSON, or
   /// null to skip the geometry cross-check. [standaloneEventIds] are the events
   /// no era lists (Cycle N): an event target with no `era` must be one of them.
+  /// [boundaryJson] is the old-city boundary GeoJSON; when given, landmarks and
+  /// the start view must lie inside it (Cycle P).
   static List<String> validate({
     required String streetsJson,
     required Set<String> peopleIds,
     required List<Map<String, dynamic>> eras,
     Set<String>? geometryStreetIds,
     Set<String> standaloneEventIds = const <String>{},
+    String? boundaryJson,
   }) {
     final problems = <String>[];
     final StreetMapFile file;
@@ -27,6 +31,8 @@ abstract final class StreetMapValidator {
     if (file.basemap.isNotEmpty && !file.basemap.endsWith('.pmtiles')) {
       problems.add('basemap "${file.basemap}" must be a .pmtiles media path');
     }
+
+    problems.addAll(_landmarkProblems(file, boundaryJson));
 
     final eraBySlug = {for (final e in eras) e['slug'] as String: e};
     final ids = <String>{};
@@ -79,5 +85,58 @@ abstract final class StreetMapValidator {
       }
     }
     return problems;
+  }
+
+  static List<String> _landmarkProblems(StreetMapFile file, String? boundaryJson) {
+    final problems = <String>[];
+    List<List<GeoPt>>? rings;
+    if (boundaryJson != null) {
+      try {
+        rings = _boundaryRings(jsonDecode(boundaryJson) as Map<String, dynamic>);
+      } catch (e) {
+        problems.add('boundary unreadable: $e');
+      }
+    }
+    bool outside(double lat, double lng) => rings != null && !pointInRings(GeoPt(lng, lat), rings);
+
+    final ids = <String>{};
+    for (final l in file.landmarks) {
+      if (!ids.add(l.id)) problems.add('landmark id "${l.id}" is not unique');
+      if (l.name.vi.trim().isEmpty) {
+        problems.add('landmark "${l.id}" has no Vietnamese name');
+      }
+      if ((l.name.en ?? '').trim().isEmpty) {
+        problems.add('landmark "${l.id}" has no English name');
+      }
+      if (outside(l.lat, l.lng)) {
+        problems.add('landmark "${l.id}" is outside the old-city boundary');
+      }
+    }
+    final start = file.start;
+    if (start != null) {
+      if (start.zoom < 10 || start.zoom > 17) {
+        problems.add('start zoom ${start.zoom} is outside the camera range 10–17');
+      }
+      if (outside(start.lat, start.lng)) {
+        problems.add('start centre is outside the old-city boundary');
+      }
+    }
+    return problems;
+  }
+
+  static List<List<GeoPt>> _boundaryRings(Map<String, dynamic> json) {
+    final geom = (json['type'] == 'FeatureCollection'
+        ? (json['features'] as List).first['geometry']
+        : json['type'] == 'Feature'
+            ? json['geometry']
+            : json) as Map<String, dynamic>;
+    final polys = geom['type'] == 'Polygon' ? <dynamic>[geom['coordinates']] : geom['coordinates'] as List<dynamic>;
+    return [
+      for (final poly in polys)
+        for (final ring in poly as List)
+          [
+            for (final c in ring as List) GeoPt((c[0] as num).toDouble(), (c[1] as num).toDouble()),
+          ],
+    ];
   }
 }

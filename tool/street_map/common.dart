@@ -56,22 +56,6 @@ Future<Map<String, dynamic>> overpass(String query) async {
   throw StateError('all Overpass mirrors failed; last: $last');
 }
 
-/// Even–odd point-in-polygon over a list of rings (outer rings only is fine
-/// for a city boundary; inner rings toggle, which is also correct).
-bool pointInRings(GeoPt p, List<List<GeoPt>> rings) {
-  var inside = false;
-  for (final ring in rings) {
-    for (var i = 0, j = ring.length - 1; i < ring.length; j = i++) {
-      final a = ring[i], b = ring[j];
-      if ((a.y > p.y) != (b.y > p.y) &&
-          p.x < (b.x - a.x) * (p.y - a.y) / (b.y - a.y) + a.x) {
-        inside = !inside;
-      }
-    }
-  }
-  return inside;
-}
-
 /// Reads the rings out of `content/streets/<city>-boundary.geojson`
 /// (Polygon or MultiPolygon, first feature).
 List<List<GeoPt>> readBoundaryRings(File f) {

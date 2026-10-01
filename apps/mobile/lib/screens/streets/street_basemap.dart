@@ -41,13 +41,33 @@ const Set<String> kHiddenBasemapLayers = {
   'pois',
 };
 
-/// The Protomaps v4 dark layers minus [kHiddenBasemapLayers].
+/// What a label shows: the place's own name, which in Vietnam is Vietnamese
+/// (decision O4). The theme's own `text-field` is a long expression (`format`,
+/// `is-supported-script`, per-script fonts) that `vector_tile_renderer` does
+/// not understand — it drops the whole text, so every label in the stock theme
+/// silently vanished. A plain `get` it does understand.
+const List<Object> kBasemapLabelField = ['get', 'name'];
+
+/// The Protomaps v4 dark layers minus [kHiddenBasemapLayers], with every label
+/// layer's text set to [kBasemapLabelField].
 List<Map<String, Object>> streetBasemapLayers() => [
       for (final l in v4.themeDark)
-        if (!kHiddenBasemapLayers.contains(l['id'])) l,
+        if (!kHiddenBasemapLayers.contains(l['id'])) _withPlainLabels(l),
     ];
 
+Map<String, Object> _withPlainLabels(Map<String, Object> layer) {
+  final layout = layer['layout'];
+  if (layer['type'] != 'symbol' || layout is! Map || !layout.containsKey('text-field')) {
+    return layer;
+  }
+  return {
+    ...layer,
+    'layout': {...layout, 'text-field': kBasemapLabelField},
+  };
+}
+
 /// The vector theme for the basemap (dark ground, muted roads, so the gold
-/// history streets stand out).
-vtr.Theme buildStreetBasemapTheme() =>
-    const ProtomapsThemes().build(streetBasemapLayers());
+/// history streets stand out). [logger] reports what the renderer could not
+/// understand in the theme.
+vtr.Theme buildStreetBasemapTheme({vtr.Logger? logger}) =>
+    ProtomapsThemes(logger: logger).build(streetBasemapLayers());

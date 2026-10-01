@@ -56,6 +56,9 @@ Future<void> main(List<String> args) async {
         // The base map is hand-set (tool/street_map/ has no step that makes it
         // in this file), so a re-run must carry it over, never drop it.
         basemap: existing.basemap,
+        // Likewise hand-written (Cycle P): the landmarks and the opening view.
+        landmarks: existing.landmarks,
+        start: existing.start,
       ).toJson());
 
   final pending = merged.where((s) => !s.isApproved).toList();

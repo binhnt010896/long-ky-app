@@ -16,6 +16,7 @@ import '../../widgets/lang_toggle.dart';
 import 'street_basemap.dart';
 import 'street_card.dart';
 import 'street_data.dart';
+import 'street_landmarks.dart';
 
 /// Minimum zoom of the street map. Together with the camera constraint it
 /// keeps the open sea and the island chains out of frame (sovereignty guard).
@@ -136,6 +137,7 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   Widget _body(BuildContext context, StreetMapData data, Lang lang) {
     final basemapUrl = streetBasemapUrl(data.file);
     final tiles = _tilesFor(basemapUrl);
+    final start = data.file.start;
     final selected = _selected == null ? null : data.street(_selected!);
     final selectedPts = _selected == null
         ? const <LatLng>[]
@@ -150,14 +152,16 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
             minZoom: kStreetMinZoom,
             maxZoom: kStreetMaxZoom,
             cameraConstraint: CameraConstraint.contain(bounds: data.bounds),
-            // Start with the whole locked area filling the view — the one
-            // camera `contain` is always satisfied by (a plain fit of the
-            // bounds would leave a tall phone view poking outside them).
-            initialCameraFit: CameraFit.insideBounds(bounds: data.bounds),
+            // Open on the mapping's own start view (the city centre, close
+            // enough to read the streets). With none, start with the whole
+            // locked area filling the view — the one camera `contain` is
+            // always satisfied by (a plain fit of the bounds would leave a
+            // tall phone view poking outside them).
+            initialCameraFit: start == null ? CameraFit.insideBounds(bounds: data.bounds) : null,
             // flutter_map validates the pre-layout camera against the
             // constraint too; its centre must already be inside the bounds.
-            initialCenter: data.bounds.center,
-            initialZoom: kStreetMinZoom,
+            initialCenter: start == null ? data.bounds.center : LatLng(start.lat, start.lng),
+            initialZoom: start == null ? kStreetMinZoom : start.zoom.clamp(kStreetMinZoom, kStreetMaxZoom),
             onMapReady: () {
               if (selectedPts.isNotEmpty) _fitTo(selectedPts);
             },
@@ -218,6 +222,10 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                       strokeCap: StrokeCap.round,
                       strokeJoin: StrokeJoin.round),
             ]),
+            // Places to find your way by — on top so their names stay legible,
+            // but they ignore touches (the gold streets are the only tappable
+            // thing).
+            StreetLandmarkLayer(landmarks: data.file.landmarks, lang: lang),
             // ODbL: always visible. (Our own widget rather than flutter_map's
             // SimpleAttributionWidget, whose row can't shrink on narrow phones
             // or large text scales.)
@@ -350,8 +358,12 @@ class _Search extends StatelessWidget {
                 controller: controller,
                 style: VSType.bodySmall,
                 cursorColor: VSColors.gold,
+                // A borderless field top-aligns its text; the 48px prefix icon
+                // then leaves hint and input riding high. Centre them.
+                textAlignVertical: TextAlignVertical.center,
                 decoration: InputDecoration(
                   isDense: true,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 14),
                   border: InputBorder.none,
                   prefixIcon: const Icon(Icons.search,
                       size: 20, color: VSColors.gold),

@@ -12,17 +12,28 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:ui_kit/ui_kit.dart';
+import 'package:vector_tile_renderer/vector_tile_renderer.dart' as vtr;
 import 'package:viet_su/app_router.dart';
 import 'package:viet_su/screens/character/character_detail_screen.dart';
 import 'package:viet_su/screens/streets/street_basemap.dart';
 import 'package:viet_su/screens/streets/street_card.dart';
 import 'package:viet_su/screens/streets/street_data.dart';
+import 'package:viet_su/screens/streets/street_landmarks.dart';
 import 'package:viet_su/screens/streets/street_map_screen.dart';
 import 'package:viet_su/screens/streets/street_reverse_chip.dart';
 import 'package:viet_su/state/providers.dart';
 import 'package:viet_su/telemetry/route_telemetry.dart';
 import 'package:viet_su/telemetry/telemetry.dart';
 
+
+class _Collect implements vtr.Logger {
+  _Collect(this.out);
+  final List<String> out;
+  @override
+  void log(vtr.MessageFunction message) {}
+  @override
+  void warn(vtr.MessageFunction message) => out.add(message());
+}
 
 class _Events implements Telemetry {
   final List<(String, Map<String, Object>)> events = [];
@@ -61,11 +72,29 @@ const _hidden = MappedStreet(
   targets: [StreetTarget(type: StreetTargetType.era, id: 'au-lac', era: 'au-lac')],
 );
 
+const _market = StreetLandmark(
+  id: 'cho',
+  name: LocalizedText(vi: 'Chợ Bến Thành', en: 'Bến Thành Market'),
+  kind: LandmarkKind.market,
+  lat: 10.80,
+  lng: 106.70,
+); // sits right on Lê Lợi
+const _palace = StreetLandmark(
+  id: 'dinh',
+  name: LocalizedText(vi: 'Dinh Độc Lập', en: 'Independence Palace'),
+  kind: LandmarkKind.palace,
+  lat: 10.80,
+  lng: 106.7003,
+); // a few pixels from the market at zoom 13
+
 const _mapping = StreetMapFile(
-    city: 'hcm',
-    osmSnapshot: 't',
-    geometry: 'streets/hcm-streets.geojson',
-    streets: [_le, _bach, _hidden]);
+  city: 'hcm',
+  osmSnapshot: 't',
+  geometry: 'streets/hcm-streets.geojson',
+  start: StreetStart(lat: 10.80, lng: 106.70, zoom: 13),
+  landmarks: [_market, _palace],
+  streets: [_le, _bach, _hidden],
+);
 
 // A small fake city: boundary 10.70–10.90 N, 106.60–106.80 E. Lê Lợi runs
 // west–east through the middle; Bạch Đằng runs north–south east of it.
@@ -80,9 +109,9 @@ const _streets = '''
 ]}''';
 
 class _FakeSource implements StreetDataSource {
-  const _FakeSource({this.withData = true});
+  const _FakeSource({this.withData = true, this.mapping = _mapping});
   final bool withData;
-  StreetMapFile? get mapping => _mapping;
+  final StreetMapFile? mapping;
 
   @override
   Future<StreetMapFile?> loadMapping() async => mapping;
@@ -166,6 +195,22 @@ void main() {
       expect(ids, isNot(contains('boundaries_country')));
       expect(ids, contains('water'));
       expect(ids, contains('roads_highway'));
+    });
+
+    test('every label is a plain name, which the renderer understands', () {
+      final warnings = <String>[];
+      buildStreetBasemapTheme(logger: _Collect(warnings));
+      // The stock text expressions (`format`, `is-supported-script`) are not
+      // supported and would drop every label; none may be left.
+      expect(warnings.where((w) => w.contains('format') || w.contains('is-supported-script')), isEmpty);
+      final labels = [
+        for (final l in streetBasemapLayers())
+          if (l['type'] == 'symbol') l,
+      ];
+      expect(labels, isNotEmpty);
+      for (final l in labels) {
+        expect((l['layout'] as Map)['text-field'], kBasemapLabelField, reason: '${l['id']}');
+      }
     });
 
     test('the filtered theme still parses', () {
@@ -329,5 +374,185 @@ void main() {
     await tester.pump();
     await _settle(tester);
     expect(find.text('map-open'), findsOneWidget);
+  });
+
+  group('placeLandmarks', () {
+    StreetLandmark lm(String id, String vi) => StreetLandmark(
+      id: id,
+      name: LocalizedText(vi: vi, en: vi),
+      kind: LandmarkKind.market,
+      lat: 0,
+      lng: 0,
+    );
+    double width(String t) => t.length * 6.0;
+    List<LandmarkPlacement> place(
+      Map<String, Offset> at,
+      List<StreetLandmark> ls,
+    ) => placeLandmarks(
+      landmarks: ls,
+      project: (l) => at[l.id]!,
+      viewport: const Size(390, 800),
+      lang: Lang.vi,
+      measureWidth: width,
+    );
+
+    test('far apart: every badge and every label is kept', () {
+      final out = place(
+        {'a': const Offset(80, 200), 'b': const Offset(300, 500)},
+        [lm('a', 'Chợ'), lm('b', 'Dinh')],
+      );
+      expect(out.map((p) => p.label != null), [true, true]);
+    });
+
+    test(
+      'close together: both badges stay, the lower priority label hides',
+      () {
+        final out = place(
+          {'a': const Offset(200, 300), 'b': const Offset(250, 300)},
+          [lm('a', 'Chợ Bến Thành'), lm('b', 'Dinh Độc Lập')],
+        );
+        expect(out.length, 2);
+        expect(out[0].label, isNotNull); // earlier in the list wins
+        expect(out[1].label, isNull);
+      },
+    );
+
+    test('a label never sits on another landmark\'s badge', () {
+      // b's badge is right under a's label.
+      final out = place(
+        {'a': const Offset(200, 300), 'b': const Offset(200, 325)},
+        [lm('a', 'Chợ Bến Thành'), lm('b', 'Dinh')],
+      );
+      expect(out[0].label, isNull);
+      expect(out[1].label, isNotNull);
+    });
+
+    test('a name that would be clipped by the screen edge is hidden', () {
+      final out = place({'a': const Offset(12, 300), 'b': const Offset(200, 300)},
+          [lm('a', 'Sân bay Tân Sơn Nhất'), lm('b', 'Dinh')]);
+      expect(out[0].badge.center, const Offset(12, 300)); // the badge stays
+      expect(out[0].label, isNull);
+      expect(out[1].label, isNotNull);
+    });
+
+    test('landmarks well off screen are dropped', () {
+      final out = place(
+        {'a': const Offset(-500, 300), 'b': const Offset(200, 300)},
+        [lm('a', 'Chợ'), lm('b', 'Dinh')],
+      );
+      expect(out.map((p) => p.landmark.id), ['b']);
+    });
+  });
+
+  testWidgets('opens on the mapping\'s start view, not the whole city', (
+    tester,
+  ) async {
+    await _pump(tester, '/duong-pho');
+    final cam = tester
+        .widget<FlutterMap>(find.byType(FlutterMap))
+        .mapController!
+        .camera;
+    expect(cam.zoom, 13);
+    expect(cam.center.latitude, closeTo(10.80, 1e-6));
+    expect(cam.center.longitude, closeTo(106.70, 1e-6));
+  });
+
+  testWidgets('without a start view it still fits the whole locked area', (
+    tester,
+  ) async {
+    await _pump(
+      tester,
+      '/duong-pho',
+      source: const _FakeSource(
+        mapping: StreetMapFile(
+          city: 'hcm',
+          osmSnapshot: 't',
+          geometry: 'g',
+          streets: [_le, _bach, _hidden],
+        ),
+      ),
+    );
+    final cam = tester
+        .widget<FlutterMap>(find.byType(FlutterMap))
+        .mapController!
+        .camera;
+    expect(cam.zoom, lessThan(13));
+  });
+
+  testWidgets(
+    'landmarks: badges drawn, names follow VI/EN, names follow VI/EN',
+    (tester) async {
+      final (router, _) = await _pump(tester, '/duong-pho');
+      expect(find.byKey(const Key('landmark-cho')), findsOneWidget);
+      expect(find.byKey(const Key('landmark-dinh')), findsOneWidget);
+      // The two sit a few pixels apart: the higher-priority name wins.
+      expect(find.text('Chợ Bến Thành'), findsWidgets);
+      expect(find.byKey(const Key('landmark-label-cho')), findsOneWidget);
+      expect(find.byKey(const Key('landmark-label-dinh')), findsNothing);
+
+      final container = ProviderScope.containerOf(
+        tester.element(find.byType(FlutterMap)),
+      );
+      container.read(langProvider.notifier).state = Lang.en;
+      await _settle(tester);
+      expect(find.text('Bến Thành Market'), findsWidgets);
+      expect(find.text('Chợ Bến Thành'), findsNothing);
+
+      router.go('/'); // leave cleanly
+    },
+  );
+
+  testWidgets('landmarks hide below zoom 11 and show from it', (tester) async {
+    Widget map(double zoom) => MaterialApp(
+      theme: VSTheme.build(),
+      home: FlutterMap(
+        key: ValueKey<double>(zoom),
+        options: MapOptions(
+          initialCenter: const LatLng(10.80, 106.70),
+          initialZoom: zoom,
+        ),
+        children: const [
+          StreetLandmarkLayer(landmarks: [_market], lang: Lang.vi),
+        ],
+      ),
+    );
+    await tester.pumpWidget(map(10.5));
+    await tester.pump();
+    expect(find.byKey(const Key('landmark-cho')), findsNothing);
+    await tester.pumpWidget(map(11));
+    await tester.pump();
+    expect(find.byKey(const Key('landmark-cho')), findsOneWidget);
+  });
+
+  testWidgets(
+    'a tap on a landmark badge falls through to the street under it',
+    (tester) async {
+      await _pump(tester, '/duong-pho');
+      final badge = tester.getCenter(find.byKey(const Key('landmark-cho')));
+      await tester.tapAt(badge);
+      await _settle(tester);
+      expect(
+        find.byKey(const Key('street-open-person-le-loi')),
+        findsOneWidget,
+      );
+    },
+  );
+
+  testWidgets('the search hint sits on the field\'s vertical centre', (
+    tester,
+  ) async {
+    await _pump(tester, '/duong-pho');
+    final field = tester.getRect(find.byKey(const Key('street-search')));
+    final hint = tester.getRect(find.text('Tìm tên đường'));
+    expect((hint.center.dy - field.center.dy).abs(), lessThanOrEqualTo(1.0));
+    await tester.enterText(find.byKey(const Key('street-search')), 'bạch');
+    await tester.pump();
+    final typed = tester.getRect(
+      find.descendant(
+        of: find.byKey(const Key('street-search')),
+        matching: find.byType(EditableText),
+      ),
+    );
+    expect((typed.center.dy - field.center.dy).abs(), lessThanOrEqualTo(1.0));
   });
 }

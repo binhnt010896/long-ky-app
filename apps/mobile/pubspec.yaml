@@ -94,6 +94,10 @@ flutter:
     - assets/content/content-version.json
     - assets/content/eras/
     # Cycle M: street mapping + old-HCMC boundary (the street GeoJSON itself is
-    # media, served from the R2 CDN).
-    - assets/content/streets/
+    # media, served from the R2 CDN). Listed file by file: a directory entry
+    # would also bundle the git-ignored street GeoJSON and the 37 MB base-map
+    # PMTiles that sit next to them locally.
+    - assets/content/streets/hcm.json
+    - assets/content/streets/hcm-boundary.geojson
+    - assets/content/streets/aliases.json
     - assets/content/chao-co/

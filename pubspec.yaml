@@ -27,9 +27,12 @@ dev_dependencies:
 
 # The street map's base map (Cycle O) reads a PMTiles file. Upstream `pmtiles`
 # uses ByteData.getUint64, which dart2js doesn't support, so on Flutter *web*
-# the archive never opens. This is that package with the one header read fixed
-# — see third_party/pmtiles/NOTICE-LONGKY.md. Android and iOS are unaffected
-# either way.
+# the archive never opens, and the vector layer (`vector_map_tiles`) saves tiles
+# to a disk cache and decodes them on isolates, neither of which a browser has.
+# These are those packages with the web-only fixes — see
+# third_party/*/NOTICE-LONGKY.md. Android and iOS are unaffected either way.
 dependency_overrides:
   pmtiles:
     path: third_party/pmtiles
+  vector_map_tiles:
+    path: third_party/vector_map_tiles

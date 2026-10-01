@@ -145,3 +145,18 @@ String? hitTestStreet(
   }
   return bestId;
 }
+
+/// Even-odd point-in-polygon over [rings] (outer rings and holes alike, as a
+/// GeoJSON MultiPolygon flattened). Points are x = lng, y = lat.
+bool pointInRings(GeoPt p, List<List<GeoPt>> rings) {
+  var inside = false;
+  for (final ring in rings) {
+    for (var i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      final a = ring[i], b = ring[j];
+      if ((a.y > p.y) != (b.y > p.y) && p.x < (b.x - a.x) * (p.y - a.y) / (b.y - a.y) + a.x) {
+        inside = !inside;
+      }
+    }
+  }
+  return inside;
+}

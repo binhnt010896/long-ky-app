@@ -4,6 +4,76 @@
   "osmSnapshot": "2026-09-30",
   "geometry": "streets/hcm-streets.geojson",
   "basemap": "streets/hcm-basemap.pmtiles",
+  "start": {
+    "lat": 10.777,
+    "lng": 106.699,
+    "zoom": 13
+  },
+  "landmarks": [
+    {
+      "id": "cho-ben-thanh",
+      "name": {
+        "vi": "Chợ Bến Thành",
+        "en": "Bến Thành Market"
+      },
+      "kind": "market",
+      "lat": 10.77253,
+      "lng": 106.69804,
+      "osm": "way/39514795"
+    },
+    {
+      "id": "dinh-doc-lap",
+      "name": {
+        "vi": "Dinh Độc Lập",
+        "en": "Independence Palace"
+      },
+      "kind": "palace",
+      "lat": 10.77703,
+      "lng": 106.69549,
+      "osm": "way/39598493"
+    },
+    {
+      "id": "nha-tho-duc-ba",
+      "name": {
+        "vi": "Nhà thờ Đức Bà",
+        "en": "Notre-Dame Cathedral"
+      },
+      "kind": "church",
+      "lat": 10.77977,
+      "lng": 106.69904
+    },
+    {
+      "id": "ho-con-rua",
+      "name": {
+        "vi": "Hồ Con Rùa",
+        "en": "Turtle Lake"
+      },
+      "kind": "lake",
+      "lat": 10.78264,
+      "lng": 106.69595,
+      "osm": "way/465070593"
+    },
+    {
+      "id": "landmark-81",
+      "name": {
+        "vi": "Landmark 81",
+        "en": "Landmark 81"
+      },
+      "kind": "tower",
+      "lat": 10.79506,
+      "lng": 106.7219
+    },
+    {
+      "id": "san-bay-tan-son-nhat",
+      "name": {
+        "vi": "Sân bay Tân Sơn Nhất",
+        "en": "Tân Sơn Nhất Airport"
+      },
+      "kind": "airport",
+      "lat": 10.81676,
+      "lng": 106.6638
+    }
+  ],
   "streets": [
     {
       "id": "an-duong-vuong",
