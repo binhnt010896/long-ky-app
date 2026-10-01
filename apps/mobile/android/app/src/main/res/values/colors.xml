@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="ic_launcher_background">#4b0102</color>
+    <!-- The lacquer ground the splash opens on (VSColors.lacquer): the window the
+         OS shows before Flutter draws, so launch never blinks white. -->
+    <color name="launch_background">#07100F</color>
 </resources>

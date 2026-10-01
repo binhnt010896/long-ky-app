@@ -4,9 +4,11 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: PLANNING Cycle Q — a richer splash screen, with art made on
-Higgsfield. Nothing is built or generated yet. It waits on the user's answers
-to Q1–Q4.**
+**Status: Cycle Q is BUILT: the splash is the gold dragon-and-clouds art
+(variant d1, Higgsfield `nano_banana_pro`) behind the seal and the wordmark in
+Playfair Display Italic, with a slow 3 % drift, and Android's launch window is
+lacquer-dark (no white blink). App bundle 1.1.0+8 built. Not yet seen on the
+phone (it was locked); the other candidates are in `brand/splash/` (untracked).**
 
 Earlier specs: M `cfa220a`, N `92e699f`, O `f56a4d7`, P `9552bb5` (each
 `<sha>:EXECUTION.md`); what P shipped: `529f7a6:EXECUTION.md`.

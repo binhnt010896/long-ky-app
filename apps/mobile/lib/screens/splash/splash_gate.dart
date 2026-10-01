@@ -165,7 +165,7 @@ class _SplashGateState extends ConsumerState<SplashGate> {
                 // double-underline "missing Material" debug marker.
                 child: Material(
                   type: MaterialType.transparency,
-                  child: _SplashScreen(
+                  child: SplashScreenView(
                     contentIn: _contentIn,
                     showProgress: _showBar,
                     progress: _warmProgress,
@@ -179,11 +179,21 @@ class _SplashGateState extends ConsumerState<SplashGate> {
   }
 }
 
-/// The Long Ký splash: the seal on a deep lacquer ground, the wordmark below,
-/// and (only once the minimum show time has passed and media is still
-/// warming) a thin gold progress bar.
-class _SplashScreen extends StatelessWidget {
-  const _SplashScreen({
+/// The splash's background art: a gold Nguyễn-style dragon among clouds on
+/// black lacquer (Cycle Q). Bundled — the splash shows before the network or
+/// the media cache are ready.
+const String kSplashArt = 'assets/brand/splash-bg.webp';
+
+/// The Long Ký splash: gold dragon-and-cloud art on lacquer, the seal over a
+/// soft dark pool so it stays crisp, the wordmark below, and (only once the
+/// minimum show time has passed and media is still warming) a thin gold
+/// progress bar.
+///
+/// The art drifts very slowly (a ~3 % zoom over the splash's few seconds),
+/// unless the phone asks for reduced motion.
+class SplashScreenView extends StatefulWidget {
+  const SplashScreenView({
+    super.key,
     required this.contentIn,
     required this.showProgress,
     required this.progress,
@@ -194,94 +204,169 @@ class _SplashScreen extends StatelessWidget {
   final double progress;
 
   @override
+  State<SplashScreenView> createState() => _SplashScreenViewState();
+}
+
+class _SplashScreenViewState extends State<SplashScreenView>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _drift = AnimationController(
+      vsync: this, duration: const Duration(seconds: 9));
+  bool _started = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Decode the art before the first frame that needs it.
+    precacheImage(const AssetImage(kSplashArt), context);
+    if (!_started && !MediaQuery.disableAnimationsOf(context)) {
+      _started = true;
+      _drift.forward();
+    }
+  }
+
+  @override
+  void dispose() {
+    _drift.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: const BoxDecoration(
-        gradient: RadialGradient(
-          center: Alignment(0, -0.18),
-          radius: 1.15,
-          colors: <Color>[Color(0xFF1C0C0A), VSColors.lacquerVoid],
-        ),
-      ),
-      child: Center(
-        child: AnimatedSlide(
-          offset: contentIn ? Offset.zero : const Offset(0, 0.04),
-          duration: const Duration(milliseconds: 720),
-          curve: Curves.easeOutCubic,
-          child: AnimatedOpacity(
-            opacity: contentIn ? 1 : 0,
-            duration: const Duration(milliseconds: 720),
+    return ColoredBox(
+      color: VSColors.lacquerVoid,
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          // The art: cover-fit and centred, so a taller or wider phone crops
+          // the edges, never the middle. Fades in with the seal.
+          AnimatedOpacity(
+            opacity: widget.contentIn ? 1 : 0,
+            duration: const Duration(milliseconds: 900),
             curve: Curves.easeOut,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                // The seal, on a soft gold halo.
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(34),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                        color: VSColors.gold.withValues(alpha: 0.22),
-                        blurRadius: 56,
-                        spreadRadius: 4,
-                      ),
-                    ],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(34),
-                    child: Image.asset(
-                      'assets/brand/long-ky-logo.png',
-                      width: 184,
-                      height: 184,
-                      fit: BoxFit.cover,
-                      filterQuality: FilterQuality.medium,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: VSSpacing.xl),
-                // Wordmark — Playfair Display, gilded.
-                Text(
-                  'Long Ký',
-                  style: VSType.hero.copyWith(
-                    fontSize: 40,
-                    color: VSColors.goldBright,
-                    letterSpacing: 0.5,
-                    shadows: const <Shadow>[
-                      Shadow(color: Color(0x66000000), blurRadius: 16),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: VSSpacing.md),
-                Container(width: 40, height: 1, color: VSColors.goldBorder),
-                const SizedBox(height: VSSpacing.md),
-                Text('NGHÌN NĂM SỬ VIỆT', style: VSType.kicker),
-                const SizedBox(height: VSSpacing.lg),
-                AnimatedOpacity(
-                  opacity: showProgress ? 1 : 0,
-                  duration: const Duration(milliseconds: 300),
-                  child: Container(
-                    width: 120,
-                    height: 2,
-                    decoration: BoxDecoration(
-                      color: VSColors.goldBorder,
-                      borderRadius: BorderRadius.circular(1),
-                    ),
-                    alignment: Alignment.centerLeft,
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 200),
-                      curve: Curves.easeOut,
-                      width: 120 * progress.clamp(0, 1),
-                      height: 2,
-                      decoration: BoxDecoration(
-                        color: VSColors.goldBright,
-                        borderRadius: BorderRadius.circular(1),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            child: AnimatedBuilder(
+              animation: _drift,
+              builder: (context, child) => Transform.scale(
+                scale: 1 + 0.03 * Curves.easeOut.transform(_drift.value),
+                child: child,
+              ),
+              child: Image.asset(
+                kSplashArt,
+                key: const Key('splash-art'),
+                fit: BoxFit.cover,
+                alignment: Alignment.center,
+                filterQuality: FilterQuality.medium,
+                gaplessPlayback: true,
+              ),
             ),
           ),
+          // A soft dark pool behind the seal and wordmark, so they stay crisp
+          // on any part of the art.
+          const IgnorePointer(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: RadialGradient(
+                  center: Alignment(0, -0.06),
+                  radius: 0.78,
+                  colors: <Color>[Color(0xD907100F), Color(0x9907100F), Color(0x0007100F)],
+                  stops: <double>[0, 0.55, 1],
+                ),
+              ),
+              child: SizedBox.expand(),
+            ),
+          ),
+          Center(child: _SplashContent(widget: widget)),
+        ],
+      ),
+    );
+  }
+}
+
+class _SplashContent extends StatelessWidget {
+  const _SplashContent({required this.widget});
+
+  final SplashScreenView widget;
+
+  @override
+  Widget build(BuildContext context) {
+    final contentIn = widget.contentIn;
+    return AnimatedSlide(
+      offset: contentIn ? Offset.zero : const Offset(0, 0.04),
+      duration: const Duration(milliseconds: 720),
+      curve: Curves.easeOutCubic,
+      child: AnimatedOpacity(
+        opacity: contentIn ? 1 : 0,
+        duration: const Duration(milliseconds: 720),
+        curve: Curves.easeOut,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            // The seal, on a soft gold halo.
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(34),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    color: VSColors.gold.withValues(alpha: 0.22),
+                    blurRadius: 56,
+                    spreadRadius: 4,
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(34),
+                child: Image.asset(
+                  'assets/brand/long-ky-logo.png',
+                  width: 184,
+                  height: 184,
+                  fit: BoxFit.cover,
+                  filterQuality: FilterQuality.medium,
+                ),
+              ),
+            ),
+            const SizedBox(height: VSSpacing.xl),
+            // Wordmark — Playfair Display Italic, gilded.
+            Text(
+              'Long Ký',
+              key: const Key('splash-wordmark'),
+              style: VSType.hero.copyWith(
+                fontSize: 44,
+                fontStyle: FontStyle.italic,
+                color: VSColors.goldBright,
+                letterSpacing: 0.5,
+                shadows: const <Shadow>[
+                  Shadow(color: Color(0x99000000), blurRadius: 18),
+                ],
+              ),
+            ),
+            const SizedBox(height: VSSpacing.md),
+            Container(width: 40, height: 1, color: VSColors.goldBorder),
+            const SizedBox(height: VSSpacing.md),
+            Text('NGHÌN NĂM SỬ VIỆT', style: VSType.kicker),
+            const SizedBox(height: VSSpacing.lg),
+            AnimatedOpacity(
+              opacity: widget.showProgress ? 1 : 0,
+              duration: const Duration(milliseconds: 300),
+              child: Container(
+                width: 120,
+                height: 2,
+                decoration: BoxDecoration(
+                  color: VSColors.goldBorder,
+                  borderRadius: BorderRadius.circular(1),
+                ),
+                alignment: Alignment.centerLeft,
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  curve: Curves.easeOut,
+                  width: 120 * widget.progress.clamp(0, 1),
+                  height: 2,
+                  decoration: BoxDecoration(
+                    color: VSColors.goldBright,
+                    borderRadius: BorderRadius.circular(1),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
