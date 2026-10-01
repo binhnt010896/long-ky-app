@@ -98,10 +98,15 @@ List<List<GeoPt>> readBoundaryRings(File f) {
   final people = ((jsonDecode(File('content/people.json').readAsStringSync())
           as Map<String, dynamic>)['people'] as List)
       .cast<Map<String, dynamic>>();
+  // Eras list their events as {ref}s into content/events.json (Cycle N); the
+  // matcher reads event titles, so hand it eras with the events inlined.
+  final events = eventJsonById(
+      jsonDecode(File('content/events.json').readAsStringSync()) as Map<String, dynamic>);
   final eras = [
     for (final f in Directory('content/eras').listSync().whereType<File>())
       if (f.path.endsWith('.json'))
-        jsonDecode(f.readAsStringSync()) as Map<String, dynamic>,
+        inlineEraEvents(
+            jsonDecode(f.readAsStringSync()) as Map<String, dynamic>, events),
   ];
   return (people: people, eras: eras);
 }
