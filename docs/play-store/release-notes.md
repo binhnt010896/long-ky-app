@@ -5,6 +5,20 @@ Paste the block for a version into **Release → (track) → Create release →
 and allows **500 characters per language**; the character counts below were
 checked. Newest version first.
 
+## 1.1.2 (10)
+
+Builds on 1.1.0 (8) and 1.1.1 (9) (both already uploaded); only the new items
+are listed — Play shows this text for this release only.
+
+```
+<vi-VN>
+Thêm liên kết "Chính sách quyền riêng tư" trong mục Về Long Ký. Sửa lỗi hiển thị số phiên bản ở mục Về Long Ký.
+</vi-VN>
+<en-US>
+Added a "Privacy policy" link in About Long Ký. Fixed the app version number shown in About Long Ký.
+</en-US>
+```
+
 ## 1.1.0 (8)
 
 ```

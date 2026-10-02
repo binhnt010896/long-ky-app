@@ -22,8 +22,17 @@ const String _statsBodyEn =
     'Analytics/Crashlytics. No name, email or other identifying information '
     'is collected. Turn it off any time.';
 
-/// App version shown on the About page (mirrors pubspec `version`).
-const String kAppVersion = '1.0.1';
+/// App version shown on the About page (mirrors pubspec `version`; a test
+/// keeps the two in step).
+const String kAppVersion = '1.1.2';
+
+/// The privacy policy, a public page Google Play also lists for the app.
+final Uri kPrivacyPolicyUri = Uri.parse('https://binh-nt.dev/long-ky/privacy');
+
+const String _privacyLabelVi = 'Chính sách quyền riêng tư';
+const String _privacyLabelEn = 'Privacy policy';
+const String _privacyFailVi = 'Không mở được trình duyệt. Địa chỉ: binh-nt.dev/long-ky/privacy';
+const String _privacyFailEn = "Couldn't open the browser. Address: binh-nt.dev/long-ky/privacy";
 
 /// A paragraph as segments; `true` marks the title of a cited work, which is
 /// highlighted.
@@ -193,6 +202,34 @@ class AboutScreen extends ConsumerWidget {
             ),
             const SizedBox(height: VSSpacing.sm),
             Text(en ? _statsBodyEn : _statsBodyVi, style: VSType.bodySmall),
+            const SizedBox(height: VSSpacing.md),
+            // A quiet text row, in the family of the rest of this page.
+            InkWell(
+              key: const Key('privacy-policy-link'),
+              onTap: () async {
+                final messenger = ScaffoldMessenger.of(context);
+                var opened = false;
+                try {
+                  opened = await ref.read(urlOpenerProvider)(kPrivacyPolicyUri);
+                } catch (_) {}
+                if (!opened) {
+                  messenger.showSnackBar(SnackBar(
+                      content: Text(en ? _privacyFailEn : _privacyFailVi)));
+                }
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: VSSpacing.sm),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(en ? _privacyLabelEn : _privacyLabelVi,
+                          style: VSType.body.copyWith(color: VSColors.goldBright)),
+                    ),
+                    const Icon(Icons.open_in_new, size: 16, color: VSColors.gold),
+                  ],
+                ),
+              ),
+            ),
             const SizedBox(height: VSSpacing.xl),
             Text(en ? 'VERSION' : 'PHIÊN BẢN', style: VSType.overline),
             const SizedBox(height: VSSpacing.sm),

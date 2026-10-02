@@ -2,6 +2,7 @@ import 'package:core_content/core_content.dart';
 import 'package:core_domain/core_domain.dart';
 import 'package:experience/experience.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../telemetry/telemetry.dart';
 import '../telemetry/telemetry_settings.dart';
@@ -122,3 +123,8 @@ class TelemetryEnabledNotifier extends AsyncNotifier<bool> {
     await ref.read(telemetryProvider).setEnabled(enabled);
   }
 }
+
+/// Opens a web address in the phone's browser. A seam so tests never launch
+/// anything; returns false when nothing could open it.
+final urlOpenerProvider = Provider<Future<bool> Function(Uri)>(
+    (ref) => (uri) => launchUrl(uri, mode: LaunchMode.externalApplication));
