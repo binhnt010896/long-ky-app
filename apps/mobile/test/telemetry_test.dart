@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:core_content/core_content.dart';
 import 'package:core_content/testing.dart';
 import 'package:core_domain/core_domain.dart';
+import 'package:executor_lib/executor_lib.dart' show CancellationException;
 import 'package:experience/experience.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -325,6 +326,27 @@ void main() {
       expect(names.first, 'quiz_start');
       expect(names.last, 'quiz_complete');
       expect(names.where((n) => n == 'quiz_answer').length, answered);
+    });
+  });
+
+  group('error classification', () {
+    test('tile cancellations are benign; real errors are not', () {
+      expect(isBenignError(CancellationException()), isTrue);
+      expect(isBenignError(StateError('boom')), isFalse);
+      expect(isBenignError(const SocketException('reset')), isFalse);
+    });
+
+    test('image-load failures are non-fatal; other Flutter errors are fatal', () {
+      const image = FlutterErrorDetails(
+        exception: SocketException('reset'),
+        library: 'image resource service',
+      );
+      final other = FlutterErrorDetails(
+        exception: StateError('boom'),
+        library: 'widgets library',
+      );
+      expect(isNonFatalFlutterError(image), isTrue);
+      expect(isNonFatalFlutterError(other), isFalse);
     });
   });
 

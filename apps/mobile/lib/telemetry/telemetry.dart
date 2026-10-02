@@ -1,5 +1,6 @@
+import 'package:executor_lib/executor_lib.dart' show CancellationException;
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/foundation.dart' show kIsWeb, kReleaseMode;
+import 'package:flutter/foundation.dart' show FlutterErrorDetails, kIsWeb, kReleaseMode;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'firebase_telemetry.dart';
@@ -30,6 +31,18 @@ abstract class Telemetry {
   /// Applies to both Analytics and Crashlytics collection.
   Future<void> setEnabled(bool enabled);
 }
+
+/// Errors that are normal operation, not faults. The street map's tile loader
+/// (vector_map_tiles) throws [CancellationException] for every tile that
+/// scrolls out of view; with no listener on the tile image it lands in
+/// FlutterError.onError and was being reported as a fatal crash.
+bool isBenignError(Object error) => error is CancellationException;
+
+/// Flutter errors that are recoverable and so reported non-fatal: a failed
+/// image download (a dropped connection) leaves the placeholder showing, the
+/// app keeps running.
+bool isNonFatalFlutterError(FlutterErrorDetails details) =>
+    details.library == 'image resource service';
 
 /// Collects nothing. Used on web (no Firebase configuration there — see
 /// firebase_options.dart), in debug builds (so local testing never appears in

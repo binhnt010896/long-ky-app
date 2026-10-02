@@ -35,13 +35,17 @@ Future<void> main() async {
       await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
       final firebaseTelemetry = FirebaseTelemetry();
       telemetry = firebaseTelemetry;
-      // Uncaught errors — fatal by definition, reported with no PII.
+      // Uncaught errors — fatal by default, reported with no PII. Benign ones
+      // (tile cancellations) are dropped; recoverable image-load failures are
+      // reported non-fatal. See isBenignError / isNonFatalFlutterError.
       FlutterError.onError = (details) {
+        if (isBenignError(details.exception)) return;
         FlutterError.presentError(details);
         firebaseTelemetry.recordError(details.exception, details.stack ?? StackTrace.empty,
-            reason: 'FlutterError.onError', fatal: true);
+            reason: 'FlutterError.onError', fatal: !isNonFatalFlutterError(details));
       };
       PlatformDispatcher.instance.onError = (error, stack) {
+        if (isBenignError(error)) return true;
         firebaseTelemetry.recordError(error, stack, reason: 'PlatformDispatcher.onError', fatal: true);
         return true;
       };
