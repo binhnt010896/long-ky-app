@@ -31,7 +31,7 @@ void main() {
   test('the standalone events (listed by no era) load from the registry', () async {
     final repo = ContentRepository(appBundledContent());
     final ids = [for (final e in await repo.loadStandaloneEvents()) e.id];
-    expect(ids, hasLength(6));
+    expect(ids, hasLength(10));
     expect(ids, contains('nguyen-huu-canh-lap-phu-gia-dinh'));
     expect(ids, contains('dac-cong-rung-sac'));
   });

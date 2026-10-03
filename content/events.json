@@ -14448,6 +14448,213 @@
         },
         "author": "Viện Lịch sử Quân sự Việt Nam"
       }
+    },
+    {
+      "id": "huyen-tran-ve-champa",
+      "slug": "huyen-tran-ve-champa",
+      "figureIds": [
+        "huyen-tran"
+      ],
+      "details": {
+        "vi": "Đại Việt sử ký toàn thư chép rằng sau khi Thượng hoàng Nhân Tông, đã xuất gia, ghé thăm Chiêm Thành, vua Chiêm Chế Mân bày tỏ ý muốn cưới công chúa Huyền Trân. Triều thần có người phản đối, nhưng đến năm 1306 việc hôn nhân được định, Chế Mân dâng châu Ô và châu Lý làm lễ vật, và Trần Anh Tông cho đón nhận hai châu, đổi tên thành Thuận Châu và Hóa Châu. Chế Mân mất ngay năm sau; để cứu công chúa khỏi tục thiêu theo chồng, Trần Khắc Chung được cử sang đón bà về, và năm 1308 bà trở về Đại Việt. Ít năm sau, bà xuất gia.",
+        "en": "The Đại Việt sử ký toàn thư records that after retired emperor Nhân Tông, by then a monk, visited Champa, the Cham king Chế Mân let it be known he wished to wed Princess Huyền Trân. Some at court objected, but in 1306 the match was settled: Chế Mân offered the prefectures of Ô and Lý, which Trần Anh Tông received and renamed Thuận Châu and Hóa Châu. Chế Mân died the next year; to spare the princess from being burned with her husband according to custom, Trần Khắc Chung was sent to bring her back, and in 1308 she returned to Đại Việt. She later became a nun."
+      },
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1306 – 1308 SCN",
+          "en": "1306 – 1308 CE"
+        },
+        "value": 1306,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Huyền Trân công chúa về làm vợ vua Chiêm",
+        "en": "Princess Huyền Trân weds the king of Champa"
+      },
+      "summary": {
+        "vi": "Năm 1306, công chúa Huyền Trân được gả cho vua Chiêm Chế Mân; hai châu Ô, Lý được dâng làm lễ vật.",
+        "en": "In 1306 Princess Huyền Trân was given in marriage to Chế Mân, king of Champa, who offered the prefectures of Ô and Lý as betrothal gifts."
+      },
+      "body": {
+        "vi": "Sau chuyến thăm Chiêm Thành của Thượng hoàng Trần Nhân Tông, vua Chiêm Chế Mân xin cưới công chúa Huyền Trân và dâng hai châu Ô, Lý làm lễ vật. Tháng 6 năm 1306 công chúa về nước Chiêm. Chế Mân mất năm 1307; Trần Khắc Chung đón bà về vào năm 1308. Hai châu ấy sau được đổi thành Thuận Châu và Hóa Châu.",
+        "en": "After retired emperor Trần Nhân Tông visited Champa, the Cham king Chế Mân asked for Princess Huyền Trân's hand and offered the prefectures of Ô and Lý as betrothal gifts. In June 1306 the princess went to Champa. Chế Mân died in 1307; Trần Khắc Chung brought her home in 1308. The two prefectures were later renamed Thuận Châu and Hóa Châu."
+      },
+      "hero": {
+        "id": "huyen-tran-ve-champa-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": {
+          "vi": "Trần kỷ · Anh Tông (1306 – 1308)",
+          "en": "Trần Records · Anh Tông (1306 – 1308)"
+        },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "tran-khat-chan-hai-trieu",
+      "slug": "tran-khat-chan-hai-trieu",
+      "figureIds": [
+        "tran-khat-chan"
+      ],
+      "details": {
+        "vi": "Từ giữa thế kỷ XIV, các cuộc tiến công của quân Chiêm do Chế Bồng Nga chỉ huy khiến Thăng Long nhiều lần bị uy hiếp; có lần kinh thành bị đốt phá. Năm 1390, Chế Bồng Nga lại đem quân ra Bắc. Theo Đại Việt sử ký toàn thư, ở sông Hải Triều, nhờ một người Chiêm hàng báo vị trí thuyền của vua, quân Đại Việt dưới quyền Trần Khát Chân bắn chết ông. Quân Chiêm tan rã. Chiến thắng này chấm dứt mối đe dọa từ phía Nam, và Trần Khát Chân được phong Thượng tướng quân.",
+        "en": "From the mid-fourteenth century, Cham attacks under Chế Bồng Nga repeatedly threatened Thăng Long, and the capital was once burned. In 1390 he marched north again. By the Đại Việt sử ký toàn thư, at the Hải Triều river a Cham defector revealed the position of the king's boat and Đại Việt forces under Trần Khát Chân shot him dead. The Cham army broke up. The victory ended the threat from the South, and Trần Khát Chân was made Supreme General."
+      },
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1390 SCN",
+          "en": "1390 CE"
+        },
+        "value": 1390,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Trần Khát Chân giết Chế Bồng Nga",
+        "en": "Trần Khát Chân kills Chế Bồng Nga"
+      },
+      "summary": {
+        "vi": "Tháng 1 năm 1390, ở sông Hải Triều, Trần Khát Chân giết vua Chiêm Chế Bồng Nga, chấm dứt mối đe dọa cuối thế kỷ XIV.",
+        "en": "In January 1390, on the Hải Triều river, Trần Khát Chân killed the Cham king Chế Bồng Nga, ending the threat that had hung over the late fourteenth century."
+      },
+      "body": {
+        "vi": "Cuối thế kỷ XIV, vua Chiêm Chế Bồng Nga nhiều lần đem quân đánh Thăng Long. Tháng 1 năm 1390, thuyền chiến của ông bị quân Đại Việt do Trần Khát Chân chỉ huy chặn ở sông Hải Triều (sông Luộc); Chế Bồng Nga bị bắn chết và đầu được đưa về kinh. Trần Khát Chân được phong Thượng tướng quân.",
+        "en": "In the late fourteenth century the Cham king Chế Bồng Nga repeatedly marched on Thăng Long. In January 1390 his war fleet was met by Đại Việt forces under Trần Khát Chân on the Hải Triều (Luộc) river; Chế Bồng Nga was shot dead and his head sent to the capital. Trần Khát Chân was made Supreme General."
+      },
+      "hero": {
+        "id": "tran-khat-chan-hai-trieu-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": {
+          "vi": "Trần kỷ · Thuận Tông (1390)",
+          "en": "Trần Records · Thuận Tông (1390)"
+        },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "ho-quy-ly-lap-nha-ho",
+      "slug": "ho-quy-ly-lap-nha-ho",
+      "figureIds": [],
+      "relatedEventIds": [
+        "tran-khat-chan-hai-trieu",
+        "hau-tran-khang-chien"
+      ],
+      "details": {
+        "vi": "Cuối thế kỷ XIV, nhà Trần suy yếu, quyền hành rơi vào tay Hồ Quý Ly. Ông tiến hành nhiều cải cách như phát hành tiền giấy (1396) và hạn chế ruộng đất, nô tì của quý tộc (1397), dời đô vào Tây Đô ở Thanh Hóa. Năm 1400, ông phế Trần Thiếu Đế, lên ngôi và đổi quốc hiệu thành Đại Ngu, rồi nhường ngôi cho Hồ Hán Thương. Việc cướp ngôi gây bất bình trong tôn thất nhà Trần, mà các cuộc mưu sát năm 1399 đã báo trước. Đến năm 1407, nhà Hồ thất bại trước cuộc xâm lược của nhà Minh.",
+        "en": "By the late fourteenth century the Trần had weakened and power lay with Hồ Quý Ly. He carried out many reforms, such as issuing paper money (1396) and limiting the land and bondservants of the nobility (1397), and moved the capital to Tây Đô in Thanh Hóa. In 1400 he deposed Trần Thiếu Đế, took the throne and changed the name of the realm to Đại Ngu, then passed the throne to Hồ Hán Thương. The usurpation caused resentment among the Trần princes, as the plots of 1399 had foreshadowed. In 1407 the Hồ were defeated by the Ming invasion."
+      },
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1400 SCN",
+          "en": "1400 CE"
+        },
+        "value": 1400,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Hồ Quý Ly lên ngôi, lập nhà Hồ",
+        "en": "Hồ Quý Ly takes the throne and founds the Hồ dynasty"
+      },
+      "summary": {
+        "vi": "Năm 1400, Hồ Quý Ly phế vua Trần, lên ngôi, đặt quốc hiệu Đại Ngu.",
+        "en": "In 1400 Hồ Quý Ly deposed the Trần ruler, took the throne and named the realm Đại Ngu."
+      },
+      "body": {
+        "vi": "Năm Canh Thìn (1400), Hồ Quý Ly, người nắm quyền triều đình nhà Trần suy yếu, phế vua Thiếu Đế, lên ngôi và đặt quốc hiệu là Đại Ngu. Ông sớm nhường ngôi cho con là Hồ Hán Thương, giữ vai Thái thượng hoàng. Triều Hồ ngắn ngủi, đến năm 1407 thì bị quân Minh đánh bại.",
+        "en": "In the year Canh Thìn (1400) Hồ Quý Ly, who held the power of the weakened Trần court, deposed the boy emperor Thiếu Đế, took the throne and named the realm Đại Ngu. He soon gave the throne to his son Hồ Hán Thương and kept the role of retired emperor. The Hồ dynasty was short, and fell to the Ming in 1407."
+      },
+      "hero": {
+        "id": "ho-quy-ly-lap-nha-ho-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": {
+          "vi": "Hồ kỷ (1400)",
+          "en": "Hồ Records (1400)"
+        },
+        "author": "Ngô Sĩ Liên"
+      }
+    },
+    {
+      "id": "hau-tran-khang-chien",
+      "slug": "hau-tran-khang-chien",
+      "figureIds": [
+        "dang-tat",
+        "dang-dung",
+        "nguyen-bieu"
+      ],
+      "relatedEventIds": [
+        "ho-quy-ly-lap-nha-ho"
+      ],
+      "details": {
+        "vi": "Khi nhà Hồ sụp đổ trước quân Minh năm 1407, con cháu nhà Trần dựng lại cờ. Trần Ngỗi xưng Giản Định đế, với Đặng Tất và Nguyễn Cảnh Chân làm tướng, thắng lớn ở Bô Cô cuối năm 1408. Nhưng vì lời gièm pha, đầu năm 1409 vua giết cả hai tướng, khiến lực lượng chia rẽ. Trần Quý Khoáng lên ngôi Trùng Quang đế, Đặng Dung giữ binh quyền, đánh các trận Mô Độ (1411 – 1412) và Sái Già (1413), nơi một cuộc đột kích đêm suýt bắt được Trương Phụ. Sứ thần Nguyễn Biểu bị giết năm 1413 vì không khuất phục. Cuối năm 1413 phong trào tan rã, các thủ lĩnh bị bắt.",
+        "en": "When the Hồ fell to the Ming in 1407, descendants of the Trần raised the banner again. Trần Ngỗi took the title Giản Định, with Đặng Tất and Nguyễn Cảnh Chân as his generals, and won a great victory at Bô Cô in late 1408. But on slander the emperor put both generals to death in early 1409, splitting his forces. Trần Quý Khoáng took the throne as Emperor Trùng Quang and Đặng Dung held command, fighting at Mô Độ (1411 – 1412) and Sái Già (1413), where a night raid nearly captured Trương Phụ. The envoy Nguyễn Biểu was killed in 1413 for refusing to bow. Late in 1413 the movement collapsed and its leaders were taken."
+      },
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1407 – 1413 SCN",
+          "en": "1407 – 1413 CE"
+        },
+        "value": 1407,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Cuộc kháng chiến của nhà Hậu Trần",
+        "en": "The Later Trần resistance"
+      },
+      "summary": {
+        "vi": "Từ 1407 đến 1413, các vua Hậu Trần cùng Đặng Tất, Đặng Dung, Nguyễn Biểu kháng chiến chống nhà Minh.",
+        "en": "From 1407 to 1413 the Later Trần emperors, with Đặng Tất, Đặng Dung and Nguyễn Biểu, resisted the Ming."
+      },
+      "body": {
+        "vi": "Sau khi nhà Hồ thất bại năm 1407, Trần Ngỗi xưng là Giản Định đế và khởi binh chống nhà Minh; ông thắng trận Bô Cô năm 1408 nhờ Đặng Tất, rồi giết Đặng Tất năm 1409. Trần Quý Khoáng lên ngôi Trùng Quang đế, cùng Đặng Dung tiếp tục kháng chiến đến trận Sái Già năm 1413. Cuối năm 1413, phong trào tan rã.",
+        "en": "After the Hồ fell in 1407, Trần Ngỗi proclaimed himself Emperor Giản Định and rose against the Ming; he won at Bô Cô in 1408 with Đặng Tất, then put Đặng Tất to death in 1409. Trần Quý Khoáng took the throne as Emperor Trùng Quang and, with Đặng Dung, fought on to the battle of Sái Già in 1413. Late in 1413 the movement collapsed."
+      },
+      "hero": {
+        "id": "hau-tran-khang-chien-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
+      },
+      "citation": {
+        "work": "Đại Việt sử ký toàn thư",
+        "section": {
+          "vi": "Hậu Trần kỷ (1407 – 1413)",
+          "en": "Later Trần Records (1407 – 1413)"
+        },
+        "author": "Ngô Sĩ Liên"
+      }
     }
   ]
 }

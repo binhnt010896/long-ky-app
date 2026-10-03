@@ -466,6 +466,42 @@
           "era": ""
         }
       ]
+    },
+    {
+      "street": "Trần Khắc Chân",
+      "targets": [
+        {
+          "type": "person",
+          "id": "tran-khat-chan"
+        }
+      ]
+    },
+    {
+      "street": "Tôn Thất Thiệp",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ton-that-tiep"
+        }
+      ]
+    },
+    {
+      "street": "Tôn Thất Đạm",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ton-that-dam"
+        }
+      ]
+    },
+    {
+      "street": "Công chúa Ngọc Hân",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ngoc-han"
+        }
+      ]
     }
   ]
 }

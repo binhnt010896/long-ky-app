@@ -5165,6 +5165,1921 @@
         "flagship": "people/nguyen-huu-tho/full.png",
         "reduced": "people/nguyen-huu-tho/full.png"
       }
+    },
+    {
+      "id": "chu-dong-tu",
+      "name": {
+        "vi": "Chử Đồng Tử",
+        "en": "Chử Đồng Tử"
+      },
+      "epithet": {
+        "vi": "Một trong Tứ bất tử; chàng trai nghèo hiếu thảo",
+        "en": "One of the Four Immortals; the poor and dutiful young man"
+      },
+      "bio": {
+        "vi": "Nhân vật truyền thuyết, được chép trong Lĩnh Nam chích quái với truyện Nhất Dạ Trạch (Đầm Một Đêm). Chàng trai nghèo hiếu thảo ở làng Chử Xá gặp công chúa Tiên Dung, con vua Hùng, và nên duyên; sau khi học đạo, hai người cùng bay lên trời trong một đêm, để lại đầm Nhất Dạ. Dân gian tôn ông là một trong Tứ bất tử.",
+        "en": "A legendary figure recorded in Lĩnh Nam chích quái in the tale of Nhất Dạ Trạch (the One-Night Pond). A poor, dutiful young man of Chử Xá village, he met Princess Tiên Dung, a daughter of a Hùng king, and the two wed; after learning the Way, they rose to heaven in a single night, leaving behind the Nhất Dạ pond. Folk belief honours him as one of the Four Immortals."
+      },
+      "avatar": {
+        "id": "chu-dong-tu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "chu-dong-tu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ly-phuc-man",
+      "name": {
+        "vi": "Lý Phục Man",
+        "en": "Lý Phục Man"
+      },
+      "epithet": {
+        "vi": "Phục Man tướng quân, tướng của Lý Nam Đế",
+        "en": "The 'Man-Subduing' general of Lý Nam Đế"
+      },
+      "bio": {
+        "vi": "Danh tướng thời Lý Nam Đế (thế kỷ VI), được chép chủ yếu trong Việt điện u linh và Đại Nam nhất thống chí chứ không có trong sử chính thống cổ, nên phần nhiều là truyền thuyết. Ông được kể là người đã khuất phục các bộ tộc vùng Đỗ Động – Đường Lâm nên được phong Phục Man tướng quân, và được nhiều làng ở Bắc Bộ thờ làm thành hoàng.",
+        "en": "A famed general of Lý Nam Đế's time (sixth century), recorded chiefly in Việt điện u linh and Đại Nam nhất thống chí rather than in the old standard histories, so much of his story is legend. He is said to have subdued the tribes of the Đỗ Động – Đường Lâm region and was titled the 'Man-Subduing General'; many villages in the North worship him as their tutelary spirit."
+      },
+      "lifespan": {
+        "vi": "? – 547",
+        "en": "? – 547"
+      },
+      "avatar": {
+        "id": "ly-phuc-man-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ly-phuc-man-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ton-dan",
+      "name": {
+        "vi": "Tôn Đản",
+        "en": "Tôn Đản"
+      },
+      "epithet": {
+        "vi": "Tướng nhà Lý trong cuộc tiến công Ung Châu",
+        "en": "A Lý general of the Ung Châu campaign"
+      },
+      "bio": {
+        "vi": "Tướng nhà Lý, được ghi là người dân tộc Nùng. Ông cùng Lý Thường Kiệt chỉ huy cuộc tiến công sang đất Tống năm 1075 – 1076, đánh hạ Khâm Châu, Liêm Châu và thành Ung Châu. Sử liệu không rõ những năm cuối đời của ông.",
+        "en": "A Lý general, recorded as a man of the Nùng people. With Lý Thường Kiệt he led the 1075 – 1076 advance into Song territory that took Khâm and Liêm prefectures and the city of Ung Châu. The sources are unclear about his last years."
+      },
+      "avatar": {
+        "id": "ton-dan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ton-dan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "le-van-thinh",
+      "name": {
+        "vi": "Lê Văn Thịnh",
+        "en": "Lê Văn Thịnh"
+      },
+      "epithet": {
+        "vi": "Người đỗ đầu khoa thi đầu tiên (1075)",
+        "en": "Top graduate of the first examination (1075)"
+      },
+      "bio": {
+        "vi": "Người đỗ đầu khoa thi Minh kinh bác học năm 1075, khoa thi đầu tiên của nhà Lý. Ông làm quan đến Thái sư (1085 – 1095) và theo sử chép đã đàm phán với nhà Tống về biên giới năm 1084. Năm 1095, sau sự kiện ở hồ Dâm Đàm, ông bị khép tội và đày đi Thao Giang; các nhà sử học đến nay vẫn bàn về việc ông có tội hay không.",
+        "en": "Top graduate of the Minh kinh bác học examination of 1075, the first held under the Lý. He rose to Grand Preceptor (1085 – 1095) and, by the chronicles, negotiated the border with the Song in 1084. In 1095, after the incident on Dâm Đàm lake, he was charged and exiled to Thao Giang; historians still debate whether he was guilty."
+      },
+      "lifespan": {
+        "vi": "1038 – 1096",
+        "en": "1038 – 1096"
+      },
+      "avatar": {
+        "id": "le-van-thinh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "le-van-thinh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-binh-trong",
+      "name": {
+        "vi": "Trần Bình Trọng",
+        "en": "Trần Bình Trọng"
+      },
+      "epithet": {
+        "vi": "Bảo Nghĩa vương; \"thà làm quỷ nước Nam\"",
+        "en": "Prince Bảo Nghĩa; \"I would rather be a ghost of the South\""
+      },
+      "bio": {
+        "vi": "Danh tướng nhà Trần, con rể của Trần Thái Tông. Trong cuộc kháng chiến chống Nguyên Mông năm 1285, ông được giao cầm chân giặc ở vùng Thiên Mạc – Đà Mạc để các vua và Trần Hưng Đạo rút lui an toàn. Bị bắt và bị dụ hàng, ông đáp rằng thà làm quỷ nước Nam chứ không làm vương đất Bắc, rồi bị giết, được truy phong Bảo Nghĩa vương.",
+        "en": "A famed Trần general, son-in-law of Emperor Trần Thái Tông. In the 1285 war against the Mongol-Yuan he was ordered to hold the enemy at Thiên Mạc – Đà Mạc so the emperors and Trần Hưng Đạo could withdraw safely. Captured and offered a position, he answered that he would rather be a ghost of the South than a king of the North, and was executed; he was posthumously titled Prince Bảo Nghĩa."
+      },
+      "lifespan": {
+        "vi": "1259 – 1285",
+        "en": "1259 – 1285"
+      },
+      "avatar": {
+        "id": "tran-binh-trong-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-binh-trong-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "pham-ngu-lao",
+      "name": {
+        "vi": "Phạm Ngũ Lão",
+        "en": "Phạm Ngũ Lão"
+      },
+      "epithet": {
+        "vi": "Danh tướng nhà Trần; chàng trai đan sọt",
+        "en": "Trần general; the young man weaving baskets"
+      },
+      "bio": {
+        "vi": "Danh tướng nhà Trần, người làng Phù Ủng. Giai thoại kể ông ngồi đan sọt bên đường, mải nghĩ việc binh đến mức bị giáo đâm vẫn không hay biết, nên được Trần Hưng Đạo nhận làm môn khách. Ông tham gia cuộc kháng chiến năm 1285 và 1288, về sau đánh Chiêm Thành; ông còn để lại hai bài thơ chữ Hán. Khi ông mất, vua Trần Minh Tông bãi triều năm ngày.",
+        "en": "A famed Trần general from Phù Ủng village. The tale tells that he sat weaving baskets by the road, so absorbed in military thought that he did not notice a spear prick him, and Trần Hưng Đạo took him into his service. He fought in the wars of 1285 and 1288, later campaigned against Champa, and left two poems in classical Chinese. When he died, Emperor Trần Minh Tông suspended court for five days."
+      },
+      "lifespan": {
+        "vi": "1255 – 1320",
+        "en": "1255 – 1320"
+      },
+      "avatar": {
+        "id": "pham-ngu-lao-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "pham-ngu-lao-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-thanh-tong",
+      "name": {
+        "vi": "Trần Thánh Tông",
+        "en": "Trần Thánh Tông"
+      },
+      "epithet": {
+        "vi": "Vua nhà Trần; Thái thượng hoàng thời kháng Nguyên",
+        "en": "Trần emperor; retired emperor of the Mongol wars"
+      },
+      "bio": {
+        "vi": "Vua thứ hai của nhà Trần, trị vì từ năm 1258 đến năm 1278, con của Trần Thái Tông. Năm 1278 ông nhường ngôi cho con là Trần Nhân Tông và làm Thái thượng hoàng, cùng vua con và Trần Hưng Đạo lãnh đạo hai cuộc kháng chiến chống Nguyên Mông năm 1285 và 1288. Ông sùng đạo Phật và có sáng tác thơ.",
+        "en": "Second emperor of the Trần, reigning from 1258 to 1278, son of Trần Thái Tông. In 1278 he gave the throne to his son Trần Nhân Tông and became retired emperor, and with his son and Trần Hưng Đạo led the resistance to the Mongol-Yuan invasions of 1285 and 1288. A devout Buddhist, he also wrote poetry."
+      },
+      "lifespan": {
+        "vi": "1240 – 1290",
+        "en": "1240 – 1290"
+      },
+      "avatar": {
+        "id": "tran-thanh-tong-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-thanh-tong-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "da-tuong",
+      "name": {
+        "vi": "Dã Tượng",
+        "en": "Dã Tượng"
+      },
+      "epithet": {
+        "vi": "Gia thần của Trần Hưng Đạo",
+        "en": "Retainer of Trần Hưng Đạo"
+      },
+      "bio": {
+        "vi": "Một trong những gia thần thân tín của Trần Hưng Đạo. Đại Việt sử ký toàn thư chép rằng Hưng Đạo vương có gia thần Dã Tượng và Yết Kiêu, được đối đãi rất hậu và một lòng trung thành theo ông; truyền thuyết kể Dã Tượng giỏi dùng voi chiến.",
+        "en": "One of Trần Hưng Đạo's trusted retainers. The Đại Việt sử ký toàn thư records that the prince kept servants named Dã Tượng and Yết Kiêu, whom he treated generously and who stayed loyal to him; legend says Dã Tượng was skilled with war elephants."
+      },
+      "avatar": {
+        "id": "da-tuong-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "da-tuong-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "mac-dinh-chi",
+      "name": {
+        "vi": "Mạc Đĩnh Chi",
+        "en": "Mạc Đĩnh Chi"
+      },
+      "epithet": {
+        "vi": "Trạng nguyên năm 1304; sứ thần nhà Trần",
+        "en": "Top graduate of 1304; Trần envoy"
+      },
+      "bio": {
+        "vi": "Đỗ trạng nguyên năm 1304 dưới thời Trần Anh Tông. Sử sách kể ông có dáng người nhỏ bé, xấu xí nhưng văn tài và ứng đối sắc sảo, nên được cử đi sứ nhà Nguyên và nổi tiếng với bài phú Ngọc tỉnh liên. Ông làm quan đến chức Tả bộc xạ.",
+        "en": "Top graduate of 1304 under Trần Anh Tông. The accounts say he was small and plain-looking but brilliant in letters and repartee, so he was sent as envoy to the Yuan, where he was known for his fu poem on the jade-well lotus. He rose to the office of Left Minister."
+      },
+      "lifespan": {
+        "vi": "1272 – 1346",
+        "en": "1272 – 1346"
+      },
+      "avatar": {
+        "id": "mac-dinh-chi-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "mac-dinh-chi-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "chu-van-an",
+      "name": {
+        "vi": "Chu Văn An",
+        "en": "Chu Văn An"
+      },
+      "epithet": {
+        "vi": "Nhà giáo, Quốc tử giám tư nghiệp; \"thất trảm sớ\"",
+        "en": "Teacher and head of the National Academy; author of the 'Seven Beheadings' memorial"
+      },
+      "bio": {
+        "vi": "Nhà giáo nổi tiếng thời Trần, từng làm Tư nghiệp Quốc tử giám, dạy cả thái tử. Dưới thời Trần Dụ Tông, ông dâng Thất trảm sớ xin chém bảy nịnh thần; vua không nghe, ông treo mũ từ quan về ẩn ở Chí Linh. Ông mất năm 1370 và được thờ ở Văn Miếu.",
+        "en": "A renowned teacher of the Trần period who served as head of the National Academy and taught the crown prince. Under Trần Dụ Tông he submitted the 'Seven Beheadings' memorial asking for seven flatterers to be executed; the emperor ignored it and he hung up his hat and retired to Chí Linh. He died in 1370 and is honoured in the Temple of Literature."
+      },
+      "lifespan": {
+        "vi": "1292 – 1370",
+        "en": "1292 – 1370"
+      },
+      "avatar": {
+        "id": "chu-van-an-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "chu-van-an-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "le-van-huu",
+      "name": {
+        "vi": "Lê Văn Hưu",
+        "en": "Lê Văn Hưu"
+      },
+      "epithet": {
+        "vi": "Tác giả bộ sử đầu tiên: Đại Việt sử ký",
+        "en": "Author of the first national history, Đại Việt sử ký"
+      },
+      "bio": {
+        "vi": "Đỗ bảng nhãn năm 1247 lúc mới 17 tuổi. Ông làm Hàn lâm viện học sĩ, giữ chức Quốc sử viện giám tu, và năm 1272 hoàn thành Đại Việt sử ký gồm 30 quyển, chép từ Triệu Đà đến Lý Chiêu Hoàng. Bộ sử gốc đã thất lạc, nhưng nhiều đoạn được Ngô Sĩ Liên dẫn lại trong Đại Việt sử ký toàn thư.",
+        "en": "Won the bảng nhãn degree in 1247 at only 17. He served as Hanlin academician and director of the National History Office, and in 1272 completed the Đại Việt sử ký in 30 books, running from Triệu Đà to Lý Chiêu Hoàng. The original is lost, but Ngô Sĩ Liên quoted much of it in the Đại Việt sử ký toàn thư."
+      },
+      "lifespan": {
+        "vi": "1230 – 1322",
+        "en": "1230 – 1322"
+      },
+      "avatar": {
+        "id": "le-van-huu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "le-van-huu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "han-thuyen",
+      "name": {
+        "vi": "Hàn Thuyên",
+        "en": "Hàn Thuyên"
+      },
+      "epithet": {
+        "vi": "Thượng thư Bộ Hình; người có công phát triển chữ Nôm",
+        "en": "Minister of Justice; pioneer of the Nôm script"
+      },
+      "bio": {
+        "vi": "Tên thật là Nguyễn Thuyên, đỗ thái học sinh năm 1247, làm Thượng thư Bộ Hình thời Trần Nhân Tông. Tương truyền năm 1282 ông làm bài văn đuổi cá sấu khỏi sông Hồng nên vua ban họ Hàn, theo tích Hàn Dũ. Ông được xem là người có công đưa chữ Nôm vào thơ văn.",
+        "en": "Born Nguyễn Thuyên, he passed the thái học sinh examination in 1247 and served as Minister of Justice under Trần Nhân Tông. Tradition says that in 1282 he wrote a text that drove a crocodile from the Red River, so the emperor gave him the surname Hàn after the Tang scholar Hàn Dũ. He is credited with bringing the Nôm script into poetry."
+      },
+      "avatar": {
+        "id": "han-thuyen-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "han-thuyen-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tue-tinh",
+      "name": {
+        "vi": "Tuệ Tĩnh",
+        "en": "Tuệ Tĩnh"
+      },
+      "epithet": {
+        "vi": "Thiền sư, danh y; tổ sư thuốc Nam",
+        "en": "Zen monk and physician; patron of Southern medicine"
+      },
+      "bio": {
+        "vi": "Tên thật là Nguyễn Bá Tĩnh, tương truyền sinh ở Hải Dương cuối thời Trần, mồ côi từ nhỏ, được nhà chùa nuôi. Ông đỗ thái học sinh nhưng chọn đi tu và nghiên cứu thuốc, nêu chủ trương \"thuốc Nam chữa người Nam\"; Nam dược thần hiệu và Hồng Nghĩa giác tư y thư được gắn với tên ông. Phần lớn tiểu sử của ông dựa vào truyền thuyết và truyền thống y học.",
+        "en": "Born Nguyễn Bá Tĩnh, said to have been from Hải Dương in the late Trần, orphaned young and raised by monks. He passed the thái học sinh examination but chose the monastic life and the study of medicine, holding that 'Southern medicine treats Southern people'; Nam dược thần hiệu and Hồng Nghĩa giác tư y thư are linked to his name. Much of his biography rests on tradition and the medical lore."
+      },
+      "avatar": {
+        "id": "tue-tinh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tue-tinh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "huyen-tran",
+      "name": {
+        "vi": "Huyền Trân công chúa",
+        "en": "Princess Huyền Trân"
+      },
+      "epithet": {
+        "vi": "Công chúa nhà Trần, về làm vợ vua Chiêm Thành",
+        "en": "Trần princess who wed the king of Champa"
+      },
+      "bio": {
+        "vi": "Con gái của Trần Nhân Tông. Năm 1306 bà được gả cho vua Chiêm là Chế Mân, và Chế Mân dâng hai châu Ô, Lý làm lễ vật; hai châu ấy sau được đổi thành Thuận Châu và Hóa Châu. Chế Mân mất năm 1307, bà được Trần Khắc Chung đón về năm 1308, rồi đi tu.",
+        "en": "Daughter of Trần Nhân Tông. In 1306 she was given in marriage to Chế Mân, king of Champa, who offered the two prefectures of Ô and Lý as betrothal gifts; these were later renamed Thuận Châu and Hóa Châu. Chế Mân died in 1307, Trần Khắc Chung brought her home in 1308, and she became a nun."
+      },
+      "lifespan": {
+        "vi": "1287 – 1340",
+        "en": "1287 – 1340"
+      },
+      "avatar": {
+        "id": "huyen-tran-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "huyen-tran-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "an-tu-cong-chua",
+      "name": {
+        "vi": "An Tư công chúa",
+        "en": "Princess An Tư"
+      },
+      "epithet": {
+        "vi": "Công chúa nhà Trần thời kháng chiến chống Nguyên",
+        "en": "Trần princess of the Mongol wars"
+      },
+      "bio": {
+        "vi": "Con gái của Trần Thái Tông, em của Trần Thánh Tông. Đại Việt sử ký toàn thư chép rằng năm 1285, khi quân Nguyên Mông áp sát, triều đình đem công chúa An Tư sang trại Thoát Hoan để tạm hoãn binh. Số phận của bà sau đó không được sử sách ghi rõ.",
+        "en": "A daughter of Trần Thái Tông and a younger sister of Trần Thánh Tông. The Đại Việt sử ký toàn thư records that in 1285, as the Mongol-Yuan army pressed in, the court sent Princess An Tư to Toghon's camp to buy time. What became of her afterwards is not clearly recorded."
+      },
+      "avatar": {
+        "id": "an-tu-cong-chua-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "an-tu-cong-chua-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-nguyen-dan",
+      "name": {
+        "vi": "Trần Nguyên Đán",
+        "en": "Trần Nguyên Đán"
+      },
+      "epithet": {
+        "vi": "Tư đồ cuối thời Trần; ông ngoại của Nguyễn Trãi",
+        "en": "Late-Trần minister; grandfather of Nguyễn Trãi"
+      },
+      "bio": {
+        "vi": "Hiệu Băng Hồ, làm quan đến Tư đồ dưới các vua Trần Nghệ Tông, Duệ Tông và Phế Đế, được phong Chương Túc quốc thượng hầu. Năm 1385, thấy thời cuộc suy loạn, ông lui về ở Côn Sơn. Ông để lại tập thơ Băng Hồ và là ông ngoại của Nguyễn Trãi.",
+        "en": "Pen-named Băng Hồ, he rose to Minister (tư đồ) under the emperors Trần Nghệ Tông, Duệ Tông and Phế Đế and was made Marquis of Chương Túc. In 1385, seeing the court's decline, he withdrew to Côn Sơn. He left the poetry collection Băng Hồ and was the maternal grandfather of Nguyễn Trãi."
+      },
+      "lifespan": {
+        "vi": "1325 – 1390",
+        "en": "1325 – 1390"
+      },
+      "avatar": {
+        "id": "tran-nguyen-dan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-nguyen-dan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-khoai",
+      "name": {
+        "vi": "Nguyễn Khoái",
+        "en": "Nguyễn Khoái"
+      },
+      "epithet": {
+        "vi": "Tướng nhà Trần; chiến thắng Hàm Tử, Tây Kết, Bạch Đằng",
+        "en": "Trần general of Hàm Tử, Tây Kết and Bạch Đằng"
+      },
+      "bio": {
+        "vi": "Danh tướng nhà Trần, người Hồng Châu. Năm 1285 ông tham gia các trận Hàm Tử và Tây Kết; năm 1288, theo lệnh Trần Quốc Tuấn, ông chia cắt thủy trận quân địch, nhử chúng vào bãi cọc ở Bạch Đằng. Vì công lao, ông được phong Liệt hầu và cho giữ vùng Khoái Lộ.",
+        "en": "A famed Trần general from Hồng Châu. In 1285 he took part in the battles of Hàm Tử and Tây Kết; in 1288, on Trần Quốc Tuấn's orders, he split the enemy fleet and lured it onto the stakes of Bạch Đằng. For his services he was made a marquis and given the Khoái Lộ district."
+      },
+      "lifespan": {
+        "vi": "khoảng 1240 – 1300",
+        "en": "c. 1240 – 1300"
+      },
+      "avatar": {
+        "id": "nguyen-khoai-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-khoai-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-khat-chan",
+      "name": {
+        "vi": "Trần Khát Chân",
+        "en": "Trần Khát Chân"
+      },
+      "epithet": {
+        "vi": "Thượng tướng quân; người bắn chết Chế Bồng Nga",
+        "en": "Supreme general who killed Chế Bồng Nga"
+      },
+      "bio": {
+        "vi": "Tướng nhà Trần. Tháng 1 năm 1390, ông đánh bại quân Chiêm Thành ở sông Hải Triều (sông Luộc) và giết vua Chiêm Chế Bồng Nga, nên được phong Thượng tướng quân. Năm 1399, ông cùng nhiều triều thần nhà Trần mưu giết Hồ Quý Ly nhưng việc lộ, ông bị giết cùng hơn ba trăm người.",
+        "en": "A Trần general. In January 1390 he defeated the Cham forces on the Hải Triều (Luộc) river and killed the Cham king Chế Bồng Nga, and was made Supreme General. In 1399 he joined many Trần officials in a plot to kill Hồ Quý Ly; it was discovered and he was executed with over three hundred others."
+      },
+      "lifespan": {
+        "vi": "1370 – 1399",
+        "en": "1370 – 1399"
+      },
+      "avatar": {
+        "id": "tran-khat-chan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-khat-chan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "dang-dung",
+      "name": {
+        "vi": "Đặng Dung",
+        "en": "Đặng Dung"
+      },
+      "epithet": {
+        "vi": "Tướng Hậu Trần; tác giả bài thơ Cảm hoài",
+        "en": "Later Trần general; author of the poem Cảm hoài"
+      },
+      "bio": {
+        "vi": "Con của Đặng Tất, làm Đồng bình chương sự dưới triều Trùng Quang đế. Ông chỉ huy trận Mô Độ (1411 – 1412) và nổi tiếng với trận Sái Già (1413), đột kích ban đêm suýt bắt được Trương Phụ. Khi cuộc kháng chiến tan rã, ông bị bắt và theo sử chép đã tự trầm trên đường bị giải sang Trung Quốc; bài thơ Cảm hoài được truyền là của ông.",
+        "en": "Son of Đặng Tất, he served as joint administrator under Emperor Trùng Quang. He commanded at Mô Độ (1411 – 1412) and is famed for Sái Già (1413), a night raid that nearly captured Trương Phụ. When the resistance collapsed he was taken and, by the accounts, drowned himself on the way to China; the poem Cảm hoài is attributed to him."
+      },
+      "lifespan": {
+        "vi": "1373 – 1414",
+        "en": "1373 – 1414"
+      },
+      "avatar": {
+        "id": "dang-dung-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "dang-dung-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "dang-tat",
+      "name": {
+        "vi": "Đặng Tất",
+        "en": "Đặng Tất"
+      },
+      "epithet": {
+        "vi": "Quốc công của Giản Định đế; tướng Hậu Trần",
+        "en": "Duke under Emperor Giản Định; Later Trần general"
+      },
+      "bio": {
+        "vi": "Từng làm quan thời Hồ, sau theo Giản Định đế Trần Ngỗi khởi nghĩa chống nhà Minh và được phong Quốc công. Ông có công lớn trong trận Bô Cô năm 1408. Vì bất đồng và bị gièm pha, đầu năm 1409 ông bị Giản Định đế giết; con ông là Đặng Dung sau tiếp tục cuộc kháng chiến.",
+        "en": "A former official of the Hồ, he joined Emperor Giản Định (Trần Ngỗi) in rising against the Ming and was made Duke. He played a major part at Bô Cô in 1408. After a dispute and slander, he was put to death by the emperor early in 1409; his son Đặng Dung carried the resistance on."
+      },
+      "lifespan": {
+        "vi": "1357 – 1409",
+        "en": "1357 – 1409"
+      },
+      "avatar": {
+        "id": "dang-tat-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "dang-tat-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-bieu",
+      "name": {
+        "vi": "Nguyễn Biểu",
+        "en": "Nguyễn Biểu"
+      },
+      "epithet": {
+        "vi": "Sứ thần Hậu Trần, tử tiết năm 1413",
+        "en": "Later Trần envoy who died for his cause, 1413"
+      },
+      "bio": {
+        "vi": "Người Hà Tĩnh, đỗ thái học sinh và làm quan nhà Hồ rồi Hậu Trần. Năm 1413, ông đi sứ đến trại Trương Phụ; tương truyền Phụ cho dọn món đầu người để dọa, ông vẫn điềm nhiên ăn và đọc thơ. Ông bị cắt lưỡi và trói dưới cầu cho nước triều dìm chết, được nhân dân Nghệ – Tĩnh lập đền thờ.",
+        "en": "A native of Hà Tĩnh, he passed the thái học sinh examination and served the Hồ and then the Later Trần. In 1413 he went as envoy to Trương Phụ's camp; tradition says Phụ served him a severed head to frighten him, and he calmly ate and recited a poem. He was tortured, his tongue cut out, and he was bound beneath a bridge to drown in the tide; the people of Nghệ – Tĩnh built shrines to him."
+      },
+      "lifespan": {
+        "vi": "1350 – 1413",
+        "en": "1350 – 1413"
+      },
+      "avatar": {
+        "id": "nguyen-bieu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-bieu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-nguyen-han",
+      "name": {
+        "vi": "Trần Nguyên Hãn",
+        "en": "Trần Nguyên Hãn"
+      },
+      "epithet": {
+        "vi": "Tướng Lam Sơn; Tả tướng quốc",
+        "en": "Lam Sơn general; Left Chancellor"
+      },
+      "bio": {
+        "vi": "Danh tướng của Lê Lợi trong cuộc khởi nghĩa Lam Sơn, làm Tư đồ rồi Thái úy; năm 1428 ông giữ chức Tả tướng quốc. Năm 1429 ông bị nghi mưu phản, trên đường bị giải đi thì chết đuối cùng nhiều quân hộ tống, theo sử chép là do tự trầm hoặc thuyền đắm. Ông được xem là người chết oan.",
+        "en": "A leading general of Lê Lợi's Lam Sơn uprising, he served as Minister (tư đồ) and then Grand Commandant, and in 1428 became Left Chancellor. In 1429 he was suspected of plotting and drowned with many of his escort on the way to be tried, by the accounts either by his own hand or in a capsized boat. He is regarded as having died unjustly."
+      },
+      "lifespan": {
+        "vi": "1390 – 1429",
+        "en": "1390 – 1429"
+      },
+      "avatar": {
+        "id": "tran-nguyen-han-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-nguyen-han-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "dinh-le",
+      "name": {
+        "vi": "Đinh Lễ",
+        "en": "Đinh Lễ"
+      },
+      "epithet": {
+        "vi": "Tướng Lam Sơn; hy sinh năm 1427",
+        "en": "Lam Sơn general who fell in 1427"
+      },
+      "bio": {
+        "vi": "Tướng của Lê Lợi từ buổi đầu khởi nghĩa. Ông cùng Lý Triện, Nguyễn Xí đánh thắng quân Minh ở Tốt Động – Chúc Động (1426). Tháng 3 năm 1427, khi đem quân giải vây ở Mỹ Động, ông bị quân Vương Thông bắt và giết, khiến Lê Lợi vô cùng thương tiếc.",
+        "en": "A general of Lê Lợi from the start of the uprising. With Lý Triện and Nguyễn Xí he defeated the Ming at Tốt Động – Chúc Động (1426). In March 1427, leading a relief force at Mỹ Động, he was captured and killed by Vương Thông's troops, to Lê Lợi's deep grief."
+      },
+      "lifespan": {
+        "vi": "? – 1427",
+        "en": "? – 1427"
+      },
+      "avatar": {
+        "id": "dinh-le-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "dinh-le-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "le-sat",
+      "name": {
+        "vi": "Lê Sát",
+        "en": "Lê Sát"
+      },
+      "epithet": {
+        "vi": "Công thần Lam Sơn; Đại tư đồ",
+        "en": "Lam Sơn meritorious general; Grand Chancellor"
+      },
+      "bio": {
+        "vi": "Tướng của Lê Lợi, lập công ở trận Khả Lưu (1424) và chiến dịch Chi Lăng – Xương Giang (1427), được xem là có công đầu trong các tướng. Sau khi Lê Thái Tổ mất (1433), ông giữ quyền phụ chính; năm 1437 vua Lê Thái Tông bắt ông tự tử. Về sau sử gia coi ông là người chết oan và năm 1484 ông được truy phục chức tước.",
+        "en": "A general of Lê Lợi who distinguished himself at Khả Lưu (1424) and in the Chi Lăng – Xương Giang campaign (1427), counted first in merit among the generals. After Lê Thái Tổ died (1433) he held the regency; in 1437 Emperor Lê Thái Tông forced him to take his own life. Later historians saw him as wronged, and his honours were restored in 1484."
+      },
+      "lifespan": {
+        "vi": "? – 1437",
+        "en": "? – 1437"
+      },
+      "avatar": {
+        "id": "le-sat-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "le-sat-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "luu-nhan-chu",
+      "name": {
+        "vi": "Lưu Nhân Chú",
+        "en": "Lưu Nhân Chú"
+      },
+      "epithet": {
+        "vi": "Công thần Lam Sơn; Đại tư mã",
+        "en": "Lam Sơn meritorious general; Grand Marshal"
+      },
+      "bio": {
+        "vi": "Tướng của Lê Lợi từ buổi đầu, chiến đấu ở Tây Đô, Ai Lao và lập công ở Khả Lưu (1424) và Chi Lăng – Xương Giang (1427). Sau chiến thắng ông đứng đầu hàng võ quan nhà Lê. Năm 1433, ông bị Lê Sát hãm hại; đến năm 1437 Lê Thái Tông biết chuyện và xử Lê Sát.",
+        "en": "A general of Lê Lợi from the beginning, who fought in Tây Đô and Ai Lao and distinguished himself at Khả Lưu (1424) and Chi Lăng – Xương Giang (1427). After the victory he headed the Lê military officials. In 1433 he was done away with by Lê Sát, who was himself punished in 1437 once Lê Thái Tông learned of it."
+      },
+      "lifespan": {
+        "vi": "? – 1433",
+        "en": "? – 1433"
+      },
+      "avatar": {
+        "id": "luu-nhan-chu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "luu-nhan-chu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "le-ngan",
+      "name": {
+        "vi": "Lê Ngân",
+        "en": "Lê Ngân"
+      },
+      "epithet": {
+        "vi": "Công thần Lam Sơn; Tư khấu",
+        "en": "Lam Sơn meritorious general; Minister of Justice"
+      },
+      "bio": {
+        "vi": "Người Lam Sơn, Thanh Hóa, tướng của Lê Lợi từ năm 1418. Sau khi nước nhà độc lập, ông được phong Á thượng hầu (1429) và làm Tư khấu, rồi Nhập nội đại đô đốc dưới triều Lê Thái Tông. Năm 1437 ông bị buộc tự tử và gia sản bị tịch thu.",
+        "en": "A man of Lam Sơn in Thanh Hóa and a general of Lê Lợi from 1418. After independence he was made Marquis (1429) and Minister of Justice (tư khấu), and then Chief Palace Commander under Lê Thái Tông. In 1437 he was forced to take his own life and his property was confiscated."
+      },
+      "lifespan": {
+        "vi": "? – 1437",
+        "en": "? – 1437"
+      },
+      "avatar": {
+        "id": "le-ngan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "le-ngan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "le-than",
+      "name": {
+        "vi": "Lê Thận",
+        "en": "Lê Thận"
+      },
+      "epithet": {
+        "vi": "Người vớt được lưỡi gươm Thuận Thiên",
+        "en": "The fisherman who netted the Thuận Thiên sword blade"
+      },
+      "bio": {
+        "vi": "Tướng của Lê Lợi từ buổi đầu, đứng thứ ba trong hội thề Lũng Nhai năm 1416 sau Lê Lợi và Lê Lai. Theo truyền thuyết, ông kéo lưới được lưỡi gươm sáng ở dưới nước, sau khi lắp chuôi thành thanh gươm Thuận Thiên. Ông làm quan đến Đại tư đồ qua ba đời vua nhà Lê sơ.",
+        "en": "A general of Lê Lợi from the start, third in rank at the Lũng Nhai oath of 1416 after Lê Lợi and Lê Lai. By legend he netted a glowing blade from the water that, once fitted with a hilt, became the sword Thuận Thiên. He rose to Grand Chancellor, serving three early-Lê rulers."
+      },
+      "lifespan": {
+        "vi": "? – 1448",
+        "en": "? – 1448"
+      },
+      "avatar": {
+        "id": "le-than-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "le-than-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "dinh-liet",
+      "name": {
+        "vi": "Đinh Liệt",
+        "en": "Đinh Liệt"
+      },
+      "epithet": {
+        "vi": "Công thần Lam Sơn; Trung Mục vương",
+        "en": "Lam Sơn general; Prince Trung Mục"
+      },
+      "bio": {
+        "vi": "Người Thanh Hóa, tướng của Lê Lợi trong khởi nghĩa Lam Sơn, tham gia chiến dịch Chi Lăng – Xương Giang (1427). Ông phục vụ bốn đời vua nhà Lê, giữ chức phụ chính năm 1442 và là đại thần dưới triều Lê Thánh Tông cho đến khi mất năm 1471.",
+        "en": "A man of Thanh Hóa and a general of Lê Lợi in the Lam Sơn uprising, he fought in the Chi Lăng – Xương Giang campaign (1427). He served four Lê rulers, was regent in 1442, and remained a senior minister under Lê Thánh Tông until his death in 1471."
+      },
+      "lifespan": {
+        "vi": "1400 – 1471",
+        "en": "1400 – 1471"
+      },
+      "avatar": {
+        "id": "dinh-liet-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "dinh-liet-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-nhu-lam",
+      "name": {
+        "vi": "Nguyễn Nhữ Lãm",
+        "en": "Nguyễn Nhữ Lãm"
+      },
+      "epithet": {
+        "vi": "Công thần Lam Sơn; sứ giả sang nhà Minh",
+        "en": "Lam Sơn general; envoy to the Ming"
+      },
+      "bio": {
+        "vi": "Một trong năm mươi văn võ công thần theo Lê Lợi khởi nghĩa năm 1418. Sau thắng lợi ông được phong Đình thượng hầu (1429), đi sứ nhà Minh năm 1431 và giữ chức Hữu bộc xạ năm 1435.",
+        "en": "One of the fifty civil and military companions who followed Lê Lợi at the uprising of 1418. After victory he was made Marquis (1429), went as envoy to the Ming in 1431 and became Right Minister in 1435."
+      },
+      "lifespan": {
+        "vi": "1378 – 1437",
+        "en": "1378 – 1437"
+      },
+      "avatar": {
+        "id": "nguyen-nhu-lam-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-nhu-lam-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "pham-van-xao",
+      "name": {
+        "vi": "Phạm Văn Xảo",
+        "en": "Phạm Văn Xảo"
+      },
+      "epithet": {
+        "vi": "Tướng Lam Sơn; Thái úy",
+        "en": "Lam Sơn general; Grand Commandant"
+      },
+      "bio": {
+        "vi": "Tướng của Lê Lợi, giữ chức Khu mật đại sứ, cùng Trịnh Khả thắng quân Minh ở Tam Giang và Lãnh Cầu (1426). Sau 1428 ông làm Thái bảo, rồi Thái úy (1429). Khoảng năm 1430 ông bị khép tội mưu phản và bị giết; sử gia sau này cho là oan và năm 1484 ông được phục chức.",
+        "en": "A general of Lê Lợi holding the post of confidential ambassador, who with Trịnh Khả beat the Ming at Tam Giang and Lãnh Cầu (1426). After 1428 he became Grand Protector and then Grand Commandant (1429). Around 1430 he was charged with plotting and executed; later historians held it unjust and his titles were restored in 1484."
+      },
+      "lifespan": {
+        "vi": "? – 1430",
+        "en": "? – 1430"
+      },
+      "avatar": {
+        "id": "pham-van-xao-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "pham-van-xao-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "luong-the-vinh",
+      "name": {
+        "vi": "Lương Thế Vinh",
+        "en": "Lương Thế Vinh"
+      },
+      "epithet": {
+        "vi": "Trạng Lường; tác giả Đại thành toán pháp",
+        "en": "Top graduate and mathematician; author of Đại thành toán pháp"
+      },
+      "bio": {
+        "vi": "Đỗ trạng nguyên năm 1463 dưới thời Lê Thánh Tông, làm đến Thị lang và giữ chức Hàn lâm viện. Ông giỏi toán, thơ và âm nhạc, soạn Đại thành toán pháp, một sách toán dùng nhiều thế kỷ, và Hý phường phả lục về nghề hát tuồng chèo.",
+        "en": "Top graduate of 1463 under Lê Thánh Tông, he rose to vice-minister and held posts in the Hanlin Academy. Gifted in mathematics, verse and music, he compiled Đại thành toán pháp, a mathematics text used for centuries, and Hý phường phả lục on the theatre guilds."
+      },
+      "lifespan": {
+        "vi": "1441 – 1496",
+        "en": "1441 – 1496"
+      },
+      "avatar": {
+        "id": "luong-the-vinh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "luong-the-vinh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "dam-than-huy",
+      "name": {
+        "vi": "Đàm Thận Huy",
+        "en": "Đàm Thận Huy"
+      },
+      "epithet": {
+        "vi": "Thượng thư nhà Lê sơ, tử tiết năm 1526",
+        "en": "Early-Lê minister who died for his cause, 1526"
+      },
+      "bio": {
+        "vi": "Quan và nhà thơ nhà Lê sơ, hội viên Tao Đàn của Lê Thánh Tông, làm quan qua sáu đời vua đến Thượng thư. Khi Mạc Đăng Dung cướp ngôi vua Lê Chiêu Tông, ông cùng vợ con uống thuốc độc tự tử vào năm 1526. Ông để lại tập thơ Mặc Trai thi tập.",
+        "en": "A civil officer and poet of the early Lê, a member of Lê Thánh Tông's Tao Đàn society, who served six rulers and rose to Minister. When Mạc Đăng Dung usurped the throne from Lê Chiêu Tông, he took poison with his wife and daughters in 1526. He left the collection Mặc Trai thi tập."
+      },
+      "lifespan": {
+        "vi": "1463 – 1526",
+        "en": "1463 – 1526"
+      },
+      "avatar": {
+        "id": "dam-than-huy-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "dam-than-huy-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "vu-huu",
+      "name": {
+        "vi": "Vũ Hữu",
+        "en": "Vũ Hữu"
+      },
+      "epithet": {
+        "vi": "Trạng Toán; tác giả Lập thành toán pháp",
+        "en": "The 'mathematics laureate'; author of Lập thành toán pháp"
+      },
+      "bio": {
+        "vi": "Đỗ hoàng giáp năm 1463, làm quan đến Thượng thư dưới thời Lê Thánh Tông và Lê Hiến Tông. Ông được xem là nhà toán học đầu tiên của nước ta, tác giả Lập thành toán pháp bàn về cách đo ruộng và tính diện tích; sử kể vua thử tài ông tính vật liệu sửa ba cổng thành Thăng Long và ông tính không sai một viên gạch.",
+        "en": "Took the hoàng giáp degree in 1463 and rose to Minister under Lê Thánh Tông and Lê Hiến Tông. Regarded as Vietnam's first mathematician, he wrote Lập thành toán pháp on measuring fields and computing areas; it is told that the emperor tested him by having him compute the materials to repair three Thăng Long gates, and he was off by not one brick."
+      },
+      "lifespan": {
+        "vi": "? – 1511",
+        "en": "? – 1511"
+      },
+      "avatar": {
+        "id": "vu-huu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "vu-huu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-binh-khiem",
+      "name": {
+        "vi": "Nguyễn Bỉnh Khiêm",
+        "en": "Nguyễn Bỉnh Khiêm"
+      },
+      "epithet": {
+        "vi": "Trạng Trình; Bạch Vân cư sĩ",
+        "en": "The 'Trình' laureate; the Recluse of Bạch Vân"
+      },
+      "bio": {
+        "vi": "Đỗ trạng nguyên năm 1535 dưới triều Mạc, làm quan khoảng tám năm rồi cáo quan về dạy học ở Am Bạch Vân, nên hiệu Bạch Vân cư sĩ. Ông nổi tiếng với tập thơ Bạch Vân quốc ngữ thi và với những lời khuyên giản dị mà sâu xa cho các thế lực đương thời, trong đó có lời khuyên Nguyễn Hoàng vào Thuận Hóa.",
+        "en": "Top graduate of 1535 under the Mạc, he served about eight years, then resigned to teach at the Bạch Vân hermitage, hence his name Recluse of Bạch Vân. He is known for the Bạch Vân quốc ngữ thi poems and for the plain, far-seeing advice he gave the powers of his day, including the counsel to Nguyễn Hoàng to go to Thuận Hóa."
+      },
+      "lifespan": {
+        "vi": "1491 – 1585",
+        "en": "1491 – 1585"
+      },
+      "avatar": {
+        "id": "nguyen-binh-khiem-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-binh-khiem-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "phung-khac-khoan",
+      "name": {
+        "vi": "Phùng Khắc Khoan",
+        "en": "Phùng Khắc Khoan"
+      },
+      "epithet": {
+        "vi": "Trạng Bùng; sứ thần, người mang giống ngô về nước",
+        "en": "The 'Bùng' laureate; envoy credited with bringing maize home"
+      },
+      "bio": {
+        "vi": "Đỗ hoàng giáp năm 1580, làm quan đến Thượng thư. Năm 1597, ở tuổi 69, ông đi sứ nhà Minh và làm 30 bài thơ mừng thọ vua Minh được khen ngợi. Tương truyền ông học được cách trồng ngô, vừng và nghề dệt lụa rồi truyền lại cho dân. Ông để lại Ngôn chí thi tập và Mai Lĩnh sứ hoa thi tập.",
+        "en": "Took the hoàng giáp degree in 1580 and rose to Minister. In 1597, aged 69, he went as envoy to the Ming and wrote thirty poems for the emperor's birthday that won praise. Tradition says he learned the cultivation of maize and sesame and silk weaving there and taught them to the people. He left Ngôn chí thi tập and Mai Lĩnh sứ hoa thi tập."
+      },
+      "lifespan": {
+        "vi": "1528 – 1613",
+        "en": "1528 – 1613"
+      },
+      "avatar": {
+        "id": "phung-khac-khoan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "phung-khac-khoan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "giang-van-minh",
+      "name": {
+        "vi": "Giang Văn Minh",
+        "en": "Giang Văn Minh"
+      },
+      "epithet": {
+        "vi": "Sứ thần \"Đằng Giang\" năm 1637",
+        "en": "The envoy of the 'Đằng Giang' reply, 1637"
+      },
+      "bio": {
+        "vi": "Đỗ thám hoa khoa thi năm 1628. Cuối năm 1637, ông làm chánh sứ sang nhà Minh. Giai thoại kể vua Minh ra câu đối nhắc cột đồng Mã Viện, ông đối lại bằng câu nói về máu sông Bạch Đằng (Đằng Giang) vẫn còn đỏ, rồi bị giết năm 1638. Các nhà sử học lưu ý chuyện này chỉ được chép trong gia phả năm 1849, nên nó là giai thoại hơn là sự kiện đã kiểm chứng.",
+        "en": "Took the thám hoa degree in 1628. In late 1637 he went as chief envoy to the Ming. The anecdote says the Ming emperor set a couplet alluding to Mã Viện's bronze pillar and he answered with the line about the blood of the Bạch Đằng (Đằng Giang) still being red, and was put to death in 1638. Historians note that the story appears only in a family genealogy of 1849, so it is more an anecdote than a verified event."
+      },
+      "lifespan": {
+        "vi": "1573 – 1638",
+        "en": "1573 – 1638"
+      },
+      "avatar": {
+        "id": "giang-van-minh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "giang-van-minh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "le-quy-don",
+      "name": {
+        "vi": "Lê Quý Đôn",
+        "en": "Lê Quý Đôn"
+      },
+      "epithet": {
+        "vi": "Nhà bác học thế kỷ XVIII",
+        "en": "The eighteenth-century polymath"
+      },
+      "bio": {
+        "vi": "Đỗ bảng nhãn năm 1752, làm quan dưới thời Lê – Trịnh và được xem là nhà bác học lớn của nước ta. Ông viết rất nhiều sách như Đại Việt thông sử, Vân đài loại ngữ, Kiến văn tiểu lục và Phủ biên tạp lục, ghi chép về xứ Thuận Hóa, Quảng Nam khi ông làm Hiệp trấn năm 1776.",
+        "en": "Took the bảng nhãn degree in 1752 and served the Lê – Trịnh court; he is regarded as one of the country's great polymaths. He wrote prolifically, including Đại Việt thông sử, Vân đài loại ngữ, Kiến văn tiểu lục and Phủ biên tạp lục, a record of Thuận Hóa and Quảng Nam made while he was deputy governor there in 1776."
+      },
+      "lifespan": {
+        "vi": "1726 – 1784",
+        "en": "1726 – 1784"
+      },
+      "avatar": {
+        "id": "le-quy-don-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "le-quy-don-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "hai-thuong-lan-ong",
+      "name": {
+        "vi": "Hải Thượng Lãn Ông",
+        "en": "Hải Thượng Lãn Ông"
+      },
+      "epithet": {
+        "vi": "Lê Hữu Trác; danh y thế kỷ XVIII",
+        "en": "Lê Hữu Trác; the eighteenth-century physician"
+      },
+      "bio": {
+        "vi": "Tên thật là Lê Hữu Trác, người Hưng Yên, bỏ binh nghiệp đi học thuốc rồi về ở Hương Sơn, Hà Tĩnh, lấy hiệu Hải Thượng Lãn Ông. Ông soạn bộ Hải Thượng y tông tâm lĩnh 28 quyển và Thượng kinh ký sự (1783), ghi chuyến vào phủ chúa Trịnh chữa bệnh năm 1782. Ông mất năm 1791.",
+        "en": "Born Lê Hữu Trác in Hưng Yên, he left the army to study medicine and settled in Hương Sơn, Hà Tĩnh, taking the name Hải Thượng Lãn Ông. He compiled the 28-book Hải Thượng y tông tâm lĩnh and the Thượng kinh ký sự (1783), an account of his 1782 call to treat the Trịnh lord's household. He died in 1791."
+      },
+      "lifespan": {
+        "vi": "1724 – 1791",
+        "en": "1724 – 1791"
+      },
+      "avatar": {
+        "id": "hai-thuong-lan-ong-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "hai-thuong-lan-ong-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "bui-thi-xuan",
+      "name": {
+        "vi": "Bùi Thị Xuân",
+        "en": "Bùi Thị Xuân"
+      },
+      "epithet": {
+        "vi": "Nữ tướng Tây Sơn",
+        "en": "Woman general of the Tây Sơn"
+      },
+      "bio": {
+        "vi": "Người Bình Định, vợ của Thái phó Trần Quang Diệu, giữ chức Đô đốc trong quân Tây Sơn và chỉ huy đội voi chiến. Bà tham gia các trận chống quân Xiêm (1785) và quân Thanh (1789), rồi giữ Quy Nhơn trong những năm 1799 – 1802. Sau khi nhà Tây Sơn sụp đổ, bà bị bắt và bị xử tử năm 1802.",
+        "en": "A woman of Bình Định, wife of Grand Tutor Trần Quang Diệu, who held the rank of admiral in the Tây Sơn army and commanded war elephants. She took part in the battles against the Siamese (1785) and the Qing (1789), then held Quy Nhơn in 1799 – 1802. After the Tây Sơn fell she was captured and executed in 1802."
+      },
+      "lifespan": {
+        "vi": "1752 – 1802",
+        "en": "1752 – 1802"
+      },
+      "avatar": {
+        "id": "bui-thi-xuan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "bui-thi-xuan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-quang-dieu",
+      "name": {
+        "vi": "Trần Quang Diệu",
+        "en": "Trần Quang Diệu"
+      },
+      "epithet": {
+        "vi": "Thái phó của triều Tây Sơn",
+        "en": "Grand Tutor of the Tây Sơn court"
+      },
+      "bio": {
+        "vi": "Tên cũ là Trần Văn Đạt, làm đến Thái phó dưới triều Tây Sơn. Năm 1802, sau khi Quy Nhơn và Phú Xuân thất thủ, ông cùng gia đình rút ra Bắc nhưng bị bắt ở Thanh Chương và đưa về trước vua Gia Long. Ông từ chối ra làm quan, nói rằng tôi trung không thờ hai chúa, và bị xử tử năm 1802.",
+        "en": "Originally named Trần Văn Đạt, he rose to Grand Tutor under the Tây Sơn. In 1802, after Quy Nhơn and Phú Xuân fell, he withdrew north with his family but was taken at Thanh Chương and brought before Gia Long. He refused to serve, saying a loyal minister does not serve two masters, and was executed in 1802."
+      },
+      "lifespan": {
+        "vi": "1746 – 1802",
+        "en": "1746 – 1802"
+      },
+      "avatar": {
+        "id": "tran-quang-dieu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-quang-dieu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ngo-van-so",
+      "name": {
+        "vi": "Ngô Văn Sở",
+        "en": "Ngô Văn Sở"
+      },
+      "epithet": {
+        "vi": "Đại tư mã Tây Sơn; trận Ngọc Hồi – Đống Đa",
+        "en": "Tây Sơn Grand Marshal of the Ngọc Hồi – Đống Đa campaign"
+      },
+      "bio": {
+        "vi": "Người Bình Định, theo Tây Sơn từ năm 1771, làm Đại tư mã, tước Ích Quốc công. Sau năm 1788 ông thống lĩnh quân Tây Sơn ở Bắc Hà, tham gia chiến dịch chống quân Thanh năm 1789, trong đó có các trận Hạ Hồi và Ngọc Hồi. Năm 1795, sau khi Quang Trung mất, ông bị vu tội và bị dìm chết.",
+        "en": "A man of Bình Định who joined the Tây Sơn in 1771, Grand Marshal with the title Duke of Ích Quốc. After 1788 he commanded the Tây Sơn forces in the North and fought in the 1789 campaign against the Qing, including Hạ Hồi and Ngọc Hồi. In 1795, after Quang Trung's death, he was falsely accused and drowned."
+      },
+      "lifespan": {
+        "vi": "? – 1795",
+        "en": "? – 1795"
+      },
+      "avatar": {
+        "id": "ngo-van-so-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ngo-van-so-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ngoc-han",
+      "name": {
+        "vi": "Ngọc Hân",
+        "en": "Ngọc Hân"
+      },
+      "epithet": {
+        "vi": "Công chúa nhà Lê; Bắc Cung hoàng hậu nhà Tây Sơn",
+        "en": "Lê princess; Northern Palace Empress of the Tây Sơn"
+      },
+      "bio": {
+        "vi": "Con gái vua Lê Hiển Tông, lấy Nguyễn Huệ năm 1786 và trở thành Bắc Cung hoàng hậu khi ông lên ngôi Quang Trung. Sau khi ông mất, bà làm bài Ai tư vãn bày tỏ nỗi thương nhớ, rồi sống ở chùa Huế nuôi con cho đến khi mất năm 1799, mới 29 tuổi.",
+        "en": "Daughter of the Lê emperor Hiển Tông, she married Nguyễn Huệ in 1786 and became Northern Palace Empress when he took the throne as Quang Trung. After his death she wrote the elegy Ai tư vãn, then lived at a temple in Huế raising their children until her death in 1799 at only 29."
+      },
+      "lifespan": {
+        "vi": "1770 – 1799",
+        "en": "1770 – 1799"
+      },
+      "avatar": {
+        "id": "ngoc-han-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ngoc-han-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "phan-huy-ich",
+      "name": {
+        "vi": "Phan Huy Ích",
+        "en": "Phan Huy Ích"
+      },
+      "epithet": {
+        "vi": "Nhà ngoại giao thời Quang Trung",
+        "en": "Diplomat of the Quang Trung court"
+      },
+      "bio": {
+        "vi": "Người Hà Tĩnh, làm quan nhà Lê rồi nhà Tây Sơn. Sau chiến thắng năm 1789, ông lo việc ngoại giao với nhà Thanh và năm 1790 đi sứ mừng thọ vua Càn Long. Ông để lại Dụ Am thi văn tập, Dụ Am ngâm lục và được cho là người diễn Nôm Chinh phụ ngâm bản hiện hành. Ông mất năm 1822.",
+        "en": "A native of Hà Tĩnh who served the Lê and then the Tây Sơn. After the victory of 1789 he handled relations with the Qing and in 1790 went to congratulate the Qianlong emperor on his eightieth birthday. He left Dụ Am thi văn tập and Dụ Am ngâm lục, and is credited with the Nôm version of Chinh phụ ngâm in current use. He died in 1822."
+      },
+      "lifespan": {
+        "vi": "1751 – 1822",
+        "en": "1751 – 1822"
+      },
+      "avatar": {
+        "id": "phan-huy-ich-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "phan-huy-ich-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-van-ky",
+      "name": {
+        "vi": "Trần Văn Kỷ",
+        "en": "Trần Văn Kỷ"
+      },
+      "epithet": {
+        "vi": "Mưu thần của Nguyễn Huệ",
+        "en": "Adviser to Nguyễn Huệ"
+      },
+      "bio": {
+        "vi": "Mưu sĩ tin cậy của Nguyễn Huệ, làm đến Trung thư lệnh và Phụ chính. Năm 1801, khi Nguyễn Ánh chiếm Phú Xuân, ông không chịu ra làm quan; theo sử chép, trên đường về quê ông hô lớn rằng tôi trung không thờ hai chúa rồi nhảy xuống sông Hương tự tử.",
+        "en": "A trusted adviser to Nguyễn Huệ who rose to Central Secretary and Regent's aide. In 1801, when Nguyễn Ánh took Phú Xuân, he refused to serve; by the accounts, on the boat home he cried out that a loyal minister does not serve two masters and leapt into the Perfume River."
+      },
+      "lifespan": {
+        "vi": "? – 1801",
+        "en": "? – 1801"
+      },
+      "avatar": {
+        "id": "tran-van-ky-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-van-ky-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-du",
+      "name": {
+        "vi": "Nguyễn Du",
+        "en": "Nguyễn Du"
+      },
+      "epithet": {
+        "vi": "Đại thi hào; tác giả Truyện Kiều",
+        "en": "The great poet; author of Truyện Kiều"
+      },
+      "bio": {
+        "vi": "Người Hà Tĩnh, sinh ra trong gia đình quan lại ở Thăng Long. Sau khi nhà Lê – Trịnh sụp đổ ông sống ẩn dật, rồi ra làm quan dưới triều Gia Long và làm chánh sứ sang nhà Thanh năm 1813. Ông là tác giả Truyện Kiều cùng nhiều thơ chữ Hán và chữ Nôm, và mất ở Huế năm 1820.",
+        "en": "A native of Hà Tĩnh, born into an official family in Thăng Long. After the fall of the Lê – Trịnh he lived in seclusion, then took office under Gia Long and went as chief envoy to the Qing in 1813. He is the author of Truyện Kiều and many poems in Chinese and Nôm, and died in Huế in 1820."
+      },
+      "lifespan": {
+        "vi": "1766 – 1820",
+        "en": "1766 – 1820"
+      },
+      "avatar": {
+        "id": "nguyen-du-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-du-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "phan-huy-chu",
+      "name": {
+        "vi": "Phan Huy Chú",
+        "en": "Phan Huy Chú"
+      },
+      "epithet": {
+        "vi": "Tác giả Lịch triều hiến chương loại chí",
+        "en": "Author of Lịch triều hiến chương loại chí"
+      },
+      "bio": {
+        "vi": "Con của Phan Huy Ích, đỗ tú tài và dành nhiều năm khảo cứu. Ông soạn Lịch triều hiến chương loại chí, bộ bách khoa về điển chương Việt Nam qua các triều đại, dâng vua Minh Mạng năm 1821, và từng đi sứ sang nhà Thanh năm 1831. Ông mất năm 1840.",
+        "en": "Son of Phan Huy Ích, he took the tú tài degree and spent years in research. He compiled Lịch triều hiến chương loại chí, an encyclopedia of Vietnamese institutions across the dynasties, presented to Minh Mạng in 1821, and went as envoy to the Qing in 1831. He died in 1840."
+      },
+      "lifespan": {
+        "vi": "1782 – 1840",
+        "en": "1782 – 1840"
+      },
+      "avatar": {
+        "id": "phan-huy-chu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "phan-huy-chu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ly-van-phuc",
+      "name": {
+        "vi": "Lý Văn Phức",
+        "en": "Lý Văn Phức"
+      },
+      "epithet": {
+        "vi": "Sứ thần và nhà thơ thời Minh Mạng",
+        "en": "Envoy and poet of Minh Mạng's reign"
+      },
+      "bio": {
+        "vi": "Người Hà Nội, đỗ cử nhân năm 1819. Từ năm 1830 đến 1841 ông bảy lần đi sứ ra nước ngoài, tới Philippines, Singapore, Macao, Quảng Châu và Bắc Kinh. Ông viết cả chữ Hán lẫn chữ Nôm, để lại nhiều thơ ghi chuyến đi và các tác phẩm diễn Nôm; ông mất năm 1849 khi còn tại chức.",
+        "en": "A native of Hà Nội who passed the provincial examination in 1819. Between 1830 and 1841 he made seven missions abroad, reaching the Philippines, Singapore, Macao, Canton and Beijing. He wrote in both classical Chinese and Nôm, leaving travel verse and Nôm adaptations; he died in 1849 while still in office."
+      },
+      "lifespan": {
+        "vi": "1785 – 1849",
+        "en": "1785 – 1849"
+      },
+      "avatar": {
+        "id": "ly-van-phuc-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ly-van-phuc-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "phan-ba-vanh",
+      "name": {
+        "vi": "Phan Bá Vành",
+        "en": "Phan Bá Vành"
+      },
+      "epithet": {
+        "vi": "Thủ lĩnh nông dân nổi dậy 1826 – 1827",
+        "en": "Peasant leader of the 1826 – 1827 rising"
+      },
+      "bio": {
+        "vi": "Thủ lĩnh cuộc nổi dậy của nông dân và dân chài vùng Nam Định, Thái Bình từ năm 1826 dưới triều Minh Mạng. Cuộc nổi dậy kéo dài chừng một năm rồi bị triều đình dẹp; ông bị bắt cùng hơn bảy trăm người và, theo sử chép, đã cắn lưỡi tự sát trên đường bị giải về kinh.",
+        "en": "Leader of a rising of peasants and fishermen in the Nam Định and Thái Bình region from 1826 under Minh Mạng. The rising lasted about a year before the court put it down; he was taken with over seven hundred followers and, by the accounts, bit through his tongue to end his life on the way to the capital."
+      },
+      "lifespan": {
+        "vi": "? – 1827",
+        "en": "? – 1827"
+      },
+      "avatar": {
+        "id": "phan-ba-vanh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "phan-ba-vanh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "cao-ba-quat",
+      "name": {
+        "vi": "Cao Bá Quát",
+        "en": "Cao Bá Quát"
+      },
+      "epithet": {
+        "vi": "Nhà thơ; thủ lĩnh khởi nghĩa Mỹ Lương",
+        "en": "Poet; leader of the Mỹ Lương rising"
+      },
+      "bio": {
+        "vi": "Người Bắc Ninh, nổi tiếng văn tài, đỗ cử nhân năm 1831 nhưng đường quan lộ trắc trở vì bài thi bị coi là phạm quy. Năm 1854, bất bình với triều đình, ông đứng đầu cuộc khởi nghĩa của nông dân ở Mỹ Lương (Hà Nội) và bị giết năm 1855. Ông để lại nhiều thơ chữ Hán và chữ Nôm.",
+        "en": "A native of Bắc Ninh famed for his talent, he passed the provincial examination in 1831 but his career was thwarted when his paper was judged to break the rules. In 1854, angered at the court, he led a peasant rising at Mỹ Lương (Hà Nội) and was killed in 1855. He left many poems in Chinese and Nôm."
+      },
+      "lifespan": {
+        "vi": "? – 1855",
+        "en": "? – 1855"
+      },
+      "avatar": {
+        "id": "cao-ba-quat-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "cao-ba-quat-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "hoang-dieu",
+      "name": {
+        "vi": "Hoàng Diệu",
+        "en": "Hoàng Diệu"
+      },
+      "epithet": {
+        "vi": "Tổng đốc Hà Ninh, tuẫn tiết khi thành Hà Nội thất thủ",
+        "en": "Governor of Hà Ninh, who died when Hà Nội fell"
+      },
+      "bio": {
+        "vi": "Tên thật là Hoàng Kim Tích, làm Tổng đốc Hà Ninh từ năm 1879. Ngày 25 tháng 4 năm 1882, quân Pháp của Henri Rivière đánh thành Hà Nội; kho thuốc súng trong thành nổ khiến quân thủ bị rối loạn. Thành mất, ông viết tờ di biểu và tự tử ở Võ Miếu, thọ 53 tuổi.",
+        "en": "Born Hoàng Kim Tích, he became Governor of Hà Ninh in 1879. On 25 April 1882 the French under Henri Rivière attacked Hà Nội citadel; an explosion at the powder store threw the defence into disarray. When the citadel fell he wrote a last memorial and took his own life at the Military Temple, aged 53."
+      },
+      "lifespan": {
+        "vi": "1829 – 1882",
+        "en": "1829 – 1882"
+      },
+      "avatar": {
+        "id": "hoang-dieu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "hoang-dieu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-truong-to",
+      "name": {
+        "vi": "Nguyễn Trường Tộ",
+        "en": "Nguyễn Trường Tộ"
+      },
+      "epithet": {
+        "vi": "Nhà cải cách thế kỷ XIX",
+        "en": "Nineteenth-century reformer"
+      },
+      "bio": {
+        "vi": "Người Nghệ An theo đạo Công giáo, học chữ Hán rồi học tiếng Pháp và khoa học phương Tây. Từ năm 1863 đến 1871 ông dâng triều đình Huế khoảng ba mươi bản điều trần xin canh tân về chính trị, kinh tế, giáo dục và quân sự. Phần lớn không được thi hành; ông mất năm 1871 lúc 41 tuổi.",
+        "en": "A Catholic from Nghệ An who studied classical Chinese and then French and Western science. From 1863 to 1871 he submitted about thirty memorials to the Huế court urging reform in government, the economy, education and the army. Most were not carried out; he died in 1871 at 41."
+      },
+      "lifespan": {
+        "vi": "1830 – 1871",
+        "en": "1830 – 1871"
+      },
+      "avatar": {
+        "id": "nguyen-truong-to-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-truong-to-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "pham-phu-thu",
+      "name": {
+        "vi": "Phạm Phú Thứ",
+        "en": "Phạm Phú Thứ"
+      },
+      "epithet": {
+        "vi": "Phó sứ sang Pháp năm 1863; tác giả Tây hành nhật ký",
+        "en": "Deputy envoy to France in 1863; author of Tây hành nhật ký"
+      },
+      "bio": {
+        "vi": "Người Quảng Nam, đỗ tiến sĩ năm 1848. Năm 1863 ông là phó sứ trong đoàn của Phan Thanh Giản sang Pháp và Tây Ban Nha xin chuộc ba tỉnh miền Đông Nam Kỳ, rồi viết Tây hành nhật ký. Về sau ông làm Tổng đốc Hải An, chủ trương mở mang kinh tế và học hỏi phương Tây; ông mất năm 1882.",
+        "en": "A native of Quảng Nam who took the tiến sĩ degree in 1848. In 1863 he was deputy envoy in Phan Thanh Giản's mission to France and Spain seeking to redeem the three eastern provinces of Cochinchina, and wrote Tây hành nhật ký. Later, as Governor of Hải An, he promoted economic development and learning from the West; he died in 1882."
+      },
+      "lifespan": {
+        "vi": "1821 – 1882",
+        "en": "1821 – 1882"
+      },
+      "avatar": {
+        "id": "pham-phu-thu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "pham-phu-thu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "bui-vien",
+      "name": {
+        "vi": "Bùi Viện",
+        "en": "Bùi Viện"
+      },
+      "epithet": {
+        "vi": "Nhà canh tân; người đi sứ Hoa Kỳ",
+        "en": "Reformer; envoy to the United States"
+      },
+      "bio": {
+        "vi": "Người Nam Định, đỗ cử nhân năm 1868. Ông giúp phát triển cảng Hải Phòng và lập đội thủy binh bảo vệ duyên hải phía Bắc, rồi ba lần sang Hoa Kỳ (1873, 1875, 1878) để tìm sự giúp đỡ. Việc ông gặp Tổng thống Grant năm 1873 chỉ thấy chép trong các tác phẩm sau này, không có tư liệu chính thức xác nhận. Ông mất ở Nhật Bản năm 1878.",
+        "en": "A native of Nam Định who passed the provincial examination in 1868. He helped develop Hải Phòng port and raised a naval force to guard the northern coast, then made three trips to the United States (1873, 1875, 1878) seeking help. His meeting with President Grant in 1873 appears only in later writings, with no official record confirming it. He died in Japan in 1878."
+      },
+      "lifespan": {
+        "vi": "1839 – 1878",
+        "en": "1839 – 1878"
+      },
+      "avatar": {
+        "id": "bui-vien-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "bui-vien-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "hoang-ke-viem",
+      "name": {
+        "vi": "Hoàng Kế Viêm",
+        "en": "Hoàng Kế Viêm"
+      },
+      "epithet": {
+        "vi": "Tiết chế quân vụ Bắc Kỳ",
+        "en": "Commander of military affairs in the North"
+      },
+      "bio": {
+        "vi": "Làm đến Tiết chế quân vụ Bắc Kỳ. Năm 1873 ông phối hợp với quân Cờ Đen của Lưu Vĩnh Phúc ở Cầu Giấy, giết Francis Garnier. Về sau ông bị chê là chậm hành động trong các trận ở Hà Nội, Sơn Tây, Hưng Hóa. Ông nghỉ hưu năm 1889 và mất năm 1909.",
+        "en": "He rose to commander of military affairs in the North. In 1873 he worked with Lưu Vĩnh Phúc's Black Flags at Cầu Giấy, where Francis Garnier was killed. He was later criticised for holding back in the fighting around Hà Nội, Sơn Tây and Hưng Hóa. He retired in 1889 and died in 1909."
+      },
+      "lifespan": {
+        "vi": "1820 – 1909",
+        "en": "1820 – 1909"
+      },
+      "avatar": {
+        "id": "hoang-ke-viem-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "hoang-ke-viem-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "dinh-cong-trang",
+      "name": {
+        "vi": "Đinh Công Tráng",
+        "en": "Đinh Công Tráng"
+      },
+      "epithet": {
+        "vi": "Thủ lĩnh khởi nghĩa Ba Đình",
+        "en": "Leader of the Ba Đình uprising"
+      },
+      "bio": {
+        "vi": "Lãnh đạo cuộc khởi nghĩa Ba Đình (Thanh Hóa) từ tháng 2 năm 1886, dựng căn cứ ở ba làng Mậu Thịnh, Thượng Thọ, Mỹ Khê. Nghĩa quân hai lần đánh lui quân Pháp trong những ngày cuối 1886 và đầu 1887. Căn cứ thất thủ ngày 21 tháng 1 năm 1887, ông phá vây về Mã Cao rồi hy sinh ngày 5 tháng 10 năm 1887.",
+        "en": "Leader of the Ba Đình uprising in Thanh Hóa from February 1886, with a base in the three villages of Mậu Thịnh, Thượng Thọ and Mỹ Khê. His men twice repelled the French in late 1886 and early 1887. The base fell on 21 January 1887; he broke out to Mã Cao and fell in action on 5 October 1887."
+      },
+      "lifespan": {
+        "vi": "1842 – 1887",
+        "en": "1842 – 1887"
+      },
+      "avatar": {
+        "id": "dinh-cong-trang-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "dinh-cong-trang-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "pham-banh",
+      "name": {
+        "vi": "Phạm Bành",
+        "en": "Phạm Bành"
+      },
+      "epithet": {
+        "vi": "Tướng khởi nghĩa Ba Đình",
+        "en": "Commander of the Ba Đình uprising"
+      },
+      "bio": {
+        "vi": "Người Thanh Hóa, đỗ cử nhân năm 1864 và làm Án sát Nghệ An, nổi tiếng thanh liêm. Năm 1885 ông bỏ quan hưởng ứng chiếu Cần Vương, giữa năm 1886 cùng Đinh Công Tráng và Hoàng Bật Đạt lập căn cứ Ba Đình. Căn cứ thất thủ đầu 1887, ông ra nộp mình để cứu mẹ và con bị bắt rồi uống thuốc độc chết ngày 11 tháng 4 năm 1887.",
+        "en": "A native of Thanh Hóa who passed the provincial examination in 1864 and served as Provincial Judge of Nghệ An, known for his integrity. In 1885 he left office to answer the Cần Vương call and in mid-1886 helped Đinh Công Tráng and Hoàng Bật Đạt build the Ba Đình base. When it fell in early 1887 he gave himself up to save his captured mother and son and then took poison on 11 April 1887."
+      },
+      "lifespan": {
+        "vi": "1827 – 1887",
+        "en": "1827 – 1887"
+      },
+      "avatar": {
+        "id": "pham-banh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "pham-banh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-quang-bich",
+      "name": {
+        "vi": "Nguyễn Quang Bích",
+        "en": "Nguyễn Quang Bích"
+      },
+      "epithet": {
+        "vi": "Tán tương quân vụ Cần Vương vùng Tây Bắc",
+        "en": "Cần Vương military adviser of the northwest"
+      },
+      "bio": {
+        "vi": "Quan và nhà thơ, từng làm tri huyện, Đốc học, rồi chỉ huy kháng Pháp ở vùng Hưng Hóa (Phú Thọ) từ năm 1884. Sau khi vua Hàm Nghi ra chiếu Cần Vương, ông được cử làm Tán tương quân vụ và lập căn cứ ở Tiên Động. Ông mất năm 1890 vì bệnh, để lại tập thơ Ngư Phong thi tập.",
+        "en": "An official and poet who served as district magistrate and education commissioner, then led resistance to the French around Hưng Hóa (Phú Thọ) from 1884. After Hàm Nghi's Cần Vương edict he was named military adviser and set up a base at Tiên Động. He died of illness in 1890, leaving the collection Ngư Phong thi tập."
+      },
+      "lifespan": {
+        "vi": "1832 – 1890",
+        "en": "1832 – 1890"
+      },
+      "avatar": {
+        "id": "nguyen-quang-bich-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-quang-bich-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tong-duy-tan",
+      "name": {
+        "vi": "Tống Duy Tân",
+        "en": "Tống Duy Tân"
+      },
+      "epithet": {
+        "vi": "Thủ lĩnh khởi nghĩa Hùng Lĩnh",
+        "en": "Leader of the Hùng Lĩnh uprising"
+      },
+      "bio": {
+        "vi": "Người Thanh Hóa, từng làm quan. Ông lãnh đạo khởi nghĩa Hùng Lĩnh ở vùng thượng du sông Mã từ năm 1885 đến 1892, trong phong trào Cần Vương. Khi lực lượng suy yếu, ông giải tán nghĩa quân để tránh thêm thương vong; ông bị bắt ngày 4 tháng 10 và bị xử tử ngày 23 tháng 11 năm 1892.",
+        "en": "A native of Thanh Hóa and a former official. He led the Hùng Lĩnh uprising in the upper Mã River region from 1885 to 1892 as part of the Cần Vương movement. As his forces weakened he disbanded them to spare further losses; he was captured on 4 October and executed on 23 November 1892."
+      },
+      "lifespan": {
+        "vi": "1837 – 1892",
+        "en": "1837 – 1892"
+      },
+      "avatar": {
+        "id": "tong-duy-tan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tong-duy-tan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "mai-xuan-thuong",
+      "name": {
+        "vi": "Mai Xuân Thưởng",
+        "en": "Mai Xuân Thưởng"
+      },
+      "epithet": {
+        "vi": "Thủ lĩnh Cần Vương ở Bình Định",
+        "en": "Cần Vương leader in Bình Định"
+      },
+      "bio": {
+        "vi": "Người Bình Định, đỗ tú tài năm 1878. Khi nghe tin vua Hàm Nghi xuất bôn năm 1885, ông lập căn cứ ở Hòn Sưng và quy tụ hàng nghìn người ở Bình Định, Phú Yên, Khánh Hòa. Ông bị bắt tháng 5 năm 1887 và bị xử tử ngày 7 tháng 6 cùng mười hai người khác.",
+        "en": "A native of Bình Định who took the tú tài degree in 1878. When news came in 1885 that Hàm Nghi had left the capital, he set up a base at Hòn Sưng and rallied thousands in Bình Định, Phú Yên and Khánh Hòa. He was captured in May 1887 and executed on 7 June with twelve others."
+      },
+      "lifespan": {
+        "vi": "1860 – 1887",
+        "en": "1860 – 1887"
+      },
+      "avatar": {
+        "id": "mai-xuan-thuong-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "mai-xuan-thuong-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-duy-hieu",
+      "name": {
+        "vi": "Nguyễn Duy Hiệu",
+        "en": "Nguyễn Duy Hiệu"
+      },
+      "epithet": {
+        "vi": "Lãnh đạo Nghĩa hội Quảng Nam",
+        "en": "Leader of the Quảng Nam Righteous Association"
+      },
+      "bio": {
+        "vi": "Người Quảng Nam, đỗ phó bảng năm 1879 và làm quan ở Huế. Năm 1885 ông cùng Trần Văn Dư và Phan Bá Phiến lập Nghĩa hội Quảng Nam, rồi trở thành người đứng đầu. Căn cứ Trung Lộc thất thủ năm 1886, ông ra hàng để nghĩa quân bớt thương vong và bị xử tử ở Huế ngày 15 tháng 10 năm 1887.",
+        "en": "A native of Quảng Nam who took the phó bảng degree in 1879 and served in Huế. In 1885 he joined Trần Văn Dư and Phan Bá Phiến in founding the Quảng Nam Righteous Association and became its head. After the Trung Lộc base fell in 1886 he surrendered to spare his followers, and was executed in Huế on 15 October 1887."
+      },
+      "lifespan": {
+        "vi": "1847 – 1887",
+        "en": "1847 – 1887"
+      },
+      "avatar": {
+        "id": "nguyen-duy-hieu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-duy-hieu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-tan",
+      "name": {
+        "vi": "Trần Tấn",
+        "en": "Trần Tấn"
+      },
+      "epithet": {
+        "vi": "Thủ lĩnh nghĩa quân Giáp Tuất 1874",
+        "en": "Leader of the 1874 Giáp Tuất rising"
+      },
+      "bio": {
+        "vi": "Người Thanh Chương, Nghệ An, đỗ tú tài rồi dạy học. Năm 1874, cùng Đặng Như Mai, ông tổ chức cuộc nổi dậy của phong trào Văn Thân với hịch Bình Tây sát Tả, chiếm được thành Hà Tĩnh. Cuộc nổi dậy yếu dần, tháng 9 năm 1874 ông rút sang Lào và mất không lâu sau đó.",
+        "en": "A native of Thanh Chương, Nghệ An, who took the tú tài degree and taught. In 1874, with Đặng Như Mai, he organised the Văn Thân rising with the manifesto Bình Tây sát Tả and took Hà Tĩnh citadel. The rising weakened; in September 1874 he withdrew to Laos and died soon after."
+      },
+      "lifespan": {
+        "vi": "? – 1874",
+        "en": "? – 1874"
+      },
+      "avatar": {
+        "id": "tran-tan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-tan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "dang-nhu-mai",
+      "name": {
+        "vi": "Đặng Như Mai",
+        "en": "Đặng Như Mai"
+      },
+      "epithet": {
+        "vi": "Đồng lãnh đạo nghĩa quân Giáp Tuất 1874",
+        "en": "Co-leader of the 1874 Giáp Tuất rising"
+      },
+      "bio": {
+        "vi": "Đồng lãnh đạo cùng Trần Tấn cuộc nổi dậy Giáp Tuất năm 1874 của phong trào Văn Thân ở Nghệ – Tĩnh. Nghĩa quân chiếm được thành Hà Tĩnh và kiểm soát nhiều vùng trước khi bị triều đình đàn áp cuối năm 1874.",
+        "en": "Co-leader with Trần Tấn of the 1874 Giáp Tuất rising of the Văn Thân movement in Nghệ – Tĩnh. The insurgents took Hà Tĩnh citadel and held much of the region before the court suppressed the rising late in 1874."
+      },
+      "avatar": {
+        "id": "dang-nhu-mai-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "dang-nhu-mai-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "le-trung-dinh",
+      "name": {
+        "vi": "Lê Trung Đình",
+        "en": "Lê Trung Đình"
+      },
+      "epithet": {
+        "vi": "Thủ lĩnh Cần Vương ở Quảng Ngãi",
+        "en": "Cần Vương leader in Quảng Ngãi"
+      },
+      "bio": {
+        "vi": "Người Quảng Ngãi, đỗ cử nhân năm 1884. Thay vì ra làm quan, ông bí mật chuẩn bị lực lượng chống Pháp. Khi chiếu Cần Vương ban ra năm 1885, khoảng ba nghìn nghĩa quân tập hợp ở sông Trà Khúc và nhanh chóng chiếm tỉnh thành Quảng Ngãi. Cuộc nổi dậy ngắn ngủi; ông bị bắt và xử tử ngày 23 tháng 7 năm 1885, để lại bài thơ tuyệt mệnh.",
+        "en": "A native of Quảng Ngãi who passed the provincial examination in 1884. Rather than seek office he secretly built up forces against the French. When the Cần Vương edict came in 1885, about three thousand men gathered at the Trà Khúc river and quickly took Quảng Ngãi city. The rising was brief; he was captured and executed on 23 July 1885, leaving a farewell poem."
+      },
+      "lifespan": {
+        "vi": "1863 – 1885",
+        "en": "1863 – 1885"
+      },
+      "avatar": {
+        "id": "le-trung-dinh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "le-trung-dinh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-xuan-on",
+      "name": {
+        "vi": "Nguyễn Xuân Ôn",
+        "en": "Nguyễn Xuân Ôn"
+      },
+      "epithet": {
+        "vi": "Thủ lĩnh Cần Vương ở Nghệ – Tĩnh",
+        "en": "Cần Vương leader in Nghệ – Tĩnh"
+      },
+      "bio": {
+        "vi": "Người Diễn Châu, Nghệ An, làm quan nhiều nơi và nhiều lần dâng sớ phản đối chính sách hòa với Pháp. Sau khi vua Hàm Nghi ra chiếu Cần Vương, ông được cử chỉ huy nghĩa quân Nghệ An, Hà Tĩnh và lập căn cứ Đồng Thông. Ông bị bắt năm 1887, được ân xá năm 1889 nhưng phải ở Huế và mất ở đó cùng năm.",
+        "en": "A native of Diễn Châu, Nghệ An, who served in many posts and repeatedly petitioned against the policy of accommodating the French. After Hàm Nghi's Cần Vương edict he was named to lead the insurgents of Nghệ An and Hà Tĩnh and set up a base at Đồng Thông. He was captured in 1887, amnestied in 1889 but kept in Huế, where he died the same year."
+      },
+      "lifespan": {
+        "vi": "1825 – 1889",
+        "en": "1825 – 1889"
+      },
+      "avatar": {
+        "id": "nguyen-xuan-on-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-xuan-on-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "cao-thang",
+      "name": {
+        "vi": "Cao Thắng",
+        "en": "Cao Thắng"
+      },
+      "epithet": {
+        "vi": "Chỉ huy nghĩa quân Hương Khê; người chế súng",
+        "en": "Hương Khê commander; the rebels' gunsmith"
+      },
+      "bio": {
+        "vi": "Người Hương Sơn, Hà Tĩnh, xuất thân nông dân, là cánh tay phải của Phan Đình Phùng trong khởi nghĩa Hương Khê. Ông nổi tiếng vì tổ chức rèn súng, trước là hai trăm khẩu hỏa mai, sau đó là khoảng ba trăm rưỡi khẩu mô phỏng súng trường Pháp kiểu 1874. Ông hy sinh ngày 21 tháng 11 năm 1893 khi đánh huyện Thanh Chương.",
+        "en": "A farmer's son from Hương Sơn, Hà Tĩnh, and Phan Đình Phùng's right hand in the Hương Khê uprising. He is famed for organising a gun workshop, first making two hundred matchlocks and then about three hundred and fifty rifles copied from the French 1874 pattern. He fell on 21 November 1893 in the attack on Thanh Chương district."
+      },
+      "lifespan": {
+        "vi": "1864 – 1893",
+        "en": "1864 – 1893"
+      },
+      "avatar": {
+        "id": "cao-thang-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "cao-thang-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ton-that-tiep",
+      "name": {
+        "vi": "Tôn Thất Tiệp",
+        "en": "Tôn Thất Tiệp"
+      },
+      "epithet": {
+        "vi": "Con trai Tôn Thất Thuyết; bảo vệ vua Hàm Nghi",
+        "en": "Son of Tôn Thất Thuyết; protector of Hàm Nghi"
+      },
+      "bio": {
+        "vi": "Con trai của Tôn Thất Thuyết, cùng anh là Tôn Thất Đàm theo bảo vệ vua Hàm Nghi trong phong trào Cần Vương. Cuối năm 1888, khi Trương Quang Ngọc phản bội bắt vua Hàm Nghi, ông chiến đấu bảo vệ vua và bị giết ngày 1 tháng 11, mới khoảng 18 tuổi.",
+        "en": "Son of Tôn Thất Thuyết, who with his brother Tôn Thất Đàm guarded Emperor Hàm Nghi in the Cần Vương movement. In late 1888, when Trương Quang Ngọc betrayed and seized the emperor, he fought to protect him and was killed on 1 November, aged about 18."
+      },
+      "lifespan": {
+        "vi": "1870 – 1888",
+        "en": "1870 – 1888"
+      },
+      "avatar": {
+        "id": "ton-that-tiep-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ton-that-tiep-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ton-that-dam",
+      "name": {
+        "vi": "Tôn Thất Đàm",
+        "en": "Tôn Thất Đàm"
+      },
+      "epithet": {
+        "vi": "Con trai Tôn Thất Thuyết; Khâm sai chưởng lý quân vụ",
+        "en": "Son of Tôn Thất Thuyết; head of military affairs"
+      },
+      "bio": {
+        "vi": "Con trai của Tôn Thất Thuyết, sinh ở Huế, giữ chức Khâm sai chưởng lý quân vụ đại thần trong phong trào Cần Vương từ năm 1886. Khi vua Hàm Nghi bị bắt cuối năm 1888, ông thắt cổ tự tử ở chùa Vàng Liêu thay vì chịu bắt, mới khoảng hai mươi bốn tuổi.",
+        "en": "Son of Tôn Thất Thuyết, born in Huế, who held the post of head of military affairs in the Cần Vương movement from 1886. When Emperor Hàm Nghi was captured in late 1888, he hanged himself at Vàng Liêu pagoda rather than be taken, at about twenty-four."
+      },
+      "lifespan": {
+        "vi": "1864 – 1888",
+        "en": "1864 – 1888"
+      },
+      "avatar": {
+        "id": "ton-that-dam-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ton-that-dam-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
     }
   ]
 }
