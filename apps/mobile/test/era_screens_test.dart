@@ -1542,11 +1542,11 @@ void main() {
     });
 
     testWidgets(
-        'answering the first daily question (seed 2, a quote question) '
+        'answering the first daily question (seed 3, a quote question) '
         'shows the correct/wrong feedback and a link to its event',
         (tester) async {
       await _pumpAt(
-          tester, '/sanh/cau-do/choi?mode=daily&seed=2', ExperienceTier.reduced);
+          tester, '/sanh/cau-do/choi?mode=daily&seed=3', ExperienceTier.reduced);
       expect(find.text('Câu 1/5'), findsOneWidget); // full corpus, 5 requested
 
       // Tap the first option — right or wrong, the citation/summary panel
