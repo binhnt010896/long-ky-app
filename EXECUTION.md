@@ -4,157 +4,264 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: Cycle Q is BUILT: the splash is the gold dragon-and-clouds art
-(variant d1, Higgsfield `nano_banana_pro`) behind the seal and the wordmark in
-Playfair Display Italic, with a slow 3 % drift, and Android's launch window is
-lacquer-dark (no white blink). App bundle 1.1.0+8 built. Not yet seen on the
-phone (it was locked); the other candidates are in `brand/splash/` (untracked).**
+**Status: Cycle R is PLANNED, not started (2026-10-03).** It fills the street
+map with more figures and events. **All the decisions are confirmed** (below).
+Nothing is built and no images have been generated. **The photo drop folders
+exist:** `content/people/<id>/` (94 people) and
+`content/events/dac-cong-rung-sac/`. The bulleted list of photos to supply and
+the drop instructions are in `content/people/README.md`; the Higgsfield
+briefs are in `docs/street-fill-images.md`.
 
-Earlier specs: M `cfa220a`, N `92e699f`, O `f56a4d7`, P `9552bb5` (each
-`<sha>:EXECUTION.md`); what P shipped: `529f7a6:EXECUTION.md`.
+Earlier specs: M `cfa220a`, N `92e699f`, O `f56a4d7`, P `9552bb5`, Q `84d5ed8`
+(each `<sha>:EXECUTION.md`); what Q shipped: `afe41a8:EXECUTION.md`.
 
 ## Audit of the previous plan
 
-Done since the last plan (2026-10-01):
-- **Cycle P finished on the phone (debug build):** landmarks, the zoom-13
-  opening view, the centred search text. Three follow-ups found there and fixed:
-  dimmer resting gold streets (`1fdfd71`); labels missing on phones that had
-  opened the map earlier — the old on-disk tile cache, now a versioned folder
-  (`1fdfd71`); too many labels — "Khu phố / Ấp" names hidden, side-street names
-  from zoom 16 (`0e5e740`).
-- **`m-cycle` merged into `main`** (fast-forward) and **the CMS redeployed** —
-  the live `main.dart.js` matches the build.
-- **Content published by the user** (dry run, then publish, both at `0e5e740`):
-  pack `20261001154404` is live (38 eras, 237 events, `order` kept for old
-  builds); the street geometry and the 37 MB base map are on the CDN under
-  their versioned addresses.
-- **App bundle 1.1.0+7 built** (79.6 MB, signed with the upload key; `1dd4565`).
+Done since the last plan (Cycle Q):
+- **Cycle Q built** (`afe41a8`): gold dragon splash art, italic wordmark, and a
+  dark Android launch window.
+- **Since then:** tile cancellations are no longer reported as fatal crashes
+  (`3b266a6`), a privacy-policy link was added to About Long Ký, and the app
+  went from 1.1.0+8 to **1.1.2+10** (`2528904`).
 
 **Carried forward (all wait on the user):**
-1. Upload `1.1.0+7` to the Play closed-testing track, and try a **release**
-   build of the street map on a phone (only debug builds have been seen there;
-   release decodes map tiles differently).
-2. Firestore (still off): steps in `979cb3f:EXECUTION.md`, plus the updated
-   `firestore.rules` (public read of `events/`).
-3. The Play closed test (12+ testers, 14 days), Analytics custom definitions,
-   the privacy page and Data safety form, Cycle E's items, optionally deleting
-   `admin-long-ky.web.app`.
+1. The Play closed test (12+ testers, 14 days), the release-build check of the
+   street map on a phone, the Data safety form, and the Analytics custom
+   definitions.
+2. Firestore (still off): the steps in `979cb3f:EXECUTION.md`.
+3. Optionally deleting `admin-long-ky.web.app`.
 
-## Cycle Q — what the user asked for
+## Cycle R — what the user asked for
 
-> The splash screen is a bit boring. It's just our logo in the center with the
-> black-ish blank background. Use Higgsfield to give us a more interesting
-> splash screen.
+> Plan to add more events and characters to our app, so that the street map is
+> filled with more data. Also list out images I need to prepare, if it's in
+> modern era and actually photographed; otherwise note down to use Higgsfield
+> to generate image based on the description of the event/character.
 
-### What I checked (read-only)
+**Confirmed (2026-10-03):**
+- **R1 — People with no era are fine.** New figures in the gaps between eras
+  (1672–1771, 1300–1413, 1127–1225) need no new eras.
+- **R2 — Era rosters stay exactly as they are.** **Every new person is
+  standalone.** That includes people who fit inside an existing era's years
+  (Trần Văn Giàu, Nguyễn Văn Trỗi…). The era hubs don't grow.
+- **R3 — Ambiguous street names are skipped:** Ba Đình, Trường Sơn, Vạn Kiếp,
+  Bến Vân Đồn, Hát Giang, Thăng Long. They may later fit a **landmark object
+  with its own detail page** (queued).
+- **R4 — Hoàng Sa and Trường Sa are skipped.**
+- **R5 — Street mapping over the air is parked.** `hcm.json` stays bundled, so
+  **the new streets reach phones with the next app release**. The people,
+  events and art go out earlier, over the air.
+- **R6 — Wave order: A + B this cycle, then C, then D.**
 
-- **Today's splash** is `SplashGate` (`apps/mobile/lib/screens/splash/
-  splash_gate.dart`): the seal (184 px, soft gold halo) on a dark radial
-  gradient, the "Long Ký" wordmark in Playfair, a short rule, "NGHÌN NĂM SỬ
-  VIỆT", and a thin progress bar that appears only if media is still warming
-  after ~2 s. It stays up 2–8 s (content check + Home media warm-up), so
-  whatever we put behind it is really seen, not flashed.
-- **Before Flutter draws, Android shows its own launch window**, and ours is
-  the stock template: `Theme.Light` with `?android:colorBackground` — a **white
-  flash** on phones in light mode, then the dark splash. (Android 12+ also puts
-  the launcher icon in the middle of that window.) Fixing it belongs in this
-  cycle: a nicer splash that opens with a white blink undercuts it.
-- The art rules that apply (from earlier cycles): painterly-realism sơn mài
-  look, never cartoon; full-bleed, no frame or panel; **no text, letters,
-  signatures or Hán tự anywhere**; static unless the user asks for motion; and
-  every image reviewed before it ships.
-- **No map of Vietnam** in the art: a country outline drags in the island-chain
-  question the street map's sovereignty guard exists to avoid.
+### What I measured (read-only, `build/streets/hcm-ways.json`, 2026-09-30 OSM)
 
-### The steps
+- Old HCMC has **1,646 named streets** without numbers (≈ 2,786 km). **92 are
+  mapped today: 23.5 % of the km.** Many of the unmapped names are places or
+  flowers, so the ceiling is well under 100 %.
 
-**Q-1 — Generate the background art** (needs credits; ~2 per image).
-- `nano_banana_pro`, **9:16 portrait**, 2k. Several variants (Q4), so there is
-  a real choice.
-- **Composition is the hard requirement:** the middle band — where the seal and
-  wordmark sit, roughly 25–70 % of the height — must be calm and dark (open
-  sky, mist, plain lacquer ground). Detail lives at the top and bottom edges
-  and the sides. A busy centre would fight the logo.
-- Prompts carry the standing rules: the painterly-realism style lock, the
-  full-bleed / NOT-a-panel clause, no text / letters / signature / Hán tự, no
-  modern objects, a palette that matches the seal (oxblood, black lacquer, gold
-  leaf, a touch of eggshell).
-- **Every variant reviewed before the user sees it:** style, frame or margin,
-  stray text or signatures in corners, garbled patterns, and how it looks with
-  the seal and wordmark on top (a mock-up, not the bare image).
+| Wave | What | Streets | Cumulative | Share of km | Photos from you | Higgsfield |
+|---|---|---|---|---|---|---|
+| now | — | — | 92 | 23.5 % | — | — |
+| **A** | Aliases to **existing** people and events | +36 | 123 | 25.0 % | 0 | 0 |
+| **B** | Saigon–Gia Định first (33 people, 6 events) | +37 | 160 | 33.4 % | 13 + 1 event | ≈ 72 images, ≈ 145 cr |
+| **C** | Older heroes and scholars (≈ 67 people, 4 events) | +68 | 228 | 35.5 % | 1 (+ 🔍 finds) | ≈ 138 images, ≈ 275 cr |
+| **D** | The 20th century (55 people) | +56 | 284 | 43.3 % | 55 | ≈ 110 restores, ≈ 220 cr |
 
-**Q-2 — The user picks one** from a side-by-side sheet of mock-ups (art + seal +
-wordmark as the phone would show them). Nothing goes into the app until then.
+### Code facts that shape R-0
 
-**Q-3 — Put it in the app.**
-- Bundled with the app (`assets/brand/splash-bg.webp`), not on the CDN: the
-  splash shows before the network or the media cache are ready. WebP q85 at
-  about 1080×1920 (expected 200–400 KB). The PNG original goes to
-  `brand/splash/`.
-- `_SplashScreen` draws it full-screen (`BoxFit.cover`, anchored to the centre,
-  so taller or wider phones crop the edges, never the middle), with a soft dark
-  vignette behind the seal and wordmark so they stay crisp on any art. The seal,
-  wordmark, kicker and progress bar stay as they are.
-- The art is decoded before the splash's first frame (`precacheImage`) and
-  fades in with the seal, so it never pops in late.
-- Motion per Q2.
+- `StreetMatcher` drops any person on no roster (`if (era == null) continue;`
+  in `street_matcher.dart`). Street targets carry an era for routing.
+- People are routed only as `/era/:slug/figure/:id`. The places that build that
+  route are `street_card.dart:14`, `event_figures.dart:74` and `app_router.dart`.
+  `CharacterDetailScreen` loads the era (`eraProvider(slug)`).
+- Cycle N's precedent for events: `/su-kien/:id` redirects to the era route if
+  the event is in an era; otherwise it opens `StandaloneEventScreen`. The street
+  validator accepts an event target with no era when it is a standalone event.
+- **N3** (a standalone event's `figureIds` must be rostered people) has to
+  relax to "any person in `people.json`".
 
-**Q-4 — Fix the native launch window** (Q3). `LaunchTheme` gets the lacquer
-colour as its background (light and night variants alike), and on Android 12+
-`windowSplashScreenBackground` gets the same colour with the seal as its icon.
-Launch then reads: dark ground with the seal → the Flutter splash fades the art
-in around the same seal. No white blink.
+### R-0 — Standalone people (code; mirrors Cycle N)
 
-**Q-5 — Tests.**
-- The splash asset is declared and loads.
-- `_SplashScreen` (made testable) renders the art, the seal and the wordmark
-  with no exceptions, at a tall phone size and a short one.
-- With "reduce motion" on, the drift is off (only if Q2 adds motion).
-- The usual sweep: mobile tests, analysis.
+- **Domain:** a `standalonePeopleIds(eras, people)` helper (the people on no
+  roster), next to `standaloneEventIds`.
+- **Validator** (`validate_content` and `StreetValidator`):
+  - a standalone event's `figureIds` may be **any registry person** (N3
+    relaxed);
+  - an in-era event's `figureIds` must still be on that era's roster;
+  - a street person target with an empty era must be a standalone person;
+  - a standalone person needs `avatar` and `fullBody` (real or held), and an
+    optional `lifespan` display (`{vi, en}`, e.g. "1650 – 1700"), because their
+    page has no era header to date them.
+- **Matcher:** a person on no roster gets a target with `era: ''` instead of
+  being skipped.
+- **App:**
+  - a route `/nhan-vat/:id`: it redirects to `/era/<home>/figure/:id` when the
+    person is rostered; otherwise it opens a **standalone character screen**
+    (the same layout as `CharacterDetailScreen`, with no era palette; the
+    lifespan as its kicker; the standalone events the person appears in; the
+    reverse street chip);
+  - `street_card.dart` routes a person with an empty era to `/nhan-vat/:id`;
+  - `event_figures.dart` on a standalone event links to `/nhan-vat/:id`.
+- **Media paths:** `people/<id>/avatar.png` and `people/<id>/full.png`, like
+  `events/<id>/…`. The manifest and ledger already walk `people.json`; check
+  that the CMS media library lists them.
+- **Old builds:** they get the new `people.json` and standalone events in the
+  pack. Unrostered people are simply unused there. A standalone event's figure
+  strip resolves through the registry, so test it on a 1.1.2 build. Old builds
+  never see the new streets (their mapping is bundled).
+- **Discoverability:** standalone people are reachable from the street map,
+  from the figure strip of a standalone event, and from search *if* search
+  covers people (check during R-0). A "Danh nhân" directory is queued, not in R.
+- **Tests:**
+  - validator rules, both accept and reject;
+  - the matcher emitting `era: ''`;
+  - the route redirect, for a rostered and a standalone person;
+  - the standalone screen with a held portrait and a real one;
+  - the street card's route.
 
-**Q-6 — See it on the phone** — a release build, cold start, with the phone in
-light and in dark mode: no white flash; the art crops well on a 20:9 screen;
-the seal and wordmark read clearly; the splash still lifts on time.
-Screenshots to the user.
+### R-1 — Wave A: aliases (no new content, no art)
 
-**Q-7 — Commit** on `main` and update this file.
+Added to `content/streets/aliases.json`. Every alias match goes through the M3
+review table and is approved by the user.
 
-### Scope notes
+- **People:**
+  - Hùng Vương → `vua-hung`; Phan Chu Trinh / Phan Tây Hồ → `phan-chau-trinh`;
+    Phan Sào Nam → `phan-boi-chau`;
+  - Lê Thánh Tôn → `le-thanh-tong`; Trần Nhân Tôn → `tran-nhan-tong`;
+    Trần Quốc Tuấn → `tran-hung-dao`;
+  - Đề Thám, Ngô Thời Nhiệm, Nguyễn Thiệp, Phạm Cự Lượng;
+  - Đinh Bộ Lĩnh → `dinh-tien-hoang`; Trưng Nữ Vương / Trưng Vương;
+  - Bãi Sậy → `nguyen-thien-thuat`; Nhật Tảo → `nguyen-trung-truc`;
+  - Song Hành Võ Nguyên Giáp.
+- **Events:**
+  - Diên Hồng, Chương Dương / Bến Chương Dương, Đống Đa, Lam Sơn / Công trường
+    Lam Sơn, Hồng Đức, Tây Sơn, Yên Thế, Đông Du;
+  - Ba Tháng Hai → `dang-cong-san-ra-doi`; Tân Trào; Công trường Mê Linh;
+  - Bình Giã / Đồng Xoài / Ba Gia → `danh-bai-chien-tranh-dac-biet`;
+  - Núi Thành / Bàu Bàng → `chien-tranh-cuc-bo`;
+  - Nữ Dân Công → `dien-bien-phu`.
+- **Never alias these:**
+  - *Nguyễn Ảnh Thủ* is not Nguyễn Ánh.
+  - *Lê Văn Lương* is not Lê Văn Duyệt.
+  - *Trấn Đại Nghĩa* (an OSM typo) waits for `tran-dai-nghia` in Wave D.
+  - *Trần Khắc Chân* waits for `tran-khat-chan` in Wave C.
 
-- **Not in Q:** a new logo or wordmark (both stay); the iOS launch screen (iOS
-  is not set up); a video splash (opt-in only, per the standing rule).
-- Cost: about 2 credits per image — 3 variants ≈ 6 credits, more if one fails
-  review and is re-rolled.
+### R-2 — Wave B people (33, all standalone)
 
-## Decisions for the user
+Added through the CMS People form: name, epithet, bio (vi/en), lifespan, and the
+photo-fidelity box where it applies.
+- **The Gia Định founding and Hà Tiên:** Nguyễn Phúc Chu, Nguyễn Hữu Cảnh,
+  Nguyễn Cửu Vân, Nguyễn Cửu Đàm, Mạc Cửu, Mạc Thiên Tích (with the alias
+  Chiêu Anh Các), Nguyễn Cư Trinh.
+- **The Gia Định scholars and canals:** Trịnh Hoài Đức, Võ Trường Toản, Ngô
+  Nhân Tịnh, Lê Quang Định, Thoại Ngọc Hầu.
+- **The Southern resistance, 1860–1885:** Nguyễn Đình Chiểu, Phan Văn Trị,
+  Thủ Khoa Huân, Thiên Hộ Dương, Hồ Huấn Nghiệp, Huỳnh Mẫn Đạt, Phan Văn Hớn,
+  Nguyễn Văn Quá.
+- **The 20th century:** Trần Văn Giàu, Lý Tự Trọng, Châu Văn Liêm, Võ Văn
+  Tần, Nguyễn Thị Thập, Võ Thị Sáu, Trần Văn Ơn, Nguyễn Văn Trỗi, Lê Thị
+  Riêng, Út Tịch, Trần Bạch Đằng, Huỳnh Tấn Phát, Nguyễn Hữu Thọ.
 
-- **Q1 — What the art shows.** Recommend **A, the bronze drum (trống đồng
-  Đông Sơn) face**: its concentric rings of flying birds and patterns in gold
-  leaf on black lacquer, its star at the centre — with the seal sitting right on
-  that star. It is the oldest emblem of Vietnamese history (some 2,500 years),
-  "nghìn năm sử Việt" in one image, and naturally calm at its centre.
-  Alternatives:
-  - **B — A gold dragon among clouds** around the edges of the screen, echoing
-    the Nguyễn dragon in the seal. A strong brand tie, but it risks looking busy
-    and repeats the seal's own motif.
-  - **C — A dawn landscape:** limestone karst peaks (Tràng An / Hoa Lư, the
-    first capital) over a misty river, a lone boat, gold light. The most
-    scenic, the least symbolic.
-- **Q2 — Motion.** Recommend **a very slow drift done in code** (the art scales
-  ~3 % and pans slightly over the splash's few seconds; off when the phone asks
-  for reduced motion). It costs no credits and stays a still image.
-  Alternatives: fully static (the standing default), or a Kling video loop
-  (~7.5 credits and a few MB in the app — not recommended for a splash).
-- **Q3 — The native launch window.** Recommend **fixing it in this cycle**
-  (dark ground plus the seal), since today's white blink would undercut the new
-  splash. Alternative: leave it.
-- **Q4 — How many variants.** Recommend **3 of the chosen direction** (~6
-  credits). Alternative: 1 each of A, B and C (~6 credits), to choose the
-  direction by eye rather than by description.
+**Sourcing and tone:**
+- ĐVSKTT where it covers a person. It ends in 1675, so later figures cite
+  *Đại Nam thực lục*, *Gia Định thành thông chí* or the *Cương mục*, named
+  honestly.
+- Modern people: Gov sources (Viện Sử học, dangcongsan.vn, baotanglichsu).
+- History, not politics: short, dated, record-only bios.
+
+**Portraits:** 📷 and 🔍 people ship with `placeholder: "portrait-held"` until
+their images are ready.
+
+### R-3 — Wave B events (6, all standalone)
+
+Each has a citation, a `year.value` and a hero at `events/<id>/hero.png`.
+
+| Event | Year | Street(s) | Figures |
+|---|---|---|---|
+| `nguyen-huu-canh-lap-phu-gia-dinh` | 1698 | (gives context) | Nguyễn Phúc Chu, Nguyễn Hữu Cảnh |
+| `mac-cuu-dang-ha-tien` | 1708 | (gives context) | Mạc Cửu, Mạc Thiên Tích |
+| `dap-luy-ban-bich` | 1772 | Lũy Bán Bích | Nguyễn Cửu Đàm |
+| `dao-kenh-vinh-te` | 1819–1824 | Châu Vĩnh Tế | Thoại Ngọc Hầu |
+| `khoi-nghia-hoc-mon` | 1885 | (gives context) | Phan Văn Hớn, Nguyễn Văn Quá |
+| `dac-cong-rung-sac` | 1966–1975 | Rừng Sác (verify the naming resolution) | — |
+
+`relatedEventIds` link them to the existing era events where they belong (for
+example, `nghia-quan-nam-ky` ↔ the Southern resistance figures' events).
+
+### R-4 — Art (`docs/street-fill-images.md` → Wave B)
+
+- **🎨 Higgsfield:**
+  - 12 people × (avatar + full body);
+  - 5 event heroes;
+  - every image reviewed before the user sees it;
+  - generations paced, never a multi-reference img2img batch.
+- **📷 the user drops photos** in `content/people/<id>/source.jpg`, with
+  `credit.txt`. Each is restored and colourised with a per-face A/B check, and
+  captioned "Ảnh tư liệu" or "Ảnh tư liệu · phục chế màu".
+- **🔍** the user checks 8 names and leaves `source.jpg`, `altar.jpg` or
+  `none.txt`.
+- **Cost:** about 72 images, roughly **145 credits** before re-rolls.
+
+### R-4b — Photo intake (2026-10-03): rules for processing the user's images
+
+All Wave A–D photos are in `content/people/<id>/` (file names are
+`<id>.<ext>`, and `<id>-reference.<ext>` where a second image exists), except
+the **8 empty folders**: `ho-huan-nghiep`, `nguyen-van-qua`, `mai-xuan-thuong`,
+`tran-tan`, `dang-nhu-mai`, `ton-that-thiep`, `ton-that-dam`, and also
+`ha-huy-giap`, which the user did not list as missing: **ask before treating it
+as missing.**
+
+Rules for every image:
+1. Blurry or pixelated: enhance. Black and white: colourise.
+2. A file with the suffix `-reference` is a second image used to restore
+   features the main portrait lost (old, blurry, missing detail). Five exist:
+   Tăng Bạt Hổ, Thủ Khoa Huân, Nguyễn Thượng Hiền, Nguyễn Duy Hiệu, Đinh Công
+   Tráng.
+3. If the image is too blurry to restore, Higgsfield re-imagines the portrait
+   from the blurry photo, keeping the likeness.
+4. Remove any watermark, subtitle or caption that is not part of the picture.
+5. Keep the hairstyle, background and outfit true to the person's era.
+6. A person with no image at all gets no portrait on the character page and a
+   placeholder avatar (the held-portrait mechanism); the street still lights up.
+
+Still true: every restored face is checked against the original (per-face A/B),
+and no face is invented for a photographed person. Reminder: the Higgsfield
+rule "never multi-reference img2img batches" applies; upload references one at
+a time and verify the bytes.
+
+### R-5 — The street pipeline
+
+- `suggest.dart --offline`, then the M3 review of every alias and new match,
+  then `build_geometry.dart`.
+- `suggest.dart` gains a **coverage line** (streets, km, share).
+- `validate_content`, the mobile tests, analysis.
+
+### R-6 — Ship
+
+1. **Content first, over the air.** Through the CMS publish (dry run first):
+   people, events and art. The user runs it.
+2. **Streets with the next app release** (R5): the new bundled `hcm.json`,
+   plus the R-0 code. Bump the version and build the bundle; the user uploads
+   it.
+3. **On the phone:**
+   - the newly gold streets;
+   - a tap on each kind: an alias to a person, an alias to an event, a
+     standalone person, a held portrait;
+   - the reverse street chip on a standalone person's page;
+   - a standalone event's figure strip.
+
+### R-7 — Commit on `main` and update this file
 
 ## Next cycles (queued — not to be planned until the user says)
 
-More landmarks; an in-house lacquer base-map style; the first standalone
-events; streets near me; more cities; a CMS editor for street mappings and
-landmarks; pages for famous streets with none yet; street mapping over the air;
-the carried-over UX audit findings (`21fb88b:EXECUTION.md`).
+- **Wave C** (next), then **Wave D**.
+- **A landmark object and landmark detail page**, for Ba Đình, Trường Sơn,
+  Vạn Kiếp… (R3).
+- Street mapping over the air (parked, R5).
+- A "Danh nhân" directory for standalone people.
+- Wave E: local Southern martyrs, scientists and artists, Tô Hiến Thành,
+  Nguyễn Hữu Cầu.
+- Hoàng Sa / Trường Sa (R4).
+- More landmarks; an in-house lacquer base-map style; streets near me; more
+  cities; a CMS editor for street mappings; the carried-over UX audit findings
+  (`21fb88b:EXECUTION.md`).
