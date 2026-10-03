@@ -28,9 +28,12 @@ void main() {
     expect(era.events.first.citation.work, isNotEmpty);
   });
 
-  test('there are no standalone events yet, and asking is not an error', () async {
+  test('the standalone events (listed by no era) load from the registry', () async {
     final repo = ContentRepository(appBundledContent());
-    expect(await repo.loadStandaloneEvents(), isEmpty);
+    final ids = [for (final e in await repo.loadStandaloneEvents()) e.id];
+    expect(ids, hasLength(6));
+    expect(ids, contains('nguyen-huu-canh-lap-phu-gia-dinh'));
+    expect(ids, contains('dac-cong-rung-sac'));
   });
 
   test('findEvent locates an in-era event through the bundled registry', () async {

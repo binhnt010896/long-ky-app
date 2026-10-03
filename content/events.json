@@ -14135,6 +14135,313 @@
         "reduced": "eras/ky-nguyen-vuon-minh/events/tang-truong-2025.png"
       },
       "id": "tang-truong-2025"
+    },
+    {
+      "id": "nguyen-huu-canh-lap-phu-gia-dinh",
+      "slug": "nguyen-huu-canh-lap-phu-gia-dinh",
+      "figureIds": [
+        "nguyen-huu-canh",
+        "nguyen-phuc-chu"
+      ],
+      "relatedEventIds": [
+        "nguyen-hoang-nam-tien"
+      ],
+      "details": {
+        "vi": "Theo Đại Nam thực lục, năm Mậu Dần (1698), chúa Nguyễn Phúc Chu sai Thống suất Nguyễn Hữu Cảnh vào kinh lược đất Đồng Nai. Ông lấy đất Nông Nại làm phủ Gia Định, chia xứ Đồng Nai thành huyện Phước Long và dựng dinh Trấn Biên, chia xứ Sài Gòn thành huyện Tân Bình và dựng dinh Phiên Trấn. Ông đặt các chức quan văn võ, lập sổ hộ, chiêu mộ lưu dân từ miền Thuận – Quảng vào lập thôn, phường, ấp, đặt ra lệ thuế đinh điền. Sách chép đất mở rộng hơn nghìn dặm, dân hơn bốn vạn hộ. Từ đó, bộ máy cai trị của Đàng Trong chính thức hiện diện ở vùng đất Nam Bộ.",
+        "en": "By the Đại Nam thực lục, in the year Mậu Dần (1698) Lord Nguyễn Phúc Chu sent Commander Nguyễn Hữu Cảnh to survey the Đồng Nai lands. He took the Nông Nại country as Gia Định prefecture, dividing the Đồng Nai region into the district of Phước Long with the Trấn Biên garrison, and the Sài Gòn region into the district of Tân Bình with the Phiên Trấn garrison. He appointed civil and military officials, drew up household registers, called settlers from the Thuận – Quảng region to found villages, wards and hamlets, and set tax rules on persons and fields. The chronicle records the land as widening by over a thousand li and the people as numbering over forty thousand households. From then on the government of Đàng Trong was formally present in the southern lands."
+      },
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1698 SCN",
+          "en": "1698 CE"
+        },
+        "value": 1698,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Nguyễn Hữu Cảnh lập phủ Gia Định",
+        "en": "Nguyễn Hữu Cảnh founds Gia Định prefecture"
+      },
+      "summary": {
+        "vi": "Năm 1698, chúa Nguyễn sai Nguyễn Hữu Cảnh vào kinh lược đất Đồng Nai, đặt phủ Gia Định.",
+        "en": "In 1698 the Nguyễn lord sent Nguyễn Hữu Cảnh to survey the Đồng Nai lands and set up Gia Định prefecture."
+      },
+      "body": {
+        "vi": "Năm Mậu Dần 1698, chúa Nguyễn Phúc Chu sai Thống suất Nguyễn Hữu Cảnh vào kinh lược vùng Đồng Nai. Ông đặt xứ Đồng Nai làm huyện Phước Long (dinh Trấn Biên), xứ Sài Gòn làm huyện Tân Bình (dinh Phiên Trấn), hợp thành phủ Gia Định, đặt quan cai trị và chiêu mộ lưu dân từ miền Thuận – Quảng vào lập thôn ấp.",
+        "en": "In 1698 (Mậu Dần), Lord Nguyễn Phúc Chu sent Commander Nguyễn Hữu Cảnh to survey the Đồng Nai region. He made Đồng Nai the district of Phước Long (Trấn Biên garrison) and Sài Gòn the district of Tân Bình (Phiên Trấn garrison), together forming Gia Định prefecture, installed officials and called settlers from the Thuận – Quảng region to found villages."
+      },
+      "hero": {
+        "id": "nguyen-huu-canh-lap-phu-gia-dinh-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
+      },
+      "citation": {
+        "work": "Đại Nam thực lục (Tiền biên)",
+        "section": {
+          "vi": "Chúa Hiển tông · năm Mậu Dần (1698)",
+          "en": "Lord Hiển tông · the year Mậu Dần (1698)"
+        },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    },
+    {
+      "id": "mac-cuu-dang-ha-tien",
+      "slug": "mac-cuu-dang-ha-tien",
+      "figureIds": [
+        "mac-cuu",
+        "nguyen-phuc-chu"
+      ],
+      "details": {
+        "vi": "Theo Đại Nam thực lục, Mạc Cửu vốn người Lôi Châu (Quảng Đông), không chịu thần phục nhà Thanh, sang Chân Lạp rồi dựng nghiệp ở vùng Mang Khảm (Hà Tiên). Năm Mậu Tý (1708), ông sai thuộc hạ là Trương Cầu và Lý Xá đến cửa khuyết xin được làm tướng giữ đất ấy. Chúa Nguyễn Phúc Chu nhận lời, phong ông làm Tổng binh trấn Hà Tiên, ban ấn thụ. Mạc Cửu ra sức xây dựng, lập phố chợ, chiêu tập dân cư; về sau, con ông là Mạc Thiên Tích tiếp nối cơ nghiệp.",
+        "en": "By the Đại Nam thực lục, Mạc Cửu was a native of Lôi Châu (Guangdong) who would not submit to the Qing, went to Cambodia and founded his holdings in the Mang Khảm (Hà Tiên) region. In the year Mậu Tý (1708) he sent his men Trương Cầu and Lý Xá to the court to ask to be set over that land. Lord Nguyễn Phúc Chu agreed, named him Commander of the Hà Tiên garrison and granted him the seal. Mạc Cửu worked to build it up, laying out markets and gathering settlers; later his son Mạc Thiên Tích carried on his work."
+      },
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1708 SCN",
+          "en": "1708 CE"
+        },
+        "value": 1708,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Mạc Cửu dâng đất Hà Tiên",
+        "en": "Mạc Cửu offers Hà Tiên to the Nguyễn lords"
+      },
+      "summary": {
+        "vi": "Năm 1708, Mạc Cửu xin thuộc chúa Nguyễn và được phong Tổng binh trấn Hà Tiên.",
+        "en": "In 1708 Mạc Cửu asked to come under the Nguyễn lord and was named Commander of the Hà Tiên garrison."
+      },
+      "body": {
+        "vi": "Mạc Cửu là người Lôi Châu, khai khẩn vùng Hà Tiên. Năm Mậu Tý 1708, ông sai thuộc hạ mang thư vào Phú Xuân xin thuộc chúa Nguyễn Phúc Chu. Chúa nhận lời, phong ông làm Tổng binh trấn Hà Tiên. Từ đó vùng đất cực Nam trở thành một phần của Đàng Trong.",
+        "en": "Mạc Cửu, a native of Lôi Châu, had cleared the lands of Hà Tiên. In 1708 (Mậu Tý) he sent men with a letter to Phú Xuân asking to come under Lord Nguyễn Phúc Chu. The lord agreed and named him Commander of the Hà Tiên garrison. From then on the far southern country formed part of Đàng Trong."
+      },
+      "hero": {
+        "id": "mac-cuu-dang-ha-tien-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
+      },
+      "citation": {
+        "work": "Đại Nam thực lục (Tiền biên)",
+        "section": {
+          "vi": "Chúa Hiển tông · năm Mậu Tý (1708)",
+          "en": "Lord Hiển tông · the year Mậu Tý (1708)"
+        },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    },
+    {
+      "id": "dap-luy-ban-bich",
+      "slug": "dap-luy-ban-bich",
+      "figureIds": [
+        "nguyen-cuu-dam"
+      ],
+      "details": {
+        "vi": "Giữa thế kỷ XVIII, vùng Gia Định là đất mới của chúa Nguyễn, thường bị quân Xiêm và Chân Lạp đe dọa. Năm Nhâm Thìn (1772), tướng Nguyễn Cửu Đàm cho đắp lũy Bán Bích, một dải lũy đất có hàng rào tre bao quanh vùng Sài Gòn, để giữ vững thế phòng thủ của Gia Định. Cùng thời gian đó, ông cho đào kênh Ruột Ngựa nối Sài Gòn với miền Tây để thuyền bè đi lại. Lũy Bán Bích là một trong những công trình quy hoạch đô thị đầu tiên của Sài Gòn; ông mất năm 1777.",
+        "en": "In the mid-eighteenth century Gia Định was the Nguyễn lords' new land, often threatened by Siamese and Cambodian troops. In the year Nhâm Thìn (1772) the general Nguyễn Cửu Đàm had the Bán Bích rampart raised, an earthen bank with a bamboo palisade around the Sài Gòn region, to hold Gia Định's defences firm. In the same period he had the Ruột Ngựa canal dug to link Sài Gòn with the western delta for boat traffic. The Bán Bích rampart was among Sài Gòn's first works of urban planning; he died in 1777."
+      },
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1772 SCN",
+          "en": "1772 CE"
+        },
+        "value": 1772,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Đắp lũy Bán Bích",
+        "en": "Raising the Bán Bích rampart"
+      },
+      "summary": {
+        "vi": "Năm 1772, Nguyễn Cửu Đàm cho đắp lũy Bán Bích quanh vùng Sài Gòn.",
+        "en": "In 1772 Nguyễn Cửu Đàm had the Bán Bích rampart raised around the Sài Gòn region."
+      },
+      "body": {
+        "vi": "Năm 1772, tướng Nguyễn Cửu Đàm cho đắp lũy Bán Bích bao quanh vùng Sài Gòn – Gia Định, đề phòng quân Xiêm. Dân phu đào đất, đóng cọc, trồng tre; ông cũng cho đào kênh Ruột Ngựa. Ông được xem là người quy hoạch đô thị đầu tiên của Sài Gòn.",
+        "en": "In 1772 the general Nguyễn Cửu Đàm had the Bán Bích rampart raised around the Sài Gòn – Gia Định region as a guard against Siamese troops. Labourers dug earth, drove stakes and planted bamboo; he also had the Ruột Ngựa canal dug. He is regarded as Sài Gòn's first urban planner."
+      },
+      "hero": {
+        "id": "dap-luy-ban-bich-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
+      },
+      "citation": {
+        "work": "Đại Nam thực lục (Tiền biên)",
+        "section": {
+          "vi": "Chúa Duệ tông · năm Nhâm Thìn (1772)",
+          "en": "Lord Duệ tông · the year Nhâm Thìn (1772)"
+        },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    },
+    {
+      "id": "dao-kenh-vinh-te",
+      "slug": "dao-kenh-vinh-te",
+      "figureIds": [
+        "thoai-ngoc-hau"
+      ],
+      "details": {
+        "vi": "Cuối năm Kỷ Mão (1819), triều Nguyễn cho đào kênh nối Châu Đốc với Hà Tiên, vừa để vận chuyển, vừa để giữ biên giới phía Tây Nam. Thoại Ngọc Hầu và Trần Công Lại trực tiếp chỉ huy, huy động hàng chục nghìn dân binh người Việt và người Khmer. Công việc kéo dài đến năm 1824, kênh dài hơn 87 km, đi sát biên giới. Kênh được đặt tên Vĩnh Tế theo tên phu nhân Châu Thị Tế của Thoại Ngọc Hầu, người đã hết lòng lo việc cho người đi đào kênh.",
+        "en": "In late 1819 (Kỷ Mão), the Nguyễn court had a canal dug to join Châu Đốc with Hà Tiên, both for transport and to hold the southwestern frontier. Thoại Ngọc Hầu and Trần Công Lại directed the work in person, calling up tens of thousands of Vietnamese and Khmer labourers. The work lasted until 1824, producing a canal over 87 km long running along the border. It was named Vĩnh Tế after Thoại Ngọc Hầu's wife, Lady Châu Thị Tế, who gave all her efforts to those digging the canal."
+      },
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1819 – 1824 SCN",
+          "en": "1819 – 1824 CE"
+        },
+        "value": 1819,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Đào kênh Vĩnh Tế",
+        "en": "Digging the Vĩnh Tế canal"
+      },
+      "summary": {
+        "vi": "Từ 1819 đến 1824, Thoại Ngọc Hầu chỉ huy đào kênh Vĩnh Tế nối Châu Đốc với Hà Tiên.",
+        "en": "From 1819 to 1824 Thoại Ngọc Hầu directed the digging of the Vĩnh Tế canal linking Châu Đốc with Hà Tiên."
+      },
+      "body": {
+        "vi": "Từ cuối năm 1819 đến năm 1824, dân binh người Việt và người Khmer đào kênh Vĩnh Tế dài hơn 87 km, nối Châu Đốc với Hà Tiên, dưới sự chỉ huy của Thoại Ngọc Hầu và Trần Công Lại. Kênh mang tên phu nhân Châu Thị Tế của Thoại Ngọc Hầu.",
+        "en": "From late 1819 to 1824, Vietnamese and Khmer labourers dug the Vĩnh Tế canal, over 87 km long, linking Châu Đốc with Hà Tiên under the direction of Thoại Ngọc Hầu and Trần Công Lại. The canal bears the name of Thoại Ngọc Hầu's wife, Lady Châu Thị Tế."
+      },
+      "hero": {
+        "id": "dao-kenh-vinh-te-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
+      },
+      "citation": {
+        "work": "Đại Nam thực lục (Chính biên)",
+        "section": {
+          "vi": "Đệ nhất kỷ – Đệ nhị kỷ · kênh Vĩnh Tế (1819 – 1824)",
+          "en": "First – Second Reigns · the Vĩnh Tế canal (1819 – 1824)"
+        },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    },
+    {
+      "id": "khoi-nghia-hoc-mon",
+      "slug": "khoi-nghia-hoc-mon",
+      "figureIds": [
+        "phan-van-hon",
+        "nguyen-van-qua"
+      ],
+      "relatedEventIds": [
+        "nghia-quan-nam-ky"
+      ],
+      "details": {
+        "vi": "Sau khi Pháp hoàn tất việc chiếm Nam Kỳ, nhiều sĩ phu và nông dân vẫn tìm cách đứng lên. Ở Hóc Môn, vùng 'Mười Tám Thôn Vườn Trầu' của Bà Điểm, Phan Văn Hớn (Quản Hớn) và Nguyễn Văn Quá (Quản Quá) tập hợp nghĩa quân. Ngày 25 tháng chạp năm Giáp Thân (8 – 9 tháng 2 năm 1885), hơn nghìn người chia ba mũi tiến đánh dinh huyện Bình Long, tiêu diệt đốc phủ Trần Tử Ca, kẻ làm tay sai cho Pháp. Họ tiến xuống Sài Gòn nhưng bị quân Pháp chặn ở Bình Hòa và thất bại. Để cứu người thân khỏi bị tra khảo, hai ông ra nộp mình; cả hai bị xử tử ngày 30 tháng 3 năm 1886 tại chợ Hóc Môn.",
+        "en": "After the French completed their hold on the South, many scholars and farmers still found ways to rise. In Hóc Môn, in the 'Eighteen Betel Gardens' of Bà Điểm, Phan Văn Hớn (Quản Hớn) and Nguyễn Văn Quá (Quản Quá) gathered insurgents. On the 25th of the twelfth month of Giáp Thân (8 – 9 February 1885), over a thousand men in three columns attacked the Bình Long district office and killed the official Trần Tử Ca, a French collaborator. They advanced toward Sài Gòn but were stopped by French troops at Bình Hòa and defeated. To spare their families from torture the two leaders gave themselves up; both were executed on 30 March 1886 in Hóc Môn market."
+      },
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1885 SCN",
+          "en": "1885 CE"
+        },
+        "value": 1885,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Khởi nghĩa Mười Tám Thôn Vườn Trầu",
+        "en": "The Eighteen Betel Gardens uprising"
+      },
+      "summary": {
+        "vi": "Tháng 2 năm 1885, nghĩa quân Hóc Môn do Phan Văn Hớn và Nguyễn Văn Quá chỉ huy đánh vào huyện lỵ Bình Long.",
+        "en": "In February 1885 insurgents of Hóc Môn under Phan Văn Hớn and Nguyễn Văn Quá struck the Bình Long district seat."
+      },
+      "body": {
+        "vi": "Ngày 25 tháng chạp năm Giáp Thân (8 – 9 tháng 2 năm 1885), hơn nghìn nghĩa quân vùng Mười Tám Thôn Vườn Trầu (Hóc Môn – Bà Điểm) chia ba mũi đánh vào huyện lỵ Bình Long, giết viên đốc phủ Trần Tử Ca. Họ kéo xuống Sài Gòn nhưng bị Pháp chặn đánh ở Bình Hòa. Hai thủ lĩnh Phan Văn Hớn và Nguyễn Văn Quá bị bắt và xử tử năm 1886.",
+        "en": "On the 25th of the twelfth month of Giáp Thân (8 – 9 February 1885), over a thousand insurgents from the Eighteen Betel Gardens (Hóc Môn – Bà Điểm) struck in three columns at the Bình Long district seat and killed the official Trần Tử Ca. They marched toward Sài Gòn but were stopped by the French at Bình Hòa. The two leaders, Phan Văn Hớn and Nguyễn Văn Quá, were captured and executed in 1886."
+      },
+      "hero": {
+        "id": "khoi-nghia-hoc-mon-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Minh họa · phong cách sơn mài",
+          "en": "Illustration · lacquer style"
+        }
+      },
+      "citation": {
+        "work": "Lịch sử Việt Nam",
+        "section": {
+          "vi": "Phong trào kháng Pháp ở Nam Kỳ, thập niên 1880",
+          "en": "The resistance to the French in the South, the 1880s"
+        },
+        "author": "Viện Sử học"
+      }
+    },
+    {
+      "id": "dac-cong-rung-sac",
+      "slug": "dac-cong-rung-sac",
+      "figureIds": [],
+      "details": {
+        "vi": "Rừng Sác là vùng rừng ngập mặn rộng lớn ở Cần Giờ, bao quanh các nhánh sông dẫn vào Sài Gòn, trong đó có luồng Lòng Tàu, con đường thủy huyết mạch cho tàu từ biển Đông vào thành phố. Ngày 15 tháng 4 năm 1966, Bộ Tư lệnh Quân khu quyết định thành lập Đặc khu Rừng Sác, mật danh T10, sau đổi thành Đoàn 10 Đặc công Rừng Sác. Nhiệm vụ chính là khống chế luồng Lòng Tàu, đánh phá kho tàng, bến cảng của đối phương và bảo vệ các tuyến vận chuyển. Theo tổng kết của đơn vị, trong cuộc kháng chiến chống Mỹ, Đoàn 10 đã đánh hàng trăm trận, đánh chìm hoặc đốt hàng trăm tàu chiến và tàu vận tải. Nay Rừng Sác là khu dự trữ sinh quyển và có khu di tích tưởng niệm.",
+        "en": "Rừng Sác is a broad mangrove forest in Cần Giờ, wrapped around the river branches leading into Sài Gòn, among them the Lòng Tàu channel, the lifeline waterway for ships from the East Sea to the city. On 15 April 1966 the Military Region command decided to set up the Rừng Sác Special Zone, codenamed T10 and later renamed the Rừng Sác Sapper Group 10. Its main task was to hold the Lòng Tàu channel, strike the other side's depots and docks, and protect supply routes. By the unit's own tally, in the war against the US Group 10 fought hundreds of engagements and sank or burned hundreds of warships and cargo ships. Today Rừng Sác is a biosphere reserve with a memorial site."
+      },
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1966 – 1975 SCN",
+          "en": "1966 – 1975 CE"
+        },
+        "value": 1966,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Đặc công Rừng Sác",
+        "en": "The Rừng Sác sappers"
+      },
+      "summary": {
+        "vi": "Từ tháng 4 năm 1966, Đặc khu Rừng Sác khống chế luồng Lòng Tàu, tuyến tàu vào Sài Gòn.",
+        "en": "From April 1966 the Rừng Sác Special Zone held the Lòng Tàu channel, the sea route into Sài Gòn."
+      },
+      "body": {
+        "vi": "Ngày 15 tháng 4 năm 1966, Quân khu quyết định thành lập Đặc khu Rừng Sác (về sau là Đoàn 10 Đặc công Rừng Sác) với nhiệm vụ khống chế luồng Lòng Tàu, tuyến đường thủy chiến lược từ biển vào Sài Gòn. Trong cánh rừng ngập mặn Cần Giờ, đơn vị đánh các kho bãi, bến cảng và tàu vận tải, bảo vệ đường vận chuyển của ta.",
+        "en": "On 15 April 1966 the Military Region decided to set up the Rừng Sác Special Zone (later the Rừng Sác Sapper Group 10), tasked with holding the Lòng Tàu channel, the strategic waterway from the sea to Sài Gòn. In the Cần Giờ mangroves the unit struck depots, docks and cargo ships and protected our supply routes."
+      },
+      "hero": {
+        "id": "dac-cong-rung-sac-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene",
+        "caption": {
+          "vi": "Ảnh tư liệu",
+          "en": "Archival photo"
+        }
+      },
+      "citation": {
+        "work": "Lịch sử Quân đội nhân dân Việt Nam",
+        "section": {
+          "vi": "Đặc khu Rừng Sác (1966 – 1975)",
+          "en": "The Rừng Sác Special Zone (1966 – 1975)"
+        },
+        "author": "Viện Lịch sử Quân sự Việt Nam"
+      }
     }
   ]
 }

@@ -11,6 +11,7 @@
 // Usage: dart run tool/street_map/suggest.dart [--city hcm] [--offline]
 
 import 'dart:convert';
+import 'dart:math' as math;
 import 'dart:io';
 
 import 'package:core_domain/core_domain.dart';
@@ -61,6 +62,8 @@ Future<void> main(List<String> args) async {
         start: existing.start,
       ).toJson());
 
+  _printCoverage(ways, merged);
+
   final pending = merged.where((s) => !s.isApproved).toList();
   stdout.writeln('✓ ${out.path}: ${merged.length} streets, '
       '${merged.length - pending.length} approved, ${pending.length} awaiting review');
@@ -72,6 +75,46 @@ Future<void> main(List<String> args) async {
     }
     stdout.writeln('\nSet "status": "approved" in $out for the ones you accept.');
   }
+}
+
+/// Prints how much of the city's named streets the APPROVED mapping covers —
+/// by count and by length — so each wave of content shows its gain (Cycle R).
+/// Counts only names without digits, so "Hẻm 12" and "Đường số 5" don't drown
+/// out the history-named streets.
+void _printCoverage(Map<String, dynamic> ways, List<MappedStreet> streets) {
+  double km(Object? lines) {
+    var total = 0.0;
+    for (final line in lines as List<dynamic>) {
+      final pts = (line as List<dynamic>).cast<List<dynamic>>();
+      for (var i = 1; i < pts.length; i++) {
+        final dx = ((pts[i][0] as num) - (pts[i - 1][0] as num)) * 109.3;
+        final dy = ((pts[i][1] as num) - (pts[i - 1][1] as num)) * 110.6;
+        total += math.sqrt(dx * dx + dy * dy);
+      }
+    }
+    return total;
+  }
+
+  final approved = {
+    for (final s in streets)
+      if (s.isApproved) normalizeName(s.name),
+  };
+  var allCount = 0, hitCount = 0;
+  var allKm = 0.0, hitKm = 0.0;
+  ways.forEach((name, lines) {
+    if (RegExp(r'\d').hasMatch(name)) return;
+    final l = km(lines);
+    allCount++;
+    allKm += l;
+    if (approved.contains(normalizeName(name))) {
+      hitCount++;
+      hitKm += l;
+    }
+  });
+  stdout.writeln('  coverage: $hitCount of $allCount named streets '
+      '(${(100 * hitCount / allCount).toStringAsFixed(1)} %), '
+      '${hitKm.toStringAsFixed(0)} of ${allKm.toStringAsFixed(0)} km '
+      '(${(100 * hitKm / allKm).toStringAsFixed(1)} %)');
 }
 
 Future<void> _downloadWays(String city, File cache) async {

@@ -103,6 +103,369 @@
           "id": "trung-nhi"
         }
       ]
+    },
+    {
+      "street": "Hùng Vương",
+      "targets": [
+        {
+          "type": "person",
+          "id": "vua-hung"
+        }
+      ]
+    },
+    {
+      "street": "Phan Chu Trinh",
+      "targets": [
+        {
+          "type": "person",
+          "id": "phan-chau-trinh"
+        }
+      ]
+    },
+    {
+      "street": "Phan Tây Hồ",
+      "targets": [
+        {
+          "type": "person",
+          "id": "phan-chau-trinh"
+        }
+      ]
+    },
+    {
+      "street": "Phan Sào Nam",
+      "targets": [
+        {
+          "type": "person",
+          "id": "phan-boi-chau"
+        }
+      ]
+    },
+    {
+      "street": "Lê Thánh Tôn",
+      "targets": [
+        {
+          "type": "person",
+          "id": "le-thanh-tong"
+        }
+      ]
+    },
+    {
+      "street": "Trần Nhân Tôn",
+      "targets": [
+        {
+          "type": "person",
+          "id": "tran-nhan-tong"
+        }
+      ]
+    },
+    {
+      "street": "Trần Quốc Tuấn",
+      "targets": [
+        {
+          "type": "person",
+          "id": "tran-hung-dao"
+        }
+      ]
+    },
+    {
+      "street": "Đề Thám",
+      "targets": [
+        {
+          "type": "person",
+          "id": "hoang-hoa-tham"
+        }
+      ]
+    },
+    {
+      "street": "Ngô Thời Nhiệm",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ngo-thi-nham"
+        }
+      ]
+    },
+    {
+      "street": "Nguyễn Thiệp",
+      "targets": [
+        {
+          "type": "person",
+          "id": "nguyen-thiep"
+        }
+      ]
+    },
+    {
+      "street": "Phạm Cự Lượng",
+      "targets": [
+        {
+          "type": "person",
+          "id": "pham-cu-lang"
+        }
+      ]
+    },
+    {
+      "street": "Đinh Bộ Lĩnh",
+      "targets": [
+        {
+          "type": "person",
+          "id": "dinh-tien-hoang"
+        }
+      ]
+    },
+    {
+      "street": "Trưng Nữ Vương",
+      "targets": [
+        {
+          "type": "person",
+          "id": "trung-trac"
+        }
+      ]
+    },
+    {
+      "street": "Trưng Vương",
+      "targets": [
+        {
+          "type": "person",
+          "id": "trung-trac"
+        }
+      ]
+    },
+    {
+      "street": "Bãi Sậy",
+      "targets": [
+        {
+          "type": "person",
+          "id": "nguyen-thien-thuat"
+        }
+      ]
+    },
+    {
+      "street": "Nhật Tảo",
+      "targets": [
+        {
+          "type": "person",
+          "id": "nguyen-trung-truc"
+        }
+      ]
+    },
+    {
+      "street": "Song Hành Võ Nguyên Giáp",
+      "targets": [
+        {
+          "type": "person",
+          "id": "vo-nguyen-giap"
+        }
+      ]
+    },
+    {
+      "street": "Diên Hồng",
+      "targets": [
+        {
+          "type": "event",
+          "id": "dien-hong-hich-tuong-si",
+          "era": "tran-hung-dao"
+        }
+      ]
+    },
+    {
+      "street": "Chương Dương",
+      "targets": [
+        {
+          "type": "event",
+          "id": "khang-chien-lan-hai",
+          "era": "tran-hung-dao"
+        }
+      ]
+    },
+    {
+      "street": "Bến Chương Dương",
+      "targets": [
+        {
+          "type": "event",
+          "id": "khang-chien-lan-hai",
+          "era": "tran-hung-dao"
+        }
+      ]
+    },
+    {
+      "street": "Đống Đa",
+      "targets": [
+        {
+          "type": "event",
+          "id": "ngoc-hoi-dong-da",
+          "era": "tay-son"
+        }
+      ]
+    },
+    {
+      "street": "Lam Sơn",
+      "targets": [
+        {
+          "type": "event",
+          "id": "dung-co-lam-son",
+          "era": "le-loi"
+        }
+      ]
+    },
+    {
+      "street": "Công trường Lam Sơn",
+      "targets": [
+        {
+          "type": "event",
+          "id": "dung-co-lam-son",
+          "era": "le-loi"
+        }
+      ]
+    },
+    {
+      "street": "Hồng Đức",
+      "targets": [
+        {
+          "type": "event",
+          "id": "hong-duc-thinh-tri",
+          "era": "le-thanh-tong"
+        }
+      ]
+    },
+    {
+      "street": "Tây Sơn",
+      "targets": [
+        {
+          "type": "event",
+          "id": "dung-nghia-tay-son",
+          "era": "tay-son"
+        }
+      ]
+    },
+    {
+      "street": "Yên Thế",
+      "targets": [
+        {
+          "type": "event",
+          "id": "khoi-nghia-yen-the",
+          "era": "can-vuong"
+        }
+      ]
+    },
+    {
+      "street": "Đông Du",
+      "targets": [
+        {
+          "type": "event",
+          "id": "dong-du-phan-boi-chau",
+          "era": "phong-trao-yeu-nuoc"
+        }
+      ]
+    },
+    {
+      "street": "Ba Tháng Hai",
+      "targets": [
+        {
+          "type": "event",
+          "id": "dang-cong-san-ra-doi",
+          "era": "cach-mang-thang-tam"
+        }
+      ]
+    },
+    {
+      "street": "Công trường Mê Linh",
+      "targets": [
+        {
+          "type": "event",
+          "id": "hai-ba-trung-khoi-nghia",
+          "era": "hai-ba-trung"
+        }
+      ]
+    },
+    {
+      "street": "Bình Giã",
+      "targets": [
+        {
+          "type": "event",
+          "id": "danh-bai-chien-tranh-dac-biet",
+          "era": "dai-thang-mua-xuan"
+        }
+      ]
+    },
+    {
+      "street": "Đồng Xoài",
+      "targets": [
+        {
+          "type": "event",
+          "id": "danh-bai-chien-tranh-dac-biet",
+          "era": "dai-thang-mua-xuan"
+        }
+      ]
+    },
+    {
+      "street": "Ba Gia",
+      "targets": [
+        {
+          "type": "event",
+          "id": "danh-bai-chien-tranh-dac-biet",
+          "era": "dai-thang-mua-xuan"
+        }
+      ]
+    },
+    {
+      "street": "Núi Thành",
+      "targets": [
+        {
+          "type": "event",
+          "id": "chien-tranh-cuc-bo",
+          "era": "dai-thang-mua-xuan"
+        }
+      ]
+    },
+    {
+      "street": "Bàu Bàng",
+      "targets": [
+        {
+          "type": "event",
+          "id": "chien-tranh-cuc-bo",
+          "era": "dai-thang-mua-xuan"
+        }
+      ]
+    },
+    {
+      "street": "Nữ Dân Công",
+      "targets": [
+        {
+          "type": "event",
+          "id": "dien-bien-phu",
+          "era": "dien-bien-phu"
+        }
+      ]
+    },
+    {
+      "street": "Rừng Sác",
+      "targets": [
+        {
+          "type": "event",
+          "id": "dac-cong-rung-sac",
+          "era": ""
+        }
+      ]
+    },
+    {
+      "street": "Lũy Bán Bích",
+      "targets": [
+        {
+          "type": "event",
+          "id": "dap-luy-ban-bich",
+          "era": ""
+        }
+      ]
+    },
+    {
+      "street": "Châu Vĩnh Tế",
+      "targets": [
+        {
+          "type": "event",
+          "id": "dao-kenh-vinh-te",
+          "era": ""
+        }
+      ]
     }
   ]
 }

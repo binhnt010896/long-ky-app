@@ -4154,6 +4154,955 @@
         "flagship": "eras/ky-nguyen-vuon-minh/characters/luong-cuong-full.png",
         "reduced": "eras/ky-nguyen-vuon-minh/characters/luong-cuong-full.png"
       }
+    },
+    {
+      "id": "nguyen-phuc-chu",
+      "name": {
+        "vi": "Nguyễn Phúc Chu",
+        "en": "Nguyễn Phúc Chu"
+      },
+      "epithet": {
+        "vi": "Quốc chúa; người sai Nguyễn Hữu Cảnh vào lập phủ Gia Định",
+        "en": "The 'Quốc chúa' who sent Nguyễn Hữu Cảnh south to found Gia Định prefecture"
+      },
+      "bio": {
+        "vi": "Chúa Nguyễn thứ sáu của Đàng Trong, cầm quyền từ năm 1691 đến năm 1725. Năm 1698, ông sai Thống suất Nguyễn Hữu Cảnh vào kinh lược đất Đồng Nai – Gia Định, đặt phủ Gia Định và đặt bộ máy cai trị ở vùng đất mới phương Nam. Năm 1708, ông nhận Mạc Cửu dâng đất Hà Tiên và phong Mạc Cửu làm Tổng binh trấn Hà Tiên. Ông sùng đạo Phật, từng mời thiền sư Thạch Liêm từ Trung Hoa sang Đàng Trong.",
+        "en": "The sixth Nguyễn lord of Đàng Trong, in power from 1691 to 1725. In 1698 he sent Commander Nguyễn Hữu Cảnh to survey the Đồng Nai – Gia Định lands, found Gia Định prefecture and set up government in the new southern country. In 1708 he accepted Mạc Cửu's offer of Hà Tiên and made him Commander of the Hà Tiên garrison. A devout Buddhist, he invited the monk Thạch Liêm from China to Đàng Trong."
+      },
+      "lifespan": {
+        "vi": "1675 – 1725",
+        "en": "1675 – 1725"
+      },
+      "avatar": {
+        "id": "nguyen-phuc-chu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-phuc-chu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-huu-canh",
+      "name": {
+        "vi": "Nguyễn Hữu Cảnh",
+        "en": "Nguyễn Hữu Cảnh"
+      },
+      "epithet": {
+        "vi": "Lễ Thành hầu; người đặt nền hành chính đầu tiên ở Gia Định",
+        "en": "Lord Lễ Thành; first to organise government in Gia Định"
+      },
+      "bio": {
+        "vi": "Danh tướng của chúa Nguyễn, còn gọi là Nguyễn Hữu Kính. Năm 1698, ông được cử làm Thống suất vào kinh lược đất Đồng Nai. Ông lấy xứ Đồng Nai đặt huyện Phước Long (dinh Trấn Biên), xứ Sài Gòn đặt huyện Tân Bình (dinh Phiên Trấn), hợp thành phủ Gia Định; lập sổ hộ và chiêu mộ lưu dân từ miền Thuận – Quảng vào khai khẩn. Theo Đại Nam thực lục, đất mở rộng hơn nghìn dặm, dân hơn bốn vạn hộ. Ông mất năm 1700 sau chuyến đem quân sang Chân Lạp.",
+        "en": "A leading general of the Nguyễn lords, also called Nguyễn Hữu Kính. In 1698 he was sent as Commander to survey the Đồng Nai lands. He made the Đồng Nai region the district of Phước Long (Trấn Biên garrison) and the Sài Gòn region the district of Tân Bình (Phiên Trấn garrison), together forming Gia Định prefecture; he drew up household registers and called settlers from the Thuận – Quảng region to clear land. By the Đại Nam thực lục, the territory grew by over a thousand li and counted more than forty thousand households. He died in 1700 after a campaign into Cambodia."
+      },
+      "lifespan": {
+        "vi": "1650 – 1700",
+        "en": "1650 – 1700"
+      },
+      "avatar": {
+        "id": "nguyen-huu-canh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-huu-canh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-cuu-van",
+      "name": {
+        "vi": "Nguyễn Cửu Vân",
+        "en": "Nguyễn Cửu Vân"
+      },
+      "epithet": {
+        "vi": "Chính thống Vân Trường hầu; tướng giữ biên giới phía Nam",
+        "en": "Lord Vân Trường; frontier general of the South"
+      },
+      "bio": {
+        "vi": "Tướng của chúa Nguyễn Phúc Chu, cha của Nguyễn Cửu Đàm. Tháng 7 năm 1705, ông đem quân sang Chân Lạp, đưa Nặc Ông Yêm trở về thành La Bích làm vua. Năm 1711, ông giữ chức Trấn Biên doanh phó tướng. Ở vùng Mỹ Tho, ông cho đắp lũy từ quán Thị Cai đến Bến Tranh và đào kênh nối rạch Vũng Gù với sông Mỹ Tho, về sau được mở rộng thành kênh Bảo Định.",
+        "en": "A general under Lord Nguyễn Phúc Chu and the father of Nguyễn Cửu Đàm. In the seventh month of 1705 he led troops into Cambodia and brought Nặc Ông Yêm back to La Bích to reign. In 1711 he served as deputy commander of the Trấn Biên garrison. Around Mỹ Tho he had a rampart raised from Thị Cai post to Bến Tranh and a canal dug linking Vũng Gù creek to the Mỹ Tho river, later widened into the Bảo Định canal."
+      },
+      "avatar": {
+        "id": "nguyen-cuu-van-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-cuu-van-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-cuu-dam",
+      "name": {
+        "vi": "Nguyễn Cửu Đàm",
+        "en": "Nguyễn Cửu Đàm"
+      },
+      "epithet": {
+        "vi": "Người đắp lũy Bán Bích bảo vệ Sài Gòn",
+        "en": "Builder of the Bán Bích rampart that guarded Sài Gòn"
+      },
+      "bio": {
+        "vi": "Tướng của chúa Nguyễn, con của Nguyễn Cửu Vân. Năm 1772, ông cho đắp lũy Bán Bích quanh vùng Sài Gòn để giữ vững Gia Định trước nguy cơ quân Xiêm, nên được xem là người đặt nền quy hoạch đô thị đầu tiên của Sài Gòn. Ông cũng cho đào kênh Ruột Ngựa nối Sài Gòn với miền Tây. Ông mất năm 1777.",
+        "en": "A general of the Nguyễn lords and son of Nguyễn Cửu Vân. In 1772 he had the Bán Bích rampart raised around the Sài Gòn region to hold Gia Định against the threat of Siamese troops, which is why he is counted as Sài Gòn's first urban planner. He also had the Ruột Ngựa canal dug to link Sài Gòn with the western delta. He died in 1777."
+      },
+      "lifespan": {
+        "vi": "? – 1777",
+        "en": "? – 1777"
+      },
+      "avatar": {
+        "id": "nguyen-cuu-dam-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-cuu-dam-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "mac-cuu",
+      "name": {
+        "vi": "Mạc Cửu",
+        "en": "Mạc Cửu"
+      },
+      "epithet": {
+        "vi": "Người lập Hà Tiên và dâng đất cho chúa Nguyễn",
+        "en": "Founder of Hà Tiên, who offered it to the Nguyễn lords"
+      },
+      "bio": {
+        "vi": "Người Lôi Châu (Quảng Đông), rời Trung Hoa sau khi triều Minh sụp đổ, sang Chân Lạp và khai khẩn vùng Hà Tiên. Năm 1708, ông sai người dâng thư xin thuộc về chúa Nguyễn Phúc Chu và được phong Tổng binh trấn Hà Tiên. Từ đó Hà Tiên trở thành một phần của Đàng Trong. Ông mất năm 1735, con là Mạc Thiên Tích kế nghiệp.",
+        "en": "A native of Lôi Châu in Guangdong who left China after the fall of the Ming, went to Cambodia and cleared land around Hà Tiên. In 1708 he sent envoys to offer his lands to Lord Nguyễn Phúc Chu and was named Commander of the Hà Tiên garrison. From then on Hà Tiên formed part of Đàng Trong. He died in 1735 and his son Mạc Thiên Tích succeeded him."
+      },
+      "lifespan": {
+        "vi": "1655 – 1735",
+        "en": "1655 – 1735"
+      },
+      "avatar": {
+        "id": "mac-cuu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "mac-cuu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "mac-thien-tich",
+      "name": {
+        "vi": "Mạc Thiên Tích",
+        "en": "Mạc Thiên Tích"
+      },
+      "epithet": {
+        "vi": "Người kế nghiệp Mạc Cửu; lập Tao đàn Chiêu Anh Các",
+        "en": "Successor to Mạc Cửu; founder of the Chiêu Anh Các poets' circle"
+      },
+      "bio": {
+        "vi": "Còn gọi là Mạc Thiên Tứ, con của Mạc Cửu. Ông cai quản trấn Hà Tiên từ năm 1735, mở mang buôn bán và xây dựng thành thị. Năm 1736, ông lập Tao đàn Chiêu Anh Các, nơi văn nhân vùng Hà Tiên cùng ngâm vịnh, nổi tiếng với tập thơ Hà Tiên thập vịnh. Hà Tiên bị tàn phá trong cuộc chiến với Xiêm năm 1771; ông mất năm 1780 ở đất Xiêm.",
+        "en": "Also called Mạc Thiên Tứ, son of Mạc Cửu. He governed Hà Tiên from 1735, expanding trade and building up its towns. In 1736 he founded the Chiêu Anh Các poets' circle, where Hà Tiên's men of letters composed verse together, known for the collection Hà Tiên thập vịnh (Ten Poems of Hà Tiên). Hà Tiên was ravaged in the war with Siam in 1771; he died in 1780 in Siamese lands."
+      },
+      "lifespan": {
+        "vi": "? – 1780",
+        "en": "? – 1780"
+      },
+      "avatar": {
+        "id": "mac-thien-tich-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "mac-thien-tich-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-cu-trinh",
+      "name": {
+        "vi": "Nguyễn Cư Trinh",
+        "en": "Nguyễn Cư Trinh"
+      },
+      "epithet": {
+        "vi": "Quan văn, nhà thơ; người đề ra kế 'tằm ăn dâu'",
+        "en": "Scholar-official and poet; author of the 'silkworm eating mulberry' policy"
+      },
+      "bio": {
+        "vi": "Quan văn và nhà thơ dưới thời chúa Nguyễn Phúc Khoát. Năm 1750, ông làm Tuần phủ Quảng Ngãi. Trong cuộc chinh phạt Chân Lạp (1753 – 1756), ông tham mưu và đề ra kế sách 'tằm ăn dâu': đưa dân vào khai khẩn, mở đất dần dần ở vùng biên giới phía Nam. Ông là tác giả truyện thơ Nôm Sãi vãi, mất năm 1767.",
+        "en": "A civil official and poet under Lord Nguyễn Phúc Khoát. In 1750 he served as Governor of Quảng Ngãi. In the Cambodian campaign (1753 – 1756) he served as adviser and set out the 'silkworm eating mulberry' policy: settlers moving in to clear land and extend the frontier step by step in the South. He wrote the Nôm verse tale Sãi vãi and died in 1767."
+      },
+      "lifespan": {
+        "vi": "1716 – 1767",
+        "en": "1716 – 1767"
+      },
+      "avatar": {
+        "id": "nguyen-cu-trinh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-cu-trinh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "trinh-hoai-duc",
+      "name": {
+        "vi": "Trịnh Hoài Đức",
+        "en": "Trịnh Hoài Đức"
+      },
+      "epithet": {
+        "vi": "Một trong Gia Định tam gia; tác giả Gia Định thành thông chí",
+        "en": "One of the 'Three Masters of Gia Định'; author of Gia Định thành thông chí"
+      },
+      "bio": {
+        "vi": "Sinh ở Trấn Biên, học trò của Võ Trường Toản, theo Nguyễn Ánh từ buổi đầu. Ông cùng Lê Quang Định và Ngô Nhân Tịnh lập nhóm thơ Bình Dương thi xã, được gọi là 'Gia Định tam gia'. Dưới triều Gia Long và Minh Mạng, ông làm quan đến chức Thượng thư và giữ trọng trách ở Gia Định thành. Ông là tác giả Gia Định thành thông chí, bộ địa chí về vùng đất Nam Bộ đầu thế kỷ XIX.",
+        "en": "Born in Trấn Biên and a pupil of Võ Trường Toản, he followed Nguyễn Ánh from the earliest days. With Lê Quang Định and Ngô Nhân Tịnh he founded the Bình Dương poetry society, and the three were called the 'Three Masters of Gia Định'. Under Gia Long and Minh Mạng he rose to Minister and held heavy duties at Gia Định citadel. He wrote the Gia Định thành thông chí, a gazetteer of the southern lands in the early nineteenth century."
+      },
+      "lifespan": {
+        "vi": "1765 – 1825",
+        "en": "1765 – 1825"
+      },
+      "avatar": {
+        "id": "trinh-hoai-duc-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "trinh-hoai-duc-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "vo-truong-toan",
+      "name": {
+        "vi": "Võ Trường Toản",
+        "en": "Võ Trường Toản"
+      },
+      "epithet": {
+        "vi": "Người thầy của đất Gia Định",
+        "en": "The great teacher of Gia Định"
+      },
+      "bio": {
+        "vi": "Nhà giáo dục ở Gia Định. Trong thời loạn Tây Sơn, ông mở trường dạy học ở làng Hòa Hưng, học trò đến mấy trăm người, trong đó có Trịnh Hoài Đức và Lê Quang Định. Ông không ra làm quan dù nhiều lần được mời. Sau khi ông mất năm 1792, vua Gia Long truy tặng ông là 'Gia Định xử sĩ Sùng Đức Võ tiên sinh'.",
+        "en": "A teacher in Gia Định. During the Tây Sơn upheavals he opened a school in Hòa Hưng village, with several hundred pupils, among them Trịnh Hoài Đức and Lê Quang Định. He never took office, though invited many times. After his death in 1792, King Gia Long honoured him with the title 'Gia Định scholar Sùng Đức, Master Võ'."
+      },
+      "lifespan": {
+        "vi": "1709 – 1792",
+        "en": "1709 – 1792"
+      },
+      "avatar": {
+        "id": "vo-truong-toan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "vo-truong-toan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ngo-nhan-tinh",
+      "name": {
+        "vi": "Ngô Nhân Tịnh",
+        "en": "Ngô Nhân Tịnh"
+      },
+      "epithet": {
+        "vi": "Một trong Gia Định tam gia; nhà thơ và sứ thần",
+        "en": "One of the 'Three Masters of Gia Định'; poet and envoy"
+      },
+      "bio": {
+        "vi": "Cùng Trịnh Hoài Đức và Lê Quang Định lập nhóm thơ Bình Dương thi xã, được xem là nhà thơ hay nhất trong 'Gia Định tam gia'. Ông làm chánh sứ sang Trung Quốc và Chân Lạp, năm 1812 giữ chức Thượng thư Bộ Công. Ông mất năm 1813 ở Gia Định, để lại Thập Anh đường văn tập và thi tập.",
+        "en": "With Trịnh Hoài Đức and Lê Quang Định he founded the Bình Dương poetry society, and is reckoned the finest poet of the 'Three Masters of Gia Định'. He served as chief envoy to China and Cambodia and, in 1812, as Minister of Works. He died in Gia Định in 1813, leaving the Thập Anh đường collections of prose and verse."
+      },
+      "lifespan": {
+        "vi": "1761 – 1813",
+        "en": "1761 – 1813"
+      },
+      "avatar": {
+        "id": "ngo-nhan-tinh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ngo-nhan-tinh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "le-quang-dinh",
+      "name": {
+        "vi": "Lê Quang Định",
+        "en": "Lê Quang Định"
+      },
+      "epithet": {
+        "vi": "Một trong Gia Định tam gia; tác giả Hoàng Việt nhất thống dư địa chí",
+        "en": "One of the 'Three Masters of Gia Định'; author of Hoàng Việt nhất thống dư địa chí"
+      },
+      "bio": {
+        "vi": "Học trò của Võ Trường Toản và là một trong 'Gia Định tam gia'. Năm 1802 ông làm Thượng thư Bộ Binh, năm 1810 làm Thượng thư Bộ Hộ. Năm 1806, ông được giao biên soạn Hoàng Việt nhất thống dư địa chí gồm 10 quyển, bộ địa chí đầu tiên của nhà Nguyễn, ghi các tuyến đường trong cả nước. Ông mất năm 1813.",
+        "en": "A pupil of Võ Trường Toản and one of the 'Three Masters of Gia Định'. In 1802 he became Minister of War and in 1810 Minister of Revenue. In 1806 he was charged with compiling the Hoàng Việt nhất thống dư địa chí in ten books, the first gazetteer of the Nguyễn dynasty, recording the routes across the country. He died in 1813."
+      },
+      "lifespan": {
+        "vi": "1759 – 1813",
+        "en": "1759 – 1813"
+      },
+      "avatar": {
+        "id": "le-quang-dinh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "le-quang-dinh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "thoai-ngoc-hau",
+      "name": {
+        "vi": "Thoại Ngọc Hầu",
+        "en": "Thoại Ngọc Hầu"
+      },
+      "epithet": {
+        "vi": "Nguyễn Văn Thoại; người chỉ huy đào kênh Thoại Hà và kênh Vĩnh Tế",
+        "en": "Nguyễn Văn Thoại; overseer of the Thoại Hà and Vĩnh Tế canals"
+      },
+      "bio": {
+        "vi": "Tên thật là Nguyễn Văn Thoại, tướng của triều Gia Long và Minh Mạng. Ông trấn thủ Định Tường, bảo hộ Cao Miên (1813 – 1816) và làm Trấn thủ Vĩnh Thanh. Ông chỉ huy đào kênh Thoại Hà (từ năm 1818) và kênh Vĩnh Tế (1819 – 1824), nối Châu Đốc với Hà Tiên; kênh Vĩnh Tế mang tên phu nhân Châu Thị Tế của ông. Ông mất năm 1829 và được an táng dưới chân núi Sam.",
+        "en": "Born Nguyễn Văn Thoại, a general under Gia Long and Minh Mạng. He held Định Tường, served as protector of Cambodia (1813 – 1816) and governed Vĩnh Thanh. He directed the digging of the Thoại Hà canal (from 1818) and the Vĩnh Tế canal (1819 – 1824), linking Châu Đốc with Hà Tiên; the Vĩnh Tế canal bears the name of his wife, Lady Châu Thị Tế. He died in 1829 and lies at the foot of Sam Mountain."
+      },
+      "lifespan": {
+        "vi": "1761 – 1829",
+        "en": "1761 – 1829"
+      },
+      "avatar": {
+        "id": "thoai-ngoc-hau-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "thoai-ngoc-hau-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-dinh-chieu",
+      "name": {
+        "vi": "Nguyễn Đình Chiểu",
+        "en": "Nguyễn Đình Chiểu"
+      },
+      "epithet": {
+        "vi": "Nhà thơ mù; tác giả Lục Vân Tiên và Văn tế nghĩa sĩ Cần Giuộc",
+        "en": "The blind poet; author of Lục Vân Tiên and the Elegy for the Cần Giuộc Patriots"
+      },
+      "bio": {
+        "vi": "Sinh ở Gia Định, đỗ tú tài năm 1843, rồi bị mù sau một chuyến về chịu tang mẹ nhưng vẫn dạy học, bốc thuốc và làm thơ. Ông là tác giả truyện thơ Lục Vân Tiên và bài Văn tế nghĩa sĩ Cần Giuộc (1861), khóc những người dân áo vải đã hy sinh chống Pháp. Khi Nam Kỳ bị chiếm, ông về sống ở Ba Tri (Bến Tre), giữ khí tiết đến cuối đời.",
+        "en": "Born in Gia Định, he passed the first-degree examination in 1843, then lost his sight after a journey home to mourn his mother, yet kept on teaching, practising medicine and writing verse. He wrote the verse tale Lục Vân Tiên and the Elegy for the Cần Giuộc Patriots (1861), mourning the homespun villagers who died fighting the French. When the South fell, he settled at Ba Tri (Bến Tre) and kept his integrity to the end."
+      },
+      "lifespan": {
+        "vi": "1822 – 1888",
+        "en": "1822 – 1888"
+      },
+      "avatar": {
+        "id": "nguyen-dinh-chieu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-dinh-chieu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "phan-van-tri",
+      "name": {
+        "vi": "Phan Văn Trị",
+        "en": "Phan Văn Trị"
+      },
+      "epithet": {
+        "vi": "Nhà thơ yêu nước Nam Kỳ",
+        "en": "Patriotic poet of the South"
+      },
+      "bio": {
+        "vi": "Sinh ở Bến Tre, đỗ cử nhân năm 1849 nhưng không ra làm quan mà dạy học và làm thơ. Ông nổi tiếng với cuộc họa thơ với Tôn Thọ Tường, người chủ trương hợp tác với Pháp; cuộc bút chiến ấy thu hút nhiều sĩ phu Nam Kỳ. Về cuối đời, ông sống ở Phong Điền (Cần Thơ) và mất năm 1910.",
+        "en": "Born in Bến Tre, he passed the provincial examination in 1849 but, instead of taking office, taught and wrote verse. He is famed for his exchange of poems with Tôn Thọ Tường, who favoured cooperation with the French; the brush-duel drew in many scholars of the South. In his last years he lived at Phong Điền (Cần Thơ) and died in 1910."
+      },
+      "lifespan": {
+        "vi": "1830 – 1910",
+        "en": "1830 – 1910"
+      },
+      "avatar": {
+        "id": "phan-van-tri-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "phan-van-tri-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "thu-khoa-huan",
+      "name": {
+        "vi": "Thủ Khoa Huân",
+        "en": "Thủ Khoa Huân"
+      },
+      "epithet": {
+        "vi": "Nguyễn Hữu Huân; thủ khoa kháng Pháp",
+        "en": "Nguyễn Hữu Huân; the top graduate who resisted the French"
+      },
+      "bio": {
+        "vi": "Tên thật là Nguyễn Hữu Huân, sinh ở Định Tường, đỗ thủ khoa kỳ thi Hương năm 1852. Từ năm 1859 ông tham gia kháng Pháp ở Nam Kỳ. Bị bắt năm 1864, ông bị đày sang Cayenne năm năm, được ân xá năm 1869, rồi lại khởi nghĩa ở vùng Mỹ Tho – Cai Lậy năm 1872. Ông bị bắt và xử tử ngày 19 tháng 5 năm 1875.",
+        "en": "Born Nguyễn Hữu Huân in Định Tường, he topped the provincial examination of 1852. From 1859 he took part in the resistance to the French in the South. Captured in 1864, he was exiled to Cayenne for five years, pardoned in 1869, and rose again around Mỹ Tho – Cai Lậy in 1872. He was captured and executed on 19 May 1875."
+      },
+      "lifespan": {
+        "vi": "1830 – 1875",
+        "en": "1830 – 1875"
+      },
+      "avatar": {
+        "id": "thu-khoa-huan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "thu-khoa-huan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "thien-ho-duong",
+      "name": {
+        "vi": "Thiên Hộ Dương",
+        "en": "Thiên Hộ Dương"
+      },
+      "epithet": {
+        "vi": "Võ Duy Dương; thủ lĩnh nghĩa quân Đồng Tháp Mười",
+        "en": "Võ Duy Dương; leader of the Đồng Tháp Mười resistance"
+      },
+      "bio": {
+        "vi": "Tên thật là Võ Duy Dương. Từ năm 1862 ông lãnh đạo nghĩa quân chống Pháp, lấy vùng đầm lầy Đồng Tháp Mười làm căn cứ. Tháng 4 năm 1866, quân Pháp đem gần nghìn thủy bộ đánh vào căn cứ. Ông mất tháng 10 năm 1866 ở cửa biển Cần Giờ.",
+        "en": "Born Võ Duy Dương. From 1862 he led a resistance force against the French, with his base in the marshes of Đồng Tháp Mười. In April 1866 French forces of nearly a thousand, by water and land, attacked the base. He died in October 1866 at the Cần Giờ estuary."
+      },
+      "lifespan": {
+        "vi": "1827 – 1866",
+        "en": "1827 – 1866"
+      },
+      "avatar": {
+        "id": "thien-ho-duong-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "thien-ho-duong-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ho-huan-nghiep",
+      "name": {
+        "vi": "Hồ Huấn Nghiệp",
+        "en": "Hồ Huấn Nghiệp"
+      },
+      "epithet": {
+        "vi": "Thầy giáo, tri phủ Tân Bình của Trương Định",
+        "en": "Teacher and Trương Định's prefect of Tân Bình"
+      },
+      "bio": {
+        "vi": "Còn viết là Hồ Huân Nghiệp, sinh ở làng An Định, huyện Bình Dương, phủ Tân Bình, nổi tiếng văn hay chữ đẹp và làm nghề dạy học. Ông được Trương Định cử làm tri phủ Tân Bình, lo việc dân việc quân trong cuộc kháng Pháp từ năm 1859. Ông bị Pháp bắt ngày 17 tháng 4 năm 1864, từ chối hợp tác và bị xử tử, khi mới 35 tuổi.",
+        "en": "Also written Hồ Huân Nghiệp, born in An Định village, Bình Dương district, Tân Bình prefecture, known for his fine prose and calligraphy and a teacher by trade. Trương Định named him prefect of Tân Bình to handle civil and military affairs in the resistance to the French from 1859. The French arrested him on 17 April 1864; he refused to cooperate and was executed at the age of 35."
+      },
+      "lifespan": {
+        "vi": "1829 – 1864",
+        "en": "1829 – 1864"
+      },
+      "avatar": {
+        "id": "ho-huan-nghiep-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ho-huan-nghiep-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "huynh-man-dat",
+      "name": {
+        "vi": "Huỳnh Mẫn Đạt",
+        "en": "Huỳnh Mẫn Đạt"
+      },
+      "epithet": {
+        "vi": "Quan và nhà thơ Nam Kỳ; tác giả bài điếu Nguyễn Trung Trực",
+        "en": "Official and poet of the South; author of the lament for Nguyễn Trung Trực"
+      },
+      "bio": {
+        "vi": "Sinh ở Gia Định, đỗ cử nhân năm 1831 và làm quan đến chức Bố chánh Hà Tiên. Sau khi Pháp chiếm Định Tường (1861), ông phục vụ dưới các tướng Việt Nam rồi về ở Rạch Giá. Ông làm thơ Nôm, cùng Bùi Hữu Nghĩa soạn tuồng Kim Thạch kỳ duyên, và viết bài điếu Nguyễn Trung Trực. Ông mất năm 1882 ở Rạch Giá.",
+        "en": "Born in Gia Định, he passed the provincial examination in 1831 and rose to Deputy Governor of Hà Tiên. After the French took Định Tường (1861) he served under Vietnamese generals, then retired to Rạch Giá. He wrote Nôm verse, composed the play Kim Thạch kỳ duyên with Bùi Hữu Nghĩa, and wrote a lament for Nguyễn Trung Trực. He died in Rạch Giá in 1882."
+      },
+      "lifespan": {
+        "vi": "1807 – 1882",
+        "en": "1807 – 1882"
+      },
+      "avatar": {
+        "id": "huynh-man-dat-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "huynh-man-dat-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "phan-van-hon",
+      "name": {
+        "vi": "Phan Văn Hớn",
+        "en": "Phan Văn Hớn"
+      },
+      "epithet": {
+        "vi": "Quản Hớn; thủ lĩnh khởi nghĩa Hóc Môn 1885",
+        "en": "Quản Hớn; leader of the 1885 Hóc Môn uprising"
+      },
+      "bio": {
+        "vi": "Còn gọi là Quản Hớn hay Phan Công Hớn, nông dân văn hay võ giỏi ở làng Tân Thới Nhứt, Hóc Môn. Tháng 2 năm 1885, cùng Nguyễn Văn Quá, ông cầm đầu hơn nghìn nghĩa quân của vùng Mười Tám Thôn Vườn Trầu đánh vào huyện lỵ Bình Long. Thất bại, hai ông chịu bị bắt để cứu người thân khỏi bị tra khảo. Ông bị xử tử ngày 30 tháng 3 năm 1886 tại chợ Hóc Môn.",
+        "en": "Also called Quản Hớn or Phan Công Hớn, a farmer skilled in letters and arms from Tân Thới Nhứt village, Hóc Môn. In February 1885, with Nguyễn Văn Quá, he led over a thousand insurgents of the Eighteen Betel Gardens region against the Bình Long district seat. After defeat, the two gave themselves up to spare their families from torture. He was executed on 30 March 1886 in Hóc Môn market."
+      },
+      "lifespan": {
+        "vi": "1830 – 1886",
+        "en": "1830 – 1886"
+      },
+      "avatar": {
+        "id": "phan-van-hon-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "phan-van-hon-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-van-qua",
+      "name": {
+        "vi": "Nguyễn Văn Quá",
+        "en": "Nguyễn Văn Quá"
+      },
+      "epithet": {
+        "vi": "Quản Quá; cùng lãnh đạo khởi nghĩa Hóc Môn 1885",
+        "en": "Quản Quá; co-leader of the 1885 Hóc Môn uprising"
+      },
+      "bio": {
+        "vi": "Còn gọi là Quản Quá, người Đức Hòa (Long An). Ông cùng Phan Văn Hớn lãnh đạo cuộc khởi nghĩa Mười Tám Thôn Vườn Trầu, tiến đánh huyện lỵ Bình Long ở Hóc Môn tháng 2 năm 1885. Thất bại ở trận Bình Hòa, ông bị bắt cùng Phan Văn Hớn và bị xử tử ngày 30 tháng 3 năm 1886 tại chợ Hóc Môn.",
+        "en": "Also called Quản Quá, a native of Đức Hòa (Long An). With Phan Văn Hớn he led the Eighteen Betel Gardens uprising, which struck the Bình Long district seat at Hóc Môn in February 1885. Defeated at Bình Hòa, he was captured with Phan Văn Hớn and executed on 30 March 1886 in Hóc Môn market."
+      },
+      "avatar": {
+        "id": "nguyen-van-qua-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-van-qua-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-van-giau",
+      "name": {
+        "vi": "Trần Văn Giàu",
+        "en": "Trần Văn Giàu"
+      },
+      "epithet": {
+        "vi": "Lãnh đạo Nam Bộ tháng Tám 1945; nhà sử học",
+        "en": "Southern leader of August 1945; historian"
+      },
+      "bio": {
+        "vi": "Du học ở Pháp từ năm 1928, rồi học ở Moscow, về nước hoạt động trong Xứ ủy Nam Kỳ và bị tù bốn lần, tổng cộng 12 năm, ở Côn Đảo và nhiều nơi khác. Tháng 8 năm 1945, ông là Bí thư Xứ ủy Nam Kỳ, chỉ đạo cuộc khởi nghĩa giành chính quyền ở Sài Gòn ngày 25 tháng 8. Sau này ông là giáo sư sử học và triết học, tác giả Lịch sử cận đại Việt Nam và Giai cấp công nhân Việt Nam; ông nhận Giải thưởng Hồ Chí Minh năm 1996 và mất năm 2010, thọ 100 tuổi.",
+        "en": "He studied in France from 1928, then in Moscow, and on returning worked in the Southern Regional Party Committee and was jailed four times, twelve years in all, at Côn Đảo and elsewhere. In August 1945 he was Secretary of the Southern Regional Committee and directed the seizure of power in Sài Gòn on 25 August. He later became a professor of history and philosophy, author of works on modern Vietnamese history and the Vietnamese working class; he received the Hồ Chí Minh Prize in 1996 and died in 2010 at the age of 100."
+      },
+      "lifespan": {
+        "vi": "1911 – 2010",
+        "en": "1911 – 2010"
+      },
+      "avatar": {
+        "id": "tran-van-giau-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-van-giau-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ly-tu-trong",
+      "name": {
+        "vi": "Lý Tự Trọng",
+        "en": "Lý Tự Trọng"
+      },
+      "epithet": {
+        "vi": "Người chiến sĩ thanh niên cộng sản 17 tuổi",
+        "en": "The 17-year-old communist youth fighter"
+      },
+      "bio": {
+        "vi": "Sinh ở Hà Tĩnh, lớn lên ở Xiêm, được cử về Sài Gòn làm liên lạc cho Đảng. Ngày 9 tháng 2 năm 1931, khi bị mật thám Pháp vây bắt, ông bắn chết một tên cai mật thám để thoát thân. Ông bị xử tử ngày 21 tháng 11 năm 1931, mới 17 tuổi.",
+        "en": "Born in Hà Tĩnh and raised in Siam, he was sent to Sài Gòn as a courier for the Party. On 9 February 1931, when French detectives moved to arrest him, he shot dead a police officer to break free. He was executed on 21 November 1931, aged 17."
+      },
+      "lifespan": {
+        "vi": "1914 – 1931",
+        "en": "1914 – 1931"
+      },
+      "avatar": {
+        "id": "ly-tu-trong-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ly-tu-trong-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "chau-van-liem",
+      "name": {
+        "vi": "Châu Văn Liêm",
+        "en": "Châu Văn Liêm"
+      },
+      "epithet": {
+        "vi": "Một trong những người lãnh đạo đầu tiên của Đảng ở Nam Kỳ",
+        "en": "One of the Party's first leaders in the South"
+      },
+      "bio": {
+        "vi": "Sinh ở làng Thới Thạnh, Ô Môn, Cần Thơ. Ông là Bí thư An Nam Cộng sản Đảng từ tháng 11 năm 1929 đến tháng 2 năm 1930 và dự hội nghị thành lập Đảng Cộng sản Việt Nam. Ngày 4 tháng 5 năm 1930, ông bị cảnh sát Pháp bắn chết khi dẫn đầu cuộc biểu tình từ Đức Hòa lên Chợ Lớn.",
+        "en": "Born in Thới Thạnh village, Ô Môn, Cần Thơ. He was Secretary of the Annam Communist Party from November 1929 to February 1930 and attended the meeting that founded the Communist Party of Vietnam. On 4 May 1930 French police shot him dead as he led a demonstration from Đức Hòa toward Chợ Lớn."
+      },
+      "lifespan": {
+        "vi": "1902 – 1930",
+        "en": "1902 – 1930"
+      },
+      "avatar": {
+        "id": "chau-van-liem-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "chau-van-liem-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "vo-van-tan",
+      "name": {
+        "vi": "Võ Văn Tần",
+        "en": "Võ Văn Tần"
+      },
+      "epithet": {
+        "vi": "Bí thư Xứ ủy Nam Kỳ thời Khởi nghĩa 1940",
+        "en": "Southern Regional Secretary at the time of the 1940 uprising"
+      },
+      "bio": {
+        "vi": "Sinh ngày 21 tháng 8 năm 1891 ở Đức Hòa (Long An). Ông tham gia An Nam Cộng sản Đảng năm 1929, làm Bí thư Tỉnh ủy Chợ Lớn rồi Bí thư Xứ ủy Nam Kỳ, và là Ủy viên Ban Chấp hành Trung ương. Ông bị Pháp bắt ngày 21 tháng 4 năm 1940 ở Hóc Môn và bị xử bắn ngày 28 tháng 8 năm 1941.",
+        "en": "Born on 21 August 1891 in Đức Hòa (Long An). He joined the Annam Communist Party in 1929 and served as Secretary of the Chợ Lớn provincial committee and then of the Southern Regional Committee, and as a member of the Central Committee. The French arrested him on 21 April 1940 in Hóc Môn and shot him on 28 August 1941."
+      },
+      "lifespan": {
+        "vi": "1891 – 1941",
+        "en": "1891 – 1941"
+      },
+      "avatar": {
+        "id": "vo-van-tan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "vo-van-tan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-thi-thap",
+      "name": {
+        "vi": "Nguyễn Thị Thập",
+        "en": "Nguyễn Thị Thập"
+      },
+      "epithet": {
+        "vi": "Nữ lãnh đạo Khởi nghĩa Nam Kỳ ở Mỹ Tho",
+        "en": "Woman leader of the 1940 Nam Kỳ uprising in Mỹ Tho"
+      },
+      "bio": {
+        "vi": "Sinh ngày 10 tháng 10 năm 1908 ở Long Hưng, Mỹ Tho (nay thuộc Đồng Tháp). Bà bị Pháp bắt năm 1935, và năm 1940 tham gia ban lãnh đạo cuộc Khởi nghĩa Nam Kỳ ở Mỹ Tho. Bà là đại biểu Quốc hội nhiều khóa, Chủ tịch Hội Liên hiệp Phụ nữ Việt Nam (1956 – 1974), được tặng Huân chương Sao Vàng và danh hiệu Bà mẹ Việt Nam anh hùng. Bà mất năm 1996.",
+        "en": "Born 10 October 1908 in Long Hưng, Mỹ Tho (now in Đồng Tháp). The French arrested her in 1935, and in 1940 she joined the leadership of the Nam Kỳ uprising in Mỹ Tho. She served as a deputy in several National Assemblies and as President of the Vietnam Women's Union (1956 – 1974), and received the Gold Star Order and the title of Heroic Vietnamese Mother. She died in 1996."
+      },
+      "lifespan": {
+        "vi": "1908 – 1996",
+        "en": "1908 – 1996"
+      },
+      "avatar": {
+        "id": "nguyen-thi-thap-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-thi-thap-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "vo-thi-sau",
+      "name": {
+        "vi": "Võ Thị Sáu",
+        "en": "Võ Thị Sáu"
+      },
+      "epithet": {
+        "vi": "Nữ anh hùng trẻ tuổi của Đất Đỏ",
+        "en": "The young heroine of Đất Đỏ"
+      },
+      "bio": {
+        "vi": "Sinh ở làng Phước Thọ, Bà Rịa (nay thuộc Đất Đỏ, TP. Hồ Chí Minh). Từ năm 1946, mới 13 tuổi, chị làm liên lạc rồi đội viên Công an xung phong Đất Đỏ, tham gia nhiều trận đánh bằng lựu đạn nhằm vào quân Pháp. Chị bị bắt, đưa ra Tòa án Quân sự và bị xử bắn ngày 23 tháng 1 năm 1952 ở Côn Đảo. Chị được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân năm 1993.",
+        "en": "Born in Phước Thọ village, Bà Rịa (now Đất Đỏ, Ho Chi Minh City). From 1946, at 13, she served as a courier and then as a member of the Đất Đỏ volunteer security force, joining grenade attacks on the French. She was captured, tried by a military court and shot at Côn Đảo on 23 January 1952. She was posthumously named Hero of the People's Armed Forces in 1993."
+      },
+      "lifespan": {
+        "vi": "1933 – 1952",
+        "en": "1933 – 1952"
+      },
+      "avatar": {
+        "id": "vo-thi-sau-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "vo-thi-sau-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-van-on",
+      "name": {
+        "vi": "Trần Văn Ơn",
+        "en": "Trần Văn Ơn"
+      },
+      "epithet": {
+        "vi": "Học sinh Pétrus Ký hy sinh ngày 9/1/1950",
+        "en": "The Pétrus Ký student who fell on 9 January 1950"
+      },
+      "bio": {
+        "vi": "Sinh ngày 29 tháng 5 năm 1931, là học sinh trường Pétrus Ký, tích cực trong phong trào học sinh yêu nước. Ngày 9 tháng 1 năm 1950, hơn 6.000 học sinh, sinh viên Sài Gòn biểu tình đòi thả những bạn bị bắt; cảnh sát đàn áp. Anh bị trúng đạn khi che chở các em nhỏ và qua đời cùng ngày ở Bệnh viện Chợ Rẫy, chưa đầy 19 tuổi. Anh được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân năm 2000.",
+        "en": "Born 29 May 1931, a pupil at Pétrus Ký school and active in the patriotic student movement. On 9 January 1950, over six thousand students in Sài Gòn demonstrated to demand the release of arrested classmates, and police cracked down. He was shot while sheltering younger pupils and died the same day at Chợ Rẫy Hospital, not yet nineteen. He was posthumously named Hero of the People's Armed Forces in 2000."
+      },
+      "lifespan": {
+        "vi": "1931 – 1950",
+        "en": "1931 – 1950"
+      },
+      "avatar": {
+        "id": "tran-van-on-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-van-on-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-van-troi",
+      "name": {
+        "vi": "Nguyễn Văn Trỗi",
+        "en": "Nguyễn Văn Trỗi"
+      },
+      "epithet": {
+        "vi": "Biệt động Sài Gòn, hy sinh năm 1964",
+        "en": "Sài Gòn commando, executed in 1964"
+      },
+      "bio": {
+        "vi": "Sinh ở Điện Bàn, Quảng Nam, làm thợ điện ở Sài Gòn và là chiến sĩ biệt động. Ngày 9 tháng 5 năm 1964, ông bị bắt khi chuẩn bị mìn gần cầu Công Lý để đánh vào đoàn xe của Bộ trưởng Quốc phòng Mỹ McNamara. Ông bị xử bắn ngày 15 tháng 10 năm 1964 ở Khám Chí Hòa và được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân hai ngày sau.",
+        "en": "Born in Điện Bàn, Quảng Nam, an electrician in Sài Gòn and a commando fighter. On 9 May 1964 he was arrested while preparing a mine near Công Lý bridge to strike the convoy of US Defense Secretary McNamara. He was shot on 15 October 1964 at Chí Hòa prison and posthumously named Hero of the People's Armed Forces two days later."
+      },
+      "lifespan": {
+        "vi": "1940 – 1964",
+        "en": "1940 – 1964"
+      },
+      "avatar": {
+        "id": "nguyen-van-troi-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-van-troi-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "le-thi-rieng",
+      "name": {
+        "vi": "Lê Thị Riêng",
+        "en": "Lê Thị Riêng"
+      },
+      "epithet": {
+        "vi": "Nữ cán bộ phụ nữ Sài Gòn – Gia Định, hy sinh Tết Mậu Thân",
+        "en": "Woman organiser of Sài Gòn – Gia Định, who fell at Tết Mậu Thân"
+      },
+      "bio": {
+        "vi": "Sinh năm 1925 ở Giá Rai, Bạc Liêu, mồ côi từ nhỏ. Từ năm 1940, mới 16 tuổi, chị hoạt động cách mạng với bí danh Hai Riêng, rồi làm công tác phụ nữ và xây dựng phong trào phụ nữ ở Sài Gòn – Gia Định. Đêm mùng 2 Tết Mậu Thân (4 tháng 2 năm 1968), chị bị địch đưa đi xử bắn và hy sinh. Chị được tuyên dương Anh hùng Lực lượng vũ trang nhân dân.",
+        "en": "Born in 1925 in Giá Rai, Bạc Liêu, orphaned young. From 1940, at 16, she worked for the revolution under the alias Hai Riêng, going on to organise women's work and build the women's movement in Sài Gòn – Gia Định. On the night of the second day of Tết Mậu Thân (4 February 1968) she was taken away to be shot and fell. She was named Hero of the People's Armed Forces."
+      },
+      "lifespan": {
+        "vi": "1925 – 1968",
+        "en": "1925 – 1968"
+      },
+      "avatar": {
+        "id": "le-thi-rieng-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "le-thi-rieng-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ut-tich",
+      "name": {
+        "vi": "Út Tịch",
+        "en": "Út Tịch"
+      },
+      "epithet": {
+        "vi": "Nguyễn Thị Út; người mẹ cầm súng",
+        "en": "Nguyễn Thị Út; the mother who carried a gun"
+      },
+      "bio": {
+        "vi": "Tên thật là Nguyễn Thị Út, sinh ngày 19 tháng 4 năm 1931 ở Trà Vinh, được gọi là Út Tịch sau khi lấy chồng. Chị tham gia kháng chiến từ khi còn trẻ, vừa nuôi con vừa chiến đấu và tham gia nhiều trận đánh. Năm 1965, chị được tuyên dương Anh hùng Lực lượng vũ trang nhân dân. Chị hy sinh trong một trận bom năm 1968, ít tuần sau khi sinh đứa con thứ tám.",
+        "en": "Born Nguyễn Thị Út on 19 April 1931 in Trà Vinh, known as Út Tịch after her marriage. She joined the resistance young and fought while raising her children, taking part in many battles. In 1965 she was named Hero of the People's Armed Forces. She was killed in a bombing in 1968, weeks after the birth of her eighth child."
+      },
+      "lifespan": {
+        "vi": "1931 – 1968",
+        "en": "1931 – 1968"
+      },
+      "avatar": {
+        "id": "ut-tich-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ut-tich-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-bach-dang",
+      "name": {
+        "vi": "Trần Bạch Đằng",
+        "en": "Trần Bạch Đằng"
+      },
+      "epithet": {
+        "vi": "Nhà hoạt động Sài Gòn – Gia Định, nhà báo, nhà nghiên cứu",
+        "en": "Sài Gòn – Gia Định organiser, journalist and researcher"
+      },
+      "bio": {
+        "vi": "Sinh năm 1926 ở Rạch Giá. Trong kháng chiến chống Mỹ, ông là một trong những người chỉ đạo phong trào ở Sài Gòn – Gia Định, kể cả thời Tết Mậu Thân 1968. Sau 1975, ông là nhà báo, nhà nghiên cứu và tác giả nhiều sách về lịch sử và văn hóa miền Nam. Ông mất ngày 16 tháng 4 năm 2007 ở TP. Hồ Chí Minh.",
+        "en": "Born in 1926 in Rạch Giá. During the war against the US he was among those directing the movement in Sài Gòn – Gia Định, including at Tết Mậu Thân 1968. After 1975 he was a journalist and researcher and wrote many books on the history and culture of the South. He died on 16 April 2007 in Ho Chi Minh City."
+      },
+      "lifespan": {
+        "vi": "1926 – 2007",
+        "en": "1926 – 2007"
+      },
+      "avatar": {
+        "id": "tran-bach-dang-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-bach-dang-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "huynh-tan-phat",
+      "name": {
+        "vi": "Huỳnh Tấn Phát",
+        "en": "Huỳnh Tấn Phát"
+      },
+      "epithet": {
+        "vi": "Kiến trúc sư; Chủ tịch Chính phủ Cách mạng lâm thời miền Nam",
+        "en": "Architect; head of the Provisional Revolutionary Government of the South"
+      },
+      "bio": {
+        "vi": "Sinh ngày 15 tháng 2 năm 1913, là kiến trúc sư và cũng là một nhà hoạt động trong phong trào yêu nước ở Sài Gòn. Từ năm 1969, ông là Chủ tịch Chính phủ Cách mạng lâm thời Cộng hòa miền Nam Việt Nam. Ông mất ngày 30 tháng 9 năm 1989 ở TP. Hồ Chí Minh.",
+        "en": "Born 15 February 1913, an architect and also an activist in the patriotic movement in Sài Gòn. From 1969 he was head of the Provisional Revolutionary Government of the Republic of South Vietnam. He died on 30 September 1989 in Ho Chi Minh City."
+      },
+      "lifespan": {
+        "vi": "1913 – 1989",
+        "en": "1913 – 1989"
+      },
+      "avatar": {
+        "id": "huynh-tan-phat-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "huynh-tan-phat-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-huu-tho",
+      "name": {
+        "vi": "Nguyễn Hữu Thọ",
+        "en": "Nguyễn Hữu Thọ"
+      },
+      "epithet": {
+        "vi": "Luật sư; Chủ tịch Mặt trận Dân tộc giải phóng miền Nam",
+        "en": "Lawyer; President of the National Liberation Front of South Vietnam"
+      },
+      "bio": {
+        "vi": "Luật sư, sinh năm 1910 ở vùng Chợ Lớn – Long An. Từ năm 1962, ông là Chủ tịch Ủy ban Trung ương Mặt trận Dân tộc giải phóng miền Nam Việt Nam. Sau thống nhất đất nước, ông giữ các chức vụ cao trong Nhà nước, trong đó có Phó Chủ tịch nước và Chủ tịch Quốc hội. Ông mất năm 1996.",
+        "en": "A lawyer, born in 1910 in the Chợ Lớn – Long An area. From 1962 he was President of the Central Committee of the National Liberation Front of South Vietnam. After reunification he held senior state offices, including Vice President of the State and Chairman of the National Assembly. He died in 1996."
+      },
+      "lifespan": {
+        "vi": "1910 – 1996",
+        "en": "1910 – 1996"
+      },
+      "avatar": {
+        "id": "nguyen-huu-tho-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-huu-tho-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
     }
   ]
 }
