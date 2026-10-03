@@ -5,6 +5,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 import '../../../theme/content_assets.dart';
 import '../../../widgets/figure_bust.dart';
+import '../../../widgets/portrait_placeholder.dart';
 
 /// The figures of an era/event — a horizontal strip of bust portraits, each
 /// cropped from the character's reference sheet, with name + epithet. Tapping a
@@ -70,8 +71,13 @@ class EventFigures extends StatelessWidget {
             itemBuilder: (context, i) => _FigureTile(
               character: figures[i],
               lang: lang,
-              onTap: () =>
-                  context.push('/era/${slugFor?.call(figures[i]) ?? slug}/figure/${figures[i].id}'),
+              onTap: () {
+                final era = slugFor?.call(figures[i]) ?? slug;
+                // No era (a standalone person): open them by id alone.
+                context.push(era.isEmpty
+                    ? '/nhan-vat/${figures[i].id}'
+                    : '/era/$era/figure/${figures[i].id}');
+              },
             ),
           ),
         ),
@@ -119,11 +125,10 @@ class _FigureTile extends StatelessWidget {
                             decodeWidth: decodeWidthFor(context, 116)),
                         fit: BoxFit.cover,
                         frameBuilder: fadeInImageFrame,
-                        errorBuilder: (_, __, ___) =>
-                            const ColoredBox(color: VSColors.lacquerRaised),
+                        errorBuilder: (_, __, ___) => const PortraitPlaceholder(),
                       )
                     : sheetPath == null
-                        ? const ColoredBox(color: VSColors.lacquerRaised)
+                        ? const PortraitPlaceholder()
                         : FigureBust(path: sheetPath),
               ),
             ),

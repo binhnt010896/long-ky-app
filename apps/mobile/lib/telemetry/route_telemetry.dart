@@ -84,6 +84,16 @@ ScreenView? mapUriToScreen(Uri uri) {
         );
       }
       return null;
+    case 'nhan-vat':
+      // A standalone person (no era). A rostered person is redirected to
+      // /era/:slug/figure/:id before any location exists.
+      if (segments.length == 2) {
+        return (
+          name: 'figure_detail',
+          params: <String, Object>{'figure_id': segments[1]},
+        );
+      }
+      return null;
     case 'chao-co':
       if (segments.length == 1) {
         return (name: 'chao_co', params: const <String, Object>{});

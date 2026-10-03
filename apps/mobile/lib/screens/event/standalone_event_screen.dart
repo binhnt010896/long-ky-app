@@ -43,12 +43,12 @@ class StandaloneEventScreen extends ConsumerWidget {
         data: (found) {
           if (found == null) return _NotFound(lang: lang);
           final event = found.event;
-          // Only people who appear on some era's roster get a chip: every
-          // chip has to open a page (N3 guarantees this for authored events;
-          // this just keeps a stale id from drawing a dead tile).
+          // Every registry person has a page: in their home era if they sit on
+          // a roster, else their own standalone page (Cycle R). Only a stale
+          // id the registry lacks is skipped, so no dead tile is drawn.
           final figures = <Character>[
             for (final id in event.figureIds)
-              if (people?[id] != null && home?[id] != null) people![id]!,
+              if (people?[id] != null) people![id]!,
           ];
           return Stack(
             children: <Widget>[

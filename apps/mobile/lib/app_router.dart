@@ -6,6 +6,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 import 'screens/chao_co/chao_co_screen.dart';
 import 'screens/character/character_detail_screen.dart';
+import 'screens/character/standalone_character_screen.dart';
 import 'screens/era/era_hub_screen.dart';
 import 'screens/era/era_timeline_screen.dart';
 import 'state/providers.dart';
@@ -144,6 +145,25 @@ final routerProvider = Provider<GoRouter>((ref) {
         },
         builder: (context, state) =>
             StandaloneEventScreen(eventId: state.pathParameters['id']!),
+      ),
+      // A standalone person (Cycle R): on no era's roster, so no era route
+      // exists for them. A rostered person is sent on to their home era's
+      // figure page *here*, before a location exists to be logged.
+      GoRoute(
+        path: '/nhan-vat/:id',
+        redirect: (context, state) async {
+          final id = state.pathParameters['id']!;
+          try {
+            final home = await ref.read(homeEraSlugsProvider.future);
+            final slug = home[id];
+            if (slug != null) return '/era/$slug/figure/$id';
+          } catch (_) {
+            // Content unreadable: fall through to the screen, which shows it.
+          }
+          return null;
+        },
+        builder: (context, state) =>
+            StandaloneCharacterScreen(figureId: state.pathParameters['id']!),
       ),
       GoRoute(
         path: '/era/:slug',

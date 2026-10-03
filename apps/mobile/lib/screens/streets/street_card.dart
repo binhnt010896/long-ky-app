@@ -11,7 +11,10 @@ import '../../telemetry/telemetry.dart';
 /// An event opens by id alone (`/su-kien/:id`): the router sends one that sits
 /// in an era on to `/era/:slug/event/:id`, and a standalone one has no era.
 String routeForTarget(StreetTarget t) => switch (t.type) {
-      StreetTargetType.person => '/era/${t.era}/figure/${t.id}',
+      // A standalone person has no era: they open by id alone.
+      StreetTargetType.person => t.era.isEmpty
+          ? '/nhan-vat/${t.id}'
+          : '/era/${t.era}/figure/${t.id}',
       StreetTargetType.event => '/su-kien/${t.id}',
       StreetTargetType.era => '/era/${t.era}',
     };
@@ -86,19 +89,27 @@ class _TargetRow extends ConsumerWidget {
     final found = target.type == StreetTargetType.event
         ? ref.watch(eventLocationProvider(target.id)).valueOrNull
         : null;
-    final era = target.type == StreetTargetType.event
+    // A standalone person (no era) resolves through the people registry.
+    final standalone =
+        target.type == StreetTargetType.person && target.era.isEmpty;
+    final people = standalone ? ref.watch(peopleProvider).valueOrNull : null;
+    final registered = people == null ? null : people[target.id];
+    final era = target.type == StreetTargetType.event || standalone
         ? null
         : ref.watch(eraProvider(target.era)).valueOrNull;
-    if (target.type == StreetTargetType.event ? found == null : era == null) {
-      return const SizedBox.shrink();
-    }
+    final missing = switch (target.type) {
+      StreetTargetType.event => found == null,
+      StreetTargetType.person when standalone => registered == null,
+      _ => era == null,
+    };
+    if (missing) return const SizedBox.shrink();
 
     final String title;
     final String line;
     final String button;
     switch (target.type) {
       case StreetTargetType.person:
-        final f = era!.figureById(target.id);
+        final f = standalone ? registered : era!.figureById(target.id);
         if (f == null) return const SizedBox.shrink();
         title = f.name.resolve(lang);
         line = [

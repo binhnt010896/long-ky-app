@@ -23,6 +23,7 @@ class Character {
     this.fullBody,
     this.epithet,
     this.bio,
+    this.lifespan,
   });
 
   final String id;
@@ -33,6 +34,10 @@ class Character {
 
   /// Chronicle-grounded life summary for the character detail page. Optional.
   final LocalizedText? bio;
+
+  /// Display dates of the life ("1650 – 1700"). Shown on a standalone person's
+  /// page, which has no era header to date them. Optional.
+  final LocalizedText? lifespan;
 
   /// Legacy three-panel reference sheet, cropped by the app. Absent for figures
   /// that supply dedicated [avatar]/[fullBody] art instead.
@@ -49,6 +54,7 @@ class Character {
   factory Character.fromJson(Map<String, dynamic> json, [String at = 'character']) {
     final epithet = json.objOrNull('epithet', at: at);
     final bio = json.objOrNull('bio', at: at);
+    final lifespan = json.objOrNull('lifespan', at: at);
     final portrait = json.objOrNull('portrait', at: at);
     final avatar = json.objOrNull('avatar', at: at);
     final fullBody = json.objOrNull('fullBody', at: at);
@@ -58,6 +64,9 @@ class Character {
       epithet:
           epithet == null ? null : LocalizedText.fromJson(epithet, '$at.epithet'),
       bio: bio == null ? null : LocalizedText.fromJson(bio, '$at.bio'),
+      lifespan: lifespan == null
+          ? null
+          : LocalizedText.fromJson(lifespan, '$at.lifespan'),
       portrait:
           portrait == null ? null : AssetRef.fromJson(portrait, '$at.portrait'),
       avatar: avatar == null ? null : AssetRef.fromJson(avatar, '$at.avatar'),
@@ -73,13 +82,14 @@ class Character {
       other.name == name &&
       other.epithet == epithet &&
       other.bio == bio &&
+      other.lifespan == lifespan &&
       other.portrait == portrait &&
       other.avatar == avatar &&
       other.fullBody == fullBody;
 
   @override
   int get hashCode =>
-      Object.hash(id, name, epithet, bio, portrait, avatar, fullBody);
+      Object.hash(id, name, epithet, bio, lifespan, portrait, avatar, fullBody);
 }
 
 /// A per-era reference to a person in the registry, with optional overrides.
@@ -137,6 +147,7 @@ class CharacterRef {
         name: name ?? base.name,
         epithet: epithet ?? base.epithet,
         bio: bio ?? base.bio,
+        lifespan: base.lifespan,
         portrait: portrait ?? base.portrait,
         avatar: avatar ?? base.avatar,
         fullBody: fullBody ?? base.fullBody,

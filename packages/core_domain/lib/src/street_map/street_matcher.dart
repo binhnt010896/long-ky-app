@@ -57,8 +57,9 @@ class StreetMatcher {
 
     for (final p in people) {
       final id = p['id'] as String;
-      final era = home[id];
-      if (era == null) continue; // on no roster → no route to open
+      // On no roster → a standalone person (Cycle R): the empty era sends the
+      // street to `/nhan-vat/:id` instead of an era's figure route.
+      final era = home[id] ?? '';
       final vi = (p['name'] as Map<String, dynamic>)['vi'] as String;
       for (final v in personNameVariants(vi)) {
         add(exact, v,

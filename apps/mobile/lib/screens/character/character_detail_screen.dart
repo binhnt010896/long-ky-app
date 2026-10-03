@@ -233,12 +233,12 @@ class _FigureSheet extends StatelessWidget {
                 ),
               if (appearances.isNotEmpty) ...<Widget>[
                 const SizedBox(height: VSSpacing.xl),
-                _SectionHeader(
+                FigureSectionHeader(
                   label: lang == Lang.vi ? 'XUẤT HIỆN TRONG' : 'APPEARS IN',
                 ),
                 const SizedBox(height: VSSpacing.md),
                 for (final e in appearances) ...<Widget>[
-                  _AppearanceRow(
+                  FigureAppearanceRow(
                     event: e,
                     lang: lang,
                     onTap: () =>
@@ -249,12 +249,12 @@ class _FigureSheet extends StatelessWidget {
               ],
               if (alsoIn.isNotEmpty) ...<Widget>[
                 const SizedBox(height: VSSpacing.xl),
-                _SectionHeader(
+                FigureSectionHeader(
                   label: lang == Lang.vi ? 'CŨNG XUẤT HIỆN TRONG' : 'ALSO APPEARS IN',
                 ),
                 const SizedBox(height: VSSpacing.md),
                 for (final e in alsoIn) ...<Widget>[
-                  _AppearanceRow(
+                  FigureAppearanceRow(
                     event: e,
                     lang: lang,
                     onTap: () => context.push('/su-kien/${e.id}'),
@@ -292,8 +292,8 @@ class _FigureSheet extends StatelessWidget {
   }
 }
 
-class _SectionHeader extends StatelessWidget {
-  const _SectionHeader({required this.label});
+class FigureSectionHeader extends StatelessWidget {
+  const FigureSectionHeader({required this.label, super.key});
   final String label;
 
   @override
@@ -324,11 +324,12 @@ class _SectionHeader extends StatelessWidget {
   }
 }
 
-class _AppearanceRow extends StatelessWidget {
-  const _AppearanceRow({
+class FigureAppearanceRow extends StatelessWidget {
+  const FigureAppearanceRow({
     required this.event,
     required this.lang,
     required this.onTap,
+    super.key,
   });
 
   final HistoryEvent event;

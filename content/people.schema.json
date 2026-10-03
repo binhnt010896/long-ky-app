@@ -64,6 +64,10 @@
           "description": "Chronicle-grounded life summary for the character detail page.",
           "$ref": "#/$defs/localizedText"
         },
+        "lifespan": {
+          "description": "Display dates of the person's life, e.g. \"1650 – 1700\". Shown on a standalone person's page, which has no era header to date them.",
+          "$ref": "#/$defs/localizedText"
+        },
         "portrait": {
           "description": "Legacy three-panel reference sheet (full-body left, bust top-right, action pose bottom-right), cropped by the app.",
           "$ref": "#/$defs/assetRef"

@@ -305,13 +305,13 @@ void main() {
       expect(result.issues.any((i) => i.message.contains('hero')), isTrue);
     });
 
-    test('a standalone event\'s figures must be on some era roster', () {
+    test('a standalone event\'s figures must be in the people registry', () {
       final events = registry();
       (events['events'] as List)
           .add(standalone(firstEvent())..['figureIds'] = <String>['khong-co-ai-ca-xyz']);
       final result = validate(_refEraTexts(), events);
       expect(result.isValid, isFalse);
-      expect(result.issues.any((i) => i.message.contains('on no era roster')), isTrue);
+      expect(result.issues.any((i) => i.message.contains('not in people.json')), isTrue);
     });
 
     test('an in-era event\'s figures must still be on that era\'s roster', () {

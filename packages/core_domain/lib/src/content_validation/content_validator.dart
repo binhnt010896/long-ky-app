@@ -54,7 +54,7 @@ class ContentValidationResult {
 ///
 /// Events may live in `events.json` (an era lists `{ref}` items) or inline in
 /// an era. An event no era lists is *standalone*: it needs a dated `year`, a
-/// `hero`, and figures who appear on some era's roster; every event, in an era
+/// `hero`, and figures from the people registry; every event, in an era
 /// or not, needs a citation (the schema requires it).
 ///
 /// Pure — takes raw JSON text/maps in, never touches the filesystem — so
@@ -376,13 +376,15 @@ abstract final class ContentValidator {
           problems.add('needs a dated year (year.value)');
         }
         if (e['hero'] == null) problems.add('needs a hero image');
-        final offRoster = <String>{
+        // Any registry person will do: a person on no roster is standalone
+        // and has a page of their own (Cycle R).
+        final unknownFigures = <String>{
           for (final f in (e['figureIds'] as List? ?? const <dynamic>[]))
-            if (!rosterPeople.contains(f)) f as String,
+            if (!peopleIds.contains(f)) f as String,
         };
-        if (offRoster.isNotEmpty) {
+        if (unknownFigures.isNotEmpty) {
           problems.add(
-              'figureId(s) on no era roster: ${offRoster.join(', ')}');
+              'figureId(s) not in people.json: ${unknownFigures.join(', ')}');
         }
         for (final rel in (e['relatedEventIds'] as List? ?? const <dynamic>[])) {
           if (rel == entry.key) {
@@ -402,6 +404,31 @@ abstract final class ContentValidator {
       if (!issues.any((i) => i.file == 'events.json')) {
         lines.add(
             '✓ events.json (${eventsById.length} events, $standaloneCount standalone)');
+      }
+    }
+
+    // Standalone people (in the registry, on no era roster): with no era to
+    // lend them art or context, they need both images (real or held).
+    var standalonePeople = 0;
+    if (peopleData is Map<String, dynamic> && peopleResult.isValid) {
+      for (final p in peopleData['people'] as List) {
+        final person = p as Map<String, dynamic>;
+        final id = person['id'] as String;
+        if (rosterPeople.contains(id)) continue;
+        standalonePeople++;
+        final missing = <String>[
+          if (person['avatar'] == null) 'avatar',
+          if (person['fullBody'] == null) 'fullBody',
+        ];
+        if (missing.isNotEmpty) {
+          final msg =
+              'standalone person "$id" needs ${missing.join(' and ')} (real or held)';
+          lines.add('✗ people.json: $msg');
+          issues.add(ContentIssue('people.json', msg));
+        }
+      }
+      if (standalonePeople > 0 && !issues.any((i) => i.file == 'people.json')) {
+        lines.add('✓ people.json ($standalonePeople standalone)');
       }
     }
 

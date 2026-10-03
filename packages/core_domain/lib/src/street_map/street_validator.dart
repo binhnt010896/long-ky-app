@@ -35,6 +35,11 @@ abstract final class StreetMapValidator {
     problems.addAll(_landmarkProblems(file, boundaryJson));
 
     final eraBySlug = {for (final e in eras) e['slug'] as String: e};
+    final rostered = <String>{
+      for (final e in eras)
+        for (final c in (e['characters'] as List? ?? const []))
+          (c as Map<String, dynamic>)['ref'] as String,
+    };
     final ids = <String>{};
     for (final s in file.streets) {
       if (!ids.add(s.id)) problems.add('street id "${s.id}" is not unique');
@@ -42,6 +47,17 @@ abstract final class StreetMapValidator {
         problems.add('street "${s.id}" is approved but has no targets');
       }
       for (final t in s.targets) {
+        // A person with no era is a standalone person (Cycle R): they must be
+        // in the registry and on no roster, and open by id alone.
+        if (t.type == StreetTargetType.person && t.era.isEmpty) {
+          if (!peopleIds.contains(t.id)) {
+            problems.add('street "${s.id}": unknown person "${t.id}"');
+          } else if (rostered.contains(t.id)) {
+            problems.add(
+                'street "${s.id}": person "${t.id}" is on an era roster, so the target needs its era');
+          }
+          continue;
+        }
         // An event with no era is a standalone event: it opens by id alone.
         if (t.type == StreetTargetType.event && t.era.isEmpty) {
           if (!standaloneEventIds.contains(t.id)) {

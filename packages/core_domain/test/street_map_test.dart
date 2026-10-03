@@ -84,11 +84,18 @@ void main() {
       expect(s.targets.single.era, 'hau-le');
     });
 
-    test('exact matches auto-approve; people on no roster never match', () {
-      final out = matcher.suggest(['Đường Lê Lợi', 'Không Ai']);
+    test('exact matches auto-approve', () {
+      final out = matcher.suggest(['Đường Lê Lợi']);
       expect(out.map((s) => s.id), ['le-loi']);
       expect(out.single.status, StreetStatus.approved);
       expect(out.single.reason, 'exact');
+    });
+
+    test('a person on no roster is standalone: they match with an empty era', () {
+      final s = matcher.suggest(['Không Ai']).single;
+      expect(s.status, StreetStatus.approved);
+      expect(s.targets.single.type, StreetTargetType.person);
+      expect(s.targets.single.era, '');
     });
 
     test('alias matches wait for review', () {
@@ -340,6 +347,47 @@ void main() {
       eras: eras,
     );
     expect(problems, isEmpty);
+  });
+
+  group('standalone people targets (Cycle R)', () {
+    List<String> check(String personId) => StreetMapValidator.validate(
+          streetsJson: jsonEncode({
+            'schemaVersion': 1,
+            'city': 'x',
+            'streets': [
+              {
+                'id': 's',
+                'name': 'S',
+                'targets': [
+                  {'type': 'person', 'id': personId, 'era': ''}
+                ],
+                'status': 'approved',
+              },
+            ],
+          }),
+          peopleIds: const {'on-roster', 'alone'},
+          eras: [
+            {
+              'slug': 'e',
+              'characters': [
+                {'ref': 'on-roster'}
+              ],
+              'events': <Object>[],
+            },
+          ],
+        );
+
+    test('a person on no roster may have an empty-era target', () {
+      expect(check('alone'), isEmpty);
+    });
+
+    test('an unknown person is flagged', () {
+      expect(check('ghost').join('\n'), contains('unknown person "ghost"'));
+    });
+
+    test('a rostered person needs their era', () {
+      expect(check('on-roster').join('\n'), contains('needs its era'));
+    });
   });
 
   group('landmarks and the opening view (Cycle P)', () {
