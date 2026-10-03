@@ -256,7 +256,13 @@ a time and verify the bytes.
 
 ## Next cycles (queued — not to be planned until the user says)
 
-- **Wave C** (next), then **Wave D**.
+- **Wave C** — BUILT, waiting on publish. 67 people, 4 events, 67 streets. Art for 62
+  people and 4 heroes. Avatars for the 49 painted people are head crops of the
+  full-body image (credits ran out); regenerate dedicated 1:1 avatars later if wanted.
+  Five people stay held (no photo): Mai Xuân Thưởng, Trần Tấn, Đặng Như Mai,
+  Tôn Thất Tiệp, Tôn Thất Đàm. Phạm Bành and Xuân Ôn restorations look a little
+  modern; re-check against sources.
+- **Wave D** (next).
 - **A landmark object and landmark detail page**, for Ba Đình, Trường Sơn,
   Vạn Kiếp… (R3).
 - Street mapping over the air (parked, R5).

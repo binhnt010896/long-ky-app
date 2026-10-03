@@ -14484,11 +14484,12 @@
         "id": "huyen-tran-ve-champa-hero",
         "type": "image",
         "role": "hero",
-        "placeholder": "era-scene",
         "caption": {
           "vi": "Minh họa · phong cách sơn mài",
           "en": "Illustration · lacquer style"
-        }
+        },
+        "flagship": "events/huyen-tran-ve-champa/hero.png",
+        "reduced": "events/huyen-tran-ve-champa/hero.png"
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
@@ -14534,11 +14535,12 @@
         "id": "tran-khat-chan-hai-trieu-hero",
         "type": "image",
         "role": "hero",
-        "placeholder": "era-scene",
         "caption": {
           "vi": "Minh họa · phong cách sơn mài",
           "en": "Illustration · lacquer style"
-        }
+        },
+        "flagship": "events/tran-khat-chan-hai-trieu/hero.png",
+        "reduced": "events/tran-khat-chan-hai-trieu/hero.png"
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
@@ -14586,11 +14588,12 @@
         "id": "ho-quy-ly-lap-nha-ho-hero",
         "type": "image",
         "role": "hero",
-        "placeholder": "era-scene",
         "caption": {
           "vi": "Minh họa · phong cách sơn mài",
           "en": "Illustration · lacquer style"
-        }
+        },
+        "flagship": "events/ho-quy-ly-lap-nha-ho/hero.png",
+        "reduced": "events/ho-quy-ly-lap-nha-ho/hero.png"
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
@@ -14641,11 +14644,12 @@
         "id": "hau-tran-khang-chien-hero",
         "type": "image",
         "role": "hero",
-        "placeholder": "era-scene",
         "caption": {
           "vi": "Minh họa · phong cách sơn mài",
           "en": "Illustration · lacquer style"
-        }
+        },
+        "flagship": "events/hau-tran-khang-chien/hero.png",
+        "reduced": "events/hau-tran-khang-chien/hero.png"
       },
       "citation": {
         "work": "Đại Việt sử ký toàn thư",
