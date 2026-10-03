@@ -14175,11 +14175,12 @@
         "id": "nguyen-huu-canh-lap-phu-gia-dinh-hero",
         "type": "image",
         "role": "hero",
-        "placeholder": "era-scene",
         "caption": {
           "vi": "Minh họa · phong cách sơn mài",
           "en": "Illustration · lacquer style"
-        }
+        },
+        "flagship": "events/nguyen-huu-canh-lap-phu-gia-dinh/hero.png",
+        "reduced": "events/nguyen-huu-canh-lap-phu-gia-dinh/hero.png"
       },
       "citation": {
         "work": "Đại Nam thực lục (Tiền biên)",
@@ -14226,11 +14227,12 @@
         "id": "mac-cuu-dang-ha-tien-hero",
         "type": "image",
         "role": "hero",
-        "placeholder": "era-scene",
         "caption": {
           "vi": "Minh họa · phong cách sơn mài",
           "en": "Illustration · lacquer style"
-        }
+        },
+        "flagship": "events/mac-cuu-dang-ha-tien/hero.png",
+        "reduced": "events/mac-cuu-dang-ha-tien/hero.png"
       },
       "citation": {
         "work": "Đại Nam thực lục (Tiền biên)",
@@ -14276,11 +14278,12 @@
         "id": "dap-luy-ban-bich-hero",
         "type": "image",
         "role": "hero",
-        "placeholder": "era-scene",
         "caption": {
           "vi": "Minh họa · phong cách sơn mài",
           "en": "Illustration · lacquer style"
-        }
+        },
+        "flagship": "events/dap-luy-ban-bich/hero.png",
+        "reduced": "events/dap-luy-ban-bich/hero.png"
       },
       "citation": {
         "work": "Đại Nam thực lục (Tiền biên)",
@@ -14326,11 +14329,12 @@
         "id": "dao-kenh-vinh-te-hero",
         "type": "image",
         "role": "hero",
-        "placeholder": "era-scene",
         "caption": {
           "vi": "Minh họa · phong cách sơn mài",
           "en": "Illustration · lacquer style"
-        }
+        },
+        "flagship": "events/dao-kenh-vinh-te/hero.png",
+        "reduced": "events/dao-kenh-vinh-te/hero.png"
       },
       "citation": {
         "work": "Đại Nam thực lục (Chính biên)",
@@ -14380,11 +14384,12 @@
         "id": "khoi-nghia-hoc-mon-hero",
         "type": "image",
         "role": "hero",
-        "placeholder": "era-scene",
         "caption": {
           "vi": "Minh họa · phong cách sơn mài",
           "en": "Illustration · lacquer style"
-        }
+        },
+        "flagship": "events/khoi-nghia-hoc-mon/hero.png",
+        "reduced": "events/khoi-nghia-hoc-mon/hero.png"
       },
       "citation": {
         "work": "Lịch sử Việt Nam",
@@ -14428,11 +14433,12 @@
         "id": "dac-cong-rung-sac-hero",
         "type": "image",
         "role": "hero",
-        "placeholder": "era-scene",
         "caption": {
-          "vi": "Ảnh tư liệu",
-          "en": "Archival photo"
-        }
+          "vi": "Ảnh tư liệu · phục chế màu",
+          "en": "Archival photo · colorized"
+        },
+        "flagship": "events/dac-cong-rung-sac/hero.png",
+        "reduced": "events/dac-cong-rung-sac/hero.png"
       },
       "citation": {
         "work": "Lịch sử Quân đội nhân dân Việt Nam",

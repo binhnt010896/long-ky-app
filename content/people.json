@@ -4176,12 +4176,14 @@
       "avatar": {
         "id": "nguyen-phuc-chu-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-phuc-chu/avatar.png",
+        "reduced": "people/nguyen-phuc-chu/avatar.png"
       },
       "fullBody": {
         "id": "nguyen-phuc-chu-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-phuc-chu/full.png",
+        "reduced": "people/nguyen-phuc-chu/full.png"
       }
     },
     {
@@ -4205,12 +4207,14 @@
       "avatar": {
         "id": "nguyen-huu-canh-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-huu-canh/avatar.png",
+        "reduced": "people/nguyen-huu-canh/avatar.png"
       },
       "fullBody": {
         "id": "nguyen-huu-canh-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-huu-canh/full.png",
+        "reduced": "people/nguyen-huu-canh/full.png"
       }
     },
     {
@@ -4230,12 +4234,14 @@
       "avatar": {
         "id": "nguyen-cuu-van-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-cuu-van/avatar.png",
+        "reduced": "people/nguyen-cuu-van/avatar.png"
       },
       "fullBody": {
         "id": "nguyen-cuu-van-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-cuu-van/full.png",
+        "reduced": "people/nguyen-cuu-van/full.png"
       }
     },
     {
@@ -4259,12 +4265,14 @@
       "avatar": {
         "id": "nguyen-cuu-dam-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-cuu-dam/avatar.png",
+        "reduced": "people/nguyen-cuu-dam/avatar.png"
       },
       "fullBody": {
         "id": "nguyen-cuu-dam-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-cuu-dam/full.png",
+        "reduced": "people/nguyen-cuu-dam/full.png"
       }
     },
     {
@@ -4288,12 +4296,14 @@
       "avatar": {
         "id": "mac-cuu-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/mac-cuu/avatar.png",
+        "reduced": "people/mac-cuu/avatar.png"
       },
       "fullBody": {
         "id": "mac-cuu-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/mac-cuu/full.png",
+        "reduced": "people/mac-cuu/full.png"
       }
     },
     {
@@ -4317,12 +4327,14 @@
       "avatar": {
         "id": "mac-thien-tich-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/mac-thien-tich/avatar.png",
+        "reduced": "people/mac-thien-tich/avatar.png"
       },
       "fullBody": {
         "id": "mac-thien-tich-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/mac-thien-tich/full.png",
+        "reduced": "people/mac-thien-tich/full.png"
       }
     },
     {
@@ -4346,12 +4358,14 @@
       "avatar": {
         "id": "nguyen-cu-trinh-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-cu-trinh/avatar.png",
+        "reduced": "people/nguyen-cu-trinh/avatar.png"
       },
       "fullBody": {
         "id": "nguyen-cu-trinh-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-cu-trinh/full.png",
+        "reduced": "people/nguyen-cu-trinh/full.png"
       }
     },
     {
@@ -4375,12 +4389,14 @@
       "avatar": {
         "id": "trinh-hoai-duc-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/trinh-hoai-duc/avatar.png",
+        "reduced": "people/trinh-hoai-duc/avatar.png"
       },
       "fullBody": {
         "id": "trinh-hoai-duc-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/trinh-hoai-duc/full.png",
+        "reduced": "people/trinh-hoai-duc/full.png"
       }
     },
     {
@@ -4404,12 +4420,14 @@
       "avatar": {
         "id": "vo-truong-toan-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/vo-truong-toan/avatar.png",
+        "reduced": "people/vo-truong-toan/avatar.png"
       },
       "fullBody": {
         "id": "vo-truong-toan-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/vo-truong-toan/full.png",
+        "reduced": "people/vo-truong-toan/full.png"
       }
     },
     {
@@ -4433,12 +4451,14 @@
       "avatar": {
         "id": "ngo-nhan-tinh-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/ngo-nhan-tinh/avatar.png",
+        "reduced": "people/ngo-nhan-tinh/avatar.png"
       },
       "fullBody": {
         "id": "ngo-nhan-tinh-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/ngo-nhan-tinh/full.png",
+        "reduced": "people/ngo-nhan-tinh/full.png"
       }
     },
     {
@@ -4462,12 +4482,14 @@
       "avatar": {
         "id": "le-quang-dinh-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/le-quang-dinh/avatar.png",
+        "reduced": "people/le-quang-dinh/avatar.png"
       },
       "fullBody": {
         "id": "le-quang-dinh-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/le-quang-dinh/full.png",
+        "reduced": "people/le-quang-dinh/full.png"
       }
     },
     {
@@ -4491,12 +4513,14 @@
       "avatar": {
         "id": "thoai-ngoc-hau-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/thoai-ngoc-hau/avatar.png",
+        "reduced": "people/thoai-ngoc-hau/avatar.png"
       },
       "fullBody": {
         "id": "thoai-ngoc-hau-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/thoai-ngoc-hau/full.png",
+        "reduced": "people/thoai-ngoc-hau/full.png"
       }
     },
     {
@@ -4520,12 +4544,14 @@
       "avatar": {
         "id": "nguyen-dinh-chieu-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-dinh-chieu/avatar.png",
+        "reduced": "people/nguyen-dinh-chieu/avatar.png"
       },
       "fullBody": {
         "id": "nguyen-dinh-chieu-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-dinh-chieu/full.png",
+        "reduced": "people/nguyen-dinh-chieu/full.png"
       }
     },
     {
@@ -4549,12 +4575,14 @@
       "avatar": {
         "id": "phan-van-tri-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/phan-van-tri/avatar.png",
+        "reduced": "people/phan-van-tri/avatar.png"
       },
       "fullBody": {
         "id": "phan-van-tri-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/phan-van-tri/full.png",
+        "reduced": "people/phan-van-tri/full.png"
       }
     },
     {
@@ -4578,12 +4606,14 @@
       "avatar": {
         "id": "thu-khoa-huan-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/thu-khoa-huan/avatar.png",
+        "reduced": "people/thu-khoa-huan/avatar.png"
       },
       "fullBody": {
         "id": "thu-khoa-huan-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/thu-khoa-huan/full.png",
+        "reduced": "people/thu-khoa-huan/full.png"
       }
     },
     {
@@ -4607,12 +4637,14 @@
       "avatar": {
         "id": "thien-ho-duong-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/thien-ho-duong/avatar.png",
+        "reduced": "people/thien-ho-duong/avatar.png"
       },
       "fullBody": {
         "id": "thien-ho-duong-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/thien-ho-duong/full.png",
+        "reduced": "people/thien-ho-duong/full.png"
       }
     },
     {
@@ -4665,12 +4697,14 @@
       "avatar": {
         "id": "huynh-man-dat-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/huynh-man-dat/avatar.png",
+        "reduced": "people/huynh-man-dat/avatar.png"
       },
       "fullBody": {
         "id": "huynh-man-dat-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/huynh-man-dat/full.png",
+        "reduced": "people/huynh-man-dat/full.png"
       }
     },
     {
@@ -4694,12 +4728,14 @@
       "avatar": {
         "id": "phan-van-hon-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/phan-van-hon/avatar.png",
+        "reduced": "people/phan-van-hon/avatar.png"
       },
       "fullBody": {
         "id": "phan-van-hon-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/phan-van-hon/full.png",
+        "reduced": "people/phan-van-hon/full.png"
       }
     },
     {
@@ -4748,12 +4784,14 @@
       "avatar": {
         "id": "tran-van-giau-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/tran-van-giau/avatar.png",
+        "reduced": "people/tran-van-giau/avatar.png"
       },
       "fullBody": {
         "id": "tran-van-giau-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/tran-van-giau/full.png",
+        "reduced": "people/tran-van-giau/full.png"
       }
     },
     {
@@ -4777,12 +4815,14 @@
       "avatar": {
         "id": "ly-tu-trong-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/ly-tu-trong/avatar.png",
+        "reduced": "people/ly-tu-trong/avatar.png"
       },
       "fullBody": {
         "id": "ly-tu-trong-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/ly-tu-trong/full.png",
+        "reduced": "people/ly-tu-trong/full.png"
       }
     },
     {
@@ -4806,12 +4846,14 @@
       "avatar": {
         "id": "chau-van-liem-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/chau-van-liem/avatar.png",
+        "reduced": "people/chau-van-liem/avatar.png"
       },
       "fullBody": {
         "id": "chau-van-liem-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/chau-van-liem/full.png",
+        "reduced": "people/chau-van-liem/full.png"
       }
     },
     {
@@ -4835,12 +4877,14 @@
       "avatar": {
         "id": "vo-van-tan-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/vo-van-tan/avatar.png",
+        "reduced": "people/vo-van-tan/avatar.png"
       },
       "fullBody": {
         "id": "vo-van-tan-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/vo-van-tan/full.png",
+        "reduced": "people/vo-van-tan/full.png"
       }
     },
     {
@@ -4864,12 +4908,14 @@
       "avatar": {
         "id": "nguyen-thi-thap-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-thi-thap/avatar.png",
+        "reduced": "people/nguyen-thi-thap/avatar.png"
       },
       "fullBody": {
         "id": "nguyen-thi-thap-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-thi-thap/full.png",
+        "reduced": "people/nguyen-thi-thap/full.png"
       }
     },
     {
@@ -4893,12 +4939,14 @@
       "avatar": {
         "id": "vo-thi-sau-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/vo-thi-sau/avatar.png",
+        "reduced": "people/vo-thi-sau/avatar.png"
       },
       "fullBody": {
         "id": "vo-thi-sau-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/vo-thi-sau/full.png",
+        "reduced": "people/vo-thi-sau/full.png"
       }
     },
     {
@@ -4922,12 +4970,14 @@
       "avatar": {
         "id": "tran-van-on-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/tran-van-on/avatar.png",
+        "reduced": "people/tran-van-on/avatar.png"
       },
       "fullBody": {
         "id": "tran-van-on-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/tran-van-on/full.png",
+        "reduced": "people/tran-van-on/full.png"
       }
     },
     {
@@ -4951,12 +5001,14 @@
       "avatar": {
         "id": "nguyen-van-troi-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-van-troi/avatar.png",
+        "reduced": "people/nguyen-van-troi/avatar.png"
       },
       "fullBody": {
         "id": "nguyen-van-troi-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-van-troi/full.png",
+        "reduced": "people/nguyen-van-troi/full.png"
       }
     },
     {
@@ -4980,12 +5032,14 @@
       "avatar": {
         "id": "le-thi-rieng-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/le-thi-rieng/avatar.png",
+        "reduced": "people/le-thi-rieng/avatar.png"
       },
       "fullBody": {
         "id": "le-thi-rieng-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/le-thi-rieng/full.png",
+        "reduced": "people/le-thi-rieng/full.png"
       }
     },
     {
@@ -5009,12 +5063,14 @@
       "avatar": {
         "id": "ut-tich-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/ut-tich/avatar.png",
+        "reduced": "people/ut-tich/avatar.png"
       },
       "fullBody": {
         "id": "ut-tich-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/ut-tich/full.png",
+        "reduced": "people/ut-tich/full.png"
       }
     },
     {
@@ -5038,12 +5094,14 @@
       "avatar": {
         "id": "tran-bach-dang-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/tran-bach-dang/avatar.png",
+        "reduced": "people/tran-bach-dang/avatar.png"
       },
       "fullBody": {
         "id": "tran-bach-dang-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/tran-bach-dang/full.png",
+        "reduced": "people/tran-bach-dang/full.png"
       }
     },
     {
@@ -5067,12 +5125,14 @@
       "avatar": {
         "id": "huynh-tan-phat-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/huynh-tan-phat/avatar.png",
+        "reduced": "people/huynh-tan-phat/avatar.png"
       },
       "fullBody": {
         "id": "huynh-tan-phat-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/huynh-tan-phat/full.png",
+        "reduced": "people/huynh-tan-phat/full.png"
       }
     },
     {
@@ -5096,12 +5156,14 @@
       "avatar": {
         "id": "nguyen-huu-tho-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-huu-tho/avatar.png",
+        "reduced": "people/nguyen-huu-tho/avatar.png"
       },
       "fullBody": {
         "id": "nguyen-huu-tho-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/nguyen-huu-tho/full.png",
+        "reduced": "people/nguyen-huu-tho/full.png"
       }
     }
   ]
