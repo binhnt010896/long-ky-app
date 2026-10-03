@@ -4,13 +4,17 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: Cycle R is PLANNED, not started (2026-10-03).** It fills the street
-map with more figures and events. **All the decisions are confirmed** (below).
-Nothing is built and no images have been generated. **The photo drop folders
-exist:** `content/people/<id>/` (94 people) and
-`content/events/dac-cong-rung-sac/`. The bulleted list of photos to supply and
-the drop instructions are in `content/people/README.md`; the Higgsfield
-briefs are in `docs/street-fill-images.md`.
+**Status: Cycle R Wave B is BUILT (2026-10-03), not yet published.** What is
+done: the standalone-person code (`bf42c82`), 38 street aliases and 33 new
+people and 6 standalone events as text (`c038622`), and all their art
+(`ba162df`). The street map goes from **92 to 163 streets**. Images are in
+`content/people/<id>/` and `content/events/<id>/`; they are git-ignored, so
+they reach the CDN only with the next publish. **Waiting on the user:**
+(1) publish content (dry run first), (2) cut the next app release for the new
+streets (R5), (3) the phone check, (4) images for the 7 people with none
+(Hồ Huấn Nghiệp, Nguyễn Văn Quá, Mai Xuân Thưởng, Trần Tấn, Đặng Như Mai,
+Tôn Thất Thiệp, Tôn Thất Đạm; the first two are in Wave B and ship held).
+Waves C and D are next, and all their photos are already in place.
 
 Earlier specs: M `cfa220a`, N `92e699f`, O `f56a4d7`, P `9552bb5`, Q `84d5ed8`
 (each `<sha>:EXECUTION.md`); what Q shipped: `afe41a8:EXECUTION.md`.
