@@ -206,10 +206,8 @@ example, `nghia-quan-nam-ky` ↔ the Southern resistance figures' events).
 
 All Wave A–D photos are in `content/people/<id>/` (file names are
 `<id>.<ext>`, and `<id>-reference.<ext>` where a second image exists), except
-the **8 empty folders**: `ho-huan-nghiep`, `nguyen-van-qua`, `mai-xuan-thuong`,
-`tran-tan`, `dang-nhu-mai`, `ton-that-thiep`, `ton-that-dam`, and also
-`ha-huy-giap`, which the user did not list as missing: **ask before treating it
-as missing.**
+the **7 empty folders**: `ho-huan-nghiep`, `nguyen-van-qua`, `mai-xuan-thuong`,
+`tran-tan`, `dang-nhu-mai`, `ton-that-thiep` and `ton-that-dam`.
 
 Rules for every image:
 1. Blurry or pixelated: enhance. Black and white: colourise.
