@@ -7204,6 +7204,1601 @@
         "type": "image",
         "placeholder": "portrait-held"
       }
+    },
+    {
+      "id": "huynh-thuc-khang",
+      "name": {
+        "vi": "Huỳnh Thúc Kháng",
+        "en": "Huỳnh Thúc Kháng"
+      },
+      "epithet": {
+        "vi": "Chí sĩ Duy Tân; chủ báo Tiếng Dân; Quyền Chủ tịch nước 1946",
+        "en": "Duy Tân patriot; publisher of Tiếng Dân; Acting President in 1946"
+      },
+      "bio": {
+        "vi": "Người Quảng Nam, đỗ tiến sĩ năm 1904 nhưng không ra làm quan; ông theo phong trào Duy Tân cùng Phan Châu Trinh và bị đày Côn Đảo từ năm 1908 đến năm 1921. Năm 1926 ông làm Viện trưởng Viện Dân biểu Trung Kỳ, năm 1927 lập báo Tiếng Dân ở Huế. Năm 1946 ông là Bộ trưởng Nội vụ và Quyền Chủ tịch nước trong thời gian Chủ tịch Hồ Chí Minh sang Pháp; ông mất năm 1947.",
+        "en": "A native of Quảng Nam who took the tiến sĩ degree in 1904 but declined office; he joined the Duy Tân movement with Phan Châu Trinh and was exiled to Côn Đảo from 1908 to 1921. In 1926 he chaired the Trung Kỳ Chamber of Representatives and in 1927 founded the newspaper Tiếng Dân in Huế. In 1946 he was Minister of the Interior and Acting President while President Hồ Chí Minh was in France; he died in 1947."
+      },
+      "lifespan": {
+        "vi": "1876 – 1947",
+        "en": "1876 – 1947"
+      },
+      "avatar": {
+        "id": "huynh-thuc-khang-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "huynh-thuc-khang-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-quy-cap",
+      "name": {
+        "vi": "Trần Quý Cáp",
+        "en": "Trần Quý Cáp"
+      },
+      "epithet": {
+        "vi": "Tiến sĩ của phong trào Duy Tân; bị xử tử năm 1908",
+        "en": "Duy Tân scholar; executed in 1908"
+      },
+      "bio": {
+        "vi": "Người Điện Bàn, Quảng Nam, đỗ tiến sĩ năm 1904, là một trong những người cổ vũ phong trào Duy Tân ở miền Trung cùng Phan Châu Trinh và Huỳnh Thúc Kháng. Sau khi làm giáo thụ ở Khánh Hòa, ông bị chính quyền thực dân quy tội liên quan đến phong trào chống thuế và bị xử chém năm 1908.",
+        "en": "A native of Điện Bàn, Quảng Nam, who took the tiến sĩ degree in 1904 and was a champion of the Duy Tân movement in the centre of the country with Phan Châu Trinh and Huỳnh Thúc Kháng. After serving as a district education officer in Khánh Hòa, he was accused by the colonial authorities of links to the anti-tax protests and was beheaded in 1908."
+      },
+      "lifespan": {
+        "vi": "1870 – 1908",
+        "en": "1870 – 1908"
+      },
+      "avatar": {
+        "id": "tran-quy-cap-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-quy-cap-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ngo-duc-ke",
+      "name": {
+        "vi": "Ngô Đức Kế",
+        "en": "Ngô Đức Kế"
+      },
+      "epithet": {
+        "vi": "Chí sĩ Duy Tân; nhà thơ, nhà báo",
+        "en": "Duy Tân patriot; poet and journalist"
+      },
+      "bio": {
+        "vi": "Người Hà Tĩnh, đỗ đại khoa đầu thế kỷ XX rồi theo phong trào Duy Tân; ông bị đày Côn Đảo từ năm 1908 đến năm 1921. Về sau ông làm báo, viết thơ văn yêu nước và nổi tiếng với cuộc tranh luận về Truyện Kiều những năm 1920; ông mất năm 1929.",
+        "en": "A native of Hà Tĩnh who passed the high examinations early in the twentieth century and joined the Duy Tân movement; he was exiled to Côn Đảo from 1908 to 1921. He later worked as a journalist, wrote patriotic verse, and is remembered for the 1920s debate over the Tale of Kiều; he died in 1929."
+      },
+      "lifespan": {
+        "vi": "1878 – 1929",
+        "en": "1878 – 1929"
+      },
+      "avatar": {
+        "id": "ngo-duc-ke-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ngo-duc-ke-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "dang-thai-than",
+      "name": {
+        "vi": "Đặng Thái Thân",
+        "en": "Đặng Thái Thân"
+      },
+      "epithet": {
+        "vi": "Cộng sự của Phan Bội Châu trong phong trào Đông Du",
+        "en": "Phan Bội Châu’s close associate in the Đông Du movement"
+      },
+      "bio": {
+        "vi": "Người Nghệ An, ông là một cộng sự gần gũi của Phan Bội Châu trong phong trào Đông Du, đưa thanh niên sang Nhật học tập với hy vọng đào tạo lực lượng cứu nước. Ông mất năm 1910.",
+        "en": "A native of Nghệ An and a close associate of Phan Bội Châu in the Đông Du movement, which sent young men to Japan to study in the hope of training a generation to save the country. He died in 1910."
+      },
+      "lifespan": {
+        "vi": "1874 – 1910",
+        "en": "1874 – 1910"
+      },
+      "avatar": {
+        "id": "dang-thai-than-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "dang-thai-than-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "thai-phien",
+      "name": {
+        "vi": "Thái Phiên",
+        "en": "Thái Phiên"
+      },
+      "epithet": {
+        "vi": "Lãnh đạo cuộc khởi nghĩa Duy Tân 1916",
+        "en": "Leader of the 1916 Duy Tân uprising plot"
+      },
+      "bio": {
+        "vi": "Người Quảng Nam, hoạt động trong Việt Nam Quang phục hội. Năm 1916 ông cùng Trần Cao Vân và vua Duy Tân chuẩn bị cuộc khởi nghĩa ở Trung Kỳ; kế hoạch bị lộ, ông bị bắt và bị xử chém ngày 17 tháng 5 năm 1916.",
+        "en": "A native of Quảng Nam active in the Việt Nam Quang phục Hội. In 1916 he prepared an uprising in central Vietnam with Trần Cao Vân and the young Emperor Duy Tân; the plan was betrayed and he was arrested and beheaded on 17 May 1916."
+      },
+      "lifespan": {
+        "vi": "1882 – 1916",
+        "en": "1882 – 1916"
+      },
+      "avatar": {
+        "id": "thai-phien-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "thai-phien-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-cao-van",
+      "name": {
+        "vi": "Trần Cao Vân",
+        "en": "Trần Cao Vân"
+      },
+      "epithet": {
+        "vi": "Nhà nho yêu nước; cùng vua Duy Tân khởi nghĩa 1916",
+        "en": "Patriotic scholar; co-leader of the 1916 Duy Tân plot"
+      },
+      "bio": {
+        "vi": "Nhà nho người Quảng Nam, từng bị tù Côn Đảo vì hoạt động chống Pháp. Năm 1916 ông cùng Thái Phiên và vua Duy Tân tổ chức cuộc khởi nghĩa ở Huế; việc bại lộ, ông bị bắt và bị xử chém ngày 17 tháng 5 năm 1916.",
+        "en": "A scholar from Quảng Nam who had been jailed on Côn Đảo for anti-French activity. In 1916 he organised an uprising in Huế with Thái Phiên and Emperor Duy Tân; it was betrayed, and he was arrested and beheaded on 17 May 1916."
+      },
+      "lifespan": {
+        "vi": "1866 – 1916",
+        "en": "1866 – 1916"
+      },
+      "avatar": {
+        "id": "tran-cao-van-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-cao-van-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "luong-ngoc-quyen",
+      "name": {
+        "vi": "Lương Ngọc Quyến",
+        "en": "Lương Ngọc Quyến"
+      },
+      "epithet": {
+        "vi": "Cố vấn quân sự của cuộc khởi nghĩa Thái Nguyên 1917",
+        "en": "Military adviser to the 1917 Thái Nguyên uprising"
+      },
+      "bio": {
+        "vi": "Con của nhà nho Lương Văn Can, ông sang Nhật theo phong trào Đông Du và học trường quân sự. Bị giam ở Thái Nguyên, ông được binh lính nổi dậy giải thoát đêm 30 rạng 31 tháng 8 năm 1917, trở thành cố vấn quân sự của Đội Cấn. Ông hy sinh ngày 5 tháng 9 năm 1917.",
+        "en": "The son of the scholar Lương Văn Can, he went to Japan with the Đông Du movement and studied at a military school. Held in the Thái Nguyên prison, he was freed by the mutinous soldiers on the night of 30–31 August 1917 and became military adviser to Đội Cấn. He died on 5 September 1917."
+      },
+      "lifespan": {
+        "vi": "1885 – 1917",
+        "en": "1885 – 1917"
+      },
+      "avatar": {
+        "id": "luong-ngoc-quyen-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "luong-ngoc-quyen-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "trinh-van-can",
+      "name": {
+        "vi": "Trịnh Văn Cấn",
+        "en": "Trịnh Văn Cấn"
+      },
+      "epithet": {
+        "vi": "Đội Cấn; thủ lĩnh khởi nghĩa Thái Nguyên 1917",
+        "en": "Đội Cấn; leader of the 1917 Thái Nguyên uprising"
+      },
+      "bio": {
+        "vi": "Một viên đội trong quân đội thuộc địa, ông lãnh đạo binh lính nổi dậy ở Thái Nguyên đêm 30 rạng 31 tháng 8 năm 1917, phá nhà lao và làm chủ tỉnh lỵ trong vài ngày. Nghĩa quân rút lên Tam Đảo; ngày 11 tháng 1 năm 1918, bị thương trong trận càn của quân Pháp, ông tự sát để không rơi vào tay địch.",
+        "en": "A sergeant in the colonial army, he led the soldiers’ uprising in Thái Nguyên on the night of 30–31 August 1917, breaking open the prison and holding the town for several days. The insurgents withdrew to Tam Đảo; on 11 January 1918, wounded in a French sweep, he took his own life rather than be captured."
+      },
+      "lifespan": {
+        "vi": "1881 – 1918",
+        "en": "1881 – 1918"
+      },
+      "avatar": {
+        "id": "trinh-van-can-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "trinh-van-can-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-thuong-hien",
+      "name": {
+        "vi": "Nguyễn Thượng Hiền",
+        "en": "Nguyễn Thượng Hiền"
+      },
+      "epithet": {
+        "vi": "Tiến sĩ bỏ quan theo Đông Du",
+        "en": "Tiến sĩ who left office to join the Đông Du"
+      },
+      "bio": {
+        "vi": "Người Hà Đông, đỗ tiến sĩ năm 1892, là con rể của Phụ chính Tôn Thất Thuyết. Ông từ bỏ quan trường để tham gia phong trào Đông Du cùng Phan Bội Châu, hoạt động ở Nhật và Trung Quốc; ông mất ở Trung Quốc năm 1925.",
+        "en": "A native of Hà Đông who took the tiến sĩ degree in 1892 and was son-in-law of the regent Tôn Thất Thuyết. He gave up office to join Phan Bội Châu’s Đông Du movement, working in Japan and China, and died in China in 1925."
+      },
+      "lifespan": {
+        "vi": "1868 – 1925",
+        "en": "1868 – 1925"
+      },
+      "avatar": {
+        "id": "nguyen-thuong-hien-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-thuong-hien-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "dang-nguyen-can",
+      "name": {
+        "vi": "Đặng Nguyên Cẩn",
+        "en": "Đặng Nguyên Cẩn"
+      },
+      "epithet": {
+        "vi": "Nhà nho Duy Tân xứ Nghệ",
+        "en": "Duy Tân scholar of Nghệ An"
+      },
+      "bio": {
+        "vi": "Người Hà Tĩnh, đỗ phó bảng, là một nhà nho đứng đầu phong trào Duy Tân ở Nghệ Tĩnh đầu thế kỷ XX, cùng mở trường học và hội buôn. Bị bắt đày Côn Đảo, ông mất năm 1923.",
+        "en": "A native of Hà Tĩnh who passed the phó bảng degree and a leading scholar of the Duy Tân movement in Nghệ–Tĩnh early in the twentieth century, helping to open schools and trading associations. Arrested and exiled to Côn Đảo, he died in 1923."
+      },
+      "lifespan": {
+        "vi": "1867 – 1923",
+        "en": "1867 – 1923"
+      },
+      "avatar": {
+        "id": "dang-nguyen-can-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "dang-nguyen-can-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "pham-hong-thai",
+      "name": {
+        "vi": "Phạm Hồng Thái",
+        "en": "Phạm Hồng Thái"
+      },
+      "epithet": {
+        "vi": "Ném bom ở Sa Diện, Quảng Châu, năm 1924",
+        "en": "The Shameen bombing in Guangzhou, 1924"
+      },
+      "bio": {
+        "vi": "Người Nghệ An, ông hoạt động ở Quảng Châu trong Tâm Tâm xã. Ngày 19 tháng 6 năm 1924, ông ném bom vào bữa tiệc của toàn quyền Đông Dương Merlin ở Sa Diện; khi bị truy đuổi, ông nhảy xuống sông Châu Giang và hy sinh.",
+        "en": "A native of Nghệ An who worked in Guangzhou with the Tâm Tâm xã. On 19 June 1924 he threw a bomb at the banquet of the Governor-General of Indochina, Merlin, on Shameen island; pursued, he leapt into the Pearl River and died."
+      },
+      "lifespan": {
+        "vi": "1896 – 1924",
+        "en": "1896 – 1924"
+      },
+      "avatar": {
+        "id": "pham-hong-thai-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "pham-hong-thai-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-an-ninh",
+      "name": {
+        "vi": "Nguyễn An Ninh",
+        "en": "Nguyễn An Ninh"
+      },
+      "epithet": {
+        "vi": "Nhà báo, nhà hoạt động Sài Gòn; mất ở Côn Đảo",
+        "en": "Journalist and activist of Sài Gòn; died on Côn Đảo"
+      },
+      "bio": {
+        "vi": "Sinh năm 1900 ở Sài Gòn, học luật ở Pháp rồi về nước năm 1923, lập báo La Cloche fêlée và diễn thuyết kêu gọi thanh niên. Nhiều lần bị bắt, ông bị đày Côn Đảo và mất ở đó ngày 14 tháng 8 năm 1943.",
+        "en": "Born in 1900 in Sài Gòn, he studied law in France and returned in 1923 to found the newspaper La Cloche fêlée and to speak to young people. Arrested several times, he was exiled to Côn Đảo, where he died on 14 August 1943."
+      },
+      "lifespan": {
+        "vi": "1900 – 1943",
+        "en": "1900 – 1943"
+      },
+      "avatar": {
+        "id": "nguyen-an-ninh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-an-ninh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "phan-van-truong",
+      "name": {
+        "vi": "Phan Văn Trường",
+        "en": "Phan Văn Trường"
+      },
+      "epithet": {
+        "vi": "Tiến sĩ luật; bạn của Phan Châu Trinh và Nguyễn Ái Quốc ở Paris",
+        "en": "Doctor of law; associate of Phan Châu Trinh and Nguyễn Ái Quốc in Paris"
+      },
+      "bio": {
+        "vi": "Người Hà Nội, ông học luật ở Pháp và đỗ tiến sĩ, sống ở Paris cùng Phan Châu Trinh và Nguyễn Ái Quốc. Ông về nước, làm báo ở Sài Gòn và nhiều lần bị truy tố; ông mất năm 1933.",
+        "en": "A native of Hà Nội who studied law in France and earned a doctorate, living in Paris alongside Phan Châu Trinh and Nguyễn Ái Quốc. Back in Vietnam he worked as a journalist in Sài Gòn and was prosecuted several times; he died in 1933."
+      },
+      "lifespan": {
+        "vi": "1875 – 1933",
+        "en": "1875 – 1933"
+      },
+      "avatar": {
+        "id": "phan-van-truong-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "phan-van-truong-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-khac-nhu",
+      "name": {
+        "vi": "Nguyễn Khắc Nhu",
+        "en": "Nguyễn Khắc Nhu"
+      },
+      "epithet": {
+        "vi": "Xứ Nhu; lãnh đạo Việt Nam Quốc dân đảng",
+        "en": "Xứ Nhu; leader of the Việt Nam Quốc dân đảng"
+      },
+      "bio": {
+        "vi": "Người Bắc Giang, vốn từng gắn bó với nghĩa quân Yên Thế, ông là một trong những lãnh đạo chủ chốt của Việt Nam Quốc dân đảng và tham gia chuẩn bị cuộc khởi nghĩa Yên Bái tháng 2 năm 1930. Ông bị bắt và mất trong tù năm 1930.",
+        "en": "A native of Bắc Giang who had links to the Yên Thế insurgents, he was a principal leader of the Việt Nam Quốc dân đảng and helped prepare the Yên Bái uprising of February 1930. He was arrested and died in prison in 1930."
+      },
+      "lifespan": {
+        "vi": "1882 – 1930",
+        "en": "1882 – 1930"
+      },
+      "avatar": {
+        "id": "nguyen-khac-nhu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-khac-nhu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "pho-duc-chinh",
+      "name": {
+        "vi": "Phó Đức Chính",
+        "en": "Phó Đức Chính"
+      },
+      "epithet": {
+        "vi": "Lãnh đạo khởi nghĩa Yên Bái 1930",
+        "en": "Leader of the 1930 Yên Bái uprising"
+      },
+      "bio": {
+        "vi": "Một người trẻ trong Việt Nam Quốc dân đảng, ông tham gia lãnh đạo cuộc khởi nghĩa Yên Bái tháng 2 năm 1930. Sau khi khởi nghĩa thất bại, ông bị bắt và bị xử tử ở Yên Bái ngày 17 tháng 6 năm 1930 cùng Nguyễn Thái Học và các đồng chí.",
+        "en": "A young member of the Việt Nam Quốc dân đảng, he helped lead the Yên Bái uprising of February 1930. After it failed he was arrested and executed at Yên Bái on 17 June 1930 together with Nguyễn Thái Học and their comrades."
+      },
+      "lifespan": {
+        "vi": "1907 – 1930",
+        "en": "1907 – 1930"
+      },
+      "avatar": {
+        "id": "pho-duc-chinh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "pho-duc-chinh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ky-con",
+      "name": {
+        "vi": "Ký Con",
+        "en": "Ký Con"
+      },
+      "epithet": {
+        "vi": "Đoàn Trần Nghiệp; chiến sĩ Yên Bái, bị xử tử năm 1931",
+        "en": "Đoàn Trần Nghiệp; Yên Bái fighter, executed in 1931"
+      },
+      "bio": {
+        "vi": "Tên thật là Đoàn Trần Nghiệp, ông là một người trẻ của Việt Nam Quốc dân đảng, phụ trách đánh bom ở Hà Nội trong đợt khởi nghĩa tháng 2 năm 1930. Bị bắt, ông bị xử chém ở Hỏa Lò, Hà Nội, ngày 9 tháng 3 năm 1931.",
+        "en": "Born Đoàn Trần Nghiệp, a young member of the Việt Nam Quốc dân đảng who was in charge of the bomb attacks in Hà Nội during the uprising of February 1930. Arrested, he was guillotined at Hỏa Lò prison in Hà Nội on 9 March 1931."
+      },
+      "lifespan": {
+        "vi": "1908 – 1931",
+        "en": "1908 – 1931"
+      },
+      "avatar": {
+        "id": "ky-con-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ky-con-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tang-bat-ho",
+      "name": {
+        "vi": "Tăng Bạt Hổ",
+        "en": "Tăng Bạt Hổ"
+      },
+      "epithet": {
+        "vi": "Nghĩa quân Cần Vương; người cùng Phan Bội Châu sang Nhật",
+        "en": "Cần Vương fighter; travelled to Japan with Phan Bội Châu"
+      },
+      "bio": {
+        "vi": "Người Bình Định, ông từng chiến đấu trong phong trào Cần Vương rồi trở thành cánh tay đắc lực của Phan Bội Châu, cùng ông sang Nhật năm 1905 và lo việc liên lạc, đưa người xuất dương. Ông mất năm 1906 ở nước ngoài.",
+        "en": "A native of Bình Định who fought in the Cần Vương movement and then became a trusted aide to Phan Bội Châu, travelling with him to Japan in 1905 and organising contacts and passage for those going abroad. He died abroad in 1906."
+      },
+      "lifespan": {
+        "vi": "1858 – 1906",
+        "en": "1858 – 1906"
+      },
+      "avatar": {
+        "id": "tang-bat-ho-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tang-bat-ho-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ky-dong",
+      "name": {
+        "vi": "Kỳ Đồng",
+        "en": "Kỳ Đồng"
+      },
+      "epithet": {
+        "vi": "Nguyễn Văn Cẩm; thần đồng đất Thái Bình, bị đày sang Tahiti",
+        "en": "Nguyễn Văn Cẩm; child prodigy of Thái Bình, exiled to Tahiti"
+      },
+      "bio": {
+        "vi": "Tên thật là Nguyễn Văn Cẩm, người Thái Bình; từ nhỏ ông nổi tiếng thông minh, được vua Tự Đức ban danh hiệu “Kỳ Đồng”, nghĩa là cậu bé kỳ tài. Về sau ông bị chính quyền thực dân đày sang Tahiti, sống gần bốn mươi năm xa quê và mất ở đó năm 1929.",
+        "en": "Born Nguyễn Văn Cẩm in Thái Bình, he was famed from childhood for his brilliance, and Emperor Tự Đức gave him the title “Kỳ Đồng”, meaning an exceptionally gifted boy. He was later exiled by the colonial authorities to Tahiti, where he lived for nearly forty years away from home and died in 1929."
+      },
+      "lifespan": {
+        "vi": "1875 – 1929",
+        "en": "1875 – 1929"
+      },
+      "avatar": {
+        "id": "ky-dong-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ky-dong-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "le-hong-phong",
+      "name": {
+        "vi": "Lê Hồng Phong",
+        "en": "Lê Hồng Phong"
+      },
+      "epithet": {
+        "vi": "Tổng Bí thư Đảng Cộng sản Đông Dương 1935–1936",
+        "en": "General Secretary of the Indochinese Communist Party, 1935–1936"
+      },
+      "bio": {
+        "vi": "Người Nghệ An, ông học phi công ở Liên Xô và Trung Quốc rồi hoạt động trong Đảng Cộng sản Đông Dương. Ông là Tổng Bí thư từ năm 1935 đến năm 1936. Bị Pháp bắt năm 1939, ông mất ở Côn Đảo ngày 6 tháng 9 năm 1942.",
+        "en": "A native of Nghệ An who trained as a pilot in the Soviet Union and China before working in the Indochinese Communist Party. He was General Secretary from 1935 to 1936. Arrested by the French in 1939, he died on Côn Đảo on 6 September 1942."
+      },
+      "lifespan": {
+        "vi": "1902 – 1942",
+        "en": "1902 – 1942"
+      },
+      "avatar": {
+        "id": "le-hong-phong-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "le-hong-phong-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ha-huy-tap",
+      "name": {
+        "vi": "Hà Huy Tập",
+        "en": "Hà Huy Tập"
+      },
+      "epithet": {
+        "vi": "Tổng Bí thư Đảng Cộng sản Đông Dương 1936–1938",
+        "en": "General Secretary of the Indochinese Communist Party, 1936–1938"
+      },
+      "bio": {
+        "vi": "Người Hà Tĩnh, học ở Liên Xô rồi hoạt động trong Đảng Cộng sản Đông Dương; ông là Tổng Bí thư từ năm 1936 đến năm 1938. Bị bắt sau khởi nghĩa Nam Kỳ, ông bị Pháp xử bắn ở Hóc Môn ngày 28 tháng 8 năm 1941.",
+        "en": "A native of Hà Tĩnh who studied in the Soviet Union and worked in the Indochinese Communist Party; he was General Secretary from 1936 to 1938. Arrested after the Southern Uprising, he was shot by the French at Hóc Môn on 28 August 1941."
+      },
+      "lifespan": {
+        "vi": "1906 – 1941",
+        "en": "1906 – 1941"
+      },
+      "avatar": {
+        "id": "ha-huy-tap-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ha-huy-tap-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-van-cu",
+      "name": {
+        "vi": "Nguyễn Văn Cừ",
+        "en": "Nguyễn Văn Cừ"
+      },
+      "epithet": {
+        "vi": "Tổng Bí thư Đảng Cộng sản Đông Dương 1938–1940",
+        "en": "General Secretary of the Indochinese Communist Party, 1938–1940"
+      },
+      "bio": {
+        "vi": "Người Bắc Ninh, ông làm Tổng Bí thư của Đảng Cộng sản Đông Dương từ năm 1938 khi mới 26 tuổi. Bị Pháp bắt sau khởi nghĩa Nam Kỳ, ông bị xử bắn ở Hóc Môn ngày 28 tháng 8 năm 1941.",
+        "en": "A native of Bắc Ninh, he became General Secretary of the Indochinese Communist Party in 1938 at the age of 26. Arrested by the French after the Southern Uprising, he was shot at Hóc Môn on 28 August 1941."
+      },
+      "lifespan": {
+        "vi": "1912 – 1941",
+        "en": "1912 – 1941"
+      },
+      "avatar": {
+        "id": "nguyen-van-cu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-van-cu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "hoang-van-thu",
+      "name": {
+        "vi": "Hoàng Văn Thụ",
+        "en": "Hoàng Văn Thụ"
+      },
+      "epithet": {
+        "vi": "Nhà hoạt động cách mạng người Lạng Sơn",
+        "en": "Revolutionary from Lạng Sơn"
+      },
+      "bio": {
+        "vi": "Người dân tộc Tày ở Lạng Sơn, ông hoạt động trong Đảng Cộng sản Đông Dương và là một cán bộ chủ chốt của Xứ ủy Bắc Kỳ trước Cách mạng Tháng Tám. Bị Pháp bắt năm 1943, ông bị xử bắn ở Hà Nội năm 1944.",
+        "en": "A Tày man from Lạng Sơn who worked in the Indochinese Communist Party and was a key cadre of its Northern Regional Committee before the August Revolution. Arrested by the French in 1943, he was shot in Hà Nội in 1944."
+      },
+      "lifespan": {
+        "vi": "1909 – 1944",
+        "en": "1909 – 1944"
+      },
+      "avatar": {
+        "id": "hoang-van-thu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "hoang-van-thu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ngo-gia-tu",
+      "name": {
+        "vi": "Ngô Gia Tự",
+        "en": "Ngô Gia Tự"
+      },
+      "epithet": {
+        "vi": "Nhà hoạt động cách mạng; mất ở Côn Đảo",
+        "en": "Revolutionary; died on Côn Đảo"
+      },
+      "bio": {
+        "vi": "Người Bắc Ninh, ông hoạt động trong Việt Nam Thanh niên Cách mạng Đồng chí hội rồi trong Đảng Cộng sản Đông Dương. Bị Pháp bắt và đày ra Côn Đảo, ông mất ở đó năm 1935.",
+        "en": "A native of Bắc Ninh who worked in the Việt Nam Revolutionary Youth League and then the Indochinese Communist Party. Arrested by the French and exiled to Côn Đảo, he died there in 1935."
+      },
+      "lifespan": {
+        "vi": "1908 – 1935",
+        "en": "1908 – 1935"
+      },
+      "avatar": {
+        "id": "ngo-gia-tu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ngo-gia-tu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-duc-canh",
+      "name": {
+        "vi": "Nguyễn Đức Cảnh",
+        "en": "Nguyễn Đức Cảnh"
+      },
+      "epithet": {
+        "vi": "Nhà hoạt động công vận; bị xử tử năm 1932",
+        "en": "Labour organiser; executed in 1932"
+      },
+      "bio": {
+        "vi": "Ông hoạt động trong Việt Nam Thanh niên Cách mạng Đồng chí hội và là người tổ chức công nhân ở Hải Phòng và Hà Nội, rồi tham gia Đảng Cộng sản Đông Dương. Bị Pháp bắt, ông bị xử tử ngày 31 tháng 7 năm 1932.",
+        "en": "He worked in the Việt Nam Revolutionary Youth League, organised workers in Hải Phòng and Hà Nội, and joined the Indochinese Communist Party. Arrested by the French, he was executed on 31 July 1932."
+      },
+      "lifespan": {
+        "vi": "1908 – 1932",
+        "en": "1908 – 1932"
+      },
+      "avatar": {
+        "id": "nguyen-duc-canh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-duc-canh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "phan-dang-luu",
+      "name": {
+        "vi": "Phan Đăng Lưu",
+        "en": "Phan Đăng Lưu"
+      },
+      "epithet": {
+        "vi": "Lãnh đạo Xứ ủy Nam Kỳ; bị xử bắn ở Hóc Môn",
+        "en": "Southern Regional leader; shot at Hóc Môn"
+      },
+      "bio": {
+        "vi": "Người Nghệ An, ông hoạt động báo chí công khai những năm Mặt trận Dân chủ và là cán bộ lãnh đạo của Đảng Cộng sản Đông Dương. Bị Pháp bắt sau khởi nghĩa Nam Kỳ, ông bị xử bắn ở Hóc Môn ngày 28 tháng 8 năm 1941.",
+        "en": "A native of Nghệ An who worked in the open press during the Popular Front years and was a leading cadre of the Indochinese Communist Party. Arrested by the French after the Southern Uprising, he was shot at Hóc Môn on 28 August 1941."
+      },
+      "lifespan": {
+        "vi": "1902 – 1941",
+        "en": "1902 – 1941"
+      },
+      "avatar": {
+        "id": "phan-dang-luu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "phan-dang-luu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ho-tung-mau",
+      "name": {
+        "vi": "Hồ Tùng Mậu",
+        "en": "Hồ Tùng Mậu"
+      },
+      "epithet": {
+        "vi": "Một người lập Tâm Tâm xã và Thanh niên Cách mạng Đồng chí hội",
+        "en": "Co-founder of the Tâm Tâm xã and the Revolutionary Youth League"
+      },
+      "bio": {
+        "vi": "Người Nghệ An, ông hoạt động ở Quảng Châu từ những năm 1920, là một trong những người lập Tâm Tâm xã và tham gia Việt Nam Thanh niên Cách mạng Đồng chí hội cùng Nguyễn Ái Quốc. Ông hy sinh năm 1951 khi máy bay Pháp oanh tạc.",
+        "en": "A native of Nghệ An who worked in Guangzhou from the 1920s, helping found the Tâm Tâm xã and joining the Việt Nam Revolutionary Youth League with Nguyễn Ái Quốc. He was killed in 1951 in a French air raid."
+      },
+      "lifespan": {
+        "vi": "1896 – 1951",
+        "en": "1896 – 1951"
+      },
+      "avatar": {
+        "id": "ho-tung-mau-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ho-tung-mau-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "to-hieu",
+      "name": {
+        "vi": "Tô Hiệu",
+        "en": "Tô Hiệu"
+      },
+      "epithet": {
+        "vi": "Cán bộ cách mạng; mất trong nhà tù Sơn La",
+        "en": "Revolutionary cadre; died in Sơn La prison"
+      },
+      "bio": {
+        "vi": "Ông hoạt động trong Đảng Cộng sản Đông Dương ở vùng Hải Phòng, Hải Dương, bị Pháp bắt và giam ở nhà tù Sơn La. Ở đó ông tham gia tổ chức đấu tranh của tù chính trị cho đến khi mất năm 1944.",
+        "en": "He worked in the Indochinese Communist Party around Hải Phòng and Hải Dương, was arrested by the French, and held in Sơn La prison. There he took part in organising the political prisoners’ struggle until he died in 1944."
+      },
+      "lifespan": {
+        "vi": "1912 – 1944",
+        "en": "1912 – 1944"
+      },
+      "avatar": {
+        "id": "to-hieu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "to-hieu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "phung-chi-kien",
+      "name": {
+        "vi": "Phùng Chí Kiên",
+        "en": "Phùng Chí Kiên"
+      },
+      "epithet": {
+        "vi": "Một trong những cán bộ quân sự đầu tiên của Đảng",
+        "en": "One of the Party’s first military cadres"
+      },
+      "bio": {
+        "vi": "Người Nghệ An, ông học trường quân sự Hoàng Phố ở Trung Quốc và là một trong những cán bộ quân sự đầu tiên của Đảng Cộng sản Đông Dương. Ông hoạt động ở Cao Bằng, Bắc Sơn và hy sinh năm 1941.",
+        "en": "A native of Nghệ An who studied at the Whampoa Military Academy in China and was one of the first military cadres of the Indochinese Communist Party. He worked in Cao Bằng and Bắc Sơn and died in 1941."
+      },
+      "lifespan": {
+        "vi": "1901 – 1941",
+        "en": "1901 – 1941"
+      },
+      "avatar": {
+        "id": "phung-chi-kien-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "phung-chi-kien-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "hoang-quoc-viet",
+      "name": {
+        "vi": "Hoàng Quốc Việt",
+        "en": "Hoàng Quốc Việt"
+      },
+      "epithet": {
+        "vi": "Cán bộ lão thành; Chủ tịch Ủy ban Trung ương Mặt trận Tổ quốc",
+        "en": "Veteran cadre; Chairman of the Fatherland Front Central Committee"
+      },
+      "bio": {
+        "vi": "Người Bắc Ninh, ông hoạt động công nhân và tham gia Đảng Cộng sản Đông Dương từ những năm 1930; sau Cách mạng Tháng Tám, ông giữ nhiều trọng trách trong Đảng và Mặt trận Tổ quốc, trong đó có chức Chủ tịch Ủy ban Trung ương Mặt trận Tổ quốc Việt Nam. Ông mất năm 1992.",
+        "en": "A native of Bắc Ninh who organised workers and joined the Indochinese Communist Party in the 1930s; after the August Revolution he held many posts in the Party and the Fatherland Front, including Chairman of the Central Committee of the Vietnam Fatherland Front. He died in 1992."
+      },
+      "lifespan": {
+        "vi": "1905 – 1992",
+        "en": "1905 – 1992"
+      },
+      "avatar": {
+        "id": "hoang-quoc-viet-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "hoang-quoc-viet-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-luong-bang",
+      "name": {
+        "vi": "Nguyễn Lương Bằng",
+        "en": "Nguyễn Lương Bằng"
+      },
+      "epithet": {
+        "vi": "Phó Chủ tịch nước 1969–1979",
+        "en": "Vice President of the Republic, 1969–1979"
+      },
+      "bio": {
+        "vi": "Người Hải Dương, ông hoạt động từ rất sớm trong phong trào công nhân và Hội Việt Nam Cách mạng Thanh niên. Ông giữ nhiều trọng trách sau năm 1945, và từ năm 1969 đến khi mất năm 1979 là Phó Chủ tịch nước.",
+        "en": "A native of Hải Dương who took part early in the labour movement and the Việt Nam Revolutionary Youth League. He held many posts after 1945 and was Vice President of the Republic from 1969 until his death in 1979."
+      },
+      "lifespan": {
+        "vi": "1904 – 1979",
+        "en": "1904 – 1979"
+      },
+      "avatar": {
+        "id": "nguyen-luong-bang-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-luong-bang-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ha-huy-giap",
+      "name": {
+        "vi": "Hà Huy Giáp",
+        "en": "Hà Huy Giáp"
+      },
+      "epithet": {
+        "vi": "Nhà báo, cán bộ văn hóa – khoa học",
+        "en": "Journalist and cultural–scientific cadre"
+      },
+      "bio": {
+        "vi": "Người Hà Tĩnh, ông làm báo từ thời trước Cách mạng Tháng Tám và sau năm 1945 giữ nhiều trọng trách trong ngành văn hóa, giáo dục và khoa học của nước Việt Nam Dân chủ Cộng hòa. Ông mất ngày 3 tháng 12 năm 1995.",
+        "en": "A native of Hà Tĩnh who worked as a journalist before the August Revolution and after 1945 held a number of posts in culture, education and science in the Democratic Republic of Vietnam. He died on 3 December 1995."
+      },
+      "lifespan": {
+        "vi": "1908 – 1995",
+        "en": "1908 – 1995"
+      },
+      "avatar": {
+        "id": "ha-huy-giap-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ha-huy-giap-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-huy-lieu",
+      "name": {
+        "vi": "Trần Huy Liệu",
+        "en": "Trần Huy Liệu"
+      },
+      "epithet": {
+        "vi": "Nhà báo, nhà sử học; Viện trưởng đầu tiên Viện Sử học",
+        "en": "Journalist and historian; first director of the Institute of History"
+      },
+      "bio": {
+        "vi": "Người Nam Định, ông làm báo, từng bị tù Côn Đảo, rồi là Bộ trưởng Tuyên truyền năm 1945; ngày 30 tháng 8 năm 1945 ở Huế, ông dẫn đầu đoàn đại biểu nhận sự thoái vị của vua Bảo Đại. Về sau ông là Viện trưởng đầu tiên của Viện Sử học Việt Nam, và mất năm 1969.",
+        "en": "A native of Nam Định who worked as a journalist, was jailed on Côn Đảo, and became Minister of Propaganda in 1945; on 30 August 1945 in Huế he headed the delegation that received the abdication of Emperor Bảo Đại. He later became the first director of the Institute of History and died in 1969."
+      },
+      "lifespan": {
+        "vi": "1901 – 1969",
+        "en": "1901 – 1969"
+      },
+      "avatar": {
+        "id": "tran-huy-lieu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-huy-lieu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "kim-dong",
+      "name": {
+        "vi": "Kim Đồng",
+        "en": "Kim Đồng"
+      },
+      "epithet": {
+        "vi": "Nông Văn Dền; người đội viên nhỏ tuổi ở Cao Bằng",
+        "en": "Nông Văn Dền; young Cao Bằng scout and courier"
+      },
+      "bio": {
+        "vi": "Tên thật là Nông Văn Dền, người dân tộc Nùng ở Cao Bằng, làm liên lạc cho cán bộ cách mạng từ khi còn nhỏ. Ngày 15 tháng 2 năm 1943, em hy sinh khi yểm trợ cho cán bộ rút an toàn trước lính Pháp, lúc mới 14 tuổi.",
+        "en": "Born Nông Văn Dền, a Nùng boy from Cao Bằng who served as a courier for revolutionary cadres from a young age. On 15 February 1943, aged 14, he was killed covering the safe withdrawal of cadres from French soldiers."
+      },
+      "lifespan": {
+        "vi": "1929 – 1943",
+        "en": "1929 – 1943"
+      },
+      "avatar": {
+        "id": "kim-dong-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "kim-dong-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-van-to",
+      "name": {
+        "vi": "Nguyễn Văn Tố",
+        "en": "Nguyễn Văn Tố"
+      },
+      "epithet": {
+        "vi": "Học giả Hội Bắc Cổ; Trưởng ban Thường trực Quốc hội",
+        "en": "Scholar of the École française d’Extrême-Orient; head of the National Assembly’s Standing Committee"
+      },
+      "bio": {
+        "vi": "Sinh năm 1889 ở Hà Nội, ông là học giả làm việc ở Trường Viễn Đông Bác cổ, Hội trưởng Hội Truyền bá chữ Quốc ngữ. Năm 1946 ông là Trưởng ban Thường trực Quốc hội đầu tiên. Ông bị bắt và mất ngày 7 tháng 10 năm 1947 trong cuộc càn của quân Pháp ở Bắc Kạn.",
+        "en": "Born in 1889 in Hà Nội, he was a scholar who worked at the École française d’Extrême-Orient and chaired the Society for the Spread of Quốc ngữ. In 1946 he became the first head of the National Assembly’s Standing Committee. He was captured and died on 7 October 1947 during a French sweep in Bắc Kạn."
+      },
+      "lifespan": {
+        "vi": "1889 – 1947",
+        "en": "1889 – 1947"
+      },
+      "avatar": {
+        "id": "nguyen-van-to-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-van-to-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "van-cao",
+      "name": {
+        "vi": "Văn Cao",
+        "en": "Văn Cao"
+      },
+      "epithet": {
+        "vi": "Nhạc sĩ, tác giả Tiến quân ca",
+        "en": "Composer of Tiến quân ca, the national anthem"
+      },
+      "bio": {
+        "vi": "Sinh năm 1923, lớn lên ở Hải Phòng, ông sáng tác Tiến quân ca năm 1944; bài hát được chọn làm quốc ca của nước Việt Nam Dân chủ Cộng hòa năm 1946 và là quốc ca Việt Nam đến nay. Ông còn là họa sĩ, nhà thơ và được truy tặng Giải thưởng Hồ Chí Minh; ông mất ngày 10 tháng 7 năm 1995.",
+        "en": "Born in 1923 and raised in Hải Phòng, he composed Tiến quân ca in 1944; it was adopted as the national anthem of the Democratic Republic of Vietnam in 1946 and remains the anthem of Vietnam. He was also a painter and poet, and was posthumously awarded the Hồ Chí Minh Prize; he died on 10 July 1995."
+      },
+      "lifespan": {
+        "vi": "1923 – 1995",
+        "en": "1923 – 1995"
+      },
+      "avatar": {
+        "id": "van-cao-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "van-cao-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "pham-ngoc-thach",
+      "name": {
+        "vi": "Phạm Ngọc Thạch",
+        "en": "Phạm Ngọc Thạch"
+      },
+      "epithet": {
+        "vi": "Bác sĩ; người đặt nền móng ngành y tế và phòng chống lao",
+        "en": "Physician; founder of public health and anti-tuberculosis work"
+      },
+      "bio": {
+        "vi": "Là bác sĩ, ông tham gia Cách mạng Tháng Tám ở Nam Bộ rồi giữ trọng trách trong ngành y tế của nước Việt Nam Dân chủ Cộng hòa; ông là một trong những người đặt nền móng cho công tác y tế dự phòng và chống lao. Ông mất năm 1968.",
+        "en": "A physician who took part in the August Revolution in the South and then held senior posts in the health service of the Democratic Republic of Vietnam; he is counted among the founders of preventive medicine and the fight against tuberculosis there. He died in 1968."
+      },
+      "lifespan": {
+        "vi": "1909 – 1968",
+        "en": "1909 – 1968"
+      },
+      "avatar": {
+        "id": "pham-ngoc-thach-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "pham-ngoc-thach-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "to-vinh-dien",
+      "name": {
+        "vi": "Tô Vĩnh Diện",
+        "en": "Tô Vĩnh Diện"
+      },
+      "epithet": {
+        "vi": "Anh hùng lấy thân mình chèn pháo ở Điện Biên Phủ",
+        "en": "Hero who threw himself under a gun at Điện Biên Phủ"
+      },
+      "bio": {
+        "vi": "Người Thanh Hóa, là pháo thủ trong chiến dịch Điện Biên Phủ. Khi kéo pháo vào trận địa, pháo bị trượt xuống dốc, ông lao vào chèn bánh pháo để cứu pháo và đã hy sinh đầu năm 1954; ông được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
+        "en": "A native of Thanh Hóa and an artilleryman in the Điện Biên Phủ campaign. When a gun being hauled into position began to slide down a slope, he threw himself under its wheels to stop it and was killed in early 1954; he was posthumously named a Hero of the People’s Armed Forces."
+      },
+      "lifespan": {
+        "vi": "1924 – 1954",
+        "en": "1924 – 1954"
+      },
+      "avatar": {
+        "id": "to-vinh-dien-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "to-vinh-dien-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "be-van-dan",
+      "name": {
+        "vi": "Bế Văn Đàn",
+        "en": "Bế Văn Đàn"
+      },
+      "epithet": {
+        "vi": "Anh hùng lấy vai làm giá súng",
+        "en": "Hero who served as a living gun-rest"
+      },
+      "bio": {
+        "vi": "Người dân tộc Tày ở Cao Bằng, ông là chiến sĩ thông tin kiêm xạ thủ. Trong một trận đánh, để đồng đội kịp bắn máy bay địch, ông đã lấy vai làm giá súng và hy sinh ngày 12 tháng 12 năm 1953; ông được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
+        "en": "A Tày man from Cao Bằng, a signalman and gunner. In a battle, so that a comrade could fire at enemy aircraft, he made his own shoulder a gun-rest and was killed on 12 December 1953; he was posthumously named a Hero of the People’s Armed Forces."
+      },
+      "lifespan": {
+        "vi": "1931 – 1953",
+        "en": "1931 – 1953"
+      },
+      "avatar": {
+        "id": "be-van-dan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "be-van-dan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "cu-chinh-lan",
+      "name": {
+        "vi": "Cù Chính Lan",
+        "en": "Cù Chính Lan"
+      },
+      "epithet": {
+        "vi": "Anh hùng diệt xe tăng",
+        "en": "Hero of the anti-tank fighting"
+      },
+      "bio": {
+        "vi": "Người Nghệ An, là chiến sĩ trong chiến dịch Hòa Bình, nổi tiếng với những trận đánh xe tăng và xe bọc thép của quân Pháp trên đường số 6. Ông hy sinh năm 1951 và là một trong những người đầu tiên được phong Anh hùng Lực lượng vũ trang nhân dân.",
+        "en": "A native of Nghệ An and a soldier in the Hòa Bình campaign, famed for his attacks on French tanks and armoured vehicles on Route 6. He was killed in 1951 and was one of the first to be named a Hero of the People’s Armed Forces."
+      },
+      "lifespan": {
+        "vi": "1930 – 1951",
+        "en": "1930 – 1951"
+      },
+      "avatar": {
+        "id": "cu-chinh-lan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "cu-chinh-lan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "tran-dai-nghia",
+      "name": {
+        "vi": "Trần Đại Nghĩa",
+        "en": "Trần Đại Nghĩa"
+      },
+      "epithet": {
+        "vi": "Kỹ sư, người chế tạo vũ khí cho kháng chiến",
+        "en": "Engineer who built weapons for the Resistance"
+      },
+      "bio": {
+        "vi": "Tên thật là Phạm Quang Lễ, sinh ở Vĩnh Long, học kỹ sư ở Pháp rồi theo Chủ tịch Hồ Chí Minh về nước năm 1946. Ông chỉ đạo chế tạo vũ khí cho kháng chiến như súng bazooka và súng không giật SKZ, được phong Anh hùng Lao động năm 1952 và nhận Giải thưởng Hồ Chí Minh; ông mất năm 1997 ở Thành phố Hồ Chí Minh.",
+        "en": "Born Phạm Quang Lễ in Vĩnh Long, he trained as an engineer in France and returned to Vietnam in 1946 at the call of President Hồ Chí Minh. He directed the making of weapons for the Resistance, such as the bazooka and the SKZ recoilless gun, was named a Hero of Labour in 1952 and received the Hồ Chí Minh Prize; he died in 1997 in Hồ Chí Minh City."
+      },
+      "lifespan": {
+        "vi": "1913 – 1997",
+        "en": "1913 – 1997"
+      },
+      "avatar": {
+        "id": "tran-dai-nghia-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "tran-dai-nghia-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "hoang-van-thai",
+      "name": {
+        "vi": "Hoàng Văn Thái",
+        "en": "Hoàng Văn Thái"
+      },
+      "epithet": {
+        "vi": "Tổng Tham mưu trưởng đầu tiên của Quân đội nhân dân Việt Nam",
+        "en": "First Chief of the General Staff of the People’s Army"
+      },
+      "bio": {
+        "vi": "Người Thái Bình, ông là Tổng Tham mưu trưởng đầu tiên của Quân đội nhân dân Việt Nam, góp phần vào nhiều chiến dịch trong kháng chiến chống Pháp, trong đó có Điện Biên Phủ. Về sau ông được phong Đại tướng và mất năm 1986.",
+        "en": "A native of Thái Bình, he was the first Chief of the General Staff of the People’s Army of Vietnam and contributed to many campaigns of the war against France, including Điện Biên Phủ. He was later promoted to full general and died in 1986."
+      },
+      "lifespan": {
+        "vi": "1915 – 1986",
+        "en": "1915 – 1986"
+      },
+      "avatar": {
+        "id": "hoang-van-thai-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "hoang-van-thai-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ta-quang-buu",
+      "name": {
+        "vi": "Tạ Quang Bửu",
+        "en": "Tạ Quang Bửu"
+      },
+      "epithet": {
+        "vi": "Nhà khoa học; đại diện quân sự tại Hội nghị Genève 1954",
+        "en": "Scientist; military representative at the 1954 Geneva Conference"
+      },
+      "bio": {
+        "vi": "Người Nghệ An, ông học toán và vật lý ở Pháp và Anh, về nước làm giảng viên rồi là Thứ trưởng Bộ Quốc phòng trong kháng chiến chống Pháp. Ông tham gia đàm phán đình chiến tại Hội nghị Genève năm 1954; sau đó ông là Bộ trưởng Đại học và Trung học chuyên nghiệp. Ông mất năm 1986.",
+        "en": "A native of Nghệ An who studied mathematics and physics in France and England, returned to teach, and became Deputy Minister of Defence during the war against France. He took part in the armistice talks at the Geneva Conference in 1954 and later served as Minister of Higher and Vocational Education. He died in 1986."
+      },
+      "lifespan": {
+        "vi": "1910 – 1986",
+        "en": "1910 – 1986"
+      },
+      "avatar": {
+        "id": "ta-quang-buu-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ta-quang-buu-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-chi-thanh",
+      "name": {
+        "vi": "Nguyễn Chí Thanh",
+        "en": "Nguyễn Chí Thanh"
+      },
+      "epithet": {
+        "vi": "Đại tướng; Chính ủy Quân đội nhân dân",
+        "en": "General; Political Commissar of the People’s Army"
+      },
+      "bio": {
+        "vi": "Người Thừa Thiên Huế, ông hoạt động cách mạng từ những năm 1930 và là Chính ủy Quân đội nhân dân Việt Nam. Từ năm 1964, ông vào chiến trường miền Nam chỉ đạo Trung ương Cục, và mất ngày 6 tháng 7 năm 1967 ở Hà Nội.",
+        "en": "A native of Thừa Thiên Huế who worked in the revolutionary movement from the 1930s and served as Political Commissar of the People’s Army. From 1964 he went to the southern battlefield to direct the Central Office for South Vietnam, and he died on 6 July 1967 in Hà Nội."
+      },
+      "lifespan": {
+        "vi": "1914 – 1967",
+        "en": "1914 – 1967"
+      },
+      "avatar": {
+        "id": "nguyen-chi-thanh-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-chi-thanh-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "le-duc-tho",
+      "name": {
+        "vi": "Lê Đức Thọ",
+        "en": "Lê Đức Thọ"
+      },
+      "epithet": {
+        "vi": "Trưởng đoàn cố vấn đàm phán Hiệp định Paris 1973",
+        "en": "Chief adviser at the negotiation of the 1973 Paris Agreement"
+      },
+      "bio": {
+        "vi": "Người Nam Định, ông hoạt động từ năm 1930 và bị Pháp giam ở Sơn La và Côn Đảo. Ông là cố vấn đặc biệt của đoàn Việt Nam Dân chủ Cộng hòa trong các cuộc đàm phán dẫn đến Hiệp định Paris ký ngày 27 tháng 1 năm 1973; ông mất năm 1990.",
+        "en": "A native of Nam Định, active from 1930 and imprisoned by the French at Sơn La and on Côn Đảo. He was special adviser to the delegation of the Democratic Republic of Vietnam in the talks that led to the Paris Agreement signed on 27 January 1973; he died in 1990."
+      },
+      "lifespan": {
+        "vi": "1911 – 1990",
+        "en": "1911 – 1990"
+      },
+      "avatar": {
+        "id": "le-duc-tho-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "le-duc-tho-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "xuan-thuy",
+      "name": {
+        "vi": "Xuân Thủy",
+        "en": "Xuân Thủy"
+      },
+      "epithet": {
+        "vi": "Nhà báo, nhà thơ; Trưởng đoàn đàm phán tại Paris 1968–1973",
+        "en": "Journalist and poet; head of the delegation at the Paris talks, 1968–1973"
+      },
+      "bio": {
+        "vi": "Sinh ở Hà Nội, ông làm báo và viết thơ từ thời trước Cách mạng Tháng Tám. Từ năm 1968 đến năm 1973, ông là Trưởng đoàn đại biểu Chính phủ Việt Nam Dân chủ Cộng hòa tại Hội nghị Paris về Việt Nam; ông mất năm 1985.",
+        "en": "Born in Hà Nội, he worked as a journalist and wrote poetry before the August Revolution. From 1968 to 1973 he headed the delegation of the Democratic Republic of Vietnam at the Paris Conference on Vietnam; he died in 1985."
+      },
+      "lifespan": {
+        "vi": "1912 – 1985",
+        "en": "1912 – 1985"
+      },
+      "avatar": {
+        "id": "xuan-thuy-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "xuan-thuy-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "pham-hung",
+      "name": {
+        "vi": "Phạm Hùng",
+        "en": "Phạm Hùng"
+      },
+      "epithet": {
+        "vi": "Bí thư Trung ương Cục miền Nam; Chủ tịch Hội đồng Bộ trưởng 1987–1988",
+        "en": "Secretary of the Central Office for South Vietnam; Chairman of the Council of Ministers, 1987–1988"
+      },
+      "bio": {
+        "vi": "Người Vĩnh Long, ông bị Pháp giam ở Côn Đảo từ năm 1931 đến năm 1945. Trong kháng chiến chống Mỹ, ông là Bí thư Trung ương Cục miền Nam; sau năm 1975 ông giữ các chức vụ trong Chính phủ và là Chủ tịch Hội đồng Bộ trưởng từ năm 1987 đến khi mất ngày 10 tháng 3 năm 1988.",
+        "en": "A native of Vĩnh Long, imprisoned by the French on Côn Đảo from 1931 to 1945. During the war against the United States he was Secretary of the Central Office for South Vietnam; after 1975 he held posts in the government and was Chairman of the Council of Ministers from 1987 until his death on 10 March 1988."
+      },
+      "lifespan": {
+        "vi": "1912 – 1988",
+        "en": "1912 – 1988"
+      },
+      "avatar": {
+        "id": "pham-hung-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "pham-hung-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "le-anh-xuan",
+      "name": {
+        "vi": "Lê Anh Xuân",
+        "en": "Lê Anh Xuân"
+      },
+      "epithet": {
+        "vi": "Nhà thơ chiến sĩ; tác giả Dáng đứng Việt Nam",
+        "en": "Soldier-poet; author of Dáng đứng Việt Nam"
+      },
+      "bio": {
+        "vi": "Sinh năm 1940 ở Bến Tre, ông học ở Hà Nội rồi trở về Nam hoạt động văn nghệ trong chiến tranh. Ông là tác giả bài thơ Dáng đứng Việt Nam viết về Nguyễn Văn Trỗi, và hy sinh ngày 21 tháng 5 năm 1968.",
+        "en": "Born in 1940 in Bến Tre, he studied in Hà Nội and returned to the South to work in the arts during the war. He wrote the poem Dáng đứng Việt Nam about Nguyễn Văn Trỗi, and was killed on 21 May 1968."
+      },
+      "lifespan": {
+        "vi": "1940 – 1968",
+        "en": "1940 – 1968"
+      },
+      "avatar": {
+        "id": "le-anh-xuan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "le-anh-xuan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "thich-quang-duc",
+      "name": {
+        "vi": "Thích Quảng Đức",
+        "en": "Thích Quảng Đức"
+      },
+      "epithet": {
+        "vi": "Hòa thượng; tự thiêu ở Sài Gòn năm 1963",
+        "en": "Buddhist monk; self-immolated in Sài Gòn in 1963"
+      },
+      "bio": {
+        "vi": "Tên thế tục là Lâm Văn Túc, sinh năm 1897 ở Khánh Hòa, xuất gia từ thiếu niên và trụ trì nhiều chùa ở Nam Bộ. Ngày 11 tháng 6 năm 1963, ông tự thiêu ở Sài Gòn để phản đối sự đàn áp Phật giáo của chính quyền Ngô Đình Diệm; sự kiện này làm chấn động dư luận trong nước và thế giới.",
+        "en": "Born Lâm Văn Túc in 1897 in Khánh Hòa, he entered the monkhood as a youth and served as abbot of several temples in the South. On 11 June 1963 he set himself alight in Sài Gòn to protest the Ngô Đình Diệm government’s repression of Buddhists, an act that shook opinion at home and abroad."
+      },
+      "lifespan": {
+        "vi": "1897 – 1963",
+        "en": "1897 – 1963"
+      },
+      "avatar": {
+        "id": "thich-quang-duc-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "thich-quang-duc-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-viet-xuan",
+      "name": {
+        "vi": "Nguyễn Viết Xuân",
+        "en": "Nguyễn Viết Xuân"
+      },
+      "epithet": {
+        "vi": "Anh hùng pháo thủ phòng không",
+        "en": "Hero of the anti-aircraft artillery"
+      },
+      "bio": {
+        "vi": "Người Vĩnh Phúc, ông là pháo đội trưởng phòng không, nổi tiếng với khẩu lệnh “Nhằm thẳng quân thù! Bắn!”. Bị thương nặng trong trận đánh ở Quảng Bình ngày 18 tháng 11 năm 1964, ông vẫn hô khẩu lệnh đó rồi hy sinh; ông được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
+        "en": "A native of Vĩnh Phúc and a battery commander in the anti-aircraft artillery, remembered for the command “Aim straight at the enemy! Fire!”. Gravely wounded in a battle in Quảng Bình on 18 November 1964, he still called that command and then died; he was posthumously named a Hero of the People’s Armed Forces."
+      },
+      "lifespan": {
+        "vi": "1933 – 1964",
+        "en": "1933 – 1964"
+      },
+      "avatar": {
+        "id": "nguyen-viet-xuan-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-viet-xuan-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "ly-chinh-thang",
+      "name": {
+        "vi": "Lý Chính Thắng",
+        "en": "Lý Chính Thắng"
+      },
+      "epithet": {
+        "vi": "Nguyễn Đức Huỳnh; đại biểu Quốc hội khóa I khu Sài Gòn – Chợ Lớn",
+        "en": "Nguyễn Đức Huỳnh; deputy of the first National Assembly for Sài Gòn–Chợ Lớn"
+      },
+      "bio": {
+        "vi": "Tên thật là Nguyễn Đức Huỳnh, quê Hà Tĩnh, hoạt động ở Nam Bộ và là đại biểu Quốc hội khóa I của khu Sài Gòn – Chợ Lớn. Ông hy sinh năm 1946, trong những tháng đầu của cuộc kháng chiến ở Nam Bộ.",
+        "en": "Born Nguyễn Đức Huỳnh in Hà Tĩnh, he worked in the South and was a deputy of the first National Assembly for the Sài Gòn–Chợ Lớn constituency. He was killed in 1946, in the first months of the Resistance in the South."
+      },
+      "lifespan": {
+        "vi": "1917 – 1946",
+        "en": "1917 – 1946"
+      },
+      "avatar": {
+        "id": "ly-chinh-thang-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "ly-chinh-thang-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "luu-huu-phuoc",
+      "name": {
+        "vi": "Lưu Hữu Phước",
+        "en": "Lưu Hữu Phước"
+      },
+      "epithet": {
+        "vi": "Nhạc sĩ; tác giả Tiếng gọi sinh viên và Giải phóng miền Nam",
+        "en": "Composer of Tiếng gọi sinh viên and Giải phóng miền Nam"
+      },
+      "bio": {
+        "vi": "Sinh năm 1921 ở Cần Thơ, ông học ở Hà Nội và Sài Gòn. Ông là một trong những tác giả của Tiếng gọi sinh viên năm 1941, về sau là Sinh viên hành khúc, và của bài Giải phóng miền Nam, quốc ca của Mặt trận Dân tộc Giải phóng miền Nam Việt Nam. Ông mất năm 1989.",
+        "en": "Born in 1921 in Cần Thơ, he studied in Hà Nội and Sài Gòn. He was among the authors of Tiếng gọi sinh viên in 1941, later known as the students’ march, and of Giải phóng miền Nam, anthem of the National Liberation Front of South Vietnam. He died in 1989."
+      },
+      "lifespan": {
+        "vi": "1921 – 1989",
+        "en": "1921 – 1989"
+      },
+      "avatar": {
+        "id": "luu-huu-phuoc-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "luu-huu-phuoc-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "vo-chi-cong",
+      "name": {
+        "vi": "Võ Chí Công",
+        "en": "Võ Chí Công"
+      },
+      "epithet": {
+        "vi": "Chủ tịch Hội đồng Nhà nước 1987–1992",
+        "en": "Chairman of the Council of State, 1987–1992"
+      },
+      "bio": {
+        "vi": "Người Quảng Nam, ông hoạt động cách mạng từ những năm 1930 và giữ nhiều trọng trách ở Khu V và trung ương. Ông là Chủ tịch Hội đồng Nhà nước từ năm 1987 đến năm 1992 và mất ngày 8 tháng 9 năm 2011.",
+        "en": "A native of Quảng Nam, active in the revolutionary movement from the 1930s and holding many posts in Region V and at the centre. He was Chairman of the Council of State from 1987 to 1992 and died on 8 September 2011."
+      },
+      "lifespan": {
+        "vi": "1912 – 2011",
+        "en": "1912 – 2011"
+      },
+      "avatar": {
+        "id": "vo-chi-cong-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "vo-chi-cong-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "le-quang-dao",
+      "name": {
+        "vi": "Lê Quang Đạo",
+        "en": "Lê Quang Đạo"
+      },
+      "epithet": {
+        "vi": "Trung tướng; Chủ tịch Quốc hội 1987–1992",
+        "en": "Lieutenant General; Chairman of the National Assembly, 1987–1992"
+      },
+      "bio": {
+        "vi": "Người Bắc Ninh, ông tham gia cách mạng từ năm 1936 và là một cán bộ chính trị trong Quân đội nhân dân Việt Nam với quân hàm Trung tướng. Ông là Chủ tịch Quốc hội từ năm 1987 đến năm 1992 và mất ngày 24 tháng 7 năm 1999.",
+        "en": "A native of Bắc Ninh who joined the revolution in 1936 and became a political officer of the People’s Army with the rank of lieutenant general. He was Chairman of the National Assembly from 1987 to 1992 and died on 24 July 1999."
+      },
+      "lifespan": {
+        "vi": "1921 – 1999",
+        "en": "1921 – 1999"
+      },
+      "avatar": {
+        "id": "le-quang-dao-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "le-quang-dao-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "mai-chi-tho",
+      "name": {
+        "vi": "Mai Chí Thọ",
+        "en": "Mai Chí Thọ"
+      },
+      "epithet": {
+        "vi": "Đại tướng Công an nhân dân đầu tiên; Bộ trưởng Nội vụ 1986–1991",
+        "en": "First full general of the People’s Public Security Forces; Minister of the Interior, 1986–1991"
+      },
+      "bio": {
+        "vi": "Ông hoạt động cách mạng từ thời kháng chiến chống Pháp, sau năm 1975 là Phó Bí thư Thành ủy Thành phố Hồ Chí Minh. Ông là Bộ trưởng Bộ Nội vụ từ năm 1986 đến năm 1991 và là Đại tướng đầu tiên của lực lượng Công an nhân dân; ông mất năm 2007.",
+        "en": "Active in the revolutionary movement from the war against France, he was Deputy Secretary of the Hồ Chí Minh City Party Committee after 1975. He served as Minister of the Interior from 1986 to 1991 and was the first full general of the People’s Public Security Forces; he died in 2007."
+      },
+      "lifespan": {
+        "vi": "1922 – 2007",
+        "en": "1922 – 2007"
+      },
+      "avatar": {
+        "id": "mai-chi-tho-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "mai-chi-tho-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
+    },
+    {
+      "id": "nguyen-co-thach",
+      "name": {
+        "vi": "Nguyễn Cơ Thạch",
+        "en": "Nguyễn Cơ Thạch"
+      },
+      "epithet": {
+        "vi": "Bộ trưởng Ngoại giao 1980–1991",
+        "en": "Minister of Foreign Affairs, 1980–1991"
+      },
+      "bio": {
+        "vi": "Ông hoạt động cách mạng từ trước năm 1945, từng bị giam ở Côn Đảo, và sau này làm công tác ngoại giao của nước Việt Nam Dân chủ Cộng hòa và nước Cộng hòa xã hội chủ nghĩa Việt Nam. Ông là Bộ trưởng Bộ Ngoại giao từ năm 1980 đến năm 1991 và mất ngày 10 tháng 4 năm 1998.",
+        "en": "Active in the revolutionary movement before 1945 and once imprisoned on Côn Đảo, he later worked in the diplomacy of the Democratic Republic of Vietnam and then the Socialist Republic of Vietnam. He was Minister of Foreign Affairs from 1980 to 1991 and died on 10 April 1998."
+      },
+      "lifespan": {
+        "vi": "1921 – 1998",
+        "en": "1921 – 1998"
+      },
+      "avatar": {
+        "id": "nguyen-co-thach-avatar",
+        "type": "image",
+        "placeholder": "portrait-held"
+      },
+      "fullBody": {
+        "id": "nguyen-co-thach-full",
+        "type": "image",
+        "placeholder": "portrait-held"
+      }
     }
   ]
 }

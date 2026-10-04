@@ -98,8 +98,8 @@ void main() {
       );
       expect(result.isValid, isTrue, reason: result.issues.join('\n'));
       expect(result.eraCount, eraFiles.length);
-      expect(result.eventCount, 237);
-      expect(result.standaloneEventCount, 0);
+      // Standalone events grow with the street map; era events are the base.
+      expect(result.eventCount - result.standaloneEventCount, 237);
       expect(result.peopleCount, greaterThan(0));
       expect(result.periodCount, greaterThan(0));
     });
@@ -280,12 +280,13 @@ void main() {
         Map<String, dynamic>.of((registry()['events'] as List).first as Map<String, dynamic>);
 
     test('an event no era lists is standalone, and a valid one passes', () {
+      final base = validate(_refEraTexts(), registry());
       final events = registry();
       (events['events'] as List).add(standalone(firstEvent()));
       final result = validate(_refEraTexts(), events);
       expect(result.isValid, isTrue, reason: result.issues.join('\n'));
-      expect(result.eventCount, 238);
-      expect(result.standaloneEventCount, 1);
+      expect(result.eventCount, base.eventCount + 1);
+      expect(result.standaloneEventCount, base.standaloneEventCount + 1);
     });
 
     test('a standalone event needs a dated year', () {

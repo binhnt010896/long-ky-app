@@ -164,12 +164,11 @@ void main() {
       expect(standaloneEventIds(eras, ['a', 'b', 'inline-one', 'c']), ['b', 'c']);
     });
 
-    test('the real content has no standalone events yet', () {
-      expect(
-        standaloneEventIds(
-            _eraJsons(), eventJsonById(_json('events.json')).keys),
-        isEmpty,
-      );
+    test('the real standalone events are the ones no era lists', () {
+      final ids = standaloneEventIds(
+          _eraJsons(), eventJsonById(_json('events.json')).keys);
+      expect(ids, contains('dac-cong-rung-sac'));
+      expect(ids, isNot(contains('dien-bien-phu')));
     });
   });
 }

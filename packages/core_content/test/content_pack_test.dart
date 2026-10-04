@@ -148,7 +148,7 @@ void main() {
       final pack = ContentPack.parseAndValidate(jsonEncode(raw));
       final repo = ContentRepository(PackContentSource(pack));
       final events = await repo.loadStandaloneEvents();
-      expect(events.map((e) => e.id), ['su-kien-rieng']);
+      expect(events.map((e) => e.id), contains('su-kien-rieng'));
       final found = await repo.findEvent('su-kien-rieng');
       expect(found?.isStandalone, isTrue);
     });

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "city": "hcm",
-  "osmSnapshot": "2026-10-03",
+  "osmSnapshot": "2026-10-04",
   "geometry": "streets/hcm-streets.geojson",
   "basemap": "streets/hcm-basemap.pmtiles",
   "start": {
@@ -206,6 +206,19 @@
       ],
       "status": "approved",
       "reason": "alias"
+    },
+    {
+      "id": "be-van-dan",
+      "name": "Bế Văn Đàn",
+      "targets": [
+        {
+          "type": "person",
+          "id": "be-van-dan",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
     },
     {
       "id": "ben-chuong-duong",
@@ -416,6 +429,19 @@
       "reason": "alias"
     },
     {
+      "id": "cu-chinh-lan",
+      "name": "Cù Chính Lan",
+      "targets": [
+        {
+          "type": "person",
+          "id": "cu-chinh-lan",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "da-tuong",
       "name": "Dã Tượng",
       "targets": [
@@ -455,6 +481,19 @@
       "reason": "exact"
     },
     {
+      "id": "dang-nguyen-can",
+      "name": "Đặng Nguyên Cẩn",
+      "targets": [
+        {
+          "type": "person",
+          "id": "dang-nguyen-can",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "dang-nhu-mai",
       "name": "Đặng Như Mai",
       "targets": [
@@ -474,6 +513,19 @@
         {
           "type": "person",
           "id": "dang-tat",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "dang-thai-than",
+      "name": "Đặng Thái Thân",
+      "targets": [
+        {
+          "type": "person",
+          "id": "dang-thai-than",
           "era": ""
         }
       ],
@@ -733,6 +785,32 @@
       "reason": "exact"
     },
     {
+      "id": "ha-huy-giap",
+      "name": "Hà Huy Giáp",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ha-huy-giap",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "ha-huy-tap",
+      "name": "Hà Huy Tập",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ha-huy-tap",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "hai-ba-trung",
       "name": "Hai Bà Trưng",
       "targets": [
@@ -808,6 +886,19 @@
       "reason": "exact"
     },
     {
+      "id": "ho-tung-mau",
+      "name": "Hồ Tùng Mậu",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ho-tung-mau",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "hoang-dieu",
       "name": "Hoàng Diệu",
       "targets": [
@@ -840,6 +931,45 @@
         {
           "type": "person",
           "id": "hoang-ke-viem",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "hoang-quoc-viet",
+      "name": "Hoàng Quốc Việt",
+      "targets": [
+        {
+          "type": "person",
+          "id": "hoang-quoc-viet",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "hoang-van-thai",
+      "name": "Hoàng Văn Thái",
+      "targets": [
+        {
+          "type": "person",
+          "id": "hoang-van-thai",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "hoang-van-thu",
+      "name": "Hoàng Văn Thụ",
+      "targets": [
+        {
+          "type": "person",
+          "id": "hoang-van-thu",
           "era": ""
         }
       ],
@@ -925,6 +1055,32 @@
       "reason": "exact"
     },
     {
+      "id": "huynh-thuc-khang",
+      "name": "Huỳnh Thúc Kháng",
+      "targets": [
+        {
+          "type": "person",
+          "id": "huynh-thuc-khang",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "kim-dong",
+      "name": "Kim Đồng",
+      "targets": [
+        {
+          "type": "person",
+          "id": "kim-dong",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "kinh-duong-vuong",
       "name": "Kinh Dương Vương",
       "targets": [
@@ -932,6 +1088,32 @@
           "type": "person",
           "id": "kinh-duong-vuong",
           "era": "hong-bang-van-lang"
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "ky-con",
+      "name": "Ký Con",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ky-con",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "ky-dong",
+      "name": "Kỳ Đồng",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ky-dong",
+          "era": ""
         }
       ],
       "status": "approved",
@@ -962,6 +1144,19 @@
       ],
       "status": "approved",
       "reason": "alias"
+    },
+    {
+      "id": "le-anh-xuan",
+      "name": "Lê Anh Xuân",
+      "targets": [
+        {
+          "type": "person",
+          "id": "le-anh-xuan",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
     },
     {
       "id": "le-dai-hanh",
@@ -997,6 +1192,32 @@
           "type": "person",
           "id": "le-duc-anh",
           "era": "bien-gioi-tay-nam"
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "le-duc-tho",
+      "name": "Lê Đức Thọ",
+      "targets": [
+        {
+          "type": "person",
+          "id": "le-duc-tho",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "le-hong-phong",
+      "name": "Lê Hồng Phong",
+      "targets": [
+        {
+          "type": "person",
+          "id": "le-hong-phong",
+          "era": ""
         }
       ],
       "status": "approved",
@@ -1067,6 +1288,19 @@
           "type": "person",
           "id": "le-phung-hieu",
           "era": "ly-thai-to"
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "le-quang-dao",
+      "name": "Lê Quang Đạo",
+      "targets": [
+        {
+          "type": "person",
+          "id": "le-quang-dao",
+          "era": ""
         }
       ],
       "status": "approved",
@@ -1229,6 +1463,19 @@
       "reason": "exact"
     },
     {
+      "id": "luong-ngoc-quyen",
+      "name": "Lương Ngọc Quyến",
+      "targets": [
+        {
+          "type": "person",
+          "id": "luong-ngoc-quyen",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "luong-the-vinh",
       "name": "Lương Thế Vinh",
       "targets": [
@@ -1249,6 +1496,19 @@
           "type": "person",
           "id": "luong-van-can",
           "era": "phong-trao-yeu-nuoc"
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "luu-huu-phuoc",
+      "name": "Lưu Hữu Phước",
+      "targets": [
+        {
+          "type": "person",
+          "id": "luu-huu-phuoc",
+          "era": ""
         }
       ],
       "status": "approved",
@@ -1288,6 +1548,19 @@
           "type": "person",
           "id": "ly-chieu-hoang",
           "era": "tran-thai-tong"
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "ly-chinh-thang",
+      "name": "Lý Chính Thắng",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ly-chinh-thang",
+          "era": ""
         }
       ],
       "status": "approved",
@@ -1442,6 +1715,19 @@
       "reason": "exact"
     },
     {
+      "id": "mai-chi-tho",
+      "name": "Mai Chí Thọ",
+      "targets": [
+        {
+          "type": "person",
+          "id": "mai-chi-tho",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "mai-hac-de",
       "name": "Mai Hắc Đế",
       "targets": [
@@ -1484,6 +1770,32 @@
       ],
       "status": "approved",
       "reason": "alias"
+    },
+    {
+      "id": "ngo-duc-ke",
+      "name": "Ngô Đức Kế",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ngo-duc-ke",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "ngo-gia-tu",
+      "name": "Ngô Gia Tự",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ngo-gia-tu",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
     },
     {
       "id": "ngo-nhan-tinh",
@@ -1556,6 +1868,19 @@
       "reason": "exact"
     },
     {
+      "id": "nguyen-an-ninh",
+      "name": "Nguyễn An Ninh",
+      "targets": [
+        {
+          "type": "person",
+          "id": "nguyen-an-ninh",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "nguyen-bac",
       "name": "Nguyễn Bặc",
       "targets": [
@@ -1595,6 +1920,19 @@
       "reason": "exact"
     },
     {
+      "id": "nguyen-chi-thanh",
+      "name": "Nguyễn Chí Thanh",
+      "targets": [
+        {
+          "type": "person",
+          "id": "nguyen-chi-thanh",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "nguyen-chich",
       "name": "Nguyễn Chích",
       "targets": [
@@ -1602,6 +1940,19 @@
           "type": "person",
           "id": "nguyen-chich",
           "era": "le-loi"
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "nguyen-co-thach",
+      "name": "Nguyễn Cơ Thạch",
+      "targets": [
+        {
+          "type": "person",
+          "id": "nguyen-co-thach",
+          "era": ""
         }
       ],
       "status": "approved",
@@ -1686,6 +2037,19 @@
       "reason": "exact"
     },
     {
+      "id": "nguyen-duc-canh",
+      "name": "Nguyễn Đức Cảnh",
+      "targets": [
+        {
+          "type": "person",
+          "id": "nguyen-duc-canh",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "nguyen-duy-hieu",
       "name": "Nguyễn Duy Hiệu",
       "targets": [
@@ -1751,6 +2115,19 @@
       "reason": "exact"
     },
     {
+      "id": "nguyen-khac-nhu",
+      "name": "Nguyễn Khắc Nhu",
+      "targets": [
+        {
+          "type": "person",
+          "id": "nguyen-khac-nhu",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "nguyen-khoai",
       "name": "Nguyễn Khoái",
       "targets": [
@@ -1771,6 +2148,19 @@
           "type": "person",
           "id": "nguyen-kim",
           "era": "nam-bac-trieu"
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "nguyen-luong-bang",
+      "name": "Nguyễn Lương Bằng",
+      "targets": [
+        {
+          "type": "person",
+          "id": "nguyen-luong-bang",
+          "era": ""
         }
       ],
       "status": "approved",
@@ -1920,6 +2310,19 @@
       "reason": "alias"
     },
     {
+      "id": "nguyen-thuong-hien",
+      "name": "Nguyễn Thượng Hiền",
+      "targets": [
+        {
+          "type": "person",
+          "id": "nguyen-thuong-hien",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "nguyen-trai",
       "name": "Nguyễn Trãi",
       "targets": [
@@ -1972,6 +2375,19 @@
       "reason": "exact"
     },
     {
+      "id": "nguyen-van-cu",
+      "name": "Nguyễn Văn Cừ",
+      "targets": [
+        {
+          "type": "person",
+          "id": "nguyen-van-cu",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "nguyen-van-linh",
       "name": "Nguyễn Văn Linh",
       "targets": [
@@ -1998,12 +2414,38 @@
       "reason": "exact"
     },
     {
+      "id": "nguyen-van-to",
+      "name": "Nguyễn Văn Tố",
+      "targets": [
+        {
+          "type": "person",
+          "id": "nguyen-van-to",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "nguyen-van-troi",
       "name": "Nguyễn Văn Trỗi",
       "targets": [
         {
           "type": "person",
           "id": "nguyen-van-troi",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "nguyen-viet-xuan",
+      "name": "Nguyễn Viết Xuân",
+      "targets": [
+        {
+          "type": "person",
+          "id": "nguyen-viet-xuan",
           "era": ""
         }
       ],
@@ -2102,6 +2544,45 @@
       "reason": "alias"
     },
     {
+      "id": "pham-hong-thai",
+      "name": "Phạm Hồng Thái",
+      "targets": [
+        {
+          "type": "person",
+          "id": "pham-hong-thai",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "pham-hung",
+      "name": "Phạm Hùng",
+      "targets": [
+        {
+          "type": "person",
+          "id": "pham-hung",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "pham-ngoc-thach",
+      "name": "Phạm Ngọc Thạch",
+      "targets": [
+        {
+          "type": "person",
+          "id": "pham-ngoc-thach",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "pham-ngu-lao",
       "name": "Phạm Ngũ Lão",
       "targets": [
@@ -2191,6 +2672,19 @@
       ],
       "status": "approved",
       "reason": "alias"
+    },
+    {
+      "id": "phan-dang-luu",
+      "name": "Phan Đăng Lưu",
+      "targets": [
+        {
+          "type": "person",
+          "id": "phan-dang-luu",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
     },
     {
       "id": "phan-dinh-giot",
@@ -2310,6 +2804,32 @@
       "reason": "exact"
     },
     {
+      "id": "phan-van-truong",
+      "name": "Phan Văn Trường",
+      "targets": [
+        {
+          "type": "person",
+          "id": "phan-van-truong",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "pho-duc-chinh",
+      "name": "Phó Đức Chính",
+      "targets": [
+        {
+          "type": "person",
+          "id": "pho-duc-chinh",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "phu-dong-thien-vuong",
       "name": "Phù Đổng Thiên Vương",
       "targets": [
@@ -2317,6 +2837,19 @@
           "type": "person",
           "id": "thanh-giong",
           "era": "hong-bang-van-lang"
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "phung-chi-kien",
+      "name": "Phùng Chí Kiên",
+      "targets": [
+        {
+          "type": "person",
+          "id": "phung-chi-kien",
+          "era": ""
         }
       ],
       "status": "approved",
@@ -2393,6 +2926,32 @@
       "reason": "alias"
     },
     {
+      "id": "ta-quang-buu",
+      "name": "Tạ Quang Bửu",
+      "targets": [
+        {
+          "type": "person",
+          "id": "ta-quang-buu",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "tang-bat-ho",
+      "name": "Tăng Bạt Hổ",
+      "targets": [
+        {
+          "type": "person",
+          "id": "tang-bat-ho",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "tay-son",
       "name": "Tây Sơn",
       "targets": [
@@ -2404,6 +2963,19 @@
       ],
       "status": "approved",
       "reason": "alias"
+    },
+    {
+      "id": "thai-phien",
+      "name": "Thái Phiên",
+      "targets": [
+        {
+          "type": "person",
+          "id": "thai-phien",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
     },
     {
       "id": "than-nhan-trung",
@@ -2439,6 +3011,19 @@
           "type": "person",
           "id": "thi-sach",
           "era": "hai-ba-trung"
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "thich-quang-duc",
+      "name": "Thích Quảng Đức",
+      "targets": [
+        {
+          "type": "person",
+          "id": "thich-quang-duc",
+          "era": ""
         }
       ],
       "status": "approved",
@@ -2491,6 +3076,32 @@
           "type": "person",
           "id": "tinh-thieu",
           "era": "van-xuan"
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "to-hieu",
+      "name": "Tô Hiệu",
+      "targets": [
+        {
+          "type": "person",
+          "id": "to-hieu",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "to-vinh-dien",
+      "name": "Tô Vĩnh Diện",
+      "targets": [
+        {
+          "type": "person",
+          "id": "to-vinh-dien",
+          "era": ""
         }
       ],
       "status": "approved",
@@ -2601,6 +3212,32 @@
       "reason": "exact"
     },
     {
+      "id": "tran-cao-van",
+      "name": "Trần Cao Vân",
+      "targets": [
+        {
+          "type": "person",
+          "id": "tran-cao-van",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "tran-dai-nghia",
+      "name": "Trần Đại Nghĩa",
+      "targets": [
+        {
+          "type": "person",
+          "id": "tran-dai-nghia",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "tran-hung-dao",
       "name": "Trần Hưng Đạo",
       "targets": [
@@ -2617,6 +3254,19 @@
       ],
       "status": "approved",
       "reason": "multi"
+    },
+    {
+      "id": "tran-huy-lieu",
+      "name": "Trần Huy Liệu",
+      "targets": [
+        {
+          "type": "person",
+          "id": "tran-huy-lieu",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
     },
     {
       "id": "tran-khac-chan",
@@ -2762,6 +3412,19 @@
       "reason": "alias"
     },
     {
+      "id": "tran-quy-cap",
+      "name": "Trần Quý Cáp",
+      "targets": [
+        {
+          "type": "person",
+          "id": "tran-quy-cap",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "tran-tan",
       "name": "Trần Tấn",
       "targets": [
@@ -2884,6 +3547,19 @@
       "reason": "exact"
     },
     {
+      "id": "trinh-van-can",
+      "name": "Trịnh Văn Cấn",
+      "targets": [
+        {
+          "type": "person",
+          "id": "trinh-van-can",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "trung-nu-vuong",
       "name": "Trưng Nữ Vương",
       "targets": [
@@ -2988,6 +3664,19 @@
       "reason": "exact"
     },
     {
+      "id": "van-cao",
+      "name": "Văn Cao",
+      "targets": [
+        {
+          "type": "person",
+          "id": "van-cao",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
       "id": "van-hanh",
       "name": "Vạn Hạnh",
       "targets": [
@@ -3008,6 +3697,19 @@
           "type": "person",
           "id": "van-tien-dung",
           "era": "dai-thang-mua-xuan"
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
+    },
+    {
+      "id": "vo-chi-cong",
+      "name": "Võ Chí Công",
+      "targets": [
+        {
+          "type": "person",
+          "id": "vo-chi-cong",
+          "era": ""
         }
       ],
       "status": "approved",
@@ -3103,6 +3805,19 @@
       ],
       "status": "approved",
       "reason": "alias"
+    },
+    {
+      "id": "xuan-thuy",
+      "name": "Xuân Thủy",
+      "targets": [
+        {
+          "type": "person",
+          "id": "xuan-thuy",
+          "era": ""
+        }
+      ],
+      "status": "approved",
+      "reason": "exact"
     },
     {
       "id": "y-lan",
