@@ -262,7 +262,13 @@ a time and verify the bytes.
   Five people stay held (no photo): Mai Xuân Thưởng, Trần Tấn, Đặng Như Mai,
   Tôn Thất Tiệp, Tôn Thất Đàm. Phạm Bành and Xuân Ôn restorations look a little
   modern; re-check against sources.
-- **Wave D** (next).
+- **Wave D** — text and art BUILT (waist-up portraits from your photos, 2:3 full + 1:1 avatar).
+  55 standalone people, 55 streets. Held for now: Lý Chính Thắng (his photo lost the eyes,
+  so any portrait would be an invented face) and Trần Đại Nghĩa (the news-agency watermark made
+  the restore drift; needs a clean photo). Kỳ Đồng has no street in the OSM data (only alley
+  names), so he is reachable only from other content. Several restorations are approximate
+  because the sources are halftone or tiny (Ngô Gia Tự, Nguyễn Viết Xuân, Trịnh Văn Cấn,
+  Lương Ngọc Quyến). Wave E / landmark object queued.
 - **A landmark object and landmark detail page**, for Ba Đình, Trường Sơn,
   Vạn Kiếp… (R3).
 - Street mapping over the air (parked, R5).
