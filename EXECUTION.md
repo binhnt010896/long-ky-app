@@ -271,7 +271,27 @@ a time and verify the bytes.
   Lương Ngọc Quyến). Wave E / landmark object queued.
 - **A landmark object and landmark detail page**, for Ba Đình, Trường Sơn,
   Vạn Kiếp… (R3).
-- Street mapping over the air (parked, R5).
+- **Wave E: street mapping over the air (was parked, R5; unparked 2026-10-04).** Move
+  `content/streets/hcm.json` into the content pack so new streets and re-pointed
+  streets reach users without an app release. Plan only, nothing built yet:
+  - Pack: add an optional `streets` key (city → the mapping file). It is additive, like
+    `standaloneEvents`, so no `schemaVersion` bump and old builds ignore it.
+    `tool/build_content_pack.dart` reads `content/streets/*.json`; the pack validator
+    runs `StreetValidator` on it so a bad mapping can never ship.
+  - App: `BundledStreetDataSource.loadMapping` reads the active pack's `streets`
+    (through the same OTA overlay as people) and falls back to the bundled copy. The
+    reverse chip on person/event pages uses the same path. Lines in the geojson
+    without a mapping entry are ignored, and mapping entries without geometry are skipped.
+  - Geometry: `hcm-streets.geojson` already ships as CDN media. Add a CI check that
+    every approved street in the mapping has a line, because `build_geometry.dart` is
+    still a manual step, so a new street without regenerated geometry would silently
+    not light up.
+  - Tests: pack round-trip with and without `streets`; a stored older pack keeps the
+    bundled mapping; widget test that a pack-only street opens its person.
+  - Release note: this change itself needs one app release; streets added after it do not.
+  - Debug-build trap seen in Cycle R: a bundle with a stale `media-manifest.json` kept an
+    old cached street file. Once the mapping is OTA the manifest is too, so this goes away
+    for users; for dev builds, pull `main` after a publish (it carries the new baseline).
 - A "Danh nhân" directory for standalone people.
 - Wave E: local Southern martyrs, scientists and artists, Tô Hiến Thành,
   Nguyễn Hữu Cầu.

@@ -95,11 +95,13 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   /// the card below. The camera constraint still applies.
   void _fitTo(List<LatLng> pts) {
     if (pts.isEmpty) return;
-    _map.fitCamera(CameraFit.bounds(
-      bounds: LatLngBounds.fromPoints(pts),
-      padding: const EdgeInsets.fromLTRB(48, 140, 48, 280),
-      maxZoom: 16,
-    ));
+    _map.fitCamera(
+      CameraFit.bounds(
+        bounds: LatLngBounds.fromPoints(pts),
+        padding: const EdgeInsets.fromLTRB(48, 140, 48, 280),
+        maxZoom: 16,
+      ),
+    );
   }
 
   void _onTap(StreetMapData data, LatLng at) {
@@ -123,6 +125,50 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
     }
   }
 
+  MapOptions? _options;
+  StreetMapData? _optionsData;
+
+  /// The map's options, built once per [data]. flutter_map re-applies (and, in
+  /// debug, asserts on) the options whenever the widget's options object
+  /// changes, so a fresh object on every rebuild made the screen crash when a
+  /// long street left the camera right at the edge of its constraint — e.g.
+  /// Trần Đại Nghĩa, then returning from its person page.
+  MapOptions _optionsFor(StreetMapData data, List<LatLng> selectedPts) {
+    final cached = _options;
+    if (cached != null && identical(_optionsData, data)) return cached;
+    final start = data.file.start;
+    _optionsData = data;
+    return _options = MapOptions(
+      backgroundColor: VSColors.lacquer,
+      minZoom: kStreetMinZoom,
+      maxZoom: kStreetMaxZoom,
+      cameraConstraint: CameraConstraint.contain(bounds: data.bounds),
+      // Open on the mapping's own start view (the city centre, close
+      // enough to read the streets). With none, start with the whole
+      // locked area filling the view — the one camera `contain` is
+      // always satisfied by (a plain fit of the bounds would leave a
+      // tall phone view poking outside them).
+      initialCameraFit: start == null
+          ? CameraFit.insideBounds(bounds: data.bounds)
+          : null,
+      // flutter_map validates the pre-layout camera against the
+      // constraint too; its centre must already be inside the bounds.
+      initialCenter: start == null
+          ? data.bounds.center
+          : LatLng(start.lat, start.lng),
+      initialZoom: start == null
+          ? kStreetMinZoom
+          : start.zoom.clamp(kStreetMinZoom, kStreetMaxZoom),
+      onMapReady: () {
+        if (selectedPts.isNotEmpty) _fitTo(selectedPts);
+      },
+      interactionOptions: const InteractionOptions(
+        flags: InteractiveFlag.all & ~InteractiveFlag.rotate,
+      ),
+      onTap: (_, at) => _onTap(data, at),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final lang = ref.watch(langProvider);
@@ -131,10 +177,12 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
       backgroundColor: VSColors.lacquer,
       body: async.when(
         loading: () => const Center(
-            child: CircularProgressIndicator(color: VSColors.gold)),
+          child: CircularProgressIndicator(color: VSColors.gold),
+        ),
         error: (_, __) => _Unavailable(lang: lang),
-        data: (data) =>
-            data == null ? _Unavailable(lang: lang) : _body(context, data, lang),
+        data: (data) => data == null
+            ? _Unavailable(lang: lang)
+            : _body(context, data, lang),
       ),
     );
   }
@@ -142,38 +190,19 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   Widget _body(BuildContext context, StreetMapData data, Lang lang) {
     final basemapUrl = streetBasemapUrl(data.file);
     final tiles = _tilesFor(basemapUrl);
-    final start = data.file.start;
     final selected = _selected == null ? null : data.street(_selected!);
     final selectedPts = _selected == null
         ? const <LatLng>[]
-        : [for (final l in data.lines[_selected!] ?? const <List<LatLng>>[]) ...l];
+        : [
+            for (final l in data.lines[_selected!] ?? const <List<LatLng>>[])
+              ...l,
+          ];
 
     return Stack(
       children: <Widget>[
         FlutterMap(
           mapController: _map,
-          options: MapOptions(
-            backgroundColor: VSColors.lacquer,
-            minZoom: kStreetMinZoom,
-            maxZoom: kStreetMaxZoom,
-            cameraConstraint: CameraConstraint.contain(bounds: data.bounds),
-            // Open on the mapping's own start view (the city centre, close
-            // enough to read the streets). With none, start with the whole
-            // locked area filling the view — the one camera `contain` is
-            // always satisfied by (a plain fit of the bounds would leave a
-            // tall phone view poking outside them).
-            initialCameraFit: start == null ? CameraFit.insideBounds(bounds: data.bounds) : null,
-            // flutter_map validates the pre-layout camera against the
-            // constraint too; its centre must already be inside the bounds.
-            initialCenter: start == null ? data.bounds.center : LatLng(start.lat, start.lng),
-            initialZoom: start == null ? kStreetMinZoom : start.zoom.clamp(kStreetMinZoom, kStreetMaxZoom),
-            onMapReady: () {
-              if (selectedPts.isNotEmpty) _fitTo(selectedPts);
-            },
-            interactionOptions: const InteractionOptions(
-                flags: InteractiveFlag.all & ~InteractiveFlag.rotate),
-            onTap: (_, at) => _onTap(data, at),
-          ),
+          options: _optionsFor(data, selectedPts),
           children: <Widget>[
             if (tiles != null)
               FutureBuilder<PmTilesVectorTileProvider>(
@@ -188,46 +217,52 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                   return VectorTileLayer(
                     theme: _basemapTheme,
                     cacheFolder: basemapCacheFolder,
-                    tileProviders: _tileProviders ??=
-                        TileProviders(<String, VectorTileProvider>{
-                      'protomaps': p,
-                    }),
+                    tileProviders: _tileProviders ??= TileProviders(
+                      <String, VectorTileProvider>{'protomaps': p},
+                    ),
                   );
                 },
               ),
             // Soft mask outside the old boundary.
-            PolygonLayer(polygons: <Polygon>[
-              Polygon(
-                points: const <LatLng>[
-                  LatLng(-85, -180),
-                  LatLng(-85, 180),
-                  LatLng(85, 180),
-                  LatLng(85, -180),
-                ],
-                holePointsList: data.boundary,
-                color: VSColors.lacquer.withValues(alpha: 0.7),
-              ),
-            ]),
+            PolygonLayer(
+              polygons: <Polygon>[
+                Polygon(
+                  points: const <LatLng>[
+                    LatLng(-85, -180),
+                    LatLng(-85, 180),
+                    LatLng(85, 180),
+                    LatLng(85, -180),
+                  ],
+                  holePointsList: data.boundary,
+                  color: VSColors.lacquer.withValues(alpha: 0.7),
+                ),
+              ],
+            ),
             // The history streets — the only tappable thing (M2).
-            PolylineLayer(polylines: <Polyline>[
-              for (final e in data.lines.entries)
-                if (e.key != _selected)
-                  for (final line in e.value)
-                    Polyline(
+            PolylineLayer(
+              polylines: <Polyline>[
+                for (final e in data.lines.entries)
+                  if (e.key != _selected)
+                    for (final line in e.value)
+                      Polyline(
                         points: line,
                         strokeWidth: 2.5,
                         color: _kRestingStreet,
                         strokeCap: StrokeCap.round,
-                        strokeJoin: StrokeJoin.round),
-              if (_selected != null)
-                for (final line in data.lines[_selected!] ?? const <List<LatLng>>[])
-                  Polyline(
+                        strokeJoin: StrokeJoin.round,
+                      ),
+                if (_selected != null)
+                  for (final line
+                      in data.lines[_selected!] ?? const <List<LatLng>>[])
+                    Polyline(
                       points: line,
                       strokeWidth: 6,
                       color: VSColors.goldBright,
                       strokeCap: StrokeCap.round,
-                      strokeJoin: StrokeJoin.round),
-            ]),
+                      strokeJoin: StrokeJoin.round,
+                    ),
+              ],
+            ),
             // Places to find your way by — on top so their names stay legible,
             // but they ignore touches (the gold streets are the only tappable
             // thing).
@@ -241,8 +276,10 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                 child: Container(
                   key: const Key('street-attribution'),
                   margin: const EdgeInsets.all(VSSpacing.sm),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 3,
+                  ),
                   decoration: BoxDecoration(
                     color: VSColors.lacquer.withValues(alpha: 0.75),
                     borderRadius: BorderRadius.circular(6),
@@ -253,8 +290,10 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                         : '© OpenStreetMap contributors · Protomaps',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: VSType.caption
-                        .copyWith(fontSize: 10.5, color: VSColors.inkMuted),
+                    style: VSType.caption.copyWith(
+                      fontSize: 10.5,
+                      color: VSColors.inkMuted,
+                    ),
                   ),
                 ),
               ),
@@ -271,20 +310,24 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     CircleIconButton(
-                        icon: Icons.arrow_back, onTap: () => context.pop()),
+                      icon: Icons.arrow_back,
+                      onTap: () => context.pop(),
+                    ),
                     Expanded(
                       child: Padding(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: VSSpacing.sm),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: VSSpacing.sm,
+                        ),
                         child: Text(
                           lang == Lang.vi
                               ? 'Đường phố mang tên sử'
                               : 'Streets named for history',
                           textAlign: TextAlign.center,
                           style: VSType.bodySmall.copyWith(
-                              color: VSColors.goldBright,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600),
+                            color: VSColors.goldBright,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ),
@@ -350,15 +393,16 @@ class _Search extends StatelessWidget {
         final matches = q.isEmpty
             ? const <MappedStreet>[]
             : streets
-                .where((s) => normalizeName(s.name).contains(q))
-                .take(6)
-                .toList();
+                  .where((s) => normalizeName(s.name).contains(q))
+                  .take(6)
+                  .toList();
         return Column(
           children: <Widget>[
             Material(
               color: VSColors.lacquerRaised.withValues(alpha: 0.92),
               shape: const StadiumBorder(
-                  side: BorderSide(color: VSColors.gold, width: 0.6)),
+                side: BorderSide(color: VSColors.gold, width: 0.6),
+              ),
               child: TextField(
                 key: const Key('street-search'),
                 controller: controller,
@@ -371,11 +415,15 @@ class _Search extends StatelessWidget {
                   isDense: true,
                   contentPadding: const EdgeInsets.symmetric(vertical: 14),
                   border: InputBorder.none,
-                  prefixIcon: const Icon(Icons.search,
-                      size: 20, color: VSColors.gold),
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    size: 20,
+                    color: VSColors.gold,
+                  ),
                   hintText: lang == Lang.vi ? 'Tìm tên đường' : 'Find a street',
-                  hintStyle: VSType.bodySmall
-                      .copyWith(color: VSColors.gold.withValues(alpha: 0.6)),
+                  hintStyle: VSType.bodySmall.copyWith(
+                    color: VSColors.gold.withValues(alpha: 0.6),
+                  ),
                 ),
               ),
             ),
@@ -415,7 +463,9 @@ class _Unavailable extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(VSSpacing.md),
             child: CircleIconButton(
-                icon: Icons.arrow_back, onTap: () => context.pop()),
+              icon: Icons.arrow_back,
+              onTap: () => context.pop(),
+            ),
           ),
           Center(
             child: Padding(
