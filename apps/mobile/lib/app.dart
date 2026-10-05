@@ -8,6 +8,7 @@ import 'app_router.dart';
 import 'screens/splash/splash_gate.dart';
 import 'state/firestore_content_sync.dart';
 import 'state/providers.dart';
+import 'widgets/max_width_frame.dart';
 
 /// Root of the Việt Sử app.
 ///
@@ -42,8 +43,9 @@ class VietSuApp extends ConsumerWidget {
         theme: VSTheme.build(era: VSEraPalette.hongBangVanLang),
         routerConfig: ref.watch(routerProvider),
         // The Long Ký brand splash overlays the app on launch, then fades.
-        builder: (context, child) =>
-            SplashGate(child: child ?? const SizedBox.shrink()),
+        builder: (context, child) => MaxWidthFrame(
+          child: SplashGate(child: child ?? const SizedBox.shrink()),
+        ),
       ),
     );
   }

@@ -1,1 +1,65 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"long-ky-app","appId":"1:240841070468:android:07ee9f41d6df027811efd1","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"long-ky-app","configurations":{"android":"1:240841070468:android:07ee9f41d6df027811efd1"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "long-ky-app",
+          "appId": "1:240841070468:android:07ee9f41d6df027811efd1",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "long-ky-app",
+          "configurations": {
+            "android": "1:240841070468:android:07ee9f41d6df027811efd1"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "site": "long-ky-app",
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(js|wasm|css|png|jpg|webp|ico|woff2|ttf|json)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "/index.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      },
+      {
+        "source": "/flutter_service_worker.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      }
+    ]
+  }
+}
