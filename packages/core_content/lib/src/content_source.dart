@@ -40,6 +40,17 @@ abstract interface class ContentSource {
   Future<String> loadStandaloneEventsJson();
 }
 
+/// A source that can also serve a city's street mapping
+/// (`content/streets/<city>.json`). Separate from [ContentSource] on purpose:
+/// adding a method there would break every existing implementer, and a source
+/// with nothing to say simply answers null (the app then reads its bundled copy).
+abstract interface class StreetsSource {
+  /// Raw JSON of the street mapping for [city], or null when this source has
+  /// none — a pack built before street mapping went over the air, or a
+  /// city it does not carry.
+  Future<String?> loadStreetsJson(String city);
+}
+
 /// Reads content shipped inside the app bundle.
 ///
 /// Expects a manifest asset listing the available era slugs and one JSON file

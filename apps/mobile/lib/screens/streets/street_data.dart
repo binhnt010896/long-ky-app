@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:core_content/core_content.dart' show StreetsSource;
 import 'package:core_domain/core_domain.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/services.dart' show rootBundle;
@@ -8,6 +9,7 @@ import 'package:flutter_map/flutter_map.dart' show LatLngBounds;
 import 'package:http/http.dart' as http;
 import 'package:latlong2/latlong.dart';
 
+import '../../state/providers.dart';
 import '../../theme/content_assets.dart';
 
 /// Everything the street map needs, loaded once.
@@ -56,12 +58,29 @@ const double kStreetBoundsMargin = 0.05;
 /// The bundled mapping + boundary (`assets/content/streets/`), and the
 /// street GeoJSON from the media CDN (it is a media file, like era art).
 class BundledStreetDataSource implements StreetDataSource {
-  const BundledStreetDataSource({this.city = 'hcm'});
+  const BundledStreetDataSource({this.city = 'hcm', this.overlay});
 
   final String city;
 
+  /// The newest mapping the content pack carries for a city, or null when
+  /// there is none (no pack yet, or one built before streets went over the
+  /// air). Preferred over the bundled copy, so a new street reaches phones
+  /// without an app release.
+  final Future<String?> Function(String city)? overlay;
+
   @override
   Future<StreetMapFile?> loadMapping() async {
+    final load = overlay;
+    if (load != null) {
+      try {
+        final raw = await load(city);
+        if (raw != null) {
+          return StreetMapFile.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+        }
+      } catch (_) {
+        // A pack mapping that will not read is never worse than the bundle.
+      }
+    }
     try {
       final raw = await rootBundle.loadString('assets/content/streets/$city.json');
       return StreetMapFile.fromJson(jsonDecode(raw) as Map<String, dynamic>);
@@ -162,8 +181,16 @@ List<List<LatLng>> _boundaryRings(Map<String, dynamic> json) {
   ];
 }
 
-final streetDataSourceProvider =
-    Provider<StreetDataSource>((ref) => const BundledStreetDataSource());
+final streetDataSourceProvider = Provider<StreetDataSource>((ref) {
+  // The pack's mapping is read at load time through the live OTA source, so a
+  // pack adopted while the splash is up is seen by the first street screen.
+  final source = ref.watch(contentRepositoryProvider).source;
+  return BundledStreetDataSource(
+    overlay: source is StreetsSource
+        ? (source as StreetsSource).loadStreetsJson
+        : null,
+  );
+});
 
 /// The mapping alone — cheap, so detail pages can ask "is this a street?".
 final streetMappingProvider = FutureProvider<StreetMapFile?>(

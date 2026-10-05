@@ -24,6 +24,7 @@ class ContentPack {
     required this.media,
     required this.eras,
     this.standaloneEvents,
+    this.streets,
   });
 
   final int schemaVersion;
@@ -46,6 +47,12 @@ class ContentPack {
   /// a pack built before they existed, and ignored by an app build that
   /// predates them — which is why adding it needed no `schemaVersion` bump.
   final Map<String, dynamic>? standaloneEvents;
+
+  /// Street mappings by city (`{"hcm": <content/streets/hcm.json>}`), so a new
+  /// street or a re-pointed one reaches phones without an app release. Absent
+  /// from a pack built before this existed, and ignored by an app build that
+  /// predates it — additive, like [standaloneEvents], so no `schemaVersion` bump.
+  final Map<String, dynamic>? streets;
 
   /// Parses and fully validates a pack downloaded as raw JSON text — every
   /// check that would let a phone actually render this content, not just
@@ -150,6 +157,37 @@ class ContentPack {
       }
     }
 
+    final streets = decoded['streets'];
+    if (streets != null) {
+      if (streets is! Map<String, dynamic>) {
+        throw ContentSourceException('content pack streets is not an object');
+      }
+      final standaloneIds = <String>{
+        if (standalone is Map<String, dynamic>)
+          for (final e in EventRegistry.fromJson(standalone).events) e.id,
+      };
+      for (final entry in streets.entries) {
+        final file = entry.value;
+        if (file is! Map<String, dynamic>) {
+          throw ContentSourceException(
+              'content pack streets `${entry.key}` is not an object');
+        }
+        // The same referential rules tool/validate_content.dart applies, so a
+        // mapping that points at a person or event this pack does not carry
+        // is rejected here rather than opening a dead card on a phone.
+        final problems = StreetMapValidator.validate(
+          streetsJson: jsonEncode(file),
+          peopleIds: peopleRegistry.byId.keys.toSet(),
+          eras: eras.values.toList(),
+          standaloneEventIds: standaloneIds,
+        );
+        if (problems.isNotEmpty) {
+          throw ContentSourceException(
+              'content pack streets `${entry.key}` is invalid: ${problems.first}');
+        }
+      }
+    }
+
     return ContentPack(
       schemaVersion: schemaVersion,
       version: version,
@@ -159,6 +197,7 @@ class ContentPack {
       media: media,
       eras: eras,
       standaloneEvents: standalone as Map<String, dynamic>?,
+      streets: streets as Map<String, dynamic>?,
     );
   }
 }
@@ -166,7 +205,7 @@ class ContentPack {
 /// Serves content from a validated [ContentPack] over the same [ContentSource]
 /// interface as the bundled assets, so [OtaContentSource] can prefer it as an
 /// overlay without the rest of the app knowing the difference.
-class PackContentSource implements ContentSource {
+class PackContentSource implements ContentSource, StreetsSource {
   PackContentSource(this.pack);
 
   final ContentPack pack;
@@ -199,5 +238,11 @@ class PackContentSource implements ContentSource {
       throw ContentSourceException('content pack predates standalone events');
     }
     return jsonEncode(standalone);
+  }
+
+  @override
+  Future<String?> loadStreetsJson(String city) async {
+    final file = pack.streets?[city];
+    return file == null ? null : jsonEncode(file);
   }
 }

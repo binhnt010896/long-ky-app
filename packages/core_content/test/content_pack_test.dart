@@ -8,7 +8,11 @@ import 'package:flutter_test/flutter_test.dart';
 /// Builds a real, valid pack JSON string from the repo's actual content, so
 /// tests exercise the real parsers rather than a hand-rolled fixture that
 /// might not match what `tool/build_content_pack.dart` actually produces.
-String _validPackJson({int version = 20260923000000, bool withStandalone = true}) {
+String _validPackJson({
+  int version = 20260923000000,
+  bool withStandalone = true,
+  bool withStreets = false,
+}) {
   const root = '../../content';
   final index =
       jsonDecode(File('$root/index.json').readAsStringSync()) as Map<String, dynamic>;
@@ -45,6 +49,10 @@ String _validPackJson({int version = 20260923000000, bool withStandalone = true}
       'standaloneEvents': <String, dynamic>{
         'schemaVersion': 1,
         'events': [for (final id in standaloneIds) byId[id]],
+      },
+    if (withStreets)
+      'streets': <String, dynamic>{
+        'hcm': jsonDecode(File('$root/streets/hcm.json').readAsStringSync()),
       },
   });
 }
@@ -179,4 +187,62 @@ void main() {
       expect(await repo.findEvent('khong-co-su-kien-nay'), isNull);
     });
   });
+
+  group('street mapping over the air (Wave E)', () {
+    test('a pack with streets serves the mapping by city', () async {
+      final pack = ContentPack.parseAndValidate(_validPackJson(withStreets: true));
+      expect(pack.streets, isNotNull);
+      final src = PackContentSource(pack);
+      final hcm = jsonDecode((await src.loadStreetsJson('hcm'))!) as Map<String, dynamic>;
+      expect(hcm['city'], 'hcm');
+      expect((hcm['streets'] as List), isNotEmpty);
+      expect(await src.loadStreetsJson('hanoi'), isNull);
+    });
+
+    test('a pack without streets answers null, so the app keeps its bundled copy',
+        () async {
+      final pack = ContentPack.parseAndValidate(_validPackJson());
+      expect(pack.streets, isNull);
+      expect(await PackContentSource(pack).loadStreetsJson('hcm'), isNull);
+    });
+
+    test('a mapping that points at a person the pack lacks is rejected', () {
+      final raw = jsonDecode(_validPackJson(withStreets: true)) as Map<String, dynamic>;
+      final hcm = (raw['streets'] as Map<String, dynamic>)['hcm'] as Map<String, dynamic>;
+      final first = (hcm['streets'] as List).first as Map<String, dynamic>;
+      first['status'] = 'approved';
+      first['targets'] = [
+        {'type': 'person', 'id': 'khong-co-nguoi-nay', 'era': ''},
+      ];
+      expect(() => ContentPack.parseAndValidate(jsonEncode(raw)),
+          throwsA(isA<ContentSourceException>()));
+    });
+
+    test('the OTA source prefers the pack and otherwise defers', () async {
+      final withStreets =
+          ContentPack.parseAndValidate(_validPackJson(withStreets: true));
+      final without = ContentPack.parseAndValidate(_validPackJson());
+      final bundled = MemoryContentSourceForStreets();
+      final ota = OtaContentSource(bundled: bundled);
+      expect(await ota.loadStreetsJson('hcm'), isNull);
+      ota.overlay = PackContentSource(without);
+      expect(await ota.loadStreetsJson('hcm'), isNull);
+      ota.overlay = PackContentSource(withStreets);
+      expect(await ota.loadStreetsJson('hcm'), isNotNull);
+    });
+  });
+}
+
+/// A bundle that serves nothing — only here so [OtaContentSource] can be built.
+class MemoryContentSourceForStreets implements ContentSource {
+  @override
+  Future<List<String>> availableSlugs() async => const <String>[];
+  @override
+  Future<String> loadEraJson(String slug) => throw ContentSourceException('none');
+  @override
+  Future<String> loadPeopleJson() => throw ContentSourceException('none');
+  @override
+  Future<String> loadPeriodsJson() => throw ContentSourceException('none');
+  @override
+  Future<String> loadStandaloneEventsJson() => throw ContentSourceException('none');
 }

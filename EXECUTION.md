@@ -271,9 +271,14 @@ a time and verify the bytes.
   Lương Ngọc Quyến). Wave E / landmark object queued.
 - **A landmark object and landmark detail page**, for Ba Đình, Trường Sơn,
   Vạn Kiếp… (R3).
-- **Wave E: street mapping over the air (was parked, R5; unparked 2026-10-04).** Move
+- **Wave E: street mapping over the air — BUILT 2026-10-05, needs one app release (was parked, R5).** Move
   `content/streets/hcm.json` into the content pack so new streets and re-pointed
-  streets reach users without an app release. Plan only, nothing built yet:
+  streets reach users without an app release. Built as planned: the pack's `streets` key,
+  `StreetsSource`/`OtaContentSource.loadStreetsJson`, `BundledStreetDataSource(overlay:)`,
+  `StreetMapValidator` in `ContentPack.parseAndValidate`, tests in core_content and
+  `street_map_test.dart`. The geometry check already existed: `validate_content.dart`
+  fails when an approved street has no line, and the pack builder runs it. Still manual:
+  `build_geometry.dart` after adding streets, then push `main` and publish. Original plan:
   - Pack: add an optional `streets` key (city → the mapping file). It is additive, like
     `standaloneEvents`, so no `schemaVersion` bump and old builds ignore it.
     `tool/build_content_pack.dart` reads `content/streets/*.json`; the pack validator

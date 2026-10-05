@@ -14,7 +14,7 @@ import 'content_source.dart';
 /// fetching/validating/persisting and simply assigns [overlay]/[liveOverlay]
 /// once ready. Keeping that outside this package means it never needs to
 /// know about HTTP, the filesystem, or a specific live-source SDK.
-class OtaContentSource implements ContentSource {
+class OtaContentSource implements ContentSource, StreetsSource {
   OtaContentSource({required this.bundled, this.overlay, this.liveOverlay});
 
   /// Always-present content shipped with the app.
@@ -70,4 +70,20 @@ class OtaContentSource implements ContentSource {
   @override
   Future<String> loadStandaloneEventsJson() =>
       _preferred((s) => s.loadStandaloneEventsJson());
+
+  /// The newest street mapping for [city]: the live source, then the downloaded
+  /// pack, else null — and the caller reads the mapping bundled in the app.
+  @override
+  Future<String?> loadStreetsJson(String city) async {
+    for (final source in [liveOverlay, overlay]) {
+      if (source is! StreetsSource) continue;
+      try {
+        final json = await (source as StreetsSource).loadStreetsJson(city);
+        if (json != null) return json;
+      } on ContentSourceException {
+        // Fall through to the next tier.
+      }
+    }
+    return null;
+  }
 }

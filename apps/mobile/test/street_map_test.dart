@@ -167,6 +167,34 @@ void main() {
     view.devicePixelRatio = 1.0;
   });
 
+  group('street mapping over the air (Wave E)', () {
+    String shipped() => File('../../content/streets/hcm.json').readAsStringSync();
+
+    test('the pack\'s mapping wins over the bundled one', () async {
+      final fromPack = jsonDecode(shipped()) as Map<String, dynamic>;
+      fromPack['osmSnapshot'] = 'from-the-pack';
+      final src = BundledStreetDataSource(
+          overlay: (city) async => jsonEncode(fromPack));
+      final file = await src.loadMapping();
+      expect(file?.osmSnapshot, 'from-the-pack');
+    });
+
+    test('no pack mapping, or one that will not read, falls back to the bundle',
+        () async {
+      for (final overlay in <Future<String?> Function(String)?>[
+        null,
+        (city) async => null,
+        (city) async => 'not json',
+        (city) async => throw StateError('boom'),
+      ]) {
+        final file = await BundledStreetDataSource(overlay: overlay).loadMapping();
+        expect(file, isNotNull, reason: 'bundled mapping should be used');
+        expect(file!.osmSnapshot, isNot('from-the-pack'));
+        expect(file.streets, isNotEmpty);
+      }
+    });
+  });
+
   group('parseStreetMapData', () {
     test('keeps only approved streets and locks bounds to boundary + margin', () {
       final d = parseStreetMapData(

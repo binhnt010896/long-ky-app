@@ -111,6 +111,27 @@ Future<int> _run({String? onlyFile}) async {
   // draft era lists must not leak out as a standalone one.
   final standaloneIds = standaloneEventIds(rawEras.values, eventsById.keys);
 
+  // Street mappings (content/streets/<city>.json) ride in the pack so new
+  // streets need no app release; the app still bundles a copy as its fallback.
+  // aliases.json is a tooling input (street-name spellings), not a mapping.
+  final streets = <String, dynamic>{};
+  final streetsDir = Directory('${contentDir.path}/streets');
+  if (streetsDir.existsSync()) {
+    final files = streetsDir
+        .listSync()
+        .whereType<File>()
+        .where((f) =>
+            f.path.endsWith('.json') && !f.path.endsWith('/aliases.json'))
+        .toList()
+      ..sort((a, b) => a.path.compareTo(b.path));
+    for (final f in files) {
+      final json = jsonDecode(f.readAsStringSync());
+      if (json is Map<String, dynamic> && json['streets'] is List) {
+        streets[json['city'] as String] = json;
+      }
+    }
+  }
+
   final pack = <String, dynamic>{
     'schemaVersion': kPackSchemaVersion,
     'version': version,
@@ -123,6 +144,7 @@ Future<int> _run({String? onlyFile}) async {
       'schemaVersion': 1,
       'events': [for (final id in standaloneIds) eventsById[id]],
     },
+    if (streets.isNotEmpty) 'streets': streets,
   };
 
   if (draftSlugs.isNotEmpty) {

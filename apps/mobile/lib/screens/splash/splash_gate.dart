@@ -10,6 +10,7 @@ import '../../state/media_prefetch.dart';
 import '../../state/providers.dart';
 import '../../telemetry/telemetry.dart';
 import '../../theme/content_assets.dart';
+import '../streets/street_data.dart';
 
 /// Wraps the app and shows the **Long Ký** brand splash over it on launch, then
 /// fades away to reveal [child].
@@ -105,6 +106,9 @@ class _SplashGateState extends ConsumerState<SplashGate> {
     ref.invalidate(erasProvider);
     ref.invalidate(periodsProvider);
     ref.invalidate(eraProvider);
+    // The pack may carry a newer street mapping than the bundled one.
+    ref.invalidate(streetMappingProvider);
+    ref.invalidate(streetMapDataProvider);
     ref.read(activeContentVersionProvider.notifier).state = pack.version;
     ref.read(telemetryProvider).event('content_pack_adopted',
         <String, Object>{'version': pack.version, 'at': 'splash'});
