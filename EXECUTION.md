@@ -263,9 +263,9 @@ a time and verify the bytes.
   Tôn Thất Tiệp, Tôn Thất Đàm. Phạm Bành and Xuân Ôn restorations look a little
   modern; re-check against sources.
 - **Wave D** — text and art BUILT (waist-up portraits from your photos, 2:3 full + 1:1 avatar).
-  55 standalone people, 55 streets. Held for now: Lý Chính Thắng (his photo lost the eyes,
-  so any portrait would be an invented face) and Trần Đại Nghĩa (the news-agency watermark made
-  the restore drift; needs a clean photo). Kỳ Đồng has no street in the OSM data (only alley
+  55 standalone people, 55 streets. Lý Chính Thắng stays held (his photo lost the eyes, so
+  any portrait would be an invented face; user: skip). Trần Đại Nghĩa uses Higgsfield job
+  b88a63b1, chosen by the user. Kỳ Đồng has no street in the OSM data (only alley
   names), so he is reachable only from other content. Several restorations are approximate
   because the sources are halftone or tiny (Ngô Gia Tự, Nguyễn Viết Xuân, Trịnh Văn Cấn,
   Lương Ngọc Quyến). Wave E / landmark object queued.

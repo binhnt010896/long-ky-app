@@ -8435,12 +8435,14 @@
       "avatar": {
         "id": "tran-dai-nghia-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/tran-dai-nghia/avatar.png",
+        "reduced": "people/tran-dai-nghia/avatar.png"
       },
       "fullBody": {
         "id": "tran-dai-nghia-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "people/tran-dai-nghia/full.png",
+        "reduced": "people/tran-dai-nghia/full.png"
       }
     },
     {
