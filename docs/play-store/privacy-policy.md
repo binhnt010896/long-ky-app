@@ -81,6 +81,14 @@ lỗi, thông tin về lỗi đó (không kèm nội dung bạn đang xem hay nh
 Bạn có thể tắt tính năng này bất cứ lúc nào tại **Sảnh → Về Long Ký →
 "Gửi thống kê ẩn danh"**. Mặc định tính năng này đang bật.
 
+### 9. Email báo sai sót
+
+Nút "Báo sai sót" trên trang sự kiện, nhân vật mở một bản nháp email trong
+ứng dụng email của bạn. Email chỉ được gửi khi bạn tự bấm gửi, và chỉ gồm
+những gì có trong bản nháp (trang đang xem, phiên bản ứng dụng và nội dung,
+ngôn ngữ, cùng ghi chú của bạn) kèm địa chỉ email của bạn. Chúng tôi chỉ dùng
+email này để sửa nội dung và trả lời bạn; ứng dụng không tự lưu hay gửi gì.
+
 ---
 
 ## English
@@ -154,3 +162,12 @@ processes this data under its own
 
 You can turn this off at any time under **Sảnh → Về Long Ký → "Share
 anonymous usage stats"**. It is on by default.
+
+### 9. Mistake-report emails
+
+The "Báo sai sót" (Report a mistake) button on event and figure pages opens
+an email draft in your own mail app. It is sent only if you send it
+yourself, and contains only what the draft shows (the page, the app and
+content versions, the language, and your note) plus your email address. We
+use it only to fix the content and to reply to you; the app itself stores
+and sends nothing.

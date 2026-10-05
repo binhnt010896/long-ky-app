@@ -94,6 +94,11 @@ ScreenView? mapUriToScreen(Uri uri) {
         );
       }
       return null;
+    case 'luu-y':
+      if (segments.length == 1) {
+        return (name: 'disclaimer', params: const <String, Object>{});
+      }
+      return null;
     case 'chao-co':
       if (segments.length == 1) {
         return (name: 'chao_co', params: const <String, Object>{});

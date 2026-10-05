@@ -1,6 +1,6 @@
 # Plan: content feedback, AI disclaimer page, iOS App Store
 
-Planning only (2026-10-05). Nothing here is built yet.
+Planned 2026-10-05. **Parts 1 and 2 are built (2026-10-06)**; Part 3 (iOS) is not started.
 
 **Locked decisions (user, 2026-10-06), so "Execute feedback-disclaimer-ios-plan.md" builds Parts 1 and 2 as written:**
 - **Delivery:** the mail-app (`mailto:`) version. v2 (in-app sending through the Cloudflare

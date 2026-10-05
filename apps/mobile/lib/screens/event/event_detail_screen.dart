@@ -7,7 +7,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../feedback/feedback.dart';
 import '../../state/providers.dart';
+import '../sanh/disclaimer_screen.dart' show DisclaimerInfoButton;
 import '../../theme/content_assets.dart';
 import '../../theme/era_palette_mapping.dart';
 import '../streets/street_reverse_chip.dart';
@@ -149,6 +151,18 @@ class _EventDetailScreenState extends ConsumerState<EventDetailScreen> {
                           color: VSColors.inkSecondary,
                           letterSpacing: VSType.track(0.28, 11),
                           fontSize: 11,
+                        ),
+                      ),
+                      const SizedBox(width: VSSpacing.md),
+                      // The event on screen now, not the one the pager opened
+                      // on — a swipe changes the page but not the route.
+                      FeedbackButton(
+                        target: FeedbackTarget(
+                          type: 'event',
+                          id: current.event.id,
+                          title: current.event.title.resolve(Lang.vi),
+                          route: '/era/${current.era.slug}/event/'
+                              '${current.event.id}',
                         ),
                       ),
                       const SizedBox(width: VSSpacing.md),
@@ -370,6 +384,7 @@ class _EventHero extends StatelessWidget {
           if (caption != null)
             Positioned(
               left: VSSpacing.screenEdge,
+              right: VSSpacing.screenEdge,
               bottom: 60,
               child: Row(
                 children: <Widget>[
@@ -378,7 +393,13 @@ class _EventHero extends StatelessWidget {
                     child: Container(width: 5, height: 5, color: VSColors.gold),
                   ),
                   const SizedBox(width: VSSpacing.sm - 2),
-                  Text(caption.resolve(lang), style: VSType.provenance),
+                  // Bounded, so the ⓘ never pushes the row off a narrow
+                  // screen: a long caption wraps instead.
+                  Flexible(
+                    child:
+                        Text(caption.resolve(lang), style: VSType.provenance),
+                  ),
+                  const DisclaimerInfoButton(),
                 ],
               ),
             ),
