@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../feedback/feedback.dart';
 import '../../state/providers.dart';
 import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
@@ -88,7 +89,7 @@ class StandaloneCharacterScreen extends ConsumerWidget {
                   ),
                 ],
               ),
-              SafeArea(child: _TopBar(lang: lang)),
+              SafeArea(child: _TopBar(lang: lang, figure: figure)),
             ],
           );
         },
@@ -98,9 +99,10 @@ class StandaloneCharacterScreen extends ConsumerWidget {
 }
 
 class _TopBar extends StatelessWidget {
-  const _TopBar({required this.lang});
+  const _TopBar({required this.lang, required this.figure});
 
   final Lang lang;
+  final Character figure;
 
   @override
   Widget build(BuildContext context) {
@@ -129,6 +131,15 @@ class _TopBar extends StatelessWidget {
                   fontSize: 11,
                 ),
               ),
+            ),
+          ),
+          const SizedBox(width: VSSpacing.md),
+          FeedbackButton(
+            target: FeedbackTarget(
+              type: 'person',
+              id: figure.id,
+              title: figure.name.resolve(Lang.vi),
+              route: '/nhan-vat/${figure.id}',
             ),
           ),
           const SizedBox(width: VSSpacing.md),

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../feedback/feedback.dart';
 import '../../state/providers.dart';
 import '../../theme/content_assets.dart';
 import '../../theme/era_palette_mapping.dart';
@@ -87,7 +88,21 @@ class CharacterDetailScreen extends ConsumerWidget {
                           icon: Icons.arrow_back,
                           onTap: () => context.pop(),
                         ),
-                        const LangToggle(),
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            FeedbackButton(
+                              target: FeedbackTarget(
+                                type: 'person',
+                                id: figure.id,
+                                title: figure.name.resolve(Lang.vi),
+                                route: '/era/$slug/figure/${figure.id}',
+                              ),
+                            ),
+                            const SizedBox(width: VSSpacing.md),
+                            const LangToggle(),
+                          ],
+                        ),
                       ],
                     ),
                   ),

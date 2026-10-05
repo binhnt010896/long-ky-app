@@ -79,6 +79,14 @@ const List<_SanhItem> _items = <_SanhItem>[
     subtitleEn: 'Sources, images, version',
     route: '/sanh/gioi-thieu',
   ),
+  _SanhItem(
+    icon: Icons.info_outline,
+    titleVi: 'Lưu ý về hình ảnh & nội dung',
+    titleEn: 'About images & content',
+    subtitleVi: 'Hình ảnh AI, ảnh phục chế, báo sai sót',
+    subtitleEn: 'AI images, restored photos, reporting mistakes',
+    route: '/luu-y',
+  ),
 ];
 
 /// The Sảnh — the hall behind the Long Ký seal: a lacquer panel holding the

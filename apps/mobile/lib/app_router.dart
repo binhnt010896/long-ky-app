@@ -17,6 +17,7 @@ import 'screens/prototype/territory_map_demo_screen.dart';
 import 'screens/quiz/quiz_home_screen.dart';
 import 'screens/quiz/quiz_play_screen.dart';
 import 'screens/sanh/about_screen.dart';
+import 'screens/sanh/disclaimer_screen.dart';
 import 'screens/sanh/sanh_screen.dart';
 import 'screens/streets/street_map_screen.dart';
 import 'screens/timeline/global_timeline_screen.dart';
@@ -29,6 +30,8 @@ import 'telemetry/telemetry.dart';
 ///                              (pushed from Home's corner affordance).
 ///  - `/sanh`                   Sảnh — the hall behind the Long Ký seal.
 ///  - `/sanh/gioi-thieu`        Về Long Ký — sources, images, version.
+///  - `/luu-y`                  Lưu ý về hình ảnh & nội dung — how the images
+///                              are made, and how to report a mistake.
 ///  - `/chao-co`                Chào cờ — the daily flag salute.
 ///  - `/map`                    Territory atlas.
 ///  - `/duong-pho`              Streets named for history (old HCMC);
@@ -119,6 +122,11 @@ final routerProvider = Provider<GoRouter>((ref) {
             },
           ),
         ],
+      ),
+      // The images & content disclaimer (Sảnh, About, the ⓘ by a caption).
+      GoRoute(
+        path: kDisclaimerRoute,
+        builder: (context, state) => const DisclaimerScreen(),
       ),
       // Chào cờ — online flag salute (waving flag + Tiến quân ca + lyrics).
       GoRoute(

@@ -8,6 +8,7 @@ import '../../state/content_sync.dart';
 import '../../state/providers.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
+import 'disclaimer_screen.dart';
 
 const String _statsHeadingVi = 'THỐNG KÊ';
 const String _statsHeadingEn = 'STATISTICS';
@@ -39,11 +40,15 @@ const String _privacyFailEn = "Couldn't open the browser. Address: binh-nt.dev/l
 typedef _Para = List<(String, bool)>;
 
 class _Section {
-  const _Section(this.headingVi, this.headingEn, this.vi, this.en);
+  const _Section(this.headingVi, this.headingEn, this.vi, this.en,
+      {this.disclaimerLink = false});
   final String headingVi;
   final String headingEn;
   final _Para vi;
   final _Para en;
+
+  /// Ends the section with a link to the images & content disclaimer.
+  final bool disclaimerLink;
 }
 
 const List<_Section> _sections = <_Section>[
@@ -102,7 +107,7 @@ const List<_Section> _sections = <_Section>[
     ('Lacquer-style paintings are illustrations, not historical records. '
         'Modern archival photographs are colour-restored, keeping the faces '
         'and details of the originals.', false),
-  ]),
+  ], disclaimerLink: true),
   _Section('BẢN ĐỒ ĐƯỜNG PHỐ', 'STREET MAP', <(String, bool)>[
     ('Dữ liệu bản đồ © những người đóng góp OpenStreetMap, theo giấy phép ODbL; '
         'nền bản đồ do Protomaps cung cấp. Tập dữ liệu tên đường mang tên sử '
@@ -177,6 +182,28 @@ class AboutScreen extends ConsumerWidget {
                   ],
                 ),
               ),
+              if (s.disclaimerLink)
+                InkWell(
+                  key: const Key('about-disclaimer-link'),
+                  onTap: () => context.push(kDisclaimerRoute),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: VSSpacing.sm),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Text(
+                              en
+                                  ? DisclaimerScreen.titleEn
+                                  : DisclaimerScreen.titleVi,
+                              style: VSType.body
+                                  .copyWith(color: VSColors.goldBright)),
+                        ),
+                        const Icon(Icons.chevron_right,
+                            size: 18, color: VSColors.gold),
+                      ],
+                    ),
+                  ),
+                ),
             ],
             const SizedBox(height: VSSpacing.xl),
             Text(en ? _statsHeadingEn : _statsHeadingVi, style: VSType.overline),

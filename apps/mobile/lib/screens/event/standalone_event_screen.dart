@@ -5,7 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../feedback/feedback.dart';
 import '../../state/providers.dart';
+import '../sanh/disclaimer_screen.dart' show DisclaimerInfoButton;
 import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
@@ -69,7 +71,7 @@ class StandaloneEventScreen extends ConsumerWidget {
                   ),
                 ],
               ),
-              SafeArea(child: _TopBar(lang: lang)),
+              SafeArea(child: _TopBar(lang: lang, event: event)),
             ],
           );
         },
@@ -79,9 +81,10 @@ class StandaloneEventScreen extends ConsumerWidget {
 }
 
 class _TopBar extends StatelessWidget {
-  const _TopBar({required this.lang});
+  const _TopBar({required this.lang, required this.event});
 
   final Lang lang;
+  final HistoryEvent event;
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +115,15 @@ class _TopBar extends StatelessWidget {
                   fontSize: 11,
                 ),
               ),
+            ),
+          ),
+          const SizedBox(width: VSSpacing.md),
+          FeedbackButton(
+            target: FeedbackTarget(
+              type: 'event',
+              id: event.id,
+              title: event.title.resolve(Lang.vi),
+              route: '/su-kien/${event.id}',
             ),
           ),
           const SizedBox(width: VSSpacing.md),
@@ -182,6 +194,7 @@ class _StandaloneHero extends StatelessWidget {
           if (caption != null)
             Positioned(
               left: VSSpacing.screenEdge,
+              right: VSSpacing.screenEdge,
               bottom: 60,
               child: Row(
                 children: <Widget>[
@@ -190,7 +203,13 @@ class _StandaloneHero extends StatelessWidget {
                     child: Container(width: 5, height: 5, color: VSColors.gold),
                   ),
                   const SizedBox(width: VSSpacing.sm - 2),
-                  Text(caption.resolve(lang), style: VSType.provenance),
+                  // Bounded, so the ⓘ never pushes the row off a narrow
+                  // screen: a long caption wraps instead.
+                  Flexible(
+                    child:
+                        Text(caption.resolve(lang), style: VSType.provenance),
+                  ),
+                  const DisclaimerInfoButton(),
                 ],
               ),
             ),
