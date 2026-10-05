@@ -10,6 +10,7 @@ import '../../state/media_prefetch.dart';
 import '../../state/providers.dart';
 import '../../telemetry/telemetry.dart';
 import '../../theme/content_assets.dart';
+import '../streets/street_basemap.dart';
 import '../streets/street_data.dart';
 
 /// Wraps the app and shows the **Long Ký** brand splash over it on launch, then
@@ -89,7 +90,26 @@ class _SplashGateState extends ConsumerState<SplashGate> {
     if (pack != null && mounted) {
       _activatePack(pack);
     }
+    // After the pack, so it warms the pack's street mapping. Not awaited: the
+    // map is a side trip, and must never hold the splash.
+    unawaited(_warmStreets());
     await _warmUp();
+  }
+
+  /// Opens the street map's parts in the background — the street geometry and
+  /// the base map archive (its header and directories are a chain of serial
+  /// requests that used to run when the map screen opened). Safe to skip or
+  /// fail: the street screen loads them itself, just later.
+  Future<void> _warmStreets() async {
+    if (debugContentImageOverride != null) return; // widget tests: no network
+    try {
+      await Future.wait<Object?>(<Future<Object?>>[
+        ref.read(streetMapDataProvider.future),
+        ref.read(streetBasemapProvider.future),
+      ]);
+    } catch (_) {
+      // Never surfaces: this is only a head start.
+    }
   }
 
   /// Adopts a freshly-validated pack while Home is still hidden under the

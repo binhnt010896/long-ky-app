@@ -7,7 +7,6 @@ import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:vector_map_tiles/vector_map_tiles.dart';
-import 'package:vector_map_tiles_pmtiles/vector_map_tiles_pmtiles.dart';
 
 import '../../state/providers.dart';
 import '../../telemetry/telemetry.dart';
@@ -45,32 +44,17 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   final MapController _map = MapController();
   String? _selected;
   final TextEditingController _query = TextEditingController();
-  Future<PmTilesVectorTileProvider>? _tiles;
-  String _tilesUrl = '';
 
   // Built ONCE. The vector layer restarts its tile loading whenever the theme
   // or the provider map it is handed changes identity, so creating either in
   // build() (which runs on every selection, search keystroke and data refresh)
   // would keep it from ever finishing a first paint.
   final vtr.Theme _basemapTheme = buildStreetBasemapTheme();
-  TileProviders? _tileProviders;
 
   @override
   void initState() {
     super.initState();
     _selected = widget.initialStreetId;
-  }
-
-  /// The tile provider for [url], created once per address (the mapping — and
-  /// so the address — only arrives with the data, after the first frame).
-  Future<PmTilesVectorTileProvider>? _tilesFor(String url) {
-    if (url.isEmpty) return null;
-    if (url != _tilesUrl) {
-      _tilesUrl = url;
-      _tileProviders = null;
-      _tiles = PmTilesVectorTileProvider.fromSource(url);
-    }
-    return _tiles;
   }
 
   @override
@@ -123,6 +107,28 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
     } else {
       _select(hit, data);
     }
+  }
+
+  Widget? _resting;
+  StreetMapData? _restingData;
+
+  Widget _restingLayer(StreetMapData data) {
+    final cached = _resting;
+    if (cached != null && identical(_restingData, data)) return cached;
+    _restingData = data;
+    return _resting = PolylineLayer(
+      polylines: <Polyline>[
+        for (final e in data.lines.entries)
+          for (final line in e.value)
+            Polyline(
+              points: line,
+              strokeWidth: 2.5,
+              color: _kRestingStreet,
+              strokeCap: StrokeCap.round,
+              strokeJoin: StrokeJoin.round,
+            ),
+      ],
+    );
   }
 
   MapOptions? _options;
@@ -189,7 +195,7 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
 
   Widget _body(BuildContext context, StreetMapData data, Lang lang) {
     final basemapUrl = streetBasemapUrl(data.file);
-    final tiles = _tilesFor(basemapUrl);
+    final basemap = ref.watch(streetBasemapProvider).valueOrNull;
     final selected = _selected == null ? null : data.street(_selected!);
     final selectedPts = _selected == null
         ? const <LatLng>[]
@@ -204,24 +210,13 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
           mapController: _map,
           options: _optionsFor(data, selectedPts),
           children: <Widget>[
-            if (tiles != null)
-              FutureBuilder<PmTilesVectorTileProvider>(
-                future: tiles,
-                builder: (context, snap) {
-                  final p = snap.data;
-                  if (snap.hasError) {
-                    // The map still works without a base map; just say why.
-                    debugPrint('street basemap unavailable: ${snap.error}');
-                  }
-                  if (p == null) return const SizedBox.shrink();
-                  return VectorTileLayer(
-                    theme: _basemapTheme,
-                    cacheFolder: basemapCacheFolder,
-                    tileProviders: _tileProviders ??= TileProviders(
-                      <String, VectorTileProvider>{'protomaps': p},
-                    ),
-                  );
-                },
+            if (basemap != null)
+              VectorTileLayer(
+                theme: _basemapTheme,
+                cacheFolder: basemap.cacheFolder,
+                tileProviders: basemap.providers,
+                concurrency: kBasemapConcurrency,
+                fileCacheTtl: kBasemapTileTtl,
               ),
             // Soft mask outside the old boundary.
             PolygonLayer(
@@ -238,20 +233,14 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                 ),
               ],
             ),
-            // The history streets — the only tappable thing (M2).
-            PolylineLayer(
-              polylines: <Polyline>[
-                for (final e in data.lines.entries)
-                  if (e.key != _selected)
-                    for (final line in e.value)
-                      Polyline(
-                        points: line,
-                        strokeWidth: 2.5,
-                        color: _kRestingStreet,
-                        strokeCap: StrokeCap.round,
-                        strokeJoin: StrokeJoin.round,
-                      ),
-                if (_selected != null)
+            // The history streets — the only tappable thing (M2). The resting
+            // layer is one widget built once per data, so selecting a street or
+            // typing in the search box doesn't rebuild ~1,300 polylines; the
+            // selected street is drawn on top.
+            _restingLayer(data),
+            if (_selected != null)
+              PolylineLayer(
+                polylines: <Polyline>[
                   for (final line
                       in data.lines[_selected!] ?? const <List<LatLng>>[])
                     Polyline(
@@ -261,8 +250,8 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                       strokeCap: StrokeCap.round,
                       strokeJoin: StrokeJoin.round,
                     ),
-              ],
-            ),
+                ],
+              ),
             // Places to find your way by — on top so their names stay legible,
             // but they ignore touches (the gold streets are the only tappable
             // thing).

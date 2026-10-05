@@ -2,12 +2,15 @@
 import 'dart:io' show Directory;
 
 import 'package:core_domain/core_domain.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:vector_map_tiles_pmtiles/src/themes/v4/_package.dart' as v4;
+import 'package:vector_map_tiles/vector_map_tiles.dart' show TileProviders, VectorTileProvider;
 import 'package:vector_map_tiles_pmtiles/vector_map_tiles_pmtiles.dart';
 import 'package:vector_tile_renderer/vector_tile_renderer.dart' as vtr;
 
 import '../../theme/content_assets.dart';
+import 'street_data.dart';
 
 /// A build-time override of the base map's address
 /// (`--dart-define=STREET_BASEMAP_URL=…`) — for trying another extract locally.
@@ -86,12 +89,67 @@ Map<String, Object> _withPlainLabels(Map<String, Object> layer) {
 vtr.Theme buildStreetBasemapTheme({vtr.Logger? logger}) =>
     ProtomapsThemes(logger: logger).build(streetBasemapLayers());
 
-/// The on-disk tile cache's folder. Not the library's default (`.vector_map`):
-/// that one holds tiles cached while the labels were still being dropped, and
-/// the cache keeps tiles for weeks — a phone that had visited the map would
-/// have stayed label-less. **Bump the suffix whenever the theme changes in a
-/// way cached tiles must not outlive.** (Never called on web: no disk there.)
-const String kBasemapCacheFolder = '.long_ky_basemap_v2';
+/// The on-disk tile cache's folder name. Not the library's default
+/// (`.vector_map`): that one holds tiles cached while the labels were still
+/// being dropped, and the cache keeps tiles for weeks — a phone that had
+/// visited the map would have stayed label-less. **Bump the suffix whenever
+/// the theme changes in a way cached tiles must not outlive.** The base map's
+/// own version (`?v=` in its address) is added by [basemapCacheFolderFor], so a
+/// republished extract starts a fresh cache by itself. (Never called on web:
+/// no disk there.)
+const String kBasemapCacheFolder = '.long_ky_basemap_v3';
 
-Future<Directory> basemapCacheFolder() async =>
-    Directory('${(await getTemporaryDirectory()).path}/$kBasemapCacheFolder');
+/// How long a cached tile is trusted. The folder is versioned per extract, so
+/// a long time-to-live never serves a stale map.
+const Duration kBasemapTileTtl = Duration(days: 90);
+
+/// Tiles fetched at once. The package default (4) leaves the connection idle
+/// between small range requests; 8 fills it without flooding the CDN.
+const int kBasemapConcurrency = 8;
+
+/// The folder's name for the base map at [url]: [kBasemapCacheFolder], plus the
+/// extract's version when the address carries one.
+String basemapCacheName(String url) {
+  final v = Uri.tryParse(url)?.queryParameters['v'] ?? '';
+  return v.isEmpty ? kBasemapCacheFolder : '${kBasemapCacheFolder}_$v';
+}
+
+/// The cache folder for the base map at [url]: under the app *support*
+/// directory (Android may empty the temp directory at any time, which turned a
+/// return visit into a first one), named for the extract's version.
+Future<Directory> Function() basemapCacheFolderFor(String url) {
+  final name = basemapCacheName(url);
+  return () async =>
+      Directory('${(await getApplicationSupportDirectory()).path}/$name');
+}
+
+/// The base map opened once: the PMTiles archive (header + directories are the
+/// slow part), the provider map the vector layer is handed, and its cache
+/// folder. All three must keep their identity for the layer to finish a paint,
+/// so they live here, not in a widget's build.
+class StreetBasemap {
+  StreetBasemap(this.url, PmTilesVectorTileProvider provider)
+      : providers = TileProviders(<String, VectorTileProvider>{'protomaps': provider}),
+        cacheFolder = basemapCacheFolderFor(url);
+
+  final String url;
+  final TileProviders providers;
+  final Future<Directory> Function() cacheFolder;
+}
+
+/// The base map, opened on first read and kept for the whole app run. The
+/// splash reads it in the background (see `SplashGate`), so by the time the
+/// street screen opens the archive is already open. Null = no base map for
+/// this city (the plain ground), or it could not be opened.
+final streetBasemapProvider = FutureProvider<StreetBasemap?>((ref) async {
+  final file = await ref.watch(streetMappingProvider.future);
+  if (file == null) return null;
+  final url = streetBasemapUrl(file);
+  if (url.isEmpty) return null;
+  try {
+    return StreetBasemap(url, await PmTilesVectorTileProvider.fromSource(url));
+  } catch (_) {
+    // The map still works without a base map.
+    return null;
+  }
+});

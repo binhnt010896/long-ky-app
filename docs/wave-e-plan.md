@@ -181,3 +181,13 @@ plus **Tô Hiến Thành** and **Nguyễn Hữu Cầu**, already queued (17 in a
 - **To fix in the Cloudflare cache rule:** `/content/latest.json` must stay uncached. The rule
   currently applies a 4-hour edge TTL to it (origin says `no-cache`), which would delay every
   publish by up to 4 hours. Exclude it with "Bypass cache" or use "Respect origin".
+
+### S2 status (2026-10-05): built, not yet measured on a phone
+- Base map archive opened once per app run (`streetBasemapProvider`), and warmed with the street
+  geometry in the background at the splash (never awaited).
+- Tile concurrency 4 → 8; tile TTL 30 → 90 days; cache moved from the temp directory to the app
+  support directory, in a folder named for the extract's version (a republished extract starts a fresh
+  cache by itself).
+- The ~1,300 resting polylines are one widget built once per data; selecting a street or typing in
+  search no longer rebuilds them.
+- Still to do: S0 timing telemetry on the phone, then S3 (lighter extract) if the numbers want it.

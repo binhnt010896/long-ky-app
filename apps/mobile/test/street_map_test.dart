@@ -167,6 +167,21 @@ void main() {
     view.devicePixelRatio = 1.0;
   });
 
+  group('basemap cache (S2)', () {
+    test('a new extract version starts a fresh cache folder', () {
+      expect(basemapCacheName('https://m.example/media/b.pmtiles?v=aaa'),
+          '${kBasemapCacheFolder}_aaa');
+      expect(basemapCacheName('https://m.example/media/b.pmtiles?v=bbb'),
+          isNot(basemapCacheName('https://m.example/media/b.pmtiles?v=aaa')));
+      expect(basemapCacheName('https://m.example/media/b.pmtiles'), kBasemapCacheFolder);
+    });
+
+    test('tile loading is tuned past the package defaults', () {
+      expect(kBasemapConcurrency, greaterThan(4));
+      expect(kBasemapTileTtl, greaterThan(const Duration(days: 30)));
+    });
+  });
+
   group('street mapping over the air (Wave E)', () {
     String shipped() => File('../../content/streets/hcm.json').readAsStringSync();
 
