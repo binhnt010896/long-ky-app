@@ -10,9 +10,11 @@ import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 /// paths work against any base — override per build with
 /// `--dart-define=CONTENT_MEDIA_BASE=https://…`. Switch the default to the
 /// custom domain before launch.
+/// Done 2026-10-05: the default is `media.binh-nt.dev` (Cloudflare-cached); the
+/// old `r2.dev` address stays live for builds that shipped with it.
 const String kContentMediaBase = String.fromEnvironment(
   'CONTENT_MEDIA_BASE',
-  defaultValue: 'https://pub-3e1d5dacc331435e8651e740cd635e56.r2.dev',
+  defaultValue: 'https://media.binh-nt.dev',
 );
 
 /// Overrides how a content-relative path resolves to an [ImageProvider], set

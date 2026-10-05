@@ -298,8 +298,10 @@ a time and verify the bytes.
     old cached street file. Once the mapping is OTA the manifest is too, so this goes away
     for users; for dev builds, pull `main` after a publish (it carries the new baseline).
 - A "Danh nhân" directory for standalone people.
-- Wave E: local Southern martyrs, scientists and artists, Tô Hiến Thành,
-  Nguyễn Hữu Cầu.
+- Wave E content (planned 2026-10-05, not started): foreign friends of Vietnam,
+  scientists, artists, writers, classical poets, Tô Hiến Thành, Nguyễn Hữu Cầu, about 84
+  people. Plus the street-map speed plan (S0–S5). Full lists and findings in
+  `docs/wave-e-plan.md`. Local Southern martyrs are still deferred (need sources).
 - Hoàng Sa / Trường Sa (R4).
 - More landmarks; an in-house lacquer base-map style; streets near me; more
   cities; a CMS editor for street mappings; the carried-over UX audit findings

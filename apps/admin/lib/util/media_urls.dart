@@ -2,7 +2,7 @@ import 'dart:convert';
 
 /// The public CDN Long Ký serves converted media from — same bucket
 /// `apps/mobile/lib/theme/content_assets.dart` points at by default.
-const cdnMediaBase = 'https://pub-3e1d5dacc331435e8651e740cd635e56.r2.dev/media';
+const cdnMediaBase = 'https://media.binh-nt.dev/media';
 
 /// Sources are always PNG/JPG or `.mp4` (see .gitignore's media list) —
 /// extension alone is enough to tell a video slot from an image one.
