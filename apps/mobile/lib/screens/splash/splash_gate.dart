@@ -103,10 +103,16 @@ class _SplashGateState extends ConsumerState<SplashGate> {
   Future<void> _warmStreets() async {
     if (debugContentImageOverride != null) return; // widget tests: no network
     try {
-      await Future.wait<Object?>(<Future<Object?>>[
+      final results = await Future.wait<Object?>(<Future<Object?>>[
         ref.read(streetMapDataProvider.future),
         ref.read(streetBasemapProvider.future),
       ]);
+      // Then the tiles of the first view, so the map paints from memory.
+      final basemap = results[1] as StreetBasemap?;
+      final start = (results[0] as StreetMapData?)?.file.start;
+      if (basemap != null && start != null) {
+        await basemap.prefetch(startViewTiles(start.lat, start.lng, start.zoom));
+      }
     } catch (_) {
       // Never surfaces: this is only a head start.
     }

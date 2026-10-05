@@ -280,7 +280,7 @@ class PmTilesArchive {
   }
 
   /// Reads a PmTiles archive from the given ReadAt interface.
-  @visibleForTesting
+  /// (Long Ký: public API — the street map wraps its HTTP reader in a read cache.)
   // ignore: invalid_use_of_visible_for_testing_member
   static Future<PmTilesArchive> fromReadAt(ReadAt f) async {
     final headerAndRoot =

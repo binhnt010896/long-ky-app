@@ -1,9 +1,13 @@
 // ignore_for_file: implementation_imports
 import 'dart:io' show Directory;
+import 'dart:math' as math;
+import 'dart:typed_data';
 
 import 'package:core_domain/core_domain.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
+import 'package:pmtiles/pmtiles.dart' show HttpAt, PmTilesArchive, ReadAt, ZXY;
 import 'package:vector_map_tiles_pmtiles/src/themes/v4/_package.dart' as v4;
 import 'package:vector_map_tiles/vector_map_tiles.dart' show TileProviders, VectorTileProvider;
 import 'package:vector_map_tiles_pmtiles/vector_map_tiles_pmtiles.dart';
@@ -123,16 +127,103 @@ Future<Directory> Function() basemapCacheFolderFor(String url) {
       Directory('${(await getApplicationSupportDirectory()).path}/$name');
 }
 
+/// A [ReadAt] that remembers what it has read (by offset and length) and joins
+/// identical reads in flight. The base map is one big file read in small ranges,
+/// one per tile: with this in front of the HTTP reader, tiles fetched ahead of
+/// time at the splash are answered from memory when the map screen asks for them.
+/// Bounded ([maxBytes]); the oldest reads are forgotten first.
+class CachingReadAt implements ReadAt {
+  CachingReadAt(this._inner, {this.maxBytes = 12 * 1024 * 1024});
+
+  final ReadAt _inner;
+  final int maxBytes;
+  final Map<(int, int), Uint8List> _done = <(int, int), Uint8List>{};
+  final Map<(int, int), Future<Uint8List>> _inFlight = <(int, int), Future<Uint8List>>{};
+  int _bytes = 0;
+
+  /// Bytes held right now (for tests).
+  int get cachedBytes => _bytes;
+
+  @override
+  Future<http.ByteStream> readAt(int offset, int length) async {
+    final key = (offset, length);
+    final hit = _done[key];
+    if (hit != null) return http.ByteStream.fromBytes(hit);
+    final data = await (_inFlight[key] ??= _load(key));
+    return http.ByteStream.fromBytes(data);
+  }
+
+  Future<Uint8List> _load((int, int) key) async {
+    try {
+      final stream = await _inner.readAt(key.$1, key.$2);
+      final data = await stream.toBytes();
+      _done[key] = data;
+      _bytes += data.length;
+      // Insertion order is oldest-first, so trimming from the front drops the oldest.
+      while (_bytes > maxBytes && _done.length > 1) {
+        final oldest = _done.keys.first;
+        _bytes -= _done.remove(oldest)!.length;
+      }
+      return data;
+    } finally {
+      _inFlight.remove(key);
+    }
+  }
+
+  @override
+  Future<void> close() => _inner.close();
+}
+
+/// The tiles a phone shows when the map first opens at ([lat], [lng], [zoom]):
+/// a block around the centre, [across] wide by [down] tall (the camera is
+/// centred, so the block is too). Pure, for tests.
+List<ZXY> startViewTiles(double lat, double lng, double zoom,
+    {int across = 5, int down = 7}) {
+  final z = zoom.floor();
+  final n = 1 << z;
+  final x = ((lng + 180) / 360 * n).floor();
+  final rad = lat * math.pi / 180;
+  final y = ((1 - math.log(math.tan(rad) + 1 / math.cos(rad)) / math.pi) / 2 * n).floor();
+  return <ZXY>[
+    for (var dy = -(down ~/ 2); dy <= down ~/ 2; dy++)
+      for (var dx = -(across ~/ 2); dx <= across ~/ 2; dx++)
+        if (x + dx >= 0 && x + dx < n && y + dy >= 0 && y + dy < n)
+          ZXY(z, x + dx, y + dy),
+  ];
+}
+
 /// The base map opened once: the PMTiles archive (header + directories are the
 /// slow part), the provider map the vector layer is handed, and its cache
 /// folder. All three must keep their identity for the layer to finish a paint,
 /// so they live here, not in a widget's build.
 class StreetBasemap {
-  StreetBasemap(this.url, PmTilesVectorTileProvider provider)
+  StreetBasemap(this.url, this.archive, PmTilesVectorTileProvider provider)
       : providers = TileProviders(<String, VectorTileProvider>{'protomaps': provider}),
         cacheFolder = basemapCacheFolderFor(url);
 
   final String url;
+  final PmTilesArchive archive;
+
+  /// Reads [tiles] now (a few at a time) so the reads are already in memory when
+  /// the map asks for them. Fire and forget: failures are swallowed, since the
+  /// map fetches whatever it needs itself, just later.
+  Future<void> prefetch(Iterable<ZXY> tiles, {int concurrency = 6}) async {
+    final queue = tiles.toList();
+    var next = 0;
+    Future<void> worker() async {
+      while (next < queue.length) {
+        final t = queue[next++];
+        try {
+          await archive.tile(t.toTileId());
+        } catch (_) {
+          // A tile that will not load now is just loaded later.
+        }
+      }
+    }
+
+    await Future.wait(<Future<void>>[for (var i = 0; i < concurrency; i++) worker()]);
+  }
+
   final TileProviders providers;
   final Future<Directory> Function() cacheFolder;
 }
@@ -141,13 +232,21 @@ class StreetBasemap {
 /// splash reads it in the background (see `SplashGate`), so by the time the
 /// street screen opens the archive is already open. Null = no base map for
 /// this city (the plain ground), or it could not be opened.
+http.Client _client() => http.Client();
+
 final streetBasemapProvider = FutureProvider<StreetBasemap?>((ref) async {
   final file = await ref.watch(streetMappingProvider.future);
   if (file == null) return null;
   final url = streetBasemapUrl(file);
   if (url.isEmpty) return null;
   try {
-    return StreetBasemap(url, await PmTilesVectorTileProvider.fromSource(url));
+    final http = url.startsWith('http://') || url.startsWith('https://');
+    final archive = http
+        ? await PmTilesArchive.fromReadAt(
+            CachingReadAt(HttpAt(_client(), Uri.parse(url))))
+        : await PmTilesArchive.from(url);
+    return StreetBasemap(
+        url, archive, PmTilesVectorTileProvider.fromArchive(archive));
   } catch (_) {
     // The map still works without a base map.
     return null;

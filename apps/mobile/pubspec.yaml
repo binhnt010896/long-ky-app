@@ -60,6 +60,9 @@ dependencies:
   # Direct dep only for CancellationException (see telemetry/telemetry.dart).
   executor_lib: ^1.1.2
   vector_map_tiles_pmtiles: ^1.5.0
+  # Direct dep for the base map's read cache (street_basemap.dart); the vendored
+  # copy in third_party/ is what resolves (root dependency_overrides).
+  pmtiles: ^1.2.0
   vector_tile_renderer: ^5.2.1
 
 dev_dependencies:

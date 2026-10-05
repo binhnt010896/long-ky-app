@@ -5,7 +5,11 @@ import 'package:core_content/core_content.dart';
 import 'package:core_content/testing.dart';
 import 'package:core_domain/core_domain.dart';
 import 'package:experience/experience.dart';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:pmtiles/pmtiles.dart' show ReadAt;
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -157,6 +161,20 @@ Future<void> _settle(WidgetTester tester) async {
   }
 }
 
+class _CountingReadAt implements ReadAt {
+  int calls = 0;
+  @override
+  Future<http.ByteStream> readAt(int offset, int length) async {
+    calls++;
+    await Future<void>.delayed(const Duration(milliseconds: 5));
+    return http.ByteStream.fromBytes(
+        Uint8List.fromList(List<int>.generate(length, (i) => (offset + i) & 0xff)));
+  }
+
+  @override
+  Future<void> close() async {}
+}
+
 void main() {
   setUp(() {
     final view = TestWidgetsFlutterBinding.ensureInitialized()
@@ -165,6 +183,43 @@ void main() {
         .first;
     view.physicalSize = const Size(390, 844);
     view.devicePixelRatio = 1.0;
+  });
+
+  group('basemap read cache (S3 prefetch)', () {
+    test('a read is fetched once, joined while in flight, then served from memory', () async {
+      final inner = _CountingReadAt();
+      final cache = CachingReadAt(inner);
+      final a = cache.readAt(100, 4);
+      final b = cache.readAt(100, 4); // same range, still in flight
+      final bytesA = await (await a).toBytes();
+      final bytesB = await (await b).toBytes();
+      final bytesC = await (await cache.readAt(100, 4)).toBytes(); // cached
+      expect(inner.calls, 1);
+      expect(bytesA, bytesB);
+      expect(bytesC, bytesA);
+      await cache.readAt(200, 4);
+      expect(inner.calls, 2, reason: 'a different range is a different read');
+    });
+
+    test('it is bounded: the oldest reads are dropped first', () async {
+      final inner = _CountingReadAt();
+      final cache = CachingReadAt(inner, maxBytes: 10);
+      for (var i = 0; i < 5; i++) {
+        await (await cache.readAt(i * 10, 4)).toBytes();
+      }
+      expect(cache.cachedBytes, lessThanOrEqualTo(10));
+      await cache.readAt(0, 4); // the oldest was forgotten, so it is read again
+      expect(inner.calls, 6);
+    });
+
+    test('startViewTiles: a block of tiles centred on the start view', () {
+      final tiles = startViewTiles(10.777, 106.699, 13.0);
+      expect(tiles, hasLength(35));
+      expect(tiles.every((t) => t.z == 13), isTrue);
+      // The centre tile of Sài Gòn at z13, as the PMTiles check measured it.
+      expect(tiles.any((t) => t.x == 6523 && t.y == 3849), isTrue);
+      expect(startViewTiles(10.777, 106.699, 13.6).first.z, 13);
+    });
   });
 
   group('basemap cache (S2)', () {
