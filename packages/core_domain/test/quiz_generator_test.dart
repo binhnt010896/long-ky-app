@@ -304,9 +304,13 @@ void main() {
 
     test('a standalone event is asked about in year questions, with no era slug', () {
       final gen = QuizGenerator(eras, standalone: [standalone('rieng-1', 1234)]);
-      final qs = ask(gen, QuizMode.random);
-      final year = qs.whereType<McqQuestion>().where(
-          (q) => q.type == QuestionType.year && q.source.eventId == 'rieng-1');
+      // An event is asked once, so which type it gets depends on the seed (and
+      // on the real corpus feeding the shuffle): look across seeds, as below.
+      final year = [
+        for (var seed = 0; seed < 40; seed++)
+          ...ask(gen, QuizMode.random, seed: seed).whereType<McqQuestion>().where(
+              (q) => q.type == QuestionType.year && q.source.eventId == 'rieng-1'),
+      ];
       expect(year, isNotEmpty);
       expect(year.first.source.eraSlug, isEmpty);
     });
