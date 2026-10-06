@@ -19,10 +19,9 @@ import '../streets/street_perf.dart';
 ///
 /// While the seal rises in, it does two things in sequence:
 ///
-/// 1. Checks for a newer content pack, capped at 2s — if one arrives in time
-///    it's adopted immediately (Home is still hidden, so swapping content out
-///    from under it is safe); otherwise the check keeps running in the
-///    background and is simply picked up on the next launch.
+/// 1. Checks for a newer content pack, waiting at most 2s — if one arrives in
+///    time it's adopted before Home shows; otherwise the check keeps running
+///    in the background and the pack is adopted live the moment it lands.
 /// 2. Warms the first Home page's media (the active dynasty's period cover
 ///    and its first era's scene layers) into the on-device cache, so Home
 ///    shows its art immediately instead of popping in over a few seconds.
@@ -83,14 +82,20 @@ class _SplashGateState extends ConsumerState<SplashGate> {
 
   Future<void> _run() async {
     final activeVersion = ref.read(activeContentVersionProvider);
-    // checkForUpdate never throws — a timeout here just means it's still
-    // running; it keeps going in the background (persisting anything it
-    // finds) and gets picked up on the next launch instead.
-    final pack = await ContentSync.checkForUpdate(activeVersion)
-        .timeout(const Duration(seconds: 2), onTimeout: () => null);
-    if (pack != null && mounted) {
-      _activatePack(pack);
-    }
+    // checkForUpdate never throws. A pack that arrives within the splash's
+    // window is adopted before Home shows; one that takes longer (the usual
+    // case on a phone: latest.json plus a ~2 MB pack) is adopted live when
+    // it lands, instead of waiting for the next launch.
+    await adoptPackWhenReady<ContentPack>(
+      ContentSync.checkForUpdate(activeVersion),
+      window: const Duration(seconds: 2),
+      adopt: (pack, {required live}) {
+        if (!mounted) return;
+        // A later launch's check can't race this one, but stay monotonic.
+        if (pack.version <= ref.read(activeContentVersionProvider)) return;
+        _activatePack(pack, live: live);
+      },
+    );
     // After the pack, so it warms the pack's street mapping. Not awaited: the
     // map is a side trip, and must never hold the splash.
     unawaited(_warmStreets());
@@ -124,10 +129,13 @@ class _SplashGateState extends ConsumerState<SplashGate> {
     }
   }
 
-  /// Adopts a freshly-validated pack while Home is still hidden under the
-  /// splash: swaps it in as the OTA overlay, applies its media manifest, and
-  /// drops every provider's cache so the next read reflects the new content.
-  void _activatePack(ContentPack pack) {
+  /// Adopts a freshly-validated pack: swaps it in as the OTA overlay, applies
+  /// its media manifest, and drops every provider's cache so the next read
+  /// reflects the new content. Under the splash ([live] false) Home is still
+  /// hidden; [live] true means the app is in use — screens on show refresh in
+  /// place (Riverpod keeps their old data until the new read lands, so nothing
+  /// flashes back to a spinner).
+  void _activatePack(ContentPack pack, {required bool live}) {
     final source = ref.read(contentRepositoryProvider).source;
     if (source is OtaContentSource) {
       source.overlay = PackContentSource(pack);
@@ -143,7 +151,7 @@ class _SplashGateState extends ConsumerState<SplashGate> {
     ref.invalidate(streetMapDataProvider);
     ref.read(activeContentVersionProvider.notifier).state = pack.version;
     ref.read(telemetryProvider).event('content_pack_adopted',
-        <String, Object>{'version': pack.version, 'at': 'splash'});
+        <String, Object>{'version': pack.version, 'at': live ? 'live' : 'splash'});
   }
 
   Future<void> _warmUp() async {
@@ -407,4 +415,27 @@ class _SplashContent extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Waits up to [window] for [check]. A result within the window is adopted
+/// with `live: false`; a later one with `live: true` (the caller is not kept
+/// waiting for it). A null result — no newer pack, or a failed check — adopts
+/// nothing.
+Future<void> adoptPackWhenReady<T>(
+  Future<T?> check, {
+  required Duration window,
+  required void Function(T pack, {required bool live}) adopt,
+}) async {
+  var inWindow = false;
+  final early = await check.then<T?>((p) {
+    inWindow = true;
+    return p;
+  }).timeout(window, onTimeout: () => null);
+  if (inWindow) {
+    if (early != null) adopt(early, live: false);
+    return;
+  }
+  unawaited(check.then((late) {
+    if (late != null) adopt(late, live: true);
+  }));
 }
