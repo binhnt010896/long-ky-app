@@ -881,12 +881,12 @@ void main() {
     testWidgets('timeline lists the Nguyễn founding events', (tester) async {
       await _pumpAt(tester, '/era/gia-long/timeline', ExperienceTier.reduced);
 
-      expect(find.text('Nguyễn Ánh lưu lạc, nuôi chí phục quốc'), findsOneWidget);
+      expect(find.text('Nguyễn Ánh lưu lạc sau khi Tây Sơn diệt họ Nguyễn'), findsOneWidget);
       final scrollable = find.byType(Scrollable).first;
       for (final title in <String>[
-        'Bắc tiến diệt Tây Sơn, thu giang sơn về một mối',
-        'Lên ngôi Gia Long, đặt quốc hiệu Việt Nam',
-        'Dựng kinh thành Huế, định luật Gia Long',
+        'Nguyễn Ánh hạ Phú Xuân, diệt nhà Tây Sơn',
+        'Gia Long lên ngôi, đặt quốc hiệu Việt Nam',
+        'Dựng kinh thành Huế, ban Hoàng Việt luật lệ',
       ]) {
         await tester.scrollUntilVisible(find.text(title), 250,
             scrollable: scrollable);
@@ -896,14 +896,14 @@ void main() {
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('Gia Long has a chronicle-grounded bio', (tester) async {
+    testWidgets('Gia Long bio is sourced and carries the condemnation', (tester) async {
       await _pumpAt(
           tester, '/era/gia-long/figure/gia-long', ExperienceTier.reduced);
 
       expect(find.text('Nguyễn Ánh · Gia Long'), findsWidgets);
       expect(
           find.text(
-              'HOÀNG ĐẾ KHAI SÁNG NHÀ NGUYỄN · NGƯỜI THỐNG NHẤT GIANG SƠN'),
+              'VUA ĐẦU TIÊN CỦA NHÀ NGUYỄN'),
           findsOneWidget);
       expect(find.textContaining('Việt Nam'), findsWidgets);
       expect(tester.takeException(), isNull);

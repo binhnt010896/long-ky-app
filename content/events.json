@@ -6893,12 +6893,13 @@
         }
       },
       "citation": {
-        "work": "Đại Nam chính biên liệt truyện",
+        "work": "Nguyễn Nhạc với vương triều Tây Sơn: Một triều đại tỏa sáng",
         "section": {
-          "vi": "Sơ tập · Ngụy Tây liệt truyện",
-          "en": "First Collection · Records of the Tây Sơn"
+          "vi": "Bảo tàng Lịch sử quốc gia, 2012",
+          "en": "National Museum of History, 2012"
         },
-        "author": "Quốc sử quán triều Nguyễn"
+        "author": "Lê Đình Phụng (Viện Khảo cổ học)",
+        "url": "https://baotanglichsu.vn/vi/Articles/3096/12481/nguyen-nhac-voi-vuong-trieu-tay-son-mot-trieu-djai-toa-sang.html"
       }
     },
     {
@@ -6955,12 +6956,13 @@
         }
       },
       "citation": {
-        "work": "Đại Nam chính biên liệt truyện",
+        "work": "Tiền Giang tổ chức Kỷ niệm 240 năm Chiến thắng Rạch Gầm-Xoài Mút",
         "section": {
-          "vi": "Sơ tập · Ngụy Tây liệt truyện",
-          "en": "First Collection · Records of the Tây Sơn"
+          "vi": "Báo Nhân Dân, 7-1-2025",
+          "en": "Nhân Dân, 7 Jan 2025"
         },
-        "author": "Quốc sử quán triều Nguyễn"
+        "author": "Nguyễn Sự",
+        "url": "https://nhandan.vn/tien-giang-to-chuc-ky-niem-240-nam-chien-thang-rach-gam-xoai-mut-post854836.html"
       }
     },
     {
@@ -7221,8 +7223,8 @@
         "gia-long"
       ],
       "details": {
-        "vi": "Năm Đinh Dậu (1777), quân Tây Sơn đánh vào Gia Định, giết gần hết tông thất chúa Nguyễn. Nguyễn Ánh, cháu của chúa, mới mười lăm tuổi, may thoát chết, bắt đầu cuộc đời bôn ba. Ông chiêu tập những cựu thần, tướng sĩ còn trung thành với họ Nguyễn, nhiều lần chiếm lại được Gia Định rồi lại bị Tây Sơn đánh đuổi, phải chạy ra các hòn đảo ngoài biển như Phú Quốc, Côn Lôn, có phen sang lánh nạn ở đất Xiêm. Đó là quãng đời gian nan nhất của ông: lương thực thiếu thốn, lực lượng tan hợp bất thường, tính mạng luôn bị đe dọa, dân gian truyền tụng nhiều chuyện ông thoát hiểm trong đường tơ kẽ tóc. Nhưng qua bao lần thất bại, ý chí phục hồi cơ nghiệp tổ tông của ông vẫn không lay chuyển, và ông dần rút ra bài học phải xây dựng một căn cứ vững chắc, một đạo quân tinh nhuệ mới mong thành công.",
-        "en": "In the year Đinh Dậu (1777) the Tây Sơn struck Gia Định and killed nearly all the Nguyễn lords' kin. Nguyễn Ánh, the lords' grandson, just fifteen, narrowly escaped and began a life on the run. Gathering former officials and soldiers still loyal to the Nguyễn, he retook Gia Định several times only to be driven out again by the Tây Sơn, fleeing to offshore islands like Phú Quốc and Côn Lôn, and once taking refuge in Siam. These were his hardest years: provisions scarce, his forces scattering and reforming, his life always in danger, and folk tales tell of many hair's-breadth escapes. Yet through every defeat his resolve to restore his ancestors' enterprise never wavered, and he slowly learned that only a firm base and a well-trained army could bring success."
+        "vi": "Năm Đinh Dậu (1777), quân Tây Sơn đánh vào Gia Định, giết gần hết tông thất chúa Nguyễn. Nguyễn Ánh, cháu của chúa, mới mười lăm tuổi, may thoát chết, bắt đầu cuộc đời bôn ba. Ông chiêu tập những cựu thần, tướng sĩ còn trung thành với họ Nguyễn, nhiều lần chiếm lại được Gia Định rồi lại bị Tây Sơn đánh đuổi, phải chạy ra các hòn đảo ngoài biển như Phú Quốc, Côn Lôn, có phen sang lánh nạn ở đất Xiêm. Tháng 6 năm 1783, Tây Sơn đánh Phú Quốc, Nguyễn Ánh lên thuyền trốn ra Côn Đảo. Quãng đời ấy lương thực thiếu thốn, lực lượng tan hợp bất thường. Chính trong cảnh cùng quẫn đó, ông bắt đầu tìm sự giúp đỡ từ bên ngoài: trước hết là Xiêm, rồi Pháp.",
+        "en": "In the year Đinh Dậu (1777) the Tây Sơn struck Gia Định and killed nearly all the Nguyễn lords' kin. Nguyễn Ánh, the lords' grandson, just fifteen, narrowly escaped and began a life on the run. Gathering former officials and soldiers still loyal to the Nguyễn, he retook Gia Định several times only to be driven out again by the Tây Sơn, fleeing to offshore islands like Phú Quốc and Côn Lôn, and once taking refuge in Siam. In June 1783 the Tây Sơn attacked Phú Quốc and Nguyễn Ánh took to a boat and fled to Côn Đảo. Those years were short of provisions, his forces scattering and reforming. It was in this extremity that he began to look for help from outside: first Siam, then France."
       },
       "kind": "historical",
       "year": {
@@ -7234,25 +7236,25 @@
         "approximate": false
       },
       "title": {
-        "vi": "Nguyễn Ánh lưu lạc, nuôi chí phục quốc",
-        "en": "Nguyễn Ánh in exile, nursing his cause"
+        "vi": "Nguyễn Ánh lưu lạc sau khi Tây Sơn diệt họ Nguyễn",
+        "en": "Nguyễn Ánh on the run after the Tây Sơn destroy the Nguyễn house"
       },
       "summary": {
-        "vi": "Tây Sơn diệt họ Nguyễn (1777); Nguyễn Ánh thiếu niên thoát nạn, bôn ba khắp Gia Định, hải đảo, đất Xiêm.",
-        "en": "The Tây Sơn destroy the Nguyễn (1777); the boy Nguyễn Ánh escapes and wanders Gia Định, the islands, and Siam."
+        "vi": "Tây Sơn diệt họ chúa Nguyễn (1777); Nguyễn Ánh mười lăm tuổi thoát nạn, nhiều lần lấy lại rồi mất Gia Định, lánh ra hải đảo và sang Xiêm.",
+        "en": "The Tây Sơn destroy the Nguyễn lords (1777); Nguyễn Ánh, fifteen, escapes, retakes and loses Gia Định several times, and takes refuge on the islands and in Siam."
       },
       "body": {
-        "vi": "Năm 1777, Tây Sơn đánh Gia Định, giết gần hết họ chúa Nguyễn. Nguyễn Ánh mới mười lăm tuổi thoát chết, chiêu tập cựu thần, nhiều lần lấy lại rồi lại mất Gia Định, phải chạy ra đảo Phú Quốc, Côn Lôn, có khi sang Xiêm lánh nạn. Trải bao gian nan, chí phục hồi cơ nghiệp tổ tông của ông vẫn không lay chuyển.",
-        "en": "In 1777 the Tây Sơn took Gia Định and killed nearly all the Nguyễn lords' house. Nguyễn Ánh, just fifteen, escaped, gathered former officials, took and lost Gia Định many times, and fled to Phú Quốc and Côn Lôn, once sheltering in Siam. Through all the hardship his will to restore his ancestors' enterprise never wavered."
+        "vi": "Năm 1777, Tây Sơn đánh Gia Định, giết gần hết họ chúa Nguyễn. Nguyễn Ánh mới mười lăm tuổi thoát chết, chiêu tập cựu thần, nhiều lần lấy lại rồi lại mất Gia Định, phải ra đảo Phú Quốc, Côn Lôn, có lúc sang Xiêm. Tháng 6-1783, Tây Sơn đánh Phú Quốc, ông trốn ra Côn Đảo.",
+        "en": "In 1777 the Tây Sơn struck Gia Định and killed nearly all the Nguyễn lords' kin. Nguyễn Ánh, only fifteen, escaped, gathered former officials, retook and lost Gia Định several times, and fled to Phú Quốc and Côn Lôn, once to Siam. In June 1783 the Tây Sơn attacked Phú Quốc and he fled to Côn Đảo."
       },
       "pullQuote": {
         "text": {
-          "vi": "Trải bao phen thành bại, lênh đênh ngoài đảo vắng, mà chí khôi phục cơ đồ chưa từng một ngày lơi lỏng.",
-          "en": "Through victory and defeat, adrift on lonely islands, his will to restore the enterprise did not slacken for a single day."
+          "vi": "Gia Long lại dấy can qua / Bị Tây Sơn đuổi, chạy ra nước ngoài.",
+          "en": "Gia Long took up arms again, / Driven out by the Tây Sơn, he fled abroad."
         },
         "attribution": {
-          "vi": "theo Đại Nam thực lục",
-          "en": "per the Đại Nam thực lục"
+          "vi": "Hồ Chí Minh, Lịch sử nước ta, 1942",
+          "en": "Hồ Chí Minh, Lịch sử nước ta (1942)"
         }
       },
       "hero": {
@@ -7273,7 +7275,11 @@
           "vi": "Chính biên · Đệ nhất kỷ · Quyển 1",
           "en": "Primary Compilation · First Reign · Book 1"
         },
-        "author": "Quốc sử quán triều Nguyễn"
+        "author": "Quốc sử quán triều Nguyễn",
+        "note": {
+          "vi": "Chỉ dùng cho niên đại và sự kiện, không dùng để đánh giá (sử nhà Nguyễn). Chuyện trốn ra Côn Đảo (6-1783): Báo Nhân Dân, \"Đất thiêng Côn Đảo\".",
+          "en": "Used for dates and events only, not for judgment (a Nguyễn court chronicle). The flight to Côn Đảo (June 1783): Nhân Dân, \"Đất thiêng Côn Đảo\"."
+        }
       }
     },
     {
@@ -7284,8 +7290,8 @@
         "ba-da-loc"
       ],
       "details": {
-        "vi": "Trong cơn cùng quẫn, Nguyễn Ánh tìm mọi chỗ dựa. Năm Giáp Thìn (1784), ông cầu viện vua Xiêm; vua Xiêm cho hai vạn quân sang, nhưng đạo quân này bị Nguyễn Huệ đánh tan tành ở Rạch Gầm – Xoài Mút đầu năm 1785. Sau đó, ông đặt hy vọng vào phương Tây, nhờ giám mục người Pháp Bá Đa Lộc — người đã kết thân và hết lòng phò tá ông — sang Pháp cầu viện. Năm Đinh Mùi (1787), Bá Đa Lộc đem hoàng tử Cảnh (con Nguyễn Ánh, khi ấy còn nhỏ) sang Pháp, thay mặt ông ký bản hiệp ước Versailles: Pháp hứa giúp quân, đổi lại được một số quyền lợi. Nhưng nước Pháp bấy giờ đang rối ren trước cách mạng, rốt cuộc không thực hiện. Không nản chí, Bá Đa Lộc tự bỏ tiền của, vận động mộ được một số sĩ quan, thợ kỹ thuật, mua tàu chiến, súng đạn đem về giúp Nguyễn Ánh. Nhờ đó quân Nguyễn được huấn luyện, trang bị theo lối phương Tây, đúc súng, đóng thuyền, đắp thành kiểu mới. Việc mượn sức ngoại bang để phục quốc này về sau bị nhiều người phê phán, xem là mầm mống cho họa mất nước vào tay Pháp.",
-        "en": "In his extremity Nguyễn Ánh sought every prop. In the year Giáp Thìn (1784) he begged aid from the king of Siam, who sent twenty thousand troops — an army Nguyễn Huệ shattered at Rạch Gầm–Xoài Mút early in 1785. He then turned West, having the French bishop Pigneau de Béhaine — who had befriended and served him wholeheartedly — seek help from France. In the year Đinh Mùi (1787) Pigneau took Prince Cảnh (Nguyễn Ánh's young son) to France and signed on his behalf the Treaty of Versailles: France promised troops in return for certain rights. But France, soon in the turmoil of revolution, never carried it out. Undaunted, Pigneau spent his own means to recruit officers and technicians and to buy warships, guns and ammunition for Nguyễn Ánh. By this the Nguyễn forces were trained and equipped in the Western manner — casting cannon, building ships, raising fortresses of the new design. This borrowing of foreign strength to restore his house was later much criticised as the seed of the eventual loss of the country to France."
+        "vi": "Năm Giáp Thìn (1784), nhân cớ nhận được lời cầu viện của Nguyễn Ánh, vua Xiêm sai hai tướng Chiêu Tăng, Chiêu Sương chỉ huy 5 vạn quân theo đường thủy và đường bộ tiến vào Gia Định. Đêm 19 rạng 20-1-1785, khi thuyền chiến địch lọt vào trận địa mai phục của nghĩa quân Tây Sơn, Nguyễn Huệ tiêu diệt gần 5 vạn quân Xiêm – Nguyễn, đánh chìm hơn 300 chiến thuyền ở Rạch Gầm – Xoài Mút. Sau đó, Nguyễn Ánh cho hoàng tử Cảnh, mới bốn tuổi, theo giám mục Bá Đa Lộc sang Pháp cầu cứu. Ngày 28-11-1787, thay mặt Nguyễn Ánh, Bá Đa Lộc ký hiệp ước Versailles với đại diện vua Pháp là De Montmorin: Pháp hứa giúp 4 tàu chiến, 1.200 lính, 200 pháo thủ và 250 lính người Phi; đổi lại nhà Nguyễn phải nhượng chủ quyền cửa Hàn (Đà Nẵng), Hội An và đảo Côn Lôn. Hồ Chí Minh đánh giá việc cầu viện ấy bằng hai câu thơ nổi tiếng: \"Khác gì cõng rắn cắn gà / Rước voi giày mả, thiệt là ngu si\". Năm 1861, Pháp tuyên bố quyền chiếm hữu Côn Đảo.",
+        "en": "In the year Giáp Thìn (1784), on receiving Nguyễn Ánh's appeal, the king of Siam sent two generals, Chiêu Tăng and Chiêu Sương, with 50,000 troops by water and land into Gia Định. On the night of 19–20 January 1785, as the enemy fleet entered the Tây Sơn ambush, Nguyễn Huệ destroyed nearly 50,000 Siamese and Nguyễn troops and sank more than 300 warships at Rạch Gầm – Xoài Mút. Nguyễn Ánh then sent Prince Cảnh, aged four, with Bishop Pigneau de Béhaine to France to seek help. On 28 November 1787, on Nguyễn Ánh's behalf, Pigneau signed the Treaty of Versailles with the French envoy De Montmorin: France promised 4 warships, 1,200 soldiers, 200 gunners and 250 Filipino troops; in return the Nguyễn would cede sovereignty over the Hàn port (Đà Nẵng), Hội An and the Côn Lôn islands. Hồ Chí Minh judged the appeal in two well-known lines: \"Like carrying a snake home to bite one's own hens, / leading an elephant in to trample the ancestral tombs — how foolish.\" In 1861 France declared possession of Côn Đảo."
       },
       "kind": "historical",
       "year": {
@@ -7297,25 +7303,25 @@
         "approximate": false
       },
       "title": {
-        "vi": "Cầu viện ngoại bang, Bá Đa Lộc phò tá",
-        "en": "Seeking foreign aid; Pigneau's patronage"
+        "vi": "Nguyễn Ánh cầu viện Xiêm và Pháp",
+        "en": "Nguyễn Ánh appeals to Siam and France"
       },
       "summary": {
-        "vi": "Cầu viện Xiêm (bại ở Rạch Gầm) rồi Pháp qua Bá Đa Lộc; nước Pháp bội ước, nhưng ông vẫn được giúp tàu súng.",
-        "en": "Aid from Siam (lost at Rạch Gầm) then France via Pigneau; France reneges, yet ships and guns still come."
+        "vi": "Năm 1784 cầu viện vua Xiêm (5 vạn quân bị Nguyễn Huệ diệt ở Rạch Gầm – Xoài Mút), rồi nhờ Bá Đa Lộc cầu viện Pháp, ký hiệp ước Versailles (1787) hứa nhượng cửa Hàn và Côn Lôn.",
+        "en": "In 1784 he appeals to Siam (50,000 troops destroyed by Nguyễn Huệ at Rạch Gầm – Xoài Mút), then has Pigneau seek French aid, signing the Treaty of Versailles (1787), which promises the Hàn port and Côn Lôn."
       },
       "body": {
-        "vi": "Cùng đường, năm 1784 Nguyễn Ánh cầu viện Xiêm nhưng quân Xiêm bị Nguyễn Huệ diệt ở Rạch Gầm (1785). Ông nhờ giám mục Pháp Bá Đa Lộc sang Pháp cầu viện; năm 1787 Bá Đa Lộc đem hoàng tử Cảnh đi, ký hiệp ước Versailles, song Pháp bội ước. Bá Đa Lộc tự mộ sĩ quan, mua tàu súng giúp ông xây quân đội kiểu phương Tây. Việc mượn ngoại bang này về sau bị phê phán.",
-        "en": "At his lowest, in 1784 Nguyễn Ánh sought Siam's aid, but its army was destroyed at Rạch Gầm (1785). He had the French bishop Pigneau seek help from France; in 1787 Pigneau took Prince Cảnh and signed the Treaty of Versailles, but France reneged. Pigneau himself recruited officers and bought ships and guns to build a Western-style army. This borrowing of foreign power was later criticised."
+        "vi": "Năm 1784, Nguyễn Ánh cầu viện vua Xiêm; 5 vạn quân Xiêm kéo vào Gia Định và bị Nguyễn Huệ tiêu diệt ở Rạch Gầm – Xoài Mút (1785). Ông cho hoàng tử Cảnh, mới bốn tuổi, theo giám mục Bá Đa Lộc sang Pháp cầu cứu. Ngày 28-11-1787, Bá Đa Lộc ký hiệp ước Versailles thay ông: Pháp hứa giúp 4 tàu chiến, 1.200 lính…; đổi lại nhà Nguyễn nhượng cửa Hàn, Hội An và Côn Lôn. Hồ Chí Minh gọi đó là \"cõng rắn cắn gà, rước voi giày mả\".",
+        "en": "In 1784 Nguyễn Ánh appealed to the king of Siam; 50,000 Siamese troops entered Gia Định and were destroyed by Nguyễn Huệ at Rạch Gầm – Xoài Mút (1785). He sent Prince Cảnh, aged four, with Bishop Pigneau to France to seek help. On 28 November 1787 Pigneau signed the Treaty of Versailles for him: France promised 4 warships, 1,200 soldiers…; in return the Nguyễn would cede the Hàn port, Hội An and Côn Lôn. Hồ Chí Minh called it \"carrying a snake home to bite one's own hens, leading an elephant in to trample the ancestral tombs\"."
       },
       "pullQuote": {
         "text": {
-          "vi": "Mượn sức người ngoài để lấy lại nước — kẻ khen là quyền biến, người chê là rước voi giày mả tổ; ấy là chỗ đời sau còn bàn mãi.",
-          "en": "To borrow foreign strength to win back the country — some praised his cunning, others damned it as leading the elephant to trample the ancestral tombs; on this later ages still debate."
+          "vi": "Khác gì cõng rắn cắn gà / Rước voi giày mả, thiệt là ngu si.",
+          "en": "Like carrying a snake home to bite one's own hens, / leading an elephant in to trample the ancestral tombs — how foolish."
         },
         "attribution": {
-          "vi": "lời bàn của người đời sau",
-          "en": "the judgment of later generations"
+          "vi": "Hồ Chí Minh, Lịch sử nước ta, 1942",
+          "en": "Hồ Chí Minh, Lịch sử nước ta (1942)"
         }
       },
       "hero": {
@@ -7331,12 +7337,17 @@
         }
       },
       "citation": {
-        "work": "Đại Nam thực lục",
+        "work": "Đất thiêng Côn Đảo",
         "section": {
-          "vi": "Chính biên · Đệ nhất kỷ · Quyển 2",
-          "en": "Primary Compilation · First Reign · Book 2"
+          "vi": "Kỳ I: Trang sử bi hùng viết giữa biển khơi (Báo Nhân Dân, 2023)",
+          "en": "Part I: A tragic and heroic page written at sea (Nhân Dân, 2023)"
         },
-        "author": "Quốc sử quán triều Nguyễn"
+        "author": "Uông Thái Biểu",
+        "url": "https://nhandan.vn/ky-i-trang-su-bi-hung-viet-giua-bien-khoi-post778573.html",
+        "note": {
+          "vi": "Rạch Gầm – Xoài Mút: Báo Nhân Dân, 7-1-2025. Hoàng tử Cảnh: Báo Nhân Dân, 2009.",
+          "en": "Rạch Gầm – Xoài Mút: Nhân Dân, 7 Jan 2025. Prince Cảnh: Nhân Dân, 2009."
+        }
       }
     },
     {
@@ -7347,8 +7358,8 @@
         "le-van-duyet"
       ],
       "details": {
-        "vi": "Từ năm Mậu Thân (1788), Nguyễn Ánh chiếm lại và giữ vững được đất Gia Định, biến vùng đất trù phú phương Nam thành căn cứ địa lâu dài. Ông ra sức chiêu hiền đãi sĩ, thu dụng nhiều tướng tài như Lê Văn Duyệt, Nguyễn Văn Thành, Nguyễn Văn Trương, Võ Tánh; đặt ra phép 'ngụ binh ư nông', khuyến khích khai khẩn ruộng hoang, tích trữ lương thực; lập xưởng đóng thuyền, đúc súng, huấn luyện thủy quân theo lối mới với sự giúp sức của các sĩ quan Pháp. Nhờ đất Gia Định giàu có và bộ máy tổ chức quy củ, thế lực của ông ngày một mạnh. Trong khi đó, ở phương Bắc, sau khi vua Quang Trung đột ngột mất (1792), nhà Tây Sơn dần suy yếu vì vua nối ngôi còn nhỏ, các đại thần chia bè kéo cánh, giết hại lẫn nhau. Nguyễn Ánh kiên nhẫn củng cố lực lượng, hằng năm thừa mùa gió nam đem thủy quân ra đánh, dần dần lấn chiếm đất Tây Sơn; trận thủy chiến lớn ở cửa Thị Nại (1801), Lê Văn Duyệt lập công phá tan thủy quân Tây Sơn, mở đường cho cuộc bắc tiến.",
-        "en": "From the year Mậu Thân (1788) Nguyễn Ánh retook and held Gia Định, making the rich South his lasting base. He eagerly drew in talent — able generals like Lê Văn Duyệt, Nguyễn Văn Thành, Nguyễn Văn Trương and Võ Tánh; instituted 'soldiers settled in farming,' encouraged the clearing of waste land, and stored grain; and set up yards to build ships, cast cannon and train a new-style navy with the help of French officers. By Gia Định's wealth and an orderly administration his power grew. Meanwhile in the North, after Emperor Quang Trung's sudden death (1792), the Tây Sơn weakened under a child successor while its ministers split into factions and killed one another. Nguyễn Ánh patiently built his forces, each year riding the southern monsoon to attack by sea and gnaw away Tây Sơn land; in the great naval battle at the Thị Nại estuary (1801), Lê Văn Duyệt won distinction by destroying the Tây Sơn fleet, opening the way for the march north."
+        "vi": "Từ năm Mậu Thân (1788), Nguyễn Ánh chiếm lại và giữ được đất Gia Định, biến vùng đất trù phú phương Nam thành căn cứ lâu dài. Ông thu dụng nhiều tướng như Lê Văn Duyệt, Nguyễn Văn Thành, Nguyễn Văn Trương, Võ Tánh; lập xưởng đóng thuyền, đúc súng, huấn luyện thủy quân theo lối phương Tây với sự giúp sức của các sĩ quan Pháp. Theo các nghiên cứu, nhờ sự giúp đỡ của người Pháp, thế lực của Nguyễn Ánh ngày càng mạnh, có thể đối đầu với Tây Sơn. Trong khi đó, sau khi Quang Trung đột ngột mất (1792), nhà Tây Sơn suy yếu vì vua nối ngôi còn nhỏ, các đại thần chia bè kéo cánh. Năm 1801, trong trận thủy chiến ở cửa Thị Nại, Lê Văn Duyệt cùng thủy quân Nguyễn đánh tan thủy quân Tây Sơn, mở đường cho cuộc tiến ra Phú Xuân.",
+        "en": "From the year Mậu Thân (1788) Nguyễn Ánh retook and held Gia Định, making the rich South his lasting base. He drew in generals such as Lê Văn Duyệt, Nguyễn Văn Thành, Nguyễn Văn Trương and Võ Tánh, and set up yards to build ships, cast cannon and train a Western-style navy with the help of French officers. Researchers note that with French help his power grew until he could face the Tây Sơn. Meanwhile, after Quang Trung's sudden death (1792), the Tây Sơn weakened under a child successor and ministers split into factions. In 1801, in the naval battle at the Thị Nại estuary, Lê Văn Duyệt and the Nguyễn fleet shattered the Tây Sơn navy, opening the way to Phú Xuân."
       },
       "kind": "historical",
       "year": {
@@ -7360,26 +7371,16 @@
         "approximate": false
       },
       "title": {
-        "vi": "Lấy Gia Định làm căn cứ, thế lực lớn mạnh",
-        "en": "Gia Định as the base; the power that grew"
+        "vi": "Nguyễn Ánh chiếm giữ Gia Định, củng cố lực lượng",
+        "en": "Nguyễn Ánh holds Gia Định and builds up his forces"
       },
       "summary": {
-        "vi": "Giữ vững Gia Định, chiêu hiền, khai khẩn, luyện thủy quân kiểu mới; phá thủy quân Tây Sơn ở Thị Nại (1801).",
-        "en": "Holding Gia Định, drawing talent, clearing land, training a new navy; the Tây Sơn fleet broken at Thị Nại (1801)."
+        "vi": "Giữ Gia Định làm căn cứ, thu dụng tướng sĩ, đóng thuyền đúc súng với sự giúp đỡ của sĩ quan Pháp; thủy quân thắng Tây Sơn ở Thị Nại (1801).",
+        "en": "He holds Gia Định as a base, draws in generals, builds ships and casts cannon with help from French officers; his navy defeats the Tây Sơn at Thị Nại (1801)."
       },
       "body": {
-        "vi": "Từ 1788, Nguyễn Ánh giữ vững Gia Định làm căn cứ, chiêu hiền đãi sĩ (Lê Văn Duyệt, Nguyễn Văn Thành...), khuyến khích khai khẩn, đóng thuyền đúc súng, luyện thủy quân kiểu phương Tây. Quang Trung mất (1792), Tây Sơn suy yếu vì nội bộ chia rẽ. Ông kiên trì lấn đất, năm 1801 đại thắng thủy quân Tây Sơn ở cửa Thị Nại, mở đường bắc tiến.",
-        "en": "From 1788 Nguyễn Ánh held Gia Định as his base, drew in talent (Lê Văn Duyệt, Nguyễn Văn Thành and others), encouraged land-clearing, built ships and cast cannon, and trained a Western-style navy. With Quang Trung dead (1792) the Tây Sơn weakened through discord. He steadily gained ground, and in 1801 shattered the Tây Sơn fleet at the Thị Nại estuary, opening the road north."
-      },
-      "pullQuote": {
-        "text": {
-          "vi": "Đất Gia Định giàu, người Gia Định theo về; có căn cứ vững, có quân tinh nhuệ, đại nghiệp mới có thể thành.",
-          "en": "Gia Định was rich and its people rallied to him; with a firm base and elite troops, only then could the great enterprise succeed."
-        },
-        "attribution": {
-          "vi": "theo Đại Nam thực lục",
-          "en": "per the Đại Nam thực lục"
-        }
+        "vi": "Từ 1788 Nguyễn Ánh giữ Gia Định làm căn cứ, thu dụng tướng như Lê Văn Duyệt, Nguyễn Văn Thành, đóng thuyền, đúc súng, huấn luyện thủy quân theo lối phương Tây. Nhờ sự giúp đỡ của người Pháp, thế lực ông ngày càng mạnh, có thể đối đầu với Tây Sơn. Sau khi Quang Trung mất (1792), Tây Sơn suy yếu vì nội bộ chia rẽ; năm 1801 thủy quân Nguyễn thắng ở cửa Thị Nại.",
+        "en": "From 1788 Nguyễn Ánh held Gia Định as a base, drew in generals such as Lê Văn Duyệt and Nguyễn Văn Thành, built ships, cast cannon and trained a navy in the Western manner. With French help his power grew until he could face the Tây Sơn. After Quang Trung's death (1792) the Tây Sơn weakened through internal discord; in 1801 the Nguyễn navy won at the Thị Nại estuary."
       },
       "hero": {
         "id": "gia-dinh-lon-manh-hero",
@@ -7394,12 +7395,17 @@
         }
       },
       "citation": {
-        "work": "Đại Nam thực lục",
+        "work": "Đường lối ngoại giao của vua Gia Long",
         "section": {
-          "vi": "Chính biên · Đệ nhất kỷ · Quyển 3",
-          "en": "Primary Compilation · First Reign · Book 3"
+          "vi": "Bảo tàng Lịch sử quốc gia, 2010",
+          "en": "National Museum of History, 2010"
         },
-        "author": "Quốc sử quán triều Nguyễn"
+        "author": "ThS. Đào Hải Yến (Trung tâm Lưu trữ quốc gia I)",
+        "url": "https://baotanglichsu.vn/vi/Articles/3096/6084/djuong-loi-ngoai-giao-cua-vua-gia-long.html",
+        "note": {
+          "vi": "Niên đại: Đại Nam thực lục, Chính biên · Đệ nhất kỷ · Quyển 3 (sử nhà Nguyễn, chỉ dùng cho niên đại).",
+          "en": "Dates: Đại Nam thực lục, Primary Compilation · First Reign · Book 3 (a Nguyễn chronicle, used for dates only)."
+        }
       }
     },
     {
@@ -7410,8 +7416,8 @@
         "le-van-duyet"
       ],
       "details": {
-        "vi": "Nhân đà thắng ở Thị Nại, tháng 5 năm Tân Dậu (1801), Nguyễn Ánh đem đại quân đánh thẳng ra, hạ được kinh thành Phú Xuân (Huế), vua Tây Sơn là Cảnh Thịnh (Nguyễn Quang Toản) phải bỏ chạy ra Bắc. Sang năm Nhâm Tuất (1802), Nguyễn Ánh đặt niên hiệu Gia Long, rồi thống lĩnh thủy bộ đại quân tiến ra Bắc Hà. Quân Nguyễn thế mạnh như chẻ tre, lần lượt chiếm các trấn, tiến vào Thăng Long; vua tôi Tây Sơn tan rã, Quang Toản cùng các em bị bắt. Nhà Tây Sơn từng lừng lẫy một thời đến đây hoàn toàn sụp đổ. Cuộc nội chiến và chia cắt kéo dài mấy trăm năm — từ Nam Bắc triều, Trịnh – Nguyễn phân tranh, đến Tây Sơn — rốt cuộc khép lại: lần đầu tiên, cả một dải giang sơn từ Nam Quan đến Cà Mau quy về dưới quyền một triều đình.",
-        "en": "Pressing his advantage from Thị Nại, in the fifth month of Tân Dậu (1801) Nguyễn Ánh drove straight on and took the capital Phú Xuân (Huế); the Tây Sơn king Cảnh Thịnh (Nguyễn Quang Toản) fled north. In the year Nhâm Tuất (1802) Nguyễn Ánh took the era-name Gia Long, then led his army by land and sea into the North. His forces swept on like splitting bamboo, seizing the provinces one by one and entering Thăng Long; the Tây Sơn court fell apart, and Quang Toản and his brothers were captured. The once-glorious Tây Sơn thus wholly collapsed. The civil wars and division of centuries — from the Northern and Southern Courts, through the Trịnh–Nguyễn split, to the Tây Sơn — were at last closed: for the first time, the whole land from Nam Quan to Cà Mau came under one court."
+        "vi": "Năm Tân Dậu (1801), Nguyễn Ánh đem đại quân đánh ra, hạ kinh thành Phú Xuân (Huế); vua Tây Sơn là Cảnh Thịnh (Nguyễn Quang Toản) phải bỏ chạy ra Bắc. Sang năm Nhâm Tuất (1802), quân Nguyễn tiến ra Thăng Long, Quang Toản cùng các em bị bắt, nhà Tây Sơn sụp đổ; Nguyễn Ánh lên ngôi Hoàng đế, hiệu Gia Long. Sau chiến thắng, triều đình mới trả thù họ Tây Sơn rất tàn khốc: tội phạm Tây Sơn đều bị giết, mộ Nguyễn Nhạc và Nguyễn Huệ bị đào phá, hài cốt bị giã nát đổ bỏ, sọ bị nhốt vào nhà ngục. Trước đó, chính phong trào Tây Sơn, dưới sự lãnh đạo của Nguyễn Nhạc cùng Nguyễn Huệ và Nguyễn Lữ, đã xóa bỏ nạn chia cắt lãnh thổ, đánh bại quân Xiêm (1785) và quân Thanh (1789), thống nhất đất nước từ Bắc đến Nam.",
+        "en": "In the year Tân Dậu (1801) Nguyễn Ánh drove out with his main army and took the capital Phú Xuân (Huế); the Tây Sơn king Cảnh Thịnh (Nguyễn Quang Toản) fled north. In Nhâm Tuất (1802) the Nguyễn army advanced on Thăng Long, Quang Toản and his brothers were captured and the Tây Sơn fell; Nguyễn Ánh took the imperial throne as Gia Long. After the victory the new court took cruel revenge on the Tây Sơn family: Tây Sơn \"offenders\" were all put to death, the tombs of Nguyễn Nhạc and Nguyễn Huệ were dug up, the remains crushed and thrown away, the skulls locked in prison. Before this it was the Tây Sơn movement itself, under Nguyễn Nhạc with Nguyễn Huệ and Nguyễn Lữ, that had ended the division of the territory, defeated the Siamese (1785) and the Qing (1789), and unified the country from North to South."
       },
       "kind": "historical",
       "year": {
@@ -7423,25 +7429,25 @@
         "approximate": false
       },
       "title": {
-        "vi": "Bắc tiến diệt Tây Sơn, thu giang sơn về một mối",
-        "en": "The march north: the Tây Sơn ended, the land made one"
+        "vi": "Nguyễn Ánh hạ Phú Xuân, diệt nhà Tây Sơn",
+        "en": "Nguyễn Ánh takes Phú Xuân and destroys the Tây Sơn"
       },
       "summary": {
-        "vi": "Hạ Phú Xuân (1801) rồi Thăng Long (1802), diệt nhà Tây Sơn; lần đầu cả nước Nam Quan đến Cà Mau về một triều.",
-        "en": "Phú Xuân falls (1801) then Thăng Long (1802), ending the Tây Sơn; the whole land at last under one court."
+        "vi": "Hạ Phú Xuân (1801), đến năm 1802 diệt nhà Tây Sơn, lên ngôi hiệu Gia Long; triều mới trả thù họ Tây Sơn rất tàn khốc.",
+        "en": "He takes Phú Xuân (1801); in 1802 he destroys the Tây Sơn and takes the throne as Gia Long; the new court takes cruel revenge on the Tây Sơn family."
       },
       "body": {
-        "vi": "Thừa thắng Thị Nại, năm 1801 Nguyễn Ánh hạ Phú Xuân, vua Tây Sơn Quang Toản chạy ra Bắc. Năm 1802 ông đặt niên hiệu Gia Long, đem đại quân bắc tiến, thế mạnh như chẻ tre, chiếm Thăng Long, bắt Quang Toản, diệt hẳn nhà Tây Sơn. Mấy trăm năm nội chiến chia cắt khép lại: lần đầu cả dải đất từ Nam Quan đến Cà Mau về dưới một triều đình.",
-        "en": "Pressing his Thị Nại victory, in 1801 Nguyễn Ánh took Phú Xuân and the Tây Sơn king Quang Toản fled north. In 1802 he took the era-name Gia Long and marched north like splitting bamboo, seized Thăng Long, captured Quang Toản, and ended the Tây Sơn. Centuries of civil war and division closed: for the first time the whole land from Nam Quan to Cà Mau came under one court."
+        "vi": "Năm 1801, Nguyễn Ánh hạ Phú Xuân, vua Tây Sơn Quang Toản chạy ra Bắc. Năm 1802 quân Nguyễn tiến ra Thăng Long, bắt Quang Toản, diệt nhà Tây Sơn; Nguyễn Ánh lên ngôi hiệu Gia Long. Sau đó triều đình mới trả thù rất tàn khốc: mộ Nguyễn Nhạc, Nguyễn Huệ bị đào lên, hài cốt bị giã nát. Công cuộc xóa bỏ chia cắt đất nước vốn do Tây Sơn thực hiện trước đó.",
+        "en": "In 1801 Nguyễn Ánh took Phú Xuân and the Tây Sơn king Quang Toản fled north. In 1802 the Nguyễn army advanced to Thăng Long, captured Quang Toản and destroyed the Tây Sơn; Nguyễn Ánh took the throne as Gia Long. The new court then took cruel revenge: the tombs of Nguyễn Nhạc and Nguyễn Huệ were dug up and the remains crushed. Ending the country's division had already been the Tây Sơn's work."
       },
       "pullQuote": {
         "text": {
-          "vi": "Non sông nghìn dặm, mấy trăm năm chia cắt, nay thu về một mối dưới một triều đình.",
-          "en": "A thousand miles of mountains and rivers, split for centuries, now gathered under a single court."
+          "vi": "…thống nhất đất nước từ Bắc – Nam của Quang Trung Nguyễn Huệ.",
+          "en": "…the unification of the country from North to South by Quang Trung Nguyễn Huệ."
         },
         "attribution": {
-          "vi": "theo Đại Nam thực lục",
-          "en": "per the Đại Nam thực lục"
+          "vi": "Bảo tàng Lịch sử quốc gia, Triều Tây Sơn",
+          "en": "National Museum of History, The Tây Sơn dynasty"
         }
       },
       "hero": {
@@ -7457,12 +7463,17 @@
         }
       },
       "citation": {
-        "work": "Đại Nam thực lục",
+        "work": "Sự trả thù tàn khốc của nhà Nguyễn",
         "section": {
-          "vi": "Chính biên · Đệ nhất kỷ · Quyển 4",
-          "en": "Primary Compilation · First Reign · Book 4"
+          "vi": "Bảo tàng Lịch sử quốc gia, 2012",
+          "en": "National Museum of History, 2012"
         },
-        "author": "Quốc sử quán triều Nguyễn"
+        "author": "Lê Đình Phụng (Viện Khảo cổ học)",
+        "url": "https://baotanglichsu.vn/vi/Articles/3096/12500/su-tra-thu-tan-khoc-cua-nha-nguyen.html",
+        "note": {
+          "vi": "Xóa bỏ chia cắt, thống nhất: Bảo tàng Lịch sử quốc gia, \"Triều Tây Sơn\" và \"Nguyễn Nhạc với vương triều Tây Sơn\".",
+          "en": "Ending the division, unification: National Museum of History, \"Triều Tây Sơn\" and \"Nguyễn Nhạc với vương triều Tây Sơn\"."
+        }
       }
     },
     {
@@ -7472,8 +7483,8 @@
         "gia-long"
       ],
       "details": {
-        "vi": "Năm Nhâm Tuất (1802), sau khi thống nhất đất nước, Nguyễn Ánh lên ngôi Hoàng đế tại Phú Xuân, đặt niên hiệu Gia Long, chính thức lập nên nhà Nguyễn — vương triều cuối cùng của chế độ quân chủ Việt Nam. Hai chữ 'Gia Long' tương truyền ghép từ Gia Định và Thăng Long, ngụ ý non sông từ Nam chí Bắc đã liền một dải. Vua sai sứ sang nhà Thanh xin phong và xin đặt quốc hiệu. Ban đầu vua muốn đặt tên nước là 'Nam Việt', nhưng nhà Thanh e ngại tên ấy trùng với nước Nam Việt của Triệu Đà xưa (gồm cả đất Lưỡng Quảng), bèn đổi lại thành 'Việt Nam'. Năm Giáp Tý (1804), sứ Thanh sang tuyên phong, nước ta chính thức mang quốc hiệu Việt Nam — cái tên thiêng liêng còn mãi đến ngày nay. Gia Long định đô ở Phú Xuân (Huế), chia nước thành các trấn, doanh, đặt Bắc thành và Gia Định thành do các tổng trấn thay vua cai quản hai đầu đất nước.",
-        "en": "In the year Nhâm Tuất (1802), having unified the country, Nguyễn Ánh took the imperial throne at Phú Xuân under the era-name Gia Long, formally founding the Nguyễn — the last dynasty of Vietnam's monarchy. The name 'Gia Long,' tradition holds, joins Gia Định and Thăng Long, signifying a land now whole from South to North. He sent envoys to the Qing to seek investiture and a name for the country. He first wished to name it 'Nam Việt,' but the Qing, wary that this echoed the old Nam Việt of Triệu Đà (which had included the Liangguang lands), reversed it to 'Việt Nam.' In the year Giáp Tý (1804) Qing envoys came to confer the title, and our country formally bore the name Việt Nam — the sacred name that endures to this day. Gia Long set his capital at Phú Xuân (Huế), divided the realm into provinces and commands, and placed the Northern Citadel and the Gia Định Citadel under viceroys who governed the two ends of the country in the emperor's name."
+        "vi": "Năm Nhâm Tuất (1802), Nguyễn Ánh lên ngôi Hoàng đế tại Phú Xuân, đặt niên hiệu Gia Long, lập nên nhà Nguyễn và đóng đô ở Huế. Hai chữ \"Gia Long\" tương truyền ghép từ Gia Định và Thăng Long. Theo sử nhà Nguyễn, vua sai sứ sang nhà Thanh xin phong và xin đặt quốc hiệu; ban đầu vua muốn đặt tên nước là \"Nam Việt\", nhưng nhà Thanh e ngại tên ấy trùng với nước Nam Việt của Triệu Đà xưa, bèn đổi lại thành \"Việt Nam\". Tháng 3-1804, nước ta có quốc hiệu Việt Nam. Triều Nguyễn là triều đại cuối cùng trong lịch sử chế độ phong kiến Việt Nam, bắt đầu từ năm 1802 và kết thúc năm 1945, gồm hai thời kỳ: độc lập (1802 – 1883) và thuộc Pháp (1883 – 1945). Theo Báo Nhân Dân, đầu thời Nguyễn nước ta là một quốc gia hùng cường và có uy tín.",
+        "en": "In the year Nhâm Tuất (1802) Nguyễn Ánh took the imperial throne at Phú Xuân under the era-name Gia Long, founding the Nguyễn dynasty with its capital at Huế. The name \"Gia Long,\" tradition holds, joins Gia Định and Thăng Long. By the Nguyễn chronicle, he sent envoys to the Qing to seek investiture and a name for the country; he first wished to name it \"Nam Việt,\" but the Qing, wary of an echo of the old Nam Việt of Triệu Đà, reversed it to \"Việt Nam.\" In March 1804 the country took the name Việt Nam. The Nguyễn were the last dynasty in the history of Vietnam's feudal order, from 1802 to 1945, in two periods: independent (1802 – 1883) and under French rule (1883 – 1945). According to Nhân Dân, early Nguyễn Việt Nam was a strong and respected state."
       },
       "kind": "historical",
       "year": {
@@ -7485,25 +7496,25 @@
         "approximate": false
       },
       "title": {
-        "vi": "Lên ngôi Gia Long, đặt quốc hiệu Việt Nam",
-        "en": "Gia Long enthroned; the country named Việt Nam"
+        "vi": "Gia Long lên ngôi, đặt quốc hiệu Việt Nam",
+        "en": "Gia Long takes the throne; the name Việt Nam is set"
       },
       "summary": {
-        "vi": "Nguyễn Ánh lên ngôi (1802), lập nhà Nguyễn, đóng đô Huế; năm 1804 định quốc hiệu Việt Nam.",
-        "en": "Nguyễn Ánh is enthroned (1802), founds the Nguyễn at Huế; in 1804 the country is named Việt Nam."
+        "vi": "Nguyễn Ánh lên ngôi (1802), lập nhà Nguyễn, đóng đô Huế; năm 1804 có quốc hiệu Việt Nam; vương triều tồn tại đến 1945.",
+        "en": "Nguyễn Ánh takes the throne (1802), founds the Nguyễn dynasty at Huế; in 1804 the name Việt Nam is set; the dynasty lasts until 1945."
       },
       "body": {
-        "vi": "Năm 1802, Nguyễn Ánh lên ngôi Hoàng đế ở Phú Xuân, hiệu Gia Long (ghép Gia Định – Thăng Long), lập nhà Nguyễn, đóng đô Huế. Vua xin nhà Thanh đặt quốc hiệu; muốn đặt 'Nam Việt' nhưng Thanh sợ trùng nước Triệu Đà nên đổi thành 'Việt Nam'. Năm 1804 sứ Thanh sang tuyên phong, nước ta chính thức mang quốc hiệu Việt Nam đến nay.",
-        "en": "In 1802 Nguyễn Ánh took the throne at Phú Xuân as Gia Long (joining Gia Định and Thăng Long), founded the Nguyễn, and set his capital at Huế. He asked the Qing for a name; wishing 'Nam Việt,' but the Qing, fearing it echoed Triệu Đà's realm, reversed it to 'Việt Nam.' In 1804 Qing envoys conferred the title, and our country has borne the name Việt Nam ever since."
+        "vi": "Năm 1802, Nguyễn Ánh lên ngôi Hoàng đế ở Phú Xuân, hiệu Gia Long, lập nhà Nguyễn, đóng đô ở Huế. Tương truyền \"Gia Long\" ghép từ Gia Định và Thăng Long. Theo sử nhà Nguyễn, vua sai sứ xin nhà Thanh phong và đặt quốc hiệu; vua muốn \"Nam Việt\", nhà Thanh đổi thành \"Việt Nam\". Năm 1804 nước ta có quốc hiệu Việt Nam. Triều Nguyễn là triều đại cuối cùng của chế độ phong kiến Việt Nam, kéo dài đến 1945.",
+        "en": "In 1802 Nguyễn Ánh took the imperial throne at Phú Xuân under the era-name Gia Long, founded the Nguyễn dynasty and set his capital at Huế. Tradition says \"Gia Long\" joins Gia Định and Thăng Long. By the Nguyễn chronicle, he sent envoys to the Qing for investiture and a name; he wanted \"Nam Việt\", the Qing reversed it to \"Việt Nam\". In 1804 the country took the name Việt Nam. The Nguyễn were the last dynasty of the Vietnamese monarchy, lasting until 1945."
       },
       "pullQuote": {
         "text": {
-          "vi": "Từ đây nước ta mang tên Việt Nam — hai tiếng thiêng liêng theo suốt dặm dài lịch sử.",
-          "en": "From this time our country bears the name Việt Nam — two sacred syllables that follow the long road of history."
+          "vi": "Triều Nguyễn là triều đại cuối cùng trong lịch sử chế độ phong kiến Việt Nam…",
+          "en": "The Nguyễn were the last dynasty in the history of Vietnam's feudal order…"
         },
         "attribution": {
-          "vi": "về quốc hiệu định năm 1804",
-          "en": "on the name settled in 1804"
+          "vi": "Bảo tàng Lịch sử quốc gia, Triều Nguyễn (1802 – 1945)",
+          "en": "National Museum of History, Triều Nguyễn (1802 – 1945)"
         }
       },
       "hero": {
@@ -7519,12 +7530,13 @@
         }
       },
       "citation": {
-        "work": "Đại Nam thực lục",
+        "work": "Kỷ niệm 194 năm ngày mất của vua Gia Long và 210 năm Quốc hiệu Việt Nam ra đời",
         "section": {
-          "vi": "Chính biên · Đệ nhất kỷ · Quyển 5",
-          "en": "Primary Compilation · First Reign · Book 5"
+          "vi": "Báo Nhân Dân, 19-1-2014",
+          "en": "Nhân Dân, 19 Jan 2014"
         },
-        "author": "Quốc sử quán triều Nguyễn"
+        "author": "Báo Nhân Dân",
+        "url": "https://nhandan.vn/ky-niem-194-nam-ngay-mat-cua-vua-gia-long-va-210-nam-quoc-hieu-viet-nam-ra-doi-post193488.html"
       }
     },
     {
@@ -7535,8 +7547,8 @@
         "nguyen-van-thanh"
       ],
       "details": {
-        "vi": "Yên định giang sơn, Gia Long bắt tay xây dựng vương triều. Từ năm 1805, vua cho khởi công đắp Kinh thành Huế bên bờ sông Hương — một tòa thành lớn xây theo kiểu Vauban của phương Tây kết hợp lối phương Đông, với Hoàng thành, Tử Cấm thành, cung điện nguy nga, phải mấy chục năm và công sức của hàng vạn dân binh mới hoàn thành; Huế trở thành kinh đô của cả nước. Về pháp luật, vua sai Tổng trấn Bắc thành Nguyễn Văn Thành chủ trì biên soạn bộ Hoàng Việt luật lệ (luật Gia Long), ban hành năm 1815, làm khuôn phép cai trị cho cả triều Nguyễn. Vua còn cho đo đạc ruộng đất, lập địa bạ, định lại thuế khóa, tổ chức lại quân đội và quan chế. Tuy nhiên, các công thần bậc nhất như Nguyễn Văn Thành, Lê Văn Duyệt về sau đều gặp kết cục không trọn vẹn. Năm Canh Thìn (1820), vua Gia Long băng hà, truyền ngôi cho con là Minh Mạng, để lại một vương triều thống nhất và một nền nếp cai trị sẽ định hình nước Việt Nam suốt thế kỷ 19.",
-        "en": "With the land at peace, Gia Long set about building his dynasty. From 1805 he began the Citadel of Huế on the bank of the Perfume River — a great fortress in the Western Vauban style blended with Eastern design, with its Imperial City, Forbidden City and grand palaces, which took decades and the labour of tens of thousands to finish; Huế became the capital of the whole country. For law, he had the Viceroy of the North, Nguyễn Văn Thành, direct the compilation of the Hoàng Việt luật lệ (the Gia Long Code), promulgated in 1815 as the rule of governance for the whole Nguyễn. He also surveyed the land, drew up cadastral registers, reset taxes, and reorganised the army and officialdom. Yet his foremost founding ministers — Nguyễn Văn Thành and Lê Văn Duyệt — later met unhappy ends. In the year Canh Thìn (1820) Gia Long died and passed the throne to his son Minh Mạng, leaving a unified dynasty and an order of governance that would shape Việt Nam through the 19th century."
+        "vi": "Từ năm 1805, vua cho khởi công đắp Kinh thành Huế bên bờ sông Hương (đã khảo sát từ 1803); công trình hoàn chỉnh năm 1832, đời Minh Mạng, với Hoàng thành, Tử Cấm thành và cung điện, mất nhiều năm công sức của hàng vạn dân binh; Huế là kinh đô của cả nước. Về pháp luật, vua giao Tổng trấn Bắc thành Nguyễn Văn Thành đứng đầu biên soạn bộ Hoàng Việt luật lệ (luật Gia Long): bộ luật hoàn thành năm 1812 và chính thức thi hành trong toàn quốc từ năm 1815, làm khuôn phép cai trị cho cả triều Nguyễn. Theo Báo Nhân Dân, vua Gia Long không ngừng tuyên bố và thực thi chủ quyền của Việt Nam đối với các đảo, trong đó có Hoàng Sa và Trường Sa. Tuy nhiên, các công thần bậc nhất như Nguyễn Văn Thành, Lê Văn Duyệt về sau đều gặp kết cục không trọn vẹn. Năm Canh Thìn (1820), vua Gia Long băng hà, truyền ngôi cho con là Minh Mạng.",
+        "en": "From 1805 the emperor had the Citadel of Huế raised on the bank of the Perfume River (surveyed from 1803); it was completed in 1832 under Minh Mạng, with its Imperial City, Forbidden City and palaces, and cost many years of labour by tens of thousands of conscripts; Huế was the capital of the whole country. For law, the emperor had the Viceroy of the North, Nguyễn Văn Thành, direct the compilation of the Hoàng Việt luật lệ (the Gia Long Code): finished in 1812, it took effect across the country from 1815 as the rule of governance for the whole Nguyễn dynasty. According to Nhân Dân, Emperor Gia Long repeatedly asserted and exercised Việt Nam's sovereignty over the islands, including Hoàng Sa and Trường Sa. Yet his foremost ministers, Nguyễn Văn Thành and Lê Văn Duyệt, later met unhappy ends. In the year Canh Thìn (1820) Gia Long died and passed the throne to his son Minh Mạng."
       },
       "kind": "historical",
       "year": {
@@ -7548,26 +7560,16 @@
         "approximate": false
       },
       "title": {
-        "vi": "Dựng kinh thành Huế, định luật Gia Long",
-        "en": "The citadel of Huế and the Gia Long Code"
+        "vi": "Dựng kinh thành Huế, ban Hoàng Việt luật lệ",
+        "en": "Building the Huế citadel; the Hoàng Việt luật lệ takes effect"
       },
       "summary": {
-        "vi": "Xây kinh thành Huế, ban luật Gia Long (1815), tổ chức lại đất nước; vua băng năm 1820, truyền ngôi Minh Mạng.",
-        "en": "The Huế citadel raised, the Gia Long Code issued (1815), the realm reordered; the emperor dies in 1820."
+        "vi": "Khởi công kinh thành Huế (1805), Hoàng Việt luật lệ thi hành toàn quốc (1815); triều đình khẳng định chủ quyền Hoàng Sa; vua mất năm 1820, truyền ngôi Minh Mạng.",
+        "en": "Work on the Huế citadel begins (1805), the Hoàng Việt luật lệ takes effect nationwide (1815); the court asserts sovereignty over Hoàng Sa; the emperor dies in 1820 and passes the throne to Minh Mạng."
       },
       "body": {
-        "vi": "Yên định giang sơn, từ 1805 Gia Long xây Kinh thành Huế bên sông Hương theo kiểu Vauban, làm kinh đô cả nước. Vua sai Nguyễn Văn Thành soạn bộ luật Gia Long (ban 1815), đo đạc ruộng đất, định thuế, tổ chức lại quân đội, quan chế. Năm 1820 vua băng, truyền ngôi Minh Mạng, để lại một vương triều thống nhất định hình nước Việt suốt thế kỷ 19.",
-        "en": "With the land at peace, from 1805 Gia Long built the Huế citadel on the Perfume River in the Vauban style as the national capital. He had Nguyễn Văn Thành compile the Gia Long Code (issued 1815), surveyed the land, reset taxes, and reorganised the army and officialdom. In 1820 he died and passed the throne to Minh Mạng, leaving a unified dynasty that shaped Vietnam through the 19th century."
-      },
-      "pullQuote": {
-        "text": {
-          "vi": "Thành Huế bên sông Hương, luật lệ định trong ngoài — nền nếp một vương triều thống nhất bắt đầu từ đó.",
-          "en": "The citadel of Huế by the Perfume River, the law set for all — from here began the order of a unified dynasty."
-        },
-        "attribution": {
-          "vi": "theo Đại Nam thực lục",
-          "en": "per the Đại Nam thực lục"
-        }
+        "vi": "Kinh thành Huế khởi công năm 1805 bên bờ sông Hương và hoàn chỉnh năm 1832 (đời Minh Mạng). Bộ luật do Nguyễn Văn Thành đứng đầu soạn xong năm 1812, chính thức thi hành toàn quốc từ 1815. Theo Báo Nhân Dân, Gia Long không ngừng tuyên bố và thực thi chủ quyền của Việt Nam đối với các đảo ngoài khơi, trong đó có Hoàng Sa, Trường Sa. Vua mất năm 1820, truyền ngôi Minh Mạng.",
+        "en": "The Huế citadel was begun in 1805 on the Perfume River and finished in 1832 under Minh Mạng. The law code, compiled under Nguyễn Văn Thành and finished in 1812, took effect nationwide in 1815. According to Nhân Dân, Gia Long repeatedly asserted and exercised Việt Nam's sovereignty over offshore islands including Hoàng Sa and Trường Sa. He died in 1820 and passed the throne to Minh Mạng."
       },
       "hero": {
         "id": "kinh-do-hue-luat-gia-long-hero",
@@ -7582,12 +7584,17 @@
         }
       },
       "citation": {
-        "work": "Đại Nam thực lục",
+        "work": "Kinh thành Huế",
         "section": {
-          "vi": "Chính biên · Đệ nhất kỷ · Quyển 6",
-          "en": "Primary Compilation · First Reign · Book 6"
+          "vi": "Cổng thông tin điện tử tỉnh Thừa Thiên Huế",
+          "en": "Thừa Thiên Huế provincial portal"
         },
-        "author": "Quốc sử quán triều Nguyễn"
+        "author": "thuathienhue.gov.vn",
+        "url": "https://thuathienhue.gov.vn/Trang-ch%E1%BB%A7/S%E1%BB%B1-ki%E1%BB%87n-n%E1%BB%95i-b%E1%BA%ADt-h%C3%A0ng-n%C4%83m/N%C4%83m-2024/Festival-Hu%E1%BA%BF-2024/Th%C3%B4ng-tin-Festival-Hu%E1%BA%BF-2024/tid/Kinh-thanh-Hue/newsid/F4B5498D-06E4-4656-9526-00FE07981017/cid/4E568EE4-C8BC-4F08-8B97-706999B99B37",
+        "note": {
+          "vi": "Hoàng Việt luật lệ: thư viện thuathienhue.gov.vn, \"Hoàng Việt luật lệ được biên soạn để ổn định xã hội\". Chủ quyền đảo: Báo Nhân Dân, 19-1-2014.",
+          "en": "Hoàng Việt luật lệ: thuathienhue.gov.vn library, \"Hoàng Việt luật lệ được biên soạn để ổn định xã hội\". Island sovereignty: Nhân Dân, 19 Jan 2014."
+        }
       }
     },
     {
@@ -7808,16 +7815,6 @@
       "body": {
         "vi": "Thế nước đang lên, Minh Mạng mở mang bờ cõi: đánh lui quân Xiêm, đặt quyền bảo hộ Chân Lạp, sáp nhập lập Trấn Tây thành, cử Trương Minh Giảng trấn giữ. Năm 1838, thấy quốc hiệu Việt Nam chưa xứng, vua đổi thành Đại Nam, tỏ khí thế một đế quốc phương Nam. Nhưng việc giữ đất Trấn Tây khác phong tục rất khó, dân bản xứ nổi dậy, mầm bất ổn tiềm tàng.",
         "en": "With the nation rising, Minh Mạng extended the frontier: beating back the Siamese, making Chân Lạp a protectorate, annexing it as the Trấn Tây region under Trương Minh Giảng. In 1838, holding 'Việt Nam' unworthy, he renamed the country Đại Nam, proclaiming a southern empire. But holding alien Trấn Tây proved hard, its people rising — instability lay hidden."
-      },
-      "pullQuote": {
-        "text": {
-          "vi": "Nước Nam lớn mạnh, thống nhất một dải — nay xưng Đại Nam, khí thế đế vương phương Nam.",
-          "en": "A great and unified southern land — now styled Đại Nam, the imperial spirit of the South."
-        },
-        "attribution": {
-          "vi": "về việc đặt quốc hiệu năm 1838, theo Đại Nam thực lục",
-          "en": "on the 1838 renaming, per the Đại Nam thực lục"
-        }
       },
       "hero": {
         "id": "mo-coi-dai-nam-hero",
