@@ -7,6 +7,18 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../state/providers.dart';
 import 'street_data.dart';
 
+/// True when the street map is already open somewhere behind the current page
+/// (e.g. map → street card → character): the chip would only loop back to it.
+bool streetMapIsOpen(BuildContext context) {
+  final router = GoRouter.maybeOf(context);
+  if (router == null) return false;
+  bool inList(RouteMatchList list) => list.matches.any((m) =>
+      m is ImperativeRouteMatch
+          ? inList(m.matches)
+          : m.matchedLocation == '/duong-pho');
+  return inList(router.routerDelegate.currentConfiguration);
+}
+
 /// "Một con đường ở TP.HCM mang tên này → Xem trên bản đồ" — shown on a
 /// Character/Event page only when that page is a target of an APPROVED
 /// street. Renders nothing (not even spacing) otherwise, and while loading.
@@ -18,6 +30,7 @@ class StreetReverseChip extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    if (streetMapIsOpen(context)) return const SizedBox.shrink();
     final streets = ref
             .watch(streetMappingProvider)
             .valueOrNull

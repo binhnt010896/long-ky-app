@@ -265,7 +265,7 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
                   const SizedBox(height: VSSpacing.xxl),
                   _rise(
                     i++,
-                    Text(en ? 'EXPLORE' : 'LỐI VÀO', style: VSType.overline),
+                    Text(en ? 'EXPLORE' : 'KHÁM PHÁ', style: VSType.overline),
                   ),
                   const SizedBox(height: VSSpacing.xs),
                   Container(height: 1, color: VSColors.goldBorder),

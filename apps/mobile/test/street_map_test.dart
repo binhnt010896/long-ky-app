@@ -487,6 +487,51 @@ void main() {
     expect(find.text('map-open'), findsOneWidget);
   });
 
+  testWidgets('reverse chip: hidden on a page opened from the map (no loop)',
+      (tester) async {
+    final container = ProviderContainer(overrides: [
+      streetDataSourceProvider.overrideWithValue(const _FakeSource()),
+    ]);
+    addTearDown(container.dispose);
+    final router = GoRouter(routes: [
+      GoRoute(
+        path: '/',
+        builder: (_, __) => const Scaffold(
+          body: StreetReverseChip(type: StreetTargetType.person, id: 'le-loi'),
+        ),
+      ),
+      GoRoute(
+        path: '/duong-pho',
+        builder: (c, __) => Scaffold(
+          body: TextButton(
+            key: const Key('open-person'),
+            onPressed: () => c.push('/person'),
+            child: const Text('map'),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: '/person',
+        builder: (_, __) => const Scaffold(
+          body: StreetReverseChip(type: StreetTargetType.person, id: 'le-loi'),
+        ),
+      ),
+    ]);
+    await tester.pumpWidget(UncontrolledProviderScope(
+      container: container,
+      child: MaterialApp.router(routerConfig: router, theme: VSTheme.build()),
+    ));
+    await tester.pump();
+    await tester.pump();
+    expect(find.byKey(const Key('street-reverse-chip')), findsOneWidget);
+
+    router.push('/duong-pho');
+    await _settle(tester);
+    await tester.tap(find.byKey(const Key('open-person')));
+    await _settle(tester);
+    expect(find.byKey(const Key('street-reverse-chip')), findsNothing);
+  });
+
   group('placeLandmarks', () {
     StreetLandmark lm(String id, String vi) => StreetLandmark(
       id: id,
