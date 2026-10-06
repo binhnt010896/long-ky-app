@@ -15,6 +15,7 @@ import 'package:vector_tile_renderer/vector_tile_renderer.dart' as vtr;
 
 import '../../theme/content_assets.dart';
 import 'street_data.dart';
+import 'street_perf.dart';
 
 /// A build-time override of the base map's address
 /// (`--dart-define=STREET_BASEMAP_URL=…`) — for trying another extract locally.
@@ -198,7 +199,8 @@ List<ZXY> startViewTiles(double lat, double lng, double zoom,
 /// so they live here, not in a widget's build.
 class StreetBasemap {
   StreetBasemap(this.url, this.archive, PmTilesVectorTileProvider provider)
-      : providers = TileProviders(<String, VectorTileProvider>{'protomaps': provider}),
+      : providers = TileProviders(
+            <String, VectorTileProvider>{'protomaps': TimedTileProvider(provider)}),
         cacheFolder = basemapCacheFolderFor(url);
 
   final String url;
@@ -245,8 +247,9 @@ final streetBasemapProvider = FutureProvider<StreetBasemap?>((ref) async {
         ? await PmTilesArchive.fromReadAt(
             CachingReadAt(HttpAt(_client(), Uri.parse(url))))
         : await PmTilesArchive.from(url);
-    return StreetBasemap(
-        url, archive, PmTilesVectorTileProvider.fromArchive(archive));
+    StreetPerf.instance.mark('archive_open');
+    return StreetBasemap(url, archive,
+        PmTilesVectorTileProvider.fromArchive(archive));
   } catch (_) {
     // The map still works without a base map.
     return null;

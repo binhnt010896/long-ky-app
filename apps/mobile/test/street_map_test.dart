@@ -21,6 +21,7 @@ import 'package:viet_su/app_router.dart';
 import 'package:viet_su/screens/character/character_detail_screen.dart';
 import 'package:viet_su/screens/streets/street_basemap.dart';
 import 'package:viet_su/screens/streets/street_card.dart';
+import 'package:viet_su/screens/streets/street_perf.dart';
 import 'package:viet_su/screens/streets/street_data.dart';
 import 'package:viet_su/screens/streets/street_landmarks.dart';
 import 'package:viet_su/screens/streets/street_map_screen.dart';
@@ -530,6 +531,29 @@ void main() {
     await tester.tap(find.byKey(const Key('open-person')));
     await _settle(tester);
     expect(find.byKey(const Key('street-reverse-chip')), findsNothing);
+  });
+
+  group('StreetPerf', () {
+    test('one visit reports once, with the splash marks and the tile counts', () async {
+      final events = _Events();
+      final perf = StreetPerf.instance;
+      perf.mark('splash_data_ready');
+      perf.beginMapOpen(events);
+      perf.tileRequested();
+      perf.tileDone(2048);
+      perf.tileDone(0, failed: true);
+      perf.report();
+      perf.report(); // a second report for the same visit is ignored
+      await Future<void>.delayed(Duration.zero);
+      expect(events.events, hasLength(1));
+      final (name, params) = events.events.single;
+      expect(name, 'street_map_timing');
+      expect(params['tiles'], 1);
+      expect(params['tile_kb'], 2);
+      expect(params['tile_errors'], 1);
+      expect(params['splash_data_ms'], isNonNegative);
+      expect(params['first_tile_ms'], isNonNegative);
+    });
   });
 
   group('placeLandmarks', () {

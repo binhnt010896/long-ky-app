@@ -16,6 +16,7 @@ import 'street_basemap.dart';
 import 'street_card.dart';
 import 'street_data.dart';
 import 'street_landmarks.dart';
+import 'street_perf.dart';
 
 /// Minimum zoom of the street map. Together with the camera constraint it
 /// keeps the open sea and the island chains out of frame (sovereignty guard).
@@ -55,10 +56,12 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   void initState() {
     super.initState();
     _selected = widget.initialStreetId;
+    StreetPerf.instance.beginMapOpen(ref.read(telemetryProvider));
   }
 
   @override
   void dispose() {
+    StreetPerf.instance.report();
     _query.dispose();
     _map.dispose();
     super.dispose();
@@ -196,6 +199,7 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   Widget _body(BuildContext context, StreetMapData data, Lang lang) {
     final basemapUrl = streetBasemapUrl(data.file);
     final basemap = ref.watch(streetBasemapProvider).valueOrNull;
+    if (basemap != null) StreetPerf.instance.mark('map_basemap_ready');
     final selected = _selected == null ? null : data.street(_selected!);
     final selectedPts = _selected == null
         ? const <LatLng>[]

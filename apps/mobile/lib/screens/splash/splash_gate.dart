@@ -12,6 +12,7 @@ import '../../telemetry/telemetry.dart';
 import '../../theme/content_assets.dart';
 import '../streets/street_basemap.dart';
 import '../streets/street_data.dart';
+import '../streets/street_perf.dart';
 
 /// Wraps the app and shows the **Long Ký** brand splash over it on launch, then
 /// fades away to reveal [child].
@@ -102,9 +103,13 @@ class _SplashGateState extends ConsumerState<SplashGate> {
   /// fail: the street screen loads them itself, just later.
   Future<void> _warmStreets() async {
     if (debugContentImageOverride != null) return; // widget tests: no network
+    StreetPerf.instance.mark('splash_streets_start');
     try {
       final results = await Future.wait<Object?>(<Future<Object?>>[
-        ref.read(streetMapDataProvider.future),
+        ref.read(streetMapDataProvider.future).then((v) {
+          StreetPerf.instance.mark('splash_data_ready');
+          return v;
+        }),
         ref.read(streetBasemapProvider.future),
       ]);
       // Then the tiles of the first view, so the map paints from memory.
@@ -112,6 +117,7 @@ class _SplashGateState extends ConsumerState<SplashGate> {
       final start = (results[0] as StreetMapData?)?.file.start;
       if (basemap != null && start != null) {
         await basemap.prefetch(startViewTiles(start.lat, start.lng, start.zoom));
+        StreetPerf.instance.mark('splash_prefetch_done');
       }
     } catch (_) {
       // Never surfaces: this is only a head start.
