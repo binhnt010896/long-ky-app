@@ -34,11 +34,14 @@ test('an unknown ref is an error naming the id', () => {
   assert.throws(() => inlineEraEvents({ slug: 'e', events: [{ ref: 'gone' }] }, byId), /gone/);
 });
 
-test('the real content has no standalone events yet', () => {
-  assert.deepEqual(standaloneEventIds(eras, byId), []);
+test('the real standalone events are the ones no era lists', () => {
+  // Grows with the street map (Cycle R), so assert the rule, not a count.
+  const ids = standaloneEventIds(eras, byId);
+  assert.ok(ids.includes('dac-cong-rung-sac'));
+  assert.ok(!ids.includes('dien-bien-phu'));
 });
 
 test('an event no era lists is standalone', () => {
   const extra = new Map(byId).set('lone', { id: 'lone' });
-  assert.deepEqual(standaloneEventIds(eras, extra), ['lone']);
+  assert.deepEqual(standaloneEventIds(eras, extra), [...standaloneEventIds(eras, byId), 'lone']);
 });
