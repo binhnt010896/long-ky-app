@@ -3557,6 +3557,14 @@
       "key": "people/tran-cao-van/full.webp",
       "v": "812f9b88f3"
     },
+    "people/tran-dai-nghia/avatar.png": {
+      "key": "people/tran-dai-nghia/avatar.webp",
+      "v": "586cfefca1"
+    },
+    "people/tran-dai-nghia/full.png": {
+      "key": "people/tran-dai-nghia/full.webp",
+      "v": "a1bb4ae797"
+    },
     "people/tran-huy-lieu/avatar.png": {
       "key": "people/tran-huy-lieu/avatar.webp",
       "v": "60ee0b497b"
@@ -3795,7 +3803,7 @@
     },
     "streets/hcm-basemap.pmtiles": {
       "key": "streets/hcm-basemap.pmtiles",
-      "v": "25dea60c88"
+      "v": "d1b900569a"
     },
     "streets/hcm-streets.geojson": {
       "key": "streets/hcm-streets.geojson",
