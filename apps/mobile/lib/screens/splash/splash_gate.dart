@@ -42,7 +42,8 @@ class SplashGate extends ConsumerStatefulWidget {
   ConsumerState<SplashGate> createState() => _SplashGateState();
 }
 
-class _SplashGateState extends ConsumerState<SplashGate> {
+class _SplashGateState extends ConsumerState<SplashGate>
+    with WidgetsBindingObserver {
   static const _minShow = Duration(milliseconds: 1950);
   static const _hardCap = Duration(seconds: 8);
   static const _fadeOut = Duration(milliseconds: 650);
@@ -62,6 +63,7 @@ class _SplashGateState extends ConsumerState<SplashGate> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _timers.add(Timer(
         const Duration(milliseconds: 90), () => setState(() => _contentIn = true)));
     _timers.add(Timer(_minShow, () {
@@ -80,14 +82,50 @@ class _SplashGateState extends ConsumerState<SplashGate> {
     unawaited(_run());
   }
 
+  // Android keeps the app alive for days, so a launch-only check would leave
+  // published text and images unseen until a cold start. Coming back to the
+  // foreground checks again, at most every [kForegroundCheckEvery].
+  DateTime _lastCheck = DateTime.now();
+  bool _checking = true; // the launch check is running
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state != AppLifecycleState.resumed) return;
+    if (!shouldCheckOnResume(
+        now: DateTime.now(), last: _lastCheck, busy: _checking)) {
+      return;
+    }
+    unawaited(_checkLive());
+  }
+
+  Future<void> _checkLive() async {
+    _checking = true;
+    _lastCheck = DateTime.now();
+    try {
+      final pack = await ContentSync.checkForUpdate(
+          ref.read(activeContentVersionProvider));
+      if (pack != null && mounted &&
+          pack.version > ref.read(activeContentVersionProvider)) {
+        _activatePack(pack, live: true);
+      }
+    } finally {
+      _checking = false;
+    }
+  }
+
   Future<void> _run() async {
     final activeVersion = ref.read(activeContentVersionProvider);
     // checkForUpdate never throws. A pack that arrives within the splash's
     // window is adopted before Home shows; one that takes longer (the usual
     // case on a phone: latest.json plus a ~2 MB pack) is adopted live when
     // it lands, instead of waiting for the next launch.
+    final launchCheck = ContentSync.checkForUpdate(activeVersion);
+    unawaited(launchCheck.whenComplete(() {
+      _checking = false;
+      _lastCheck = DateTime.now();
+    }));
     await adoptPackWhenReady<ContentPack>(
-      ContentSync.checkForUpdate(activeVersion),
+      launchCheck,
       window: const Duration(seconds: 2),
       adopt: (pack, {required live}) {
         if (!mounted) return;
@@ -184,6 +222,7 @@ class _SplashGateState extends ConsumerState<SplashGate> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     for (final t in _timers) {
       t.cancel();
     }
@@ -439,3 +478,16 @@ Future<void> adoptPackWhenReady<T>(
     if (late != null) adopt(late, live: true);
   }));
 }
+
+/// How long after the last check a return to the foreground checks again.
+const Duration kForegroundCheckEvery = Duration(minutes: 30);
+
+/// Whether coming back to the foreground should look for a newer pack: not
+/// while a check is already running, and not within [every] of the last one.
+bool shouldCheckOnResume({
+  required DateTime now,
+  required DateTime last,
+  required bool busy,
+  Duration every = kForegroundCheckEvery,
+}) =>
+    !busy && now.difference(last) >= every;

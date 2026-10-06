@@ -43,4 +43,15 @@ void main() {
       expect(released, isTrue);
     });
   });
+
+  group('shouldCheckOnResume', () {
+    final t0 = DateTime(2026, 10, 6, 12);
+    test('checks after the interval, not before', () {
+      expect(shouldCheckOnResume(now: t0.add(const Duration(minutes: 29)), last: t0, busy: false), isFalse);
+      expect(shouldCheckOnResume(now: t0.add(const Duration(minutes: 30)), last: t0, busy: false), isTrue);
+    });
+    test('never while a check is running', () {
+      expect(shouldCheckOnResume(now: t0.add(const Duration(hours: 5)), last: t0, busy: true), isFalse);
+    });
+  });
 }
