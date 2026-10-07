@@ -17,12 +17,16 @@ import 'street_card.dart';
 import 'street_data.dart';
 import 'street_landmarks.dart';
 import 'street_perf.dart';
-import 'street_period.dart';
 
 /// Minimum zoom of the street map. Together with the camera constraint it
 /// keeps the open sea and the island chains out of frame (sovereignty guard).
 const double kStreetMinZoom = 10;
 const double kStreetMaxZoom = 17;
+
+/// Gold streets at rest: gold pulled toward the ground, opaque (so crossings
+/// don't brighten), dim enough that the selected street's bright gold stands
+/// out against them.
+final Color _kRestingStreet = Color.lerp(VSColors.gold, VSColors.lacquer, 0.4)!;
 
 /// "Đường phố mang tên sử" — a map of the streets in old HCMC that are named
 /// after a Character or Event in the chronicle. Tap a gold street for its
@@ -40,9 +44,6 @@ class StreetMapScreen extends ConsumerStatefulWidget {
 class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   final MapController _map = MapController();
   String? _selected;
-
-  /// The period the legend is showing alone (null = every period).
-  String? _activePeriod;
   final TextEditingController _query = TextEditingController();
 
   // Built ONCE. The vector layer restarts its tile loading whenever the theme
@@ -111,53 +112,26 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
     }
   }
 
-  List<Widget>? _resting;
+  Widget? _resting;
   StreetMapData? _restingData;
-  StreetPeriods? _restingPeriods;
-  String? _restingActive;
 
-  /// The resting streets, one polyline layer per period color (built once per
-  /// data / periods / legend choice, so selecting a street or typing in the
-  /// search box doesn't rebuild ~1,300 polylines). With a legend choice the
-  /// other periods fade back.
-  List<Widget> _restingLayer(StreetMapData data, StreetPeriods? periods) {
+  Widget _restingLayer(StreetMapData data) {
     final cached = _resting;
-    if (cached != null &&
-        identical(_restingData, data) &&
-        identical(_restingPeriods, periods) &&
-        _restingActive == _activePeriod) {
-      return cached;
-    }
+    if (cached != null && identical(_restingData, data)) return cached;
     _restingData = data;
-    _restingPeriods = periods;
-    _restingActive = _activePeriod;
-    final byPeriod = <String?, List<Polyline>>{};
-    for (final e in data.lines.entries) {
-      final pid = periods?.byStreet[e.key];
-      var color = streetPeriodColor(pid);
-      if (_activePeriod != null && pid != _activePeriod) {
-        color = color.withValues(alpha: 0.16);
-      }
-      for (final line in e.value) {
-        (byPeriod[pid] ??= <Polyline>[]).add(Polyline(
-          points: line,
-          strokeWidth: 2.5,
-          color: color,
-          strokeCap: StrokeCap.round,
-          strokeJoin: StrokeJoin.round,
-        ));
-      }
-    }
-    // Streets with no period first, then the periods in timeline order, the
-    // legend's choice last so it sits on top.
-    final order = <String?>[
-      null,
-      for (final p in periods?.periods ?? const <Period>[]) p.id,
-    ]..sort((a, b) => (a == _activePeriod ? 1 : 0) - (b == _activePeriod ? 1 : 0));
-    return _resting = <Widget>[
-      for (final pid in order)
-        if (byPeriod[pid] != null) PolylineLayer(polylines: byPeriod[pid]!),
-    ];
+    return _resting = PolylineLayer(
+      polylines: <Polyline>[
+        for (final e in data.lines.entries)
+          for (final line in e.value)
+            Polyline(
+              points: line,
+              strokeWidth: 2.5,
+              color: _kRestingStreet,
+              strokeCap: StrokeCap.round,
+              strokeJoin: StrokeJoin.round,
+            ),
+      ],
+    );
   }
 
   MapOptions? _options;
@@ -222,33 +196,9 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
     );
   }
 
-  Future<void> _openLegend(StreetPeriods periods, Lang lang) async {
-    ref.read(telemetryProvider).event('street_legend_open');
-    final picked = await showModalBottomSheet<String?>(
-      context: context,
-      backgroundColor: VSColors.lacquerRaised,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
-      builder: (_) => _LegendSheet(
-        periods: periods,
-        active: _activePeriod,
-        lang: lang,
-      ),
-    );
-    // null = dismissed; '' = "all periods".
-    if (picked == null || !mounted) return;
-    setState(() => _activePeriod = picked.isEmpty ? null : picked);
-    if (picked.isNotEmpty) {
-      ref.read(telemetryProvider).event('street_legend_pick', <String, Object>{'period': picked});
-    }
-  }
-
   Widget _body(BuildContext context, StreetMapData data, Lang lang) {
     final basemapUrl = streetBasemapUrl(data.file);
     final basemap = ref.watch(streetBasemapProvider).valueOrNull;
-    final periods = ref.watch(streetPeriodsProvider).valueOrNull;
     if (basemap != null) StreetPerf.instance.mark('map_basemap_ready');
     final selected = _selected == null ? null : data.street(_selected!);
     final selectedPts = _selected == null
@@ -291,38 +241,21 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
             // layer is one widget built once per data, so selecting a street or
             // typing in the search box doesn't rebuild ~1,300 polylines; the
             // selected street is drawn on top.
-            ..._restingLayer(data, periods),
-            // The selected street: a soft halo in its period's color, under a
-            // bright core, so it stands out from every period color at rest.
-            if (_selected != null) ...<Widget>[
+            _restingLayer(data),
+            if (_selected != null)
               PolylineLayer(
                 polylines: <Polyline>[
                   for (final line
                       in data.lines[_selected!] ?? const <List<LatLng>>[])
                     Polyline(
                       points: line,
-                      strokeWidth: 13,
-                      color: streetPeriodColor(periods?.byStreet[_selected])
-                          .withValues(alpha: 0.4),
-                      strokeCap: StrokeCap.round,
-                      strokeJoin: StrokeJoin.round,
-                    ),
-                ],
-              ),
-              PolylineLayer(
-                polylines: <Polyline>[
-                  for (final line
-                      in data.lines[_selected!] ?? const <List<LatLng>>[])
-                    Polyline(
-                      points: line,
-                      strokeWidth: 5,
+                      strokeWidth: 6,
                       color: VSColors.goldBright,
                       strokeCap: StrokeCap.round,
                       strokeJoin: StrokeJoin.round,
                     ),
                 ],
               ),
-            ],
             // Places to find your way by — on top so their names stay legible,
             // but they ignore touches (the gold streets are the only tappable
             // thing).
@@ -407,17 +340,6 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                     _select(s.id, data, fit: true);
                   },
                 ),
-                if (periods != null && periods.periods.isNotEmpty)
-                  Padding(
-                    padding: const EdgeInsets.only(top: VSSpacing.sm),
-                    child: _LegendRow(
-                      periods: periods,
-                      active: _activePeriod,
-                      lang: lang,
-                      onOpen: () => _openLegend(periods, lang),
-                      onClear: () => setState(() => _activePeriod = null),
-                    ),
-                  ),
               ],
             ),
           ),
@@ -432,9 +354,6 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
               child: StreetCard(
                 key: ValueKey<String>(selected.id),
                 street: selected,
-                periodColor: periods?.byStreet[selected.id] == null
-                    ? null
-                    : streetPeriodColor(periods!.byStreet[selected.id]),
                 onClose: () => setState(() => _selected = null),
               ),
             ),
@@ -554,170 +473,6 @@ class _Unavailable extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-/// The legend's entry point: a small button, and, when one period is showing
-/// alone, a chip with its color and name that clears the choice.
-class _LegendRow extends StatelessWidget {
-  const _LegendRow({
-    required this.periods,
-    required this.active,
-    required this.lang,
-    required this.onOpen,
-    required this.onClear,
-  });
-
-  final StreetPeriods periods;
-  final String? active;
-  final Lang lang;
-  final VoidCallback onOpen;
-  final VoidCallback onClear;
-
-  @override
-  Widget build(BuildContext context) {
-    Period? chosen;
-    for (final p in periods.periods) {
-      if (p.id == active) chosen = p;
-    }
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        if (chosen != null)
-          Flexible(
-            child: GestureDetector(
-              key: const Key('street-legend-chip'),
-              onTap: onClear,
-              behavior: HitTestBehavior.opaque,
-              child: Container(
-                margin: const EdgeInsets.only(right: VSSpacing.sm),
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
-                decoration: BoxDecoration(
-                  color: VSColors.lacquer.withValues(alpha: 0.85),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: streetPeriodColor(chosen.id), width: 1),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    _Dot(color: streetPeriodColor(chosen.id)),
-                    const SizedBox(width: 8),
-                    Flexible(
-                      child: Text(
-                        chosen.title.resolve(lang),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: VSType.caption.copyWith(color: VSColors.inkBody),
-                      ),
-                    ),
-                    const SizedBox(width: 6),
-                    const Icon(Icons.close, size: 14, color: VSColors.inkMuted),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        CircleIconButton(
-          key: const Key('street-legend-button'),
-          icon: Icons.timeline,
-          onTap: onOpen,
-        ),
-      ],
-    );
-  }
-}
-
-class _Dot extends StatelessWidget {
-  const _Dot({required this.color});
-  final Color color;
-  @override
-  Widget build(BuildContext context) => Container(
-        width: 12,
-        height: 12,
-        decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-      );
-}
-
-/// The periods that have streets, earliest first, each with its line color and
-/// street count. Pops with the period id, or '' for every period.
-class _LegendSheet extends StatelessWidget {
-  const _LegendSheet({
-    required this.periods,
-    required this.active,
-    required this.lang,
-  });
-
-  final StreetPeriods periods;
-  final String? active;
-  final Lang lang;
-
-  @override
-  Widget build(BuildContext context) {
-    final vi = lang == Lang.vi;
-    return SafeArea(
-      child: ConstrainedBox(
-        constraints: BoxConstraints(maxHeight: MediaQuery.sizeOf(context).height * 0.7),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.fromLTRB(VSSpacing.lg, VSSpacing.lg, VSSpacing.lg, VSSpacing.xs),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      vi ? 'Màu theo thời kỳ' : 'Colors by period',
-                      style: VSType.bodySmall.copyWith(
-                          color: VSColors.goldBright, fontSize: 16, fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  if (active != null)
-                    TextButton(
-                      key: const Key('street-legend-all'),
-                      onPressed: () => Navigator.of(context).pop(''),
-                      child: Text(vi ? 'Xem tất cả' : 'Show all'),
-                    ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: VSSpacing.lg),
-              child: Text(
-                vi
-                    ? 'Mỗi con đường mang màu của thời kỳ người hay sự kiện đó thuộc về. Chạm một thời kỳ để chỉ xem các đường của nó.'
-                    : 'Each street takes the color of the period its person or event belongs to. Tap a period to see only its streets.',
-                style: VSType.caption.copyWith(color: VSColors.inkMuted),
-              ),
-            ),
-            const SizedBox(height: VSSpacing.sm),
-            Flexible(
-              child: ListView(
-                shrinkWrap: true,
-                children: <Widget>[
-                  for (final p in periods.periods)
-                    ListTile(
-                      key: Key('street-legend-${p.id}'),
-                      dense: true,
-                      selected: p.id == active,
-                      leading: _Dot(color: streetPeriodColor(p.id)),
-                      title: Text(p.title.resolve(lang),
-                          style: VSType.bodySmall.copyWith(color: VSColors.inkBody)),
-                      subtitle: Text(p.yearRange.display.resolve(lang),
-                          style: VSType.caption.copyWith(color: VSColors.inkMuted)),
-                      trailing: Text(
-                        '${periods.counts[p.id] ?? 0}',
-                        style: VSType.caption.copyWith(color: VSColors.gold),
-                      ),
-                      onTap: () => Navigator.of(context).pop(p.id == active ? '' : p.id),
-                    ),
-                ],
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
