@@ -8,21 +8,11 @@ enum StreetStatus { suggested, approved }
 /// One thing a street is named after, plus the era whose route it opens under
 /// (`/era/:era/figure/:id`, `/era/:era/event/:id`, `/era/:id`).
 class StreetTarget {
-  const StreetTarget({
-    required this.type,
-    required this.id,
-    required this.era,
-    this.period = '',
-  });
+  const StreetTarget({required this.type, required this.id, required this.era});
 
   final StreetTargetType type;
   final String id;
   final String era;
-
-  /// The period (a `periods.json` id) a target with no era draws its street in:
-  /// a standalone person or event has no era to take one from. Empty = unknown
-  /// (the map falls back to its neutral color). Ignored when [era] is set.
-  final String period;
 
   factory StreetTarget.fromJson(Map<String, dynamic> json) {
     final type = StreetTargetType.values.asNameMap()[json['type']];
@@ -34,27 +24,21 @@ class StreetTarget {
       id: json['id'] as String,
       era: (json['era'] ?? (type == StreetTargetType.era ? json['id'] : ''))
           as String,
-      period: (json['period'] ?? '') as String,
     );
   }
 
-  Map<String, dynamic> toJson() => {
-        'type': type.name,
-        'id': id,
-        'era': era,
-        if (period.isNotEmpty) 'period': period,
-      };
+  Map<String, dynamic> toJson() =>
+      {'type': type.name, 'id': id, 'era': era};
 
   @override
   bool operator ==(Object other) =>
       other is StreetTarget &&
       other.type == type &&
       other.id == id &&
-      other.era == era &&
-      other.period == period;
+      other.era == era;
 
   @override
-  int get hashCode => Object.hash(type, id, era, period);
+  int get hashCode => Object.hash(type, id, era);
 }
 
 class MappedStreet {

@@ -98,11 +98,6 @@ Future<int> _run() async {
             jsonDecode(f.readAsStringSync()) as Map<String, dynamic>,
             eventsById),
     ];
-    final periodIds = <String>{
-      for (final p in (jsonDecode(periodsFile.readAsStringSync())
-          as Map<String, dynamic>)['periods'] as List)
-        (p as Map<String, dynamic>)['id'] as String,
-    };
     final peopleIds = <String>{
       for (final p in (jsonDecode(peopleFile.readAsStringSync())
           as Map<String, dynamic>)['people'] as List)
@@ -133,7 +128,6 @@ Future<int> _run() async {
         eras: eras,
         geometryStreetIds: geoIds,
         standaloneEventIds: standaloneIds,
-        periodIds: periodIds,
       );
       if (problems.isEmpty) {
         stdout.writeln('✓ streets/$n${geoIds == null ? ' (geometry not checked)' : ''}');
