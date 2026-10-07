@@ -25,6 +25,7 @@ import 'package:viet_su/screens/streets/street_perf.dart';
 import 'package:viet_su/screens/streets/street_data.dart';
 import 'package:viet_su/screens/streets/street_landmarks.dart';
 import 'package:viet_su/screens/streets/street_map_screen.dart';
+import 'package:viet_su/screens/streets/street_map_warmer.dart';
 import 'package:viet_su/screens/streets/street_reverse_chip.dart';
 import 'package:viet_su/state/providers.dart';
 import 'package:viet_su/telemetry/route_telemetry.dart';
@@ -553,6 +554,17 @@ void main() {
       expect(params['tile_errors'], 1);
       expect(params['splash_data_ms'], isNonNegative);
       expect(params['first_tile_ms'], isNonNegative);
+    });
+  });
+
+  group('warmFinished', () {
+    test('waits for images, then for the count to hold still', () {
+      expect(warmFinished(images: 0, stableTicks: 9, elapsed: const Duration(seconds: 5)), isFalse);
+      expect(warmFinished(images: 12, stableTicks: 2, elapsed: const Duration(seconds: 5)), isFalse);
+      expect(warmFinished(images: 12, stableTicks: 3, elapsed: const Duration(seconds: 5)), isTrue);
+    });
+    test('always ends at the cap', () {
+      expect(warmFinished(images: 0, stableTicks: 0, elapsed: const Duration(seconds: 15)), isTrue);
     });
   });
 

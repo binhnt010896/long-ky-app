@@ -12,6 +12,7 @@ import '../../telemetry/telemetry.dart';
 import '../../theme/content_assets.dart';
 import '../streets/street_basemap.dart';
 import '../streets/street_data.dart';
+import '../streets/street_map_warmer.dart';
 import '../streets/street_perf.dart';
 
 /// Wraps the app and shows the **Long Ký** brand splash over it on launch, then
@@ -161,6 +162,9 @@ class _SplashGateState extends ConsumerState<SplashGate>
       if (basemap != null && start != null) {
         await basemap.prefetch(startViewTiles(start.lat, start.lng, start.zoom));
         StreetPerf.instance.mark('splash_prefetch_done');
+        // Then draw the first view out of sight, so its tile images are
+        // already on disk when the map opens (see StreetMapWarmer).
+        if (mounted) ref.read(streetWarmProvider.notifier).state = true;
       }
     } catch (_) {
       // Never surfaces: this is only a head start.
@@ -236,6 +240,7 @@ class _SplashGateState extends ConsumerState<SplashGate>
         widget.child,
         if (_present)
           Positioned.fill(
+        const StreetMapWarmer(),
             child: IgnorePointer(
               ignoring: _fadingOut,
               child: AnimatedOpacity(
