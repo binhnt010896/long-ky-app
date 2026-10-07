@@ -95,7 +95,8 @@
         {
           "type": "person",
           "id": "an-tu-cong-chua",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -214,7 +215,8 @@
         {
           "type": "person",
           "id": "be-van-dan",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -253,7 +255,8 @@
         {
           "type": "person",
           "id": "bui-thi-xuan",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -266,7 +269,8 @@
         {
           "type": "person",
           "id": "bui-vien",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -292,7 +296,8 @@
         {
           "type": "person",
           "id": "cao-ba-quat",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -318,7 +323,8 @@
         {
           "type": "person",
           "id": "cao-thang",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -331,7 +337,8 @@
         {
           "type": "person",
           "id": "chau-van-liem",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -344,7 +351,8 @@
         {
           "type": "event",
           "id": "dao-kenh-vinh-te",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -357,7 +365,8 @@
         {
           "type": "person",
           "id": "chu-dong-tu",
-          "era": ""
+          "era": "",
+          "period": "hong-bang"
         }
       ],
       "status": "approved",
@@ -370,7 +379,8 @@
         {
           "type": "person",
           "id": "chu-van-an",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -396,7 +406,8 @@
         {
           "type": "person",
           "id": "ngoc-han",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -435,7 +446,8 @@
         {
           "type": "person",
           "id": "cu-chinh-lan",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -448,7 +460,8 @@
         {
           "type": "person",
           "id": "da-tuong",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -461,7 +474,8 @@
         {
           "type": "person",
           "id": "dam-than-huy",
-          "era": ""
+          "era": "",
+          "period": "hau-le"
         }
       ],
       "status": "approved",
@@ -474,7 +488,8 @@
         {
           "type": "person",
           "id": "dang-dung",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -487,7 +502,8 @@
         {
           "type": "person",
           "id": "dang-nguyen-can",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -500,7 +516,8 @@
         {
           "type": "person",
           "id": "dang-nhu-mai",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -513,7 +530,8 @@
         {
           "type": "person",
           "id": "dang-tat",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -526,7 +544,8 @@
         {
           "type": "person",
           "id": "dang-thai-than",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -617,7 +636,8 @@
         {
           "type": "person",
           "id": "dinh-cong-trang",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -630,7 +650,8 @@
         {
           "type": "person",
           "id": "dinh-le",
-          "era": ""
+          "era": "",
+          "period": "hau-le"
         }
       ],
       "status": "approved",
@@ -643,7 +664,8 @@
         {
           "type": "person",
           "id": "dinh-liet",
-          "era": ""
+          "era": "",
+          "period": "hau-le"
         }
       ],
       "status": "approved",
@@ -778,7 +800,8 @@
         {
           "type": "person",
           "id": "giang-van-minh",
-          "era": ""
+          "era": "",
+          "period": "phan-tranh"
         }
       ],
       "status": "approved",
@@ -791,7 +814,8 @@
         {
           "type": "person",
           "id": "ha-huy-giap",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -804,7 +828,8 @@
         {
           "type": "person",
           "id": "ha-huy-tap",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -840,7 +865,8 @@
         {
           "type": "person",
           "id": "hai-thuong-lan-ong",
-          "era": ""
+          "era": "",
+          "period": "phan-tranh"
         }
       ],
       "status": "approved",
@@ -866,7 +892,8 @@
         {
           "type": "person",
           "id": "han-thuyen",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -879,7 +906,8 @@
         {
           "type": "person",
           "id": "ho-huan-nghiep",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -892,7 +920,8 @@
         {
           "type": "person",
           "id": "ho-tung-mau",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -905,7 +934,8 @@
         {
           "type": "person",
           "id": "hoang-dieu",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -931,7 +961,8 @@
         {
           "type": "person",
           "id": "hoang-ke-viem",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -944,7 +975,8 @@
         {
           "type": "person",
           "id": "hoang-quoc-viet",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -957,7 +989,8 @@
         {
           "type": "person",
           "id": "hoang-van-thai",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -970,7 +1003,8 @@
         {
           "type": "person",
           "id": "hoang-van-thu",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -1022,7 +1056,8 @@
         {
           "type": "person",
           "id": "huyen-tran",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -1035,7 +1070,8 @@
         {
           "type": "person",
           "id": "huynh-man-dat",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -1048,7 +1084,8 @@
         {
           "type": "person",
           "id": "huynh-tan-phat",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -1061,7 +1098,8 @@
         {
           "type": "person",
           "id": "huynh-thuc-khang",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -1074,7 +1112,8 @@
         {
           "type": "person",
           "id": "kim-dong",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -1100,7 +1139,8 @@
         {
           "type": "person",
           "id": "ky-con",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -1113,7 +1153,8 @@
         {
           "type": "person",
           "id": "ky-dong",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -1152,7 +1193,8 @@
         {
           "type": "person",
           "id": "le-anh-xuan",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-my"
         }
       ],
       "status": "approved",
@@ -1204,7 +1246,8 @@
         {
           "type": "person",
           "id": "le-duc-tho",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -1217,7 +1260,8 @@
         {
           "type": "person",
           "id": "le-hong-phong",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -1274,7 +1318,8 @@
         {
           "type": "person",
           "id": "le-ngan",
-          "era": ""
+          "era": "",
+          "period": "hau-le"
         }
       ],
       "status": "approved",
@@ -1300,7 +1345,8 @@
         {
           "type": "person",
           "id": "le-quang-dao",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-my"
         }
       ],
       "status": "approved",
@@ -1313,7 +1359,8 @@
         {
           "type": "person",
           "id": "le-quang-dinh",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -1326,7 +1373,8 @@
         {
           "type": "person",
           "id": "le-quy-don",
-          "era": ""
+          "era": "",
+          "period": "phan-tranh"
         }
       ],
       "status": "approved",
@@ -1339,7 +1387,8 @@
         {
           "type": "person",
           "id": "le-sat",
-          "era": ""
+          "era": "",
+          "period": "hau-le"
         }
       ],
       "status": "approved",
@@ -1352,7 +1401,8 @@
         {
           "type": "person",
           "id": "le-than",
-          "era": ""
+          "era": "",
+          "period": "hau-le"
         }
       ],
       "status": "approved",
@@ -1378,7 +1428,8 @@
         {
           "type": "person",
           "id": "le-thi-rieng",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-my"
         }
       ],
       "status": "approved",
@@ -1404,7 +1455,8 @@
         {
           "type": "person",
           "id": "le-trung-dinh",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -1430,7 +1482,8 @@
         {
           "type": "person",
           "id": "le-van-huu",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -1443,7 +1496,8 @@
         {
           "type": "person",
           "id": "le-van-thinh",
-          "era": ""
+          "era": "",
+          "period": "nha-ly"
         }
       ],
       "status": "approved",
@@ -1469,7 +1523,8 @@
         {
           "type": "person",
           "id": "luong-ngoc-quyen",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -1482,7 +1537,8 @@
         {
           "type": "person",
           "id": "luong-the-vinh",
-          "era": ""
+          "era": "",
+          "period": "hau-le"
         }
       ],
       "status": "approved",
@@ -1508,7 +1564,8 @@
         {
           "type": "person",
           "id": "luu-huu-phuoc",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-my"
         }
       ],
       "status": "approved",
@@ -1521,7 +1578,8 @@
         {
           "type": "person",
           "id": "luu-nhan-chu",
-          "era": ""
+          "era": "",
+          "period": "hau-le"
         }
       ],
       "status": "approved",
@@ -1534,7 +1592,8 @@
         {
           "type": "event",
           "id": "dap-luy-ban-bich",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -1560,7 +1619,8 @@
         {
           "type": "person",
           "id": "ly-chinh-thang",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -1586,7 +1646,8 @@
         {
           "type": "person",
           "id": "ly-phuc-man",
-          "era": ""
+          "era": "",
+          "period": "bac-thuoc"
         }
       ],
       "status": "approved",
@@ -1656,7 +1717,8 @@
         {
           "type": "person",
           "id": "ly-tu-trong",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -1669,7 +1731,8 @@
         {
           "type": "person",
           "id": "ly-van-phuc",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -1682,7 +1745,8 @@
         {
           "type": "person",
           "id": "mac-cuu",
-          "era": ""
+          "era": "",
+          "period": "phan-tranh"
         }
       ],
       "status": "approved",
@@ -1695,7 +1759,8 @@
         {
           "type": "person",
           "id": "mac-dinh-chi",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -1708,7 +1773,8 @@
         {
           "type": "person",
           "id": "mac-thien-tich",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -1721,7 +1787,8 @@
         {
           "type": "person",
           "id": "mai-chi-tho",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-my"
         }
       ],
       "status": "approved",
@@ -1752,7 +1819,8 @@
         {
           "type": "person",
           "id": "mai-xuan-thuong",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -1778,7 +1846,8 @@
         {
           "type": "person",
           "id": "ngo-duc-ke",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -1791,7 +1860,8 @@
         {
           "type": "person",
           "id": "ngo-gia-tu",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -1804,7 +1874,8 @@
         {
           "type": "person",
           "id": "ngo-nhan-tinh",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -1861,7 +1932,8 @@
         {
           "type": "person",
           "id": "ngo-van-so",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -1874,7 +1946,8 @@
         {
           "type": "person",
           "id": "nguyen-an-ninh",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -1900,7 +1973,8 @@
         {
           "type": "person",
           "id": "nguyen-bieu",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -1913,7 +1987,8 @@
         {
           "type": "person",
           "id": "nguyen-binh-khiem",
-          "era": ""
+          "era": "",
+          "period": "phan-tranh"
         }
       ],
       "status": "approved",
@@ -1926,7 +2001,8 @@
         {
           "type": "person",
           "id": "nguyen-chi-thanh",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -1952,7 +2028,8 @@
         {
           "type": "person",
           "id": "nguyen-co-thach",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-my"
         }
       ],
       "status": "approved",
@@ -1978,7 +2055,8 @@
         {
           "type": "person",
           "id": "nguyen-cu-trinh",
-          "era": ""
+          "era": "",
+          "period": "phan-tranh"
         }
       ],
       "status": "approved",
@@ -1991,7 +2069,8 @@
         {
           "type": "person",
           "id": "nguyen-cuu-dam",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -2004,7 +2083,8 @@
         {
           "type": "person",
           "id": "nguyen-cuu-van",
-          "era": ""
+          "era": "",
+          "period": "phan-tranh"
         }
       ],
       "status": "approved",
@@ -2017,7 +2097,8 @@
         {
           "type": "person",
           "id": "nguyen-dinh-chieu",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -2030,7 +2111,8 @@
         {
           "type": "person",
           "id": "nguyen-du",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -2043,7 +2125,8 @@
         {
           "type": "person",
           "id": "nguyen-duc-canh",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -2056,7 +2139,8 @@
         {
           "type": "person",
           "id": "nguyen-duy-hieu",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -2095,7 +2179,8 @@
         {
           "type": "person",
           "id": "nguyen-huu-canh",
-          "era": ""
+          "era": "",
+          "period": "phan-tranh"
         }
       ],
       "status": "approved",
@@ -2108,7 +2193,8 @@
         {
           "type": "person",
           "id": "nguyen-huu-tho",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -2121,7 +2207,8 @@
         {
           "type": "person",
           "id": "nguyen-khac-nhu",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -2134,7 +2221,8 @@
         {
           "type": "person",
           "id": "nguyen-khoai",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -2160,7 +2248,8 @@
         {
           "type": "person",
           "id": "nguyen-luong-bang",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -2173,7 +2262,8 @@
         {
           "type": "person",
           "id": "nguyen-nhu-lam",
-          "era": ""
+          "era": "",
+          "period": "hau-le"
         }
       ],
       "status": "approved",
@@ -2186,7 +2276,8 @@
         {
           "type": "person",
           "id": "nguyen-phuc-chu",
-          "era": ""
+          "era": "",
+          "period": "phan-tranh"
         }
       ],
       "status": "approved",
@@ -2212,7 +2303,8 @@
         {
           "type": "person",
           "id": "nguyen-quang-bich",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -2277,7 +2369,8 @@
         {
           "type": "person",
           "id": "nguyen-thi-thap",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -2316,7 +2409,8 @@
         {
           "type": "person",
           "id": "nguyen-thuong-hien",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -2368,7 +2462,8 @@
         {
           "type": "person",
           "id": "nguyen-truong-to",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -2381,7 +2476,8 @@
         {
           "type": "person",
           "id": "nguyen-van-cu",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -2407,7 +2503,8 @@
         {
           "type": "person",
           "id": "nguyen-van-qua",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -2420,7 +2517,8 @@
         {
           "type": "person",
           "id": "nguyen-van-to",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -2433,7 +2531,8 @@
         {
           "type": "person",
           "id": "nguyen-van-troi",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-my"
         }
       ],
       "status": "approved",
@@ -2446,7 +2545,8 @@
         {
           "type": "person",
           "id": "nguyen-viet-xuan",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-my"
         }
       ],
       "status": "approved",
@@ -2472,7 +2572,8 @@
         {
           "type": "person",
           "id": "nguyen-xuan-on",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -2524,7 +2625,8 @@
         {
           "type": "person",
           "id": "pham-banh",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -2550,7 +2652,8 @@
         {
           "type": "person",
           "id": "pham-hong-thai",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -2563,7 +2666,8 @@
         {
           "type": "person",
           "id": "pham-hung",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -2576,7 +2680,8 @@
         {
           "type": "person",
           "id": "pham-ngoc-thach",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -2589,7 +2694,8 @@
         {
           "type": "person",
           "id": "pham-ngu-lao",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -2602,7 +2708,8 @@
         {
           "type": "person",
           "id": "pham-phu-thu",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -2628,7 +2735,8 @@
         {
           "type": "person",
           "id": "pham-van-xao",
-          "era": ""
+          "era": "",
+          "period": "hau-le"
         }
       ],
       "status": "approved",
@@ -2641,7 +2749,8 @@
         {
           "type": "person",
           "id": "phan-ba-vanh",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -2680,7 +2789,8 @@
         {
           "type": "person",
           "id": "phan-dang-luu",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -2719,7 +2829,8 @@
         {
           "type": "person",
           "id": "phan-huy-chu",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -2732,7 +2843,8 @@
         {
           "type": "person",
           "id": "phan-huy-ich",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -2771,7 +2883,8 @@
         {
           "type": "person",
           "id": "phan-van-hon",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -2797,7 +2910,8 @@
         {
           "type": "person",
           "id": "phan-van-tri",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -2810,7 +2924,8 @@
         {
           "type": "person",
           "id": "phan-van-truong",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -2823,7 +2938,8 @@
         {
           "type": "person",
           "id": "pho-duc-chinh",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -2849,7 +2965,8 @@
         {
           "type": "person",
           "id": "phung-chi-kien",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -2880,7 +2997,8 @@
         {
           "type": "person",
           "id": "phung-khac-khoan",
-          "era": ""
+          "era": "",
+          "period": "phan-tranh"
         }
       ],
       "status": "approved",
@@ -2906,7 +3024,8 @@
         {
           "type": "event",
           "id": "dac-cong-rung-sac",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-my"
         }
       ],
       "status": "approved",
@@ -2932,7 +3051,8 @@
         {
           "type": "person",
           "id": "ta-quang-buu",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -2945,7 +3065,8 @@
         {
           "type": "person",
           "id": "tang-bat-ho",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -2971,7 +3092,8 @@
         {
           "type": "person",
           "id": "thai-phien",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -3023,7 +3145,8 @@
         {
           "type": "person",
           "id": "thich-quang-duc",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -3036,7 +3159,8 @@
         {
           "type": "person",
           "id": "thien-ho-duong",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -3049,7 +3173,8 @@
         {
           "type": "person",
           "id": "thoai-ngoc-hau",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -3062,7 +3187,8 @@
         {
           "type": "person",
           "id": "thu-khoa-huan",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -3088,7 +3214,8 @@
         {
           "type": "person",
           "id": "to-hieu",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -3101,7 +3228,8 @@
         {
           "type": "person",
           "id": "to-vinh-dien",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -3114,7 +3242,8 @@
         {
           "type": "person",
           "id": "ton-dan",
-          "era": ""
+          "era": "",
+          "period": "nha-ly"
         }
       ],
       "status": "approved",
@@ -3140,7 +3269,8 @@
         {
           "type": "person",
           "id": "ton-that-dam",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -3153,7 +3283,8 @@
         {
           "type": "person",
           "id": "ton-that-tiep",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -3179,7 +3310,8 @@
         {
           "type": "person",
           "id": "tong-duy-tan",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -3192,7 +3324,8 @@
         {
           "type": "person",
           "id": "tran-bach-dang",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-my"
         }
       ],
       "status": "approved",
@@ -3205,7 +3338,8 @@
         {
           "type": "person",
           "id": "tran-binh-trong",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -3218,7 +3352,8 @@
         {
           "type": "person",
           "id": "tran-cao-van",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -3231,7 +3366,8 @@
         {
           "type": "person",
           "id": "tran-dai-nghia",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -3262,7 +3398,8 @@
         {
           "type": "person",
           "id": "tran-huy-lieu",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -3275,7 +3412,8 @@
         {
           "type": "person",
           "id": "tran-khat-chan",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -3301,7 +3439,8 @@
         {
           "type": "person",
           "id": "tran-nguyen-dan",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -3314,7 +3453,8 @@
         {
           "type": "person",
           "id": "tran-nguyen-han",
-          "era": ""
+          "era": "",
+          "period": "hau-le"
         }
       ],
       "status": "approved",
@@ -3366,7 +3506,8 @@
         {
           "type": "person",
           "id": "tran-quang-dieu",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -3418,7 +3559,8 @@
         {
           "type": "person",
           "id": "tran-quy-cap",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -3431,7 +3573,8 @@
         {
           "type": "person",
           "id": "tran-tan",
-          "era": ""
+          "era": "",
+          "period": "nguyen"
         }
       ],
       "status": "approved",
@@ -3462,7 +3605,8 @@
         {
           "type": "person",
           "id": "tran-thanh-tong",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -3488,7 +3632,8 @@
         {
           "type": "person",
           "id": "tran-van-giau",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -3501,7 +3646,8 @@
         {
           "type": "person",
           "id": "tran-van-ky",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -3514,7 +3660,8 @@
         {
           "type": "person",
           "id": "tran-van-on",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -3540,7 +3687,8 @@
         {
           "type": "person",
           "id": "trinh-hoai-duc",
-          "era": ""
+          "era": "",
+          "period": "tay-son"
         }
       ],
       "status": "approved",
@@ -3553,7 +3701,8 @@
         {
           "type": "person",
           "id": "trinh-van-can",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -3644,7 +3793,8 @@
         {
           "type": "person",
           "id": "tue-tinh",
-          "era": ""
+          "era": "",
+          "period": "nha-tran"
         }
       ],
       "status": "approved",
@@ -3657,7 +3807,8 @@
         {
           "type": "person",
           "id": "ut-tich",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-my"
         }
       ],
       "status": "approved",
@@ -3670,7 +3821,8 @@
         {
           "type": "person",
           "id": "van-cao",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-my"
         }
       ],
       "status": "approved",
@@ -3709,7 +3861,8 @@
         {
           "type": "person",
           "id": "vo-chi-cong",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -3735,7 +3888,8 @@
         {
           "type": "person",
           "id": "vo-thi-sau",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",
@@ -3748,7 +3902,8 @@
         {
           "type": "person",
           "id": "vo-truong-toan",
-          "era": ""
+          "era": "",
+          "period": "phan-tranh"
         }
       ],
       "status": "approved",
@@ -3774,7 +3929,8 @@
         {
           "type": "person",
           "id": "vo-van-tan",
-          "era": ""
+          "era": "",
+          "period": "phap-thuoc"
         }
       ],
       "status": "approved",
@@ -3787,7 +3943,8 @@
         {
           "type": "person",
           "id": "vu-huu",
-          "era": ""
+          "era": "",
+          "period": "hau-le"
         }
       ],
       "status": "approved",
@@ -3813,7 +3970,8 @@
         {
           "type": "person",
           "id": "xuan-thuy",
-          "era": ""
+          "era": "",
+          "period": "khang-chien-chong-phap"
         }
       ],
       "status": "approved",

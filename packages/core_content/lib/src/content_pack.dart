@@ -180,6 +180,10 @@ class ContentPack {
           peopleIds: peopleRegistry.byId.keys.toSet(),
           eras: eras.values.toList(),
           standaloneEventIds: standaloneIds,
+          periodIds: {
+            for (final p in (periods['periods'] as List? ?? const <dynamic>[]))
+              if (p is Map<String, dynamic>) p['id'] as String,
+          },
         );
         if (problems.isNotEmpty) {
           throw ContentSourceException(

@@ -242,6 +242,27 @@ void main() {
             geometryStreetIds: geo,
             standaloneEventIds: standalone);
 
+    test('a standalone target keeps its period, and an unknown one is flagged', () {
+      final t = StreetTarget.fromJson(
+          {'type': 'person', 'id': 'p1', 'era': '', 'period': 'nha-ly'});
+      expect(t.period, 'nha-ly');
+      expect(t.toJson()['period'], 'nha-ly');
+      expect(const StreetTarget(type: StreetTargetType.person, id: 'p1', era: '').toJson().containsKey('period'),
+          isFalse, reason: 'no period, no key');
+      List<String> check(String period) => StreetMapValidator.validate(
+          streetsJson: file([
+            street('s', [
+              {'type': 'event', 'id': 'rieng', 'era': '', 'period': period}
+            ])
+          ]),
+          peopleIds: {'p1'},
+          eras: eras,
+          standaloneEventIds: {'rieng'},
+          periodIds: {'nha-ly'});
+      expect(check('nha-ly'), isEmpty);
+      expect(check('nha-lyy').join(), contains('unknown period'));
+    });
+
     test('a basemap must be a .pmtiles media path', () {
       String withBasemap(String b) => jsonEncode({
             'schemaVersion': 1,
