@@ -22,6 +22,7 @@ import 'package:viet_su/screens/character/character_detail_screen.dart';
 import 'package:viet_su/screens/streets/street_basemap.dart';
 import 'package:viet_su/screens/streets/street_card.dart';
 import 'package:viet_su/screens/streets/street_perf.dart';
+import 'package:viet_su/screens/streets/street_period.dart';
 import 'package:viet_su/screens/streets/street_data.dart';
 import 'package:viet_su/screens/streets/street_landmarks.dart';
 import 'package:viet_su/screens/streets/street_map_screen.dart';
@@ -555,6 +556,86 @@ void main() {
       expect(params['splash_data_ms'], isNonNegative);
       expect(params['first_tile_ms'], isNonNegative);
     });
+  });
+
+  group('street periods', () {
+    const era = MappedStreet(
+      id: 'a',
+      name: 'A',
+      status: StreetStatus.approved,
+      targets: [StreetTarget(type: StreetTargetType.person, id: 'p', era: 'le-loi')],
+    );
+    const standalone = MappedStreet(
+      id: 'b',
+      name: 'B',
+      status: StreetStatus.approved,
+      targets: [
+        StreetTarget(type: StreetTargetType.person, id: 'q', era: '', period: 'nha-ly'),
+      ],
+    );
+    const none = MappedStreet(
+      id: 'c',
+      name: 'C',
+      status: StreetStatus.approved,
+      targets: [StreetTarget(type: StreetTargetType.person, id: 'r', era: '')],
+    );
+
+    test('an era target takes its era period, a standalone one its own, else none', () {
+      final eraPeriod = {'le-loi': 'hau-le'};
+      expect(streetPeriodId(era, eraPeriod), 'hau-le');
+      expect(streetPeriodId(standalone, eraPeriod), 'nha-ly');
+      expect(streetPeriodId(none, eraPeriod), isNull);
+    });
+
+    test('a period with no color, and a street with no period, draw neutral', () {
+      expect(streetPeriodColor(null), kStreetNeutral);
+      expect(streetPeriodColor('not-a-period'), kStreetNeutral);
+      expect(streetPeriodColor('hau-le'), isNot(kStreetNeutral));
+    });
+
+    test('every period in periods.json has its own map color', () {
+      final ids = [
+        for (final p in (jsonDecode(File('../../content/periods.json').readAsStringSync())
+            as Map<String, dynamic>)['periods'] as List)
+          (p as Map<String, dynamic>)['id'] as String,
+      ];
+      expect(kStreetPeriodColors.keys.toSet(), ids.toSet());
+      expect(kStreetPeriodColors.values.toSet().length, ids.length, reason: 'no two the same');
+    });
+
+    test('real content: every approved street resolves to a period', () {
+      final root = '../../content';
+      final eraPeriod = <String, String>{
+        for (final f in Directory('$root/eras').listSync().whereType<File>().where((f) => f.path.endsWith('.json')))
+          if (jsonDecode(f.readAsStringSync()) case {'slug': final String slug, 'period': final String p}) slug: p,
+      };
+      final file = StreetMapFile.fromJson(
+          jsonDecode(File('$root/streets/hcm.json').readAsStringSync()) as Map<String, dynamic>);
+      final missing = [
+        for (final st in file.approved)
+          if (streetPeriodId(st, eraPeriod) == null) st.id,
+      ];
+      expect(missing, isEmpty);
+    });
+  });
+
+  testWidgets('the legend lists the periods, shows one alone, and the card gets a dot',
+      (tester) async {
+    await _pump(tester, '/duong-pho?street=le-loi');
+    // The selected street's card carries its period's color.
+    expect(find.byKey(const Key('street-card-dot')), findsOneWidget);
+
+    await tester.tap(find.byKey(const Key('street-legend-button')));
+    await _settle(tester);
+    expect(find.byKey(const Key('street-legend-hau-le')), findsOneWidget);
+
+    await tester.tap(find.byKey(const Key('street-legend-hau-le')));
+    await _settle(tester);
+    expect(find.byKey(const Key('street-legend-chip')), findsOneWidget);
+
+    await tester.tap(find.byKey(const Key('street-legend-chip')));
+    await _settle(tester);
+    expect(find.byKey(const Key('street-legend-chip')), findsNothing);
   });
 
   group('warmFinished', () {

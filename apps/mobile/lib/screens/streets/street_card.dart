@@ -22,10 +22,19 @@ String routeForTarget(StreetTarget t) => switch (t.type) {
 /// The street card: the street's name, then one row per target it is named
 /// after, each with a button that opens that Character / Event / Era page.
 class StreetCard extends ConsumerWidget {
-  const StreetCard({required this.street, required this.onClose, super.key});
+  const StreetCard({
+    required this.street,
+    required this.onClose,
+    this.periodColor,
+    super.key,
+  });
 
   final MappedStreet street;
   final VoidCallback onClose;
+
+  /// The street's period color: a small dot before its name, tying the card
+  /// to the line on the map.
+  final Color? periodColor;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -47,6 +56,15 @@ class StreetCard extends ConsumerWidget {
             children: <Widget>[
               Row(
                 children: <Widget>[
+                  if (periodColor != null)
+                    Container(
+                      key: const Key('street-card-dot'),
+                      width: 12,
+                      height: 12,
+                      margin: const EdgeInsets.only(right: VSSpacing.sm),
+                      decoration:
+                          BoxDecoration(color: periodColor, shape: BoxShape.circle),
+                    ),
                   Expanded(
                     child: Text(
                       street.name,
