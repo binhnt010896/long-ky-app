@@ -28,6 +28,7 @@ import 'package:viet_su/screens/streets/street_map_screen.dart';
 import 'package:viet_su/screens/streets/street_map_warmer.dart';
 import 'package:viet_su/screens/streets/street_reverse_chip.dart';
 import 'package:viet_su/state/providers.dart';
+import 'package:viet_su/state/street_tour_store.dart';
 import 'package:viet_su/telemetry/route_telemetry.dart';
 import 'package:viet_su/telemetry/telemetry.dart';
 
@@ -129,13 +130,29 @@ class _FakeSource implements StreetDataSource {
       : null;
 }
 
+class _TourStore implements StreetTourStore {
+  _TourStore({this.alreadySeen = true});
+  bool alreadySeen;
+  int marked = 0;
+  @override
+  Future<bool> seen() async => alreadySeen;
+  @override
+  Future<void> markSeen() async {
+    alreadySeen = true;
+    marked++;
+  }
+}
+
 Future<(GoRouter, _Events)> _pump(
   WidgetTester tester,
   String location, {
   StreetDataSource source = const _FakeSource(),
+  _TourStore? tour,
 }) async {
   final telemetry = _Events();
   final container = ProviderContainer(overrides: [
+    // Every test but the tour's own has "seen" the tour already.
+    streetTourStoreProvider.overrideWithValue(tour ?? _TourStore()),
     contentRepositoryProvider.overrideWithValue(ContentRepository(DiskContentSource(Directory('../../content')))),
     streetDataSourceProvider.overrideWithValue(source),
     telemetryProvider.overrideWithValue(telemetry),
@@ -554,6 +571,61 @@ void main() {
       expect(params['tile_errors'], 1);
       expect(params['splash_data_ms'], isNonNegative);
       expect(params['first_tile_ms'], isNonNegative);
+    });
+  });
+
+  group('street tour', () {
+    Future<void> settle(WidgetTester tester) async {
+      for (var i = 0; i < 12; i++) {
+        await tester.pump(const Duration(milliseconds: 150));
+      }
+    }
+
+    testWidgets('first visit: step 1 points at a street, step 2 at the opened card, then it is marked seen',
+        (tester) async {
+      final store = _TourStore(alreadySeen: false);
+      final (_, tel) = await _pump(tester, '/duong-pho', tour: store);
+      await settle(tester);
+      expect(find.byKey(const Key('street-coach-text')), findsOneWidget);
+      expect(find.textContaining('con đường vàng'), findsOneWidget);
+      expect(find.byKey(const Key('street-card-close')), findsNothing);
+
+      await tester.tap(find.byKey(const Key('street-coach-next')));
+      await settle(tester);
+      // The step opens a sample street so the card it talks about is there.
+      expect(find.byKey(const Key('street-card-close')), findsOneWidget);
+      expect(find.textContaining('Xem nhân vật'), findsWidgets);
+
+      await tester.tap(find.byKey(const Key('street-coach-next')));
+      await settle(tester);
+      expect(find.byKey(const Key('street-coach-text')), findsNothing);
+      expect(find.byKey(const Key('street-card-close')), findsNothing,
+          reason: 'the sample street is closed again');
+      expect(store.marked, 1);
+      expect(tel.events.where((e) => e.$1 == 'street_tour_end').single.$2['result'], 'done');
+    });
+
+    testWidgets('skipping also marks it seen', (tester) async {
+      final store = _TourStore(alreadySeen: false);
+      final (_, tel) = await _pump(tester, '/duong-pho', tour: store);
+      await settle(tester);
+      await tester.tap(find.byKey(const Key('street-coach-skip')));
+      await settle(tester);
+      expect(find.byKey(const Key('street-coach-text')), findsNothing);
+      expect(store.marked, 1);
+      expect(tel.events.where((e) => e.$1 == 'street_tour_end').single.$2['result'], 'skip');
+    });
+
+    testWidgets('not shown once seen, nor when the map opens onto a street', (tester) async {
+      await _pump(tester, '/duong-pho'); // seen
+      await settle(tester);
+      expect(find.byKey(const Key('street-coach-text')), findsNothing);
+
+      final fresh = _TourStore(alreadySeen: false);
+      await _pump(tester, '/duong-pho?street=le-loi', tour: fresh);
+      await settle(tester);
+      expect(find.byKey(const Key('street-coach-text')), findsNothing);
+      expect(fresh.marked, 0, reason: 'a deep link does not use up the tour');
     });
   });
 

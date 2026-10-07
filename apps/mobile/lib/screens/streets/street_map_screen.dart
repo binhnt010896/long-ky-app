@@ -9,11 +9,13 @@ import 'package:ui_kit/ui_kit.dart';
 import 'package:vector_map_tiles/vector_map_tiles.dart';
 
 import '../../state/providers.dart';
+import '../../state/street_tour_store.dart';
 import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
 import 'street_basemap.dart';
 import 'street_card.dart';
+import 'street_coachmarks.dart';
 import 'street_data.dart';
 import 'street_landmarks.dart';
 import 'street_perf.dart';
@@ -44,6 +46,11 @@ class StreetMapScreen extends ConsumerStatefulWidget {
 class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   final MapController _map = MapController();
   String? _selected;
+
+  /// The first-visit tour: shown once, never when the map is opened onto a
+  /// street (from a character's chip), and stored as seen when ended.
+  bool _tour = false;
+  final GlobalKey _cardKey = GlobalKey();
   final TextEditingController _query = TextEditingController();
 
   // Built ONCE. The vector layer restarts its tile loading whenever the theme
@@ -57,6 +64,69 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
     super.initState();
     _selected = widget.initialStreetId;
     StreetPerf.instance.beginMapOpen(ref.read(telemetryProvider));
+    if (widget.initialStreetId == null) _maybeStartTour();
+  }
+
+  Future<void> _maybeStartTour() async {
+    if (await ref.read(streetTourStoreProvider).seen() || !mounted) return;
+    // Let the map paint first; the tour is a hint, not a gate.
+    await Future<void>.delayed(const Duration(milliseconds: 900));
+    if (mounted) setState(() => _tour = true);
+  }
+
+  /// A street to open for the tour's second step, so the card the step talks
+  /// about is on screen: a well-known one when present, else the first mapped.
+  String? _sampleStreet(StreetMapData data) {
+    if (data.lines.containsKey('tran-hung-dao')) return 'tran-hung-dao';
+    for (final st in data.file.approved) {
+      if (data.lines.containsKey(st.id)) return st.id;
+    }
+    return null;
+  }
+
+  /// Back to the opening view, after the tour's sample street moved the camera.
+  void _restoreStartView() {
+    final start = ref.read(streetMapDataProvider).valueOrNull?.file.start;
+    if (start == null) return;
+    _map.move(LatLng(start.lat, start.lng),
+        start.zoom.clamp(kStreetMinZoom, kStreetMaxZoom));
+  }
+
+  void _tourStep(int step, StreetMapData data) {
+    if (step == 0) {
+      setState(() => _selected = null);
+      _restoreStartView();
+    } else {
+      final id = _sampleStreet(data);
+      if (id != null) _select(id, data, fit: true);
+    }
+  }
+
+  void _endTour(String result, int step) {
+    ref.read(streetTourStoreProvider).markSeen();
+    ref.read(telemetryProvider).event('street_tour_end',
+        <String, Object>{'result': result, 'step': step});
+    setState(() {
+      _tour = false;
+      _selected = null;
+    });
+    _restoreStartView();
+  }
+
+  /// Where each tour step points, in global coordinates: the middle of the map
+  /// (where streets are densest), then the street card.
+  Rect? _tourTarget(String id) {
+    if (id == 'card') {
+      final box = _cardKey.currentContext?.findRenderObject();
+      if (box is! RenderBox || !box.hasSize) return null;
+      return box.localToGlobal(Offset.zero) & box.size;
+    }
+    final size = MediaQuery.sizeOf(context);
+    return Rect.fromCenter(
+      center: Offset(size.width / 2, size.height * 0.5),
+      width: size.width * 0.78,
+      height: 190,
+    );
   }
 
   @override
@@ -351,11 +421,26 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
             bottom: VSSpacing.xl + 24, // clear of the attribution
             child: SafeArea(
               top: false,
-              child: StreetCard(
-                key: ValueKey<String>(selected.id),
-                street: selected,
-                onClose: () => setState(() => _selected = null),
+              child: KeyedSubtree(
+                key: _cardKey,
+                child: StreetCard(
+                  key: ValueKey<String>(selected.id),
+                  street: selected,
+                  onClose: () => setState(() => _selected = null),
+                ),
               ),
+            ),
+          ),
+        // Keyed: the card above appears and disappears in this same child
+        // list, and without a key the tour would be rebuilt from step 1 each
+        // time (the card shifts its position).
+        if (_tour)
+          Positioned.fill(
+            key: const ValueKey<String>('street-tour'),
+            child: StreetCoachmarks(
+              targetFor: _tourTarget,
+              onStep: (i) => _tourStep(i, data),
+              onEnd: _endTour,
             ),
           ),
       ],
