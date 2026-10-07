@@ -1,6 +1,12 @@
 # Street colors by period: plan (item 2)
 
-Status: **draft for review, nothing implemented** · 2026-10-07
+Status: **built, tried on a phone, and reverted** · 2026-10-07
+
+> **Outcome:** with 17 period colors the map looked like a rainbow (the owner's
+> verdict on a real phone), at odds with the app's restrained lacquer look.
+> Both commits were reverted (`8420fb0`, `e6d7342`). If this is ever retried:
+> use few families (not one hue per period), or color only a highlighted
+> period against the old gold, never all 17 at once.
 
 ## What changes
 
