@@ -9,21 +9,32 @@ import 'package:path_provider/path_provider.dart';
 /// "done" only if they finished or skipped *this* version.
 const int kStreetTourVersion = 1;
 
-/// Remembers whether the reader has already seen the street map's two-step
-/// coachmark tour. Same on-disk pattern as the language and Home-tour stores;
-/// on web it is in memory only, so a fresh tab shows the tour.
-abstract class StreetTourStore {
+/// Same, for the territory atlas's tour.
+const int kAtlasTourVersion = 1;
+
+/// Remembers whether the reader has already seen one screen's coachmark tour.
+/// Same on-disk pattern as the language and Home-tour stores; on web it is in
+/// memory only, so a fresh tab shows the tour.
+abstract class TourStore {
   Future<bool> seen();
   Future<void> markSeen();
 }
 
-class FileStreetTourStore implements StreetTourStore {
+typedef StreetTourStore = TourStore;
+typedef AtlasTourStore = TourStore;
+
+class FileTourStore implements TourStore {
+  FileTourStore({required this.fileName, required this.version});
+
+  /// e.g. `street_tour.json`, inside the app-support directory.
+  final String fileName;
+  final int version;
   bool? _cached;
 
-  static Future<File?> _file() async {
+  Future<File?> _file() async {
     if (kIsWeb) return null;
     final dir = await getApplicationSupportDirectory();
-    return File('${dir.path}/street_tour.json');
+    return File('${dir.path}/$fileName');
   }
 
   @override
@@ -35,7 +46,7 @@ class FileStreetTourStore implements StreetTourStore {
       if (file == null || !file.existsSync()) return _cached = false;
       final raw = jsonDecode(await file.readAsString());
       final v = raw is Map<String, dynamic> ? raw['version'] : null;
-      return _cached = v is int && v >= kStreetTourVersion;
+      return _cached = v is int && v >= version;
     } catch (_) {
       // Unreadable file: showing the tour once more beats failing.
       return _cached = false;
@@ -49,7 +60,9 @@ class FileStreetTourStore implements StreetTourStore {
       final file = await _file();
       if (file != null) {
         final tmp = File('${file.path}.tmp');
-        await tmp.writeAsString(jsonEncode(<String, dynamic>{'version': kStreetTourVersion}));
+        await tmp.writeAsString(
+          jsonEncode(<String, dynamic>{'version': version}),
+        );
         await tmp.rename(file.path);
       }
     } catch (_) {
@@ -58,5 +71,12 @@ class FileStreetTourStore implements StreetTourStore {
   }
 }
 
-final streetTourStoreProvider =
-    Provider<StreetTourStore>((ref) => FileStreetTourStore());
+final streetTourStoreProvider = Provider<StreetTourStore>(
+  (ref) =>
+      FileTourStore(fileName: 'street_tour.json', version: kStreetTourVersion),
+);
+
+final atlasTourStoreProvider = Provider<AtlasTourStore>(
+  (ref) =>
+      FileTourStore(fileName: 'atlas_tour.json', version: kAtlasTourVersion),
+);

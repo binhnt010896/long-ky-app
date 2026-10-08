@@ -9,13 +9,13 @@ import 'package:ui_kit/ui_kit.dart';
 import 'package:vector_map_tiles/vector_map_tiles.dart';
 
 import '../../state/providers.dart';
-import '../../state/street_tour_store.dart';
+import '../../state/tour_store.dart';
 import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
+import '../../widgets/map_coachmarks.dart';
 import 'street_basemap.dart';
 import 'street_card.dart';
-import 'street_coachmarks.dart';
 import 'street_data.dart';
 import 'street_landmarks.dart';
 import 'street_perf.dart';
@@ -437,7 +437,8 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
         if (_tour)
           Positioned.fill(
             key: const ValueKey<String>('street-tour'),
-            child: StreetCoachmarks(
+            child: MapCoachmarks(
+              steps: kStreetTourSteps,
               targetFor: _tourTarget,
               onStep: (i) => _tourStep(i, data),
               onEnd: _endTour,

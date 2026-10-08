@@ -7,8 +7,10 @@ import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../state/providers.dart';
+import '../../state/tour_store.dart';
 import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
+import '../../widgets/map_coachmarks.dart';
 import '../../widgets/territory_map.dart';
 import '../../widgets/timeline_bar.dart';
 import 'territory_atlas_data.dart';
@@ -42,10 +44,48 @@ class _TerritoryMapDemoScreenState
   late int _index;
   Timer? _eraChangeDebounce;
 
+  /// The first-visit tour: shown once, stored as seen when ended.
+  bool _tour = false;
+  final GlobalKey _mapKey = GlobalKey();
+  final GlobalKey _barKey = GlobalKey();
+
   @override
   void initState() {
     super.initState();
     _index = TerritoryMapDemoScreen.snapshotIndexForEra(widget.initialEra);
+    _maybeStartTour();
+  }
+
+  Future<void> _maybeStartTour() async {
+    if (await ref.read(atlasTourStoreProvider).seen() || !mounted) return;
+    // Let the map paint first; the tour is a hint, not a gate.
+    await Future<void>.delayed(const Duration(milliseconds: 700));
+    if (mounted) setState(() => _tour = true);
+  }
+
+  void _endTour(String result, int step) {
+    ref.read(atlasTourStoreProvider).markSeen();
+    ref.read(telemetryProvider).event('atlas_tour_end', <String, Object>{
+      'result': result,
+      'step': step,
+    });
+    setState(() => _tour = false);
+  }
+
+  /// Where each tour step points, in global coordinates: the middle of the map
+  /// (a spotlight over the whole map would leave no room for the tour card),
+  /// then the timeline scrubber under it.
+  Rect? _tourTarget(String id) {
+    final box = (id == 'timeline' ? _barKey : _mapKey).currentContext
+        ?.findRenderObject();
+    if (box is! RenderBox || !box.hasSize) return null;
+    final rect = box.localToGlobal(Offset.zero) & box.size;
+    if (id == 'timeline') return rect;
+    return Rect.fromCenter(
+      center: rect.center,
+      width: rect.width * 0.78,
+      height: rect.height * 0.34,
+    );
   }
 
   @override
@@ -79,13 +119,13 @@ class _TerritoryMapDemoScreenState
   }
 
   TerritoryRegion _toRegion(AtlasRegion r, Lang lang) => TerritoryRegion(
-        id: r.id,
-        name: r.name.resolve(lang),
-        subtitle: r.subtitle?.resolve(lang),
-        color: Color(r.color),
-        rings: r.rings,
-        labelAt: r.labelAt,
-      );
+    id: r.id,
+    name: r.name.resolve(lang),
+    subtitle: r.subtitle?.resolve(lang),
+    color: Color(r.color),
+    rings: r.rings,
+    labelAt: r.labelAt,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -128,110 +168,159 @@ class _TerritoryMapDemoScreenState
 
     return Scaffold(
       backgroundColor: VSColors.lacquer,
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                  VSSpacing.xl, VSSpacing.sm, VSSpacing.xl, 0),
-              child: Row(
-                children: <Widget>[
-                  Builder(
-                    builder: (context) => CircleIconButton(
-                      icon: Icons.arrow_back,
-                      onTap: () =>
-                          context.canPop() ? context.pop() : context.go('/'),
+      body: Stack(
+        children: <Widget>[
+          SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    VSSpacing.xl,
+                    VSSpacing.sm,
+                    VSSpacing.xl,
+                    0,
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Builder(
+                        builder: (context) => CircleIconButton(
+                          icon: Icons.arrow_back,
+                          onTap: () => context.canPop()
+                              ? context.pop()
+                              : context.go('/'),
+                        ),
+                      ),
+                      const SizedBox(width: VSSpacing.md),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              en ? 'TERRITORY ATLAS' : 'BẢN ĐỒ LÃNH THỔ',
+                              style: VSType.overline.copyWith(
+                                color: VSColors.goldBright,
+                                letterSpacing: VSType.track(0.3, 10),
+                                fontSize: 10,
+                              ),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              snap.title.resolve(lang),
+                              style: VSType.title.copyWith(fontSize: 18),
+                            ),
+                            if (snap.subtitle != null)
+                              Text(
+                                snap.subtitle!.resolve(lang),
+                                style: VSType.caption.copyWith(
+                                  color: VSColors.gold,
+                                  fontSize: 12,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    VSSpacing.xl,
+                    6,
+                    VSSpacing.xl,
+                    VSSpacing.sm,
+                  ),
+                  child: Text(
+                    en
+                        ? 'Drag the timeline to change period · tap a region to see who '
+                              'held it. The dashed outline is present-day Vietnam.'
+                        : 'Kéo thanh thời gian để đổi thời kỳ · chạm một vùng để xem thế lực. '
+                              'Nét đứt là ranh giới Việt Nam ngày nay.',
+                    style: const TextStyle(
+                      color: VSColors.inkMuted,
+                      fontSize: 12.5,
                     ),
                   ),
-                  const SizedBox(width: VSSpacing.md),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          en ? 'TERRITORY ATLAS' : 'BẢN ĐỒ LÃNH THỔ',
-                          style: VSType.overline.copyWith(
-                            color: VSColors.goldBright,
-                            letterSpacing: VSType.track(0.3, 10),
-                            fontSize: 10,
-                          ),
+                ),
+                Expanded(
+                  child: KeyedSubtree(
+                    key: _mapKey,
+                    child: TerritoryMap(
+                      key: ValueKey<int>(_index),
+                      forces: forces,
+                      neighbours: neighbours,
+                      claims: claims,
+                      islandLands: islandLands,
+                      mapAspect: snap.mapAspect,
+                      boundary: snap.boundary,
+                      boundaryLabel: snap.boundaryLabel?.resolve(lang),
+                      reference: kModernVietnam,
+                      referenceLabel: en
+                          ? 'Present-day border'
+                          : 'Ranh giới ngày nay',
+                      protectorateSuffix: en ? ' (protectorate)' : ' (bảo hộ)',
+                      islands: <TerritoryIslands>[
+                        TerritoryIslands(
+                          name: 'Hoàng Sa',
+                          subtitle: en
+                              ? 'Archipelago of Vietnam'
+                              : 'Quần đảo của Việt Nam',
+                          center: const Offset(0.722, 0.395),
                         ),
-                        const SizedBox(height: 2),
-                        Text(snap.title.resolve(lang),
-                            style: VSType.title.copyWith(fontSize: 18)),
-                        if (snap.subtitle != null)
-                          Text(snap.subtitle!.resolve(lang),
-                              style: VSType.caption.copyWith(
-                                  color: VSColors.gold, fontSize: 12)),
+                        TerritoryIslands(
+                          name: 'Trường Sa',
+                          subtitle: en
+                              ? 'Archipelago of Vietnam'
+                              : 'Quần đảo của Việt Nam',
+                          center: const Offset(0.833, 0.758),
+                        ),
                       ],
                     ),
                   ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                  VSSpacing.xl, 6, VSSpacing.xl, VSSpacing.sm),
-              child: Text(
-                en
-                    ? 'Drag the timeline to change period · tap a region to see who '
-                        'held it. The dashed outline is present-day Vietnam.'
-                    : 'Kéo thanh thời gian để đổi thời kỳ · chạm một vùng để xem thế lực. '
-                        'Nét đứt là ranh giới Việt Nam ngày nay.',
-                style: const TextStyle(color: VSColors.inkMuted, fontSize: 12.5),
-              ),
-            ),
-            Expanded(
-              child: TerritoryMap(
-                key: ValueKey<int>(_index),
-                forces: forces,
-                neighbours: neighbours,
-                claims: claims,
-                islandLands: islandLands,
-                mapAspect: snap.mapAspect,
-                boundary: snap.boundary,
-                boundaryLabel: snap.boundaryLabel?.resolve(lang),
-                reference: kModernVietnam,
-                referenceLabel: en ? 'Present-day border' : 'Ranh giới ngày nay',
-                protectorateSuffix: en ? ' (protectorate)' : ' (bảo hộ)',
-                islands: <TerritoryIslands>[
-                  TerritoryIslands(
-                    name: 'Hoàng Sa',
-                    subtitle:
-                        en ? 'Archipelago of Vietnam' : 'Quần đảo của Việt Nam',
-                    center: const Offset(0.722, 0.395),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    VSSpacing.md,
+                    0,
+                    VSSpacing.md,
+                    VSSpacing.sm,
                   ),
-                  TerritoryIslands(
-                    name: 'Trường Sa',
-                    subtitle:
-                        en ? 'Archipelago of Vietnam' : 'Quần đảo của Việt Nam',
-                    center: const Offset(0.833, 0.758),
+                  child: KeyedSubtree(
+                    key: _barKey,
+                    child: TimelineBar(
+                      years: <int>[for (final s in kAtlas) s.anchorYear],
+                      selected: snap.anchorYear,
+                      lang: lang,
+                      // The last snapshot ("thong-nhat", 1977) is the territory as
+                      // it stands through the current chronicle, not a fixed year.
+                      openEnded: true,
+                      onChanged: (y) {
+                        final i = kAtlas.indexWhere((s) => s.anchorYear == y);
+                        if (i >= 0) {
+                          setState(() => _index = i);
+                          _onSnapshotSettled(kAtlas[i]);
+                        }
+                      },
+                    ),
                   ),
-                ],
+                ),
+              ],
+            ),
+          ),
+          if (_tour)
+            Positioned.fill(
+              key: const ValueKey<String>('atlas-tour'),
+              child: MapCoachmarks(
+                steps: kAtlasTourSteps,
+                keyPrefix: 'atlas',
+                nameVi: 'bản đồ lãnh thổ',
+                nameEn: 'Territory atlas',
+                targetFor: _tourTarget,
+                onStep: (_) {},
+                onEnd: _endTour,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                  VSSpacing.md, 0, VSSpacing.md, VSSpacing.sm),
-              child: TimelineBar(
-                years: <int>[for (final s in kAtlas) s.anchorYear],
-                selected: snap.anchorYear,
-                lang: lang,
-                // The last snapshot ("thong-nhat", 1977) is the territory as
-                // it stands through the current chronicle, not a fixed year.
-                openEnded: true,
-                onChanged: (y) {
-                  final i = kAtlas.indexWhere((s) => s.anchorYear == y);
-                  if (i >= 0) {
-                    setState(() => _index = i);
-                    _onSnapshotSettled(kAtlas[i]);
-                  }
-                },
-              ),
-            ),
-          ],
-        ),
+        ],
       ),
     );
   }

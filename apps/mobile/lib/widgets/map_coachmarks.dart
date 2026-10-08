@@ -3,18 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-import '../../state/providers.dart';
+import '../state/providers.dart';
 
-/// One step of the street map's tour.
-class StreetTourStep {
-  const StreetTourStep({
+/// One step of a map screen's tour.
+class MapTourStep {
+  const MapTourStep({
     required this.id,
     required this.icon,
     required this.vi,
     required this.en,
   });
 
-  /// `map` lights up the middle of the map; `card` lights up the street card.
+  /// Names what the screen should light up; the screen's `targetFor` maps it
+  /// to a rect (street map: `map`, `card`; atlas: `map`, `timeline`).
   final String id;
   final IconData icon;
 
@@ -23,14 +24,14 @@ class StreetTourStep {
   final String en;
 }
 
-const List<StreetTourStep> kStreetTourSteps = <StreetTourStep>[
-  StreetTourStep(
+const List<MapTourStep> kStreetTourSteps = <MapTourStep>[
+  MapTourStep(
     id: 'map',
     icon: Icons.touch_app_outlined,
     vi: 'Chạm vào một **con đường vàng** để biết nó mang tên nhân vật hay sự kiện nào.',
     en: 'Tap a **gold street** to see which figure or event it is named for.',
   ),
-  StreetTourStep(
+  MapTourStep(
     id: 'card',
     icon: Icons.person_search_outlined,
     vi: 'Bấm **Xem nhân vật** (hoặc Xem sự kiện) để mở trang chi tiết.',
@@ -38,30 +39,58 @@ const List<StreetTourStep> kStreetTourSteps = <StreetTourStep>[
   ),
 ];
 
-/// The street map's first-visit tour: a dim scrim with a spotlight, and a small
+const List<MapTourStep> kAtlasTourSteps = <MapTourStep>[
+  MapTourStep(
+    id: 'map',
+    icon: Icons.touch_app_outlined,
+    vi: 'Chạm vào một **vùng** trên bản đồ để biết thế lực nào từng cai quản nơi ấy.',
+    en: 'Tap a **region** to see which power held it.',
+  ),
+  MapTourStep(
+    id: 'timeline',
+    icon: Icons.swipe_outlined,
+    vi: 'Kéo **thanh thời gian** để sang thời kỳ khác — bản đồ sẽ vẽ lại theo từng triều đại.',
+    en: 'Drag the **timeline** to change period; the map redraws for each dynasty.',
+  ),
+];
+
+/// A map screen's first-visit tour: a dim scrim with a spotlight, and a small
 /// card with the text and Skip / Back / Next. Static, like the Home tour.
 ///
 /// [targetFor] gives the *global* rect to light up for a step id (null = none,
 /// a centred card). [onStep] fires when a step is shown (the screen uses it to
 /// open a sample street for the second step); [onEnd] once, with `done` or
 /// `skip` and the step reached.
-class StreetCoachmarks extends ConsumerStatefulWidget {
-  const StreetCoachmarks({
+class MapCoachmarks extends ConsumerStatefulWidget {
+  const MapCoachmarks({
+    required this.steps,
     required this.targetFor,
     required this.onStep,
     required this.onEnd,
+    this.keyPrefix = 'street',
+    this.nameVi = 'bản đồ đường phố',
+    this.nameEn = 'Street map',
     super.key,
   });
+
+  final List<MapTourStep> steps;
+
+  /// Prefix of the widget keys (`<prefix>-coach-text|next|back|skip`).
+  final String keyPrefix;
+
+  /// Screen name for the screen-reader label, in each language.
+  final String nameVi;
+  final String nameEn;
 
   final Rect? Function(String stepId) targetFor;
   final void Function(int step) onStep;
   final void Function(String result, int step) onEnd;
 
   @override
-  ConsumerState<StreetCoachmarks> createState() => _StreetCoachmarksState();
+  ConsumerState<MapCoachmarks> createState() => _MapCoachmarksState();
 }
 
-class _StreetCoachmarksState extends ConsumerState<StreetCoachmarks> {
+class _MapCoachmarksState extends ConsumerState<MapCoachmarks> {
   int _step = 0;
   Rect? _target;
   bool _ended = false;
@@ -90,11 +119,13 @@ class _StreetCoachmarksState extends ConsumerState<StreetCoachmarks> {
   /// it is measured after every layout until it appears.
   void _measure() {
     final box = context.findRenderObject();
-    final global = widget.targetFor(kStreetTourSteps[_step].id);
+    final global = widget.targetFor(widget.steps[_step].id);
     Rect? local;
     if (global != null && box is RenderBox && box.hasSize) {
       local = Rect.fromPoints(
-          box.globalToLocal(global.topLeft), box.globalToLocal(global.bottomRight));
+        box.globalToLocal(global.topLeft),
+        box.globalToLocal(global.bottomRight),
+      );
     }
     if (local != _target && mounted) setState(() => _target = local);
   }
@@ -104,8 +135,8 @@ class _StreetCoachmarksState extends ConsumerState<StreetCoachmarks> {
     final en = ref.watch(langProvider) == Lang.en;
     final size = MediaQuery.sizeOf(context);
     final pad = MediaQuery.paddingOf(context);
-    final step = kStreetTourSteps[_step];
-    final last = _step == kStreetTourSteps.length - 1;
+    final step = widget.steps[_step];
+    final last = _step == widget.steps.length - 1;
     WidgetsBinding.instance.addPostFrameCallback((_) => _measure());
 
     final hole = _target?.inflate(8);
@@ -117,8 +148,10 @@ class _StreetCoachmarksState extends ConsumerState<StreetCoachmarks> {
     final card = _TourCard(
       key: ValueKey<int>(_step),
       step: step,
+      keyPrefix: widget.keyPrefix,
+      name: en ? widget.nameEn : widget.nameVi,
       index: _step,
-      total: kStreetTourSteps.length,
+      total: widget.steps.length,
       en: en,
       last: last,
       onNext: () => last ? _end('done') : _go(_step + 1),
@@ -157,7 +190,10 @@ class _StreetCoachmarksState extends ConsumerState<StreetCoachmarks> {
                 top: below ? hole.bottom + 16 : null,
                 bottom: below
                     ? null
-                    : (size.height - hole.top + 16).clamp(pad.bottom + 16, size.height),
+                    : (size.height - hole.top + 16).clamp(
+                        pad.bottom + 16,
+                        size.height,
+                      ),
                 child: AnimatedSwitcher(duration: fade, child: card),
               ),
           ],
@@ -181,7 +217,9 @@ class _SpotlightPainter extends CustomPainter {
     }
     final rr = RRect.fromRectAndRadius(hole!, const Radius.circular(14));
     canvas.drawPath(
-        Path.combine(PathOperation.difference, full, Path()..addRRect(rr)), scrim);
+      Path.combine(PathOperation.difference, full, Path()..addRRect(rr)),
+      scrim,
+    );
     canvas.drawRRect(
       rr,
       Paint()
@@ -198,6 +236,8 @@ class _SpotlightPainter extends CustomPainter {
 class _TourCard extends StatelessWidget {
   const _TourCard({
     required this.step,
+    required this.keyPrefix,
+    required this.name,
     required this.index,
     required this.total,
     required this.en,
@@ -208,7 +248,9 @@ class _TourCard extends StatelessWidget {
     super.key,
   });
 
-  final StreetTourStep step;
+  final MapTourStep step;
+  final String keyPrefix;
+  final String name;
   final int index;
   final int total;
   final bool en;
@@ -224,7 +266,10 @@ class _TourCard extends StatelessWidget {
         TextSpan(
           text: parts[i],
           style: i.isOdd
-              ? const TextStyle(color: VSColors.goldBright, fontWeight: FontWeight.w600)
+              ? const TextStyle(
+                  color: VSColors.goldBright,
+                  fontWeight: FontWeight.w600,
+                )
               : null,
         ),
     ];
@@ -235,15 +280,17 @@ class _TourCard extends StatelessWidget {
     return Semantics(
       container: true,
       label: en
-          ? 'Street map tour, step ${index + 1} of $total'
-          : 'Hướng dẫn bản đồ đường phố, bước ${index + 1}/$total',
+          ? '$name tour, step ${index + 1} of $total'
+          : 'Hướng dẫn $name, bước ${index + 1}/$total',
       child: Container(
         padding: const EdgeInsets.fromLTRB(18, 14, 18, 12),
         decoration: BoxDecoration(
           color: VSColors.lacquerRaised.withValues(alpha: 0.98),
           borderRadius: VSRadii.cardAll,
           border: Border.all(color: VSColors.goldBorder),
-          boxShadow: const <BoxShadow>[BoxShadow(color: Color(0x66000000), blurRadius: 20)],
+          boxShadow: const <BoxShadow>[
+            BoxShadow(color: Color(0x66000000), blurRadius: 20),
+          ],
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -256,8 +303,11 @@ class _TourCard extends StatelessWidget {
                 const SizedBox(width: VSSpacing.md),
                 Expanded(
                   child: Text.rich(
-                    TextSpan(style: VSType.body, children: _spans(en ? step.en : step.vi)),
-                    key: const ValueKey<String>('street-coach-text'),
+                    TextSpan(
+                      style: VSType.body,
+                      children: _spans(en ? step.en : step.vi),
+                    ),
+                    key: ValueKey<String>('$keyPrefix-coach-text'),
                   ),
                 ),
               ],
@@ -280,40 +330,61 @@ class _TourCard extends StatelessWidget {
                 const Spacer(),
                 if (!last)
                   GestureDetector(
-                    key: const ValueKey<String>('street-coach-skip'),
+                    key: ValueKey<String>('$keyPrefix-coach-skip'),
                     behavior: HitTestBehavior.opaque,
                     onTap: onSkip,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                      child: Text(en ? 'Skip' : 'Bỏ qua',
-                          style: VSType.caption.copyWith(color: VSColors.inkMuted)),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 8,
+                      ),
+                      child: Text(
+                        en ? 'Skip' : 'Bỏ qua',
+                        style: VSType.caption.copyWith(
+                          color: VSColors.inkMuted,
+                        ),
+                      ),
                     ),
                   ),
                 if (onBack != null)
                   GestureDetector(
-                    key: const ValueKey<String>('street-coach-back'),
+                    key: ValueKey<String>('$keyPrefix-coach-back'),
                     behavior: HitTestBehavior.opaque,
                     onTap: onBack,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                      child: Text(en ? 'Back' : 'Trước',
-                          style: VSType.caption.copyWith(color: VSColors.inkMuted)),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 8,
+                      ),
+                      child: Text(
+                        en ? 'Back' : 'Trước',
+                        style: VSType.caption.copyWith(
+                          color: VSColors.inkMuted,
+                        ),
+                      ),
                     ),
                   ),
                 GestureDetector(
-                  key: const ValueKey<String>('street-coach-next'),
+                  key: ValueKey<String>('$keyPrefix-coach-next'),
                   behavior: HitTestBehavior.opaque,
                   onTap: onNext,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 18,
+                      vertical: 8,
+                    ),
                     decoration: const BoxDecoration(
                       gradient: VSColors.goldSheen,
                       borderRadius: BorderRadius.all(Radius.circular(18)),
                     ),
                     child: Text(
-                      last ? (en ? 'Got it' : 'Hiểu rồi') : (en ? 'Next' : 'Tiếp'),
+                      last
+                          ? (en ? 'Got it' : 'Hiểu rồi')
+                          : (en ? 'Next' : 'Tiếp'),
                       style: VSType.caption.copyWith(
-                          fontWeight: FontWeight.w600, color: VSColors.lacquerRaised),
+                        fontWeight: FontWeight.w600,
+                        color: VSColors.lacquerRaised,
+                      ),
                     ),
                   ),
                 ),

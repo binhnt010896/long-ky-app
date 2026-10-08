@@ -28,7 +28,7 @@ import 'package:viet_su/screens/streets/street_map_screen.dart';
 import 'package:viet_su/screens/streets/street_map_warmer.dart';
 import 'package:viet_su/screens/streets/street_reverse_chip.dart';
 import 'package:viet_su/state/providers.dart';
-import 'package:viet_su/state/street_tour_store.dart';
+import 'package:viet_su/state/tour_store.dart';
 import 'package:viet_su/telemetry/route_telemetry.dart';
 import 'package:viet_su/telemetry/telemetry.dart';
 
