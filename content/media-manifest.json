@@ -11,15 +11,15 @@
     },
     "eras/au-lac/characters/my-chau-avatar.png": {
       "key": "eras/au-lac/characters/my-chau-avatar.webp",
-      "v": "0cd99d7d16"
+      "v": "eb7ce37dcc"
     },
     "eras/au-lac/characters/my-chau-full.png": {
       "key": "eras/au-lac/characters/my-chau-full.webp",
-      "v": "91244aed56"
+      "v": "134de5fda1"
     },
     "eras/au-lac/characters/than-kim-quy-avatar.png": {
       "key": "eras/au-lac/characters/than-kim-quy-avatar.webp",
-      "v": "eb7ce37dcc"
+      "v": "0cd99d7d16"
     },
     "eras/au-lac/characters/than-kim-quy-full.png": {
       "key": "eras/au-lac/characters/than-kim-quy-full.webp",
@@ -31,7 +31,7 @@
     },
     "eras/au-lac/characters/trieu-da-full.png": {
       "key": "eras/au-lac/characters/trieu-da-full.webp",
-      "v": "35a5207e34"
+      "v": "4de2d5021f"
     },
     "eras/au-lac/characters/trong-thuy-avatar.png": {
       "key": "eras/au-lac/characters/trong-thuy-avatar.webp",
@@ -39,7 +39,7 @@
     },
     "eras/au-lac/characters/trong-thuy-full.png": {
       "key": "eras/au-lac/characters/trong-thuy-full.webp",
-      "v": "5e5ec717e1"
+      "v": "f852e8c6be"
     },
     "eras/au-lac/cover.png": {
       "key": "eras/au-lac/cover.webp",
@@ -627,7 +627,7 @@
     },
     "eras/dinh-tien-hoang/characters/do-thich-full.png": {
       "key": "eras/dinh-tien-hoang/characters/do-thich-full.webp",
-      "v": "0e08aa78a9"
+      "v": "32ecbe7620"
     },
     "eras/dinh-tien-hoang/characters/le-hoan-avatar.png": {
       "key": "eras/dinh-tien-hoang/characters/le-hoan-avatar.webp",
@@ -643,7 +643,7 @@
     },
     "eras/dinh-tien-hoang/characters/nguyen-bac-full.png": {
       "key": "eras/dinh-tien-hoang/characters/nguyen-bac-full.webp",
-      "v": "48f28d368f"
+      "v": "18c4632b45"
     },
     "eras/dinh-tien-hoang/cover.png": {
       "key": "eras/dinh-tien-hoang/cover.webp",
@@ -751,7 +751,7 @@
     },
     "eras/hai-ba-trung/characters/thi-sach-full.png": {
       "key": "eras/hai-ba-trung/characters/thi-sach-full.webp",
-      "v": "69e0bf2251"
+      "v": "9ad8c54d8a"
     },
     "eras/hai-ba-trung/characters/to-dinh-avatar.png": {
       "key": "eras/hai-ba-trung/characters/to-dinh-avatar.webp",
@@ -759,7 +759,7 @@
     },
     "eras/hai-ba-trung/characters/to-dinh-full.png": {
       "key": "eras/hai-ba-trung/characters/to-dinh-full.webp",
-      "v": "1f2e633cda"
+      "v": "24b03270d5"
     },
     "eras/hai-ba-trung/characters/trung-nhi-avatar.png": {
       "key": "eras/hai-ba-trung/characters/trung-nhi-avatar.webp",
@@ -895,7 +895,7 @@
     },
     "eras/hong-bang/characters/an-duong-vuong-full.png": {
       "key": "eras/hong-bang/characters/an-duong-vuong-full.webp",
-      "v": "20321e7067"
+      "v": "d257cead69"
     },
     "eras/hong-bang/characters/au-co-avatar.png": {
       "key": "eras/hong-bang/characters/au-co-avatar.webp",
@@ -911,7 +911,7 @@
     },
     "eras/hong-bang/characters/kinh-duong-vuong-full.png": {
       "key": "eras/hong-bang/characters/kinh-duong-vuong-full.webp",
-      "v": "41384c4335"
+      "v": "8cc4b9a57e"
     },
     "eras/hong-bang/characters/lac-long-quan-avatar.png": {
       "key": "eras/hong-bang/characters/lac-long-quan-avatar.webp",
@@ -919,7 +919,7 @@
     },
     "eras/hong-bang/characters/lac-long-quan-full.png": {
       "key": "eras/hong-bang/characters/lac-long-quan-full.webp",
-      "v": "a9571708b7"
+      "v": "9fecf3c5ca"
     },
     "eras/hong-bang/characters/lang-lieu-avatar.png": {
       "key": "eras/hong-bang/characters/lang-lieu-avatar.webp",
@@ -927,7 +927,7 @@
     },
     "eras/hong-bang/characters/lang-lieu-full.png": {
       "key": "eras/hong-bang/characters/lang-lieu-full.webp",
-      "v": "b11b4f1c8a"
+      "v": "6a8b76c5de"
     },
     "eras/hong-bang/characters/son-tinh-avatar.png": {
       "key": "eras/hong-bang/characters/son-tinh-avatar.webp",
@@ -935,7 +935,7 @@
     },
     "eras/hong-bang/characters/son-tinh-full.png": {
       "key": "eras/hong-bang/characters/son-tinh-full.webp",
-      "v": "f745bc1388"
+      "v": "43a71eacb4"
     },
     "eras/hong-bang/characters/thanh-giong-avatar.png": {
       "key": "eras/hong-bang/characters/thanh-giong-avatar.webp",
@@ -943,7 +943,7 @@
     },
     "eras/hong-bang/characters/thanh-giong-full.png": {
       "key": "eras/hong-bang/characters/thanh-giong-full.webp",
-      "v": "cf8ee60d18"
+      "v": "5bf9c42013"
     },
     "eras/hong-bang/characters/thuy-tinh-avatar.png": {
       "key": "eras/hong-bang/characters/thuy-tinh-avatar.webp",
@@ -959,7 +959,7 @@
     },
     "eras/hong-bang/characters/vua-hung-full.png": {
       "key": "eras/hong-bang/characters/vua-hung-full.webp",
-      "v": "a3f5978088"
+      "v": "e8cdc095ef"
     },
     "eras/hong-bang/cover.png": {
       "key": "eras/hong-bang/cover.webp",
@@ -1435,7 +1435,7 @@
     },
     "eras/mai-hac-de/characters/mai-hac-de-full.png": {
       "key": "eras/mai-hac-de/characters/mai-hac-de-full.webp",
-      "v": "0cb9b23649"
+      "v": "446cc4855e"
     },
     "eras/mai-hac-de/characters/quang-so-khach-avatar.png": {
       "key": "eras/mai-hac-de/characters/quang-so-khach-avatar.webp",
@@ -1631,7 +1631,7 @@
     },
     "eras/ngo-quyen/characters/luu-hoang-thao-full.png": {
       "key": "eras/ngo-quyen/characters/luu-hoang-thao-full.webp",
-      "v": "f1b9e3e715"
+      "v": "e41658133a"
     },
     "eras/ngo-quyen/characters/ngo-quyen-avatar.png": {
       "key": "eras/ngo-quyen/characters/ngo-quyen-avatar.webp",
@@ -1835,7 +1835,7 @@
     },
     "eras/phung-hung/characters/cao-chinh-binh-full.png": {
       "key": "eras/phung-hung/characters/cao-chinh-binh-full.webp",
-      "v": "6c496f3f06"
+      "v": "420016dfce"
     },
     "eras/phung-hung/characters/phung-an-avatar.png": {
       "key": "eras/phung-hung/characters/phung-an-avatar.webp",
@@ -1843,7 +1843,7 @@
     },
     "eras/phung-hung/characters/phung-an-full.png": {
       "key": "eras/phung-hung/characters/phung-an-full.webp",
-      "v": "c1868741c9"
+      "v": "3adba200c4"
     },
     "eras/phung-hung/characters/phung-hai-avatar.png": {
       "key": "eras/phung-hung/characters/phung-hai-avatar.webp",
@@ -1851,7 +1851,7 @@
     },
     "eras/phung-hung/characters/phung-hai-full.png": {
       "key": "eras/phung-hung/characters/phung-hai-full.webp",
-      "v": "d24807ee42"
+      "v": "eb3bf79837"
     },
     "eras/phung-hung/characters/phung-hung-avatar.png": {
       "key": "eras/phung-hung/characters/phung-hung-avatar.webp",
