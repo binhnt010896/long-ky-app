@@ -238,9 +238,9 @@ class _SplashGateState extends ConsumerState<SplashGate>
     return Stack(
       children: <Widget>[
         widget.child,
+        const StreetMapWarmer(),
         if (_present)
           Positioned.fill(
-        const StreetMapWarmer(),
             child: IgnorePointer(
               ignoring: _fadingOut,
               child: AnimatedOpacity(
