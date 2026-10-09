@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "viet_su_web",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd apps/mobile && flutter run -d web-server --web-port 3010"
+      ],
+      "port": 3010
+    },
+    {
+      "name": "admin_web",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd apps/admin && flutter run -d web-server --web-port 3020"
+      ],
+      "port": 3020
+    }
+  ]
+}
