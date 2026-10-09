@@ -11,6 +11,7 @@ import 'firebase_options.dart';
 import 'state/bundled_content.dart';
 import 'state/content_sync.dart';
 import 'state/lang_store.dart';
+import 'state/onboarding_store.dart';
 import 'state/providers.dart';
 import 'telemetry/firebase_telemetry.dart';
 import 'telemetry/telemetry.dart';
@@ -61,6 +62,8 @@ Future<void> main() async {
   // never flashes Vietnamese before switching to a saved English choice.
   final savedLang = await FileLangStore().load();
 
+  final tourSeen = await FileOnboardingStore().homeTourSeen();
+
   await ContentMedia.load();
 
   // Resume any previously-downloaded content pack (validated fresh — see
@@ -81,6 +84,7 @@ Future<void> main() async {
       contentRepositoryProvider.overrideWithValue(ContentRepository(ota)),
       activeContentVersionProvider.overrideWith((ref) => activeVersion),
       langProvider.overrideWith((ref) => savedLang),
+      homeTourSeenProvider.overrideWith((ref) => tourSeen),
       // The exact instance whose error handlers are already wired above, and
       // whose enabled-state main.dart just applied — telemetryEnabledProvider
       // independently reloads the same on-disk setting for its own state.

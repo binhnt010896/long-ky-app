@@ -257,6 +257,27 @@ class AboutScreen extends ConsumerWidget {
                 ),
               ),
             ),
+            InkWell(
+              key: const Key('replay-tour-link'),
+              onTap: () async {
+                await ref.read(onboardingStoreProvider).resetHomeTour();
+                ref.read(homeTourSeenProvider.notifier).state = false;
+                if (context.mounted) context.go('/');
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: VSSpacing.sm),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(
+                          en ? 'Replay the tour' : 'Xem lại hướng dẫn',
+                          style: VSType.body.copyWith(color: VSColors.goldBright)),
+                    ),
+                    const Icon(Icons.chevron_right, size: 18, color: VSColors.gold),
+                  ],
+                ),
+              ),
+            ),
             const SizedBox(height: VSSpacing.xl),
             Text(en ? 'VERSION' : 'PHIÊN BẢN', style: VSType.overline),
             const SizedBox(height: VSSpacing.sm),

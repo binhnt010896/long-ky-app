@@ -220,7 +220,9 @@ class _SplashGateState extends ConsumerState<SplashGate>
     if (_fadingOut || !_minElapsed || !(_warmDone || _hardCapped)) return;
     setState(() => _fadingOut = true);
     _timers.add(Timer(_fadeOut, () {
-      if (mounted) setState(() => _present = false);
+      if (!mounted) return;
+      setState(() => _present = false);
+      ref.read(splashDoneProvider.notifier).state = true;
     }));
   }
 

@@ -8,6 +8,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:viet_su/screens/home/home_screen.dart';
 import 'package:viet_su/screens/home/widgets/particle_field.dart';
+import 'package:viet_su/state/lang_store.dart';
+import 'package:viet_su/state/onboarding_store.dart';
 import 'package:viet_su/state/providers.dart';
 
 PeopleRegistry _people() => PeopleRegistry.fromJson(
@@ -104,6 +106,56 @@ Future<void> _pumpHome(
   // Resolve the FutureProvider, then let one frame of particles tick.
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 16));
+}
+
+class _FakeOnboardingStore implements OnboardingStore {
+  bool seen = false;
+  @override
+  Future<bool> homeTourSeen() async => seen;
+  @override
+  Future<void> markHomeTourSeen() async => seen = true;
+  @override
+  Future<void> resetHomeTour() async => seen = false;
+}
+
+class _FakeLangStore implements LangStore {
+  @override
+  Future<Lang> load() async => Lang.vi;
+  @override
+  Future<void> save(Lang lang) async {}
+}
+
+Future<(ProviderContainer, _FakeOnboardingStore)> _pumpTour(
+  WidgetTester tester, {
+  bool splashDone = true,
+  bool seen = false,
+}) async {
+  final store = _FakeOnboardingStore();
+  final container = ProviderContainer(
+    overrides: <Override>[
+      tierProvider.overrideWithValue(ExperienceTier.reduced),
+      dynastiesProvider.overrideWith((ref) async => _twoDynasties()),
+      onboardingStoreProvider.overrideWithValue(store),
+      langStoreProvider.overrideWithValue(_FakeLangStore()),
+      splashDoneProvider.overrideWith((ref) => splashDone),
+      homeTourSeenProvider.overrideWith((ref) => seen),
+    ],
+  );
+  addTearDown(container.dispose);
+  await tester.pumpWidget(
+    UncontrolledProviderScope(
+      container: container,
+      child: const MaterialApp(
+        home: ExperienceScope(
+          tier: ExperienceTier.reduced,
+          child: HomeScreen(),
+        ),
+      ),
+    ),
+  );
+  await tester.pump();
+  await tester.pumpAndSettle();
+  return (container, store);
 }
 
 void main() {
@@ -266,6 +318,68 @@ void main() {
       expect(container.read(hubDynastyIndexProvider), 1);
       expect(find.text('Nhà Triệu'), findsWidgets);
       expect(tester.takeException(), isNull);
+    });
+  });
+
+  group('first-run tour', () {
+    testWidgets('shows on first run once the splash is done', (tester) async {
+      await _pumpTour(tester);
+      expect(find.byKey(const ValueKey<String>('coach-text')), findsOneWidget);
+      expect(find.textContaining('Chào mừng đến Long Ký'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('waits for the splash and stays away once seen', (
+      tester,
+    ) async {
+      await _pumpTour(tester, splashDone: false);
+      expect(find.byKey(const ValueKey<String>('coach-text')), findsNothing);
+      await _pumpTour(tester, seen: true);
+      expect(find.byKey(const ValueKey<String>('coach-text')), findsNothing);
+    });
+
+    testWidgets('the VI/EN toggle switches the language and the card text', (
+      tester,
+    ) async {
+      final (container, _) = await _pumpTour(tester);
+      await tester.tap(find.text('EN'));
+      await tester.pumpAndSettle();
+      expect(container.read(langProvider), Lang.en);
+      expect(find.textContaining('Welcome to Long Ký'), findsOneWidget);
+    });
+
+    testWidgets('Next / Back walk the steps; Start finishes and saves', (
+      tester,
+    ) async {
+      final (container, store) = await _pumpTour(tester);
+      await tester.tap(find.byKey(const ValueKey<String>('coach-next')));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('trái/phải'), findsOneWidget);
+
+      await tester.tap(find.byKey(const ValueKey<String>('coach-back')));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('Chào mừng'), findsOneWidget);
+
+      for (var i = 0; i < 4; i++) {
+        await tester.tap(find.byKey(const ValueKey<String>('coach-next')));
+        await tester.pumpAndSettle();
+      }
+      expect(find.text('Bắt đầu'), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey<String>('coach-next')));
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const ValueKey<String>('coach-text')), findsNothing);
+      expect(container.read(homeTourSeenProvider), isTrue);
+      expect(store.seen, isTrue);
+    });
+
+    testWidgets('Skip ends the tour and remembers it', (tester) async {
+      final (container, store) = await _pumpTour(tester);
+      await tester.tap(find.byKey(const ValueKey<String>('coach-skip')));
+      await tester.pumpAndSettle();
+      expect(find.byKey(const ValueKey<String>('coach-text')), findsNothing);
+      expect(container.read(homeTourSeenProvider), isTrue);
+      expect(store.seen, isTrue);
     });
   });
 }

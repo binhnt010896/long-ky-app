@@ -8,6 +8,7 @@ import '../telemetry/telemetry.dart';
 import '../telemetry/telemetry_settings.dart';
 import 'bundled_content.dart';
 import 'lang_store.dart';
+import 'onboarding_store.dart';
 
 /// The active experience tier.
 ///
@@ -89,6 +90,19 @@ final langProvider = StateProvider<Lang>((ref) => Lang.vi);
 
 /// Persists the VI/EN choice — see `state/lang_store.dart`.
 final langStoreProvider = Provider<LangStore>((ref) => FileLangStore());
+
+/// Persists whether the first-run Home tour was seen — `state/onboarding_store.dart`.
+final onboardingStoreProvider = Provider<OnboardingStore>(
+  (ref) => FileOnboardingStore(),
+);
+
+/// True once the reader finished or skipped the Home coachmark tour.
+/// main.dart overrides the initial value with the persisted one.
+final homeTourSeenProvider = StateProvider<bool>((ref) => false);
+
+/// True once the brand splash has fully faded — the Home tour waits for it so
+/// it never plays underneath the splash.
+final splashDoneProvider = StateProvider<bool>((ref) => false);
 
 /// Remembered scroll position of the Home dynasty hub, so returning to Home
 /// restores where the user left off. Needed because the hub's page views hold

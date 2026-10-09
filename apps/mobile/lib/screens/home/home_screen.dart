@@ -15,6 +15,7 @@ import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/seal_button.dart';
 import 'widgets/era_scene_view.dart';
+import 'widgets/home_coachmarks.dart';
 
 /// Home — the dynasty hub. Two axes: swipe **vertically** to move between
 /// dynasties (periods), and **horizontally** to move between the eras within the
@@ -33,6 +34,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   late int _dynastyIndex;
   bool _queuedInitialPrefetch = false;
   Timer? _eraViewDebounce;
+
+  // Anchors for the first-run tour's spotlight (see HomeCoachmarks).
+  final GlobalKey _tourOverlayKey = GlobalKey();
+  final GlobalKey _tourTimelineKey = GlobalKey();
+  final GlobalKey _tourSealKey = GlobalKey();
+  final GlobalKey _tourRailKey = GlobalKey();
 
   /// True while a finger is dragging the period rail — suppresses the
   /// per-page prefetch (each crossed period would otherwise queue its media)
@@ -73,6 +80,46 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     });
   }
 
+  /// The rect of [key]'s widget in the tour overlay's coordinate space.
+  Rect? _rectOf(GlobalKey key) {
+    final box = key.currentContext?.findRenderObject();
+    final overlay = _tourOverlayKey.currentContext?.findRenderObject();
+    if (box is! RenderBox || overlay is! RenderBox) return null;
+    if (!box.attached || !box.hasSize) return null;
+    return overlay.globalToLocal(box.localToGlobal(Offset.zero)) & box.size;
+  }
+
+  Rect? _tourTarget(String id, Size size) {
+    switch (id) {
+      case 'era':
+        // The era title block sits bottom-left (EraSceneView's _EraHero),
+        // above the position strip; its height varies, so a band will do.
+        return Rect.fromLTRB(
+          VSSpacing.xxl - 8,
+          size.height - 360,
+          size.width - 40,
+          size.height - 150,
+        );
+      case 'rail':
+        return _rectOf(_tourRailKey);
+      case 'timeline':
+        return _rectOf(_tourTimelineKey);
+      case 'sanh':
+        return _rectOf(_tourSealKey);
+    }
+    return null;
+  }
+
+  void _endTour(String result, int step) {
+    ref.read(homeTourSeenProvider.notifier).state = true;
+    ref.read(onboardingStoreProvider).markHomeTourSeen();
+    ref.read(telemetryProvider).event('home_tour_end', <String, Object>{
+      'result': result,
+      'step': step,
+      'lang': ref.read(langProvider).name,
+    });
+  }
+
   void _openEra(Era era) => context.push('/era/${era.slug}');
 
   void _openNextPeriod() {
@@ -87,6 +134,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   Widget build(BuildContext context) {
     final dynastiesAsync = ref.watch(dynastiesProvider);
     final lang = ref.watch(langProvider);
+    // First run only, and never under the brand splash.
+    final showTour =
+        ref.watch(splashDoneProvider) && !ref.watch(homeTourSeenProvider);
 
     return Scaffold(
       backgroundColor: VSColors.lacquer,
@@ -155,11 +205,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 },
               ),
               SafeArea(
-                child: _DynastyChrome(period: active, lang: lang),
+                child: _DynastyChrome(
+                  period: active,
+                  lang: lang,
+                  timelineKey: _tourTimelineKey,
+                  sealKey: _tourSealKey,
+                ),
               ),
               Align(
                 alignment: Alignment.centerRight,
                 child: _PeriodRail(
+                  key: _tourRailKey,
                   dynasties: dynasties,
                   activeIndex: _dynastyIndex,
                   lang: lang,
@@ -172,6 +228,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   },
                 ),
               ),
+              if (showTour)
+                HomeCoachmarks(
+                  key: _tourOverlayKey,
+                  targetFor: _tourTarget,
+                  onEnd: _endTour,
+                ),
             ],
           );
         },
@@ -321,10 +383,17 @@ class _ErrorView extends StatelessWidget {
 /// the left; the global-timeline entry and the Long Ký seal (the Sảnh) on the
 /// right.
 class _DynastyChrome extends StatelessWidget {
-  const _DynastyChrome({required this.period, required this.lang});
+  const _DynastyChrome({
+    required this.period,
+    required this.lang,
+    required this.timelineKey,
+    required this.sealKey,
+  });
 
   final Period period;
   final Lang lang;
+  final GlobalKey timelineKey;
+  final GlobalKey sealKey;
 
   @override
   Widget build(BuildContext context) {
@@ -363,16 +432,22 @@ class _DynastyChrome extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: VSSpacing.sm),
-              CircleIconButton(
-                icon: Icons.timeline_rounded,
-                size: 34,
-                onTap: () => context.push('/timeline'),
+              KeyedSubtree(
+                key: timelineKey,
+                child: CircleIconButton(
+                  icon: Icons.timeline_rounded,
+                  size: 34,
+                  onTap: () => context.push('/timeline'),
+                ),
               ),
               const SizedBox(width: VSSpacing.sm),
-              SealButton(
-                key: const ValueKey<String>('home-sanh-seal'),
-                lang: lang,
-                onTap: () => context.push('/sanh'),
+              KeyedSubtree(
+                key: sealKey,
+                child: SealButton(
+                  key: const ValueKey<String>('home-sanh-seal'),
+                  lang: lang,
+                  onTap: () => context.push('/sanh'),
+                ),
               ),
             ],
           ),
@@ -494,6 +569,7 @@ class _PeriodRail extends StatefulWidget {
     required this.onSelect,
     required this.onScrubStart,
     required this.onScrubEnd,
+    super.key,
   });
 
   final List<Dynasty> dynasties;
