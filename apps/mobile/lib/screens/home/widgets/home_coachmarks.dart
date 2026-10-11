@@ -200,10 +200,13 @@ class _SpotlightPainter extends CustomPainter {
       return;
     }
     final rr = RRect.fromRectAndRadius(hole!, const Radius.circular(14));
-    canvas.drawPath(
-      Path.combine(PathOperation.difference, full, Path()..addRRect(rr)),
-      scrim,
-    );
+    // Punch the hole out of a scrim layer (rather than Path.combine, which
+    // left the hole dimmed in the web build) so the spotlit content stays bright.
+    canvas
+      ..saveLayer(Offset.zero & size, Paint())
+      ..drawRect(Offset.zero & size, scrim)
+      ..drawRRect(rr, Paint()..blendMode = BlendMode.clear)
+      ..restore();
     canvas.drawRRect(
       rr,
       Paint()
