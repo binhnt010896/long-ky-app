@@ -5,9 +5,13 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 
-/// Bump to show the street map's coachmarks again after a redesign: a reader is
-/// "done" only if they finished or skipped *this* version.
-const int kStreetTourVersion = 1;
+/// Bump when the street map's tour gains a step: a reader is "done" only if
+/// they finished or skipped *this* version. Each step carries the version that
+/// introduced it (`MapTourStep.since`), so a returning reader is shown only
+/// the steps they have not seen.
+///
+/// 1 — tap a street, open its card. 2 — the filter.
+const int kStreetTourVersion = 2;
 
 /// Same, for the territory atlas's tour.
 const int kAtlasTourVersion = 1;
@@ -18,6 +22,10 @@ const int kAtlasTourVersion = 1;
 abstract class TourStore {
   Future<bool> seen();
   Future<void> markSeen();
+
+  /// The tour version the reader last finished or skipped; 0 = never. Stores
+  /// that only know "seen" report a seen tour as fully seen.
+  Future<int> seenVersion() async => await seen() ? 0x7fffffff : 0;
 }
 
 typedef StreetTourStore = TourStore;
@@ -29,7 +37,7 @@ class FileTourStore implements TourStore {
   /// e.g. `street_tour.json`, inside the app-support directory.
   final String fileName;
   final int version;
-  bool? _cached;
+  int? _cached;
 
   Future<File?> _file() async {
     if (kIsWeb) return null;
@@ -38,24 +46,27 @@ class FileTourStore implements TourStore {
   }
 
   @override
-  Future<bool> seen() async {
+  Future<bool> seen() async => await seenVersion() >= version;
+
+  @override
+  Future<int> seenVersion() async {
     final cached = _cached;
     if (cached != null) return cached;
     try {
       final file = await _file();
-      if (file == null || !file.existsSync()) return _cached = false;
+      if (file == null || !file.existsSync()) return _cached = 0;
       final raw = jsonDecode(await file.readAsString());
       final v = raw is Map<String, dynamic> ? raw['version'] : null;
-      return _cached = v is int && v >= version;
+      return _cached = v is int ? v : 0;
     } catch (_) {
       // Unreadable file: showing the tour once more beats failing.
-      return _cached = false;
+      return _cached = 0;
     }
   }
 
   @override
   Future<void> markSeen() async {
-    _cached = true;
+    _cached = version;
     try {
       final file = await _file();
       if (file != null) {

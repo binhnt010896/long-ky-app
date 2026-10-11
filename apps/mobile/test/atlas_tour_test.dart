@@ -26,6 +26,8 @@ class _TourStore implements TourStore {
   @override
   Future<bool> seen() async => alreadySeen;
   @override
+  Future<int> seenVersion() async => alreadySeen ? kAtlasTourVersion : 0;
+  @override
   Future<void> markSeen() async {
     alreadySeen = true;
     marked++;

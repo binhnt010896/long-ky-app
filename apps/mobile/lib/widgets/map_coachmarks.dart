@@ -12,10 +12,15 @@ class MapTourStep {
     required this.icon,
     required this.vi,
     required this.en,
+    this.since = 1,
   });
 
+  /// The tour version that introduced this step; a returning reader is shown
+  /// only the steps newer than the version they last saw.
+  final int since;
+
   /// Names what the screen should light up; the screen's `targetFor` maps it
-  /// to a rect (street map: `map`, `card`; atlas: `map`, `timeline`).
+  /// to a rect (street map: `map`, `card`, `filter`; atlas: `map`, `timeline`).
   final String id;
   final IconData icon;
 
@@ -36,6 +41,13 @@ const List<MapTourStep> kStreetTourSteps = <MapTourStep>[
     icon: Icons.person_search_outlined,
     vi: 'Bấm **Xem nhân vật** (hoặc Xem sự kiện) để mở trang chi tiết.',
     en: 'Tap **View figure** (or View event) to open the detail page.',
+  ),
+  MapTourStep(
+    id: 'filter',
+    icon: Icons.tune,
+    vi: 'Bấm **Bộ lọc** để chỉ xem đường theo **triều đại** hoặc **thời kỳ**. Mặc định hiển thị tất cả.',
+    en: 'Tap **Filter** to show streets by **dynasty** or **era**. All are shown by default.',
+    since: 2,
   ),
 ];
 
@@ -216,10 +228,13 @@ class _SpotlightPainter extends CustomPainter {
       return;
     }
     final rr = RRect.fromRectAndRadius(hole!, const Radius.circular(14));
-    canvas.drawPath(
-      Path.combine(PathOperation.difference, full, Path()..addRRect(rr)),
-      scrim,
-    );
+    // Punch the hole out of a scrim layer (rather than Path.combine, which
+    // left the hole dimmed in the web build) so the spotlit content stays bright.
+    canvas
+      ..saveLayer(Offset.zero & size, Paint())
+      ..drawRect(Offset.zero & size, scrim)
+      ..drawRRect(rr, Paint()..blendMode = BlendMode.clear)
+      ..restore();
     canvas.drawRRect(
       rr,
       Paint()
@@ -328,63 +343,78 @@ class _TourCard extends StatelessWidget {
                     ),
                   ),
                 const Spacer(),
-                if (!last)
-                  GestureDetector(
-                    key: ValueKey<String>('$keyPrefix-coach-skip'),
-                    behavior: HitTestBehavior.opaque,
-                    onTap: onSkip,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 8,
-                      ),
-                      child: Text(
-                        en ? 'Skip' : 'Bỏ qua',
-                        style: VSType.caption.copyWith(
-                          color: VSColors.inkMuted,
+                // Scales down rather than overflowing on a narrow phone or a
+                // large text size, now that the tour can have three steps.
+                Flexible(
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    alignment: Alignment.centerRight,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        if (!last)
+                          GestureDetector(
+                            key: ValueKey<String>('$keyPrefix-coach-skip'),
+                            behavior: HitTestBehavior.opaque,
+                            onTap: onSkip,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 8,
+                              ),
+                              child: Text(
+                                en ? 'Skip' : 'Bỏ qua',
+                                style: VSType.caption.copyWith(
+                                  color: VSColors.inkMuted,
+                                ),
+                              ),
+                            ),
+                          ),
+                        if (onBack != null)
+                          GestureDetector(
+                            key: ValueKey<String>('$keyPrefix-coach-back'),
+                            behavior: HitTestBehavior.opaque,
+                            onTap: onBack,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 8,
+                              ),
+                              child: Text(
+                                en ? 'Back' : 'Trước',
+                                style: VSType.caption.copyWith(
+                                  color: VSColors.inkMuted,
+                                ),
+                              ),
+                            ),
+                          ),
+                        GestureDetector(
+                          key: ValueKey<String>('$keyPrefix-coach-next'),
+                          behavior: HitTestBehavior.opaque,
+                          onTap: onNext,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 18,
+                              vertical: 8,
+                            ),
+                            decoration: const BoxDecoration(
+                              gradient: VSColors.goldSheen,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(18),
+                              ),
+                            ),
+                            child: Text(
+                              last
+                                  ? (en ? 'Got it' : 'Hiểu rồi')
+                                  : (en ? 'Next' : 'Tiếp'),
+                              style: VSType.caption.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: VSColors.lacquerRaised,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                  ),
-                if (onBack != null)
-                  GestureDetector(
-                    key: ValueKey<String>('$keyPrefix-coach-back'),
-                    behavior: HitTestBehavior.opaque,
-                    onTap: onBack,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 8,
-                      ),
-                      child: Text(
-                        en ? 'Back' : 'Trước',
-                        style: VSType.caption.copyWith(
-                          color: VSColors.inkMuted,
-                        ),
-                      ),
-                    ),
-                  ),
-                GestureDetector(
-                  key: ValueKey<String>('$keyPrefix-coach-next'),
-                  behavior: HitTestBehavior.opaque,
-                  onTap: onNext,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 18,
-                      vertical: 8,
-                    ),
-                    decoration: const BoxDecoration(
-                      gradient: VSColors.goldSheen,
-                      borderRadius: BorderRadius.all(Radius.circular(18)),
-                    ),
-                    child: Text(
-                      last
-                          ? (en ? 'Got it' : 'Hiểu rồi')
-                          : (en ? 'Next' : 'Tiếp'),
-                      style: VSType.caption.copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: VSColors.lacquerRaised,
-                      ),
+                      ],
                     ),
                   ),
                 ),

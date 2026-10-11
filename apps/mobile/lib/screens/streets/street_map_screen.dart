@@ -17,6 +17,7 @@ import '../../widgets/map_coachmarks.dart';
 import 'street_basemap.dart';
 import 'street_card.dart';
 import 'street_data.dart';
+import 'street_filter_sheet.dart';
 import 'street_landmarks.dart';
 import 'street_perf.dart';
 
@@ -50,7 +51,16 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   /// The first-visit tour: shown once, never when the map is opened onto a
   /// street (from a character's chip), and stored as seen when ended.
   bool _tour = false;
+  List<MapTourStep> _tourSteps = kStreetTourSteps;
   final GlobalKey _cardKey = GlobalKey();
+  final GlobalKey _filterKey = GlobalKey();
+
+  /// The period/era filter: the buckets switched OFF. Empty (the default) shows
+  /// every street, so eras that arrive later are on by default too.
+  Set<StreetBucket> _hidden = const <StreetBucket>{};
+
+  /// Ids of the streets the filter leaves on the map; null = all of them.
+  Set<String>? _visible;
   final TextEditingController _query = TextEditingController();
 
   // Built ONCE. The vector layer restarts its tile loading whenever the theme
@@ -68,7 +78,14 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   }
 
   Future<void> _maybeStartTour() async {
-    if (await ref.read(streetTourStoreProvider).seen() || !mounted) return;
+    final seen = await ref.read(streetTourStoreProvider).seenVersion();
+    // A returning reader is shown only the steps added since they last saw it.
+    final steps = [
+      for (final st in kStreetTourSteps)
+        if (st.since > seen) st,
+    ];
+    if (steps.isEmpty || !mounted) return;
+    _tourSteps = steps;
     // Let the map paint first; the tour is a hint, not a gate.
     await Future<void>.delayed(const Duration(milliseconds: 900));
     if (mounted) setState(() => _tour = true);
@@ -93,12 +110,12 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   }
 
   void _tourStep(int step, StreetMapData data) {
-    if (step == 0) {
-      setState(() => _selected = null);
-      _restoreStartView();
-    } else {
+    if (_tourSteps[step].id == 'card') {
       final id = _sampleStreet(data);
       if (id != null) _select(id, data, fit: true);
+    } else {
+      setState(() => _selected = null);
+      _restoreStartView();
     }
   }
 
@@ -114,8 +131,13 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
   }
 
   /// Where each tour step points, in global coordinates: the middle of the map
-  /// (where streets are densest), then the street card.
+  /// (where streets are densest), the street card, then the filter button.
   Rect? _tourTarget(String id) {
+    if (id == 'filter') {
+      final box = _filterKey.currentContext?.findRenderObject();
+      if (box is! RenderBox || !box.hasSize) return null;
+      return box.localToGlobal(Offset.zero) & box.size;
+    }
     if (id == 'card') {
       final box = _cardKey.currentContext?.findRenderObject();
       if (box is! RenderBox || !box.hasSize) return null;
@@ -127,6 +149,53 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
       width: size.width * 0.78,
       height: 190,
     );
+  }
+
+  Future<void> _openFilter(StreetMapData data) async {
+    final PeriodRegistry periods;
+    final List<Era> eras;
+    try {
+      periods = await ref.read(periodsProvider.future);
+      eras = await ref.read(erasProvider.future);
+    } catch (_) {
+      return; // No era data: the filter has nothing to group by.
+    }
+    if (!mounted) return;
+    final periodOf = <String, String>{
+      for (final e in eras)
+        if (e.period != null) e.slug: e.period!,
+    };
+    final streets = <MappedStreet>[
+      for (final s in data.file.approved)
+        if (data.lines.containsKey(s.id)) s,
+    ];
+    final groups = buildFilterGroups(
+      periods: periods,
+      eras: eras,
+      counts: countBuckets(streets, periodOf),
+    );
+    final result = await showStreetFilterSheet(
+      context,
+      groups: groups,
+      hidden: _hidden,
+      visibleCount: (h) => visibleStreetIds(streets, h, periodOf).length,
+      lang: ref.read(langProvider),
+    );
+    if (result == null || !mounted) return;
+    final visible =
+        result.isEmpty ? null : visibleStreetIds(streets, result, periodOf);
+    ref.read(telemetryProvider).event('street_filter', <String, Object>{
+      'shown': visible?.length ?? streets.length,
+      'total': streets.length,
+    });
+    setState(() {
+      _hidden = result;
+      _visible = visible;
+      // The open card's street may have just been filtered away.
+      if (_selected != null && visible != null && !visible.contains(_selected)) {
+        _selected = null;
+      }
+    });
   }
 
   @override
@@ -170,9 +239,10 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
 
     final screen = <String, List<List<GeoPt>>>{
       for (final e in data.lines.entries)
-        e.key: [
-          for (final line in e.value) [for (final p in line) pt(p)],
-        ],
+        if (_shown(e.key))
+          e.key: [
+            for (final line in e.value) [for (final p in line) pt(p)],
+          ],
     };
     final hit = hitTestStreet(pt(at), screen);
     if (hit == null) {
@@ -184,22 +254,31 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
 
   Widget? _resting;
   StreetMapData? _restingData;
+  Set<String>? _restingVisible;
+
+  bool _shown(String id) => _visible == null || _visible!.contains(id);
 
   Widget _restingLayer(StreetMapData data) {
     final cached = _resting;
-    if (cached != null && identical(_restingData, data)) return cached;
+    if (cached != null &&
+        identical(_restingData, data) &&
+        identical(_restingVisible, _visible)) {
+      return cached;
+    }
     _restingData = data;
+    _restingVisible = _visible;
     return _resting = PolylineLayer(
       polylines: <Polyline>[
         for (final e in data.lines.entries)
-          for (final line in e.value)
-            Polyline(
-              points: line,
-              strokeWidth: 2.5,
-              color: _kRestingStreet,
-              strokeCap: StrokeCap.round,
-              strokeJoin: StrokeJoin.round,
-            ),
+          if (_shown(e.key))
+            for (final line in e.value)
+              Polyline(
+                points: line,
+                strokeWidth: 2.5,
+                color: _kRestingStreet,
+                strokeCap: StrokeCap.round,
+                strokeJoin: StrokeJoin.round,
+              ),
       ],
     );
   }
@@ -398,17 +477,33 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                   ],
                 ),
                 const SizedBox(height: VSSpacing.sm),
-                _Search(
-                  controller: _query,
-                  streets: data.file.approved
-                      .where((s) => data.lines.containsKey(s.id))
-                      .toList(),
-                  lang: lang,
-                  onPick: (s) {
-                    _query.clear();
-                    FocusScope.of(context).unfocus();
-                    _select(s.id, data, fit: true);
-                  },
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Expanded(
+                      // Search covers every street, filtered or not: picking
+                      // one flies to it and draws it on top.
+                      child: _Search(
+                        controller: _query,
+                        streets: data.file.approved
+                            .where((s) => data.lines.containsKey(s.id))
+                            .toList(),
+                        lang: lang,
+                        onPick: (s) {
+                          _query.clear();
+                          FocusScope.of(context).unfocus();
+                          _select(s.id, data, fit: true);
+                        },
+                      ),
+                    ),
+                    const SizedBox(width: VSSpacing.sm),
+                    _FilterButton(
+                      key: _filterKey,
+                      active: _hidden.isNotEmpty,
+                      lang: lang,
+                      onTap: () => _openFilter(data),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -438,13 +533,74 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
           Positioned.fill(
             key: const ValueKey<String>('street-tour'),
             child: MapCoachmarks(
-              steps: kStreetTourSteps,
+              steps: _tourSteps,
               targetFor: _tourTarget,
               onStep: (i) => _tourStep(i, data),
               onEnd: _endTour,
             ),
           ),
       ],
+    );
+  }
+}
+
+/// The filter button beside the search field; a gold dot when a filter is on.
+class _FilterButton extends StatelessWidget {
+  const _FilterButton({
+    required this.active,
+    required this.lang,
+    required this.onTap,
+    super.key,
+  });
+
+  final bool active;
+  final Lang lang;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: lang == Lang.vi ? 'Bộ lọc' : 'Filter',
+      child: GestureDetector(
+        key: const Key('street-filter'),
+        behavior: HitTestBehavior.opaque,
+        onTap: onTap,
+        child: SizedBox(
+          width: 48,
+          height: 48,
+          child: Stack(
+            alignment: Alignment.center,
+            children: <Widget>[
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: VSColors.lacquerRaised.withValues(alpha: 0.92),
+                  border: Border.all(color: VSColors.gold, width: 0.6),
+                ),
+                child: const Icon(Icons.tune, size: 20, color: VSColors.gold),
+              ),
+              if (active)
+                Positioned(
+                  top: 4,
+                  right: 4,
+                  child: Container(
+                    key: const Key('street-filter-active'),
+                    width: 10,
+                    height: 10,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: VSColors.goldBright,
+                      border: Border.all(color: VSColors.lacquer, width: 1.5),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

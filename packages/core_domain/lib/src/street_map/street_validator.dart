@@ -11,7 +11,9 @@ abstract final class StreetMapValidator {
   /// null to skip the geometry cross-check. [standaloneEventIds] are the events
   /// no era lists (Cycle N): an event target with no `era` must be one of them.
   /// [boundaryJson] is the old-city boundary GeoJSON; when given, landmarks and
-  /// the start view must lie inside it (Cycle P).
+  /// the start view must lie inside it (Cycle P). [periodIds] are the ids in
+  /// `periods.json`; when given, a standalone target must name one of them
+  /// (the street map's filter groups by it) and an era-bearing one must not.
   static List<String> validate({
     required String streetsJson,
     required Set<String> peopleIds,
@@ -19,6 +21,7 @@ abstract final class StreetMapValidator {
     Set<String>? geometryStreetIds,
     Set<String> standaloneEventIds = const <String>{},
     String? boundaryJson,
+    Set<String>? periodIds,
   }) {
     final problems = <String>[];
     final StreetMapFile file;
@@ -47,6 +50,18 @@ abstract final class StreetMapValidator {
         problems.add('street "${s.id}" is approved but has no targets');
       }
       for (final t in s.targets) {
+        if (periodIds != null) {
+          if (t.era.isNotEmpty && t.period.isNotEmpty) {
+            problems.add(
+                'street "${s.id}": target "${t.id}" has both an era and a period; the period comes from the era');
+          } else if (t.era.isEmpty && t.period.isEmpty && s.isApproved) {
+            problems.add(
+                'street "${s.id}": standalone target "${t.id}" has no period');
+          } else if (t.period.isNotEmpty && !periodIds.contains(t.period)) {
+            problems.add(
+                'street "${s.id}": target "${t.id}" has unknown period "${t.period}"');
+          }
+        }
         // A person with no era is a standalone person (Cycle R): they must be
         // in the registry and on no roster, and open by id alone.
         if (t.type == StreetTargetType.person && t.era.isEmpty) {

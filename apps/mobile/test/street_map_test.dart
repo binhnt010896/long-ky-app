@@ -131,11 +131,17 @@ class _FakeSource implements StreetDataSource {
 }
 
 class _TourStore implements StreetTourStore {
-  _TourStore({this.alreadySeen = true});
+  _TourStore({this.alreadySeen = true, this.version});
   bool alreadySeen;
+
+  /// The tour version this reader last saw; null = the current one if seen.
+  final int? version;
   int marked = 0;
   @override
   Future<bool> seen() async => alreadySeen;
+  @override
+  Future<int> seenVersion() async =>
+      version ?? (alreadySeen ? kStreetTourVersion : 0);
   @override
   Future<void> markSeen() async {
     alreadySeen = true;
@@ -581,7 +587,7 @@ void main() {
       }
     }
 
-    testWidgets('first visit: step 1 points at a street, step 2 at the opened card, then it is marked seen',
+    testWidgets('first visit: a street, the opened card, the filter, then it is marked seen',
         (tester) async {
       final store = _TourStore(alreadySeen: false);
       final (_, tel) = await _pump(tester, '/duong-pho', tour: store);
@@ -598,11 +604,31 @@ void main() {
 
       await tester.tap(find.byKey(const Key('street-coach-next')));
       await settle(tester);
+      // The filter step closes the sample card and talks about the button.
+      expect(find.textContaining('Bộ lọc'), findsOneWidget);
+      expect(find.byKey(const Key('street-card-close')), findsNothing);
+
+      await tester.tap(find.byKey(const Key('street-coach-next')));
+      await settle(tester);
       expect(find.byKey(const Key('street-coach-text')), findsNothing);
       expect(find.byKey(const Key('street-card-close')), findsNothing,
           reason: 'the sample street is closed again');
       expect(store.marked, 1);
       expect(tel.events.where((e) => e.$1 == 'street_tour_end').single.$2['result'], 'done');
+    });
+
+    testWidgets('a reader who saw version 1 gets only the filter step', (tester) async {
+      final store = _TourStore(alreadySeen: true, version: 1);
+      await _pump(tester, '/duong-pho', tour: store);
+      await settle(tester);
+      expect(find.byKey(const Key('street-coach-text')), findsOneWidget);
+      expect(find.textContaining('Bộ lọc'), findsOneWidget);
+      expect(find.byKey(const Key('street-coach-next')), findsOneWidget);
+
+      await tester.tap(find.byKey(const Key('street-coach-next')));
+      await settle(tester);
+      expect(find.byKey(const Key('street-coach-text')), findsNothing);
+      expect(store.marked, 1);
     });
 
     testWidgets('skipping also marks it seen', (tester) async {
@@ -626,6 +652,103 @@ void main() {
       await settle(tester);
       expect(find.byKey(const Key('street-coach-text')), findsNothing);
       expect(fresh.marked, 0, reason: 'a deep link does not use up the tour');
+    });
+  });
+
+  group('street filter', () {
+    Future<Offset> tapPoint(WidgetTester tester, LatLng at) async {
+      final map = tester.widget<FlutterMap>(find.byType(FlutterMap));
+      final s = map.mapController!.camera.latLngToScreenPoint(at);
+      return tester.getTopLeft(find.byType(FlutterMap)) + Offset(s.x, s.y);
+    }
+
+    Future<void> openSheet(WidgetTester tester) async {
+      await tester.tap(find.byKey(const Key('street-filter')));
+      await _settle(tester);
+    }
+
+    testWidgets('everything is selected by default, and no dot shows', (tester) async {
+      await _pump(tester, '/duong-pho');
+      expect(find.byKey(const Key('street-filter')), findsOneWidget);
+      expect(find.byKey(const Key('street-filter-active')), findsNothing);
+
+      await openSheet(tester);
+      final apply = find.byKey(const Key('street-filter-apply'));
+      expect(apply, findsOneWidget);
+      // Two approved streets are on the map; the unapproved one is not counted.
+      expect(find.text('Xem 2 đường'), findsOneWidget);
+    });
+
+    testWidgets('hiding a period removes its streets from the map and from taps',
+        (tester) async {
+      await _pump(tester, '/duong-pho');
+      // Lê Lợi's era (le-loi) sits in the Hậu Lê period.
+      await openSheet(tester);
+      await tester.tap(find.byKey(const Key('street-filter-period-hau-le')));
+      await tester.pump();
+      expect(find.text('Xem 1 đường'), findsOneWidget);
+      await tester.tap(find.byKey(const Key('street-filter-apply')));
+      await _settle(tester);
+
+      expect(find.byKey(const Key('street-filter-active')), findsOneWidget);
+      final loi = await tapPoint(tester, const LatLng(10.80, 106.70));
+      await tester.tapAt(loi);
+      await _settle(tester);
+      expect(find.byKey(const Key('street-open-person-le-loi')), findsNothing,
+          reason: 'a hidden street cannot be tapped');
+
+      // Bạch Đằng is still there (it lies east of the opening view).
+      tester.widget<FlutterMap>(find.byType(FlutterMap)).mapController!
+          .move(const LatLng(10.85, 106.75), 13);
+      await tester.pump();
+      final bach = await tapPoint(tester, const LatLng(10.85, 106.75));
+      await tester.tapAt(bach);
+      await _settle(tester);
+      expect(find.byKey(const Key('street-card-close')), findsOneWidget);
+    });
+
+    testWidgets('Select all restores every street; Clear disables Apply',
+        (tester) async {
+      await _pump(tester, '/duong-pho');
+      await openSheet(tester);
+      await tester.tap(find.byKey(const Key('street-filter-none')));
+      await tester.pump();
+      expect(find.text('Xem 0 đường'), findsOneWidget);
+      await tester.tap(find.byKey(const Key('street-filter-apply')));
+      await tester.pump();
+      expect(find.byKey(const Key('street-filter-apply')), findsOneWidget,
+          reason: 'with nothing selected the sheet stays open');
+
+      await tester.tap(find.byKey(const Key('street-filter-all')));
+      await tester.pump();
+      expect(find.text('Xem 2 đường'), findsOneWidget);
+    });
+
+    testWidgets('search still finds a filtered-out street and shows its card',
+        (tester) async {
+      await _pump(tester, '/duong-pho');
+      await openSheet(tester);
+      await tester.tap(find.byKey(const Key('street-filter-period-hau-le')));
+      await tester.pump();
+      await tester.tap(find.byKey(const Key('street-filter-apply')));
+      await _settle(tester);
+
+      await tester.enterText(find.byKey(const Key('street-search')), 'lê lợi');
+      await tester.pump();
+      await tester.tap(find.byKey(const Key('street-result-le-loi')));
+      await _settle(tester);
+      expect(find.byKey(const Key('street-open-person-le-loi')), findsOneWidget);
+    });
+
+    testWidgets('filtering away the open street closes its card', (tester) async {
+      await _pump(tester, '/duong-pho?street=le-loi');
+      expect(find.byKey(const Key('street-open-person-le-loi')), findsOneWidget);
+      await openSheet(tester);
+      await tester.tap(find.byKey(const Key('street-filter-period-hau-le')));
+      await tester.pump();
+      await tester.tap(find.byKey(const Key('street-filter-apply')));
+      await _settle(tester);
+      expect(find.byKey(const Key('street-open-person-le-loi')), findsNothing);
     });
   });
 

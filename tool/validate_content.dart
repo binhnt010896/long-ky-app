@@ -103,6 +103,11 @@ Future<int> _run() async {
           as Map<String, dynamic>)['people'] as List)
         (p as Map<String, dynamic>)['id'] as String,
     };
+    final periodIds = <String>{
+      for (final p in (jsonDecode(File('${root.path}/content/periods.json')
+          .readAsStringSync()) as Map<String, dynamic>)['periods'] as List)
+        (p as Map<String, dynamic>)['id'] as String,
+    };
     for (final f in streetsDir.listSync().whereType<File>()) {
       final n = f.uri.pathSegments.last;
       if (!n.endsWith('.json') || n.startsWith('aliases')) continue;
@@ -128,6 +133,7 @@ Future<int> _run() async {
         eras: eras,
         geometryStreetIds: geoIds,
         standaloneEventIds: standaloneIds,
+        periodIds: periodIds,
       );
       if (problems.isEmpty) {
         stdout.writeln('✓ streets/$n${geoIds == null ? ' (geometry not checked)' : ''}');
