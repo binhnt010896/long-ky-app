@@ -12,19 +12,23 @@ Builds on 1.1.2 (10) (already uploaded). The text lists what is new since then
 
 ```
 <vi-VN>
-Mới: hướng dẫn nhanh khi mở Bản đồ đường phố và Bản đồ lãnh thổ lần đầu. Bản đồ đường phố mở nhanh hơn. Hơn 150 nhân vật mới có trang riêng, kèm tên đường tương ứng. Nội dung và hình ảnh tự cập nhật khi có bản mới, không cần cài lại ứng dụng. Thêm nút "Báo sai sót" trên trang chi tiết và trang lưu ý về hình ảnh, nội dung. Chỉnh lại nội dung thời Gia Long theo nguồn Viện Sử học; chân dung toàn thân các nhân vật thời Hồng Bàng – Bắc thuộc nay khớp với ảnh đại diện.
+Mới: hướng dẫn nhanh khi mở Bản đồ đường phố và Bản đồ lãnh thổ lần đầu; Bản đồ đường phố có bộ lọc theo triều đại và thời kỳ, và mở nhanh hơn. Hơn 150 nhân vật mới có trang riêng, kèm tên đường tương ứng. Nội dung và hình ảnh tự cập nhật, không cần cài lại ứng dụng. Thêm nút "Báo sai sót" trên trang chi tiết và trang lưu ý về hình ảnh, nội dung. Chỉnh lại nội dung thời Gia Long theo nguồn Viện Sử học; chân dung toàn thân thời Hồng Bàng – Bắc thuộc nay khớp với ảnh đại diện.
 </vi-VN>
 <en-US>
-New: a quick first-time guide on the Street map and the Territory atlas. The street map opens faster. Over 150 more figures now have their own pages, with their matching streets. Content and images update on their own when new ones are out, with no reinstall. Added a "Report an error" button on detail pages, plus a notice page on images and content. Gia Long-era content revised against Viện Sử học sources; full-body portraits from Hồng Bàng to the Northern rule now match their avatars.
+New: a first-time guide on the Street map and the Territory atlas. The street map gains a filter by dynasty and era, and opens faster. Over 150 more figures now have their own pages, with their matching streets. Content and images update on their own, no reinstall. Added a "Report an error" button on detail pages, plus a notice page on images and content. Gia Long-era content revised against Viện Sử học sources; full-body portraits from Hồng Bàng to the Northern rule now match their avatars.
 </en-US>
 ```
 
-Character counts: vi-VN 467, en-US 490 (limit 500 each).
+Character counts: vi-VN 479, en-US 496 (limit 500 each).
 
 ### Notes for the console (not for users)
 
 - The first-time guides show once per screen and are remembered separately for
   the street map and the territory atlas.
+  The street map's guide has a third step for the new filter; readers who
+  already saw the earlier two steps get only that one.
+- The street map's filter (period → era) is in memory only: it resets when the
+  map is reopened, and everything is shown by default.
 - Content packs are published over the air (latest `20261008073511`); the
   app adopts a new pack as soon as it finishes downloading and re-checks when
   the app returns to the foreground, so reviewers see current content without
