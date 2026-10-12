@@ -1,0 +1,58 @@
+{
+  "lang": "en",
+  "locale": "en_US",
+  "path": "/en/",
+  "altPath": "/",
+  "meta": {
+    "title": "Long Ký — A thousand years of Vietnamese history",
+    "description": "Long Ký is a history app for Vietnam: from the Hồng Bàng dawn to today, one chapter per era, one cited source per event. Free, no ads."
+  },
+  "skip": "Skip to download",
+  "brandAria": "Long Ký — back to top",
+  "download": "Get the app",
+  "switchLang": "Tiếng Việt",
+  "switchLangAria": "Đọc trang này bằng tiếng Việt",
+  "hero": {
+    "eyebrow": "THE HISTORY OF VIETNAM, IN YOUR HAND",
+    "lead": "A thousand years of Vietnamese history. Read, explore and learn era by era, with every source in plain view.",
+    "cta": "Get Long Ký",
+    "cue": "Scroll to go deeper"
+  },
+  "rail": {
+    "aria": "Timeline",
+    "today": "2026"
+  },
+  "stats": {
+    "streets": "street names",
+    "people": "figures",
+    "events": "events",
+    "eras": "eras"
+  },
+  "final": {
+    "kicker": "FROM THE BEGINNING",
+    "title": "Now, start from the beginning.",
+    "body": "Long Ký opens at Hồng Bàng and walks forward to today. Free, no ads. If you like it, buy Long Ký a cup of tea.",
+    "scan": "Scan with your phone",
+    "scanAria": "QR code to get Long Ký",
+    "play": "Google Play",
+    "playSub": "Coming soon",
+    "ios": "iOS: coming.",
+    "support": "Need help, or spotted a mistake?",
+    "supportCta": "help@long-ky.com"
+  },
+  "footer": {
+    "privacy": "Privacy policy",
+    "ai": "Illustrations are made with AI assistance. Every page in the app names its sources.",
+    "rights": "© 2026 Long Ký"
+  },
+  "get": {
+    "title": "Long Ký is coming to Google Play",
+    "body": "Long Ký is in closed testing. Once the app is on Google Play, this QR code will take you straight to the download page.",
+    "back": "Back to home",
+    "mail": "Want to know when it launches? Write to us:"
+  },
+  "alt": {
+    "dragon": "A golden dragon on lacquer",
+    "shot": "A Long Ký app screen"
+  }
+}

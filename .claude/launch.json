@@ -18,6 +18,15 @@
         "cd apps/admin && flutter run -d web-server --web-port 3020"
       ],
       "port": 3020
+    },
+    {
+      "name": "landing",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd apps/landing && node build.mjs --serve"
+      ],
+      "port": 3030
     }
   ]
 }

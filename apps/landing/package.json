@@ -1,0 +1,18 @@
+{
+  "name": "long-ky-landing",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Long Ký landing page — static HTML + SCSS, no framework.",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch --serve",
+    "assets": "node tool/make-images.mjs"
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.4",
+    "sass": "^1.83.0",
+    "sharp": "^0.35.5",
+    "ttf2woff2": "^8.0.1"
+  }
+}

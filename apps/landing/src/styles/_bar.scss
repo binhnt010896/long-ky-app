@@ -1,0 +1,81 @@
+@use 'tokens' as *;
+
+.bar {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  height: var(--bar-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--gutter);
+  background: linear-gradient(rgba($lacquer, .88), rgba($lacquer, 0));
+  &__brand {
+    display: inline-flex; align-items: center; gap: .6rem;
+    font: 600 1.15rem/1 $display; font-style: italic; letter-spacing: .01em;
+    color: $parchment; text-decoration: none;
+    img { border-radius: 50%; }
+  }
+  &__nav { display: flex; align-items: center; gap: 1.1rem; }
+  &__lang {
+    font: 500 .8rem/1 $body; letter-spacing: .06em; text-decoration: none; color: var(--ink-muted);
+    &:hover { color: $parchment; }
+  }
+  .btn { @include narrow { display: none; } }
+}
+
+// Depth rail: the page's one navigation device. Periods top (today) to
+// bottom (Hồng Bàng); the year counts back as you scroll.
+.rail {
+  position: fixed; right: clamp(.4rem, 1.4vw, 1.4rem); top: 50%; z-index: 40;
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; align-items: flex-end; gap: .8rem;
+  pointer-events: none;
+  &__year {
+    font: 600 1rem/1 $display; font-variant-numeric: tabular-nums;
+    color: $gold-bright; letter-spacing: .04em;
+    text-shadow: 0 0 18px rgba($gold-bright, .5);
+    @include wide { font-size: 1.35rem; }
+  }
+  &__ticks {
+    position: relative;
+    display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end;
+    height: min(56svh, 27rem);
+    padding-right: .35rem;
+    &::before { content: ''; position: absolute; right: calc(.35rem + 2px); top: 0; bottom: 0; width: 1px; background: linear-gradient(transparent, var(--hairline) 8%, var(--hairline) 92%, transparent); }
+  }
+  &__tick {
+    position: relative; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--c); opacity: .38;
+    transition: opacity .3s, transform .3s, box-shadow .3s;
+    &--layer { width: 9px; height: 9px; margin-right: -2px; opacity: .6; }
+    span {
+      position: absolute; right: 1.4rem; top: 50%; transform: translateY(-50%);
+      white-space: nowrap; font: 400 .72rem/1 $body; letter-spacing: .05em;
+      color: $parchment; opacity: 0; transition: opacity .3s;
+      @include narrow { display: none; }
+    }
+    &.is-passed { opacity: .8; }
+    &.is-active {
+      opacity: 1; transform: scale(1.7);
+      box-shadow: 0 0 0 3px rgba($parchment, .12), 0 0 16px var(--c);
+      span { opacity: 1; transform: translateY(-50%) scale(.6); transform-origin: right center; }
+    }
+  }
+}
+
+.dock {
+  position: fixed; left: 0; right: 0; bottom: max(1rem, env(safe-area-inset-bottom)); z-index: 45;
+  display: flex; justify-content: center; pointer-events: none;
+  .btn { pointer-events: auto; padding: .95rem 2rem; box-shadow: 0 0 0 1px rgba($gold-bright, .5), 0 12px 34px rgba(0, 0, 0, .55); }
+  @include wide { display: none; }
+  &[hidden] { display: none; }
+  &.is-away { opacity: 0; transform: translateY(1rem); transition: opacity .3s, transform .3s; }
+}
+
+.foot {
+  padding: 2.5rem var(--gutter) 6rem;
+  background: $lacquer;
+  border-top: 1px solid var(--hairline);
+  text-align: center;
+  font-size: .82rem; color: var(--ink-muted);
+  display: grid; gap: .5rem;
+  a { text-decoration-color: var(--gold-border); text-underline-offset: 3px; &:hover { color: $parchment; } }
+  &__ai { max-width: 40rem; margin-inline: auto; font-size: .75rem; opacity: .8; }
+}

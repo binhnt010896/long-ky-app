@@ -1,0 +1,146 @@
+[
+  {
+    "id": "today",
+    "period": "ky-nguyen-moi",
+    "accent": "#e0b43c",
+    "year": "2026",
+    "art": null,
+    "shot": "street",
+    "shotH": 1040,
+    "vi": {
+      "label": "Hôm nay",
+      "kicker": "HÔM NAY",
+      "title": "Dưới mỗi tên đường là một nghìn năm.",
+      "body": "Bạn đi qua Trần Hưng Đạo, Lê Lợi, Hai Bà Trưng mỗi ngày. Bản đồ đường phố cho biết họ là ai, sống thời nào, và vì sao tên họ nằm trên phố bạn."
+    },
+    "en": {
+      "label": "Today",
+      "kicker": "TODAY",
+      "title": "Under every street name lies a thousand years.",
+      "body": "You pass Trần Hưng Đạo, Lê Lợi and Hai Bà Trưng every day. The street map tells you who they were, when they lived, and why their names are on your street."
+    }
+  },
+  {
+    "id": "khang-chien",
+    "period": "khang-chien-chong-phap",
+    "accent": "#b23a2e",
+    "year": "1954",
+    "art": "khang-chien",
+    "shot": "khang-chien",
+    "vi": {
+      "label": "Kháng chiến chống Pháp",
+      "kicker": "CHÍN NĂM LÀM NÊN ĐIỆN BIÊN",
+      "title": "Chín năm kháng chiến, kết lại ở Điện Biên Phủ.",
+      "body": "Mỗi sự kiện trong Long Ký đi kèm nguồn sử liệu, để bạn tự kiểm chứng thay vì chỉ tin lời kể."
+    },
+    "en": {
+      "label": "Resistance against France",
+      "kicker": "NINE YEARS TO DIỆN BIÊN",
+      "title": "Nine years of resistance, ending at Điện Biên Phủ.",
+      "body": "Every event in Long Ký carries its sources, so you can check the record for yourself instead of taking a story on trust."
+    }
+  },
+  {
+    "id": "tay-son",
+    "period": "tay-son",
+    "accent": "#c0392b",
+    "year": "1789",
+    "art": "tay-son",
+    "shot": "quang-trung",
+    "vi": {
+      "label": "Nhà Tây Sơn",
+      "kicker": "ÁO VẢI CỜ ĐÀO",
+      "title": "Mùa xuân 1789, áo vải cờ đào.",
+      "body": "Quang Trung và đoàn quân Tây Sơn tiến ra Bắc. Gặp lại họ qua những nhân vật có trang riêng, kèm tên đường tương ứng."
+    },
+    "en": {
+      "label": "The Tây Sơn",
+      "kicker": "CLOTH ROBES, PEACH-RED BANNERS",
+      "title": "Spring 1789: cloth robes and peach-red banners.",
+      "body": "Quang Trung and the Tây Sơn army march north. Meet them through figures who have their own pages, with the streets that carry their names."
+    }
+  },
+  {
+    "id": "tran",
+    "period": "nha-tran",
+    "accent": "#9c3a2f",
+    "year": "1288",
+    "art": "nha-tran",
+    "video": "nha-tran",
+    "shot": null,
+    "vi": {
+      "label": "Nhà Trần",
+      "kicker": "HÀO KHÍ ĐÔNG A",
+      "title": "Sông Bạch Đằng, lửa cháy trên mặt nước.",
+      "body": "Năm 1288, quân nhà Trần đánh tan đoàn thuyền xâm lược trên Bạch Đằng. Xem lãnh thổ thay đổi qua từng thời kỳ trên bản đồ."
+    },
+    "en": {
+      "label": "The Trần dynasty",
+      "kicker": "THE SPIRIT OF ĐÔNG A",
+      "title": "The Bạch Đằng River, fire upon the water.",
+      "body": "In 1288 the Trần army destroyed the invading fleet on the Bạch Đằng. See the territory change from age to age on the atlas."
+    }
+  },
+  {
+    "id": "ly",
+    "period": "nha-ly",
+    "accent": "#b8863a",
+    "year": "1010",
+    "art": "nha-ly",
+    "shot": null,
+    "vi": {
+      "label": "Nhà Lý",
+      "kicker": "THĂNG LONG RỒNG BAY",
+      "title": "Năm 1010, rồng bay lên ở Thăng Long.",
+      "body": "Lý Thái Tổ dời đô ra Thăng Long, mở ra gần hai thế kỷ nhà Lý. Thử sức hiểu biết của bạn với Câu đố."
+    },
+    "en": {
+      "label": "The Lý dynasty",
+      "kicker": "THĂNG LONG, THE RISING DRAGON",
+      "title": "1010: the dragon rises over Thăng Long.",
+      "body": "Lý Thái Tổ moves the capital to Thăng Long, opening nearly two centuries of the Lý. Test what you know with the quiz."
+    }
+  },
+  {
+    "id": "bac-thuoc",
+    "period": "bac-thuoc",
+    "accent": "#7c3b34",
+    "year": "938",
+    "art": "bac-thuoc",
+    "shot": null,
+    "vi": {
+      "label": "Bắc thuộc & Khởi nghĩa",
+      "kicker": "NGHÌN NĂM BẮC THUỘC",
+      "title": "Mất nước mà không mất giống nòi.",
+      "body": "Hơn một nghìn năm, và những cuộc quật khởi nối nhau, cho đến Bạch Đằng năm 938. Đọc bằng tiếng Việt hoặc tiếng Anh, đổi ngôn ngữ bất cứ lúc nào."
+    },
+    "en": {
+      "label": "Domination & Uprisings",
+      "kicker": "A THOUSAND YEARS",
+      "title": "A land under dominion, and the risings against it.",
+      "body": "More than a thousand years, and risings one after another, until Bạch Đằng in 938. Read in Vietnamese or English, and switch whenever you like."
+    }
+  },
+  {
+    "id": "hong-bang",
+    "period": "hong-bang",
+    "accent": "#5f8f74",
+    "year": "2879 TCN",
+    "yearEn": "2879 BCE",
+    "art": "hong-bang",
+    "video": "hong-bang",
+    "shot": "son-tinh",
+    "vi": {
+      "label": "Hồng Bàng – Âu Lạc",
+      "kicker": "BÌNH MINH DỰNG NƯỚC",
+      "title": "Buổi bình minh dựng nước.",
+      "body": "Từ Kinh Dương Vương đến An Dương Vương, từ truyền thuyết đến những gì khảo cổ để lại. Đây là nơi Long Ký bắt đầu."
+    },
+    "en": {
+      "label": "Hồng Bàng – Âu Lạc",
+      "kicker": "DAWN OF THE NATION",
+      "title": "The dawn of a nation.",
+      "body": "From Kinh Dương Vương to An Dương Vương, from legend to what the ground has kept. This is where Long Ký begins."
+    }
+  }
+]

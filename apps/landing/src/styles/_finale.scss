@@ -1,0 +1,97 @@
+@use 'tokens' as *;
+
+.finale {
+  position: relative;
+  min-height: 100svh;
+  display: grid; align-items: center;
+  padding: 18svh var(--gutter) 30svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: $lacquer;
+
+  &__scene { position: absolute; inset: 0; z-index: -1; }
+  &__scene picture, &__scene img { display: block; width: 100%; }
+  &__sky { position: absolute; inset: 0; opacity: .9; img { height: 100%; object-fit: cover; object-position: 50% 30%; } }
+  // Landscape screens get the panoramic cut: it keeps its natural 21:9 height
+  // at the top and melts into lacquer behind the ridges, instead of the
+  // portrait painting being stretched across the whole tall section.
+  @media (min-aspect-ratio: 1/1) {
+    &__sky {
+      inset: 0 0 auto 0; height: max(42.86vw, 56%);
+      -webkit-mask-image: linear-gradient(#000 72%, transparent);
+      mask-image: linear-gradient(#000 72%, transparent);
+      img { object-position: 50% 50%; }
+    }
+  }
+  &__scene::before { // dissolve from the layer above
+    content: ''; position: absolute; inset: 0 0 auto 0; height: 40%; z-index: 2;
+    background: linear-gradient($lacquer, rgba($lacquer, 0));
+  }
+  &__glow { position: absolute; left: 50%; bottom: 8%; width: min(120vw, 70rem); transform: translateX(-50%); mix-blend-mode: screen; opacity: .8; }
+  &__ridge { position: absolute; left: 0; right: 0; bottom: -1px; img { width: 100%; height: auto; } }
+  &__ridge--far { opacity: .9; }
+
+  &__inner {
+    position: relative; isolation: isolate;
+    max-width: 46rem; margin-inline: auto; text-align: center; display: grid; justify-items: center;
+    &::before { // keeps the type readable over the solid gold birds
+      content: ''; position: absolute; z-index: -1; inset: -8% -22% -6%;
+      background: radial-gradient(closest-side, rgba($lacquer, .82) 35%, rgba($lacquer, 0));
+    }
+  }
+  &__seal { border-radius: 50%; margin-bottom: 1.4rem; box-shadow: 0 0 40px rgba($gold, .4); }
+  &__title { margin-top: .7rem; font: 700 clamp(2.2rem, 6vw, 4rem)/1.08 $display; color: $parchment; text-wrap: balance; }
+  &__body { margin-top: 1.1rem; max-width: 34rem; text-wrap: pretty; color: $parchment; }
+}
+
+.get {
+  margin-top: 2.4rem;
+  display: flex; align-items: center; justify-content: center; gap: 2.2rem;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid var(--gold-border); border-radius: 22px;
+  background: rgba($lacquer, .62); backdrop-filter: blur(10px);
+  @include narrow { flex-direction: column-reverse; gap: 1.4rem; width: 100%; }
+
+  &__qr { display: grid; justify-items: center; gap: .6rem; font-size: .78rem; letter-spacing: .06em; color: var(--ink-muted); }
+  &__qrcode {
+    width: 9.5rem; padding: .35rem; border-radius: 14px; background: $parchment; line-height: 0;
+    svg { width: 100%; height: auto; border-radius: 10px; }
+    @include narrow { width: 8rem; }
+  }
+  &__links { display: grid; gap: .9rem; justify-items: center; @include wide { justify-items: start; } }
+  &__ios { font-size: .8rem; color: var(--ink-muted); }
+}
+
+.store {
+  display: inline-flex; align-items: center; gap: .8rem;
+  padding: .7rem 1.3rem .7rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid $gold-bright;
+  background: rgba($gold, .1);
+  color: $parchment; text-decoration: none;
+  transition: background .2s, transform .2s;
+  &:hover { background: rgba($gold, .22); transform: translateY(-1px); }
+  span { display: grid; text-align: left; font: 600 1.15rem/1.1 $body; }
+  small { font: 400 .68rem/1.2 $body; letter-spacing: .1em; text-transform: uppercase; color: $gold-bright; }
+}
+
+.support { margin-top: 2rem; font-size: .92rem; color: var(--ink); a { color: $gold-bright; text-underline-offset: 4px; font-weight: 500; } }
+
+@include scrolly {
+  .finale { view-timeline: --finale block; }
+  .finale__ridge--far { animation: rise-far linear both; animation-timeline: --finale; animation-range: entry 0% cover 60%; }
+  .finale__ridge--near { animation: rise-near linear both; animation-timeline: --finale; animation-range: entry 0% cover 60%; }
+  .finale__glow { animation: dawn linear both; animation-timeline: --finale; animation-range: entry 10% cover 60%; }
+  .finale__inner { animation: layer-rise linear both; animation-timeline: --finale; animation-range: entry 25% cover 45%; }
+}
+@keyframes rise-far { from { transform: translateY(14svh); } to { transform: none; } }
+@keyframes rise-near { from { transform: translateY(26svh); } to { transform: none; } }
+@keyframes dawn { from { opacity: 0; transform: translateX(-50%) translateY(14svh); } to { opacity: .85; transform: translateX(-50%); } }
+
+// /get/ — shown until the store listing is public.
+.soon { display: grid; place-items: center; min-height: 100svh; padding: 2rem; text-align: center;
+  &__box { display: grid; gap: 1rem; justify-items: center; max-width: 30rem; }
+  img { border-radius: 50%; box-shadow: 0 0 40px rgba($gold, .35); }
+  h1 { font: 700 2rem/1.15 $display; color: $parchment; }
+  a:not(.btn) { color: $gold-bright; }
+}

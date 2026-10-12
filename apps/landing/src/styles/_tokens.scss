@@ -1,0 +1,44 @@
+// Brand tokens — lifted from packages/ui_kit (VSColors, VSTypography).
+$lacquer: #07100f;
+$lacquer-raised: #0a140f;
+$gold: #c9a24b;
+$gold-bright: #e6c877;
+$parchment: #f2ead9;
+
+$display: 'Playfair Display', 'Times New Roman', serif;
+$body: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+$wide: 900px; // two-column layers from here up
+
+@mixin wide { @media (min-width: $wide) { @content; } }
+@mixin narrow { @media (max-width: #{$wide - 1px}) { @content; } }
+
+// Scroll-driven animation only where it exists and motion is welcome.
+// Everywhere else the page is a plain illustrated long read.
+@mixin scrolly {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) { @content; }
+  }
+}
+@mixin calm {
+  @media (prefers-reduced-motion: reduce) { @content; }
+}
+
+:root {
+  --lacquer: #{$lacquer};
+  --gold: #{$gold};
+  --gold-bright: #{$gold-bright};
+  --parchment: #{$parchment};
+  --ink: #{rgba($parchment, 0.86)};
+  --ink-muted: #{rgba($parchment, 0.62)};
+  --hairline: #{rgba($parchment, 0.16)};
+  --gold-border: #{rgba($gold, 0.4)};
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+  --bar-h: 3.5rem;
+}
+
+@property --tint {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #c9a24b;
+}

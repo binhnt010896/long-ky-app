@@ -1,0 +1,5 @@
+# The QR code and every download button point at /get.
+# While the Play listing is private, /get serves the coming-soon page.
+# When the listing is public, replace this file's contents with ONE line:
+#   /get https://play.google.com/store/apps/details?id=app.longky 302
+# (and /en/get the same). No QR reprint, no code change, no rebuild.
