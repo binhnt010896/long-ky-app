@@ -38,14 +38,23 @@ The QR code and every button point to **`https://long-ky.com/get`**.
   ```
   The QR on every screen and print keeps working. Nothing to reprint.
 
-## Deploy (Cloudflare Pages)
+## Deploy (Cloudflare Workers static assets)
+
+Wrangler 4.x folded Cloudflare Pages into Workers, so the site is a Worker
+that serves `dist/` (config in `wrangler.jsonc`).
 
 ```bash
+npx wrangler login      # once
 npm run build
-npx wrangler pages deploy dist --project-name long-ky-landing
+npx wrangler deploy
 ```
 
-Then attach `long-ky.com` to the project (Pages → Custom domains).
+Live address: https://long-ky-landing.binhnt-010896.workers.dev
+
+To serve it at `long-ky.com`: the domain's DNS must be on Cloudflare, then
+Workers & Pages → `long-ky-landing` → Settings → Domains & Routes → Add →
+Custom domain (`long-ky.com`, `www.long-ky.com`). Copy the existing mail
+records into Cloudflare DNS before changing nameservers.
 
 ## Motion loops
 

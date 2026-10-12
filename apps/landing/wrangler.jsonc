@@ -1,0 +1,9 @@
+{
+  // Long Ký landing page: a folder of static files served by Workers static
+  // assets (Cloudflare's successor to Pages). `npm run build` first.
+  "name": "long-ky-landing",
+  "compatibility_date": "2026-10-06",
+  "assets": {
+    "directory": "./dist"
+  }
+}
