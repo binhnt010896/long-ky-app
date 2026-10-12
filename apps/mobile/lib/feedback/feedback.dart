@@ -13,7 +13,7 @@ import '../widgets/circle_icon_button.dart';
 
 /// Where reader feedback goes — the "Báo sai sót" sheet and the disclaimer
 /// page both use it, so changing the inbox is this one line plus a release.
-const String kFeedbackEmail = 'binhnt.010896@gmail.com';
+const String kFeedbackEmail = 'help@long-ky.com';
 
 /// What the reader says looks wrong.
 enum FeedbackKind {

@@ -5,7 +5,7 @@ Planned 2026-10-05. **Parts 1 and 2 are built (2026-10-06)**; Part 3 (iOS) is no
 **Locked decisions (user, 2026-10-06), so "Execute feedback-disclaimer-ios-plan.md" builds Parts 1 and 2 as written:**
 - **Delivery:** the mail-app (`mailto:`) version. v2 (in-app sending through the Cloudflare
   Worker) is **not** built.
-- **Recipient:** `binhnt.010896@gmail.com` for now. It goes in **one constant**
+- **Recipient:** `help@long-ky.com` (switched from a personal Gmail address on 2026-10-12). It goes in **one constant**
   (`kFeedbackEmail`), used by both the feedback sheet and the disclaimer page, so switching
   later (for example to `longky@binh-nt.dev`) is a one-line change plus a release.
 - **Scope of "Execute":** Parts 1 and 2 only. Part 3 (iOS) needs your Apple Developer
@@ -82,7 +82,7 @@ It's never shown as a pop-up or on first launch.
   to restore faithfully, we show a blank portrait instead of inventing a face.
 - **The text follows the cited sources** (see *Nguồn sử liệu*), but mistakes are possible.
 - **Seen something wrong?** Tap *Báo sai sót* on that page, or email `kFeedbackEmail`
-  (currently `binhnt.010896@gmail.com`).
+  (currently `help@long-ky.com`).
 
 **Tests:** the route renders in both languages, and every entry point opens it.
 

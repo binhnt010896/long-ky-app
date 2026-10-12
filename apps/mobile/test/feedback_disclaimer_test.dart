@@ -192,7 +192,7 @@ void main() {
     });
 
     test('kFeedbackEmail is the one address', () {
-      expect(kFeedbackEmail, 'binhnt.010896@gmail.com');
+      expect(kFeedbackEmail, 'help@long-ky.com');
     });
   });
 
