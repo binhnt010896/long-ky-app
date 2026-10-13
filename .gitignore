@@ -87,3 +87,6 @@ services/cms_api/.dev.vars
 # tool/publish_firestore.mjs's own dependency, installed fresh by CI and by
 # whoever runs the one-time Firestore migration locally.
 tool/node_modules/
+
+# Local backups of replaced art (content images are not in git)
+/.archive/
