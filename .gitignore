@@ -90,3 +90,8 @@ tool/node_modules/
 
 # Local backups of replaced art (content images are not in git)
 /.archive/
+
+# Landing page video/image masters (large; kept locally)
+brand/landing/video-originals/
+brand/landing/video-upscaled/
+brand/landing/ho-chi-minh-2026-upscaled.png
