@@ -157,7 +157,7 @@ async function build() {
     const data = {
       ...t, origin: ORIGIN, altLang: other, css: `/${cssName}`, js: `/${jsName}`,
       layers: layersHtml, railHtml: rail, heroStats, jsonld,
-      heroVideo: usedVideos.includes('dragon.mp4') ? '<video muted loop playsinline preload="none" data-src="/assets/video/dragon.mp4" tabindex="-1"></video>' : '',
+      heroVideo: usedVideos.includes('dragon.mp4') ? '<video muted playsinline preload="none" data-src="/assets/video/dragon.mp4" tabindex="-1" aria-hidden="true"></video>' : '',
       qr: qr.replace('<svg', '<svg aria-hidden="true" focusable="false"'),
       finalYear: lang === 'en' ? '2879 BCE' : '2879 TCN',
     };
@@ -190,7 +190,17 @@ if (process.argv.includes('--serve')) {
     let f = join(dist, p);
     if (existsSync(f) && statSync(f).isDirectory()) f = join(f, 'index.html');
     if (!existsSync(f)) { res.writeHead(404); return res.end('not found'); }
-    res.writeHead(200, { 'Content-Type': types[extname(f)] || 'application/octet-stream' });
-    res.end(readFileSync(f));
-  }).listen(3030, () => console.log('http://localhost:3030'));
+    const body = readFileSync(f);
+    const type = types[extname(f)] || 'application/octet-stream';
+    // Range support: browsers need it to seek in <video>.
+    const m = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range || '');
+    if (m && (m[1] || m[2])) {
+      const start = m[1] ? Number(m[1]) : body.length - Number(m[2]);
+      const end = m[1] && m[2] ? Math.min(Number(m[2]), body.length - 1) : body.length - 1;
+      res.writeHead(206, { 'Content-Type': type, 'Accept-Ranges': 'bytes', 'Content-Range': `bytes ${start}-${end}/${body.length}`, 'Content-Length': end - start + 1 });
+      return res.end(body.subarray(start, end + 1));
+    }
+    res.writeHead(200, { 'Content-Type': type, 'Accept-Ranges': 'bytes', 'Content-Length': body.length });
+    res.end(body);
+  }).listen(Number(process.env.PORT) || 3030, function () { console.log('http://localhost:' + this.address().port); });
 }

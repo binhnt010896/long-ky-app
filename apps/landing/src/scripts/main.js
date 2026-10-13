@@ -48,9 +48,20 @@
     if (!reduce && !saveData) {
       const want = new WeakSet();
       const tryPlay = (v) => { if (want.has(v)) v.play().catch(() => {}); };
+      // The clip ends somewhere else than it starts, so it cannot loop by
+      // itself. Instead it fades out over the still image below it (which is
+      // its first frame), restarts unseen, and fades back in.
       $$('video[data-src]').forEach((v) => {
         v.addEventListener('playing', () => v.classList.add('is-playing'));
         v.addEventListener('canplay', () => tryPlay(v));
+        v.addEventListener('timeupdate', () => {
+          if (v.duration && v.currentTime > v.duration - 0.9) v.classList.add('is-fading');
+        });
+        v.addEventListener('ended', () => {
+          v.currentTime = 0;
+          v.classList.remove('is-fading');
+          tryPlay(v);
+        });
       });
       document.addEventListener('visibilitychange', () => { if (!document.hidden) $$('video[data-src]').forEach(tryPlay); });
       const vio = new IntersectionObserver((entries) => {
