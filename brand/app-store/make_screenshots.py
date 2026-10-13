@@ -1,4 +1,4 @@
-"""Compose App Store iPhone screenshots (1320x2868, 6.9") — same look as brand/play-store,
+"""Compose App Store iPhone screenshots (1206x2622 = 6.3", 1179x2556 = 6.1") — same look as brand/play-store,
 but with an iPhone (Dynamic Island) mock-up.
 
 Usage: python3 make_screenshots.py [SRC_DIR]
@@ -14,8 +14,9 @@ play = importlib.util.module_from_spec(spec); spec.loader.exec_module(play)
 CARDS, GOLD, CREAM, rounded_mask, spaced, spaced_width = (
     play.CARDS, play.GOLD, play.CREAM, play.rounded_mask, play.spaced, play.spaced_width)
 
-W, H = 1320, 2868          # App Store 6.9" iPhone
-K = W / 1080               # scale from the 1080-wide Play Store layout
+SIZES = [(1206, 2622), (1179, 2556)]   # App Store accepted: 6.3" and 6.1" iPhone
+W, H = SIZES[0]
+K = W / 1080                           # scale from the 1080-wide Play Store layout
 SS = 2
 SCREEN_AR = 1290 / 2796    # iPhone 16/17 Pro Max screen
 PLAYFAIR = os.path.join(HERE, "../../packages/ui_kit/fonts/PlayfairDisplay-Variable.ttf")
@@ -128,9 +129,12 @@ def build(card, lang, src, out):
 
 if __name__ == "__main__":
     src = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "../play-store/src")
-    for dirn in ("screenshots-vi", "screenshots-en"):
-        os.makedirs(os.path.join(HERE, dirn), exist_ok=True)
-    for i, c in enumerate(CARDS, 1):
-        for lang, dirn in (("vi", "screenshots-vi"), ("en", "screenshots-en")):
-            build(c, lang, src, os.path.join(HERE, dirn, f"{i:02d}-{c['img']}.png"))
+    global_ns = globals()
+    for W_, H_ in SIZES:
+        global_ns.update(W=W_, H=H_, K=W_ / 1080)
+        for i, c in enumerate(CARDS, 1):
+            for lang in ("vi", "en"):
+                d_ = os.path.join(HERE, f"screenshots-{lang}", f"{W_}x{H_}")
+                os.makedirs(d_, exist_ok=True)
+                build(c, lang, src, os.path.join(d_, f"{i:02d}-{c['img']}.png"))
     print("done")
