@@ -3,6 +3,7 @@
   "locale": "en_US",
   "path": "/en/",
   "altPath": "/",
+  "splash": { "aria": "Loading the page", "text": "Opening the story" },
   "meta": {
     "title": "Long Ký — A thousand years of Vietnamese history",
     "description": "Long Ký is a history app for Vietnam: from the Hồng Bàng dawn to today, one chapter per era, one cited source per event. Free, no ads."

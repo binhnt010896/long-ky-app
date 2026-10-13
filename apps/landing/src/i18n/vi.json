@@ -3,6 +3,7 @@
   "locale": "vi_VN",
   "path": "/",
   "altPath": "/en/",
+  "splash": { "aria": "Đang tải trang", "text": "Đang mở sử Việt" },
   "meta": {
     "title": "Long Ký — Nghìn năm sử Việt trong tay bạn",
     "description": "Long Ký là ứng dụng lịch sử Việt Nam: từ Hồng Bàng đến nay, mỗi kỷ nguyên một chương, mỗi sự kiện một nguồn sử liệu. Miễn phí, không quảng cáo."
