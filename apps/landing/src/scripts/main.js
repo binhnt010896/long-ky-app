@@ -33,6 +33,14 @@
     }, { rootMargin: '-45% 0px -45% 0px' });
     sections.forEach((s) => io.observe(s));
 
+    // --- Back to top: shown once the footer is on screen ---
+    const toTop = $('[data-totop]');
+    const foot = $('.foot');
+    if (toTop && foot) {
+      toTop.hidden = false;
+      new IntersectionObserver(([e]) => { toTop.classList.toggle('is-on', e.isIntersecting); }, { threshold: 0.2 }).observe(foot);
+    }
+
     // --- Floating download button: after the hero, away at the finale ---
     const dock = $('[data-dock]');
     const hero = $('.hero');
@@ -74,10 +82,11 @@
   }
 
   const canScrub = !reduce && !saveData && 'IntersectionObserver' in window;
-  let ticking = false;
 
+  // No scroll listener: an IntersectionObserver says which hosts are on
+  // screen, and a frame loop runs only while at least one is (or while a
+  // playhead is still easing toward its target).
   function frame() {
-    ticking = false;
     let moving = false;
     for (const it of items) {
       const p = progress(it);
@@ -92,9 +101,28 @@
       if (!v.seeking && Math.abs(t - it.shown) > 0.012) { v.currentTime = t; it.shown = t; }
       else if (v.seeking) moving = true;                   // try again next frame
     }
-    if (moving) schedule();
+    return moving;
   }
-  function schedule() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+
+  let onScreen = 0;
+  let looping = false;
+  function tick() {
+    const moving = frame();
+    if (onScreen > 0 || moving) requestAnimationFrame(tick); else looping = false;
+  }
+  function schedule() { if (!looping) { looping = true; requestAnimationFrame(tick); } }
+
+  if ('IntersectionObserver' in window) {
+    const live = new Set();
+    const hostIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) live.add(e.target); else live.delete(e.target); });
+      onScreen = live.size;
+      schedule();                                          // one more frame settles values as a host leaves
+    });
+    items.forEach((it) => hostIO.observe(it.host));
+  } else {
+    addEventListener('scroll', schedule, { passive: true });
+  }
 
   // --- Splash: load every clip and image up front ---
   // Lazy loading made desktop scrubbing unreliable (a clip only existed once
@@ -179,7 +207,6 @@
     Promise.race([everything, new Promise((r) => setTimeout(r, MAX_WAIT))]).then(() => setTimeout(hide, 250));
   }
 
-  addEventListener('scroll', schedule, { passive: true });
   addEventListener('resize', schedule);
   schedule();
 })();

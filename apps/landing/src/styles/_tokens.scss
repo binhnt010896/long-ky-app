@@ -8,6 +8,11 @@ $parchment: #f2ead9;
 $display: 'Playfair Display', 'Times New Roman', serif;
 $body: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
+// One corner scale: pills for buttons, 16px for containers, 8px inside them.
+$r-sm: 8px;
+$r-md: 16px;
+$r-pill: 999px;
+
 $wide: 900px; // two-column layers from here up
 
 @mixin wide { @media (min-width: $wide) { @content; } }

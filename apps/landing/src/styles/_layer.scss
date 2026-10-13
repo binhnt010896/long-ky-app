@@ -67,9 +67,9 @@
   &__shot {
     grid-row: 1; justify-self: center; align-self: end;
     width: auto; margin-bottom: 1.2rem;
-    @include narrow { img { max-height: 38svh; width: auto; } }
+    @include narrow { img { max-height: 24svh; width: auto; } }
     @include wide { grid-row: auto; grid-column: 2; margin: 0; justify-self: center; }
-    img { border-radius: clamp(14px, 2vw, 26px); box-shadow: 0 0 0 1px var(--gold-border), 0 30px 70px -20px rgba(0, 0, 0, .8), 0 0 60px -10px rgba(var(--tint-rgb, 201, 162, 75), .35); }
+    img { border-radius: $r-md; box-shadow: 0 0 0 1px var(--gold-border), 0 30px 70px -20px rgba($lacquer, .9); }
     @include wide { img { max-height: min(78svh, 46rem); width: auto; } }
   }
   &--flip &__shot { @include wide { grid-column: 1; grid-row: 1; } }
@@ -86,12 +86,53 @@
   }
   &__title { margin-top: .6rem; font: 600 clamp(1.5rem, 3.6vw, 2.5rem)/1.15 $display; color: $parchment; text-wrap: balance; }
   &__body { margin-top: 1rem; max-width: 30rem; color: var(--ink); text-wrap: pretty; }
-  &__stats { margin-top: 1rem; font-size: .85rem; letter-spacing: .04em; color: var(--ink-muted); }
+  &__stats { margin-top: 1rem; }
+
+  // --- Compositions. One per mood, so the descent does not repeat itself. ---
+  // split: copy one side, phone the other (the base layout above).
+  // statement: copy alone, bottom left, set large over the painting.
+  &--statement &__title { font-size: clamp(1.9rem, 4.6vw, 3.4rem); }
+  &--statement &__copy { @include wide { max-width: 40rem; align-self: end; } }
+
+  // center: copy centred over a darkened middle of the art.
+  &--center &__stage { @include wide { grid-template-columns: minmax(0, 1fr); justify-items: center; } }
+  &--center &__copy { @include wide { grid-column: 1; justify-self: center; text-align: center; max-width: 40rem; } }
+  &--center &__body { @include wide { margin-inline: auto; } }
+  &--center &__veil {
+    @include wide {
+      background:
+        radial-gradient(closest-side at 50% 52%, rgba($lacquer, .8) 20%, rgba($lacquer, .35) 100%),
+        linear-gradient(180deg, rgba($lacquer, .6), rgba($lacquer, 0) 22%);
+    }
+  }
+
+  // right: copy hangs in the lower right, the painting keeps the left.
+  &--right &__stage { @include wide { align-items: end; } }
+  &--right &__copy { @include wide { grid-column: 2; justify-self: end; max-width: 30rem; } }
+  &--right &__veil {
+    @include wide {
+      background:
+        linear-gradient(270deg, rgba($lacquer, .94) 0, rgba($lacquer, .6) 40%, rgba($lacquer, .04) 78%),
+        linear-gradient(0deg, rgba($lacquer, .75), rgba($lacquer, 0) 26%),
+        linear-gradient(180deg, rgba($lacquer, .6), rgba($lacquer, 0) 22%);
+    }
+  }
+
+  // diag: year and title top left, one line of body bottom right.
+  &--diag &__stage { @include wide { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: 1fr auto; align-items: stretch; } }
+  &--diag &__copy { @include wide { display: contents; } }
+  &--diag &__head { @include wide { grid-column: 1 / -1; grid-row: 1; align-self: start; max-width: 40rem; } }
+  &--diag &__body { @include wide { grid-column: 2; grid-row: 2; justify-self: end; align-self: end; max-width: 22rem; } }
 }
 
 @include scrolly {
   .layer__img, .layer__video { animation: layer-zoom linear both; animation-timeline: --layer; animation-range: cover 0% cover 72%; }
   .layer__copy { animation: layer-rise linear both; animation-timeline: --layer; animation-range: cover 8% cover 34%; }
+  // display: contents has no box to animate, so the diag layer animates its parts.
+  @media (min-width: $wide) {
+    .layer--diag .layer__copy { animation: none; }
+    .layer--diag .layer__head, .layer--diag .layer__body { animation: layer-rise linear both; animation-timeline: --layer; animation-range: cover 8% cover 34%; }
+  }
   .layer__shot { animation: layer-shot linear both; animation-timeline: --layer; animation-range: cover 10% cover 70%; }
 }
 @keyframes layer-zoom { from { transform: scale(1.22); } to { transform: scale(1); } }

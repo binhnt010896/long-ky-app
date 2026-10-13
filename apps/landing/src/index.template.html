@@ -68,9 +68,8 @@
         <h1 class="hero__title">Long&nbsp;Ký</h1>
         <p class="hero__lead">{{hero.lead}}</p>
         <p class="hero__actions">
-          <a class="btn" href="#download">{{hero.cta}}</a>
+          <a class="btn" href="#download">{{download}}</a>
         </p>
-        <p class="hero__stats">{{{heroStats}}}</p>
       </div>
       <a class="hero__cue" href="#today" aria-label="{{hero.cue}}"><span>{{hero.cue}}</span></a>
       </div>
@@ -91,6 +90,8 @@
         <h2 class="finale__title">{{final.title}}</h2>
         <p class="finale__body">{{final.body}}</p>
 
+        <ul class="stats finale__stats">{{{finalStats}}}</ul>
+
         <div class="get">
           <figure class="get__qr">
             <div class="get__qrcode" role="img" aria-label="{{final.scanAria}}">{{{qr}}}</div>
@@ -98,11 +99,11 @@
           </figure>
           <div class="get__links">
             <a class="store" href="/get/" aria-label="{{final.play}} — {{final.playSub}}">
-              <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M3.6 1.7a1.7 1.7 0 0 0-.6 1.4v17.8c0 .6.2 1 .6 1.4l9.9-10.3L3.6 1.7Zm11.2 9.4 2.9-3L5.6 1.3l9.2 9.8Zm0 1.8-9.2 9.8 12.1-6.8-2.9-3Zm4.1-3.2-2.4 1.3 3 3.2 2.4-1.4c.8-.4.8-1.6 0-2l-3-1.1Z"/></svg>
+              {{{iconPlay}}}
               <span><small>{{final.playSub}}</small>{{final.play}}</span>
             </a>
             <div class="store store--soon" role="group" aria-label="{{final.ios}} — {{final.iosSub}}">
-              <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.700 2.400 2.900 2.300 1.200 0 1.600-.7 3-.7s1.800.7 3 .7c1.300 0 2.100-1.100 2.800-2.200.9-1.300 1.300-2.500 1.300-2.600-.1 0-2.500-1-2.500-3.900ZM14.100 5.700c.6-.8 1.100-1.900.9-3-.9 0-2.100.6-2.700 1.400-.6.700-1.100 1.800-1 2.900 1.100.1 2.200-.5 2.800-1.300Z"/></svg>
+              {{{iconApple}}}
               <span><small>{{final.iosSub}}</small>{{final.ios}}</span>
             </div>
           </div>
@@ -122,6 +123,8 @@
   <div class="dock" data-dock hidden>
     <a class="btn" href="#download">{{download}}</a>
   </div>
+
+  <a class="totop" data-totop href="#top" aria-label="{{toTop}}" hidden>{{{iconUp}}}</a>
 
   <script src="{{{js}}}" defer></script>
 </body>

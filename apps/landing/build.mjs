@@ -127,16 +127,19 @@ async function build() {
         ? `<figure class="layer__shot">${picture(`shot-${lang}-${l.shot}`, [520], { sizes: '(min-width: 900px) 320px, 70vw', alt: `${t.alt.shot} — ${c.label}`, width: 520, height: l.shotH || 924 })}</figure>`
         : '';
       const stats = l.id === 'today'
-        ? `<p class="layer__stats"><b>${nf(counts.streets, lang)}</b> ${t.stats.streets} · <b>${nf(counts.people, lang)}</b> ${t.stats.people}</p>`
+        ? `<ul class="stats layer__stats"><li><b>${nf(counts.streets, lang)}</b> ${t.stats.streets}</li><li><b>${nf(counts.people, lang)}</b> ${t.stats.people}</li></ul>`
         : '';
+      const kicker = c.kicker ? `<p class="kicker">${esc(c.kicker)}</p>` : '';
       return `
-    <section class="layer${l.shot ? ' layer--shot' : ''}${i % 2 ? ' layer--flip' : ''}${l.bright ? ' layer--bright' : ''}" id="${l.id}" data-layer="${l.id}" data-scrub-host data-period="${l.period}" data-year="${esc(year)}" data-accent="${l.accent}" style="--accent:${l.accent}${l.focus ? `;--focus:${l.focus}` : ''}">
+    <section class="layer layer--${l.layout || 'split'}${l.shot ? ' layer--shot' : ''}${l.flip ? ' layer--flip' : ''}${l.bright ? ' layer--bright' : ''}" id="${l.id}" data-layer="${l.id}" data-scrub-host data-period="${l.period}" data-year="${esc(year)}" data-accent="${l.accent}" style="--accent:${l.accent}${l.focus ? `;--focus:${l.focus}` : ''}">
       <div class="layer__stage">
         <div class="layer__bg" aria-hidden="true">${art}${video}<span class="layer__veil"></span></div>
         <div class="layer__copy">
-          <p class="kicker">${esc(c.kicker)}</p>
-          <p class="layer__year" aria-hidden="true">${esc(year)}</p>
-          <h2 class="layer__title">${esc(c.title)}</h2>
+          ${kicker}
+          <div class="layer__head">
+            <p class="layer__year" aria-hidden="true">${esc(year)}</p>
+            <h2 class="layer__title">${esc(c.title)}</h2>
+          </div>
           <p class="layer__body">${esc(c.body)}</p>
           ${stats}
         </div>
@@ -145,7 +148,10 @@ async function build() {
     </section>`;
     }).join('\n');
 
-    const heroStats = `<b>${nf(counts.eras, lang)}</b> ${t.stats.eras} · <b>${nf(counts.events, lang)}</b> ${t.stats.events} · <b>${nf(counts.people, lang)}</b> ${t.stats.people} · <b>${nf(counts.streets, lang)}</b> ${t.stats.streets}`;
+    const finalStats = ['eras', 'events', 'people', 'streets'].map((k) => `<li><b>${nf(counts[k], lang)}</b> ${t.stats[k]}</li>`).join('');
+    // Store glyphs come from Phosphor (the icon set this site uses), not hand-drawn paths.
+    const icon = (name) => readFileSync(join(here, 'node_modules/@phosphor-icons/core/assets/fill', `${name}-fill.svg`), 'utf8')
+      .replace(' xmlns="http://www.w3.org/2000/svg"', ' width="28" height="28" aria-hidden="true" focusable="false"');
 
     const jsonld = JSON.stringify({
       '@context': 'https://schema.org', '@type': 'MobileApplication',
@@ -157,7 +163,8 @@ async function build() {
 
     const data = {
       ...t, origin: ORIGIN, altLang: other, css: `/${cssName}`, js: `/${jsName}`,
-      layers: layersHtml, railHtml: rail, heroStats, jsonld,
+      layers: layersHtml, railHtml: rail, finalStats, jsonld,
+      iconPlay: icon('google-play-logo'), iconUp: icon('arrow-up'), iconApple: icon('apple-logo'),
       heroVideo: usedVideos.includes('dragon.mp4') ? '<video muted playsinline preload="none" data-scrub data-src="/assets/video/dragon.mp4" data-from="0" data-to="5" tabindex="-1" aria-hidden="true"></video>' : '',
       qr: qr.replace('<svg', '<svg aria-hidden="true" focusable="false"'),
       finalYear: lang === 'en' ? '2879 BCE' : '2879 TCN',
