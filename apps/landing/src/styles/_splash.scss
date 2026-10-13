@@ -1,0 +1,24 @@
+@use 'tokens' as *;
+
+// Full-screen loader shown only when JS runs. If the script never finishes,
+// the failsafe animation lifts it after 40 s so the page is never stuck.
+.splash {
+  display: none;
+  .js & {
+    position: fixed; inset: 0; z-index: 1000;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.1rem;
+    background: var(--lacquer); color: var(--parchment);
+    transition: opacity .6s ease, visibility .6s;
+    animation: splash-failsafe 0s 40s forwards;
+  }
+  &.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
+  &__seal { width: 6rem; height: 6rem; }
+  &__name { margin: 0; font: 600 1.6rem/1 $display; letter-spacing: .04em; color: var(--gold-bright); }
+  &__track {
+    width: min(16rem, 60vw); height: 2px; background: var(--hairline); overflow: hidden;
+    span { display: block; height: 100%; background: var(--gold); transform-origin: 0 50%; transform: scaleX(0); transition: transform .25s ease-out; }
+  }
+  &__pct { margin: 0; font: 400 .8rem/1 $body; letter-spacing: .08em; color: var(--ink-muted); }
+}
+html.is-loading { overflow: hidden; }
+@keyframes splash-failsafe { to { opacity: 0; visibility: hidden; pointer-events: none; } }

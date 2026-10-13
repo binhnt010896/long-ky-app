@@ -1,0 +1,68 @@
+{
+  "lang": "vi",
+  "locale": "vi_VN",
+  "path": "/",
+  "altPath": "/en/",
+  "splash": { "aria": "Đang tải trang", "text": "Đang mở sử Việt" },
+  "meta": {
+    "title": "Long Ký — Nghìn năm sử Việt trong tay bạn",
+    "description": "Long Ký là ứng dụng lịch sử Việt Nam: từ Hồng Bàng đến nay, mỗi kỷ nguyên một chương, mỗi sự kiện một nguồn sử liệu. Miễn phí, không quảng cáo."
+  },
+  "skip": "Bỏ qua, đến phần tải ứng dụng",
+  "brandAria": "Long Ký — về đầu trang",
+  "download": "Tải ứng dụng",
+  "switchLang": "English",
+  "switchLangAria": "Read this page in English",
+  "hero": {
+    "eyebrow": "LỊCH SỬ VIỆT NAM, TRONG TAY BẠN",
+    "lead": "Nghìn năm sử Việt. Đọc, xem và học qua từng kỷ nguyên, với nguồn sử liệu luôn hiện rõ.",
+    "cta": "Tải Long Ký",
+    "cue": "Scroll để khám phá"
+  },
+  "rail": {
+    "aria": "Dòng thời gian",
+    "today": "2026"
+  },
+  "stats": {
+    "streets": "tên đường",
+    "people": "nhân vật",
+    "events": "sự kiện",
+    "eras": "kỷ nguyên"
+  },
+  "final": {
+    "kicker": "TỪ ĐẦU",
+    "title": "Bây giờ, hãy bắt đầu từ đầu.",
+    "body": "Long Ký mở ra ở Hồng Bàng và đi tiếp về hôm nay. Miễn phí, không quảng cáo. Nếu thích, mời Long Ký một chén trà.",
+    "scan": "Quét bằng điện thoại",
+    "scanAria": "Mã QR tải Long Ký",
+    "play": "Google Play",
+    "playSub": "Sắp ra mắt",
+    "ios": "App Store",
+    "iosSub": "Sắp ra mắt",
+    "support": "Cần giúp đỡ, hoặc thấy một chỗ sai?",
+    "supportCta": "help@long-ky.com"
+  },
+  "footer": {
+    "privacy": "Chính sách quyền riêng tư",
+    "ai": "Hình minh họa được tạo với sự hỗ trợ của AI. Mỗi trang trong ứng dụng ghi rõ nguồn sử liệu.",
+    "rights": "© 2026 Long Ký"
+  },
+  "get": {
+    "title": "Long Ký sắp có trên Google Play và App Store",
+    "body": "Long Ký đang trong giai đoạn thử nghiệm kín. Khi ứng dụng lên cửa hàng, mã QR này sẽ đưa bạn thẳng đến trang tải.",
+    "back": "Về trang chủ",
+    "mail": "Muốn được báo khi ra mắt? Viết cho chúng tôi:"
+  },
+  "alt": {
+    "dragon": "Con rồng vàng trên nền sơn mài",
+    "shot": "Màn hình ứng dụng Long Ký"
+  },
+  "privacy": {
+    "kicker": "QUYỀN RIÊNG TƯ",
+    "title": "Chính sách quyền riêng tư",
+    "updatedLabel": "Cập nhật lần cuối",
+    "description": "Long Ký không thu thập dữ liệu cá nhân. Chính sách này giải thích ứng dụng thu thập gì, và quan trọng hơn, không thu thập gì."
+  },
+  "privacyPath": "/privacy/",
+  "altPrivacyPath": "/en/privacy/"
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{privacy.title}} — Long Ký</title>
+  <meta name="description" content="{{privacy.description}}">
+  <meta name="theme-color" content="#07100f">
+  <link rel="canonical" href="{{{origin}}}{{privacyPath}}">
+  <link rel="alternate" hreflang="vi" href="{{{origin}}}/privacy/">
+  <link rel="alternate" hreflang="en" href="{{{origin}}}/en/privacy/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/BeVietnamPro-Regular.woff2" crossorigin>
+  <link rel="stylesheet" href="{{{css}}}">
+</head>
+<body class="legal-page">
+  <header class="bar">
+    <a class="bar__brand" href="{{path}}" aria-label="{{brandAria}}">
+      <img src="/assets/img/seal-256.webp" width="32" height="32" alt="">
+      <span>Long Ký</span>
+    </a>
+    <nav class="bar__nav">
+      <a class="bar__lang" href="{{altPrivacyPath}}" hreflang="{{altLang}}" lang="{{altLang}}" aria-label="{{switchLangAria}}">{{switchLang}}</a>
+    </nav>
+  </header>
+  <main class="legal">
+    <p class="kicker">{{privacy.kicker}}</p>
+    <h1>{{privacy.title}}</h1>
+    <p class="legal__updated">{{privacy.updatedLabel}}: {{{privacyUpdated}}}</p>
+    {{{privacyBody}}}
+    <p class="legal__back"><a class="btn" href="{{path}}">{{get.back}}</a></p>
+  </main>
+  <footer class="foot">
+    <p>{{footer.rights}}</p>
+    <p><a href="mailto:help@long-ky.com">help@long-ky.com</a></p>
+  </footer>
+</body>
+</html>

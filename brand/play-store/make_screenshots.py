@@ -129,7 +129,8 @@ def build(card, lang, out):
     img.alpha_composite(ph, (px, py))
     img.convert("RGB").save(out, optimize=True)
 
-for i, c in enumerate(CARDS, 1):
-    for lang, dirn in (("vi", "screenshots-vi"), ("en", "screenshots-en")):
-        build(c, lang, f"{dirn}/{i:02d}-{c['img']}.png")
-print("done")
+if __name__ == "__main__":
+    for i, c in enumerate(CARDS, 1):
+        for lang, dirn in (("vi", "screenshots-vi"), ("en", "screenshots-en")):
+            build(c, lang, f"{dirn}/{i:02d}-{c['img']}.png")
+    print("done")

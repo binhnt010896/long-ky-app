@@ -1,0 +1,103 @@
+@use 'tokens' as *;
+
+// One layer = one pinned full-screen scene on a tall runway of scroll.
+.layer {
+  position: relative;
+  min-height: 100svh;
+  @include scrolly { height: 250svh; view-timeline: --layer block; }
+
+  &__stage {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: end;
+    padding: calc(var(--bar-h) + 1rem) 2.6rem 5.5rem var(--gutter);
+    overflow: hidden;
+    isolation: isolate;
+    @include scrolly { position: sticky; top: 0; height: 100svh; }
+    @include wide {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: center;
+      padding: calc(var(--bar-h) + 2rem) clamp(4rem, 7vw, 7rem) 3rem var(--gutter);
+      gap: clamp(2rem, 6vw, 6rem);
+    }
+  }
+
+  &__bg { position: absolute; inset: 0; z-index: -1; background: $lacquer; }
+  &__img, &__video { position: absolute; inset: 0; width: 100%; height: 100%; }
+  &__img img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50% 50%); }
+  &__img--plain { background: radial-gradient(80% 60% at 70% 40%, rgba(var(--tint-rgb, 201, 162, 75), .25), $lacquer); }
+  &__video { object-fit: cover; object-position: var(--focus, 50% 50%); opacity: 0; transition: opacity .8s; &.is-ready { opacity: 1; } }
+  &__veil {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(0deg, rgba($lacquer, .94) 0, rgba($lacquer, .55) 38%, rgba($lacquer, .1) 70%),
+      linear-gradient(180deg, rgba($lacquer, .6), rgba($lacquer, 0) 22%);
+    @include wide {
+      background:
+        linear-gradient(90deg, rgba($lacquer, .92) 0, rgba($lacquer, .62) 38%, rgba($lacquer, .06) 78%),
+        linear-gradient(0deg, rgba($lacquer, .75), rgba($lacquer, 0) 26%),
+        linear-gradient(180deg, rgba($lacquer, .6), rgba($lacquer, 0) 22%);
+    }
+  }
+  // A bright daytime cover needs a heavier veil to keep the headline legible.
+  &--bright &__veil {
+    background:
+      linear-gradient(0deg, rgba($lacquer, .97) 0, rgba($lacquer, .8) 45%, rgba($lacquer, .35) 80%),
+      linear-gradient(180deg, rgba($lacquer, .6), rgba($lacquer, 0) 22%);
+    @include wide {
+      background:
+        linear-gradient(90deg, rgba($lacquer, .96) 0, rgba($lacquer, .82) 42%, rgba($lacquer, .25) 85%),
+        linear-gradient(0deg, rgba($lacquer, .75), rgba($lacquer, 0) 26%),
+        linear-gradient(180deg, rgba($lacquer, .6), rgba($lacquer, 0) 22%);
+    }
+  }
+  &--flip &__veil {
+    @include wide {
+      background:
+        linear-gradient(270deg, rgba($lacquer, .92) 0, rgba($lacquer, .62) 38%, rgba($lacquer, .06) 78%),
+        linear-gradient(0deg, rgba($lacquer, .75), rgba($lacquer, 0) 26%),
+        linear-gradient(180deg, rgba($lacquer, .6), rgba($lacquer, 0) 22%);
+    }
+  }
+
+  &__copy { grid-row: 2; max-width: 34rem; @include wide { grid-row: auto; grid-column: 1; } }
+  &--flip &__copy { @include wide { grid-column: 2; justify-self: end; } }
+  &__shot {
+    grid-row: 1; justify-self: center; align-self: end;
+    width: auto; margin-bottom: 1.2rem;
+    @include narrow { img { max-height: 38svh; width: auto; } }
+    @include wide { grid-row: auto; grid-column: 2; margin: 0; justify-self: center; }
+    img { border-radius: clamp(14px, 2vw, 26px); box-shadow: 0 0 0 1px var(--gold-border), 0 30px 70px -20px rgba(0, 0, 0, .8), 0 0 60px -10px rgba(var(--tint-rgb, 201, 162, 75), .35); }
+    @include wide { img { max-height: min(78svh, 46rem); width: auto; } }
+  }
+  &--flip &__shot { @include wide { grid-column: 1; grid-row: 1; } }
+  &--shot.layer--flip &__copy { @include wide { grid-column: 2; } }
+
+  &__year {
+    margin-top: .5rem;
+    font: 700 clamp(3.6rem, 11vw, 8.5rem)/.95 $display;
+    font-variant-numeric: lining-nums;
+    letter-spacing: -.02em;
+    color: color-mix(in srgb, var(--accent) 22%, transparent);
+    -webkit-text-stroke: 1.5px color-mix(in srgb, var(--accent) 45%, $gold-bright);
+    paint-order: stroke fill;
+  }
+  &__title { margin-top: .6rem; font: 600 clamp(1.5rem, 3.6vw, 2.5rem)/1.15 $display; color: $parchment; text-wrap: balance; }
+  &__body { margin-top: 1rem; max-width: 30rem; color: var(--ink); text-wrap: pretty; }
+  &__stats { margin-top: 1rem; font-size: .85rem; letter-spacing: .04em; color: var(--ink-muted); }
+}
+
+@include scrolly {
+  .layer__img, .layer__video { animation: layer-zoom linear both; animation-timeline: --layer; animation-range: cover 0% cover 72%; }
+  .layer__copy { animation: layer-rise linear both; animation-timeline: --layer; animation-range: cover 8% cover 34%; }
+  .layer__shot { animation: layer-shot linear both; animation-timeline: --layer; animation-range: cover 10% cover 70%; }
+}
+@keyframes layer-zoom { from { transform: scale(1.22); } to { transform: scale(1); } }
+@keyframes layer-rise { from { opacity: 0; transform: translateY(2.5rem); } to { opacity: 1; transform: none; } }
+@keyframes layer-shot {
+  0% { opacity: 0; transform: translateY(5rem) rotate(1.5deg); }
+  40% { opacity: 1; transform: none; }
+  100% { opacity: 1; transform: translateY(-2rem); }
+}
