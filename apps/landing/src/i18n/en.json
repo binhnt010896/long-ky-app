@@ -54,5 +54,13 @@
   "alt": {
     "dragon": "A golden dragon on lacquer",
     "shot": "A Long Ký app screen"
-  }
+  },
+  "privacy": {
+    "kicker": "PRIVACY",
+    "title": "Privacy policy",
+    "updatedLabel": "Last updated",
+    "description": "Long Ký collects no personal data. This policy explains what the app collects and, more importantly, what it does not."
+  },
+  "privacyPath": "/en/privacy/",
+  "altPrivacyPath": "/privacy/"
 }

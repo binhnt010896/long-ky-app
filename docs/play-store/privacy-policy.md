@@ -1,16 +1,13 @@
 # Long Ký — Chính sách quyền riêng tư / Privacy Policy
 
-> **For binh-nt.dev.** Suggested URL: `binh-nt.dev/long-ky/privacy` (a quiet
-> subpage; your portfolio doesn't need to link to it — Google Play just needs
-> a stable public URL). Paste the section below into your site as its own
-> page. Fill in the two `[…]` placeholders (contact email, last-updated date)
-> before publishing.
+> The policy is published at `long-ky.com/privacy` (and `/en/privacy/`),
+> built from this file by `apps/landing/build.mjs`. Edit it here, then rebuild.
 
 ---
 
 ## Tiếng Việt
 
-**Cập nhật lần cuối: [ngày/tháng/năm]**
+**Cập nhật lần cuối: 13/10/2026**
 
 Long Ký ("ứng dụng") là ứng dụng đọc sử Việt do một cá nhân phát triển. Chúng
 tôi coi trọng quyền riêng tư của bạn. Chính sách này giải thích Long Ký thu
@@ -64,7 +61,7 @@ này, với ngày cập nhật ở đầu trang.
 
 ### 7. Liên hệ
 
-Có câu hỏi về quyền riêng tư? Liên hệ: **[email liên hệ của bạn]**
+Có câu hỏi về quyền riêng tư? Liên hệ: **help@long-ky.com**
 
 ### 8. Thống kê sử dụng ẩn danh và báo lỗi
 
@@ -93,7 +90,7 @@ email này để sửa nội dung và trả lời bạn; ứng dụng không t�
 
 ## English
 
-**Last updated: [date]**
+**Last updated: October 13, 2026**
 
 Long Ký ("the app") is a Vietnamese-history reading app built by an
 independent developer. This policy explains what Long Ký collects — and,
@@ -145,7 +142,7 @@ address, with the updated date at the top.
 
 ### 7. Contact
 
-Questions about privacy? Contact: **[your contact email]**
+Questions about privacy? Contact: **help@long-ky.com**
 
 ### 8. Anonymous usage statistics and crash reporting
 

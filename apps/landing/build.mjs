@@ -35,6 +35,37 @@ function picture(name, widths, { sizes = '100vw', alt = '', lazy = true, width, 
   return `<picture${cls ? ` class="${cls}"` : ''}><source type="image/avif" srcset="${set('avif')}" sizes="${sizes}"><img src="/assets/img/${name}-${widths[0]}.webp" srcset="${set('webp')}" sizes="${sizes}" alt="${esc(alt)}"${lazy ? ' loading="lazy" decoding="async"' : ''}${width ? ` width="${width}" height="${height}"` : ''}></picture>`;
 }
 
+
+/** The policy is edited as markdown in docs/play-store/privacy-policy.md. */
+function inlineMd(t) {
+  return esc(t)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\[([^\]]+)\]\((https?:[^)]+)\)/g, '<a href="$2" rel="noopener">$1</a>')
+    .replace(/(^|[\s>(])(help@long-ky\.com)/g, '$1<a href="mailto:$2">$2</a>');
+}
+function mdToHtml(md) {
+  const out = [];
+  for (const block of md.trim().split(/\n\s*\n/)) {
+    const b = block.trim();
+    if (!b || /^-{3,}$/.test(b)) continue;
+    if (b.startsWith('### ')) out.push(`<h2>${inlineMd(b.slice(4))}</h2>`);
+    else out.push(`<p>${inlineMd(b.replace(/\n/g, ' '))}</p>`);
+  }
+  return out.join('\n');
+}
+function policyFor(lang) {
+  const md = read(join(repo, 'docs/play-store/privacy-policy.md'));
+  const vi = md.indexOf('## Tiếng Việt'), en = md.indexOf('## English');
+  if (vi < 0 || en < 0) throw new Error('privacy-policy.md: expected "## Tiếng Việt" and "## English" headings');
+  let part = lang === 'vi' ? md.slice(vi + '## Tiếng Việt'.length, en) : md.slice(en + '## English'.length);
+  // The "last updated" line is shown in the page header, not in the body.
+  const m = part.match(/\*\*(?:Cập nhật lần cuối|Last updated):\s*([^*]+)\*\*/);
+  if (!m) throw new Error('privacy-policy.md: missing the last-updated line');
+  part = part.replace(m[0], '');
+  if (/\[[^\]]*\](?!\()/.test(part.replace(/\[[^\]]+\]\([^)]+\)/g, ''))) throw new Error('privacy-policy.md still has a [placeholder]');
+  return { html: mdToHtml(part), updated: m[1].trim() };
+}
+
 async function build() {
   rmSync(dist, { recursive: true, force: true });
   mkdirSync(join(dist, 'assets'), { recursive: true });
@@ -134,13 +165,16 @@ async function build() {
     mkdirSync(join(outDir, 'get'), { recursive: true });
     writeFileSync(join(outDir, 'index.html'), render(read(join(src, 'index.template.html')), data));
     writeFileSync(join(outDir, 'get/index.html'), render(read(join(src, 'get.template.html')), data));
+    const pol = policyFor(lang);
+    mkdirSync(join(outDir, 'privacy'), { recursive: true });
+    writeFileSync(join(outDir, 'privacy/index.html'), render(read(join(src, 'privacy.template.html')), { ...data, privacyBody: pol.html, privacyUpdated: esc(pol.updated) }));
   }
 
   // --- Crawl files ---
   writeFileSync(join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /get/\nSitemap: ${ORIGIN}/sitemap.xml\n`);
   writeFileSync(join(dist, 'sitemap.xml'),
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
-    ['/', '/en/'].map((p) => `  <url><loc>${ORIGIN}${p}</loc><xhtml:link rel="alternate" hreflang="vi" href="${ORIGIN}/"/><xhtml:link rel="alternate" hreflang="en" href="${ORIGIN}/en/"/></url>`).join('\n') +
+    ['/', '/en/', '/privacy/', '/en/privacy/'].map((p) => `  <url><loc>${ORIGIN}${p}</loc>${p.includes('privacy') ? `<xhtml:link rel="alternate" hreflang="vi" href="${ORIGIN}/privacy/"/><xhtml:link rel="alternate" hreflang="en" href="${ORIGIN}/en/privacy/"/>` : `<xhtml:link rel="alternate" hreflang="vi" href="${ORIGIN}/"/><xhtml:link rel="alternate" hreflang="en" href="${ORIGIN}/en/"/>`}</url>`).join('\n') +
     `\n</urlset>\n`);
   console.log(`built → ${dist}  (${cssName}, ${jsName})`);
 }

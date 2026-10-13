@@ -54,5 +54,13 @@
   "alt": {
     "dragon": "Con rồng vàng trên nền sơn mài",
     "shot": "Màn hình ứng dụng Long Ký"
-  }
+  },
+  "privacy": {
+    "kicker": "QUYỀN RIÊNG TƯ",
+    "title": "Chính sách quyền riêng tư",
+    "updatedLabel": "Cập nhật lần cuối",
+    "description": "Long Ký không thu thập dữ liệu cá nhân. Chính sách này giải thích ứng dụng thu thập gì, và quan trọng hơn, không thu thập gì."
+  },
+  "privacyPath": "/privacy/",
+  "altPrivacyPath": "/en/privacy/"
 }
