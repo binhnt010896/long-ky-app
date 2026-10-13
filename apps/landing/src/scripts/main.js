@@ -96,21 +96,87 @@
   }
   function schedule() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
 
-  if (canScrub) {
-    // Fetch a clip when its section is within about a screen of the viewport.
-    const lio = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        const it = items.find((x) => x.host === e.target);
-        const v = it && it.video;
-        if (!v || v.src) return;
-        v.addEventListener('loadedmetadata', () => { it.loaded = true; it.pos = progress(it); schedule(); }, { once: true });
-        v.addEventListener('seeked', () => { v.classList.add('is-ready'); schedule(); });
-        v.src = v.dataset.src;
+  // --- Splash: load every clip and image up front ---
+  // Lazy loading made desktop scrubbing unreliable (a clip only existed once
+  // its section had been reached and fetched). Instead everything is fetched
+  // while the splash is up. Clips are downloaded whole into memory and played
+  // from a blob: URL, so seeking never waits on the network or Range requests.
+  const splash = $('[data-splash]');
+  const bar = $('[data-splash-bar]');
+  const pct = $('[data-splash-pct]');
+  const root = document.documentElement;
+  const clips = canScrub ? items.filter((it) => it.video) : [];
+  const IMG_BYTES = 120e3;            // rough weight of one image in the progress bar
+  const imgs = $$('img').filter((img) => img.closest('main'));
+  imgs.forEach((img) => { img.loading = 'eager'; });
+
+  let clipTotal = 0, clipDone = 0, imgDone = 0;
+  let shownPct = 0;
+  const imgTotal = imgs.length * IMG_BYTES;
+  function paint() {
+    const total = Math.max(1, clipTotal + imgTotal);
+    const p = Math.min(1, (clipDone + imgDone * IMG_BYTES) / total);
+    shownPct = Math.max(shownPct, p);
+    const n = Math.round(shownPct * 100);
+    if (bar) bar.style.transform = `scaleX(${shownPct.toFixed(3)})`;
+    if (pct) pct.textContent = n + '%';
+  }
+
+  const imgJobs = imgs.map((img) => new Promise((done) => {
+    const fin = () => { imgDone++; paint(); done(); };
+    if (img.complete && img.naturalWidth) return fin();
+    img.addEventListener('load', fin, { once: true });
+    img.addEventListener('error', fin, { once: true });
+  }));
+
+  async function fetchClip(it) {
+    const v = it.video;
+    let last = 0;
+    try {
+      const res = await fetch(v.dataset.src);
+      if (!res.ok || !res.body) throw new Error(res.status);
+      const len = +res.headers.get('content-length') || 0;
+      if (len) clipTotal += len; else clipTotal += 5e6;
+      const chunks = [];
+      const reader = res.body.getReader();
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+        clipDone += value.length; last += value.length; paint();
+      }
+      if (!len) clipTotal += last - 5e6;
+      v.preload = 'auto';
+      v.src = URL.createObjectURL(new Blob(chunks, { type: 'video/mp4' }));
+      await new Promise((ok) => {
+        v.addEventListener('loadedmetadata', () => { it.loaded = true; it.pos = progress(it); schedule(); ok(); }, { once: true });
+        v.addEventListener('error', ok, { once: true });
         v.load();
       });
-    }, { rootMargin: '100% 0px' });
-    items.forEach((it) => it.video && lio.observe(it.host));
+      v.addEventListener('seeked', () => { v.classList.add('is-ready'); schedule(); });
+      v.currentTime = 0;             // paint a first frame so the fade-in has something to show
+    } catch (_) { /* the still image under the clip stays; nothing else breaks */ }
+  }
+
+  // Clips are fetched one after another in page order, so the hero is ready
+  // first and the rest do not compete for bandwidth.
+  const clipJobs = (async () => { for (const it of clips) await fetchClip(it); })();
+
+  const fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready.catch(() => {}) : Promise.resolve();
+  const everything = Promise.all([clipJobs, ...imgJobs, fontsReady]);
+  const MAX_WAIT = 30000;             // slow connection: let them in, loading carries on behind the page
+  const hide = () => {
+    if (!splash || splash.hidden) return;
+    shownPct = 1; paint();
+    root.classList.remove('is-loading');
+    splash.classList.add('is-done');
+    setTimeout(() => { splash.hidden = true; }, 700);
+    schedule();
+  };
+  if (splash) {
+    root.classList.add('is-loading');
+    paint();
+    Promise.race([everything, new Promise((r) => setTimeout(r, MAX_WAIT))]).then(() => setTimeout(hide, 250));
   }
 
   addEventListener('scroll', schedule, { passive: true });

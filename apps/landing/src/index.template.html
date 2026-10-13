@@ -28,6 +28,12 @@
   <script type="application/ld+json">{{{jsonld}}}</script>
 </head>
 <body>
+  <div class="splash" data-splash role="status" aria-live="polite" aria-label="{{splash.aria}}">
+    <img class="splash__seal" src="/assets/img/seal-256.webp" width="96" height="96" alt="">
+    <p class="splash__name">Long Ký</p>
+    <div class="splash__track" aria-hidden="true"><span data-splash-bar></span></div>
+    <p class="splash__pct" aria-hidden="true"><span data-splash-pct>0%</span> · {{splash.text}}</p>
+  </div>
   <a class="skip" href="#download">{{skip}}</a>
   <div class="tint" aria-hidden="true"></div>
 
