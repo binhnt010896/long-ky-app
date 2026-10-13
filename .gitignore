@@ -95,3 +95,7 @@ tool/node_modules/
 brand/landing/video-originals/
 brand/landing/video-upscaled/
 brand/landing/ho-chi-minh-2026-upscaled.png
+
+# App Store screenshot exports (generated, kept locally)
+brand/app-store/screenshots-en/
+brand/app-store/screenshots-vi/
