@@ -4,7 +4,7 @@
     "period": "ky-nguyen-moi",
     "accent": "#e0b43c",
     "year": "2026",
-    "art": null,
+    "art": "hcm-2026",
     "shot": "street",
     "shotH": 1040,
     "vi": {
@@ -18,14 +18,15 @@
       "kicker": "TODAY",
       "title": "Under every street name lies a thousand years.",
       "body": "You pass Trần Hưng Đạo, Lê Lợi and Hai Bà Trưng every day. The street map tells you who they were, when they lived, and why their names are on your street."
-    }
+    },
+    "bright": true
   },
   {
     "id": "khang-chien",
     "period": "khang-chien-chong-phap",
     "accent": "#b23a2e",
     "year": "1954",
-    "art": "khang-chien",
+    "art": "poster-dbp",
     "shot": "khang-chien",
     "vi": {
       "label": "Kháng chiến chống Pháp",
@@ -38,14 +39,20 @@
       "kicker": "NINE YEARS TO DIỆN BIÊN",
       "title": "Nine years of resistance, ending at Điện Biên Phủ.",
       "body": "Every event in Long Ký carries its sources, so you can check the record for yourself instead of taking a story on trust."
-    }
+    },
+    "video": "dien-bien-phu",
+    "videoRange": [
+      0.5,
+      5.0
+    ],
+    "focus": "50% 8%"
   },
   {
     "id": "tay-son",
     "period": "tay-son",
     "accent": "#c0392b",
     "year": "1789",
-    "art": "tay-son",
+    "art": "poster-tay-son",
     "shot": "quang-trung",
     "vi": {
       "label": "Nhà Tây Sơn",
@@ -58,14 +65,19 @@
       "kicker": "CLOTH ROBES, PEACH-RED BANNERS",
       "title": "Spring 1789: cloth robes and peach-red banners.",
       "body": "Quang Trung and the Tây Sơn army march north. Meet them through figures who have their own pages, with the streets that carry their names."
-    }
+    },
+    "video": "tay-son",
+    "videoRange": [
+      0,
+      5.0
+    ]
   },
   {
     "id": "tran",
     "period": "nha-tran",
     "accent": "#9c3a2f",
     "year": "1288",
-    "art": "nha-tran",
+    "art": "poster-nha-tran",
     "video": "nha-tran",
     "shot": null,
     "vi": {
@@ -79,7 +91,11 @@
       "kicker": "THE SPIRIT OF ĐÔNG A",
       "title": "The Bạch Đằng River, fire upon the water.",
       "body": "In 1288 the Trần army destroyed the invading fleet on the Bạch Đằng. See the territory change from age to age on the atlas."
-    }
+    },
+    "videoRange": [
+      0,
+      5.0
+    ]
   },
   {
     "id": "ly",

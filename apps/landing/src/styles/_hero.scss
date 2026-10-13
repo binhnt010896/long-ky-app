@@ -3,12 +3,24 @@
 .hero {
   position: relative;
   min-height: 100svh;
-  display: grid;
-  align-items: center;
-  padding: calc(var(--bar-h) + 2rem) var(--gutter) 7rem;
-  overflow: hidden;
-  isolation: isolate;
-  background: radial-gradient(60% 55% at 28% 55%, rgba($gold, .07), transparent 70%);
+  // overflow: clip (not hidden) so the sticky stage still pins inside it.
+  overflow: clip;
+
+  // With JS the hero is pinned for one extra screen of scroll, so the
+  // dragon moves while it is fully in view (see main.js, --hero-p).
+  .js & { height: 200svh; @include calm { height: auto; } }
+
+  &__stage {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    align-items: center;
+    padding: calc(var(--bar-h) + 2rem) var(--gutter) 7rem;
+    overflow: hidden;
+    isolation: isolate;
+    background: radial-gradient(60% 55% at 28% 55%, rgba($gold, .07), transparent 70%);
+    .js & { position: sticky; top: 0; height: 100svh; @include calm { position: relative; height: auto; } }
+  }
 
   &__art {
     position: absolute; z-index: -1; inset: 0;
@@ -19,7 +31,7 @@
         linear-gradient(90deg, rgba($lacquer, .35), rgba($lacquer, .1));
     }
     picture, img, video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 8%; }
-    video { opacity: 0; transition: opacity 1.2s; &.is-playing { opacity: 1; } &.is-fading { opacity: 0; transition-duration: .9s; } }
+    video { opacity: 0; transition: opacity .8s; &.is-ready { opacity: 1; } }
     @include wide {
       // Wider than the painting's own 9:16, and faded with a mask rather than
       // a colour overlay: the art's dark red never matches the page, so any
@@ -32,7 +44,12 @@
     }
   }
 
-  &__copy { max-width: 36rem; align-self: end; @include wide { align-self: center; } }
+  &__copy {
+    max-width: 36rem; align-self: end;
+    @include wide { align-self: center; }
+    // fades out over the last 30% of the pin
+    opacity: calc(1 - clamp(0, (var(--hero-p, 0) - .7) / .3, 1));
+  }
   &__title {
     margin-top: .8rem;
     // line-height and bottom padding leave room for the descender of the g:
@@ -54,6 +71,7 @@
     display: grid; justify-items: center; gap: .7rem;
     font: 500 .68rem/1 $body; letter-spacing: .22em; text-transform: uppercase;
     color: var(--ink-muted); text-decoration: none;
+    opacity: calc(1 - clamp(0, var(--hero-p, 0) * 8, 1));
     &::after {
       content: ''; width: 1px; height: 2.6rem;
       background: linear-gradient($gold, transparent);
@@ -63,11 +81,3 @@
   }
 }
 @keyframes cue { 0% { transform: scaleY(0); opacity: 0; } 40% { opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
-
-@include scrolly {
-  .hero__art { animation: hero-drift linear both; animation-timeline: view(); animation-range: exit 0% exit 90%; }
-  .hero__copy { animation: hero-out linear both; animation-timeline: view(); animation-range: exit 0% exit 55%; }
-  .hero__cue { animation: hero-out linear both; animation-timeline: view(); animation-range: exit 0% exit 25%; }
-}
-@keyframes hero-drift { to { transform: translateY(-9svh) scale(1.08); } }
-@keyframes hero-out { to { opacity: 0; transform: translateY(-3rem); } }

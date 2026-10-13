@@ -36,7 +36,8 @@
     "scanAria": "QR code to get Long Ký",
     "play": "Google Play",
     "playSub": "Coming soon",
-    "ios": "iOS: coming.",
+    "ios": "App Store",
+    "iosSub": "Coming soon",
     "support": "Need help, or spotted a mistake?",
     "supportCta": "help@long-ky.com"
   },
@@ -46,8 +47,8 @@
     "rights": "© 2026 Long Ký"
   },
   "get": {
-    "title": "Long Ký is coming to Google Play",
-    "body": "Long Ký is in closed testing. Once the app is on Google Play, this QR code will take you straight to the download page.",
+    "title": "Long Ký is coming to Google Play and the App Store",
+    "body": "Long Ký is in closed testing. Once the app is in the stores, this QR code will take you straight to the download page.",
     "back": "Back to home",
     "mail": "Want to know when it launches? Write to us:"
   },

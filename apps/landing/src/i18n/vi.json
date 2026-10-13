@@ -16,7 +16,7 @@
     "eyebrow": "LỊCH SỬ VIỆT NAM, TRONG TAY BẠN",
     "lead": "Nghìn năm sử Việt. Đọc, xem và học qua từng kỷ nguyên, với nguồn sử liệu luôn hiện rõ.",
     "cta": "Tải Long Ký",
-    "cue": "Cuộn xuống để đi sâu hơn"
+    "cue": "Scroll để khám phá"
   },
   "rail": {
     "aria": "Dòng thời gian",
@@ -36,7 +36,8 @@
     "scanAria": "Mã QR tải Long Ký",
     "play": "Google Play",
     "playSub": "Sắp ra mắt",
-    "ios": "iOS: sắp có.",
+    "ios": "App Store",
+    "iosSub": "Sắp ra mắt",
     "support": "Cần giúp đỡ, hoặc thấy một chỗ sai?",
     "supportCta": "help@long-ky.com"
   },
@@ -46,8 +47,8 @@
     "rights": "© 2026 Long Ký"
   },
   "get": {
-    "title": "Long Ký sắp có trên Google Play",
-    "body": "Long Ký đang trong giai đoạn thử nghiệm kín. Khi ứng dụng lên Google Play, mã QR này sẽ đưa bạn thẳng đến trang tải.",
+    "title": "Long Ký sắp có trên Google Play và App Store",
+    "body": "Long Ký đang trong giai đoạn thử nghiệm kín. Khi ứng dụng lên cửa hàng, mã QR này sẽ đưa bạn thẳng đến trang tải.",
     "back": "Về trang chủ",
     "mail": "Muốn được báo khi ra mắt? Viết cho chúng tôi:"
   },

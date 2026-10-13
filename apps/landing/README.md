@@ -56,7 +56,28 @@ Workers & Pages → `long-ky-landing` → Settings → Domains & Routes → Add 
 Custom domain (`long-ky.com`, `www.long-ky.com`). Copy the existing mail
 records into Cloudflare DNS before changing nameservers.
 
-## Motion loops
+## Scroll-scrubbed video
+
+The hero dragon and the 1954 / 1789 / 1288 covers are **scroll-scrubbed**:
+scrolling moves the playhead, stopping holds the frame, nothing autoplays.
+Layers map their whole pass through the screen to `data-from..data-to` seconds
+(`videoRange` in `src/layers.json`); the hero is pinned for one extra screen.
+
+Clips are upscaled to 1080p with Higgsfield (Topaz Video, ~3 credits per 5 s
+clip). Clips must be **all-keyframe** encodes so any time seeks instantly.
+Originals live in `brand/landing/video-originals/`, upscaled masters in
+`brand/landing/video-upscaled/`; encode with the system encoder:
+
+```bash
+swiftc -O -o /tmp/scrub tool/scrub.swift
+/tmp/scrub brand/landing/video-upscaled/<name>.mp4 src/assets/video/<name>.mp4 1440 1080 8000000 2   # w h bitrate keep-every-Nth (dragon: 810 1440 4500000)
+swiftc -O -o /tmp/frame tool/frame.swift && /tmp/frame <original.mp4> out.png 0.5   # grab a poster frame
+```
+
+The still under each video (`poster-*` in `src/assets/img`) is its first used
+frame. Visitors with reduced motion or data saver get the still only.
+
+## Motion loops (older)
 
 `src/assets/video/*.mp4` are image-to-video loops generated from art that is
 already in the app (dragon splash, period covers). The page works without

@@ -59,7 +59,7 @@
     @include narrow { width: 8rem; }
   }
   &__links { display: grid; gap: .9rem; justify-items: center; @include wide { justify-items: start; } }
-  &__ios { font-size: .8rem; color: var(--ink-muted); }
+  &__links { grid-auto-flow: row; }
 }
 
 .store {
@@ -74,6 +74,8 @@
   span { display: grid; text-align: left; font: 600 1.15rem/1.1 $body; }
   small { font: 400 .68rem/1.2 $body; letter-spacing: .1em; text-transform: uppercase; color: $gold-bright; }
 }
+
+.store--soon { cursor: default; opacity: .6; border-style: dashed; &:hover { background: rgba($gold, .1); transform: none; } }
 
 .support { margin-top: 2rem; font-size: .92rem; color: var(--ink); a { color: $gold-bright; text-underline-offset: 4px; font-weight: 500; } }
 

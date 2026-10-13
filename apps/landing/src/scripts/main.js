@@ -1,6 +1,6 @@
 // Long Ký landing — progressive enhancement only. The page reads fine
-// without this file; it adds the depth rail, the colour wash, lazy video
-// and the floating download button.
+// without this file; it adds the depth rail, the colour wash, scroll-scrubbed
+// video and the floating download button.
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -43,41 +43,77 @@
       new IntersectionObserver(([e]) => { heroGone = !e.isIntersecting; sync(); }, { threshold: 0.15 }).observe(hero);
       if (finale) new IntersectionObserver(([e]) => { atFinale = e.isIntersecting; sync(); }, { threshold: 0.2 }).observe(finale);
     }
-
-    // --- Video loops: fetch when near, play only while visible ---
-    if (!reduce && !saveData) {
-      const want = new WeakSet();
-      const tryPlay = (v) => { if (want.has(v)) v.play().catch(() => {}); };
-      // The clip ends somewhere else than it starts, so it cannot loop by
-      // itself. Instead it fades out over the still image below it (which is
-      // its first frame), restarts unseen, and fades back in.
-      $$('video[data-src]').forEach((v) => {
-        v.addEventListener('playing', () => v.classList.add('is-playing'));
-        v.addEventListener('canplay', () => tryPlay(v));
-        v.addEventListener('timeupdate', () => {
-          if (v.duration && v.currentTime > v.duration - 0.9) v.classList.add('is-fading');
-        });
-        v.addEventListener('ended', () => {
-          v.currentTime = 0;
-          v.classList.remove('is-fading');
-          tryPlay(v);
-        });
-      });
-      document.addEventListener('visibilitychange', () => { if (!document.hidden) $$('video[data-src]').forEach(tryPlay); });
-      const vio = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          const v = e.target;
-          if (e.isIntersecting) {
-            want.add(v);
-            if (!v.src && v.dataset.src) v.src = v.dataset.src;
-            tryPlay(v);
-          } else {
-            want.delete(v);
-            v.pause();
-          }
-        });
-      }, { rootMargin: '30% 0px' });
-      $$('video[data-src]').forEach((v) => vio.observe(v));
-    }
   }
+
+  // --- Scroll-scrubbed video: scroll position IS the playhead ---
+  // Nothing plays by itself: scrolling down advances the clip, scrolling up
+  // rewinds it, and when scrolling stops the frame holds. The clips are
+  // all-keyframe encodes, so any time can be shown instantly. The still image
+  // under each video is its first frame, so there is no jump when it loads.
+  const clamp01 = (x) => Math.min(1, Math.max(0, x));
+  const hero = $('.hero');
+  const items = $$('[data-scrub-host]').map((host) => ({
+    host,
+    isHero: host.dataset.scrubHost === 'hero',
+    video: $('video[data-scrub]', host),
+    pos: 0,         // smoothed playhead (0..1 of the clip's range)
+    shown: -1,      // last time value written to the video
+    loaded: false,
+  })).filter((it) => it.host);
+
+  // Progress of a host through the screen.
+  //  hero:  0 at the top of the page, 1 when the pin releases.
+  //  layer: 0 when its top edge reaches the bottom of the screen, 1 when its
+  //         bottom edge leaves the top: the clip moves the whole time it is
+  //         on screen.
+  function progress(it) {
+    const r = it.host.getBoundingClientRect(), vh = innerHeight;
+    return it.isHero
+      ? clamp01(-r.top / Math.max(1, r.height - vh))
+      : clamp01((vh - r.top) / (r.height + vh));
+  }
+
+  const canScrub = !reduce && !saveData && 'IntersectionObserver' in window;
+  let ticking = false;
+
+  function frame() {
+    ticking = false;
+    let moving = false;
+    for (const it of items) {
+      const p = progress(it);
+      if (it.isHero) document.documentElement.style.setProperty('--hero-p', p.toFixed(3));
+      const v = it.video;
+      if (!v || !canScrub || !it.loaded) continue;
+      it.pos += (p - it.pos) * 0.35;                       // ease toward the target
+      if (Math.abs(p - it.pos) < 0.0015) it.pos = p;
+      else moving = true;
+      const from = +v.dataset.from || 0, to = +v.dataset.to || v.duration;
+      const t = from + it.pos * (to - from);
+      if (!v.seeking && Math.abs(t - it.shown) > 0.012) { v.currentTime = t; it.shown = t; }
+      else if (v.seeking) moving = true;                   // try again next frame
+    }
+    if (moving) schedule();
+  }
+  function schedule() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+
+  if (canScrub) {
+    // Fetch a clip when its section is within about a screen of the viewport.
+    const lio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const it = items.find((x) => x.host === e.target);
+        const v = it && it.video;
+        if (!v || v.src) return;
+        v.addEventListener('loadedmetadata', () => { it.loaded = true; it.pos = progress(it); schedule(); }, { once: true });
+        v.addEventListener('seeked', () => { v.classList.add('is-ready'); schedule(); });
+        v.src = v.dataset.src;
+        v.load();
+      });
+    }, { rootMargin: '100% 0px' });
+    items.forEach((it) => it.video && lio.observe(it.host));
+  }
+
+  addEventListener('scroll', schedule, { passive: true });
+  addEventListener('resize', schedule);
+  schedule();
 })();

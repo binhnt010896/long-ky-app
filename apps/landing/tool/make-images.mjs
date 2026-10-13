@@ -39,6 +39,7 @@ const jobs = [
   ['brand/play-store/screenshots-en/04-son-tinh.png', 'shot-en-son-tinh', [520], 70],
   ['brand/play-store/screenshots-en/05-khang-chien.png', 'shot-en-khang-chien', [520], 70],
   ['brand/logo/longky-01-circle-oxblood.png', 'seal', [256, 512], 80],
+  ['brand/landing/ho-chi-minh-2026-upscaled.png', 'hcm-2026', [900, 1600, 2400], 62],
   // Real phone screenshot of the street map; the Android status and
   // navigation bars are cropped off (900×2000 source → 900×1800).
   ['brand/landing/street-map-screenshot.jpg', 'shot-vi-street', [520], 72, { left: 0, top: 85, width: 900, height: 1800 }],

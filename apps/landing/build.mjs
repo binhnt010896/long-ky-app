@@ -119,9 +119,10 @@ async function build() {
       const year = lang === 'en' && l.yearEn ? l.yearEn : l.year;
       const hasVideo = l.video && usedVideos.includes(`${l.video}.mp4`);
       const art = l.art
-        ? picture(l.art, [900, 1600], { sizes: '100vw', lazy: i > 1, cls: 'layer__img' })
+        ? picture(l.art, l.art.startsWith('poster-') ? [900, 1440] : l.art === 'hcm-2026' ? [900, 1600, 2400] : [900, 1600], { sizes: '100vw', lazy: i > 1, cls: 'layer__img' })
         : '<div class="layer__img layer__img--plain"></div>';
-      const video = hasVideo ? `<video class="layer__video" muted loop playsinline preload="none" data-src="/assets/video/${l.video}.mp4" tabindex="-1" aria-hidden="true"></video>` : '';
+      const [vFrom, vTo] = l.videoRange || [0, 5];
+      const video = hasVideo ? `<video class="layer__video" muted playsinline preload="none" data-scrub data-src="/assets/video/${l.video}.mp4" data-from="${vFrom}" data-to="${vTo}" tabindex="-1" aria-hidden="true"></video>` : '';
       const shot = l.shot
         ? `<figure class="layer__shot">${picture(`shot-${lang}-${l.shot}`, [520], { sizes: '(min-width: 900px) 320px, 70vw', alt: `${t.alt.shot} — ${c.label}`, width: 520, height: l.shotH || 924 })}</figure>`
         : '';
@@ -129,7 +130,7 @@ async function build() {
         ? `<p class="layer__stats"><b>${nf(counts.streets, lang)}</b> ${t.stats.streets} · <b>${nf(counts.people, lang)}</b> ${t.stats.people}</p>`
         : '';
       return `
-    <section class="layer${l.shot ? ' layer--shot' : ''}${i % 2 ? ' layer--flip' : ''}" id="${l.id}" data-layer="${l.id}" data-period="${l.period}" data-year="${esc(year)}" data-accent="${l.accent}" style="--accent:${l.accent}">
+    <section class="layer${l.shot ? ' layer--shot' : ''}${i % 2 ? ' layer--flip' : ''}${l.bright ? ' layer--bright' : ''}" id="${l.id}" data-layer="${l.id}" data-scrub-host data-period="${l.period}" data-year="${esc(year)}" data-accent="${l.accent}" style="--accent:${l.accent}${l.focus ? `;--focus:${l.focus}` : ''}">
       <div class="layer__stage">
         <div class="layer__bg" aria-hidden="true">${art}${video}<span class="layer__veil"></span></div>
         <div class="layer__copy">
@@ -157,7 +158,7 @@ async function build() {
     const data = {
       ...t, origin: ORIGIN, altLang: other, css: `/${cssName}`, js: `/${jsName}`,
       layers: layersHtml, railHtml: rail, heroStats, jsonld,
-      heroVideo: usedVideos.includes('dragon.mp4') ? '<video muted playsinline preload="none" data-src="/assets/video/dragon.mp4" tabindex="-1" aria-hidden="true"></video>' : '',
+      heroVideo: usedVideos.includes('dragon.mp4') ? '<video muted playsinline preload="none" data-scrub data-src="/assets/video/dragon.mp4" data-from="0" data-to="5" tabindex="-1" aria-hidden="true"></video>' : '',
       qr: qr.replace('<svg', '<svg aria-hidden="true" focusable="false"'),
       finalYear: lang === 'en' ? '2879 BCE' : '2879 TCN',
     };
