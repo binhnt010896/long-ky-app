@@ -591,8 +591,27 @@ void main() {
       final (c, _) = await startReal();
       expectValid(c, 'untouched');
       final d = c.read(contentDraftProvider).requireValue;
-      expect(d.events, hasLength(237));
-      expect(d.standaloneEvents, isEmpty);
+      // Counts come from the files themselves, so growing the content does
+      // not break this: every event in events.json reaches the draft, and the
+      // draft's standalone ones are exactly those no era lists.
+      final registry = (jsonDecode(
+              File('../../content/events.json').readAsStringSync())
+          as Map<String, dynamic>)['events'] as List;
+      expect(d.events, hasLength(registry.length));
+      final inEras = {
+        for (final f in Directory('../../content/eras')
+            .listSync()
+            .whereType<File>()
+            .where((f) => f.path.endsWith('.json')))
+          for (final e in (jsonDecode(f.readAsStringSync())
+                  as Map<String, dynamic>)['events'] as List)
+            if (e is Map<String, dynamic>) (e['ref'] ?? e['id']) as String,
+      };
+      final expectedStandalone = {
+        for (final e in registry)
+          if (!inEras.contains((e as Map<String, dynamic>)['id'])) e['id'],
+      };
+      expect(d.standaloneEvents.map((e) => e['id']).toSet(), expectedStandalone);
     });
 
     test('create standalone → move into an era → out again → delete, valid at every step', () async {
@@ -600,10 +619,16 @@ void main() {
       final d0 = c.read(contentDraftProvider).requireValue;
       // A person already on a roster, so the standalone rule is satisfied.
       final person = d0.peopleOnAnyRoster.first;
+      final eventCount = d0.events.length;
+      final standaloneBefore =
+          d0.standaloneEvents.map((e) => e['id'] as String).toList();
 
       n.addStandaloneEvent('rieng', standalone(figures: [person]));
       expectValid(c, 'create standalone');
-      expect(c.read(contentDraftProvider).requireValue.standaloneEvents.map((e) => e['id']), ['rieng']);
+      expect(
+        c.read(contentDraftProvider).requireValue.standaloneEvents.map((e) => e['id']),
+        [...standaloneBefore, 'rieng'],
+      );
 
       n.moveEventToEra('rieng', 'nha-trieu');
       expectValid(c, 'move into nha-trieu');
@@ -614,7 +639,7 @@ void main() {
 
       n.deleteEvent('rieng');
       expectValid(c, 'delete');
-      expect(c.read(contentDraftProvider).requireValue.events, hasLength(237));
+      expect(c.read(contentDraftProvider).requireValue.events, hasLength(eventCount));
     });
 
     test('adding an event to an era and deleting an existing one stay valid', () async {
