@@ -2221,6 +2221,14 @@
       "key": "eras/tran-hung-dao/scene/sky.webp",
       "v": "25c6ac036f"
     },
+    "eras/tran-thai-tong/characters/le-phu-tran-avatar.png": {
+      "key": "eras/tran-thai-tong/characters/le-phu-tran-avatar.webp",
+      "v": "b947d0ddfc"
+    },
+    "eras/tran-thai-tong/characters/le-phu-tran-full.png": {
+      "key": "eras/tran-thai-tong/characters/le-phu-tran-full.webp",
+      "v": "9db12db902"
+    },
     "eras/tran-thai-tong/characters/ly-chieu-hoang-avatar.png": {
       "key": "eras/tran-thai-tong/characters/ly-chieu-hoang-avatar.webp",
       "v": "b9f2b504da"
@@ -2228,6 +2236,22 @@
     "eras/tran-thai-tong/characters/ly-chieu-hoang-full.png": {
       "key": "eras/tran-thai-tong/characters/ly-chieu-hoang-full.webp",
       "v": "7463a892f4"
+    },
+    "eras/tran-thai-tong/characters/ngot-luong-hop-thai-avatar.png": {
+      "key": "eras/tran-thai-tong/characters/ngot-luong-hop-thai-avatar.webp",
+      "v": "6abd949f3c"
+    },
+    "eras/tran-thai-tong/characters/ngot-luong-hop-thai-full.png": {
+      "key": "eras/tran-thai-tong/characters/ngot-luong-hop-thai-full.webp",
+      "v": "4f96e08c35"
+    },
+    "eras/tran-thai-tong/characters/tran-nhat-hieu-avatar.png": {
+      "key": "eras/tran-thai-tong/characters/tran-nhat-hieu-avatar.webp",
+      "v": "858edee651"
+    },
+    "eras/tran-thai-tong/characters/tran-nhat-hieu-full.png": {
+      "key": "eras/tran-thai-tong/characters/tran-nhat-hieu-full.webp",
+      "v": "8d6a9cdf8b"
     },
     "eras/tran-thai-tong/characters/tran-thai-tong-avatar.png": {
       "key": "eras/tran-thai-tong/characters/tran-thai-tong-avatar.webp",

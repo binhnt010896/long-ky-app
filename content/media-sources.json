@@ -11,16 +11,16 @@
       "size": 7633070
     },
     "eras/au-lac/characters/my-chau-avatar.png": {
-      "md5": "a1fa9342fc29c5fe61632f38ed534f86",
-      "size": 5565819
-    },
-    "eras/au-lac/characters/my-chau-full.png": {
-      "md5": "0558fa8750e77a0348301a313638c089",
-      "size": 6250165
-    },
-    "eras/au-lac/characters/than-kim-quy-avatar.png": {
       "md5": "28648f25ba3c05ea1b7c642769303dd2",
       "size": 3773371
+    },
+    "eras/au-lac/characters/my-chau-full.png": {
+      "md5": "e9ab8a8c7669f3a53a05fbba18ec3c46",
+      "size": 5112329
+    },
+    "eras/au-lac/characters/than-kim-quy-avatar.png": {
+      "md5": "a1fa9342fc29c5fe61632f38ed534f86",
+      "size": 5565819
     },
     "eras/au-lac/characters/than-kim-quy-full.png": {
       "md5": "a748afb51354c2acef5ceae8241b98d2",
@@ -31,16 +31,16 @@
       "size": 5493419
     },
     "eras/au-lac/characters/trieu-da-full.png": {
-      "md5": "21311dcb6470a662e040427e4badc4c6",
-      "size": 6885891
+      "md5": "37e45f4df7fcf03436d6921201416fd1",
+      "size": 5291522
     },
     "eras/au-lac/characters/trong-thuy-avatar.png": {
       "md5": "9c9dfe73e5ee11b6804d4765b36b214a",
       "size": 4081049
     },
     "eras/au-lac/characters/trong-thuy-full.png": {
-      "md5": "2c17295c34b26dcccf3e63bb9bd8002e",
-      "size": 5362578
+      "md5": "ba5ff2d896971392a382864b7959c5b0",
+      "size": 4818099
     },
     "eras/au-lac/cover.png": {
       "md5": "404a9ffab6812288eba1e7ea5c1ec780",
@@ -627,8 +627,8 @@
       "size": 7807650
     },
     "eras/dinh-tien-hoang/characters/do-thich-full.png": {
-      "md5": "accfff8279ee00a5e9742a11944ca6d4",
-      "size": 7647427
+      "md5": "a33d64722061d47daaabaff4d1847085",
+      "size": 7272412
     },
     "eras/dinh-tien-hoang/characters/le-hoan-avatar.png": {
       "md5": "b424ac0c6eb3e5a8793eccb577712ba2",
@@ -643,8 +643,8 @@
       "size": 6879596
     },
     "eras/dinh-tien-hoang/characters/nguyen-bac-full.png": {
-      "md5": "a767fbe3f500cea2524d4d1d41f53ac4",
-      "size": 7225347
+      "md5": "3f9fae7e2abe6e3e4910b7dec6d68c11",
+      "size": 5501938
     },
     "eras/dinh-tien-hoang/cover.png": {
       "md5": "95fc4c24d5e849d693686ff4b4bb7107",
@@ -751,16 +751,16 @@
       "size": 8928043
     },
     "eras/hai-ba-trung/characters/thi-sach-full.png": {
-      "md5": "36b33a04ff45131545319074c7064751",
-      "size": 8341759
+      "md5": "274ef7d993c025b9950c044e235f1abf",
+      "size": 8396435
     },
     "eras/hai-ba-trung/characters/to-dinh-avatar.png": {
       "md5": "b5849452a4907761cf4db8ddda19713e",
       "size": 6154848
     },
     "eras/hai-ba-trung/characters/to-dinh-full.png": {
-      "md5": "20c5af783d34ba19ee395eb49ae419a0",
-      "size": 5577366
+      "md5": "dcbab46777dc55650baa632a9d2a4dc3",
+      "size": 5006309
     },
     "eras/hai-ba-trung/characters/trung-nhi-avatar.png": {
       "md5": "0acfeb3aa76a63377b85e1769c56a2b2",
@@ -895,8 +895,8 @@
       "size": 5000776
     },
     "eras/hong-bang/characters/an-duong-vuong-full.png": {
-      "md5": "61f04b04b0729fbd9cfd3efd9f3bcc15",
-      "size": 6116922
+      "md5": "3f317afe373ab8540aa9dea7a1b9b436",
+      "size": 5459333
     },
     "eras/hong-bang/characters/au-co-avatar.png": {
       "md5": "98a5ad553601fd21233bf4316a0b4730",
@@ -911,40 +911,40 @@
       "size": 5001937
     },
     "eras/hong-bang/characters/kinh-duong-vuong-full.png": {
-      "md5": "d55f04024f6e686f39e1135c95628f22",
-      "size": 7457098
+      "md5": "21cdc9c9b9946773d2340e514c44566b",
+      "size": 6193040
     },
     "eras/hong-bang/characters/lac-long-quan-avatar.png": {
       "md5": "1024d88d49caf5778b10dae4ecf6fde1",
       "size": 4575449
     },
     "eras/hong-bang/characters/lac-long-quan-full.png": {
-      "md5": "05d12b569113ee3d5b518a1a534baab3",
-      "size": 4942578
+      "md5": "3fc3baacee13ce8564288f975ecadf3e",
+      "size": 5652899
     },
     "eras/hong-bang/characters/lang-lieu-avatar.png": {
       "md5": "8cbce0051b7d148487947c052ed45547",
       "size": 9444516
     },
     "eras/hong-bang/characters/lang-lieu-full.png": {
-      "md5": "a12aa94ac38884f1be163cd97ad180a7",
-      "size": 7614586
+      "md5": "b0e4befd41df8af260de904dd49e5e42",
+      "size": 6102303
     },
     "eras/hong-bang/characters/son-tinh-avatar.png": {
       "md5": "5f60a8a6e97a82426a1f1e36526ef22d",
       "size": 4446809
     },
     "eras/hong-bang/characters/son-tinh-full.png": {
-      "md5": "0d2a448b52d43006d63cde034e6f6a25",
-      "size": 6046026
+      "md5": "f8a082a8ee6446224569a95d4847e87d",
+      "size": 5584348
     },
     "eras/hong-bang/characters/thanh-giong-avatar.png": {
       "md5": "77e2163f362e6cabc4fba99badfb98a6",
       "size": 9521346
     },
     "eras/hong-bang/characters/thanh-giong-full.png": {
-      "md5": "337ad832d11045ceb3bfe198189a2970",
-      "size": 8267573
+      "md5": "89fcbfc862b7221209ca8c3e9e772118",
+      "size": 7733314
     },
     "eras/hong-bang/characters/thuy-tinh-avatar.png": {
       "md5": "434a826b0a6d1c444a5646156fdbe2d3",
@@ -959,8 +959,8 @@
       "size": 4794160
     },
     "eras/hong-bang/characters/vua-hung-full.png": {
-      "md5": "b49b2484477c0eccbd0ab4d8fadb0990",
-      "size": 5990661
+      "md5": "fd245b14454ca215ab51ec8be4b3ea0a",
+      "size": 5423696
     },
     "eras/hong-bang/cover.png": {
       "md5": "1959affbceb9a3b1b9ee6d26785404e4",
@@ -1435,8 +1435,8 @@
       "size": 7856444
     },
     "eras/mai-hac-de/characters/mai-hac-de-full.png": {
-      "md5": "e0e83e95185e8b684fbc424d0756c8ba",
-      "size": 7776549
+      "md5": "f4ea0e4040fc6d18a33e08cdceddcfd0",
+      "size": 7462722
     },
     "eras/mai-hac-de/characters/quang-so-khach-avatar.png": {
       "md5": "94b1e0a602ec8a4a5fde98f9781850be",
@@ -1631,8 +1631,8 @@
       "size": 9931404
     },
     "eras/ngo-quyen/characters/luu-hoang-thao-full.png": {
-      "md5": "bfa6f127f262a72ff13b785761b1b9d6",
-      "size": 5999458
+      "md5": "733ff10c600758fe2c09e2d94bbdf61e",
+      "size": 6635826
     },
     "eras/ngo-quyen/characters/ngo-quyen-avatar.png": {
       "md5": "50e108aa319dadd37e216a2a89fb0bd3",
@@ -1835,24 +1835,24 @@
       "size": 8008336
     },
     "eras/phung-hung/characters/cao-chinh-binh-full.png": {
-      "md5": "7055158ee5cde995d04efaf8b700a12b",
-      "size": 8206505
+      "md5": "34aca806ddc5dfe122dfdaf8775a7b73",
+      "size": 6409535
     },
     "eras/phung-hung/characters/phung-an-avatar.png": {
       "md5": "1f7d95ad36f25589590c7525f596c70b",
       "size": 7446477
     },
     "eras/phung-hung/characters/phung-an-full.png": {
-      "md5": "9f0e14e16233e79913249d5fbe252beb",
-      "size": 6182231
+      "md5": "0036bdf699d8b9632bdf45c1124fa54e",
+      "size": 7264152
     },
     "eras/phung-hung/characters/phung-hai-avatar.png": {
       "md5": "4f7117e061ec39e5cc2b0bc2e4d9cc9c",
       "size": 9259423
     },
     "eras/phung-hung/characters/phung-hai-full.png": {
-      "md5": "91158344773dbc469f0def76479852a7",
-      "size": 7891850
+      "md5": "b7a45b3d8e9e5e9449bbe4c6c09360a3",
+      "size": 7187675
     },
     "eras/phung-hung/characters/phung-hung-avatar.png": {
       "md5": "c88725fa1638980e93ecd5b5bf450d3e",
@@ -2222,6 +2222,14 @@
       "md5": "729de045696a808e5977c4ce7ccd3218",
       "size": 6431990
     },
+    "eras/tran-thai-tong/characters/le-phu-tran-avatar.png": {
+      "md5": "228c38a610f44d61b74974d73f82a4a4",
+      "size": 5513567
+    },
+    "eras/tran-thai-tong/characters/le-phu-tran-full.png": {
+      "md5": "727b30e52284dc82959ebfb7ddb13af5",
+      "size": 5937355
+    },
     "eras/tran-thai-tong/characters/ly-chieu-hoang-avatar.png": {
       "md5": "da70f0c6cae9d731d1547c8fc3ecc1fb",
       "size": 6787739
@@ -2229,6 +2237,22 @@
     "eras/tran-thai-tong/characters/ly-chieu-hoang-full.png": {
       "md5": "90a263ef07c2b6019071bbe914ca5b2a",
       "size": 5888740
+    },
+    "eras/tran-thai-tong/characters/ngot-luong-hop-thai-avatar.png": {
+      "md5": "bfeb81538efab85f90ce40ab3d4778b1",
+      "size": 5817408
+    },
+    "eras/tran-thai-tong/characters/ngot-luong-hop-thai-full.png": {
+      "md5": "71a1a2c9d74311498a8d2a0beffcf1c1",
+      "size": 6039026
+    },
+    "eras/tran-thai-tong/characters/tran-nhat-hieu-avatar.png": {
+      "md5": "9063e28091d86e9139ee937cf49056dd",
+      "size": 5993104
+    },
+    "eras/tran-thai-tong/characters/tran-nhat-hieu-full.png": {
+      "md5": "5167ddc1f49e222aae8c26c9b73dbfaf",
+      "size": 7304200
     },
     "eras/tran-thai-tong/characters/tran-thai-tong-avatar.png": {
       "md5": "622b1e8a85677ea87f6deabab43487f3",
