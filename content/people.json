@@ -1784,6 +1784,87 @@
       }
     },
     {
+      "id": "le-phu-tran",
+      "name": {
+        "vi": "Lê Phụ Trần",
+        "en": "Lê Phụ Trần"
+      },
+      "epithet": {
+        "vi": "Danh tướng che tên cho vua năm 1258",
+        "en": "The general who shielded the king in 1258"
+      },
+      "bio": {
+        "vi": "Danh tướng đầu đời Trần, tên cũ là Lê Tần, người Ái Châu (Thanh Hóa). Theo Đại Việt sử ký toàn thư, khi quân Mông Cổ của Ngột Lương Hợp Thai tràn đến Bình Lệ Nguyên (tháng Chạp năm Đinh Tỵ, đầu năm 1258), vua Trần Thái Tông thân ra trận; quân ta núng thế, chỉ còn mình ông cưỡi ngựa xông pha giữa trận giặc mà vẫn điềm tĩnh. Ông can vua tạm lánh quân giặc chứ đừng dốc hết vào một trận; lúc vua lui xuống thuyền, giặc bắn tên theo, ông lấy ván thuyền che cho vua. Sau chiến thắng Đông Bộ Đầu, vua gả công chúa Chiêu Thánh (Lý Chiêu Hoàng) cho ông, cho làm Ngự sử đại phu, rồi cử ông cùng Chu Bác Lãm đi sứ Mông Cổ, định lệ ba năm một lần cống. Năm 1274, vua Trần Thánh Tông cho ông làm Thiếu sư, dạy thái tử Trần Khâm, tức vua Trần Nhân Tông sau này. Sử thần Ngô Sĩ Liên khen ông có dũng lược đứng đầu ba quân, văn học đủ làm thầy thái tử.",
+        "en": "A leading general of the early Trần, first named Lê Tần, from Ái Châu (Thanh Hóa). According to the Đại Việt sử ký toàn thư, when Uriyangqadai's Mongols reached Bình Lệ Nguyên (the twelfth month of the year Đinh Tỵ, early 1258), King Trần Thái Tông led the fight himself; as the line wavered, he alone still rode into the enemy, unshaken. He urged the king to withdraw for now rather than stake everything on one battle, and as the king fell back to his boat under the enemy's arrows, he shielded him with a ship's plank. After the victory at Đông Bộ Đầu the king gave him Princess Chiêu Thánh (the former ruler Lý Chiêu Hoàng) in marriage, made him Grand Censor, and sent him with Chu Bác Lãm as envoy to the Mongols, where tribute was fixed at once every three years. In 1274 King Trần Thánh Tông made him Junior Preceptor and tutor to Crown Prince Trần Khâm, the future Trần Nhân Tông. The historian Ngô Sĩ Liên praised him as brave enough to lead the three armies and learned enough to teach the heir."
+      },
+      "avatar": {
+        "id": "le-phu-tran-avatar",
+        "type": "image",
+        "flagship": "eras/tran-thai-tong/characters/le-phu-tran-avatar.png",
+        "reduced": "eras/tran-thai-tong/characters/le-phu-tran-avatar.png"
+      },
+      "fullBody": {
+        "id": "le-phu-tran-full",
+        "type": "image",
+        "flagship": "eras/tran-thai-tong/characters/le-phu-tran-full.png",
+        "reduced": "eras/tran-thai-tong/characters/le-phu-tran-full.png"
+      }
+    },
+    {
+      "id": "tran-nhat-hieu",
+      "name": {
+        "vi": "Trần Nhật Hiệu",
+        "en": "Trần Nhật Hiệu"
+      },
+      "epithet": {
+        "vi": "Thái úy viết hai chữ \"nhập Tống\"",
+        "en": "The Grand Commandant who wrote \"go to Song\""
+      },
+      "bio": {
+        "vi": "Con thứ ba của Trần Thừa, em ruột vua Trần Thái Tông, được phong Khâm Thiên đại vương và làm Thái úy. Khi quân Mông Cổ tràn vào cuối năm Đinh Tỵ (đầu năm 1258), vua lui quân về sông Thiên Mạc, ngự thuyền nhỏ đến thuyền ông hỏi kế. Theo Đại Việt sử ký toàn thư, Nhật Hiệu lấy ngón tay chấm nước viết lên mạn thuyền hai chữ \"nhập Tống\", ý khuyên vua sang nương nhờ nước Tống. Vua hỏi quân Tinh Cương do ông coi giữ ở đâu, ông đáp không gọi được chúng đến. Vua bèn sang hỏi Thái sư Trần Thủ Độ, và nhận được lời đáp \"Đầu thần chưa rơi xuống đất, xin bệ hạ đừng lo\". Sử thần Ngô Sĩ Liên chê ông là người tôn thất mà khi giặc đến thì sợ hãi, không có mưu lược gì. Đời Trần Thánh Tông, năm 1264 ông được làm Tướng quốc Thái úy, coi việc nước; ông mất năm 1268.",
+        "en": "The third son of Trần Thừa and a full brother of King Trần Thái Tông, he was made Prince Khâm Thiên and Grand Commandant. When the Mongols invaded at the end of the year Đinh Tỵ (early 1258), the king fell back to the Thiên Mạc river and came by small boat to ask his counsel. According to the Đại Việt sử ký toàn thư, Nhật Hiệu dipped a finger in the water and wrote two words on the side of the boat: \"nhập Tống\", go to Song, urging the king to take refuge with the Song. Asked where his Tinh Cương troops were, he answered that they could not be summoned. The king went on to the Grand Preceptor Trần Thủ Độ, who told him: \"While my head has not yet fallen to the ground, let Your Majesty not worry.\" The historian Ngô Sĩ Liên faulted him as a royal kinsman who took fright when the enemy came and had no plan at all. Under Trần Thánh Tông he became Chancellor and Grand Commandant in 1264, in charge of state affairs; he died in 1268."
+      },
+      "avatar": {
+        "id": "tran-nhat-hieu-avatar",
+        "type": "image",
+        "flagship": "eras/tran-thai-tong/characters/tran-nhat-hieu-avatar.png",
+        "reduced": "eras/tran-thai-tong/characters/tran-nhat-hieu-avatar.png"
+      },
+      "fullBody": {
+        "id": "tran-nhat-hieu-full",
+        "type": "image",
+        "flagship": "eras/tran-thai-tong/characters/tran-nhat-hieu-full.png",
+        "reduced": "eras/tran-thai-tong/characters/tran-nhat-hieu-full.png"
+      }
+    },
+    {
+      "id": "ngot-luong-hop-thai",
+      "name": {
+        "vi": "Ngột Lương Hợp Thai",
+        "en": "Ngột Lương Hợp Thai (Uriyangqadai)"
+      },
+      "epithet": {
+        "vi": "Tướng Mông Cổ cầm quân sang đánh năm 1258",
+        "en": "The Mongol general of the 1258 invasion"
+      },
+      "bio": {
+        "vi": "Danh tướng Mông Cổ, con của Tốc Bất Đài (Subutai). Theo Nguyên sử, ông cùng Hốt Tất Liệt đánh chiếm nước Đại Lý (Vân Nam) năm 1253, rồi ở lại bình định vùng ấy. Tháng Chạp năm Đinh Tỵ (đầu năm 1258), ông dẫn quân từ Vân Nam theo sông Thao tràn vào Đại Việt, đánh vào Bình Lệ Nguyên rồi chiếm kinh thành Thăng Long. Vua Trần Thái Tông bỏ trống kinh thành, chờ giặc mỏi mệt, thiếu lương rồi phản công, đại phá quân ông ở Đông Bộ Đầu. Theo Đại Việt sử ký toàn thư, trên đường rút về Vân Nam, quân ông lại bị chủ trại Quy Hóa là Hà Bổng chặn đánh. Đây là lần đầu tiên vó ngựa Mông Cổ phải lui khỏi đất Việt.",
+        "en": "A Mongol general, the son of Subutai. According to the Yuan History, he took the kingdom of Dali (Yunnan) together with Kublai in 1253 and stayed on to pacify it. In the twelfth month of the year Đinh Tỵ (early 1258) he led his army out of Yunnan down the Thao River into Đại Việt, struck at Bình Lệ Nguyên and took the capital Thăng Long. King Trần Thái Tông left the capital empty, waited until the invaders were weary and short of food, then counterattacked and routed them at Đông Bộ Đầu. According to the Đại Việt sử ký toàn thư, on their retreat to Yunnan his troops were attacked again by Hà Bổng, chief of the Quy Hóa stockade. It was the first time the Mongol cavalry had to turn back from Việt land."
+      },
+      "avatar": {
+        "id": "ngot-luong-hop-thai-avatar",
+        "type": "image",
+        "flagship": "eras/tran-thai-tong/characters/ngot-luong-hop-thai-avatar.png",
+        "reduced": "eras/tran-thai-tong/characters/ngot-luong-hop-thai-avatar.png"
+      },
+      "fullBody": {
+        "id": "ngot-luong-hop-thai-full",
+        "type": "image",
+        "flagship": "eras/tran-thai-tong/characters/ngot-luong-hop-thai-full.png",
+        "reduced": "eras/tran-thai-tong/characters/ngot-luong-hop-thai-full.png"
+      }
+    },
+    {
       "id": "tran-hung-dao",
       "name": {
         "vi": "Trần Hưng Đạo",
