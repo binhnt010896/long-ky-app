@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -7,6 +8,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../telemetry/telemetry.dart';
+import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
 
 /// One karaoke line: the second into the anthem at which it becomes current.
@@ -18,10 +20,16 @@ class AnthemLine {
 
 /// "Chào cờ" — an online flag salute: the waving national flag, the anthem
 /// (Tiến quân ca) with simple transport controls, and karaoke lyrics that
-/// highlight and auto-scroll as the song plays. Assets are bundled under
-/// assets/content/chao-co/.
+/// highlight and auto-scroll as the song plays. Assets are served from the
+/// media CDN (`static/chao-co/`); the copies bundled under
+/// assets/content/chao-co/ are the offline fallback.
 class ChaoCoScreen extends ConsumerStatefulWidget {
   const ChaoCoScreen({super.key});
+
+  static const String _cdn = '$kContentMediaBase/static/chao-co';
+  static const String flagUrl = '$_cdn/quoc-ky.gif';
+  static const String audioUrl = '$_cdn/tien-quan-ca.mp3';
+  static const String backgroundUrl = '$_cdn/background.png';
 
   static const String flagAsset = 'assets/content/chao-co/quoc-ky.gif';
   static const String audioAsset = 'assets/content/chao-co/tien-quan-ca.mp3';
@@ -72,7 +80,12 @@ class _ChaoCoScreenState extends ConsumerState<ChaoCoScreen> {
 
   Future<void> _load() async {
     try {
-      await _player.setAsset(ChaoCoScreen.audioAsset);
+      try {
+        await _player.setUrl(ChaoCoScreen.audioUrl);
+      } catch (_) {
+        // Offline or CDN unreachable: use the bundled recording.
+        await _player.setAsset(ChaoCoScreen.audioAsset);
+      }
       _posSub = _player.positionStream.listen(_onPosition);
       // When the anthem finishes, just_audio leaves the player parked at the
       // end in the "completed" state, where a plain play() is a no-op. Reset it
@@ -157,11 +170,15 @@ class _ChaoCoScreenState extends ConsumerState<ChaoCoScreen> {
         fit: StackFit.expand,
         children: <Widget>[
           // Solemn backdrop: a bundled image dimmed by a black overlay.
-          Image.asset(
-            ChaoCoScreen.backgroundAsset,
+          Image(
+            image: const CachedNetworkImageProvider(ChaoCoScreen.backgroundUrl),
             fit: BoxFit.cover,
-            errorBuilder: (_, __, ___) =>
-                const ColoredBox(color: VSColors.lacquer),
+            errorBuilder: (_, __, ___) => Image.asset(
+              ChaoCoScreen.backgroundAsset,
+              fit: BoxFit.cover,
+              errorBuilder: (_, __, ___) =>
+                  const ColoredBox(color: VSColors.lacquer),
+            ),
           ),
           Container(color: Colors.black.withValues(alpha: 0.5)),
           SafeArea(
@@ -207,15 +224,20 @@ class _ChaoCoScreenState extends ConsumerState<ChaoCoScreen> {
                 borderRadius: VSRadii.cardAll,
                 child: AspectRatio(
                   aspectRatio: 3 / 2,
-                  child: Image.asset(
-                    ChaoCoScreen.flagAsset,
+                  child: Image(
+                    image: const CachedNetworkImageProvider(ChaoCoScreen.flagUrl),
                     fit: BoxFit.cover,
                     gaplessPlayback: true,
-                    errorBuilder: (_, __, ___) => const ColoredBox(
-                      color: Color(0xFFB01E1E),
-                      child: Center(
-                        child: Icon(Icons.star,
-                            color: Color(0xFFFFD200), size: 72),
+                    errorBuilder: (_, __, ___) => Image.asset(
+                      ChaoCoScreen.flagAsset,
+                      fit: BoxFit.cover,
+                      gaplessPlayback: true,
+                      errorBuilder: (_, __, ___) => const ColoredBox(
+                        color: Color(0xFFB01E1E),
+                        child: Center(
+                          child: Icon(Icons.star,
+                              color: Color(0xFFFFD200), size: 72),
+                        ),
                       ),
                     ),
                   ),
