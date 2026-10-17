@@ -3015,12 +3015,14 @@
       "avatar": {
         "id": "tu-duc-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "eras/tu-duc/characters/tu-duc-avatar.png",
+        "reduced": "eras/tu-duc/characters/tu-duc-avatar.png"
       },
       "fullBody": {
         "id": "tu-duc-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "eras/tu-duc/characters/tu-duc-full.png",
+        "reduced": "eras/tu-duc/characters/tu-duc-full.png"
       }
     },
     {
@@ -3040,12 +3042,14 @@
       "avatar": {
         "id": "phan-thanh-gian-avatar",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "eras/tu-duc/characters/phan-thanh-gian-avatar.png",
+        "reduced": "eras/tu-duc/characters/phan-thanh-gian-avatar.png"
       },
       "fullBody": {
         "id": "phan-thanh-gian-full",
         "type": "image",
-        "placeholder": "portrait-held"
+        "flagship": "eras/tu-duc/characters/phan-thanh-gian-full.png",
+        "reduced": "eras/tu-duc/characters/phan-thanh-gian-full.png"
       }
     },
     {
