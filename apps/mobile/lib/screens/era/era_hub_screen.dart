@@ -11,6 +11,8 @@ import '../../state/providers.dart';
 import '../../theme/era_palette_mapping.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
+import '../../widgets/narration_button.dart';
+import '../../state/narration_controller.dart';
 import '../../widgets/tilted_backdrop.dart';
 import '../event/widgets/event_figures.dart';
 
@@ -83,6 +85,11 @@ class EraHubScreen extends ConsumerWidget {
                       ),
                       Row(
                         children: <Widget>[
+                          NarrationButton(
+                            kind: NarrationKind.era,
+                            id: era.slug,
+                          ),
+                          const SizedBox(width: VSSpacing.sm),
                           CircleIconButton(
                             icon: Icons.map_outlined,
                             onTap: () => context.push('/map?era=${era.slug}'),

@@ -9,6 +9,8 @@ import '../../state/providers.dart';
 import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
+import '../../widgets/narration_button.dart';
+import '../../state/narration_controller.dart';
 import '../../widgets/portrait_placeholder.dart';
 import '../streets/street_reverse_chip.dart';
 import 'character_detail_screen.dart'
@@ -134,6 +136,8 @@ class _TopBar extends StatelessWidget {
             ),
           ),
           const SizedBox(width: VSSpacing.md),
+          NarrationButton(kind: NarrationKind.person, id: figure.id),
+          const SizedBox(width: VSSpacing.sm),
           FeedbackButton(
             target: FeedbackTarget(
               type: 'person',

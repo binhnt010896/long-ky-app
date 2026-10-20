@@ -15,6 +15,8 @@ import '../../theme/era_palette_mapping.dart';
 import '../streets/street_reverse_chip.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
+import '../../widgets/narration_button.dart';
+import '../../state/narration_controller.dart';
 import '../era/widgets/era_scene_backdrop.dart';
 import 'widgets/chronicle_pull_quote.dart';
 import 'widgets/citation_card.dart';
@@ -156,6 +158,11 @@ class _EventDetailScreenState extends ConsumerState<EventDetailScreen> {
                       const SizedBox(width: VSSpacing.md),
                       // The event on screen now, not the one the pager opened
                       // on — a swipe changes the page but not the route.
+                      NarrationButton(
+                        kind: NarrationKind.event,
+                        id: current.event.id,
+                      ),
+                      const SizedBox(width: VSSpacing.sm),
                       FeedbackButton(
                         target: FeedbackTarget(
                           type: 'event',

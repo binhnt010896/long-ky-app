@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core_domain/core_domain.dart';
 import 'package:experience/experience.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../state/content_sync.dart';
+import '../../state/narration_controller.dart';
 import '../../state/providers.dart';
 import '../../state/tip_store.dart';
 import '../../telemetry/telemetry.dart';
@@ -16,6 +18,7 @@ import '../../widgets/flag_mark.dart';
 import '../../widgets/lang_toggle.dart';
 import '../../widgets/seal_button.dart';
 import '../../widgets/tea_cups_icon.dart';
+import '../chao_co/chao_co_screen.dart';
 import '../home/widgets/particle_field.dart';
 
 /// One entry in the Sảnh's directory. New features (e.g. Câu đố) are one more
@@ -271,6 +274,7 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
                   Container(height: 1, color: VSColors.goldBorder),
                   for (final item in _items)
                     _rise(i++, _DirectoryRow(item: item, en: en)),
+                  _rise(i++, _NarrationRow(en: en)),
                   if (offers.isNotEmpty) ...<Widget>[
                     const SizedBox(height: VSSpacing.xl),
                     _rise(
@@ -479,12 +483,18 @@ class _ChaoCoCard extends StatelessWidget {
           fit: StackFit.expand,
           children: <Widget>[
             // A tall photo: anchor on the waving flag near its top.
-            Image.asset(
-              'assets/content/chao-co/background.png',
+            Image(
+              image: const CachedNetworkImageProvider(
+                  ChaoCoScreen.backgroundUrl),
               fit: BoxFit.cover,
               alignment: const Alignment(0, -0.92),
-              errorBuilder: (_, __, ___) =>
-                  const ColoredBox(color: VSColors.lacquerRaised),
+              errorBuilder: (_, __, ___) => Image.asset(
+                ChaoCoScreen.backgroundAsset,
+                fit: BoxFit.cover,
+                alignment: const Alignment(0, -0.92),
+                errorBuilder: (_, __, ___) =>
+                    const ColoredBox(color: VSColors.lacquerRaised),
+              ),
             ),
             // Lacquer on the left (behind the title), clear on the flag side.
             const DecoratedBox(
@@ -566,6 +576,33 @@ class _DirectoryRow extends StatelessWidget {
       trailing: Icon(Icons.chevron_right,
           color: VSColors.gold.withValues(alpha: 0.7)),
       onTap: () => context.push(item.route),
+    );
+  }
+}
+
+/// The autoplay switch for spoken narration — the same choice the one-time
+/// "keep autoplay?" question offers, changeable here at any time.
+class _NarrationRow extends ConsumerWidget {
+  const _NarrationRow({required this.en});
+  final bool en;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final on = ref.watch(narrationProvider.select((s) => s.prefs.autoplay));
+    final ctl = ref.read(narrationProvider.notifier);
+    return _SanhRow(
+      key: const ValueKey<String>('sanh-narration-row'),
+      icon: Icons.record_voice_over_outlined,
+      title: en ? 'Autoplay narration' : 'Tự phát lời kể',
+      subtitle: en
+          ? 'Read each new page aloud when you open it (Vietnamese)'
+          : 'Tự đọc lời kể khi bạn mở một trang mới',
+      trailing: Switch(
+        value: on,
+        activeTrackColor: VSColors.goldBright,
+        onChanged: ctl.setAutoplay,
+      ),
+      onTap: () => ctl.setAutoplay(!on),
     );
   }
 }

@@ -12,6 +12,8 @@ import '../streets/street_reverse_chip.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/figure_bust.dart';
 import '../../widgets/lang_toggle.dart';
+import '../../widgets/narration_button.dart';
+import '../../state/narration_controller.dart';
 import '../../widgets/tilted_backdrop.dart';
 
 /// Character Detail — a figure's portrait, chronicle-grounded biography, and the
@@ -91,6 +93,11 @@ class CharacterDetailScreen extends ConsumerWidget {
                         Row(
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
+                            NarrationButton(
+                              kind: NarrationKind.person,
+                              id: figure.id,
+                            ),
+                            const SizedBox(width: VSSpacing.sm),
                             FeedbackButton(
                               target: FeedbackTarget(
                                 type: 'person',

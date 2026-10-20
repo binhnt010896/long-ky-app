@@ -11,6 +11,8 @@ import '../sanh/disclaimer_screen.dart' show DisclaimerInfoButton;
 import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
+import '../../widgets/narration_button.dart';
+import '../../state/narration_controller.dart';
 import 'event_detail_screen.dart' show EventBody;
 
 /// A standalone event — one that no era lists (Cycle N). The same body,
@@ -118,6 +120,8 @@ class _TopBar extends StatelessWidget {
             ),
           ),
           const SizedBox(width: VSSpacing.md),
+          NarrationButton(kind: NarrationKind.event, id: event.id),
+          const SizedBox(width: VSSpacing.sm),
           FeedbackButton(
             target: FeedbackTarget(
               type: 'event',
