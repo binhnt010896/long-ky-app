@@ -13,7 +13,12 @@ class CoachStep {
     required this.icon,
     required this.vi,
     required this.en,
+    this.since = 1,
   });
+
+  /// The tour version that introduced this step. A returning reader who
+  /// finished an older version is shown only the steps added since.
+  final int since;
 
   /// Stable id handed to [HomeCoachmarks.targetFor] to locate what to light up
   /// (null result = no spotlight, a centred card).
@@ -53,10 +58,32 @@ const List<CoachStep> kHomeCoachSteps = <CoachStep>[
   CoachStep(
     id: 'sanh',
     icon: Icons.account_balance_rounded,
-    vi: '**Sảnh Long Ký**: câu đố, Chào cờ, đường phố, và đổi ngôn ngữ bất cứ lúc nào.',
-    en: '**The Hall**: quizzes, Chào cờ, street names, and the language switch anytime.',
+    vi: '**Sảnh Long Ký**: câu đố, Chào cờ, và đổi ngôn ngữ bất cứ lúc nào.',
+    en: '**The Hall**: quizzes, Chào cờ, and the language switch anytime.',
   ),
 ];
+
+/// The step added in tour version 2. Placed after the timeline button, where
+/// the signpost button sits, rather than at the end of [kHomeCoachSteps].
+const CoachStep kStreetsCoachStep = CoachStep(
+  id: 'streets',
+  icon: Icons.signpost_outlined,
+  vi: '**Đường phố mang tên sử**: dạo bản đồ TP.HCM, chạm một con đường để biết nó mang tên ai.',
+  en: '**Streets named for history**: browse the Ho Chi Minh City map and tap a street to see who it honours.',
+  since: 2,
+);
+
+/// The tour's steps in order, minus those a returning reader has already seen
+/// ([seenVersion] = the tour version they finished; 0 = first run, all steps).
+List<CoachStep> homeCoachStepsFor(int seenVersion) {
+  final all = <CoachStep>[
+    for (final s in kHomeCoachSteps) ...<CoachStep>[
+      s,
+      if (s.id == 'timeline') kStreetsCoachStep,
+    ],
+  ];
+  return <CoachStep>[for (final s in all) if (s.since > seenVersion) s];
+}
 
 /// The first-run Home tour: a dim lacquer scrim with a spotlight cut-out, and
 /// a small card carrying the text, the VI/EN toggle (the reader has not yet
@@ -68,8 +95,12 @@ class HomeCoachmarks extends ConsumerStatefulWidget {
   const HomeCoachmarks({
     required this.targetFor,
     required this.onEnd,
+    this.seenVersion = 0,
     super.key,
   });
+
+  /// The tour version the reader already finished (steps up to it are skipped).
+  final int seenVersion;
 
   final Rect? Function(String stepId, Size size) targetFor;
 
@@ -84,6 +115,7 @@ class _HomeCoachmarksState extends ConsumerState<HomeCoachmarks> {
   int _step = 0;
   Rect? _target;
   bool _ended = false;
+  late final List<CoachStep> _steps = homeCoachStepsFor(widget.seenVersion);
 
   void _end(String result) {
     if (_ended) return;
@@ -92,7 +124,7 @@ class _HomeCoachmarksState extends ConsumerState<HomeCoachmarks> {
   }
 
   void _next() {
-    if (_step == kHomeCoachSteps.length - 1) return _end('done');
+    if (_step == _steps.length - 1) return _end('done');
     setState(() {
       _step++;
       _target = null;
@@ -110,7 +142,7 @@ class _HomeCoachmarksState extends ConsumerState<HomeCoachmarks> {
   /// Targets live in other widgets, so they are measured after layout and
   /// again whenever the window changes.
   void _measure(Size size) {
-    final next = widget.targetFor(kHomeCoachSteps[_step].id, size);
+    final next = widget.targetFor(_steps[_step].id, size);
     if (next != _target && mounted) setState(() => _target = next);
   }
 
@@ -119,8 +151,8 @@ class _HomeCoachmarksState extends ConsumerState<HomeCoachmarks> {
     final lang = ref.watch(langProvider);
     final en = lang == Lang.en;
     final size = MediaQuery.sizeOf(context);
-    final step = kHomeCoachSteps[_step];
-    final last = _step == kHomeCoachSteps.length - 1;
+    final step = _steps[_step];
+    final last = _step == _steps.length - 1;
     WidgetsBinding.instance.addPostFrameCallback((_) => _measure(size));
 
     final hole = _target?.inflate(8);
@@ -135,7 +167,7 @@ class _HomeCoachmarksState extends ConsumerState<HomeCoachmarks> {
       key: ValueKey<int>(_step),
       step: step,
       stepIndex: _step,
-      total: kHomeCoachSteps.length,
+      total: _steps.length,
       en: en,
       last: last,
       onNext: _next,

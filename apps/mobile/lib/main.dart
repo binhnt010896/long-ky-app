@@ -62,7 +62,10 @@ Future<void> main() async {
   // never flashes Vietnamese before switching to a saved English choice.
   final savedLang = await FileLangStore().load();
 
-  final tourSeen = await FileOnboardingStore().homeTourSeen();
+  final onboarding = FileOnboardingStore();
+  final tourVersion = await onboarding.homeTourVersion();
+  final tourSeen = tourVersion >= kHomeTourVersion;
+  final sanhVisited = await onboarding.sanhVisited();
 
   await ContentMedia.load();
 
@@ -85,6 +88,8 @@ Future<void> main() async {
       activeContentVersionProvider.overrideWith((ref) => activeVersion),
       langProvider.overrideWith((ref) => savedLang),
       homeTourSeenProvider.overrideWith((ref) => tourSeen),
+      homeTourFromVersionProvider.overrideWith((ref) => tourVersion),
+      sanhVisitedProvider.overrideWith((ref) => sanhVisited),
       // The exact instance whose error handlers are already wired above, and
       // whose enabled-state main.dart just applied — telemetryEnabledProvider
       // independently reloads the same on-disk setting for its own state.

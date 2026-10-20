@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:viet_su/screens/home/home_screen.dart';
+import 'package:viet_su/screens/home/widgets/home_coachmarks.dart';
 import 'package:viet_su/screens/home/widgets/particle_field.dart';
 import 'package:viet_su/state/lang_store.dart';
 import 'package:viet_su/state/onboarding_store.dart';
@@ -110,12 +111,19 @@ Future<void> _pumpHome(
 
 class _FakeOnboardingStore implements OnboardingStore {
   bool seen = false;
+  bool sanh = false;
+  @override
+  Future<int> homeTourVersion() async => seen ? kHomeTourVersion : 0;
   @override
   Future<bool> homeTourSeen() async => seen;
   @override
   Future<void> markHomeTourSeen() async => seen = true;
   @override
   Future<void> resetHomeTour() async => seen = false;
+  @override
+  Future<bool> sanhVisited() async => sanh;
+  @override
+  Future<void> markSanhVisited() async => sanh = true;
 }
 
 class _FakeLangStore implements LangStore {
@@ -129,6 +137,8 @@ Future<(ProviderContainer, _FakeOnboardingStore)> _pumpTour(
   WidgetTester tester, {
   bool splashDone = true,
   bool seen = false,
+  int fromVersion = 0,
+  bool sanhVisited = false,
 }) async {
   final store = _FakeOnboardingStore();
   final container = ProviderContainer(
@@ -139,6 +149,8 @@ Future<(ProviderContainer, _FakeOnboardingStore)> _pumpTour(
       langStoreProvider.overrideWithValue(_FakeLangStore()),
       splashDoneProvider.overrideWith((ref) => splashDone),
       homeTourSeenProvider.overrideWith((ref) => seen),
+      homeTourFromVersionProvider.overrideWith((ref) => fromVersion),
+      sanhVisitedProvider.overrideWith((ref) => sanhVisited),
     ],
   );
   addTearDown(container.dispose);
@@ -360,7 +372,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.textContaining('Chào mừng'), findsOneWidget);
 
-      for (var i = 0; i < 4; i++) {
+      for (var i = 0; i < 5; i++) {
         await tester.tap(find.byKey(const ValueKey<String>('coach-next')));
         await tester.pumpAndSettle();
       }
@@ -373,6 +385,40 @@ void main() {
       expect(store.seen, isTrue);
     });
 
+    testWidgets('the Sảnh step no longer mentions streets; the streets step does',
+        (tester) async {
+      await _pumpTour(tester);
+      for (var i = 0; i < 4; i++) {
+        await tester.tap(find.byKey(const ValueKey<String>('coach-next')));
+        await tester.pumpAndSettle();
+      }
+      expect(find.textContaining('Đường phố mang tên sử'), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey<String>('coach-next')));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('Sảnh Long Ký'), findsOneWidget);
+      expect(find.textContaining('đường phố'), findsNothing);
+    });
+
+    testWidgets('a reader who finished tour v1 sees only the new streets step',
+        (tester) async {
+      final (container, store) = await _pumpTour(tester, fromVersion: 1);
+      expect(find.textContaining('Đường phố mang tên sử'), findsOneWidget);
+      expect(find.byKey(const ValueKey<String>('coach-back')), findsNothing);
+      expect(find.text('Bắt đầu'), findsOneWidget);
+      await tester.tap(find.byKey(const ValueKey<String>('coach-next')));
+      await tester.pumpAndSettle();
+      expect(find.byKey(const ValueKey<String>('coach-text')), findsNothing);
+      expect(container.read(homeTourSeenProvider), isTrue);
+      expect(store.seen, isTrue);
+    });
+
+    test('homeCoachStepsFor filters by the version already seen', () {
+      expect(homeCoachStepsFor(0).map((s) => s.id),
+          <String>['welcome', 'era', 'rail', 'timeline', 'streets', 'sanh']);
+      expect(homeCoachStepsFor(1).map((s) => s.id), <String>['streets']);
+      expect(homeCoachStepsFor(2), isEmpty);
+    });
+
     testWidgets('Skip ends the tour and remembers it', (tester) async {
       final (container, store) = await _pumpTour(tester);
       await tester.tap(find.byKey(const ValueKey<String>('coach-skip')));
@@ -380,6 +426,21 @@ void main() {
       expect(find.byKey(const ValueKey<String>('coach-text')), findsNothing);
       expect(container.read(homeTourSeenProvider), isTrue);
       expect(store.seen, isTrue);
+    });
+  });
+
+  group('streets entry points', () {
+    testWidgets('Home has a signpost button; the seal wears a dot until the Sảnh is opened',
+        (tester) async {
+      await _pumpTour(tester, seen: true);
+      expect(find.byKey(const ValueKey<String>('home-streets-button')),
+          findsOneWidget);
+      expect(find.byKey(const ValueKey<String>('seal-new-dot')), findsOneWidget);
+    });
+
+    testWidgets('no dot once the Sảnh has been visited', (tester) async {
+      await _pumpTour(tester, seen: true, sanhVisited: true);
+      expect(find.byKey(const ValueKey<String>('seal-new-dot')), findsNothing);
     });
   });
 }

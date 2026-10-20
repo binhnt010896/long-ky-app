@@ -261,6 +261,7 @@ class AboutScreen extends ConsumerWidget {
               key: const Key('replay-tour-link'),
               onTap: () async {
                 await ref.read(onboardingStoreProvider).resetHomeTour();
+                ref.read(homeTourFromVersionProvider.notifier).state = 0;
                 ref.read(homeTourSeenProvider.notifier).state = false;
                 if (context.mounted) context.go('/');
               },

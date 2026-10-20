@@ -1396,8 +1396,26 @@ void main() {
       expect(find.text('Chào cờ'), findsOneWidget);
       expect(find.text('Niên biểu'), findsOneWidget);
       expect(find.text('Bản đồ lãnh thổ'), findsOneWidget);
+      // The streets are a picture card now, not a directory row.
+      expect(find.byKey(const ValueKey<String>('sanh-streets-card')),
+          findsOneWidget);
+      expect(find.text('Đường phố mang tên sử'), findsOneWidget);
+      // The directory is longer than the screen; scroll to its tail.
+      await tester.scrollUntilVisible(find.text('Về Long Ký'), 200);
       expect(find.text('Về Long Ký'), findsOneWidget);
+      await tester.scrollUntilVisible(
+          find.byKey(const ValueKey<String>('sanh-narration-row')), 200);
+      expect(find.text('Tự phát lời kể'), findsOneWidget);
       expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('the streets card opens the street map', (tester) async {
+      final router = await _pumpAt(tester, '/sanh', ExperienceTier.reduced);
+      await tester.tap(find.byKey(const ValueKey<String>('sanh-streets-card')));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 600));
+
+      expect(path(router), '/duong-pho');
     });
 
     testWidgets('close returns to Home', (tester) async {

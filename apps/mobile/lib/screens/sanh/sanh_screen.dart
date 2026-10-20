@@ -67,14 +67,6 @@ const List<_SanhItem> _items = <_SanhItem>[
     route: '/map',
   ),
   _SanhItem(
-    icon: Icons.signpost_outlined,
-    titleVi: 'Đường phố mang tên sử',
-    titleEn: 'Streets named for history',
-    subtitleVi: 'Những con đường TP.HCM mang tên người và sự kiện',
-    subtitleEn: 'Ho Chi Minh City streets named for people and events',
-    route: '/duong-pho',
-  ),
-  _SanhItem(
     icon: Icons.auto_stories_outlined,
     titleVi: 'Về Long Ký',
     titleEn: 'About Long Ký',
@@ -118,6 +110,13 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
   void initState() {
     super.initState();
     _tipSub = ref.read(tipStoreProvider)?.outcomes.listen(_onTipOutcome);
+    // Opening the Sảnh (from anywhere) clears the "new" dot on the Home seal.
+    if (!ref.read(sanhVisitedProvider)) {
+      Future<void>.microtask(() {
+        ref.read(sanhVisitedProvider.notifier).state = true;
+        ref.read(onboardingStoreProvider).markSanhVisited();
+      });
+    }
   }
 
   @override
@@ -265,6 +264,8 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
                   _rise(i++, const _BrandLockup()),
                   const SizedBox(height: VSSpacing.xxl),
                   _rise(i++, _ChaoCoCard(en: en)),
+                  const SizedBox(height: VSSpacing.lg),
+                  _rise(i++, _StreetsCard(en: en)),
                   const SizedBox(height: VSSpacing.xxl),
                   _rise(
                     i++,
@@ -559,6 +560,134 @@ class _ChaoCoCard extends StatelessWidget {
       ),
     );
   }
+}
+
+/// The street map's door — a picture card in the family of [_ChaoCoCard], so
+/// it is as easy to find as the other headline feature. The picture is a
+/// drawn street plan (no photo to ship), gold lines on lacquer.
+class _StreetsCard extends StatelessWidget {
+  const _StreetsCard({required this.en});
+  final bool en;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      key: const ValueKey<String>('sanh-streets-card'),
+      behavior: HitTestBehavior.opaque,
+      onTap: () => context.push('/duong-pho'),
+      child: Container(
+        height: 132,
+        decoration: BoxDecoration(
+          borderRadius: VSRadii.cardAll,
+          border: Border.all(color: VSColors.goldBorder),
+          color: VSColors.lacquerRaised,
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            const CustomPaint(painter: _StreetPlanPainter()),
+            const DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: <Color>[Color(0xE607100F), Color(0x2207100F)],
+                ),
+              ),
+            ),
+            Positioned(
+              left: 18,
+              right: 72,
+              bottom: 16,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(
+                    en ? 'MAP' : 'BẢN ĐỒ',
+                    style: VSType.overline.copyWith(color: VSColors.goldBright),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    en ? 'Streets named for history' : 'Đường phố mang tên sử',
+                    style: VSType.headline.copyWith(fontSize: 20),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    en
+                        ? 'Ho Chi Minh City · people and events'
+                        : 'TP.HCM · người và sự kiện',
+                    style:
+                        VSType.caption.copyWith(color: VSColors.inkSecondary),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              left: 16,
+              top: 14,
+              child: Icon(Icons.signpost_outlined,
+                  size: 26, color: VSColors.goldBright.withValues(alpha: 0.9)),
+            ),
+            Positioned(
+              right: 16,
+              bottom: 18,
+              child: Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: VSColors.gold.withValues(alpha: 0.14),
+                  border: Border.all(color: VSColors.goldBright),
+                ),
+                child: const Icon(Icons.arrow_forward,
+                    size: 18, color: VSColors.goldBright),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// A stylised old-town street plan: a river bend and a few crossing roads.
+class _StreetPlanPainter extends CustomPainter {
+  const _StreetPlanPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width, h = size.height;
+    final river = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 14
+      ..strokeCap = StrokeCap.round
+      ..color = VSColors.gold.withValues(alpha: 0.10);
+    canvas.drawPath(
+      Path()
+        ..moveTo(w * 0.52, -10)
+        ..cubicTo(w * 0.40, h * 0.30, w * 0.80, h * 0.50, w * 0.62, h + 10),
+      river,
+    );
+    final road = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.4
+      ..color = VSColors.gold.withValues(alpha: 0.32);
+    final main = Paint.from(road)..strokeWidth = 2.4;
+    for (final y in <double>[0.22, 0.48, 0.74]) {
+      canvas.drawLine(Offset(0, h * y), Offset(w, h * (y + 0.06)), road);
+    }
+    for (final x in <double>[0.30, 0.56, 0.82]) {
+      canvas.drawLine(Offset(w * x, 0), Offset(w * (x - 0.05), h), road);
+    }
+    canvas.drawLine(Offset(0, h * 0.9), Offset(w, h * 0.12), main);
+    canvas.drawCircle(Offset(w * 0.78, h * 0.34), 4.5,
+        Paint()..color = VSColors.goldBright.withValues(alpha: 0.9));
+  }
+
+  @override
+  bool shouldRepaint(_StreetPlanPainter old) => false;
 }
 
 class _DirectoryRow extends StatelessWidget {

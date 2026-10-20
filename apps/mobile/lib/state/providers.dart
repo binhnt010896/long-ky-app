@@ -100,6 +100,15 @@ final onboardingStoreProvider = Provider<OnboardingStore>(
 /// main.dart overrides the initial value with the persisted one.
 final homeTourSeenProvider = StateProvider<bool>((ref) => false);
 
+/// The tour version the reader had already seen at launch: the Home tour shows
+/// only steps introduced after it (0 = a first run sees every step).
+/// main.dart overrides the initial value with the persisted one.
+final homeTourFromVersionProvider = StateProvider<int>((ref) => 0);
+
+/// True once the reader has opened the Sảnh; until then the Home seal wears a
+/// "new" dot. main.dart overrides the initial value with the persisted one.
+final sanhVisitedProvider = StateProvider<bool>((ref) => false);
+
 /// True once the brand splash has fully faded — the Home tour waits for it so
 /// it never plays underneath the splash.
 final splashDoneProvider = StateProvider<bool>((ref) => false);

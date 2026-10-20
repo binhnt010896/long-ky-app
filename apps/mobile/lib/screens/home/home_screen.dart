@@ -39,6 +39,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   final GlobalKey _tourOverlayKey = GlobalKey();
   final GlobalKey _tourTimelineKey = GlobalKey();
   final GlobalKey _tourSealKey = GlobalKey();
+  final GlobalKey _tourStreetsKey = GlobalKey();
   final GlobalKey _tourRailKey = GlobalKey();
 
   /// True while a finger is dragging the period rail — suppresses the
@@ -104,6 +105,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         return _rectOf(_tourRailKey);
       case 'timeline':
         return _rectOf(_tourTimelineKey);
+      case 'streets':
+        return _rectOf(_tourStreetsKey);
       case 'sanh':
         return _rectOf(_tourSealKey);
     }
@@ -210,6 +213,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   lang: lang,
                   timelineKey: _tourTimelineKey,
                   sealKey: _tourSealKey,
+                  streetsKey: _tourStreetsKey,
                 ),
               ),
               Align(
@@ -232,6 +236,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 HomeCoachmarks(
                   key: _tourOverlayKey,
                   targetFor: _tourTarget,
+                  seenVersion: ref.watch(homeTourFromVersionProvider),
                   onEnd: _endTour,
                 ),
             ],
@@ -382,21 +387,23 @@ class _ErrorView extends StatelessWidget {
 /// Top chrome for the dynasty hub: the current dynasty's crest, name and span on
 /// the left; the global-timeline entry and the Long Ký seal (the Sảnh) on the
 /// right.
-class _DynastyChrome extends StatelessWidget {
+class _DynastyChrome extends ConsumerWidget {
   const _DynastyChrome({
     required this.period,
     required this.lang,
     required this.timelineKey,
     required this.sealKey,
+    required this.streetsKey,
   });
 
   final Period period;
   final Lang lang;
   final GlobalKey timelineKey;
   final GlobalKey sealKey;
+  final GlobalKey streetsKey;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final accent = VSColors.fromHex(period.accent);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: VSSpacing.screenEdge)
@@ -442,10 +449,21 @@ class _DynastyChrome extends StatelessWidget {
               ),
               const SizedBox(width: VSSpacing.sm),
               KeyedSubtree(
+                key: streetsKey,
+                child: CircleIconButton(
+                  key: const ValueKey<String>('home-streets-button'),
+                  icon: Icons.signpost_outlined,
+                  size: 34,
+                  onTap: () => context.push('/duong-pho'),
+                ),
+              ),
+              const SizedBox(width: VSSpacing.sm),
+              KeyedSubtree(
                 key: sealKey,
                 child: SealButton(
                   key: const ValueKey<String>('home-sanh-seal'),
                   lang: lang,
+                  showNew: !ref.watch(sanhVisitedProvider),
                   onTap: () => context.push('/sanh'),
                 ),
               ),

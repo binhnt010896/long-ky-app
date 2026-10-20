@@ -9,6 +9,7 @@ class SealButton extends StatelessWidget {
     required this.onTap,
     this.size = 34,
     this.lang = Lang.vi,
+    this.showNew = false,
     super.key,
   });
 
@@ -21,6 +22,9 @@ class SealButton extends StatelessWidget {
   /// and stays on-screen in both languages.
   final Lang lang;
 
+  /// A small gold dot on the corner: something new is behind this door.
+  final bool showNew;
+
   @override
   Widget build(BuildContext context) {
     return Semantics(
@@ -29,29 +33,49 @@ class SealButton extends StatelessWidget {
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: onTap,
-        child: Container(
-          width: size,
-          height: size,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: VSColors.goldBorder),
-            boxShadow: <BoxShadow>[
-              BoxShadow(
-                color: VSColors.goldGlow.withValues(alpha: 0.25),
-                blurRadius: 8,
-              ),
-            ],
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(7),
-            child: Image.asset(
-              asset,
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: <Widget>[
+            Container(
               width: size,
               height: size,
-              fit: BoxFit.cover,
-              filterQuality: FilterQuality.medium,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: VSColors.goldBorder),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    color: VSColors.goldGlow.withValues(alpha: 0.25),
+                    blurRadius: 8,
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(7),
+                child: Image.asset(
+                  asset,
+                  width: size,
+                  height: size,
+                  fit: BoxFit.cover,
+                  filterQuality: FilterQuality.medium,
+                ),
+              ),
             ),
-          ),
+            if (showNew)
+              Positioned(
+                top: -3,
+                right: -3,
+                child: Container(
+                  key: const ValueKey<String>('seal-new-dot'),
+                  width: 10,
+                  height: 10,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: VSColors.goldBright,
+                    border: Border.all(color: VSColors.lacquer, width: 1.5),
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
     );
