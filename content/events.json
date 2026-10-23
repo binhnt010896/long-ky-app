@@ -14659,6 +14659,94 @@
         },
         "author": "Ngô Sĩ Liên"
       }
+    },
+    {
+      "id": "hoang-sa",
+      "slug": "hoang-sa",
+      "figureIds": [],
+      "details": {
+        "vi": "Hoàng Sa là một quần đảo giữa Biển Đông, nằm ngoài khơi miền Trung Việt Nam. Theo sử sách, từ thế kỷ XVII các chúa Nguyễn lập đội Hoàng Sa gồm dân binh đi thuyền ra quần đảo vào mùa biển lặng, khai thác hải sản và thu nhặt vật phẩm trên các bãi đá, rồi trở về nộp cho triều đình. Triều Nguyễn tiếp tục công việc ấy; Đại Nam thực lục chép việc năm Bính Tý (1816), vua Gia Long sai thủy quân cùng đội Hoàng Sa ra quần đảo để xem xét, đo đạc thủy trình. Ngày 19/1/1974, sau những ngày căng thẳng từ 17/1, một trận hải chiến nổ ra giữa các chiến hạm của hải quân Việt Nam Cộng hòa và hải quân Trung Quốc ở vùng biển Hoàng Sa; nhiều quân nhân Việt Nam đã hy sinh. Sau trận đánh, Trung Quốc kiểm soát toàn bộ quần đảo, và Việt Nam cho đến nay vẫn khẳng định chủ quyền của mình đối với Hoàng Sa. Tên đường Hoàng Sa ở Thành phố Hồ Chí Minh nhắc nhớ quần đảo ấy.",
+        "en": "Hoàng Sa (the Paracel Islands) is an archipelago in the middle of the East Sea (South China Sea), off the coast of central Việt Nam. According to the records, from the seventeenth century the Nguyễn lords raised the Hoàng Sa flotilla, whose members sailed out in the calm season to gather sea products and salvage goods from the reefs, then returned to hand them to the court. The Nguyễn dynasty continued this; the Đại Nam thực lục records that in the year Bính Tý (1816) Emperor Gia Long sent his navy together with the Hoàng Sa flotilla to survey the waters. On 19 January 1974, after days of tension from the 17th, a naval battle broke out off the Paracels between ships of the Republic of Vietnam navy and the Chinese navy; many Vietnamese servicemen were killed. Afterwards China held the whole archipelago, and Việt Nam still affirms its sovereignty over Hoàng Sa. Hoàng Sa Street in Hồ Chí Minh City keeps the archipelago in mind."
+      },
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1974 SCN",
+          "en": "1974 CE"
+        },
+        "value": 1974,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Quần đảo Hoàng Sa",
+        "en": "The Hoàng Sa (Paracel) Islands"
+      },
+      "summary": {
+        "vi": "Từ đội Hoàng Sa của các chúa Nguyễn đến trận hải chiến tháng 1/1974: Hoàng Sa trong lịch sử và chủ quyền của Việt Nam.",
+        "en": "From the Hoàng Sa flotillas of the Nguyễn lords to the naval battle of January 1974: the Paracels in Việt Nam's history and its claim of sovereignty."
+      },
+      "body": {
+        "vi": "Từ thế kỷ XVII, các chúa Nguyễn lập đội Hoàng Sa, mỗi năm ra quần đảo khai thác hải sản, thu nhặt hải vật và đo đạc đường biển. Triều Nguyễn tiếp tục việc ấy: năm 1816, vua Gia Long sai thủy quân cùng đội Hoàng Sa ra thăm dò thủy trình. Từ ngày 17 đến 20/1/1974, tại vùng biển Hoàng Sa đã diễn ra trận hải chiến giữa hải quân Việt Nam Cộng hòa và hải quân Trung Quốc; sau trận này, Trung Quốc kiểm soát toàn bộ quần đảo. Việt Nam khẳng định chủ quyền đối với Hoàng Sa.",
+        "en": "From the seventeenth century the Nguyễn lords kept the Hoàng Sa flotillas, which sailed out each year to gather sea products and survey the sea routes. The Nguyễn dynasty carried on the practice: in 1816 Emperor Gia Long sent his navy and the Hoàng Sa flotilla to survey the waters. From 17 to 20 January 1974 a naval battle was fought off the Paracels between the navy of the Republic of Vietnam and the Chinese navy; afterwards China held the whole archipelago. Việt Nam affirms its sovereignty over Hoàng Sa."
+      },
+      "hero": {
+        "id": "hoang-sa-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene"
+      },
+      "citation": {
+        "work": "Đại Nam thực lục (Chính biên)",
+        "section": {
+          "vi": "Đệ nhất kỷ · năm Bính Tý, Gia Long thứ 15 (1816)",
+          "en": "First chronicle · the year Bính Tý, Gia Long 15 (1816)"
+        },
+        "author": "Quốc sử quán triều Nguyễn"
+      }
+    },
+    {
+      "id": "truong-sa",
+      "slug": "truong-sa",
+      "figureIds": [],
+      "details": {
+        "vi": "Trường Sa là quần đảo gồm nhiều đảo, đá và bãi ngầm ở phía đông nam Biển Đông, ngoài khơi Việt Nam. Tháng 4/1975, Hải quân nhân dân Việt Nam tiếp quản các đảo mà quân đội Việt Nam Cộng hòa đang đóng giữ ở Trường Sa. Sau đó, bộ đội hải quân và công binh tiếp tục ra đóng giữ, xây dựng thêm nhiều đảo, đá. Đầu năm 1988, các lực lượng ấy triển khai ở đá Gạc Ma, Cô Lin và Len Đao; rạng sáng 14/3/1988, hải quân Trung Quốc tấn công, 64 cán bộ, chiến sĩ Việt Nam đã hy sinh. Việt Nam khẳng định chủ quyền đối với quần đảo Trường Sa. Tên đường Trường Sa ở Thành phố Hồ Chí Minh nhắc nhớ quần đảo ấy.",
+        "en": "The Trường Sa (Spratly) Islands are an archipelago of many islands, reefs and shoals in the south-east of the East Sea (South China Sea), off Việt Nam. In April 1975 the Vietnamese People's Navy took over the islands the army of the Republic of Vietnam had garrisoned in Trường Sa. After that, naval and engineer troops went on to garrison and build on more islands and reefs. In early 1988 those forces were deployed at Gạc Ma, Cô Lin and Len Đao; at dawn on 14 March 1988 the Chinese navy attacked, and 64 Vietnamese officers and soldiers were killed. Việt Nam affirms its sovereignty over the Trường Sa archipelago. Trường Sa Street in Hồ Chí Minh City keeps the archipelago in mind."
+      },
+      "kind": "historical",
+      "year": {
+        "display": {
+          "vi": "1975 – 1988 SCN",
+          "en": "1975 – 1988 CE"
+        },
+        "value": 1988,
+        "approximate": false
+      },
+      "title": {
+        "vi": "Quần đảo Trường Sa",
+        "en": "The Trường Sa (Spratly) Islands"
+      },
+      "summary": {
+        "vi": "Quần đảo Trường Sa: nơi Hải quân nhân dân Việt Nam đóng giữ các đảo từ năm 1975 và đã đổ máu ở Gạc Ma năm 1988.",
+        "en": "The Trường Sa (Spratly) Islands: held by the Vietnamese People's Navy since 1975, and where blood was spilled at Gạc Ma in 1988."
+      },
+      "body": {
+        "vi": "Trường Sa là quần đảo san hô nằm ngoài khơi phía đông nam Việt Nam, gồm nhiều đảo, đá, bãi ngầm. Tháng 4/1975, Hải quân nhân dân Việt Nam tiếp quản các đảo Việt Nam Cộng hòa đang đóng giữ ở Trường Sa. Những năm sau đó, bộ đội hải quân tiếp tục đóng giữ và xây dựng thêm nhiều đảo, đá. Ngày 14/3/1988, tại đá Gạc Ma, 64 cán bộ, chiến sĩ đã hy sinh khi giữ đảo và bảo vệ lá cờ Tổ quốc.",
+        "en": "The Trường Sa (Spratly) Islands are a coral archipelago off Việt Nam's south-east coast, made up of many islands, reefs and shoals. In April 1975 the Vietnamese People's Navy took over the islands the Republic of Vietnam had garrisoned in Trường Sa. In the years after, naval troops went on to garrison and build on more islands and reefs. On 14 March 1988, at Gạc Ma Reef, 64 officers and soldiers fell holding the reef and defending the national flag."
+      },
+      "hero": {
+        "id": "truong-sa-hero",
+        "type": "image",
+        "role": "hero",
+        "placeholder": "era-scene"
+      },
+      "citation": {
+        "work": "Lịch sử Quân đội nhân dân Việt Nam",
+        "section": {
+          "vi": "Quần đảo Trường Sa (1975 – 1988)",
+          "en": "The Spratly Islands (1975 – 1988)"
+        },
+        "author": "Viện Lịch sử Quân sự Việt Nam"
+      }
     }
   ]
 }
