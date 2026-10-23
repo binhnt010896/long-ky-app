@@ -437,7 +437,7 @@
       "id": "cu-thi",
       "name": {
         "vi": "Cù Thị",
-        "en": "Cù Thị"
+        "en": "Queen Dowager Jiu (Cù Thị)"
       },
       "epithet": {
         "vi": "Thái hậu người Hán",
@@ -526,7 +526,7 @@
       },
       "bio": {
         "vi": "Con gái Lạc tướng huyện Mê Linh, dòng dõi vua Hùng, vợ của Thi Sách. Căm giận ách đô hộ tàn bạo của thái thú Tô Định, năm 40 bà cùng em là Trưng Nhị phất cờ khởi nghĩa ở Mê Linh, được các Lạc tướng và dân chúng hưởng ứng, đánh đuổi Tô Định, thu lại sáu mươi lăm thành và xưng là Trưng Nữ Vương — người phụ nữ đầu tiên dựng cờ độc lập cho nước Việt.",
-        "en": "Daughter of the Lạc lord of Mê Linh, of the Hùng royal line, and wife of Thi Sách. Enraged by the tyranny of the Han governor Tô Định, in the year 40 she and her sister Trưng Nhị raised the flag of revolt at Mê Linh; the Lạc lords and the people rallied, they drove out Tô Định, recovered sixty-five citadels, and she was proclaimed the Trưng Queen — the first woman to raise the banner of Việt independence."
+        "en": "Daughter of the Lạc lord of Mê Linh, of the Hùng royal line, and wife of Thi Sách. Enraged by the tyranny of the Han governor Su Ding, in the year 40 she and her sister Trưng Nhị raised the flag of revolt at Mê Linh; the Lạc lords and the people rallied, they drove out Su Ding, recovered sixty-five citadels, and she was proclaimed the Trưng Queen — the first woman to raise the banner of Việt independence."
       },
       "avatar": {
         "id": "trung-trac-avatar",
@@ -553,7 +553,7 @@
       },
       "bio": {
         "vi": "Em gái Trưng Trắc, cùng chị dấy binh chống Hán. Bà là nữ tướng dũng lược, sát cánh cùng chị đánh đuổi Tô Định và giữ nước; khi Mã Viện đem đại quân sang, hai Bà chống cự đến cùng rồi cùng nhau tuẫn tiết bên dòng Hát Giang.",
-        "en": "Younger sister of Trưng Trắc, who rose with her against Han. A bold warrior-general, she fought at her sister's side to drive out Tô Định and hold the land; when Mã Viện came with a great army, the two sisters resisted to the end and died together at the Hát River."
+        "en": "Younger sister of Trưng Trắc, who rose with her against Han. A bold warrior-general, she fought at her sister's side to drive out Su Ding and hold the land; when Ma Yuan came with a great army, the two sisters resisted to the end and died together at the Hát River."
       },
       "avatar": {
         "id": "trung-nhi-avatar",
@@ -580,7 +580,7 @@
       },
       "bio": {
         "vi": "Con Lạc tướng huyện Chu Diên, chồng của Trưng Trắc. Ông cùng vợ nuôi chí chống lại ách đô hộ nhà Hán. Theo sử chép, Thi Sách bị thái thú Tô Định giết hại — mối thù nhà càng thôi thúc Trưng Trắc dấy binh khởi nghĩa.",
-        "en": "Son of the Lạc lord of Chu Diên and husband of Trưng Trắc. With his wife he nursed the will to resist Han rule. By the records, Thi Sách was killed by the governor Tô Định — a wrong that steeled Trưng Trắc to raise her army in revolt."
+        "en": "Son of the Lạc lord of Chu Diên and husband of Trưng Trắc. With his wife he nursed the will to resist Han rule. By the records, Thi Sách was killed by the governor Su Ding — a wrong that steeled Trưng Trắc to raise her army in revolt."
       },
       "avatar": {
         "id": "thi-sach-avatar",
@@ -599,7 +599,7 @@
       "id": "to-dinh",
       "name": {
         "vi": "Tô Định",
-        "en": "Tô Định"
+        "en": "Su Ding (Tô Định)"
       },
       "epithet": {
         "vi": "Thái thú nhà Hán",
@@ -607,7 +607,7 @@
       },
       "bio": {
         "vi": "Thái thú quận Giao Chỉ của nhà Hán, nổi tiếng tham lam tàn bạo khiến lòng dân oán hận. Chính sự hà khắc của ông là ngòi nổ cho cuộc khởi nghĩa Hai Bà Trưng năm 40; khi nghĩa quân nổi dậy, Tô Định thua chạy, trốn về phương Bắc.",
-        "en": "The Han Grand Administrator of Giao Chỉ, notorious for the greed and cruelty that turned the people against him. His harsh rule was the spark of the Trưng Sisters' uprising in the year 40; when the rebels rose, Tô Định was beaten and fled back to the North."
+        "en": "The Han Grand Administrator of Giao Chỉ, notorious for the greed and cruelty that turned the people against him. His harsh rule was the spark of the Trưng Sisters' uprising in the year 40; when the rebels rose, Su Ding was beaten and fled back to the North."
       },
       "avatar": {
         "id": "to-dinh-avatar",
@@ -626,7 +626,7 @@
       "id": "ma-vien",
       "name": {
         "vi": "Mã Viện",
-        "en": "Mã Viện"
+        "en": "Ma Yuan (Mã Viện)"
       },
       "epithet": {
         "vi": "Phục Ba tướng quân",
@@ -634,7 +634,7 @@
       },
       "bio": {
         "vi": "Lão tướng nhà Hán, được vua Quang Vũ phong làm Phục Ba tướng quân, sai đem quân sang đàn áp cuộc khởi nghĩa. Năm 42–43, Mã Viện đánh bại quân Hai Bà ở Lãng Bạc rồi Cấm Khê, dập tắt cuộc khởi nghĩa và lập lại ách đô hộ; tương truyền ông cho dựng cột đồng làm mốc biên giới phương Nam.",
-        "en": "A veteran Han general, made the Wave-Calming General by Emperor Quang Vũ and sent to crush the uprising. In 42–43 he defeated the Trưng armies at Lãng Bạc and then Cấm Khê, extinguished the revolt and restored Han rule; by tradition he raised bronze pillars to mark the southern frontier."
+        "en": "A veteran Han general, made the Wave-Calming General by Emperor Guangwu and sent to crush the uprising. In 42–43 he defeated the Trưng armies at Lãng Bạc and then Cấm Khê, extinguished the revolt and restored Han rule; by tradition he raised bronze pillars to mark the southern frontier."
       },
       "avatar": {
         "id": "ma-vien-avatar",
@@ -661,7 +661,7 @@
       },
       "bio": {
         "vi": "Người con gái quận Cửu Chân, tên là Triệu Thị Trinh, sử nhà Ngô chép là Triệu Ẩu. Mồ côi cha mẹ, bà ở với anh là Triệu Quốc Đạt, sớm nổi tiếng khỏe mạnh, gan dạ và giỏi võ nghệ. Năm Mậu Thìn (248) bà cùng anh dấy binh ở Cửu Chân, họp quân trong núi đánh phá thành ấp nhà Ngô, các bộ đều theo như bóng theo hình. Tương truyền bà mặc áo giáp vàng, cưỡi voi ra trận, tự xưng Nhụy Kiều tướng quân. Khi quân Ngô do Lục Dận đem sang đàn áp, bà chống cự đến cùng rồi tuẫn tiết trên núi Tùng khi mới ngoài hai mươi tuổi. Sử thần Ngô Sĩ Liên khen bà là bậc hùng tài trong nữ giới.",
-        "en": "A woman of Cửu Chân commandery, named Triệu Thị Trinh — recorded in the Wu histories as Triệu Ẩu. Orphaned young, she lived with her elder brother Triệu Quốc Đạt and was early renowned for strength, daring and skill in arms. In the year Mậu Thìn (248) she and her brother rose in Cửu Chân, gathered troops in the mountains and stormed the Wu citadels, the regions following her like a shadow follows a form. Tradition holds she wore golden armour and rode to battle on an elephant, styling herself the Lady General. When the Wu general Lục Dận came to crush the revolt, she resisted to the end and took her own life on Mount Tùng, barely past twenty. The historian Ngô Sĩ Liên praised her as a heroine among women."
+        "en": "A woman of Cửu Chân commandery, named Triệu Thị Trinh — recorded in the Wu histories as Triệu Ẩu. Orphaned young, she lived with her elder brother Triệu Quốc Đạt and was early renowned for strength, daring and skill in arms. In the year Mậu Thìn (248) she and her brother rose in Cửu Chân, gathered troops in the mountains and stormed the Wu citadels, the regions following her like a shadow follows a form. Tradition holds she wore golden armour and rode to battle on an elephant, styling herself the Lady General. When the Wu general Lu Yin came to crush the revolt, she resisted to the end and took her own life on Mount Tùng, barely past twenty. The historian Ngô Sĩ Liên praised her as a heroine among women."
       },
       "avatar": {
         "id": "ba-trieu-avatar",
@@ -707,7 +707,7 @@
       "id": "luc-dan",
       "name": {
         "vi": "Lục Dận",
-        "en": "Lục Dận"
+        "en": "Lu Yin (Lục Dận)"
       },
       "epithet": {
         "vi": "Thứ sử nhà Ngô",
@@ -715,7 +715,7 @@
       },
       "bio": {
         "vi": "Tướng nhà Đông Ngô, cháu của danh tướng Lục Tốn. Năm 248, trước thanh thế cuộc khởi nghĩa của Bà Triệu, vua Ngô sai ông làm Thứ sử Giao Châu đem quân sang đàn áp. Ông dùng cả binh lực lẫn mưu kế mua chuộc, sau hơn nửa năm mới dập tắt được cuộc khởi nghĩa.",
-        "en": "A general of Eastern Wu and a kinsman of the famed commander Lục Tốn. In 248, faced with the force of Lady Triệu's uprising, the Wu ruler made him Inspector of Giao Châu and sent him to suppress it. Using both arms and bribery, he took more than half a year to extinguish the revolt."
+        "en": "A general of Eastern Wu and a kinsman of the famed commander Lu Xun. In 248, faced with the force of Lady Triệu's uprising, the Wu ruler made him Inspector of Giao Châu and sent him to suppress it. Using both arms and bribery, he took more than half a year to extinguish the revolt."
       },
       "avatar": {
         "id": "luc-dan-avatar",
@@ -742,7 +742,7 @@
       },
       "bio": {
         "vi": "Húy là Lý Bí (còn gọi Lý Bôn), người Thái Bình, dòng dõi hào trưởng, tài kiêm văn võ mà không được nhà Lương trọng dụng. Bất bình trước ách đô hộ tham tàn của thứ sử Tiêu Tư, năm 541 ông dấy binh khởi nghĩa, đánh đuổi quân Lương, lại phá tan quân Lâm Ấp quấy phía nam. Năm 544, ông lên ngôi, tự xưng đế (Lý Nam Đế), đặt quốc hiệu Vạn Xuân, niên hiệu Thiên Đức, lập triều đình có văn có võ — người Việt đầu tiên xưng đế và dựng một quốc hiệu riêng. Khi Trần Bá Tiên đem quân Lương sang, ông thua lui về động Khuất Lạo, trao binh quyền cho Triệu Quang Phục rồi mất năm 548.",
-        "en": "Personal name Lý Bí (also Lý Bôn), a man of Thái Bình of a chieftain line, gifted in both letters and arms yet passed over by the Liang. Angered by the rapacious rule of the Inspector Tiêu Tư, in 541 he raised a revolt, drove out the Liang and shattered a Lâm Ấp (Champa) incursion in the south. In 544 he took the throne and styled himself emperor (Lý Nam Đế), named the state Vạn Xuân and the era Thiên Đức, and set up a court of civil and military officers — the first Việt to claim the imperial title and raise a realm's own name. When Trần Bá Tiên brought the Liang armies, he was beaten back to the cave of Khuất Lạo, handed command to Triệu Quang Phục, and died in 548."
+        "en": "Personal name Lý Bí (also Lý Bôn), a man of Thái Bình of a chieftain line, gifted in both letters and arms yet passed over by the Liang. Angered by the rapacious rule of the Inspector Xiao Zi, in 541 he raised a revolt, drove out the Liang and shattered a Lâm Ấp (Champa) incursion in the south. In 544 he took the throne and styled himself emperor (Lý Nam Đế), named the state Vạn Xuân and the era Thiên Đức, and set up a court of civil and military officers — the first Việt to claim the imperial title and raise a realm's own name. When Chen Baxian brought the Liang armies, he was beaten back to the cave of Khuất Lạo, handed command to Triệu Quang Phục, and died in 548."
       },
       "avatar": {
         "id": "ly-nam-de-avatar",
@@ -769,7 +769,7 @@
       },
       "bio": {
         "vi": "Con của thái phó Triệu Túc, một tướng tài của Lý Nam Đế. Khi vua lui về Khuất Lạo, ông được trao binh quyền. Ông rút về đầm Dạ Trạch hiểm trở, ngày ẩn đêm ra đánh úp, khiến quân Trần Bá Tiên khốn đốn — người đời gọi là Dạ Trạch Vương. Nhân nhà Lương có loạn Hầu Cảnh phải gọi Trần Bá Tiên về, ông thừa thế phản công, quét sạch quân Lương, thu lại nước Vạn Xuân và lên ngôi, xưng là Triệu Việt Vương, giữ nền độc lập thêm hơn hai mươi năm.",
-        "en": "Son of the Grand Tutor Triệu Túc and an able general of Lý Nam Đế. When the emperor withdrew to Khuất Lạo, command passed to him. He fell back to the trackless marsh of Dạ Trạch, hiding by day and striking by night until Trần Bá Tiên's army was worn ragged — the people called him the Marsh King (Dạ Trạch Vương). When a rebellion at home recalled Trần Bá Tiên, he seized the moment, swept out the Liang, recovered Vạn Xuân and took the throne as King Triệu Việt, holding the land's freedom for more than twenty years."
+        "en": "Son of the Grand Tutor Triệu Túc and an able general of Lý Nam Đế. When the emperor withdrew to Khuất Lạo, command passed to him. He fell back to the trackless marsh of Dạ Trạch, hiding by day and striking by night until Chen Baxian's army was worn ragged — the people called him the Marsh King (Dạ Trạch Vương). When a rebellion at home recalled Chen Baxian, he seized the moment, swept out the Liang, recovered Vạn Xuân and took the throne as King Triệu Việt, holding the land's freedom for more than twenty years."
       },
       "avatar": {
         "id": "trieu-quang-phuc-avatar",
@@ -796,7 +796,7 @@
       },
       "bio": {
         "vi": "Vị lão tướng dũng mãnh theo Lý Bí từ buổi đầu khởi nghĩa. Năm 543, khi quân Lâm Ấp từ phía nam sang cướp, ông cầm quân đánh tan chúng ở Cửu Đức. Khi Lý Nam Đế lên ngôi, ông đứng đầu hàng võ trong triều Vạn Xuân, cùng Tinh Thiều bên văn tạo nên rường cột của nước non mới. Tương truyền ông tử trận khi chống quân Lương của Trần Bá Tiên.",
-        "en": "A fierce veteran general who followed Lý Bí from the first days of the revolt. In 543, when a Lâm Ấp (Champa) host raided from the south, he led the troops that crushed them at Cửu Đức. When Lý Nam Đế took the throne, he headed the military side of the Vạn Xuân court, and with Tinh Thiều on the civil side formed the pillars of the new realm. By tradition he fell in battle resisting Trần Bá Tiên's Liang army."
+        "en": "A fierce veteran general who followed Lý Bí from the first days of the revolt. In 543, when a Lâm Ấp (Champa) host raided from the south, he led the troops that crushed them at Cửu Đức. When Lý Nam Đế took the throne, he headed the military side of the Vạn Xuân court, and with Tinh Thiều on the civil side formed the pillars of the new realm. By tradition he fell in battle resisting Chen Baxian's Liang army."
       },
       "avatar": {
         "id": "pham-tu-avatar",
@@ -842,7 +842,7 @@
       "id": "tran-ba-tien",
       "name": {
         "vi": "Trần Bá Tiên",
-        "en": "Trần Bá Tiên"
+        "en": "Chen Baxian (Trần Bá Tiên)"
       },
       "epithet": {
         "vi": "Tướng nhà Lương",
@@ -850,7 +850,7 @@
       },
       "bio": {
         "vi": "Danh tướng nhà Lương. Năm 545 vua Lương sai ông làm tư mã, cùng thứ sử Dương Phiêu đem đại quân sang đánh Vạn Xuân. Ông nhiều phen đánh bại quân Lý Nam Đế, buộc vua phải lui về Khuất Lạo; song khi sa vào lối đánh du kích của Triệu Quang Phục ở đầm Dạ Trạch thì giằng co không dứt. Sau ông được gọi về nước dẹp loạn Hầu Cảnh, rồi chính ông cướp ngôi nhà Lương, lập nên nhà Trần ở Trung Quốc.",
-        "en": "A famed commander of Liang. In 545 the Liang ruler made him marshal, and with the Inspector Dương Phiêu he led a great army against Vạn Xuân. He beat Lý Nam Đế's forces again and again, driving the emperor back to Khuất Lạo; but against Triệu Quang Phục's guerrilla war in the Dạ Trạch marsh he was held to a grinding stalemate. Recalled home to put down the Hầu Cảnh rebellion, he would in time seize the Liang throne himself and found the Chen dynasty in China."
+        "en": "A famed commander of Liang. In 545 the Liang ruler made him marshal, and with the Inspector Yang Piao he led a great army against Vạn Xuân. He beat Lý Nam Đế's forces again and again, driving the emperor back to Khuất Lạo; but against Triệu Quang Phục's guerrilla war in the Dạ Trạch marsh he was held to a grinding stalemate. Recalled home to put down the Hou Jing rebellion, he would in time seize the Liang throne himself and found the Chen dynasty in China."
       },
       "avatar": {
         "id": "tran-ba-tien-avatar",
@@ -877,7 +877,7 @@
       },
       "bio": {
         "vi": "Húy là Mai Thúc Loan, người Hoan Châu (vùng Nghệ An – Hà Tĩnh ngày nay), da đen mà sức khỏe hơn người, được dân trong vùng kính phục. Đầu thế kỷ thứ tám, không chịu nổi ách sưu thuế cống nạp nặng nề của nhà Đường, ông dấy binh khởi nghĩa ở Hoan Châu, liên kết với các nước Lâm Ấp, Chân Lạp, hợp binh mấy chục vạn, tiến đánh và hạ được thành Tống Bình, đuổi quan đô hộ nhà Đường. Ông tự xưng là Mai Hắc Đế (vua Đen), đóng đô ở thành Vạn An. Năm 722, nhà Đường sai Dương Tư Húc đem mười vạn quân sang đàn áp; ông chống không nổi, lui vào rừng rồi mất.",
-        "en": "Personal name Mai Thúc Loan, a man of Hoan Châu (today's Nghệ An – Hà Tĩnh), dark-skinned and of uncommon strength, revered by the people of his region. In the early eighth century, unable to bear the crushing levies and tribute of the Tang, he raised a revolt in Hoan Châu, joined with the states of Lâm Ấp (Champa) and Chân Lạp (Cambodia), massed an army of hundreds of thousands, stormed the citadel of Tống Bình and drove out the Tang protector-general. He styled himself Mai Hắc Đế — the Swarthy Emperor — and set his capital at the citadel of Vạn An. In 722 the Tang sent Dương Tư Húc with a hundred thousand troops to crush him; unable to hold, he withdrew into the forest and died."
+        "en": "Personal name Mai Thúc Loan, a man of Hoan Châu (today's Nghệ An – Hà Tĩnh), dark-skinned and of uncommon strength, revered by the people of his region. In the early eighth century, unable to bear the crushing levies and tribute of the Tang, he raised a revolt in Hoan Châu, joined with the states of Lâm Ấp (Champa) and Chân Lạp (Cambodia), massed an army of hundreds of thousands, stormed the citadel of Tống Bình and drove out the Tang protector-general. He styled himself Mai Hắc Đế — the Swarthy Emperor — and set his capital at the citadel of Vạn An. In 722 the Tang sent Yang Sixu with a hundred thousand troops to crush him; unable to hold, he withdrew into the forest and died."
       },
       "avatar": {
         "id": "mai-hac-de-avatar",
@@ -896,7 +896,7 @@
       "id": "duong-tu-huc",
       "name": {
         "vi": "Dương Tư Húc",
-        "en": "Dương Tư Húc"
+        "en": "Yang Sixu (Dương Tư Húc)"
       },
       "epithet": {
         "vi": "Tướng nhà Đường",
@@ -904,7 +904,7 @@
       },
       "bio": {
         "vi": "Viên tướng nhà Đường, vốn là hoạn quan có tài cầm quân. Năm 722, vua Đường Huyền Tông sai ông cùng quan đô hộ Quang Sở Khách đem mười vạn quân sang đàn áp cuộc khởi nghĩa của Mai Thúc Loan. Ông theo đường ven biển tiến quân, đánh tan quân Mai Hắc Đế, dập tắt cuộc khởi nghĩa Hoan Châu; sử chép quân sĩ hai bên chết chóc chồng chất.",
-        "en": "A Tang commander, by origin a eunuch skilled in war. In 722 the Tang emperor Huyền Tông (Xuanzong) sent him with the protector-general Quang Sở Khách and a hundred thousand troops to crush Mai Thúc Loan's uprising. Advancing along the coast, he shattered Mai Hắc Đế's army and extinguished the Hoan Châu revolt; the chronicles record the dead of both sides heaped high."
+        "en": "A Tang commander, by origin a eunuch skilled in war. In 722 the Tang emperor Xuanzong sent him with the protector-general Guang Chuke and a hundred thousand troops to crush Mai Thúc Loan's uprising. Advancing along the coast, he shattered Mai Hắc Đế's army and extinguished the Hoan Châu revolt; the chronicles record the dead of both sides heaped high."
       },
       "avatar": {
         "id": "duong-tu-huc-avatar",
@@ -923,7 +923,7 @@
       "id": "quang-so-khach",
       "name": {
         "vi": "Quang Sở Khách",
-        "en": "Quang Sở Khách"
+        "en": "Guang Chuke (Quang Sở Khách)"
       },
       "epithet": {
         "vi": "Đô hộ An Nam",
@@ -931,7 +931,7 @@
       },
       "bio": {
         "vi": "Quan đô hộ An Nam của nhà Đường. Khi Mai Thúc Loan dấy binh và tiến đánh, ông chống không nổi, phải bỏ phủ thành Tống Bình chạy về phương Bắc. Năm 722, ông theo Dương Tư Húc đem đại quân trở sang, cùng đàn áp cuộc khởi nghĩa và lập lại nền đô hộ của nhà Đường ở An Nam.",
-        "en": "The Tang Protector-General of An Nam. When Mai Thúc Loan rose and advanced, he could not hold and abandoned the seat at Tống Bình to flee north. In 722 he returned with Dương Tư Húc and the great army, joined in crushing the revolt, and restored the Tang protectorate over An Nam."
+        "en": "The Tang Protector-General of An Nam. When Mai Thúc Loan rose and advanced, he could not hold and abandoned the seat at Tống Bình to flee north. In 722 he returned with Yang Sixu and the great army, joined in crushing the revolt, and restored the Tang protectorate over An Nam."
       },
       "avatar": {
         "id": "quang-so-khach-avatar",
@@ -958,7 +958,7 @@
       },
       "bio": {
         "vi": "Người Đường Lâm, đời đời làm quan lang, vốn nhà hào phú. Sử chép ông có sức khỏe hơn người, có thể giằng được trâu, đánh được cọp. Trong niên hiệu Đại Lịch đời Đường, nhân Giao Châu có loạn, ông cùng em là Phùng Hải chiêu tập dân chúng, thu phục các huyện láng giềng, rồi cất quân vây phủ thành. Quan đô hộ Cao Chính Bình lo sợ mà chết; Phùng Hưng vào phủ coi việc, được ít lâu thì mất. Con là Phùng An tôn ông là Bố Cái Đại Vương — theo tục nước ta gọi cha là 'Bố', gọi mẹ là 'Cái'. Đời sau lập đền thờ, tôn ông là bậc thần vua.",
-        "en": "A man of Đường Lâm, of a line of hereditary chiefs and a wealthy notable house. The chronicle records that he was of uncommon strength, able to wrestle a buffalo and fight a tiger. In the Đại Lịch era of the Tang, when Giao Châu fell into unrest, he and his brother Phùng Hải gathered the people, won over the neighbouring districts, and then led troops to besiege the citadel. The protector-general Cao Chính Bình died of fear; Phùng Hưng entered the seat to govern, but died not long after. His son Phùng An honoured him as Bố Cái Đại Vương — for by our country's custom a father is called 'Bố' and a mother 'Cái'. Later ages raised shrines and revered him as a divine king."
+        "en": "A man of Đường Lâm, of a line of hereditary chiefs and a wealthy notable house. The chronicle records that he was of uncommon strength, able to wrestle a buffalo and fight a tiger. In the Đại Lịch era of the Tang, when Giao Châu fell into unrest, he and his brother Phùng Hải gathered the people, won over the neighbouring districts, and then led troops to besiege the citadel. The protector-general Gao Zhengping died of fear; Phùng Hưng entered the seat to govern, but died not long after. His son Phùng An honoured him as Bố Cái Đại Vương — for by our country's custom a father is called 'Bố' and a mother 'Cái'. Later ages raised shrines and revered him as a divine king."
       },
       "avatar": {
         "id": "phung-hung-avatar",
@@ -1012,7 +1012,7 @@
       },
       "bio": {
         "vi": "Con trai Phùng Hưng. Khi cha mất, ông nối nghiệp và tôn cha là Bố Cái Đại Vương. Về sau nhà Đường sai Triệu Xương sang làm đô hộ; Xương vào cõi, lòng dân yên, lại sai sứ đến dụ. Phùng An liệu thế không chống nổi, bèn đem quân ra hàng, khép lại một thời tự chủ ngắn ngủi của họ Phùng.",
-        "en": "Son of Phùng Hưng. When his father died he succeeded him and honoured his father as Bố Cái Đại Vương. Later the Tang sent Triệu Xương as protector-general; when Xương entered the land the people's hearts settled, and he sent an envoy to persuade An. Judging that he could not resist, Phùng An surrendered with his troops, closing the brief span of the Phùng family's self-rule."
+        "en": "Son of Phùng Hưng. When his father died he succeeded him and honoured his father as Bố Cái Đại Vương. Later the Tang sent Zhao Chang as protector-general; when Xương entered the land the people's hearts settled, and he sent an envoy to persuade An. Judging that he could not resist, Phùng An surrendered with his troops, closing the brief span of the Phùng family's self-rule."
       },
       "avatar": {
         "id": "phung-an-avatar",
@@ -1031,7 +1031,7 @@
       "id": "cao-chinh-binh",
       "name": {
         "vi": "Cao Chính Bình",
-        "en": "Cao Chính Bình"
+        "en": "Gao Zhengping (Cao Chính Bình)"
       },
       "epithet": {
         "vi": "Đô hộ nhà Đường",
@@ -1147,7 +1147,7 @@
       },
       "bio": {
         "vi": "Người Đường Lâm, tướng giỏi và là con rể của Dương Đình Nghệ. Khi Kiều Công Tiễn giết Dương Đình Nghệ cướp quyền rồi cầu cứu nước Nam Hán, Ngô Quyền từ Châu Ái đem quân ra hỏi tội, giết Kiều Công Tiễn, rồi bày trận trên sông Bạch Đằng. Ông sai đóng cọc lớn vạt nhọn bịt sắt ngầm dưới lòng sông; nhân nước triều lên nhử thuyền giặc vào, đợi triều rút thì đánh, thuyền Nam Hán mắc cọc vỡ tan, chủ tướng Lưu Hoằng Tháo tử trận. Năm 939, Ngô Quyền xưng vương, đóng đô ở Cổ Loa, chấm dứt hơn một nghìn năm Bắc thuộc. Sử thần Lê Văn Hưu khen ông 'mưu giỏi mà đánh cũng giỏi'.",
-        "en": "A man of Đường Lâm, an able general and son-in-law of Dương Đình Nghệ. When Kiều Công Tiễn murdered Dương Đình Nghệ to seize power and then called on the Southern Han for aid, Ngô Quyền marched from Châu Ái to bring him to account, killed Kiều Công Tiễn, and drew up his battle on the Bạch Đằng River. He had great iron-tipped stakes driven into the riverbed; at high tide he lured the enemy fleet in, and when the tide fell he struck — the Southern Han ships caught on the stakes and broke apart, and their commander Lưu Hoằng Tháo fell in battle. In 939 Ngô Quyền took the title of king and set his capital at Cổ Loa, ending more than a thousand years under the North. The historian Lê Văn Hưu praised him as one whose 'strategy was as fine as his fighting'."
+        "en": "A man of Đường Lâm, an able general and son-in-law of Dương Đình Nghệ. When Kiều Công Tiễn murdered Dương Đình Nghệ to seize power and then called on the Southern Han for aid, Ngô Quyền marched from Châu Ái to bring him to account, killed Kiều Công Tiễn, and drew up his battle on the Bạch Đằng River. He had great iron-tipped stakes driven into the riverbed; at high tide he lured the enemy fleet in, and when the tide fell he struck — the Southern Han ships caught on the stakes and broke apart, and their commander Liu Hongcao fell in battle. In 939 Ngô Quyền took the title of king and set his capital at Cổ Loa, ending more than a thousand years under the North. The historian Lê Văn Hưu praised him as one whose 'strategy was as fine as his fighting'."
       },
       "avatar": {
         "id": "ngo-quyen-avatar",
@@ -1220,7 +1220,7 @@
       "id": "luu-hoang-thao",
       "name": {
         "vi": "Lưu Hoằng Tháo",
-        "en": "Lưu Hoằng Tháo"
+        "en": "Liu Hongcao (Lưu Hoằng Tháo)"
       },
       "epithet": {
         "vi": "Chủ tướng Nam Hán",
@@ -1409,7 +1409,7 @@
       "id": "hau-nhan-bao",
       "name": {
         "vi": "Hầu Nhân Bảo",
-        "en": "Hou Renbao"
+        "en": "Hou Renbao (Hầu Nhân Bảo)"
       },
       "epithet": {
         "vi": "Chủ tướng quân Tống",
@@ -1686,8 +1686,8 @@
         "en": "The grand marshal who broke the Song"
       },
       "bio": {
-        "vi": "Danh tướng bậc nhất đời Lý, vốn họ Ngô tên Tuấn, người thành Thăng Long. Ông vào làm hoạn quan trong triều, có tài văn võ, được vua tin dùng và ban cho quốc tính họ Lý, giữ chức Thái úy cầm quân cả nước. Năm 1075–1076, theo kế 'tiên phát chế nhân', ông cùng Tông Đản đem quân sang đánh phá các châu Ung, Khâm, Liêm của nhà Tống, triệt căn cứ chuẩn bị xâm lược. Năm 1077, ông lập phòng tuyến sông Như Nguyệt, đại phá quân Tống của Quách Quỳ; tương truyền chính ông cho đọc bài thơ 'Nam quốc sơn hà' để khích lệ ba quân. Ông là bậc công thần văn võ song toàn, giữ nước đến già, mất năm Ất Dậu (1105), thọ tám mươi sáu tuổi.",
-        "en": "The foremost general of the Lý, born Ngô Tuấn, a man of Thăng Long. He entered the court as a eunuch official, gifted in both letters and arms, was trusted by the throne and granted the royal surname Lý, and held the office of Grand Marshal in command of all the realm's forces. In 1075–1076, following the maxim 'strike first to master the enemy,' he and Tông Đản led an army to break the Song prefectures of Ung, Khâm and Liêm, destroying the bases prepared for invasion. In 1077 he built the Như Nguyệt river-line and shattered the Song army under Quách Quỳ; tradition holds that he had the poem 'Nam quốc sơn hà' proclaimed to hearten his troops. A founding minister accomplished in war and letters, he guarded the realm into old age and died in the year Ất Dậu (1105), aged eighty-six."
+        "vi": "Danh tướng bậc nhất đời Lý, vốn họ Ngô tên Tuấn, người thành Thăng Long. Ông vào làm hoạn quan trong triều, có tài văn võ, được vua tin dùng và ban cho quốc tính họ Lý, giữ chức Thái úy cầm quân cả nước. Năm 1075–1076, theo kế 'tiên phát chế nhân', ông cùng Tôn Đản đem quân sang đánh phá các châu Ung, Khâm, Liêm của nhà Tống, triệt căn cứ chuẩn bị xâm lược. Năm 1077, ông lập phòng tuyến sông Như Nguyệt, đại phá quân Tống của Quách Quỳ; tương truyền chính ông cho đọc bài thơ 'Nam quốc sơn hà' để khích lệ ba quân. Ông là bậc công thần văn võ song toàn, giữ nước đến già, mất năm Ất Dậu (1105), thọ tám mươi sáu tuổi.",
+        "en": "The foremost general of the Lý, born Ngô Tuấn, a man of Thăng Long. He entered the court as a eunuch official, gifted in both letters and arms, was trusted by the throne and granted the royal surname Lý, and held the office of Grand Marshal in command of all the realm's forces. In 1075–1076, following the maxim 'strike first to master the enemy,' he and Tôn Đản led an army to break the Song prefectures of Ung, Khâm and Liêm, destroying the bases prepared for invasion. In 1077 he built the Như Nguyệt river-line and shattered the Song army under Guo Kui; tradition holds that he had the poem 'Nam quốc sơn hà' proclaimed to hearten his troops. A founding minister accomplished in war and letters, he guarded the realm into old age and died in the year Ất Dậu (1105), aged eighty-six."
       },
       "avatar": {
         "id": "ly-thuong-kiet-avatar",
@@ -1841,7 +1841,7 @@
       "id": "ngot-luong-hop-thai",
       "name": {
         "vi": "Ngột Lương Hợp Thai",
-        "en": "Ngột Lương Hợp Thai (Uriyangqadai)"
+        "en": "Uriyangqadai (Ngột Lương Hợp Thai)"
       },
       "epithet": {
         "vi": "Tướng Mông Cổ cầm quân sang đánh năm 1258",
@@ -2030,7 +2030,7 @@
       "id": "o-ma-nhi",
       "name": {
         "vi": "Ô Mã Nhi",
-        "en": "Ô Mã Nhi (Omar)"
+        "en": "Omar (Ô Mã Nhi)"
       },
       "epithet": {
         "vi": "Tướng thủy quân Nguyên bị bắt ở Bạch Đằng",
@@ -2165,7 +2165,7 @@
       "id": "lieu-thang",
       "name": {
         "vi": "Liễu Thăng",
-        "en": "Liễu Thăng (Liu Sheng)"
+        "en": "Liu Sheng (Liễu Thăng)"
       },
       "epithet": {
         "vi": "Tướng Minh tử trận ở Chi Lăng",
@@ -2678,7 +2678,7 @@
       "id": "ton-si-nghi",
       "name": {
         "vi": "Tôn Sĩ Nghị",
-        "en": "Tôn Sĩ Nghị"
+        "en": "Sun Shiyi (Tôn Sĩ Nghị)"
       },
       "epithet": {
         "vi": "Tổng đốc Lưỡng Quảng · Chủ tướng quân Thanh bại trận",
@@ -2732,7 +2732,7 @@
       "id": "ba-da-loc",
       "name": {
         "vi": "Bá Đa Lộc (Pigneau de Béhaine)",
-        "en": "Bá Đa Lộc (Pigneau de Béhaine)"
+        "en": "Pigneau de Béhaine (Bá Đa Lộc)"
       },
       "epithet": {
         "vi": "Giám mục Pháp · Người ký hiệp ước Versailles thay Nguyễn Ánh",
@@ -4743,8 +4743,8 @@
         "en": "Teacher and Trương Định's prefect of Tân Bình"
       },
       "bio": {
-        "vi": "Còn viết là Hồ Huân Nghiệp, sinh ở làng An Định, huyện Bình Dương, phủ Tân Bình, nổi tiếng văn hay chữ đẹp và làm nghề dạy học. Ông được Trương Định cử làm tri phủ Tân Bình, lo việc dân việc quân trong cuộc kháng Pháp từ năm 1859. Ông bị Pháp bắt ngày 17 tháng 4 năm 1864, từ chối hợp tác và bị xử tử, khi mới 35 tuổi.",
-        "en": "Also written Hồ Huân Nghiệp, born in An Định village, Bình Dương district, Tân Bình prefecture, known for his fine prose and calligraphy and a teacher by trade. Trương Định named him prefect of Tân Bình to handle civil and military affairs in the resistance to the French from 1859. The French arrested him on 17 April 1864; he refused to cooperate and was executed at the age of 35."
+        "vi": "Sinh ở làng An Định, huyện Bình Dương, phủ Tân Bình, nổi tiếng văn hay chữ đẹp và làm nghề dạy học. Ông được Trương Định cử làm tri phủ Tân Bình, lo việc dân việc quân trong cuộc kháng Pháp từ năm 1859. Ông bị Pháp bắt ngày 17 tháng 4 năm 1864, từ chối hợp tác và bị xử tử, khi mới 35 tuổi.",
+        "en": "Born in An Định village, Bình Dương district, Tân Bình prefecture, known for his fine prose and calligraphy and a teacher by trade. Trương Định named him prefect of Tân Bình to handle civil and military affairs in the resistance to the French from 1859. The French arrested him on 17 April 1864; he refused to cooperate and was executed at the age of 35."
       },
       "lifespan": {
         "vi": "1829 – 1864",
@@ -5592,7 +5592,7 @@
       },
       "bio": {
         "vi": "Tên thật là Nguyễn Thuyên, đỗ thái học sinh năm 1247, làm Thượng thư Bộ Hình thời Trần Nhân Tông. Tương truyền năm 1282 ông làm bài văn đuổi cá sấu khỏi sông Hồng nên vua ban họ Hàn, theo tích Hàn Dũ. Ông được xem là người có công đưa chữ Nôm vào thơ văn.",
-        "en": "Born Nguyễn Thuyên, he passed the thái học sinh examination in 1247 and served as Minister of Justice under Trần Nhân Tông. Tradition says that in 1282 he wrote a text that drove a crocodile from the Red River, so the emperor gave him the surname Hàn after the Tang scholar Hàn Dũ. He is credited with bringing the Nôm script into poetry."
+        "en": "Born Nguyễn Thuyên, he passed the thái học sinh examination in 1247 and served as Minister of Justice under Trần Nhân Tông. Tradition says that in 1282 he wrote a text that drove a crocodile from the Red River, so the emperor gave him the surname Hàn after the Tang scholar Han Yu. He is credited with bringing the Nôm script into poetry."
       },
       "avatar": {
         "id": "han-thuyen-avatar",
@@ -5797,7 +5797,7 @@
       },
       "bio": {
         "vi": "Con của Đặng Tất, làm Đồng bình chương sự dưới triều Trùng Quang đế. Ông chỉ huy trận Mô Độ (1411 – 1412) và nổi tiếng với trận Sái Già (1413), đột kích ban đêm suýt bắt được Trương Phụ. Khi cuộc kháng chiến tan rã, ông bị bắt và theo sử chép đã tự trầm trên đường bị giải sang Trung Quốc; bài thơ Cảm hoài được truyền là của ông.",
-        "en": "Son of Đặng Tất, he served as joint administrator under Emperor Trùng Quang. He commanded at Mô Độ (1411 – 1412) and is famed for Sái Già (1413), a night raid that nearly captured Trương Phụ. When the resistance collapsed he was taken and, by the accounts, drowned himself on the way to China; the poem Cảm hoài is attributed to him."
+        "en": "Son of Đặng Tất, he served as joint administrator under Emperor Trùng Quang. He commanded at Mô Độ (1411 – 1412) and is famed for Sái Già (1413), a night raid that nearly captured Zhang Fu. When the resistance collapsed he was taken and, by the accounts, drowned himself on the way to China; the poem Cảm hoài is attributed to him."
       },
       "lifespan": {
         "vi": "1373 – 1414",
@@ -5859,7 +5859,7 @@
       },
       "bio": {
         "vi": "Người Hà Tĩnh, đỗ thái học sinh và làm quan nhà Hồ rồi Hậu Trần. Năm 1413, ông đi sứ đến trại Trương Phụ; tương truyền Phụ cho dọn món đầu người để dọa, ông vẫn điềm nhiên ăn và đọc thơ. Ông bị cắt lưỡi và trói dưới cầu cho nước triều dìm chết, được nhân dân Nghệ – Tĩnh lập đền thờ.",
-        "en": "A native of Hà Tĩnh, he passed the thái học sinh examination and served the Hồ and then the Later Trần. In 1413 he went as envoy to Trương Phụ's camp; tradition says Phụ served him a severed head to frighten him, and he calmly ate and recited a poem. He was tortured, his tongue cut out, and he was bound beneath a bridge to drown in the tide; the people of Nghệ – Tĩnh built shrines to him."
+        "en": "A native of Hà Tĩnh, he passed the thái học sinh examination and served the Hồ and then the Later Trần. In 1413 he went as envoy to Zhang Fu's camp; tradition says Phụ served him a severed head to frighten him, and he calmly ate and recited a poem. He was tortured, his tongue cut out, and he was bound beneath a bridge to drown in the tide; the people of Nghệ – Tĩnh built shrines to him."
       },
       "lifespan": {
         "vi": "1350 – 1413",
@@ -5921,7 +5921,7 @@
       },
       "bio": {
         "vi": "Tướng của Lê Lợi từ buổi đầu khởi nghĩa. Ông cùng Lý Triện, Nguyễn Xí đánh thắng quân Minh ở Tốt Động – Chúc Động (1426). Tháng 3 năm 1427, khi đem quân giải vây ở Mỹ Động, ông bị quân Vương Thông bắt và giết, khiến Lê Lợi vô cùng thương tiếc.",
-        "en": "A general of Lê Lợi from the start of the uprising. With Lý Triện and Nguyễn Xí he defeated the Ming at Tốt Động – Chúc Động (1426). In March 1427, leading a relief force at Mỹ Động, he was captured and killed by Vương Thông's troops, to Lê Lợi's deep grief."
+        "en": "A general of Lê Lợi from the start of the uprising. With Lý Triện and Nguyễn Xí he defeated the Ming at Tốt Động – Chúc Động (1426). In March 1427, leading a relief force at Mỹ Động, he was captured and killed by Wang Tong's troops, to Lê Lợi's deep grief."
       },
       "lifespan": {
         "vi": "? – 1427",
@@ -6324,7 +6324,7 @@
       },
       "bio": {
         "vi": "Đỗ thám hoa khoa thi năm 1628. Cuối năm 1637, ông làm chánh sứ sang nhà Minh. Giai thoại kể vua Minh ra câu đối nhắc cột đồng Mã Viện, ông đối lại bằng câu nói về máu sông Bạch Đằng (Đằng Giang) vẫn còn đỏ, rồi bị giết năm 1638. Các nhà sử học lưu ý chuyện này chỉ được chép trong gia phả năm 1849, nên nó là giai thoại hơn là sự kiện đã kiểm chứng.",
-        "en": "Took the thám hoa degree in 1628. In late 1637 he went as chief envoy to the Ming. The anecdote says the Ming emperor set a couplet alluding to Mã Viện's bronze pillar and he answered with the line about the blood of the Bạch Đằng (Đằng Giang) still being red, and was put to death in 1638. Historians note that the story appears only in a family genealogy of 1849, so it is more an anecdote than a verified event."
+        "en": "Took the thám hoa degree in 1628. In late 1637 he went as chief envoy to the Ming. The anecdote says the Ming emperor set a couplet alluding to Ma Yuan's bronze pillar and he answered with the line about the blood of the Bạch Đằng (Đằng Giang) still being red, and was put to death in 1638. Historians note that the story appears only in a family genealogy of 1849, so it is more an anecdote than a verified event."
       },
       "lifespan": {
         "vi": "1573 – 1638",
@@ -6882,7 +6882,7 @@
       },
       "bio": {
         "vi": "Làm đến Tiết chế quân vụ Bắc Kỳ. Năm 1873 ông phối hợp với quân Cờ Đen của Lưu Vĩnh Phúc ở Cầu Giấy, giết Francis Garnier. Về sau ông bị chê là chậm hành động trong các trận ở Hà Nội, Sơn Tây, Hưng Hóa. Ông nghỉ hưu năm 1889 và mất năm 1909.",
-        "en": "He rose to commander of military affairs in the North. In 1873 he worked with Lưu Vĩnh Phúc's Black Flags at Cầu Giấy, where Francis Garnier was killed. He was later criticised for holding back in the fighting around Hà Nội, Sơn Tây and Hưng Hóa. He retired in 1889 and died in 1909."
+        "en": "He rose to commander of military affairs in the North. In 1873 he worked with Liu Yongfu's Black Flags at Cầu Giấy, where Francis Garnier was killed. He was later criticised for holding back in the fighting around Hà Nội, Sơn Tây and Hưng Hóa. He retired in 1889 and died in 1909."
       },
       "lifespan": {
         "vi": "1820 – 1909",
