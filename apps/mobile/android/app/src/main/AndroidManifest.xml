@@ -27,6 +27,11 @@
         <meta-data
             android:name="google_analytics_default_allow_ad_personalization_signals"
             android:value="false" />
+        <!-- PostHog starts from Dart (main.dart), release builds only and
+             with the Về Long Ký switch applied — never on its own. -->
+        <meta-data
+            android:name="com.posthog.posthog.AUTO_INIT"
+            android:value="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -7,6 +7,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 import '../../feedback/feedback.dart';
 import '../../state/providers.dart';
+import '../../telemetry/reading_depth.dart';
 import '../sanh/disclaimer_screen.dart' show DisclaimerInfoButton;
 import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
@@ -56,22 +57,25 @@ class StandaloneEventScreen extends ConsumerWidget {
           ];
           return Stack(
             children: <Widget>[
-              ListView(
-                padding: EdgeInsets.zero,
-                children: <Widget>[
-                  _StandaloneHero(event: event, lang: lang),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                        VSSpacing.xl, VSSpacing.xl, VSSpacing.xl, 40),
-                    child: EventBody(
-                      event: event,
-                      figures: figures,
-                      figureSlug: '',
-                      figureSlugFor: (c) => home?[c.id] ?? '',
-                      lang: lang,
+              EventReadingDepth(
+                eventId: event.id,
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    _StandaloneHero(event: event, lang: lang),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(
+                          VSSpacing.xl, VSSpacing.xl, VSSpacing.xl, 40),
+                      child: EventBody(
+                        event: event,
+                        figures: figures,
+                        figureSlug: '',
+                        figureSlugFor: (c) => home?[c.id] ?? '',
+                        lang: lang,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               SafeArea(child: _TopBar(lang: lang, event: event)),
             ],

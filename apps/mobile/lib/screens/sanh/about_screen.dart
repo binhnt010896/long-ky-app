@@ -16,16 +16,16 @@ const String _statsLabelVi = 'Gửi thống kê ẩn danh';
 const String _statsLabelEn = 'Share anonymous usage stats';
 const String _statsBodyVi =
     'Giúp Long Ký biết trang nào được xem nhiều và phát hiện lỗi, qua Firebase '
-    'Analytics/Crashlytics. Không thu thập tên, email hay bất kỳ thông tin '
+    'Analytics/Crashlytics và PostHog. Không thu thập tên, email hay bất kỳ thông tin '
     'định danh nào. Có thể tắt bất cứ lúc nào.';
 const String _statsBodyEn =
     'Helps Long Ký see which pages get read and catch crashes, via Firebase '
-    'Analytics/Crashlytics. No name, email or other identifying information '
+    'Analytics/Crashlytics and PostHog. No name, email or other identifying information '
     'is collected. Turn it off any time.';
 
 /// App version shown on the About page (mirrors pubspec `version`; a test
 /// keeps the two in step).
-const String kAppVersion = '1.2.0';
+const String kAppVersion = '1.4.0';
 
 /// The privacy policy, a public page Google Play also lists for the app.
 final Uri kPrivacyPolicyUri = Uri.parse('https://binh-nt.dev/long-ky/privacy');

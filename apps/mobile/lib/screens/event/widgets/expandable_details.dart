@@ -2,6 +2,8 @@ import 'package:core_domain/core_domain.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../../telemetry/reading_depth.dart';
+
 /// A "read more" control that reveals the fuller chronicle account for an event.
 class ExpandableDetails extends StatefulWidget {
   const ExpandableDetails({
@@ -32,7 +34,10 @@ class _ExpandableDetailsState extends State<ExpandableDetails> {
       children: <Widget>[
         GestureDetector(
           behavior: HitTestBehavior.opaque,
-          onTap: () => setState(() => _open = !_open),
+          onTap: () {
+            setState(() => _open = !_open);
+            if (_open) const DetailsOpenedNotification().dispatch(context);
+          },
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: VSSpacing.xs),
             child: Row(

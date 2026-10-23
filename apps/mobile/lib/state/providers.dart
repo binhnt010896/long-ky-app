@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../telemetry/telemetry.dart';
 import '../telemetry/telemetry_settings.dart';
 import 'bundled_content.dart';
+import 'content_sync.dart' show activeContentVersionProvider;
 import 'lang_store.dart';
 import 'onboarding_store.dart';
 
@@ -146,6 +147,20 @@ class TelemetryEnabledNotifier extends AsyncNotifier<bool> {
     await ref.read(telemetryProvider).setEnabled(enabled);
   }
 }
+
+/// Keeps the properties every event carries current: the reading language
+/// (it changes with the VI/EN toggle) and the content-pack version (it changes
+/// when a pack is adopted live). Watched once from app.dart for the app's
+/// lifetime, like routeTelemetryObserverProvider.
+final telemetryCommonPropertiesProvider = Provider<void>((ref) {
+  final telemetry = ref.watch(telemetryProvider);
+  ref.listen<Lang>(langProvider,
+      (_, lang) => telemetry.setCommonProperty('lang', lang.name),
+      fireImmediately: true);
+  ref.listen<int>(activeContentVersionProvider,
+      (_, version) => telemetry.setCommonProperty('content_version', version),
+      fireImmediately: true);
+});
 
 /// Opens a web address in the phone's browser. A seam so tests never launch
 /// anything; returns false when nothing could open it.

@@ -233,6 +233,7 @@ class NarrationController extends StateNotifier<NarrationState> {
   /// The page left the screen; stops its narration.
   Future<void> leave(String key) async {
     if (!mounted || state.key != key) return;
+    if (state.playing) telemetry.event('narration_leave', _listened(key));
     await _halt();
     state = NarrationState(prefs: state.prefs);
   }
@@ -243,7 +244,7 @@ class NarrationController extends StateNotifier<NarrationState> {
     if (key == null || state.loading) return;
     if (state.playing) {
       await player.pause();
-      telemetry.event('narration_stop', <String, Object>{'kind': _kindOf(key)});
+      telemetry.event('narration_stop', _listened(key));
       if (!state.prefs.popupAsked && state.prefs.autoplay) {
         state = state.copyWith(askPending: true);
       }
@@ -283,6 +284,7 @@ class NarrationController extends StateNotifier<NarrationState> {
       await player.play();
       telemetry.event('narration_play', <String, Object>{
         'kind': _kindOf(key),
+        'id': _idOf(key),
         'auto': auto ? 1 : 0,
       });
     } catch (_) {
@@ -311,11 +313,25 @@ class NarrationController extends StateNotifier<NarrationState> {
 
   Future<void> _onCompleted(bool done) async {
     if (!done) return;
+    final key = state.key;
+    if (key != null) {
+      telemetry.event('narration_complete',
+          <String, Object>{'kind': _kindOf(key), 'id': _idOf(key)});
+    }
     await player.rewind();
     if (mounted) state = state.copyWith(playing: false, progress: 0);
   }
 
   String _kindOf(String key) => key.split('/').first;
+  String _idOf(String key) => key.substring(key.indexOf('/') + 1);
+
+  /// How far into the clip the reader got, for `narration_stop` (the pause
+  /// button) and `narration_leave` (the page closed while it played).
+  Map<String, Object> _listened(String key) => <String, Object>{
+        'kind': _kindOf(key),
+        'id': _idOf(key),
+        'listened_pct': (state.progress * 100).round(),
+      };
 
   @override
   void dispose() {

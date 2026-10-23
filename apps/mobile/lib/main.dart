@@ -13,7 +13,10 @@ import 'state/content_sync.dart';
 import 'state/lang_store.dart';
 import 'state/onboarding_store.dart';
 import 'state/providers.dart';
+import 'telemetry/composite_telemetry.dart';
 import 'telemetry/firebase_telemetry.dart';
+import 'telemetry/posthog_options.dart';
+import 'telemetry/posthog_telemetry.dart';
 import 'telemetry/telemetry.dart';
 import 'telemetry/telemetry_settings.dart';
 import 'theme/content_assets.dart';
@@ -21,12 +24,17 @@ import 'theme/content_assets.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Android release only — see telemetry/telemetry.dart and
-  // firebase_options.dart (web/iOS deliberately unconfigured). Constructed
-  // once here and handed to the widget tree below via an override, so
-  // main()'s error handlers and every screen's ref.watch(telemetryProvider)
-  // are the exact same object.
-  Telemetry telemetry = const NoopTelemetry();
+  // The Về Long Ký switch, read first so neither backend sends anything the
+  // reader has turned off.
+  final analyticsEnabled = await FileTelemetrySettingsStore().load();
+
+  // Firebase: Android release only — see telemetry/telemetry.dart and
+  // firebase_options.dart (web/iOS deliberately unconfigured). PostHog:
+  // release builds on Android/iOS, or a debug build with TELEMETRY_DEBUG.
+  // Each backend that starts is collected here, and the result is handed to
+  // the widget tree below via an override, so main()'s error handlers and
+  // every screen's ref.watch(telemetryProvider) are the exact same object.
+  final backends = <Telemetry>[];
   if (!kIsWeb && kReleaseMode) {
     // Telemetry must never be able to stop the app from starting: a Firebase
     // failure here (a stripped registrar, a Play Services hiccup) once left
@@ -35,7 +43,7 @@ Future<void> main() async {
     try {
       await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
       final firebaseTelemetry = FirebaseTelemetry();
-      telemetry = firebaseTelemetry;
+      backends.add(firebaseTelemetry);
       // Uncaught errors — fatal by default, reported with no PII. Benign ones
       // (tile cancellations) are dropped; recoverable image-load failures are
       // reported non-fatal. See isBenignError / isNonFatalFlutterError.
@@ -51,11 +59,25 @@ Future<void> main() async {
         return true;
       };
     } catch (_) {
-      telemetry = const NoopTelemetry();
+      // This session runs without Firebase; PostHog below is independent.
     }
   }
+  if (!kIsWeb && (kReleaseMode || kTelemetryDebug)) {
+    // Same rule as Firebase: a PostHog failure (or a hang on the platform
+    // channel) only means this session goes without it.
+    try {
+      final postHog = await PostHogTelemetry.start(enabled: analyticsEnabled)
+          .timeout(const Duration(seconds: 3));
+      if (!kReleaseMode) await postHog.setCommonProperty('debug_build', true);
+      backends.add(postHog);
+    } catch (_) {}
+  }
+  final Telemetry telemetry = switch (backends) {
+    [] => const NoopTelemetry(),
+    [final only] => only,
+    _ => CompositeTelemetry(backends),
+  };
   // The Về Long Ký switch, applied before the first event goes out.
-  final analyticsEnabled = await FileTelemetrySettingsStore().load();
   await telemetry.setEnabled(analyticsEnabled);
 
   // The reader's saved VI/EN choice, applied before the first frame so Home

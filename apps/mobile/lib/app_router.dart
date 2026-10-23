@@ -203,12 +203,16 @@ final routerProvider = Provider<GoRouter>((ref) {
   );
 });
 
+/// The clock `screen_leave` durations are measured with — a seam for tests.
+final telemetryClockProvider = Provider<DateTime Function()>((ref) => DateTime.now);
+
 /// Logs a `screen_view` on every navigation — see route_telemetry.dart.
 /// A plain [Provider] (not autoDispose): one observer for the app's whole
 /// lifetime, matching [routerProvider]'s own lifetime.
 final routeTelemetryObserverProvider = Provider<RouteTelemetryObserver>((ref) {
-  final observer =
-      RouteTelemetryObserver(ref.watch(routerProvider), ref.watch(telemetryProvider));
+  final observer = RouteTelemetryObserver(
+      ref.watch(routerProvider), ref.watch(telemetryProvider),
+      clock: ref.watch(telemetryClockProvider));
   ref.onDispose(observer.dispose);
   return observer;
 });
