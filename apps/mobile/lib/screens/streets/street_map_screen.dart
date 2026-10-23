@@ -10,6 +10,7 @@ import 'package:vector_map_tiles/vector_map_tiles.dart';
 
 import '../../state/providers.dart';
 import '../../state/tour_store.dart';
+import '../../state/visit_store.dart';
 import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
@@ -30,6 +31,9 @@ const double kStreetMaxZoom = 17;
 /// don't brighten), dim enough that the selected street's bright gold stands
 /// out against them.
 final Color _kRestingStreet = Color.lerp(VSColors.gold, VSColors.lacquer, 0.4)!;
+
+/// A street the reader has discovered: the full gold the resting tone fades from.
+const Color _kDiscoveredStreet = VSColors.gold;
 
 /// "Đường phố mang tên sử" — a map of the streets in old HCMC that are named
 /// after a Character or Event in the chronicle. Tap a gold street for its
@@ -179,6 +183,10 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
       groups: groups,
       hidden: _hidden,
       visibleCount: (h) => visibleStreetIds(streets, h, periodOf).length,
+      discovered: (
+        found: ref.read(discoveredStreetsProvider).where(data.lines.containsKey).length,
+        total: streets.length,
+      ),
       lang: ref.read(langProvider),
     );
     if (result == null || !mounted) return;
@@ -283,6 +291,43 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
     );
   }
 
+  Widget? _discovered;
+  StreetMapData? _discoveredData;
+  Set<String>? _discoveredVisible;
+  Set<String>? _discoveredIds;
+
+  /// The streets the reader has discovered, in a second, brighter gold over the
+  /// resting layer. Two tones only (a per-period rainbow was tried and
+  /// reverted, see docs/street-period-colors-plan.md). Cached like the resting
+  /// layer: rebuilt only when the data, the filter or the discovered set
+  /// changes, never on a selection or a search keystroke.
+  Widget _discoveredLayer(StreetMapData data, Set<String> ids) {
+    final cached = _discovered;
+    if (cached != null &&
+        identical(_discoveredData, data) &&
+        identical(_discoveredVisible, _visible) &&
+        identical(_discoveredIds, ids)) {
+      return cached;
+    }
+    _discoveredData = data;
+    _discoveredVisible = _visible;
+    _discoveredIds = ids;
+    return _discovered = PolylineLayer(
+      polylines: <Polyline>[
+        for (final id in ids)
+          if (_shown(id))
+            for (final line in data.lines[id] ?? const <List<LatLng>>[])
+              Polyline(
+                points: line,
+                strokeWidth: 3.2,
+                color: _kDiscoveredStreet,
+                strokeCap: StrokeCap.round,
+                strokeJoin: StrokeJoin.round,
+              ),
+      ],
+    );
+  }
+
   MapOptions? _options;
   StreetMapData? _optionsData;
 
@@ -349,6 +394,7 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
     final basemapUrl = streetBasemapUrl(data.file);
     final basemap = ref.watch(streetBasemapProvider).valueOrNull;
     if (basemap != null) StreetPerf.instance.mark('map_basemap_ready');
+    final discovered = ref.watch(discoveredStreetsProvider);
     final selected = _selected == null ? null : data.street(_selected!);
     final selectedPts = _selected == null
         ? const <LatLng>[]
@@ -391,6 +437,7 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
             // typing in the search box doesn't rebuild ~1,300 polylines; the
             // selected street is drawn on top.
             _restingLayer(data),
+            if (discovered.isNotEmpty) _discoveredLayer(data, discovered),
             if (_selected != null)
               PolylineLayer(
                 polylines: <Polyline>[

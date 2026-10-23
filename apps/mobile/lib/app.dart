@@ -24,6 +24,8 @@ class VietSuApp extends ConsumerWidget {
     // Instantiates the screen-view listener for the app's lifetime; also
     // ensures a router exists before we read it below.
     ref.watch(routeTelemetryObserverProvider);
+    // Records which pages the reader has opened (lights up the street map).
+    ref.watch(visitRecorderProvider);
     // Instantiates the Firestore live-content listener (Cycle K5/K6) for the
     // app's lifetime. Safe even before Firestore is enabled for the project
     // or the app is offline — see FirestoreContentSource's doc comment.

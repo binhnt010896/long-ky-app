@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../state/providers.dart';
+import '../../state/visit_store.dart';
 import 'street_data.dart';
 
 /// True when the street map is already open somewhere behind the current page
@@ -22,14 +23,45 @@ bool streetMapIsOpen(BuildContext context) {
 /// "Một con đường ở TP.HCM mang tên này → Xem trên bản đồ" — shown on a
 /// Character/Event page only when that page is a target of an APPROVED
 /// street. Renders nothing (not even spacing) otherwise, and while loading.
-class StreetReverseChip extends ConsumerWidget {
+///
+/// When opening this very page is what first lit a street, the chip says so,
+/// once ("Vừa thắp sáng: đường Lý Tự Trọng") — no toast, no sound.
+class StreetReverseChip extends ConsumerStatefulWidget {
   const StreetReverseChip({required this.type, required this.id, super.key});
 
   final StreetTargetType type;
   final String id;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<StreetReverseChip> createState() => _StreetReverseChipState();
+}
+
+class _StreetReverseChipState extends ConsumerState<StreetReverseChip> {
+  /// Latched when [newlyLitProvider] names this page, so the message survives
+  /// the provider being cleared (and the page rebuilding) but not a later
+  /// visit: a new page state starts without it.
+  List<MappedStreet> _lit = const <MappedStreet>[];
+
+  String get _key => widget.type == StreetTargetType.event
+      ? VisitKey.event(widget.id)
+      : widget.type == StreetTargetType.person
+          ? VisitKey.person(widget.id)
+          : VisitKey.era(widget.id);
+
+  @override
+  Widget build(BuildContext context) {
+    final type = widget.type;
+    final id = widget.id;
+    final newly = ref.watch(newlyLitProvider);
+    if (newly != null && newly.key == _key) {
+      _lit = newly.streets;
+      // Said once: clear it for the next page.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && ref.read(newlyLitProvider)?.key == _key) {
+          ref.read(newlyLitProvider.notifier).state = null;
+        }
+      });
+    }
     if (streetMapIsOpen(context)) return const SizedBox.shrink();
     final streets = ref
             .watch(streetMappingProvider)
@@ -47,6 +79,11 @@ class StreetReverseChip extends ConsumerWidget {
             ? 'A street in Ho Chi Minh City bears this name'
             : '$n streets in Ho Chi Minh City bear this name');
     final cta = lang == Lang.vi ? 'Xem trên bản đồ' : 'See on the map';
+    final litLabel = _lit.isEmpty
+        ? null
+        : lang == Lang.vi
+            ? 'Vừa thắp sáng: đường ${_lit.first.name}${_lit.length > 1 ? ' và ${_lit.length - 1} đường khác' : ''}'
+            : 'Just lit up: ${_lit.first.name}${_lit.length > 1 ? ' and ${_lit.length - 1} more' : ''}';
     return Padding(
       padding: const EdgeInsets.only(top: VSSpacing.xl),
       child: Material(
@@ -62,12 +99,17 @@ class StreetReverseChip extends ConsumerWidget {
                 horizontal: VSSpacing.lg, vertical: VSSpacing.md),
             child: Row(
               children: <Widget>[
-                const Icon(Icons.signpost_outlined,
-                    size: 18, color: VSColors.gold),
+                Icon(litLabel == null ? Icons.signpost_outlined : Icons.auto_awesome,
+                    size: 18,
+                    color: litLabel == null ? VSColors.gold : VSColors.goldBright),
                 const SizedBox(width: VSSpacing.sm),
                 Expanded(
-                  child: Text(label,
-                      style: VSType.bodySmall.copyWith(color: VSColors.inkBody)),
+                  child: Text(litLabel ?? label,
+                      key: litLabel == null ? null : const Key('street-lit-message'),
+                      style: VSType.bodySmall.copyWith(
+                          color: litLabel == null
+                              ? VSColors.inkBody
+                              : VSColors.goldBright)),
                 ),
                 const SizedBox(width: VSSpacing.sm),
                 Text('$cta →',

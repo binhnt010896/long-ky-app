@@ -10,6 +10,7 @@ import 'screens/character/standalone_character_screen.dart';
 import 'screens/era/era_hub_screen.dart';
 import 'screens/era/era_timeline_screen.dart';
 import 'state/providers.dart';
+import 'state/visit_store.dart';
 import 'screens/event/event_detail_screen.dart';
 import 'screens/event/standalone_event_screen.dart';
 import 'screens/home/home_screen.dart';
@@ -211,4 +212,18 @@ final routeTelemetryObserverProvider = Provider<RouteTelemetryObserver>((ref) {
       RouteTelemetryObserver(ref.watch(routerProvider), ref.watch(telemetryProvider));
   ref.onDispose(observer.dispose);
   return observer;
+});
+
+/// Records which people, events and eras the reader has opened, for the street
+/// map's discovered streets — see visit_store.dart. Kept alive like the
+/// telemetry observer.
+final visitRecorderProvider = Provider<VisitRecorder>((ref) {
+  final recorder = VisitRecorder(ref.watch(routerProvider), (key) {
+    ref.read(visitedProvider.notifier).record(key).catchError(
+          (Object e, StackTrace s) =>
+              reportNonFatal(e, s, reason: 'VisitRecorder.record'),
+        );
+  });
+  ref.onDispose(recorder.dispose);
+  return recorder;
 });
