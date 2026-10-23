@@ -11,6 +11,8 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../state/content_sync.dart';
 import '../../state/narration_controller.dart';
 import '../../state/providers.dart';
+import '../../state/reminder_service.dart';
+import '../../state/today_store.dart';
 import '../../state/tip_store.dart';
 import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
@@ -20,6 +22,8 @@ import '../../widgets/seal_button.dart';
 import '../../widgets/tea_cups_icon.dart';
 import '../chao_co/chao_co_screen.dart';
 import '../home/widgets/particle_field.dart';
+import '../today/reminder_sheet.dart';
+import '../today/today_card.dart';
 
 /// One entry in the Sảnh's directory. New features (e.g. Câu đố) are one more
 /// line in [_items].
@@ -263,6 +267,7 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
                   const SizedBox(height: VSSpacing.lg),
                   _rise(i++, const _BrandLockup()),
                   const SizedBox(height: VSSpacing.xxl),
+                  _rise(i++, const TodayCard()),
                   _rise(i++, _ChaoCoCard(en: en)),
                   const SizedBox(height: VSSpacing.lg),
                   _rise(i++, _StreetsCard(en: en)),
@@ -276,6 +281,7 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
                   for (final item in _items)
                     _rise(i++, _DirectoryRow(item: item, en: en)),
                   _rise(i++, _NarrationRow(en: en)),
+                  _rise(i++, _ReminderRow(en: en)),
                   if (offers.isNotEmpty) ...<Widget>[
                     const SizedBox(height: VSSpacing.xl),
                     _rise(
@@ -732,6 +738,57 @@ class _NarrationRow extends ConsumerWidget {
         onChanged: ctl.setAutoplay,
       ),
       onTap: () => ctl.setAutoplay(!on),
+    );
+  }
+}
+
+/// The opt-in daily "Hôm nay" reminder: a switch, and the time once it is on.
+/// Hidden where the device can't show scheduled notifications (web, desktop).
+class _ReminderRow extends ConsumerWidget {
+  const _ReminderRow({required this.en});
+  final bool en;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    if (ref.watch(reminderSchedulerProvider) is NoopReminderScheduler) {
+      return const SizedBox.shrink();
+    }
+    final prefs = ref.watch(todayPrefsProvider).valueOrNull ?? const TodayPrefs();
+
+    Future<void> turnOn() async {
+      final ok = await enableReminder(ref, prefs.reminderMinutes);
+      if (!ok && context.mounted) showReminderRefused(context, en);
+      if (ok) {
+        ref.read(telemetryProvider).event('notif_toggle', <String, Object>{'on': 1});
+      }
+    }
+
+    Future<void> changeTime() async {
+      final picked = await pickReminderTime(context, prefs.reminderMinutes);
+      if (picked != null) {
+        await ref
+            .read(todayPrefsProvider.notifier)
+            .setReminder(on: true, minutes: picked);
+      }
+    }
+
+    return _SanhRow(
+      key: const ValueKey<String>('sanh-reminder-row'),
+      icon: Icons.notifications_none,
+      title: en ? 'Daily reminder' : 'Nhắc mỗi ngày',
+      subtitle: prefs.reminderOn
+          ? (en
+              ? 'Every day at ${reminderTimeLabel(prefs.reminderMinutes)} · tap to change'
+              : 'Mỗi ngày lúc ${reminderTimeLabel(prefs.reminderMinutes)} · chạm để đổi giờ')
+          : (en
+              ? 'A figure or event for today, at a time you choose'
+              : 'Một nhân vật hay sự kiện của ngày hôm nay, vào giờ bạn chọn'),
+      trailing: Switch(
+        value: prefs.reminderOn,
+        activeTrackColor: VSColors.goldBright,
+        onChanged: (on) => on ? turnOn() : disableReminder(ref),
+      ),
+      onTap: () => prefs.reminderOn ? changeTime() : turnOn(),
     );
   }
 }

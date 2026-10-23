@@ -94,6 +94,13 @@ ScreenView? mapUriToScreen(Uri uri) {
         );
       }
       return null;
+    case 'hom-nay':
+      // "Hôm nay" always redirects to the page it picked, so this is never the
+      // logged location; it is mapped so every route has an entry.
+      if (segments.length == 1) {
+        return (name: 'today', params: const <String, Object>{});
+      }
+      return null;
     case 'luu-y':
       if (segments.length == 1) {
         return (name: 'disclaimer', params: const <String, Object>{});

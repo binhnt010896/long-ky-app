@@ -5,6 +5,7 @@ import '../state/content_draft.dart';
 import '../state/narration.dart';
 import '../util/media_urls.dart';
 import 'citation_field.dart';
+import 'anniversary_field.dart';
 import 'event_year_field.dart';
 import 'localized_text_field.dart';
 import 'media_slot.dart';
@@ -88,6 +89,8 @@ class _EventDialogState extends ConsumerState<EventDialog> {
         'value': null,
         'approximate': false,
       };
+  late Map<String, dynamic>? _anniversary =
+      (widget.initial?['anniversary'] as Map?)?.cast<String, dynamic>();
   late Map<String, dynamic>? _citation =
       (widget.initial?['citation'] as Map?)?.cast<String, dynamic>();
   late bool _hasPullQuote = widget.initial?['pullQuote'] != null;
@@ -199,6 +202,11 @@ class _EventDialogState extends ConsumerState<EventDialog> {
               ),
               const SizedBox(height: 8),
               EventYearField(initial: _year, onChanged: (v) => _year = v),
+              const SizedBox(height: 8),
+              AnniversaryField(
+                initial: _anniversary,
+                onChanged: (v) => _anniversary = v,
+              ),
               const SizedBox(height: 8),
               CitationField(
                 label: 'Citation',
@@ -342,6 +350,7 @@ class _EventDialogState extends ConsumerState<EventDialog> {
     final event = <String, dynamic>{
       'kind': _kind,
       'year': _year,
+      if (_anniversary != null) 'anniversary': _anniversary,
       'title': localizedValue(titleVi, titleEn),
       'summary': localizedValue(summaryVi, summaryEn),
       if (bodyVi.text.isNotEmpty || bodyEn.text.isNotEmpty)

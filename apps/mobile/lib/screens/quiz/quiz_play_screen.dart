@@ -12,6 +12,7 @@ import '../../state/quiz_store.dart';
 import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
+import '../today/reminder_sheet.dart';
 
 int _countFor(QuizMode mode) => switch (mode) {
       QuizMode.daily => 5,
@@ -201,6 +202,9 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
       'score': _score,
       'total': _questions!.length,
     });
+    // The result is on screen: the one moment to offer the daily reminder
+    // (once, whatever the answer).
+    if (daily && mounted) await maybeOfferReminder(context, ref);
   }
 
   /// Shares the day's *first* attempt (not a replay), spoiler-free.

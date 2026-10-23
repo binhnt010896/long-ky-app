@@ -10,6 +10,7 @@ import 'screens/character/standalone_character_screen.dart';
 import 'screens/era/era_hub_screen.dart';
 import 'screens/era/era_timeline_screen.dart';
 import 'state/providers.dart';
+import 'state/today_provider.dart';
 import 'state/visit_store.dart';
 import 'screens/event/event_detail_screen.dart';
 import 'screens/event/standalone_event_screen.dart';
@@ -173,6 +174,40 @@ final routerProvider = Provider<GoRouter>((ref) {
         },
         builder: (context, state) =>
             StandaloneCharacterScreen(figureId: state.pathParameters['id']!),
+      ),
+      // "Hôm nay" (Cycle S): today's pick, resolved on the device and sent on
+      // to its own page — an in-era event or person to its era route, a
+      // standalone one to its own. Like the two routes above it never has a
+      // screen of its own, so the page it lands on is what gets logged.
+      GoRoute(
+        path: '/hom-nay',
+        redirect: (context, state) async {
+          try {
+            final ctx = await ref.read(todayContextProvider.future);
+            final item = ctx.pickFor(DateTime.now());
+            if (item != null) {
+              switch (item.kind) {
+                case TodayKind.event:
+                  final found =
+                      await ref.read(contentRepositoryProvider).findEvent(item.id);
+                  final era = found?.era;
+                  return era != null
+                      ? '/era/${era.slug}/event/${item.id}'
+                      : '/su-kien/${item.id}';
+                case TodayKind.person:
+                  final home = await ref.read(homeEraSlugsProvider.future);
+                  final slug = home[item.id];
+                  return slug != null
+                      ? '/era/$slug/figure/${item.id}'
+                      : '/nhan-vat/${item.id}';
+              }
+            }
+          } catch (_) {
+            // Content unreadable: the Sảnh is a calm place to land.
+          }
+          return '/sanh';
+        },
+        builder: (context, state) => const SizedBox.shrink(),
       ),
       GoRoute(
         path: '/era/:slug',

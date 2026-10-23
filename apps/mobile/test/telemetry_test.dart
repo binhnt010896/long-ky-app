@@ -14,12 +14,18 @@ import 'package:ui_kit/ui_kit.dart';
 import 'package:viet_su/app_router.dart';
 import 'package:viet_su/screens/home/home_screen.dart';
 import 'package:viet_su/state/content_sync.dart';
+import 'package:viet_su/state/narration_controller.dart';
 import 'package:viet_su/state/providers.dart';
 import 'package:viet_su/state/quiz_store.dart';
+import 'package:viet_su/state/reminder_service.dart';
 import 'package:viet_su/state/tip_store.dart';
+import 'package:viet_su/state/today_store.dart';
+import 'package:viet_su/state/visit_store.dart';
 import 'package:viet_su/telemetry/route_telemetry.dart';
 import 'package:viet_su/telemetry/telemetry.dart';
 import 'package:viet_su/telemetry/telemetry_settings.dart';
+
+import 'memory_stores.dart';
 
 /// Records every call instead of sending anything anywhere — the seam every
 /// telemetry test in this file asserts against.
@@ -116,6 +122,11 @@ Future<GoRouter> _pumpAt(
     quizStoreProvider.overrideWithValue(quizStore ?? _MemoryQuizStore()),
     activeContentVersionProvider.overrideWith((ref) => 0),
     telemetryProvider.overrideWithValue(telemetry),
+    // Never touch path_provider or the notifications plugin from a widget test.
+    visitStoreProvider.overrideWithValue(MemoryVisitStore()),
+    narrationStoreProvider.overrideWithValue(MemoryNarrationStore()),
+    todayStoreProvider.overrideWithValue(MemoryTodayStore()),
+    reminderSchedulerProvider.overrideWithValue(FakeReminderScheduler()),
   ]);
   addTearDown(container.dispose);
 
@@ -188,6 +199,9 @@ void main() {
           const <String, Object>{'quiz_mode': 'daily'});
       expectScreen(
           mapUriToScreen(Uri.parse('/chao-co')), 'chao_co', const <String, Object>{});
+      // "Hôm nay" always redirects to the page it picked, but every route is mapped.
+      expectScreen(
+          mapUriToScreen(Uri.parse('/hom-nay')), 'today', const <String, Object>{});
       expectScreen(mapUriToScreen(Uri.parse('/era/au-lac')), 'era_hub',
           const <String, Object>{'era_slug': 'au-lac'});
       expectScreen(mapUriToScreen(Uri.parse('/era/au-lac/timeline')), 'era_timeline',

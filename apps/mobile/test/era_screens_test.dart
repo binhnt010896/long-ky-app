@@ -11,10 +11,16 @@ import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:viet_su/app_router.dart';
 import 'package:viet_su/state/content_sync.dart';
+import 'package:viet_su/state/narration_controller.dart';
 import 'package:viet_su/state/providers.dart';
 import 'package:viet_su/state/quiz_store.dart';
+import 'package:viet_su/state/reminder_service.dart';
 import 'package:viet_su/state/tip_store.dart';
+import 'package:viet_su/state/today_store.dart';
+import 'package:viet_su/state/visit_store.dart';
 import 'package:viet_su/widgets/timeline_bar.dart';
+
+import 'memory_stores.dart';
 
 /// A tip store with a fixed offer; [emit] plays a purchase outcome.
 class _FakeTipStore implements TipStore {
@@ -79,6 +85,11 @@ Future<GoRouter> _pumpAt(
     tipStoreProvider.overrideWithValue(tipStore),
     quizStoreProvider.overrideWithValue(quizStore ?? _MemoryQuizStore()),
     activeContentVersionProvider.overrideWith((ref) => contentVersion),
+    // Never touch path_provider or the notifications plugin from a widget test.
+    visitStoreProvider.overrideWithValue(MemoryVisitStore()),
+    narrationStoreProvider.overrideWithValue(MemoryNarrationStore()),
+    todayStoreProvider.overrideWithValue(MemoryTodayStore()),
+    reminderSchedulerProvider.overrideWithValue(FakeReminderScheduler()),
     ...overrides,
   ]);
   addTearDown(container.dispose);
@@ -1628,6 +1639,14 @@ void main() {
       expect(progress.bestFor(QuizModeKey.daily), isNotNull);
       expect(progress.isDailyDoneOn(DateTime.now()), isTrue);
 
+      // The first finished daily quiz offers the daily reminder, once. "Not
+      // now" answers it for good and uncovers the result.
+      final later = find.byKey(const ValueKey<String>('reminder-sheet-later'));
+      expect(later, findsOneWidget);
+      await tester.tap(later);
+      await tester.pumpAndSettle();
+      expect(find.byKey(const ValueKey<String>('reminder-sheet-later')), findsNothing);
+
       // The share card: the day's first attempt, spoiler-free.
       final first = progress.dailyFirstOn(DateTime.now());
       expect(first, isNotNull);
@@ -1670,6 +1689,8 @@ void main() {
       expect(find.text('câu trả lời đúng'), findsOneWidget);
       expect(find.byKey(const ValueKey<String>('quiz-share')), findsNothing);
       expect((await store.load()).dailyFirst, isNull);
+      // Only the daily quiz offers the reminder.
+      expect(find.byKey(const ValueKey<String>('reminder-sheet-yes')), findsNothing);
     });
 
     testWidgets(
