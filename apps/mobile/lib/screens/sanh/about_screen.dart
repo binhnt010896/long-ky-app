@@ -25,7 +25,7 @@ const String _statsBodyEn =
 
 /// App version shown on the About page (mirrors pubspec `version`; a test
 /// keeps the two in step).
-const String kAppVersion = '1.2.0';
+const String kAppVersion = '1.3.0';
 
 /// The privacy policy, a public page Google Play also lists for the app.
 final Uri kPrivacyPolicyUri = Uri.parse('https://binh-nt.dev/long-ky/privacy');
