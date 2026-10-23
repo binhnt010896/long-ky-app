@@ -1,7 +1,9 @@
 import 'package:core_content/core_content.dart';
 import 'package:core_domain/core_domain.dart';
 import 'package:experience/experience.dart';
+import 'package:flutter/painting.dart' show Rect;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../telemetry/telemetry.dart';
@@ -151,3 +153,11 @@ class TelemetryEnabledNotifier extends AsyncNotifier<bool> {
 /// anything; returns false when nothing could open it.
 final urlOpenerProvider = Provider<Future<bool> Function(Uri)>(
     (ref) => (uri) => launchUrl(uri, mode: LaunchMode.externalApplication));
+
+/// Opens the system share sheet with plain [text]. A seam so tests never open
+/// one. [origin] anchors the sheet on an iPad (it needs a source rectangle).
+final shareTextProvider = Provider<Future<void> Function(String text, Rect? origin)>(
+    (ref) => (text, origin) async {
+          await SharePlus.instance
+              .share(ShareParams(text: text, sharePositionOrigin: origin));
+        });

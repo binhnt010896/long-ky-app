@@ -70,9 +70,10 @@ class _MemoryQuizStore implements QuizStore {
     required int score,
     required int total,
     DateTime? dailyOn,
+    List<bool>? marks,
   }) async {
-    _progress =
-        _progress.withResult(modeKey, score, total, markDailyDoneOn: dailyOn);
+    _progress = _progress.withResult(modeKey, score, total,
+        markDailyDoneOn: dailyOn, marks: marks);
     return _progress;
   }
 }

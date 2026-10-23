@@ -54,9 +54,10 @@ class _MemoryQuizStore implements QuizStore {
     required int score,
     required int total,
     DateTime? dailyOn,
+    List<bool>? marks,
   }) async {
     _progress = _progress.withResult(modeKey, score, total,
-        markDailyDoneOn: dailyOn);
+        markDailyDoneOn: dailyOn, marks: marks);
     return _progress;
   }
 }
@@ -69,6 +70,7 @@ Future<GoRouter> _pumpAt(
   TipStore? tipStore,
   QuizStore? quizStore,
   int contentVersion = 0,
+  List<Override> overrides = const <Override>[],
 }) async {
   final container = ProviderContainer(overrides: <Override>[
     tierProvider.overrideWithValue(tier),
@@ -77,6 +79,7 @@ Future<GoRouter> _pumpAt(
     tipStoreProvider.overrideWithValue(tipStore),
     quizStoreProvider.overrideWithValue(quizStore ?? _MemoryQuizStore()),
     activeContentVersionProvider.overrideWith((ref) => contentVersion),
+    ...overrides,
   ]);
   addTearDown(container.dispose);
 
@@ -1585,9 +1588,15 @@ void main() {
         'the daily quiz (seed 1) runs all 5 questions to a score screen, '
         'and the best score then shows on the quiz home', (tester) async {
       final store = _MemoryQuizStore();
+      final shared = <String>[];
       await _pumpAt(
           tester, '/sanh/cau-do/choi?mode=daily&seed=1', ExperienceTier.reduced,
-          quizStore: store);
+          quizStore: store,
+          overrides: <Override>[
+            shareTextProvider.overrideWithValue((text, origin) async {
+              shared.add(text);
+            }),
+          ]);
 
       for (var q = 0; q < 5; q++) {
         // Answer whatever question is showing: tap option/item 0, then 1, 2,
@@ -1618,6 +1627,49 @@ void main() {
       final progress = await store.load();
       expect(progress.bestFor(QuizModeKey.daily), isNotNull);
       expect(progress.isDailyDoneOn(DateTime.now()), isTrue);
+
+      // The share card: the day's first attempt, spoiler-free.
+      final first = progress.dailyFirstOn(DateTime.now());
+      expect(first, isNotNull);
+      final share = find.byKey(const ValueKey<String>('quiz-share'));
+      await tester.ensureVisible(share);
+      await tester.pumpAndSettle();
+      await tester.tap(share);
+      await tester.pump();
+      expect(shared, hasLength(1));
+      final lines = shared.single.split('\n');
+      expect(lines.first, startsWith('Long Ký · Câu đố hôm nay '));
+      expect(lines[1],
+          '${first!.marks.map((m) => m ? '🟨' : '⬛').join()}  ${first.score}/${first.marks.length}');
+      expect(lines[2], 'long-ky.com/get');
+    });
+
+    testWidgets('the share button is not offered after a random quiz',
+        (tester) async {
+      final store = _MemoryQuizStore();
+      await _pumpAt(
+          tester, '/sanh/cau-do/choi?mode=random&seed=1', ExperienceTier.reduced,
+          quizStore: store);
+      for (var q = 0; q < 10; q++) {
+        for (var i = 0; i < 4; i++) {
+          final tile = find.byKey(ValueKey<int>(i));
+          if (tile.evaluate().isEmpty) break;
+          await tester.tap(tile);
+          await tester.pump();
+          if (find.text('Tiếp theo ›').evaluate().isNotEmpty) break;
+        }
+        await tester.pumpAndSettle();
+        final next = find.text('Tiếp theo ›');
+        if (next.evaluate().isNotEmpty) {
+          await tester.ensureVisible(next);
+          await tester.pumpAndSettle();
+          await tester.tap(next);
+          await tester.pumpAndSettle();
+        }
+      }
+      expect(find.text('câu trả lời đúng'), findsOneWidget);
+      expect(find.byKey(const ValueKey<String>('quiz-share')), findsNothing);
+      expect((await store.load()).dailyFirst, isNull);
     });
 
     testWidgets(

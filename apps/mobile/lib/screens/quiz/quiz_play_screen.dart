@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../state/providers.dart';
+import '../../state/quiz_share.dart';
 import '../../state/quiz_store.dart';
 import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
@@ -63,6 +64,14 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
   bool _finished = false;
   bool _saved = false;
 
+  /// Right/wrong per question, in order — kept for the daily share card.
+  final List<bool> _marks = <bool>[];
+
+  /// The day's first daily attempt (what gets shared), known once the result
+  /// is saved. Null outside the daily quiz, or if that day's first attempt
+  /// wasn't recorded.
+  DailyFirst? _shareFirst;
+
   @override
   void initState() {
     super.initState();
@@ -108,6 +117,7 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
     setState(() {
       _answered = true;
       _selectedMcqIndex = i;
+      _marks.add(correct);
       if (correct) {
         _score++;
       } else {
@@ -124,6 +134,7 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
       if (_tappedOrder.length == q.items.length) {
         _answered = true;
         final correct = _listEquals(_tappedOrder, q.correctOrder);
+        _marks.add(correct);
         if (correct) {
           _score++;
         } else {
@@ -172,18 +183,41 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
     _saved = true;
     final modeKey = _modeKeyFor(widget.mode,
         periodId: widget.periodId, eraSlug: widget.eraSlug);
-    await ref.read(quizStoreProvider).recordResult(
+    final now = DateTime.now();
+    final daily = widget.mode == QuizMode.daily;
+    final progress = await ref.read(quizStoreProvider).recordResult(
           modeKey: modeKey,
           score: _score,
           total: _questions!.length,
-          dailyOn: widget.mode == QuizMode.daily ? DateTime.now() : null,
+          dailyOn: daily ? now : null,
+          marks: daily ? List<bool>.of(_marks) : null,
         );
+    if (daily && mounted) {
+      setState(() => _shareFirst = progress.dailyFirstOn(now));
+    }
     ref.invalidate(quizProgressProvider);
     ref.read(telemetryProvider).event('quiz_complete', <String, Object>{
       'quiz_mode': widget.mode.name,
       'score': _score,
       'total': _questions!.length,
     });
+  }
+
+  /// Shares the day's *first* attempt (not a replay), spoiler-free.
+  Future<void> _share(Rect? origin) async {
+    final first = _shareFirst;
+    if (first == null) return;
+    final en = ref.read(langProvider) == Lang.en;
+    final text = dailyShareText(
+      day: DateTime.parse(first.date),
+      marks: first.marks,
+      en: en,
+    );
+    ref.read(telemetryProvider).event('quiz_share', <String, Object>{
+      'quiz_mode': widget.mode.name,
+      'score': first.score,
+    });
+    await ref.read(shareTextProvider)(text, origin);
   }
 
   void _playAgain() {
@@ -288,6 +322,9 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
         total: questions.length,
         missed: _missed,
         en: en,
+        shareFirst: _shareFirst,
+        thisScore: _score,
+        onShare: _share,
         onPlayAgain: _playAgain,
         onClose: () => context.go('/sanh/cau-do'),
       );
@@ -709,6 +746,9 @@ class _ResultView extends StatelessWidget {
     required this.total,
     required this.missed,
     required this.en,
+    required this.shareFirst,
+    required this.thisScore,
+    required this.onShare,
     required this.onPlayAgain,
     required this.onClose,
   });
@@ -717,6 +757,12 @@ class _ResultView extends StatelessWidget {
   final int total;
   final List<Question> missed;
   final bool en;
+
+  /// The day's first daily attempt, when this was the daily quiz and it is
+  /// known; the share button appears only then.
+  final DailyFirst? shareFirst;
+  final int thisScore;
+  final void Function(Rect? origin) onShare;
   final VoidCallback onPlayAgain;
   final VoidCallback onClose;
 
@@ -755,6 +801,60 @@ class _ResultView extends StatelessWidget {
                 child: _MissedRow(question: q, lang: lang),
               ),
             const SizedBox(height: VSSpacing.lg),
+          ],
+          if (shareFirst != null) ...<Widget>[
+            Builder(
+              builder: (context) => GestureDetector(
+                key: const ValueKey<String>('quiz-share'),
+                behavior: HitTestBehavior.opaque,
+                onTap: () {
+                  final box = context.findRenderObject() as RenderBox?;
+                  onShare(box == null
+                      ? null
+                      : box.localToGlobal(Offset.zero) & box.size);
+                },
+                child: Container(
+                  height: 52,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: <Color>[
+                        VSColors.goldBright.withValues(alpha: 0.30),
+                        VSColors.gold.withValues(alpha: 0.18),
+                      ],
+                    ),
+                    borderRadius: VSRadii.pillAll,
+                    border: Border.all(color: VSColors.goldBright),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      const Icon(Icons.ios_share,
+                          size: 18, color: VSColors.goldBright),
+                      const SizedBox(width: VSSpacing.sm),
+                      Text(
+                        en ? 'Share result' : 'Chia sẻ kết quả',
+                        style:
+                            VSType.label.copyWith(color: VSColors.inkPrimary),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            if (shareFirst!.score != thisScore) ...<Widget>[
+              const SizedBox(height: VSSpacing.xs),
+              Text(
+                en
+                    ? 'Shares your first try today: ${shareFirst!.score}/${shareFirst!.marks.length}'
+                    : 'Chia sẻ lần chơi đầu hôm nay: ${shareFirst!.score}/${shareFirst!.marks.length}',
+                textAlign: TextAlign.center,
+                style: VSType.caption.copyWith(color: VSColors.inkMuted),
+              ),
+            ],
+            const SizedBox(height: VSSpacing.md),
           ],
           GestureDetector(
             behavior: HitTestBehavior.opaque,
