@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../state/content_draft.dart';
+import '../state/narration.dart';
 import '../util/media_urls.dart';
 import '../util/slug.dart';
 import '../util/person_asset_path.dart';
 import '../widgets/localized_text_field.dart';
 import '../widgets/media_replace_dialog.dart';
 import '../widgets/media_slot.dart';
+import '../widgets/narration_panel.dart';
 
 /// Field-by-field editor for the shared `content/people.json` registry
 /// (154 people). A search list on the left, a form on the right — see
@@ -33,6 +35,7 @@ class _PeopleScreenState extends ConsumerState<PeopleScreen> {
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (e, st) => Center(child: Text('Failed to load: $e')),
       data: (draft) {
+        final narration = ref.watch(narrationIndexProvider);
         var people = draft.people.toList()
           ..sort((a, b) => ((a['name'] as Map?)?['en'] as String? ?? '').compareTo(
             (b['name'] as Map?)?['en'] as String? ?? '',
@@ -111,6 +114,7 @@ class _PeopleScreenState extends ConsumerState<PeopleScreen> {
                             selected: _selectedId == id,
                             title: Text((p['name'] as Map?)?['en'] as String? ?? id),
                             subtitle: Text(id),
+                            trailing: NarrationBadge(clip: narration.clipFor('people', id)),
                             onTap: () => setState(() => _selectedId = id),
                           );
                         },
@@ -328,6 +332,9 @@ class _PersonDetailPaneState extends ConsumerState<_PersonDetailPane> {
                 onChanged: (v) => setState(() => _photoConfirmed = v ?? false),
               ),
             ],
+            NarrationPanel(
+              clip: ref.watch(narrationIndexProvider).clipFor('people', widget.personId),
+            ),
             const SizedBox(height: 8),
             Text('Used in', style: Theme.of(context).textTheme.labelLarge),
             if (usedIn.isEmpty)

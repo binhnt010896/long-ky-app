@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../state/content_draft.dart';
+import '../state/narration.dart';
 import '../util/media_urls.dart';
 import 'citation_field.dart';
 import 'event_year_field.dart';
 import 'localized_text_field.dart';
 import 'media_slot.dart';
+import 'narration_panel.dart';
 
 /// Add or edit one event — in an era, or standalone (Cycle N). [eraSlug] is
 /// the era the event is (or will be) listed in, or null for a standalone event.
@@ -276,6 +278,10 @@ class _EventDialogState extends ConsumerState<EventDialog> {
                 ),
                 const SizedBox(height: 8),
               ],
+              if (!_isNew)
+                NarrationPanel(
+                  clip: ref.watch(narrationIndexProvider).clipFor('events', widget.eventId!),
+                ),
               if (!_isNew && draft != null && widget.initial?['hero'] != null)
                 MediaSlot(
                   label: 'Hero image',

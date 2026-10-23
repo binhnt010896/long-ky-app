@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../state/content_draft.dart';
+import '../state/narration.dart';
 import '../widgets/event_delete_dialog.dart';
 import '../widgets/event_dialog.dart';
+import '../widgets/narration_panel.dart';
 
 /// Every event in one list (Cycle N) — the registry, `content/events.json`.
 /// Filter by era, by "standalone" (events no era lists), or by text; create a
@@ -152,6 +154,7 @@ class _EventsScreenState extends ConsumerState<EventsScreen> {
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
+            NarrationBadge(clip: ref.watch(narrationIndexProvider).clipFor('events', id)),
             IconButton(
               tooltip: 'Edit',
               icon: const Icon(Icons.edit_outlined),
