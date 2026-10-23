@@ -4,6 +4,7 @@ import 'asset_ref.dart';
 import 'citation.dart';
 import 'json_util.dart';
 import 'localized_text.dart';
+import 'anniversary.dart';
 import 'year.dart';
 
 /// Historiographic status of an event — legend, semi-historical, or historical.
@@ -56,6 +57,7 @@ class HistoryEvent {
     required this.summary,
     required this.citation,
     this.slug,
+    this.anniversary,
     this.body,
     this.details,
     this.pullQuote,
@@ -69,6 +71,9 @@ class HistoryEvent {
   final int order;
   final EventKind kind;
   final YearRef year;
+
+  /// The day of the year this event is remembered on ("Hôm nay"), if any.
+  final Anniversary? anniversary;
   final LocalizedText title;
 
   /// One-line timeline subtitle.
@@ -100,12 +105,16 @@ class HistoryEvent {
     final details = json.objOrNull('details', at: at);
     final pullQuote = json.objOrNull('pullQuote', at: at);
     final hero = json.objOrNull('hero', at: at);
+    final anniversary = json.objOrNull('anniversary', at: at);
     return HistoryEvent(
       id: json.str('id', at: at),
       slug: json.strOrNull('slug', at: at),
       order: order ?? json.integer('order', at: at),
       kind: _eventKind(json.str('kind', at: at), at),
       year: YearRef.fromJson(json.obj('year', at: at), '$at.year'),
+      anniversary: anniversary == null
+          ? null
+          : Anniversary.fromJson(anniversary, '$at.anniversary'),
       title: LocalizedText.fromJson(json.obj('title', at: at), '$at.title'),
       summary:
           LocalizedText.fromJson(json.obj('summary', at: at), '$at.summary'),
@@ -132,6 +141,7 @@ class HistoryEvent {
         summary: summary,
         citation: citation,
         slug: slug,
+        anniversary: anniversary,
         body: body,
         details: details,
         pullQuote: pullQuote,
@@ -148,6 +158,7 @@ class HistoryEvent {
       other.order == order &&
       other.kind == kind &&
       other.year == year &&
+      other.anniversary == anniversary &&
       other.title == title &&
       other.summary == summary &&
       other.body == body &&
@@ -165,6 +176,7 @@ class HistoryEvent {
         order,
         kind,
         year,
+        anniversary,
         title,
         summary,
         body,

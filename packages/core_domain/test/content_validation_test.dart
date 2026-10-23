@@ -298,6 +298,59 @@ void main() {
       expect(result.issues.any((i) => i.message.contains('dated year')), isTrue);
     });
 
+    test('an event may carry an anniversary, solar or lunar', () {
+      for (final a in <Map<String, dynamic>>[
+        {'month': 4, 'day': 30, 'calendar': 'solar'},
+        {'month': 3, 'day': 10, 'calendar': 'lunar'},
+        {'month': 2, 'day': 29, 'calendar': 'solar'},
+      ]) {
+        final events = registry();
+        (events['events'] as List).add(standalone(firstEvent())..['anniversary'] = a);
+        final result = validate(_refEraTexts(), events);
+        expect(result.isValid, isTrue, reason: '$a ${result.issues.join('\n')}');
+      }
+    });
+
+    test('an anniversary the schema forbids is rejected', () {
+      for (final a in <Map<String, dynamic>>[
+        {'month': 13, 'day': 1, 'calendar': 'solar'},
+        {'month': 3, 'day': 31, 'calendar': 'lunar'},
+        {'month': 3, 'day': 1, 'calendar': 'julian'},
+        {'month': 3, 'day': 1},
+        {'month': 3, 'day': 1, 'calendar': 'solar', 'extra': true},
+      ]) {
+        final events = registry();
+        (events['events'] as List).add(standalone(firstEvent())..['anniversary'] = a);
+        expect(validate(_refEraTexts(), events).isValid, isFalse, reason: '$a');
+      }
+    });
+
+    test('an anniversary on a day the month lacks is rejected, so no phone '
+        'ever refuses the pack over it', () {
+      for (final a in <Map<String, dynamic>>[
+        {'month': 2, 'day': 30, 'calendar': 'solar'},
+        {'month': 4, 'day': 31, 'calendar': 'solar'},
+      ]) {
+        final events = registry();
+        (events['events'] as List).add(standalone(firstEvent())..['anniversary'] = a);
+        final result = validate(_refEraTexts(), events);
+        expect(result.isValid, isFalse, reason: '$a');
+        expect(result.issues.any((i) => i.message.contains('anniversary')), isTrue);
+      }
+    });
+
+    test('an anniversary on an event an era lists is checked too', () {
+      final events = registry();
+      (events['events'] as List).first['anniversary'] = <String, dynamic>{
+        'month': 2,
+        'day': 30,
+        'calendar': 'solar',
+      };
+      final result = validate(_refEraTexts(), events);
+      expect(result.isValid, isFalse);
+      expect(result.issues.any((i) => i.message.contains('anniversary')), isTrue);
+    });
+
     test('a standalone event needs a hero', () {
       final events = registry();
       (events['events'] as List).add(standalone(firstEvent())..remove('hero'));
