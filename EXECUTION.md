@@ -4,9 +4,40 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: Cycle S is PLANNED (2026-10-23), not started.** Nothing is built.
-**Waiting on the user:** the six decisions in "Decide before building", then
-the go-ahead to execute.
+**Status: Cycle S D-0…D-3 are BUILT (2026-10-23), not released.** Tests: core_domain
+147, core_content 32, mobile 362, admin 65, all green on Flutter 3.47.7 and on
+3.44.9 (Dart 3.12.2, the repo's floor); `validate_content`, `format_content
+--check` and the JS inlining test pass. **Not built or run on a device:** the
+Android and iOS native changes (no SDK here), so the reminder has never fired
+on a phone. **Waiting on the user:**
+1. The phone check in D-4 below, Android and iOS, before any release.
+2. Approve `docs/anniversaries-review.md` (66 candidate events, 97 dates), then
+   enter the approved ones in the CMS. Until then no event has an anniversary,
+   so "Hôm nay" always shows the rotation.
+3. The D-0 baseline: note Day 1/7/30 retention in Firebase before release 1.
+4. Version bump and bundle (D-4); update the privacy page and the Play Data
+   safety answers for the notification permission (it is a new permission).
+5. The six decisions below were built as recommended; say if any should change.
+
+**Built differently from the plan (read these):**
+- **No kicker on the item pages.** The kicker ("Ngày này năm 1975") shows on the
+  Sảnh card only. Putting it above the title on the four detail screens would
+  touch four layouts I could not see on a device.
+- **The card is text-only** (kicker, title, one line), no avatar or hero.
+- **Timezones without a plugin.** Reminders are scheduled as absolute instants
+  in UTC (`tz.UTC`), so no `flutter_timezone` and no timezone database.
+- **`/hom-nay` has no logged screen of its own** (it redirects), so `today_open`
+  is logged where it is opened (`sanh` or `notification`). `mapUriToScreen` maps
+  it anyway.
+- **Lockfile.** `xml` and `petitparser` are pinned to 7.0.1 / 7.0.2 (the newest
+  that support Dart 3.12); the latest need Dart 3.13. They come in only through
+  the Linux/Windows halves of the notifications plugin.
+- **Fixed on the way:** `kAppVersion` said 1.2.0 on a 1.3.0 build (it was failing
+  `about_privacy_test` on main). The CMS event dialog dropped any key it did not
+  know on save; it now keeps `anniversary`.
+- **Already on main, not touched:** `apps/mobile/pubspec.yaml` lists
+  `assets/content/chao-co/`, which does not exist (an analyzer warning), and
+  `tool/gen_media_manifest.dart` has 3 lint infos.
 
 Earlier specs: M `cfa220a`, N `92e699f`, O `f56a4d7`, P `9552bb5`, Q `84d5ed8`,
 R `a150c78` (each `<sha>:EXECUTION.md`).
