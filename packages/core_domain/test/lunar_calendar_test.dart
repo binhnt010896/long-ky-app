@@ -1,5 +1,5 @@
 import 'package:core_domain/core_domain.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 // Expected values come from published sources, not from this implementation:
 //  * Tết 2020–2030: https://en.wikipedia.org/wiki/T%E1%BA%BFt

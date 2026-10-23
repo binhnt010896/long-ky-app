@@ -1,5 +1,5 @@
 import 'package:core_domain/core_domain.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 HistoryEvent _event(String id,
         {int? year, bool approx = false, Anniversary? on}) =>

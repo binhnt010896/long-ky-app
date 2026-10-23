@@ -22,6 +22,7 @@ export 'src/people.dart';
 export 'src/period.dart';
 export 'src/quiz/question.dart';
 export 'src/quiz/quiz_generator.dart';
+export 'src/street_map/discovered_streets.dart';
 export 'src/street_map/street_filter.dart';
 export 'src/street_map/street_geometry.dart';
 export 'src/street_map/street_map.dart';
