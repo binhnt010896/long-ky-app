@@ -4,305 +4,357 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: Cycle R Wave B is BUILT (2026-10-03), not yet published.** What is
-done: the standalone-person code (`bf42c82`), 38 street aliases and 33 new
-people and 6 standalone events as text (`c038622`), and all their art
-(`ba162df`). The street map goes from **92 to 163 streets**. Images are in
-`content/people/<id>/` and `content/events/<id>/`; they are git-ignored, so
-they reach the CDN only with the next publish. **Waiting on the user:**
-(1) publish content (dry run first), (2) cut the next app release for the new
-streets (R5), (3) the phone check, (4) images for the 7 people with none
-(Hồ Huấn Nghiệp, Nguyễn Văn Quá, Mai Xuân Thưởng, Trần Tấn, Đặng Như Mai,
-Tôn Thất Thiệp, Tôn Thất Đạm; the first two are in Wave B and ship held).
-Waves C and D are next, and all their photos are already in place.
+**Status: Cycle S is PLANNED (2026-10-23), not started.** Nothing is built.
+**Waiting on the user:** the six decisions in "Decide before building", then
+the go-ahead to execute.
 
-Earlier specs: M `cfa220a`, N `92e699f`, O `f56a4d7`, P `9552bb5`, Q `84d5ed8`
-(each `<sha>:EXECUTION.md`); what Q shipped: `afe41a8:EXECUTION.md`.
+Earlier specs: M `cfa220a`, N `92e699f`, O `f56a4d7`, P `9552bb5`, Q `84d5ed8`,
+R `a150c78` (each `<sha>:EXECUTION.md`).
+
+> Naming: this cycle's parts are **D-0 … D-4** ("daily"), because `S0`–`S5`
+> already name the street-map speed plan in `docs/wave-e-plan.md`.
 
 ## Audit of the previous plan
 
-Done since the last plan (Cycle Q):
-- **Cycle Q built** (`afe41a8`): gold dragon splash art, italic wordmark, and a
-  dark Android launch window.
-- **Since then:** tile cancellations are no longer reported as fatal crashes
-  (`3b266a6`), a privacy-policy link was added to About Long Ký, and the app
-  went from 1.1.0+8 to **1.1.2+10** (`2528904`).
+Done since `a150c78` (from `git log`):
+- Content packs published six times, 2026-10-16 → 2026-10-21 (`fd79463` …
+  `540b19f`).
+- Spoken narration for eras, people and events (`6b784a9`), all 597 clips
+  (`d806b41`), and playback in the CMS (`a54aa71`).
+- The landing site `apps/landing` (`6f3696d` and after), the iOS build fix
+  (PR #3), the new chop logo (`6f14539`, `b0ed036`), and an easier-to-find
+  street map (`3cf5965`).
+- App version **1.3.0+13** (`2d60d3b`).
+- The street mapping now has **285 approved streets** (`content/streets/hcm.json`),
+  which reaches the Wave D target (284) in the R table.
 
-**Carried forward (all wait on the user):**
-1. The Play closed test (12+ testers, 14 days), the release-build check of the
-   street map on a phone, the Data safety form, and the Analytics custom
-   definitions.
-2. Firestore (still off): the steps in `979cb3f:EXECUTION.md`.
-3. Optionally deleting `admin-long-ky.web.app`.
+**I can't check these from the repo, so ask the user:** the Play closed test,
+the R-6 phone checks, the Data safety form, the Analytics custom definitions,
+Firestore (still off?), and deleting `admin-long-ky.web.app`.
 
-## Cycle R — what the user asked for
+## Cycle S — what the user asked for
 
-> Plan to add more events and characters to our app, so that the street map is
-> filled with more data. Also list out images I need to prepare, if it's in
-> modern era and actually photographed; otherwise note down to use Higgsfield
-> to generate image based on the description of the event/character.
+> Any idea to make users more engaged to our app? Something that makes them
+> come back everyday. I can't think of a reward for showing up.
+>
+> OK draft them in EXECUTION.md. No execution.
 
-**Confirmed (2026-10-03):**
-- **R1 — People with no era are fine.** New figures in the gaps between eras
-  (1672–1771, 1300–1413, 1127–1225) need no new eras.
-- **R2 — Era rosters stay exactly as they are.** **Every new person is
-  standalone.** That includes people who fit inside an existing era's years
-  (Trần Văn Giàu, Nguyễn Văn Trỗi…). The era hubs don't grow.
-- **R3 — Ambiguous street names are skipped:** Ba Đình, Trường Sơn, Vạn Kiếp,
-  Bến Vân Đồn, Hát Giang, Thăng Long. They may later fit a **landmark object
-  with its own detail page** (queued).
-- **R4 — Hoàng Sa and Trường Sa are skipped.**
-- **R5 — Street mapping over the air is parked.** `hcm.json` stays bundled, so
-  **the new streets reach phones with the next app release**. The people,
-  events and art go out earlier, over the air.
-- **R6 — Wave order: A + B this cycle, then C, then D.**
+**The idea:** the reward for coming back is something that **only exists
+today** and that the user can see building up. No points and no streaks.
+Three features, cheapest first:
 
-### What I measured (read-only, `build/streets/hcm-ways.json`, 2026-09-30 OSM)
-
-- Old HCMC has **1,646 named streets** without numbers (≈ 2,786 km). **92 are
-  mapped today: 23.5 % of the km.** Many of the unmapped names are places or
-  flowers, so the ceiling is well under 100 %.
-
-| Wave | What | Streets | Cumulative | Share of km | Photos from you | Higgsfield |
-|---|---|---|---|---|---|---|
-| now | — | — | 92 | 23.5 % | — | — |
-| **A** | Aliases to **existing** people and events | +36 | 123 | 25.0 % | 0 | 0 |
-| **B** | Saigon–Gia Định first (33 people, 6 events) | +37 | 160 | 33.4 % | 13 + 1 event | ≈ 72 images, ≈ 145 cr |
-| **C** | Older heroes and scholars (≈ 67 people, 4 events) | +68 | 228 | 35.5 % | 1 (+ 🔍 finds) | ≈ 138 images, ≈ 275 cr |
-| **D** | The 20th century (55 people) | +56 | 284 | 43.3 % | 55 | ≈ 110 restores, ≈ 220 cr |
-
-### Code facts that shape R-0
-
-- `StreetMatcher` drops any person on no roster (`if (era == null) continue;`
-  in `street_matcher.dart`). Street targets carry an era for routing.
-- People are routed only as `/era/:slug/figure/:id`. The places that build that
-  route are `street_card.dart:14`, `event_figures.dart:74` and `app_router.dart`.
-  `CharacterDetailScreen` loads the era (`eraProvider(slug)`).
-- Cycle N's precedent for events: `/su-kien/:id` redirects to the era route if
-  the event is in an era; otherwise it opens `StandaloneEventScreen`. The street
-  validator accepts an event target with no era when it is a standalone event.
-- **N3** (a standalone event's `figureIds` must be rostered people) has to
-  relax to "any person in `people.json`".
-
-### R-0 — Standalone people (code; mirrors Cycle N)
-
-- **Domain:** a `standalonePeopleIds(eras, people)` helper (the people on no
-  roster), next to `standaloneEventIds`.
-- **Validator** (`validate_content` and `StreetValidator`):
-  - a standalone event's `figureIds` may be **any registry person** (N3
-    relaxed);
-  - an in-era event's `figureIds` must still be on that era's roster;
-  - a street person target with an empty era must be a standalone person;
-  - a standalone person needs `avatar` and `fullBody` (real or held), and an
-    optional `lifespan` display (`{vi, en}`, e.g. "1650 – 1700"), because their
-    page has no era header to date them.
-- **Matcher:** a person on no roster gets a target with `era: ''` instead of
-  being skipped.
-- **App:**
-  - a route `/nhan-vat/:id`: it redirects to `/era/<home>/figure/:id` when the
-    person is rostered; otherwise it opens a **standalone character screen**
-    (the same layout as `CharacterDetailScreen`, with no era palette; the
-    lifespan as its kicker; the standalone events the person appears in; the
-    reverse street chip);
-  - `street_card.dart` routes a person with an empty era to `/nhan-vat/:id`;
-  - `event_figures.dart` on a standalone event links to `/nhan-vat/:id`.
-- **Media paths:** `people/<id>/avatar.png` and `people/<id>/full.png`, like
-  `events/<id>/…`. The manifest and ledger already walk `people.json`; check
-  that the CMS media library lists them.
-- **Old builds:** they get the new `people.json` and standalone events in the
-  pack. Unrostered people are simply unused there. A standalone event's figure
-  strip resolves through the registry, so test it on a 1.1.2 build. Old builds
-  never see the new streets (their mapping is bundled).
-- **Discoverability:** standalone people are reachable from the street map,
-  from the figure strip of a standalone event, and from search *if* search
-  covers people (check during R-0). A "Danh nhân" directory is queued, not in R.
-- **Tests:**
-  - validator rules, both accept and reject;
-  - the matcher emitting `era: ''`;
-  - the route redirect, for a rostered and a standalone person;
-  - the standalone screen with a held portrait and a real one;
-  - the street card's route.
-
-### R-1 — Wave A: aliases (no new content, no art)
-
-Added to `content/streets/aliases.json`. Every alias match goes through the M3
-review table and is approved by the user.
-
-- **People:**
-  - Hùng Vương → `vua-hung`; Phan Chu Trinh / Phan Tây Hồ → `phan-chau-trinh`;
-    Phan Sào Nam → `phan-boi-chau`;
-  - Lê Thánh Tôn → `le-thanh-tong`; Trần Nhân Tôn → `tran-nhan-tong`;
-    Trần Quốc Tuấn → `tran-hung-dao`;
-  - Đề Thám, Ngô Thời Nhiệm, Nguyễn Thiệp, Phạm Cự Lượng;
-  - Đinh Bộ Lĩnh → `dinh-tien-hoang`; Trưng Nữ Vương / Trưng Vương;
-  - Bãi Sậy → `nguyen-thien-thuat`; Nhật Tảo → `nguyen-trung-truc`;
-  - Song Hành Võ Nguyên Giáp.
-- **Events:**
-  - Diên Hồng, Chương Dương / Bến Chương Dương, Đống Đa, Lam Sơn / Công trường
-    Lam Sơn, Hồng Đức, Tây Sơn, Yên Thế, Đông Du;
-  - Ba Tháng Hai → `dang-cong-san-ra-doi`; Tân Trào; Công trường Mê Linh;
-  - Bình Giã / Đồng Xoài / Ba Gia → `danh-bai-chien-tranh-dac-biet`;
-  - Núi Thành / Bàu Bàng → `chien-tranh-cuc-bo`;
-  - Nữ Dân Công → `dien-bien-phu`.
-- **Never alias these:**
-  - *Nguyễn Ảnh Thủ* is not Nguyễn Ánh.
-  - *Lê Văn Lương* is not Lê Văn Duyệt.
-  - *Trấn Đại Nghĩa* (an OSM typo) waits for `tran-dai-nghia` in Wave D.
-  - *Trần Khắc Chân* waits for `tran-khat-chan` in Wave C.
-
-### R-2 — Wave B people (33, all standalone)
-
-Added through the CMS People form: name, epithet, bio (vi/en), lifespan, and the
-photo-fidelity box where it applies.
-- **The Gia Định founding and Hà Tiên:** Nguyễn Phúc Chu, Nguyễn Hữu Cảnh,
-  Nguyễn Cửu Vân, Nguyễn Cửu Đàm, Mạc Cửu, Mạc Thiên Tích (with the alias
-  Chiêu Anh Các), Nguyễn Cư Trinh.
-- **The Gia Định scholars and canals:** Trịnh Hoài Đức, Võ Trường Toản, Ngô
-  Nhân Tịnh, Lê Quang Định, Thoại Ngọc Hầu.
-- **The Southern resistance, 1860–1885:** Nguyễn Đình Chiểu, Phan Văn Trị,
-  Thủ Khoa Huân, Thiên Hộ Dương, Hồ Huấn Nghiệp, Huỳnh Mẫn Đạt, Phan Văn Hớn,
-  Nguyễn Văn Quá.
-- **The 20th century:** Trần Văn Giàu, Lý Tự Trọng, Châu Văn Liêm, Võ Văn
-  Tần, Nguyễn Thị Thập, Võ Thị Sáu, Trần Văn Ơn, Nguyễn Văn Trỗi, Lê Thị
-  Riêng, Út Tịch, Trần Bạch Đằng, Huỳnh Tấn Phát, Nguyễn Hữu Thọ.
-
-**Sourcing and tone:**
-- ĐVSKTT where it covers a person. It ends in 1675, so later figures cite
-  *Đại Nam thực lục*, *Gia Định thành thông chí* or the *Cương mục*, named
-  honestly.
-- Modern people: Gov sources (Viện Sử học, dangcongsan.vn, baotanglichsu).
-- History, not politics: short, dated, record-only bios.
-
-**Portraits:** 📷 and 🔍 people ship with `placeholder: "portrait-held"` until
-their images are ready.
-
-### R-3 — Wave B events (6, all standalone)
-
-Each has a citation, a `year.value` and a hero at `events/<id>/hero.png`.
-
-| Event | Year | Street(s) | Figures |
+| Part | What | Needs an app release | Content work |
 |---|---|---|---|
-| `nguyen-huu-canh-lap-phu-gia-dinh` | 1698 | (gives context) | Nguyễn Phúc Chu, Nguyễn Hữu Cảnh |
-| `mac-cuu-dang-ha-tien` | 1708 | (gives context) | Mạc Cửu, Mạc Thiên Tích |
-| `dap-luy-ban-bich` | 1772 | Lũy Bán Bích | Nguyễn Cửu Đàm |
-| `dao-kenh-vinh-te` | 1819–1824 | Châu Vĩnh Tế | Thoại Ngọc Hầu |
-| `khoi-nghia-hoc-mon` | 1885 | (gives context) | Phan Văn Hớn, Nguyễn Văn Quá |
-| `dac-cong-rung-sac` | 1966–1975 | Rừng Sác (verify the naming resolution) | — |
+| **D-1** | Share the daily quiz result (a Wordle-style grid) | yes (new plugin) | none |
+| **D-2** | "Hôm nay": today's event or person, plus an opt-in daily notification | yes | anniversary dates on events (CMS) |
+| **D-3** | The street map fills in with the streets you have discovered | yes | none |
 
-`relatedEventIds` link them to the existing era events where they belong (for
-example, `nghia-quan-nam-ky` ↔ the Southern resistance figures' events).
+D-0 (measure) comes first, and D-4 ships everything.
 
-### R-4 — Art (`docs/street-fill-images.md` → Wave B)
+**The delicate-UI rule stays.** The code cites it as "No streaks, badges or
+leaderboards" (`apps/mobile/lib/screens/quiz/quiz_home_screen.dart:15`) and
+`[[delicate-ui-no-nags]]` (`apps/mobile/lib/state/content_swap_gate.dart:7`).
+Nothing in Cycle S punishes a missed day. The notification is opt-in and has an
+off switch. (The rule's full text is not in this repo; its CLAUDE.md is local.)
 
-- **🎨 Higgsfield:**
-  - 12 people × (avatar + full body);
-  - 5 event heroes;
-  - every image reviewed before the user sees it;
-  - generations paced, never a multi-reference img2img batch.
-- **📷 the user drops photos** in `content/people/<id>/source.jpg`, with
-  `credit.txt`. Each is restored and colourised with a per-face A/B check, and
-  captioned "Ảnh tư liệu" or "Ảnh tư liệu · phục chế màu".
-- **🔍** the user checks 8 names and leaves `source.jpg`, `altar.jpg` or
-  `none.txt`.
-- **Cost:** about 72 images, roughly **145 credits** before re-rolls.
+## Decide before building
 
-### R-4b — Photo intake (2026-10-03): rules for processing the user's images
+1. **What gets shared (D-1).** I recommend **the first attempt of the day
+   only**, like Wordle. Replaying stays allowed and still records the best
+   score, but the shared grid doesn't change.
+2. **The grid's squares (D-1).** I recommend 🟨 for a right answer and ⬛ for a
+   wrong one (the lacquer-and-gold palette). The alternative is Wordle's 🟩 / ⬜.
+3. **Where "Hôm nay" lives (D-2).** I recommend **a card at the top of Sảnh**,
+   above Chào cờ. A fourth button on Home's chrome row (timeline, streets,
+   seal: `home_screen.dart:441–470`) would crowd it.
+4. **When to ask about notifications (D-2).** I recommend **once, right after
+   the first finished daily quiz or the first "Hôm nay"**, never at launch.
+   The user picks the time on that sheet; it starts at 08:00.
+5. **Lunar anniversaries (D-2).** I recommend **yes**. Pre-modern dates in the
+   chronicles are lunar (for example, Giỗ Tổ Hùng Vương is 10/3 âm lịch).
+   They resolve to this year's solar date on the device (D-2a).
+6. **Showing a count (D-3).** I recommend **a tint on the map and one quiet line in the filter
+   sheet** ("Đã khám phá 41/285 con đường"), not a headline number.
 
-All Wave A–D photos are in `content/people/<id>/` (file names are
-`<id>.<ext>`, and `<id>-reference.<ext>` where a second image exists), except
-the **7 empty folders**: `ho-huan-nghiep`, `nguyen-van-qua`, `mai-xuan-thuong`,
-`tran-tan`, `dang-nhu-mai`, `ton-that-thiep` and `ton-that-dam`.
+## What I measured (read-only, 2026-10-23)
 
-Rules for every image:
-1. Blurry or pixelated: enhance. Black and white: colourise.
-2. A file with the suffix `-reference` is a second image used to restore
-   features the main portrait lost (old, blurry, missing detail). Five exist:
-   Tăng Bạt Hổ, Thủ Khoa Huân, Nguyễn Thượng Hiền, Nguyễn Duy Hiệu, Đinh Công
-   Tráng.
-3. If the image is too blurry to restore, Higgsfield re-imagines the portrait
-   from the blurry photo, keeping the likeness.
-4. Remove any watermark, subtitle or caption that is not part of the picture.
-5. Keep the hairstyle, background and outfit true to the person's era.
-6. A person with no image at all gets no portrait on the character page and a
-   placeholder avatar (the held-portrait mechanism); the street still lights up.
+- **Content:** 247 events (`content/events.json`; the era files reference them
+  by `ref`), 312 people (`content/people.json`), and 285 approved streets
+  whose targets are 257 people, 29 events and 12 eras.
+- **Dates:** an event has only a `year` (`YearRef`:
+  `display`/`value`/`approximate`, `packages/core_domain/lib/src/year.dart`).
+  A regex for "ngày D tháng M" and "ngày D/M" over the Vietnamese text found
+  **66 of 247 events** with a day and month, covering **79 distinct calendar
+  days**. This is raw: some matches are dates of side events rather than the
+  event's own date. Every one needs review (D-2c).
+  - Examples: 30/4 (`chien-dich-ho-chi-minh`), 2/9 (`cach-mang-thang-tam`,
+    `a80`), 7/5 (`dien-bien-phu`), 3/2 (`dang-cong-san-ra-doi`).
+  - Coverage by month runs from 2 days (October) to 10 (January and
+    September), so **most days have no anniversary**. Those days need a
+    fallback (D-2a).
+- **The daily quiz:**
+  - It has 5 questions, and its seed is `y*10000 + m*100 + d` of the device's
+    local date (`quiz_generator.dart:31`).
+  - It is the same for everyone **only on the same content version**, because
+    the questions are generated from the active pack.
+  - "Play again" replays the same daily quiz (`_playAgain`,
+    `quiz_play_screen.dart:189`) and keeps the best score.
+  - Only `bests` and `dailyDoneDate` are persisted (`quiz_store.dart`). The
+    per-question results exist only in memory (`_missed`).
+- **Plugins:** `apps/mobile/pubspec.yaml` has no share plugin and no
+  notification plugin.
+- **Old builds and a new event field:** on the device, a pack is parsed by Dart
+  `fromJson`, which reads only known keys
+  (`ContentPack.parseAndValidate` → `HistoryEvent.fromJson`), so **an additive
+  key is safe for old builds**. But `content/event.schema.json` sets
+  `additionalProperties: false`, so the schema, `validate_content` and the CMS
+  must learn the key **before** any content uses it.
+- **Telemetry:** Android release builds only. iOS and web are a no-op
+  (`main.dart:25`, `telemetry.dart:13`), so **retention can be measured only on
+  Android**.
+- **Visit history already exists, partly:** `NarrationPrefs.heard` stores
+  `eras/<slug>`, `people/<id>` and `events/<id>` for every narration played
+  once (`narration_store.dart`). D-3 uses it to back-fill.
+- **One place to see every page open:** `mapUriToScreen`
+  (`telemetry/route_telemetry.dart`) already turns any route into a screen
+  name plus its ids.
+- **Download link:** `https://long-ky.com/get` exists
+  (`apps/landing/public/_redirects`). It shows the coming-soon page until the
+  Play listing is public. The app has no app-link intent filter, so a shared
+  link cannot open the app directly (out of scope).
+- **A map lesson:** coloring every street by period was reverted as "a rainbow"
+  (`docs/street-period-colors-plan.md`). D-3 uses **two tones only**.
 
-Still true: every restored face is checked against the original (per-face A/B),
-and no face is invented for a photographed person. Reminder: the Higgsfield
-rule "never multi-reference img2img batches" applies; upload references one at
-a time and verify the bytes.
+## D-0 — Measure first (the user, ~10 minutes)
 
-### R-5 — The street pipeline
+- Before D-1 ships, note **day 1, 7 and 30 retention** from the Firebase
+  Analytics console (Android) as the baseline. Re-read it 4 weeks after each
+  release.
+- New events, added to the fixed taxonomy and to `telemetry_test.dart`:
+  - `quiz_share` `{quiz_mode, score}`;
+  - `today_open` `{source: sanh | notification, kind: anniversary | rotation}`;
+  - `notif_optin` `{granted: 0|1}`;
+  - `notif_toggle` `{on: 0|1}`.
+- New routes (`/hom-nay`) get a `mapUriToScreen` entry. Every route must have
+  one (Cycle F rule).
 
-- `suggest.dart --offline`, then the M3 review of every alias and new match,
-  then `build_geometry.dart`.
-- `suggest.dart` gains a **coverage line** (streets, km, share).
-- `validate_content`, the mobile tests, analysis.
+## D-1 — Share the daily quiz
 
-### R-6 — Ship
+**Store** (`apps/mobile/lib/state/quiz_store.dart`):
+- `QuizProgress` gains `dailyFirst: {date: 'yyyy-mm-dd', marks: [bool…]}`.
+- It is written **only** when the day's first daily run finishes, and replays
+  never overwrite it.
+- It is an additive key in `progress.json`, so an old file still loads (the
+  existing `load()` ignores unknown keys).
 
-1. **Content first, over the air.** Through the CMS publish (dry run first):
-   people, events and art. The user runs it.
-2. **Streets with the next app release** (R5): the new bundled `hcm.json`,
-   plus the R-0 code. Bump the version and build the bundle; the user uploads
-   it.
-3. **On the phone:**
-   - the newly gold streets;
-   - a tap on each kind: an alias to a person, an alias to an event, a
-     standalone person, a held portrait;
-   - the reverse street chip on a standalone person's page;
-   - a standalone event's figure strip.
+**Play screen** (`quiz_play_screen.dart`):
+- Track a `List<bool> _marks` beside `_score`, and pass it to `recordResult`.
+- In `_ResultView`, **for the daily mode only**, add a "Chia sẻ / Share"
+  button above "Play again". It uses the first attempt's marks (decision 1),
+  so a replay shows "Lần chơi đầu: 4/5" as the shared result.
 
-### R-7 — Commit on `main` and update this file
+**Share text** (plain text, through `share_plus`):
+```
+Long Ký · Câu đố hôm nay 23/10/2026
+🟨🟨⬛🟨🟨  4/5
+long-ky.com/get
+```
+- English when the app language is EN ("Long Ký · Today's quiz").
+- Never reveal the answers.
+- The squares follow decision 2.
+
+**Tests:**
+- Store round trip with `dailyFirst`, and that a replay does not overwrite it.
+- An old `progress.json` with no `dailyFirst` still loads.
+- The result view shows Share only in the daily mode.
+- The share text for VI and EN: 5 squares, the right score, no answer text.
+
+**Platform:** `share_plus` is a native plugin, so it needs an app release.
+Check the iOS share-sheet anchor on iPad (`sharePositionOrigin`).
+
+## D-2 — "Hôm nay" and the daily notification
+
+### D-2a — Domain (`packages/core_domain`, pure and deterministic)
+
+**Content field:** an optional event key, a sibling of `year`:
+```json
+"anniversary": { "month": 4, "day": 30, "calendar": "solar" }
+```
+- `calendar` is `solar | lunar`.
+- Validator: month 1–12; day 1–31 for solar or 1–30 for lunar; at most one
+  per event. It is allowed on legend events too, such as Giỗ Tổ.
+
+**Vietnamese lunar conversion:**
+- Port Hồ Ngọc Đức's published algorithm, computed for **UTC+7**, into
+  `core_domain`.
+- **Don't** use a Chinese (UTC+8) lunar library. The two calendars differ on
+  some dates; Vietnam's Tết fell a month before China's in 1985
+  ([Tết](https://en.wikipedia.org/wiki/T%E1%BA%BFt),
+  [Hồ Ngọc Đức's rules](https://informatik.uni-leipzig.de/%7Educ/amlich/calrules_en.html)).
+- Leap months: a lunar anniversary matches only the regular month.
+- Tests: Tết solar dates for ~20 years, from a published table, including
+  1985.
+
+**`todayPick(date, events, people, streets)` → `TodayItem`:**
+1. **Anniversary:** events whose anniversary is today (solar), or today's lunar
+   day and month (lunar).
+   - If several match, prefer a round number of years (`(year - eventYear) % 10 == 0`),
+     then break ties with `dailySeed`.
+   - The kicker is "Ngày này năm 1975" / "On this day in 1975". A round number
+     adds "· 50 năm" / "· 50 years ago".
+2. **Otherwise, rotation:** all people and events that have narration, in a
+   shuffled order seeded by the year, indexed by day of year. There are 559
+   items for at most 366 days, so **nothing repeats within a year**.
+   - Prefer items that a street points to, so the pick lights a street in
+     D-3.
+   - The kicker is "Nhân vật hôm nay" or "Sự kiện hôm nay".
+3. The pick is the same on every device with the same content version, like
+   the daily quiz. Post-1975 leaders are left out of the rotation
+   (`QuizGenerator.excludedLeaderIds`), per the history-not-politics stance.
+   Their anniversary events still count.
+
+### D-2b — App
+
+- **The route `/hom-nay`** resolves `todayPick` and redirects to the item's
+  route (`/su-kien/:id` or `/nhan-vat/:id`, which redirect on to the era
+  route), the same pattern as the `/su-kien/:id` redirect in
+  `app_router.dart:141`.
+  - The item page shows the kicker above its title (a query param
+    `?from=hom-nay`).
+  - Narration follows the existing autoplay rule (it fires on a first visit
+    only).
+- **The Sảnh card** (decision 3): kicker, title, the avatar or hero, and a
+  "✓ đã xem" mark once opened today. The opened date lives in a small
+  `TodayStore` with the same file pattern as `quiz_store.dart`. Its design
+  matches `_ChaoCoCard` and `_StreetsCard` (`sanh_screen.dart`).
+- **The notification** (`flutter_local_notifications` + `timezone`):
+  - Opt-in only (decision 4). Ask through an in-app sheet first, then the OS
+    prompt:
+    - Android 13+: the `POST_NOTIFICATIONS` runtime permission
+      ([Android](https://developer.android.com/develop/ui/views/notifications/notification-permission));
+    - iOS: the authorization request.
+  - **Schedule the next 14 days** as single notifications, each titled with
+    that day's pick (for example, "Ngày này năm 1954 · Chiến thắng Điện Biên
+    Phủ"). The picks are computed on the device, so no server is needed.
+    - Re-schedule on every app start and when a new content pack is
+      adopted.
+    - 14 is well under iOS's 64 pending notifications per app
+      ([Apple forum, DTS](https://developer.apple.com/forums/thread/811171)).
+  - **Inexact** scheduling, with no `SCHEDULE_EXACT_ALARM`. That permission is
+    denied by default for new installs on Android 14
+    ([Android 14](https://developer.android.com/about/versions/14/changes/schedule-exact-alarms)),
+    and a history note doesn't need to arrive on the minute.
+  - Follow the plugin's Android setup (its boot receiver, so the schedule
+    survives a reboot).
+  - A tap opens `/hom-nay` and logs `today_open{source: notification}`.
+  - **Off switch:** a row in Sảnh beside "Tự phát lời kể"
+    (`_NarrationRow`), with the time picker. Turning it off cancels everything
+    pending.
+  - Privacy: nothing leaves the device. Re-read the privacy policy page and
+    the Play Data safety answers anyway, in case they list permissions.
+
+### D-2c — Content (CMS)
+
+- **Schema and tools:** add `anniversary` to `content/event.schema.json`,
+  `content/FIELD-REFERENCE.md`, `ContentValidator`, `HistoryEvent`, and the CMS
+  event dialog (`apps/admin/lib/widgets/event_dialog.dart`, next to
+  `event_year_field.dart`).
+  - **Ship this before any content uses the key** (see "What I measured").
+- **The review table** (`docs/anniversaries-review.md`):
+  - For the 66 candidate events, list the event, the candidate day and month,
+    `solar`/`lunar`, and the sentence and citation that support the date.
+  - The user approves each row, the same way as the M3 street review.
+  - The rule of thumb is to assume a date is **lunar** unless the source
+    says otherwise, for anything dated from the chronicles (pre-20th
+    century). Check each date against its source.
+- **Out of scope here:** adding new events just to fill empty days. The
+  rotation covers them.
+
+### D-2 tests
+
+- `todayPick`:
+  - an anniversary day;
+  - a lunar anniversary in two different years;
+  - a day with no anniversary (rotation);
+  - no repeat within a year;
+  - an excluded leader is never a rotation pick;
+  - determinism.
+- The validator accepts and rejects `anniversary` values.
+- An **old-build parse** of a pack that carries `anniversary` (a 1.3.0 build
+  must still adopt it).
+- The `/hom-nay` redirect, for an event and for a person.
+- Notification scheduling, behind a fake seam like `QuizStore`: 14 entries
+  with the right titles; re-scheduled on pack adoption; all cancelled when
+  turned off.
+
+## D-3 — The street map fills in
+
+- **`VisitStore`** (file-backed, the same pattern as the other stores): a set
+  of `person:<id>`, `event:<id>` and `era:<slug>`.
+  - It is recorded by **one** navigator observer that reuses
+    `mapUriToScreen`, so no screen has to remember to record a visit.
+  - On first load it is **back-filled from `NarrationPrefs.heard`**, so
+    existing users don't start at zero.
+- **A street is discovered** when any of its targets is in the store. Pure
+  helper and tests are in `core_domain`, next to `StreetMatcher`.
+- **On the map** (`street_map_screen.dart`):
+  - Undiscovered streets keep today's `_kRestingStreet`.
+  - Discovered streets draw in a second, brighter gold in their own
+    `PolylineLayer`, cached like `_restingLayer` and keyed by the store's
+    identity.
+  - **Only two tones** (the rainbow lesson). A new user's map looks exactly
+    like today's.
+- **The count** (decision 6): one line in the filter sheet's header.
+- **The moment it happens:** when a page lights a street for the first time,
+  the existing reverse street chip (`street_reverse_chip.dart`) shows
+  "Vừa thắp sáng: đường Lý Tự Trọng" once. There's no toast and no sound.
+  - "Hôm nay" picks with a street (D-2a) make this happen most days.
+- **Speed:** a second polyline layer adds draw work, and the street-map speed
+  plan is still open (`docs/wave-e-plan.md`, S0). Use `street_perf.dart` to
+  time the map with 0, 50 and all 285 streets discovered before shipping.
+- **Tests:**
+  - the store and its back-fill;
+  - the discovered helper (person, event and era targets);
+  - the map widget draws the second layer only for discovered ids;
+  - the chip line shows once.
+
+## D-4 — Ship
+
+1. **Release 1 (D-1, plus the D-2c schema and CMS field):** bump the version
+   and build the bundles. The user uploads them and records the D-0 baseline
+   first.
+2. **Content:** the user approves `docs/anniversaries-review.md` and enters the
+   rows in the CMS, then publishes (dry run first). Old builds ignore the key.
+3. **Release 2 (D-2 app + D-3):** bump and build.
+4. **On a phone (Android, and iOS when it ships):**
+   - share a daily result into Zalo and Messenger;
+   - "Hôm nay" on an anniversary date (set the device date to 30/4 and to a
+     lunar test date) and on a plain day;
+   - opt in, get a notification, tap it, reboot, and confirm the schedule
+     survived;
+   - turn it off and confirm nothing arrives;
+   - streets light up after reading, and the map stays smooth.
+5. Commit on `main` and update this file.
 
 ## Next cycles (queued — not to be planned until the user says)
 
-- **Wave C** — BUILT, waiting on publish. 67 people, 4 events, 67 streets. Art for 62
-  people and 4 heroes. Avatars for the 49 painted people are head crops of the
-  full-body image (credits ran out); regenerate dedicated 1:1 avatars later if wanted.
-  Five people stay held (no photo): Mai Xuân Thưởng, Trần Tấn, Đặng Như Mai,
-  Tôn Thất Tiệp, Tôn Thất Đàm. Phạm Bành and Xuân Ôn restorations look a little
-  modern; re-check against sources.
-- **Wave D** — text and art BUILT (waist-up portraits from your photos, 2:3 full + 1:1 avatar).
-  55 standalone people, 55 streets. Lý Chính Thắng stays held (his photo lost the eyes, so
-  any portrait would be an invented face; user: skip). Trần Đại Nghĩa uses Higgsfield job
-  b88a63b1, chosen by the user. Kỳ Đồng has no street in the OSM data (only alley
-  names), so he is reachable only from other content. Several restorations are approximate
-  because the sources are halftone or tiny (Ngô Gia Tự, Nguyễn Viết Xuân, Trịnh Văn Cấn,
-  Lương Ngọc Quyến). Wave E / landmark object queued.
-- **A landmark object and landmark detail page**, for Ba Đình, Trường Sơn,
-  Vạn Kiếp… (R3).
-- **Wave E: street mapping over the air — BUILT 2026-10-05, needs one app release (was parked, R5).** Move
-  `content/streets/hcm.json` into the content pack so new streets and re-pointed
-  streets reach users without an app release. Built as planned: the pack's `streets` key,
-  `StreetsSource`/`OtaContentSource.loadStreetsJson`, `BundledStreetDataSource(overlay:)`,
-  `StreetMapValidator` in `ContentPack.parseAndValidate`, tests in core_content and
-  `street_map_test.dart`. The geometry check already existed: `validate_content.dart`
-  fails when an approved street has no line, and the pack builder runs it. Still manual:
-  `build_geometry.dart` after adding streets, then push `main` and publish. Original plan:
-  - Pack: add an optional `streets` key (city → the mapping file). It is additive, like
-    `standaloneEvents`, so no `schemaVersion` bump and old builds ignore it.
-    `tool/build_content_pack.dart` reads `content/streets/*.json`; the pack validator
-    runs `StreetValidator` on it so a bad mapping can never ship.
-  - App: `BundledStreetDataSource.loadMapping` reads the active pack's `streets`
-    (through the same OTA overlay as people) and falls back to the bundled copy. The
-    reverse chip on person/event pages uses the same path. Lines in the geojson
-    without a mapping entry are ignored, and mapping entries without geometry are skipped.
-  - Geometry: `hcm-streets.geojson` already ships as CDN media. Add a CI check that
-    every approved street in the mapping has a line, because `build_geometry.dart` is
-    still a manual step, so a new street without regenerated geometry would silently
-    not light up.
-  - Tests: pack round-trip with and without `streets`; a stored older pack keeps the
-    bundled mapping; widget test that a pack-only street opens its person.
-  - Release note: this change itself needs one app release; streets added after it do not.
-  - Debug-build trap seen in Cycle R: a bundle with a stale `media-manifest.json` kept an
-    old cached street file. Once the mapping is OTA the manifest is too, so this goes away
-    for users; for dev builds, pull `main` after a publish (it carries the new baseline).
+Carried from `a150c78:EXECUTION.md`, not re-checked in this cycle:
+- **Wave E content:** foreign friends of Vietnam, scientists, artists,
+  writers, classical poets, Tô Hiến Thành, Nguyễn Hữu Cầu, about 84 people,
+  plus the street-map speed plan (S0–S5). See `docs/wave-e-plan.md`. Local
+  Southern martyrs are still deferred (they need sources).
+- **Wave E street mapping over the air:** built 2026-10-05; it needs one app
+  release (see R's notes).
+- **Wave C/D follow-ups:** dedicated 1:1 avatars for the 49 head-crop people;
+  re-check Phạm Bành and Xuân Ôn; the held portraits (Mai Xuân Thưởng, Trần
+  Tấn, Đặng Như Mai, Tôn Thất Tiệp, Tôn Thất Đàm, Lý Chính Thắng).
+- A landmark object and landmark detail page (Ba Đình, Trường Sơn, Vạn Kiếp…).
 - A "Danh nhân" directory for standalone people.
-- Wave E content (planned 2026-10-05, not started): foreign friends of Vietnam,
-  scientists, artists, writers, classical poets, Tô Hiến Thành, Nguyễn Hữu Cầu, about 84
-  people. Plus the street-map speed plan (S0–S5). Full lists and findings in
-  `docs/wave-e-plan.md`. Local Southern martyrs are still deferred (need sources).
-- Hoàng Sa / Trường Sa (R4).
-- More landmarks; an in-house lacquer base-map style; streets near me; more
-  cities; a CMS editor for street mappings; the carried-over UX audit findings
-  (`21fb88b:EXECUTION.md`).
+- Hoàng Sa / Trường Sa.
+- More landmarks, an in-house lacquer base-map style, streets near me, more
+  cities, a CMS editor for street mappings, and the carried-over UX audit
+  findings (`21fb88b:EXECUTION.md`).
+- **New from Cycle S, not planned:**
+  - app links, so a shared result opens the app;
+  - an image share card;
+  - a weekly "Tuần này năm xưa" digest.
