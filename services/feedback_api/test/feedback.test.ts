@@ -1,10 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
 
 import { type Env, MAX_BODY, createApp } from '../src/index';
-import { buildMime } from '../src/mail';
 
 const env = {
-  FEEDBACK_EMAIL: { send: vi.fn() },
+  RESEND_API_KEY: 're_test',
   FEEDBACK_FROM: 'admin@long-ky.com',
   FEEDBACK_TO: 'help@long-ky.com',
 } as Env;
@@ -26,45 +25,33 @@ function post(app: ReturnType<typeof createApp>, payload: unknown, e: Env = env)
   );
 }
 
-function decodeBody(raw: string): string {
-  const b64 = raw.split('\r\n\r\n')[1]!.replace(/\s/g, '');
-  return new TextDecoder().decode(Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)));
-}
-
-describe('buildMime', () => {
-  const raw = buildMime({
-    from: 'admin@long-ky.com',
-    to: 'help@long-ky.com',
-    subject: good.subject,
-    body: good.body,
-    messageId: 'fixed',
-    date: new Date('2026-10-24T00:00:00Z'),
-  });
-
-  it('addresses admin@ → help@ with no Reply-To', () => {
-    expect(raw).toContain('From: admin@long-ky.com\r\n');
-    expect(raw).toContain('To: help@long-ky.com\r\n');
-    expect(raw).not.toMatch(/reply-to/i);
-    expect(raw).toContain('Message-ID: <fixed@long-ky.com>');
-  });
-
-  it('keeps Vietnamese intact in subject and body', () => {
-    const enc = raw.match(/Subject: =\?UTF-8\?B\?(.+)\?=/)![1]!;
-    expect(new TextDecoder().decode(Uint8Array.from(atob(enc), (c) => c.charCodeAt(0)))).toBe(
-      good.subject,
-    );
-    expect(decodeBody(raw)).toBe(good.body);
-  });
-
-  it('wraps body lines at 76 characters', () => {
-    const long = buildMime({
-      from: 'a@b.c',
-      to: 'd@e.f',
-      subject: 'x',
-      body: 'Ế'.repeat(500),
+describe('Resend request', () => {
+  it('goes admin@ → help@ as plain text with no reply_to', async () => {
+    const fetchMock = vi
+      .spyOn(globalThis, 'fetch')
+      .mockResolvedValue(new Response('{"id":"x"}', { status: 200 }));
+    const res = await post(createApp(), good);
+    expect(res.status).toBe(200);
+    const [url, init] = fetchMock.mock.calls[0]!;
+    expect(url).toBe('https://api.resend.com/emails');
+    expect((init!.headers as Record<string, string>).Authorization).toBe('Bearer re_test');
+    expect(JSON.parse(init!.body as string)).toEqual({
+      from: 'admin@long-ky.com',
+      to: ['help@long-ky.com'],
+      subject: good.subject,
+      text: good.body,
     });
-    for (const line of long.split('\r\n')) expect(line.length).toBeLessThanOrEqual(76 + 40);
-    expect(decodeBody(long)).toBe('Ế'.repeat(500));
+    fetchMock.mockRestore();
+  });
+
+  it('502 when Resend refuses', async () => {
+    const fetchMock = vi
+      .spyOn(globalThis, 'fetch')
+      .mockResolvedValue(new Response('nope', { status: 403 }));
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const res = await post(createApp(), good);
+    expect(res.status).toBe(502);
+    fetchMock.mockRestore();
   });
 });
 
@@ -75,7 +62,7 @@ describe('POST /feedback', () => {
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual({ ok: true });
     expect(send).toHaveBeenCalledOnce();
-    expect(decodeBody(send.mock.calls[0]![1] as string)).toBe(good.body);
+    expect(send.mock.calls[0]![1]).toEqual(good);
   });
 
   it.each([

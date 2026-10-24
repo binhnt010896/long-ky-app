@@ -1,12 +1,10 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 
-import { buildMime } from './mail';
-
 /** Everything the Worker reads from wrangler.toml. */
 export interface Env {
-  /** Cloudflare Email Routing `send_email` binding, locked to FEEDBACK_TO. */
-  FEEDBACK_EMAIL: { send(message: unknown): Promise<void> };
+  /** Resend API key — the one secret; `wrangler secret put RESEND_API_KEY`. */
+  RESEND_API_KEY: string;
   FEEDBACK_FROM: string;
   FEEDBACK_TO: string;
   /** Optional Workers rate-limit binding; absent in tests and local dev. */
@@ -17,12 +15,25 @@ export const MAX_SUBJECT = 200;
 export const MAX_BODY = 4000;
 const SUBJECT_PREFIX = '[Long Ký] ';
 
-export type Sender = (env: Env, raw: string) => Promise<void>;
+export type Sender = (env: Env, report: { subject: string; body: string }) => Promise<void>;
 
-const sendViaCloudflare: Sender = async (env, raw) => {
-  // Only exists inside the Workers runtime, so it is imported when needed.
-  const { EmailMessage } = await import('cloudflare:email');
-  await env.FEEDBACK_EMAIL.send(new EmailMessage(env.FEEDBACK_FROM, env.FEEDBACK_TO, raw));
+/** Plain text from FEEDBACK_FROM to FEEDBACK_TO. No reply_to: the reader
+ * never gives us an address, and nothing here asks for one. */
+const sendViaResend: Sender = async (env, { subject, body }) => {
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: env.FEEDBACK_FROM,
+      to: [env.FEEDBACK_TO],
+      subject,
+      text: body,
+    }),
+  });
+  if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
 };
 
 /** The report, if [json] is one; otherwise why not. */
@@ -43,7 +54,7 @@ export function parseReport(
   return { subject, body };
 }
 
-export function createApp(send: Sender = sendViaCloudflare) {
+export function createApp(send: Sender = sendViaResend) {
   const app = new Hono<{ Bindings: Env }>();
 
   // A public endpoint by design (readers have no account), so any origin may
@@ -61,14 +72,8 @@ export function createApp(send: Sender = sendViaCloudflare) {
     const report = parseReport(json);
     if ('error' in report) return c.json({ error: report.error }, 400);
 
-    const raw = buildMime({
-      from: c.env.FEEDBACK_FROM,
-      to: c.env.FEEDBACK_TO,
-      subject: report.subject,
-      body: report.body,
-    });
     try {
-      await send(c.env, raw);
+      await send(c.env, report);
     } catch (e) {
       console.error('feedback send failed', e);
       return c.json({ error: 'could not send' }, 502);
