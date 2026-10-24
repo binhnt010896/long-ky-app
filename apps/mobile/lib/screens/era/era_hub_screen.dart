@@ -61,13 +61,20 @@ class EraHubScreen extends ConsumerWidget {
                   padding: EdgeInsets.zero,
                   children: <Widget>[
                     _HubHero(era: era, lang: lang),
-                    _HubBody(
-                      era: era,
-                      lang: lang,
-                      onExplore: () =>
-                          context.push('/era/${era.slug}/timeline'),
-                    ),
+                    _HubBody(era: era, lang: lang),
                   ],
+                ),
+                // The timeline CTA floats over the scroll so it is seen on the
+                // first screen, not only at the end of the sheet.
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: _ExploreDock(
+                    era: era,
+                    lang: lang,
+                    onTap: () => context.push('/era/${era.slug}/timeline'),
+                  ),
                 ),
                 // Pinned chrome over the hero.
                 Padding(
@@ -194,22 +201,29 @@ class _ScrollCue extends StatelessWidget {
   }
 }
 
+/// Bottom inset of the floating timeline CTA: 24px, raised when the system
+/// navigation bar would cover it (the hub is edge-to-edge at the bottom).
+double _dockBottomInset(BuildContext context) =>
+    max(VSSpacing.xl, MediaQuery.paddingOf(context).bottom + VSSpacing.md);
+
+/// Height of the explore pill.
+const double _explorePillHeight = 56;
+
 /// The era-home sheet below the hero: editorial intro, chronicle provenance,
-/// the roster of figures, and the CTA into the timeline.
+/// the roster of figures, and the event count and quiz link that close it.
 class _HubBody extends StatelessWidget {
-  const _HubBody({
-    required this.era,
-    required this.lang,
-    required this.onExplore,
-  });
+  const _HubBody({required this.era, required this.lang});
 
   final Era era;
   final Lang lang;
-  final VoidCallback onExplore;
 
   @override
   Widget build(BuildContext context) {
     const sheet = Color(0xF2060D0C);
+    final n = era.events.length;
+    final count = lang == Lang.vi
+        ? '$n sự kiện · 1 bộ chính sử'
+        : '$n events · 1 chronicle';
     return Column(
       children: <Widget>[
         // Fade the scene into the reading sheet.
@@ -225,8 +239,10 @@ class _HubBody extends StatelessWidget {
         ),
         Container(
           color: sheet,
-          padding: const EdgeInsets.fromLTRB(
-              VSSpacing.xl, 0, VSSpacing.xl, VSSpacing.huge),
+          // The bottom inset keeps the sheet's last lines clear of the
+          // floating explore pill once scrolled to the end.
+          padding: EdgeInsets.fromLTRB(VSSpacing.xl, 0, VSSpacing.xl,
+              _explorePillHeight + _dockBottomInset(context) + VSSpacing.xl),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -244,7 +260,22 @@ class _HubBody extends StatelessWidget {
                 EventFigures(figures: era.characters, slug: era.slug, lang: lang),
               ],
               const SizedBox(height: VSSpacing.xxl),
-              _ExploreButton(era: era, lang: lang, onTap: onExplore),
+              Center(
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      count.toUpperCase(),
+                      style: VSType.caption.copyWith(
+                        letterSpacing: VSType.track(0.24, 11),
+                        fontSize: 11,
+                        color: VSColors.inkFaint,
+                      ),
+                    ),
+                    const SizedBox(height: VSSpacing.md),
+                    _QuizLink(eraSlug: era.slug, lang: lang),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -315,8 +346,10 @@ class _ChronicleCard extends StatelessWidget {
   }
 }
 
-class _ExploreButton extends StatelessWidget {
-  const _ExploreButton({
+/// The timeline CTA, docked at the bottom of the hub over a dark scrim so it
+/// stays legible over both the hero scene and the reading sheet.
+class _ExploreDock extends StatelessWidget {
+  const _ExploreDock({
     required this.era,
     required this.lang,
     required this.onTap,
@@ -328,65 +361,75 @@ class _ExploreButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final n = era.events.length;
     final ctaLabel = lang == Lang.vi ? 'Xem dòng sự kiện' : 'Explore the events';
-    final count = lang == Lang.vi
-        ? '$n sự kiện · 1 bộ chính sử'
-        : '$n events · 1 chronicle';
 
-    return Column(
+    return Stack(
       children: <Widget>[
-        GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: onTap,
-          child: Container(
-            height: 56,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[
-                  VSColors.goldBright.withValues(alpha: 0.16),
-                  VSColors.gold.withValues(alpha: 0.10),
+        // The scrim never takes touches, so the hub still scrolls through it.
+        const Positioned.fill(
+          child: IgnorePointer(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[Color(0x00060D0C), Color(0xE6060D0C)],
+                ),
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(VSSpacing.xl, VSSpacing.huge,
+              VSSpacing.xl, _dockBottomInset(context)),
+          child: GestureDetector(
+            key: const ValueKey<String>('era-hub-explore'),
+            behavior: HitTestBehavior.opaque,
+            onTap: onTap,
+            child: Container(
+              height: _explorePillHeight,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                // The in-sheet pill's gold wash, flattened onto lacquer so it
+                // stays solid over the hero scene.
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[
+                    Color.alphaBlend(VSColors.goldBright.withValues(alpha: 0.16),
+                        VSColors.lacquerVoid),
+                    Color.alphaBlend(VSColors.gold.withValues(alpha: 0.10),
+                        VSColors.lacquerVoid),
+                  ],
+                ),
+                borderRadius: VSRadii.pillAll,
+                border: Border.all(color: VSColors.gold.withValues(alpha: 0.6)),
+                boxShadow: const <BoxShadow>[
+                  BoxShadow(
+                      color: Color(0x66000000),
+                      blurRadius: 30,
+                      offset: Offset(0, 8)),
                 ],
               ),
-              borderRadius: VSRadii.pillAll,
-              border: Border.all(color: VSColors.gold.withValues(alpha: 0.6)),
-              boxShadow: const <BoxShadow>[
-                BoxShadow(
-                    color: Color(0x66000000), blurRadius: 30, offset: Offset(0, 8)),
-              ],
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(
-                  ctaLabel,
-                  style: VSType.label.copyWith(
-                    color: VSColors.inkPrimary,
-                    letterSpacing: VSType.track(0.14, 14),
-                    fontSize: 14,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(
+                    ctaLabel,
+                    style: VSType.label.copyWith(
+                      color: VSColors.inkPrimary,
+                      letterSpacing: VSType.track(0.14, 14),
+                      fontSize: 14,
+                    ),
                   ),
-                ),
-                const SizedBox(width: VSSpacing.sm + 2),
-                const Icon(Icons.arrow_forward,
-                    size: 16, color: VSColors.goldBright),
-              ],
+                  const SizedBox(width: VSSpacing.sm + 2),
+                  const Icon(Icons.arrow_forward,
+                      size: 16, color: VSColors.goldBright),
+                ],
+              ),
             ),
           ),
         ),
-        const SizedBox(height: VSSpacing.md),
-        Text(
-          count.toUpperCase(),
-          style: VSType.caption.copyWith(
-            letterSpacing: VSType.track(0.24, 11),
-            fontSize: 11,
-            color: VSColors.inkFaint,
-          ),
-        ),
-        const SizedBox(height: VSSpacing.md),
-        _QuizLink(eraSlug: era.slug, lang: lang),
       ],
     );
   }

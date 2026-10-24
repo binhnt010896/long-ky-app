@@ -159,14 +159,50 @@ void main() {
       expect(find.text('NHÂN VẬT'), findsOneWidget);
       expect(find.text('Kinh Dương Vương'), findsWidgets);
 
-      // CTA into the timeline.
+      // Event count closes the sheet.
       await tester.scrollUntilVisible(
-        find.text('Xem dòng sự kiện'),
+        find.text('7 SỰ KIỆN · 1 BỘ CHÍNH SỬ'),
         300,
         scrollable: scrollable,
       );
-      expect(find.text('7 SỰ KIỆN · 1 BỘ CHÍNH SỬ'), findsOneWidget);
+      expect(find.text('Xem dòng sự kiện').hitTestable(), findsOneWidget);
       expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('the timeline CTA floats on the first screen and opens it',
+        (tester) async {
+      final router =
+          await _pumpAt(tester, '/era/hong-bang-van-lang', ExperienceTier.reduced);
+
+      // No scrolling: the CTA is docked over the hero.
+      final cta = find.text('Xem dòng sự kiện').hitTestable();
+      expect(cta, findsOneWidget);
+      final screenHeight =
+          tester.view.physicalSize.height / tester.view.devicePixelRatio;
+      expect(tester.getBottomLeft(cta).dy, lessThan(screenHeight));
+
+      await tester.tap(cta);
+      await tester.pumpAndSettle();
+      // The top-most route, including pushed ones.
+      expect(router.routerDelegate.currentConfiguration.last.matchedLocation,
+          '/era/hong-bang-van-lang/timeline');
+    });
+
+    testWidgets('the floating CTA clears an Android 3-button navigation bar',
+        (tester) async {
+      // 48 logical px at the test view's 3.0 device pixel ratio.
+      tester.view.padding = const FakeViewPadding(bottom: 144);
+      addTearDown(tester.view.resetPadding);
+      await _pumpAt(tester, '/era/hong-bang-van-lang', ExperienceTier.reduced);
+
+      final screenHeight =
+          tester.view.physicalSize.height / tester.view.devicePixelRatio;
+      expect(
+          tester
+              .getBottomLeft(
+                  find.byKey(const ValueKey<String>('era-hub-explore')))
+              .dy,
+          lessThanOrEqualTo(screenHeight - 48));
     });
 
     testWidgets('EN toggle switches the CTA and count to English',
@@ -178,13 +214,13 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 250));
 
+      expect(find.text('Explore the events'), findsOneWidget);
       final scrollable = find.byType(Scrollable).first;
       await tester.scrollUntilVisible(
-        find.text('Explore the events'),
+        find.text('7 EVENTS · 1 CHRONICLE'),
         300,
         scrollable: scrollable,
       );
-      expect(find.text('7 EVENTS · 1 CHRONICLE'), findsOneWidget);
       // Vietnamese CTA is gone.
       expect(find.text('Xem dòng sự kiện'), findsNothing);
     });
