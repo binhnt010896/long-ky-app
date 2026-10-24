@@ -20,6 +20,7 @@ import 'package:viet_su/state/today_store.dart';
 import 'package:viet_su/state/visit_store.dart';
 import 'package:viet_su/widgets/timeline_bar.dart';
 
+import 'content_counts.dart';
 import 'memory_stores.dart';
 
 /// A tip store with a fixed offer; [emit] plays a purchase outcome.
@@ -1057,7 +1058,7 @@ void main() {
 
       // Header reflects the full corpus; the top of the spine is the first era.
       expect(find.text('NIÊN BIỂU'), findsOneWidget);
-      expect(find.text('38 kỷ nguyên · 247 sự kiện'), findsOneWidget);
+      expect(find.text(ContentCounts.read().timelineHeader), findsOneWidget);
       expect(find.text('Hồng Bàng & Văn Lang'), findsOneWidget);
       expect(find.text('Kinh Dương Vương lập nước'), findsOneWidget);
       // The one spine runs down through every era to the last — scroll all the
@@ -1138,7 +1139,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Kinh Dương Vương lập nước'), findsOneWidget);
-      expect(find.text('38 kỷ nguyên · 247 sự kiện'), findsOneWidget);
+      expect(find.text(ContentCounts.read().timelineHeader), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   });

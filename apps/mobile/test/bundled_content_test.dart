@@ -2,6 +2,8 @@ import 'package:core_content/core_content.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:viet_su/state/bundled_content.dart';
 
+import 'content_counts.dart';
+
 /// The app's own wiring, through the real asset bundle — exactly what a phone
 /// does at startup. Every other test swaps in a disk source, which is how a
 /// missing `events.json` path in the real construction once went unnoticed: all
@@ -12,8 +14,10 @@ void main() {
   test('the bundled baseline loads every era, with every event', () async {
     final repo = ContentRepository(appBundledContent());
     final eras = await repo.loadAllEras();
-    expect(eras, hasLength(38));
-    expect(eras.fold<int>(0, (n, e) => n + e.events.length), 237);
+    final counts = ContentCounts.read();
+    expect(eras, hasLength(counts.eraCount));
+    expect(eras.fold<int>(0, (n, e) => n + e.events.length),
+        counts.eraEventCount);
     // Reading order survived the trip through the registry.
     for (final era in eras) {
       expect([for (final e in era.events) e.order],
@@ -31,7 +35,7 @@ void main() {
   test('the standalone events (listed by no era) load from the registry', () async {
     final repo = ContentRepository(appBundledContent());
     final ids = [for (final e in await repo.loadStandaloneEvents()) e.id];
-    expect(ids, hasLength(10));
+    expect(ids, ContentCounts.read().standaloneIds);
     expect(ids, contains('nguyen-huu-canh-lap-phu-gia-dinh'));
     expect(ids, contains('dac-cong-rung-sac'));
   });
