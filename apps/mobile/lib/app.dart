@@ -9,6 +9,7 @@ import 'screens/splash/splash_gate.dart';
 import 'state/firestore_content_sync.dart';
 import 'state/providers.dart';
 import 'state/reminder_service.dart';
+import 'state/unlock_store.dart';
 import 'widgets/max_width_frame.dart';
 
 /// Root of the Việt Sử app.
@@ -30,6 +31,9 @@ class VietSuApp extends ConsumerWidget {
     ref.watch(routeTelemetryObserverProvider);
     // Records which pages the reader has opened (lights up the street map).
     ref.watch(visitRecorderProvider);
+    // Loads the unlock game early, so pages opened before it existed are
+    // carried over before anything new is visited.
+    ref.watch(unlockProvider);
     // Keeps the opt-in daily reminder in step (does nothing until it is on).
     ref.watch(reminderSyncProvider);
     // Instantiates the Firestore live-content listener (Cycle K5/K6) for the

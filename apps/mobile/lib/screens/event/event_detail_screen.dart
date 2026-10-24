@@ -21,6 +21,8 @@ import '../../widgets/lang_toggle.dart';
 import '../../widgets/narration_button.dart';
 import '../../state/narration_controller.dart';
 import '../era/widgets/era_scene_backdrop.dart';
+import '../../widgets/unlock/art_gate.dart';
+import '../../widgets/unlock/mystery_art.dart';
 import 'widgets/chronicle_pull_quote.dart';
 import 'widgets/citation_card.dart';
 import 'widgets/event_figures.dart';
@@ -386,17 +388,22 @@ class _EventHero extends StatelessWidget {
           // Real hero illustration when present; otherwise the era's parallax
           // scene stands in.
           if (heroPath != null)
-            Image(
-              image: contentImageProvider(heroPath),
-              fit: BoxFit.cover,
-              alignment: Alignment.topCenter,
-              filterQuality: FilterQuality.medium,
-              frameBuilder: fadeInImageFrame,
-              errorBuilder: (_, __, ___) => EraSceneBackdrop(
-                era: era,
-                pointer: pointer,
-                palette: palette,
-                vignette: false,
+            ArtGate(
+              visitKey: VisitKey.event(event.id),
+              kind: MysteryKind.hero,
+              interactive: false,
+              child: Image(
+                image: contentImageProvider(heroPath),
+                fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
+                filterQuality: FilterQuality.medium,
+                frameBuilder: fadeInImageFrame,
+                errorBuilder: (_, __, ___) => EraSceneBackdrop(
+                  era: era,
+                  pointer: pointer,
+                  palette: palette,
+                  vignette: false,
+                ),
               ),
             )
           else
@@ -421,6 +428,11 @@ class _EventHero extends StatelessWidget {
                 stops: <double>[0, 0.3, 0.9, 1],
               ),
             ),
+          ),
+          // Above the fade, which would otherwise swallow the tap.
+          UnlockAffordance(
+            visitKey: VisitKey.event(event.id),
+            alignment: const Alignment(0, 0.5),
           ),
           if (caption != null)
             Positioned(
@@ -479,6 +491,7 @@ class EventBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
+        UnlockPrompt(visitKey: VisitKey.event(event.id)),
         // meta: year — section
         Row(
           children: <Widget>[

@@ -6,6 +6,8 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../../theme/content_assets.dart';
 import '../../../widgets/figure_bust.dart';
 import '../../../widgets/portrait_placeholder.dart';
+import '../../../widgets/unlock/art_gate.dart';
+import '../../../widgets/unlock/mystery_art.dart';
 
 /// The figures of an era/event — a horizontal strip of bust portraits, each
 /// cropped from the character's reference sheet, with name + epithet. Tapping a
@@ -119,7 +121,11 @@ class _FigureTile extends StatelessWidget {
               child: SizedBox(
                 height: 124,
                 width: double.infinity,
-                child: avatarPath != null
+                child: ArtGate(
+                  visitKey: VisitKey.person(character.id),
+                  kind: MysteryKind.avatar,
+                  interactive: false,
+                  child: avatarPath != null
                     ? Image(
                         image: contentImageProvider(avatarPath,
                             decodeWidth: decodeWidthFor(context, 116)),
@@ -130,6 +136,7 @@ class _FigureTile extends StatelessWidget {
                     : sheetPath == null
                         ? const PortraitPlaceholder()
                         : FigureBust(path: sheetPath),
+                ),
               ),
             ),
             const SizedBox(height: VSSpacing.sm),

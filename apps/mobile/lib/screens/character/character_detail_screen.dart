@@ -15,6 +15,8 @@ import '../../widgets/lang_toggle.dart';
 import '../../widgets/narration_button.dart';
 import '../../state/narration_controller.dart';
 import '../../widgets/tilted_backdrop.dart';
+import '../../widgets/unlock/art_gate.dart';
+import '../../widgets/unlock/mystery_art.dart';
 
 /// Character Detail — a figure's portrait, chronicle-grounded biography, and the
 /// events in the era where they appear. Reached by tapping a figure avatar.
@@ -161,7 +163,10 @@ class _FigureHero extends StatelessWidget {
                     color: Color(0x80000000), blurRadius: 40, offset: Offset(0, 16)),
               ],
             ),
-            child: fullBodyPath != null
+            child: ArtGate(
+              visitKey: VisitKey.person(figure.id),
+              kind: MysteryKind.full,
+              child: fullBodyPath != null
                 ? Image(
                     image: contentImageProvider(fullBodyPath),
                     fit: BoxFit.cover,
@@ -175,7 +180,9 @@ class _FigureHero extends StatelessWidget {
                         path: sheetPath,
                         srcFraction: FigureBust.fullBody,
                       ),
+            ),
           ),
+          UnlockPrompt(visitKey: VisitKey.person(figure.id)),
           const SizedBox(height: VSSpacing.lg),
           Text(
             figure.name.resolve(lang),
