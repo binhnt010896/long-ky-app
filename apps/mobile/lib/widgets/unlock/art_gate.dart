@@ -16,6 +16,12 @@ import 'unlock_reveal.dart';
 ///
 /// For anything not in the unlock game (a photographed era, a standalone page)
 /// it is just [child].
+/// Whether the reveal for a key is playing, and a counter that asks it to skip
+/// — for a picture under other layers (the event hero), whose own tap would
+/// never be reached.
+final revealingProvider = StateProvider.family<bool, String>((ref, key) => false);
+final revealSkipProvider = StateProvider.family<int, String>((ref, key) => 0);
+
 class ArtGate extends ConsumerStatefulWidget {
   const ArtGate({
     required this.visitKey,
@@ -40,6 +46,7 @@ class ArtGate extends ConsumerStatefulWidget {
 }
 
 class _ArtGateState extends ConsumerState<ArtGate> {
+  final GlobalKey<UnlockRevealState> _reveal = GlobalKey<UnlockRevealState>();
   bool _revealing = false;
   String? _caption;
   bool _milestone = false;
@@ -66,6 +73,7 @@ class _ArtGateState extends ConsumerState<ArtGate> {
     ref.listen<bool>(artHiddenProvider(widget.visitKey), (prev, next) {
       if (prev == true && next == false) {
         final r = ref.read(lastRewardProvider);
+        ref.read(revealingProvider(widget.visitKey).notifier).state = true;
         setState(() {
           _revealing = true;
           _caption = _captionFor(r);
@@ -74,13 +82,18 @@ class _ArtGateState extends ConsumerState<ArtGate> {
       }
     });
 
+    ref.listen<int>(revealSkipProvider(widget.visitKey), (_, __) {
+      _reveal.currentState?.skip();
+    });
     if (_revealing) {
       return UnlockReveal(
+        key: _reveal,
         kind: widget.kind,
         revealed: widget.child,
         caption: _caption,
         milestone: _milestone,
         onDone: () {
+          ref.read(revealingProvider(widget.visitKey).notifier).state = false;
           if (mounted) setState(() => _revealing = false);
         },
       );
@@ -115,6 +128,12 @@ class UnlockAffordance extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    if (ref.watch(revealingProvider(visitKey))) {
+      return GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () => ref.read(revealSkipProvider(visitKey).notifier).state++,
+      );
+    }
     if (!ref.watch(artHiddenProvider(visitKey))) return const SizedBox.shrink();
     final en = ref.watch(langProvider) == Lang.en;
     if (ref.watch(quizCapReachedProvider)) return const SizedBox.shrink();

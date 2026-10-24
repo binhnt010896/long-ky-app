@@ -35,10 +35,10 @@ class UnlockReveal extends ConsumerStatefulWidget {
   final bool milestone;
 
   @override
-  ConsumerState<UnlockReveal> createState() => _UnlockRevealState();
+  ConsumerState<UnlockReveal> createState() => UnlockRevealState();
 }
 
-class _UnlockRevealState extends ConsumerState<UnlockReveal>
+class UnlockRevealState extends ConsumerState<UnlockReveal>
     with SingleTickerProviderStateMixin {
   late final AnimationController _c;
   bool _reduced = false;
@@ -76,7 +76,8 @@ class _UnlockRevealState extends ConsumerState<UnlockReveal>
     super.dispose();
   }
 
-  void _skip() {
+  /// Jumps to the end (a tap on the reveal does this).
+  void skip() {
     if (_c.isCompleted) return;
     _c.value = 1;
   }
@@ -88,7 +89,7 @@ class _UnlockRevealState extends ConsumerState<UnlockReveal>
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: _skip,
+      onTap: skip,
       child: AnimatedBuilder(
         animation: _c,
         builder: (context, _) {

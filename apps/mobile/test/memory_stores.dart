@@ -1,6 +1,7 @@
 import 'package:viet_su/state/narration_store.dart';
 import 'package:viet_su/state/reminder_service.dart';
 import 'package:viet_su/state/today_store.dart';
+import 'package:viet_su/state/unlock_store.dart';
 import 'package:viet_su/state/visit_store.dart';
 
 /// In-memory stand-ins for the file-backed stores, so widget tests never touch
@@ -83,5 +84,21 @@ class FakeReminderScheduler implements ReminderScheduler {
   Future<void> cancelAll() async {
     cancels++;
     scheduled = const <ReminderEntry>[];
+  }
+}
+
+/// In-memory unlock progress.
+class MemoryUnlockStore implements UnlockStore {
+  MemoryUnlockStore([this.data = const UnlockData()]);
+  UnlockData data;
+  int saves = 0;
+
+  @override
+  Future<UnlockData> load() async => data;
+
+  @override
+  Future<void> save(UnlockData d) async {
+    data = d;
+    saves++;
   }
 }
