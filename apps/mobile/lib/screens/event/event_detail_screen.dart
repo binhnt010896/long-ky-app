@@ -7,8 +7,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../app_router.dart' show routeTelemetryObserverProvider;
 import '../../feedback/feedback.dart';
 import '../../state/providers.dart';
+import '../../telemetry/reading_depth.dart';
+import '../../telemetry/route_telemetry.dart' show RouteTelemetryObserver;
 import '../sanh/disclaimer_screen.dart' show DisclaimerInfoButton;
 import '../../theme/content_assets.dart';
 import '../../theme/era_palette_mapping.dart';
@@ -43,6 +46,12 @@ class _EventDetailScreenState extends ConsumerState<EventDetailScreen> {
   bool _showHint = true;
   Timer? _hintTimer;
 
+  /// A swipe changes the event on screen but not the route, so each one is
+  /// reported to the screen-view observer itself — see
+  /// [RouteTelemetryObserver.showInPlace].
+  RouteTelemetryObserver? _telemetryObserver;
+  String? _inPlaceLocation;
+
   @override
   void initState() {
     super.initState();
@@ -58,6 +67,8 @@ class _EventDetailScreenState extends ConsumerState<EventDetailScreen> {
 
   @override
   void dispose() {
+    final location = _inPlaceLocation;
+    if (location != null) _telemetryObserver?.clearInPlace(location);
     _hintTimer?.cancel();
     _tilt?.dispose();
     _pointer.dispose();
@@ -116,6 +127,16 @@ class _EventDetailScreenState extends ConsumerState<EventDetailScreen> {
                     : const NeverScrollableScrollPhysics(),
                 itemCount: entries.length,
                 onPageChanged: (i) {
+                  final observer = ref.read(routeTelemetryObserverProvider);
+                  _telemetryObserver = observer;
+                  _inPlaceLocation = observer.showInPlace((
+                    name: 'event_detail',
+                    params: <String, Object>{
+                      'era_slug': entries[i].era.slug,
+                      'event_id': entries[i].event.id,
+                      'via': 'swipe',
+                    },
+                  ));
                   _hintTimer?.cancel();
                   setState(() {
                     _index = i;
@@ -128,6 +149,7 @@ class _EventDetailScreenState extends ConsumerState<EventDetailScreen> {
                   palette: paletteForEra(entries[i].era),
                   pointer: _pointer,
                   lang: lang,
+                  current: i == index,
                 ),
               ),
               // Fixed chrome over the hero. The counter is era-relative, so it
@@ -215,6 +237,7 @@ class _EventPage extends StatelessWidget {
     required this.palette,
     required this.pointer,
     required this.lang,
+    required this.current,
   });
 
   final Era era;
@@ -223,8 +246,19 @@ class _EventPage extends StatelessWidget {
   final ParallaxController pointer;
   final Lang lang;
 
+  /// The page on screen (not a neighbour sliding in or out mid-swipe).
+  final bool current;
+
   @override
   Widget build(BuildContext context) {
+    return EventReadingDepth(
+      eventId: event.id,
+      current: current,
+      child: _list(),
+    );
+  }
+
+  Widget _list() {
     return ListView(
       padding: EdgeInsets.zero,
       children: <Widget>[

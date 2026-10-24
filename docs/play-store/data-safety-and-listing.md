@@ -7,30 +7,33 @@ the app has changed since this was drafted.
 ## Data safety questionnaire
 
 - **Does your app collect or share any of the required user data types?**
-  **Yes** — Firebase Analytics and Crashlytics collect app activity and
-  diagnostic data (see below); no personal data (name, email, etc.) is
-  collected. Google Play Billing handles purchase data itself, outside the
+  **Yes** — Firebase Analytics, PostHog and Crashlytics collect app
+  activity and diagnostic data (see below); no personal data (name, email,
+  etc.) is collected. Google Play Billing handles purchase data itself, outside the
   app.
 - **Data collected:**
-  - **App activity → App interactions** (screens viewed, in-app actions
-    such as Câu đố/Chào cờ/atlas/tip usage) — Purpose: **Analytics**.
+  - **App activity → App interactions** (screens viewed and how long each
+    stays open, how far an event page is scrolled, in-app actions such as
+    Câu đố/Chào cờ/atlas/narration/tip usage) — Purpose: **Analytics**.
     Optional (the in-app switch, default on).
   - **App info and performance → Crash logs, Diagnostics** — Purpose:
     **Analytics, App functionality**. Optional (same switch).
-  - **Device or other IDs** (Firebase's own installation identifier, not
-    the advertising ID — this app never collects or uses the advertising
-    ID) — Purpose: **Analytics**. Optional (same switch).
+  - **Device or other IDs** (Firebase's and PostHog's own random
+    installation identifiers, not the advertising ID — this app never
+    collects or uses the advertising ID) — Purpose: **Analytics**. Optional
+    (same switch).
 - **Data shared with third parties:** none directly by the app beyond
-  Google, which processes Analytics/Crashlytics data as Long Ký's service
-  provider (not a separate third-party share for Play's purposes). Google
+  Google (Analytics/Crashlytics) and PostHog (analytics, US cloud), which
+  process that data as Long Ký's service providers (not a separate
+  third-party share for Play's purposes). Google
   Play Billing and the Cloudflare CDN are platform/infrastructure services;
   if the form asks about them explicitly, note "processed by Google Play
   Billing for purchases; standard CDN server logs for content delivery, not
   linked to identity."
 - **Is all user data encrypted in transit?** **Yes.**
 - **Does your app allow users to request data deletion?** The in-app switch
-  stops collection going forward; Firebase's own instance identifiers are
-  not linked to a real-world identity, so there is nothing to tie a
+  stops collection going forward; Firebase's and PostHog's instance
+  identifiers are not linked to a real-world identity, so there is nothing to tie a
   deletion request to. State this plainly if the form asks.
 - **Advertising ID:** **not collected** — confirm the merged release
   manifest has no `AD_ID` permission before answering this (see

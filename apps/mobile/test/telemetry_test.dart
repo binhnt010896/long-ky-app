@@ -21,6 +21,7 @@ import 'package:viet_su/state/reminder_service.dart';
 import 'package:viet_su/state/tip_store.dart';
 import 'package:viet_su/state/today_store.dart';
 import 'package:viet_su/state/visit_store.dart';
+import 'package:viet_su/telemetry/composite_telemetry.dart';
 import 'package:viet_su/telemetry/route_telemetry.dart';
 import 'package:viet_su/telemetry/telemetry.dart';
 import 'package:viet_su/telemetry/telemetry_settings.dart';
@@ -52,6 +53,37 @@ class _FakeTelemetry implements Telemetry {
 
   @override
   Future<void> setEnabled(bool value) async => enabled = value;
+
+  final Map<String, Object> common = <String, Object>{};
+
+  @override
+  Future<void> setCommonProperty(String key, Object value) async =>
+      common[key] = value;
+
+  /// The params of every `screen_leave` logged so far.
+  List<Map<String, Object>> get leaves => <Map<String, Object>>[
+        for (final e in events)
+          if (e.name == 'screen_leave') e.params,
+      ];
+}
+
+/// A backend whose every call fails — [CompositeTelemetry] must shrug it off.
+class _ThrowingTelemetry implements Telemetry {
+  @override
+  Future<void> screen(String name, [Map<String, Object> params = const {}]) =>
+      throw StateError('screen');
+  @override
+  Future<void> event(String name, [Map<String, Object> params = const {}]) async =>
+      throw StateError('event');
+  @override
+  Future<void> recordError(Object error, StackTrace stackTrace,
+          {String? reason, bool fatal = false}) =>
+      throw StateError('recordError');
+  @override
+  Future<void> setEnabled(bool enabled) async => throw StateError('setEnabled');
+  @override
+  Future<void> setCommonProperty(String key, Object value) =>
+      throw StateError('setCommonProperty');
 }
 
 class _MemoryTelemetrySettingsStore implements TelemetrySettingsStore {
@@ -114,6 +146,7 @@ Future<GoRouter> _pumpAt(
   String location,
   _FakeTelemetry telemetry, {
   QuizStore? quizStore,
+  DateTime Function()? clock,
 }) async {
   final container = ProviderContainer(overrides: <Override>[
     tierProvider.overrideWithValue(ExperienceTier.reduced),
@@ -127,6 +160,7 @@ Future<GoRouter> _pumpAt(
     narrationStoreProvider.overrideWithValue(MemoryNarrationStore()),
     todayStoreProvider.overrideWithValue(MemoryTodayStore()),
     reminderSchedulerProvider.overrideWithValue(FakeReminderScheduler()),
+    if (clock != null) telemetryClockProvider.overrideWithValue(clock),
   ]);
   addTearDown(container.dispose);
 
@@ -315,7 +349,10 @@ void main() {
       final telemetry = _FakeTelemetry();
       await _pumpAt(tester, '/sanh/cau-do/choi?mode=daily&seed=1', telemetry);
 
-      expect(telemetry.events.map((e) => e.name), <String>['quiz_start']);
+      // screen_leave (the route the pump started from) is not a quiz event.
+      bool isQuiz(String n) => n.startsWith('quiz_');
+      expect(telemetry.events.map((e) => e.name).where(isQuiz),
+          <String>['quiz_start']);
 
       var answered = 0;
       for (var q = 0; q < 5; q++) {
@@ -337,7 +374,7 @@ void main() {
         }
       }
 
-      final names = telemetry.events.map((e) => e.name).toList();
+      final names = telemetry.events.map((e) => e.name).where(isQuiz).toList();
       expect(names.first, 'quiz_start');
       expect(names.last, 'quiz_complete');
       expect(names.where((n) => n == 'quiz_answer').length, answered);
@@ -362,6 +399,152 @@ void main() {
       );
       expect(isNonFatalFlutterError(image), isTrue);
       expect(isNonFatalFlutterError(other), isFalse);
+    });
+  });
+
+  group('screen_leave (time on screen)', () {
+    testWidgets('navigating away logs the previous screen and its time',
+        (tester) async {
+      final telemetry = _FakeTelemetry();
+      var now = DateTime(2026, 10, 23);
+      final router =
+          await _pumpAt(tester, '/sanh', telemetry, clock: () => now);
+
+      now = now.add(const Duration(seconds: 7));
+      router.go('/sanh/gioi-thieu');
+      await tester.pumpAndSettle();
+
+      final leave = telemetry.leaves.last;
+      expect(leave['screen'], 'sanh');
+      expect(leave['duration_ms'], 7000);
+      expect(leave['reason'], 'navigate');
+    });
+
+    testWidgets('backgrounding reports the screen and pauses the timing',
+        (tester) async {
+      final telemetry = _FakeTelemetry();
+      var now = DateTime(2026, 10, 23);
+      final router =
+          await _pumpAt(tester, '/sanh', telemetry, clock: () => now);
+      final observer = ProviderScope.containerOf(
+              tester.element(find.byType(MaterialApp)),
+              listen: false)
+          .read(routeTelemetryObserverProvider);
+      final screensBefore = telemetry.screens.length;
+
+      now = now.add(const Duration(seconds: 3));
+      observer.appLifecycleChanged(AppLifecycleState.inactive);
+      observer.appLifecycleChanged(AppLifecycleState.hidden);
+      observer.appLifecycleChanged(AppLifecycleState.paused);
+      expect(telemetry.leaves.last['screen'], 'sanh');
+      expect(telemetry.leaves.last['duration_ms'], 3000);
+      expect(telemetry.leaves.last['reason'], 'background');
+      final leavesInBackground = telemetry.leaves.length;
+
+      now = now.add(const Duration(minutes: 30)); // in the background
+      observer.appLifecycleChanged(AppLifecycleState.resumed);
+      now = now.add(const Duration(seconds: 2));
+      router.go('/sanh/gioi-thieu');
+      await tester.pumpAndSettle();
+
+      expect(telemetry.leaves.length, leavesInBackground + 1);
+      expect(telemetry.leaves.last['screen'], 'sanh');
+      expect(telemetry.leaves.last['duration_ms'], 2000);
+      // Only the About page was a new screen view — not the resume.
+      expect(telemetry.screens.length, screensBefore + 1);
+      expect(telemetry.screens.last.name, 'about');
+    });
+  });
+
+  group('event pager', () {
+    const path = '/era/hong-bang-van-lang/event/kinh-duong-vuong-lap-nuoc';
+
+    testWidgets('a swipe logs the swiped-to event as its own screen view',
+        (tester) async {
+      final telemetry = _FakeTelemetry();
+      var now = DateTime(2026, 10, 23);
+      final router = await _pumpAt(tester, path, telemetry, clock: () => now);
+
+      now = now.add(const Duration(seconds: 20));
+      await tester.fling(find.byType(PageView), const Offset(-360, 0), 1000);
+      await tester.pumpAndSettle();
+
+      final swiped = telemetry.screens.last;
+      expect(swiped.name, 'event_detail');
+      expect(swiped.params['era_slug'], 'hong-bang-van-lang');
+      expect(swiped.params['via'], 'swipe');
+      final swipedId = swiped.params['event_id'];
+      expect(swipedId, isNot('kinh-duong-vuong-lap-nuoc'));
+
+      final left = telemetry.leaves.last;
+      expect(left['event_id'], 'kinh-duong-vuong-lap-nuoc');
+      expect(left['reason'], 'swipe');
+      expect(left['duration_ms'], 20000);
+
+      // Leaving the pager closes out the swiped-to event, not the opener.
+      router.go('/');
+      await tester.pumpAndSettle();
+      expect(telemetry.leaves.last['event_id'], swipedId);
+    });
+
+    testWidgets('reading depth and "Đọc thêm" ride on the event screen_leave',
+        (tester) async {
+      final telemetry = _FakeTelemetry();
+      final router = await _pumpAt(tester, path, telemetry);
+
+      await tester.tap(find.text('ĐỌC THÊM'));
+      await tester.pumpAndSettle();
+      await tester.drag(find.byType(ListView).first, const Offset(0, -5000));
+      await tester.pumpAndSettle();
+      router.go('/');
+      await tester.pumpAndSettle();
+
+      final leave = telemetry.leaves
+          .lastWhere((l) => l['screen'] == 'event_detail');
+      expect(leave['details_opened'], 1);
+      expect(leave['max_scroll_pct'], 100);
+    });
+  });
+
+  group('common properties', () {
+    test('lang and content_version are set up front and follow changes',
+        () async {
+      final telemetry = _FakeTelemetry();
+      final container = ProviderContainer(overrides: <Override>[
+        telemetryProvider.overrideWithValue(telemetry),
+        activeContentVersionProvider.overrideWith((ref) => 41),
+      ]);
+      addTearDown(container.dispose);
+
+      container.read(telemetryCommonPropertiesProvider);
+      expect(telemetry.common, <String, Object>{'lang': 'vi', 'content_version': 41});
+
+      container.read(langProvider.notifier).state = Lang.en;
+      container.read(activeContentVersionProvider.notifier).state = 42;
+      expect(telemetry.common, <String, Object>{'lang': 'en', 'content_version': 42});
+    });
+  });
+
+  group('CompositeTelemetry', () {
+    test('every call reaches every backend, even past one that throws',
+        () async {
+      final a = _FakeTelemetry();
+      final b = _FakeTelemetry();
+      final both = CompositeTelemetry(<Telemetry>[a, _ThrowingTelemetry(), b]);
+
+      await both.screen('home');
+      await both.event('quiz_start', <String, Object>{'quiz_mode': 'daily'});
+      await both.setCommonProperty('lang', 'vi');
+      await both.setEnabled(false);
+      await both.recordError(StateError('x'), StackTrace.empty);
+
+      for (final t in <_FakeTelemetry>[a, b]) {
+        expect(t.screens.single.name, 'home');
+        expect(t.events.single.name, 'quiz_start');
+        expect(t.events.single.params, <String, Object>{'quiz_mode': 'daily'});
+        expect(t.common, <String, Object>{'lang': 'vi'});
+        expect(t.enabled, isFalse);
+      }
     });
   });
 

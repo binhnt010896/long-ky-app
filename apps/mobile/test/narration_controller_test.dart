@@ -52,9 +52,14 @@ class _FakePlayer implements NarrationPlayer {
 
 class _Events implements Telemetry {
   final names = <String>[];
+  final params = <Map<String, Object>>[];
   @override
-  Future<void> event(String name, [Map<String, Object> params = const {}]) async =>
-      names.add(name);
+  Future<void> event(String name, [Map<String, Object> params = const {}]) async {
+    names.add(name);
+    this.params.add(params);
+  }
+
+  Map<String, Object> last(String name) => params[names.lastIndexOf(name)];
   @override
   Future<void> screen(String name, [Map<String, Object> params = const {}]) async {}
   @override
@@ -62,6 +67,8 @@ class _Events implements Telemetry {
       {String? reason, bool fatal = false}) async {}
   @override
   Future<void> setEnabled(bool enabled) async {}
+  @override
+  Future<void> setCommonProperty(String key, Object value) async {}
 }
 
 /// A manifest that has every clip.
@@ -104,6 +111,37 @@ void main() {
     expect(c.state.playing, isTrue);
     expect(store.prefs.heard, contains('eras/ngo-quyen'));
     expect(events.names, contains('narration_play'));
+  });
+
+  test('play, stop, leave and complete report the page and how far it got',
+      () async {
+    final c = make();
+    await c.enter('eras/ngo-quyen');
+    await _settle();
+    expect(events.last('narration_play'),
+        <String, Object>{'kind': 'eras', 'id': 'ngo-quyen', 'auto': 1});
+
+    player.at(const Duration(seconds: 5)); // of 10
+    await _settle();
+    await c.toggle();
+    await _settle();
+    expect(events.last('narration_stop'),
+        <String, Object>{'kind': 'eras', 'id': 'ngo-quyen', 'listened_pct': 50});
+
+    await c.toggle(); // play again
+    await _settle();
+    player.at(const Duration(seconds: 8));
+    await _settle();
+    await c.leave('eras/ngo-quyen');
+    expect(events.last('narration_leave'),
+        <String, Object>{'kind': 'eras', 'id': 'ngo-quyen', 'listened_pct': 80});
+
+    await c.enter('people/le-loi');
+    await _settle();
+    player.finish();
+    await _settle();
+    expect(events.last('narration_complete'),
+        <String, Object>{'kind': 'people', 'id': 'le-loi'});
   });
 
   test('a heard page does not autoplay again', () async {

@@ -3,6 +3,10 @@ import 'dart:convert';
 import 'street_geometry.dart';
 import 'street_map.dart';
 
+/// The period a standalone target takes when it belongs to no dynasty (the
+/// Paracel and Spratly islands): the filter lists it under "Other".
+const kOtherPeriod = 'other';
+
 /// Referential-integrity rules for `content/streets/<city>.json` (M-A step 4),
 /// pure like [ContentValidator]. Returns human-readable problems; empty = ok.
 abstract final class StreetMapValidator {
@@ -57,7 +61,9 @@ abstract final class StreetMapValidator {
           } else if (t.era.isEmpty && t.period.isEmpty && s.isApproved) {
             problems.add(
                 'street "${s.id}": standalone target "${t.id}" has no period');
-          } else if (t.period.isNotEmpty && !periodIds.contains(t.period)) {
+          } else if (t.period.isNotEmpty &&
+              t.period != kOtherPeriod &&
+              !periodIds.contains(t.period)) {
             problems.add(
                 'street "${s.id}": target "${t.id}" has unknown period "${t.period}"');
           }

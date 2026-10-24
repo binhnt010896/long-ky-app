@@ -35,6 +35,8 @@ class _Events implements Telemetry {
       {String? reason, bool fatal = false}) async {}
   @override
   Future<void> setEnabled(bool enabled) async {}
+  @override
+  Future<void> setCommonProperty(String key, Object value) async {}
 }
 
 PeopleRegistry _people() => PeopleRegistry.fromJson(
