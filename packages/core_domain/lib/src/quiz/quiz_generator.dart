@@ -116,7 +116,14 @@ class QuizGenerator {
     };
     final orderPool = List<_EE>.of(scope);
 
-    final typeOrder = QuestionType.values.toList()..shuffle(rng);
+    // The per-person types only come from [questionFor].
+    final typeOrder = <QuestionType>[
+      QuestionType.year,
+      QuestionType.who,
+      QuestionType.quote,
+      QuestionType.order,
+      QuestionType.era,
+    ]..shuffle(rng);
     final result = <Question>[];
     final used = <String>{};
 

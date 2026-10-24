@@ -140,7 +140,7 @@ void main() {
     });
 
     test('a missed day resets, keeping the best', () {
-      var s = const StreakState(current: 5, best: 5, lastDay: '2026-10-20');
+      const s = StreakState(current: 5, best: 5, lastDay: '2026-10-20');
       final r = go(s, 2026, 10, 22);
       expect(r.outcome, StreakOutcome.reset);
       expect(r.lost, 5);
