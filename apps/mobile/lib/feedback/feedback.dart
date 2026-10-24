@@ -102,7 +102,7 @@ String feedbackBody({
 /// address. Override per build with `--dart-define=FEEDBACK_API_URL=https://…`.
 const String kFeedbackApiUrl = String.fromEnvironment(
   'FEEDBACK_API_URL',
-  defaultValue: 'https://feedback.long-ky.com/feedback',
+  defaultValue: 'https://long-ky-feedback-api.binhnt-010896.workers.dev/feedback',
 );
 
 /// Posts one report; true once the server has sent it. A seam so tests never
