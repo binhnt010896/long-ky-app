@@ -1,0 +1,27 @@
+name = "long-ky-feedback-api"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+
+# Public endpoint the app posts reader reports to; long-ky.com must be a
+# Cloudflare zone (it already has to be, for Email Routing below).
+routes = [{ pattern = "feedback.long-ky.com", custom_domain = true }]
+
+# Sends with Cloudflare Email Routing. Locked to one destination, so even a
+# bug here cannot mail anyone else. help@long-ky.com must be a *verified
+# destination address* (Email Routing > Destination addresses), and the
+# sender's domain must have Email Routing enabled. A binding, not a key: no
+# mail credentials exist anywhere in this service.
+[[send_email]]
+name = "FEEDBACK_EMAIL"
+destination_address = "help@long-ky.com"
+
+# Per-IP: 5 reports a minute. Optional in code, so removing it is safe.
+[[unsafe.bindings]]
+name = "RATE_LIMITER"
+type = "ratelimit"
+namespace_id = "2001"
+simple = { limit = 5, period = 60 }
+
+[vars]
+FEEDBACK_FROM = "admin@long-ky.com"
+FEEDBACK_TO = "help@long-ky.com"

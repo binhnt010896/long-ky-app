@@ -1,0 +1,21 @@
+{
+  "name": "feedback_api",
+  "private": true,
+  "description": "Cloudflare Worker that turns a reader's 'Báo sai sót' report into an email from admin@long-ky.com to help@long-ky.com, so readers never need an email address or mail app.",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.6.14"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241127.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
+    "wrangler": "^3.109.1"
+  }
+}
