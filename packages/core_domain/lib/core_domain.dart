@@ -5,6 +5,7 @@
 /// palette; the content layer (core_content) parses JSON into these types.
 library;
 
+export 'src/anniversary.dart';
 export 'src/asset_ref.dart';
 export 'src/character.dart';
 export 'src/citation.dart';
@@ -15,15 +16,18 @@ export 'src/event_inlining.dart';
 export 'src/event_registry.dart';
 export 'src/history_event.dart';
 export 'src/json_util.dart' show ContentFormatException;
+export 'src/lunar_calendar.dart';
 export 'src/localized_text.dart';
 export 'src/people.dart';
 export 'src/period.dart';
 export 'src/quiz/question.dart';
 export 'src/quiz/quiz_generator.dart';
+export 'src/street_map/discovered_streets.dart';
 export 'src/street_map/street_filter.dart';
 export 'src/street_map/street_geometry.dart';
 export 'src/street_map/street_map.dart';
 export 'src/street_map/street_matcher.dart';
 export 'src/street_map/street_name.dart';
 export 'src/street_map/street_validator.dart';
+export 'src/today_pick.dart';
 export 'src/year.dart';

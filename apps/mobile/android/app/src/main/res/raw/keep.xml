@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Resource shrinking would otherwise drop the reminder's status-bar icon
+     (it is only referenced by name from Dart); without it the notification can
+     silently fail. See flutter_local_notifications, "Release build
+     configuration". -->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@drawable/ic_stat_longky" />

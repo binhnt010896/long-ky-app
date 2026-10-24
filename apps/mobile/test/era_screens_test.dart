@@ -11,10 +11,16 @@ import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 import 'package:viet_su/app_router.dart';
 import 'package:viet_su/state/content_sync.dart';
+import 'package:viet_su/state/narration_controller.dart';
 import 'package:viet_su/state/providers.dart';
 import 'package:viet_su/state/quiz_store.dart';
+import 'package:viet_su/state/reminder_service.dart';
 import 'package:viet_su/state/tip_store.dart';
+import 'package:viet_su/state/today_store.dart';
+import 'package:viet_su/state/visit_store.dart';
 import 'package:viet_su/widgets/timeline_bar.dart';
+
+import 'memory_stores.dart';
 
 /// A tip store with a fixed offer; [emit] plays a purchase outcome.
 class _FakeTipStore implements TipStore {
@@ -54,9 +60,10 @@ class _MemoryQuizStore implements QuizStore {
     required int score,
     required int total,
     DateTime? dailyOn,
+    List<bool>? marks,
   }) async {
     _progress = _progress.withResult(modeKey, score, total,
-        markDailyDoneOn: dailyOn);
+        markDailyDoneOn: dailyOn, marks: marks);
     return _progress;
   }
 }
@@ -69,6 +76,7 @@ Future<GoRouter> _pumpAt(
   TipStore? tipStore,
   QuizStore? quizStore,
   int contentVersion = 0,
+  List<Override> overrides = const <Override>[],
 }) async {
   final container = ProviderContainer(overrides: <Override>[
     tierProvider.overrideWithValue(tier),
@@ -77,6 +85,12 @@ Future<GoRouter> _pumpAt(
     tipStoreProvider.overrideWithValue(tipStore),
     quizStoreProvider.overrideWithValue(quizStore ?? _MemoryQuizStore()),
     activeContentVersionProvider.overrideWith((ref) => contentVersion),
+    // Never touch path_provider or the notifications plugin from a widget test.
+    visitStoreProvider.overrideWithValue(MemoryVisitStore()),
+    narrationStoreProvider.overrideWithValue(MemoryNarrationStore()),
+    todayStoreProvider.overrideWithValue(MemoryTodayStore()),
+    reminderSchedulerProvider.overrideWithValue(FakeReminderScheduler()),
+    ...overrides,
   ]);
   addTearDown(container.dispose);
 
@@ -1585,9 +1599,15 @@ void main() {
         'the daily quiz (seed 1) runs all 5 questions to a score screen, '
         'and the best score then shows on the quiz home', (tester) async {
       final store = _MemoryQuizStore();
+      final shared = <String>[];
       await _pumpAt(
           tester, '/sanh/cau-do/choi?mode=daily&seed=1', ExperienceTier.reduced,
-          quizStore: store);
+          quizStore: store,
+          overrides: <Override>[
+            shareTextProvider.overrideWithValue((text, origin) async {
+              shared.add(text);
+            }),
+          ]);
 
       for (var q = 0; q < 5; q++) {
         // Answer whatever question is showing: tap option/item 0, then 1, 2,
@@ -1618,6 +1638,59 @@ void main() {
       final progress = await store.load();
       expect(progress.bestFor(QuizModeKey.daily), isNotNull);
       expect(progress.isDailyDoneOn(DateTime.now()), isTrue);
+
+      // The first finished daily quiz offers the daily reminder, once. "Not
+      // now" answers it for good and uncovers the result.
+      final later = find.byKey(const ValueKey<String>('reminder-sheet-later'));
+      expect(later, findsOneWidget);
+      await tester.tap(later);
+      await tester.pumpAndSettle();
+      expect(find.byKey(const ValueKey<String>('reminder-sheet-later')), findsNothing);
+
+      // The share card: the day's first attempt, spoiler-free.
+      final first = progress.dailyFirstOn(DateTime.now());
+      expect(first, isNotNull);
+      final share = find.byKey(const ValueKey<String>('quiz-share'));
+      await tester.ensureVisible(share);
+      await tester.pumpAndSettle();
+      await tester.tap(share);
+      await tester.pump();
+      expect(shared, hasLength(1));
+      final lines = shared.single.split('\n');
+      expect(lines.first, startsWith('Long Ký · Câu đố hôm nay '));
+      expect(lines[1],
+          '${first!.marks.map((m) => m ? '🟨' : '⬛').join()}  ${first.score}/${first.marks.length}');
+      expect(lines[2], 'long-ky.com/get');
+    });
+
+    testWidgets('the share button is not offered after a random quiz',
+        (tester) async {
+      final store = _MemoryQuizStore();
+      await _pumpAt(
+          tester, '/sanh/cau-do/choi?mode=random&seed=1', ExperienceTier.reduced,
+          quizStore: store);
+      for (var q = 0; q < 10; q++) {
+        for (var i = 0; i < 4; i++) {
+          final tile = find.byKey(ValueKey<int>(i));
+          if (tile.evaluate().isEmpty) break;
+          await tester.tap(tile);
+          await tester.pump();
+          if (find.text('Tiếp theo ›').evaluate().isNotEmpty) break;
+        }
+        await tester.pumpAndSettle();
+        final next = find.text('Tiếp theo ›');
+        if (next.evaluate().isNotEmpty) {
+          await tester.ensureVisible(next);
+          await tester.pumpAndSettle();
+          await tester.tap(next);
+          await tester.pumpAndSettle();
+        }
+      }
+      expect(find.text('câu trả lời đúng'), findsOneWidget);
+      expect(find.byKey(const ValueKey<String>('quiz-share')), findsNothing);
+      expect((await store.load()).dailyFirst, isNull);
+      // Only the daily quiz offers the reminder.
+      expect(find.byKey(const ValueKey<String>('reminder-sheet-yes')), findsNothing);
     });
 
     testWidgets(

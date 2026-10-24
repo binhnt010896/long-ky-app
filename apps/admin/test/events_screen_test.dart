@@ -188,4 +188,74 @@ void main() {
     expect(d.eventIdsByEra['era-a'], ['a2']);
     expect((jsonDecode(d.files['content/streets/hcm.json']!) as Map)['streets'], isEmpty);
   });
+
+  group('anniversary (Cycle S)', () {
+    Future<void> openEdit(WidgetTester tester, String title) async {
+      final row = find.ancestor(of: find.text(title), matching: find.byType(ListTile));
+      await tester.tap(find.descendant(of: row, matching: find.byTooltip('Edit')));
+      await tester.pumpAndSettle();
+    }
+
+    Future<void> save(WidgetTester tester) async {
+      await tester.tap(find.widgetWithText(FilledButton, 'Save'));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('saving an event without touching it keeps its anniversary',
+        (tester) async {
+      final c = await _pump(tester);
+      c.read(contentDraftProvider.notifier).updateEvent(
+          'a1',
+          (e) => {
+                ...e,
+                'anniversary': {'month': 3, 'day': 10, 'calendar': 'lunar'},
+              });
+      await tester.pumpAndSettle();
+      await openEdit(tester, 'Trong thời A');
+      // The saved form shows it.
+      expect(find.byKey(const ValueKey('anniversary-day')), findsOneWidget);
+      await save(tester);
+      expect(c.read(contentDraftProvider).requireValue.eventById('a1')!['anniversary'],
+          {'month': 3, 'day': 10, 'calendar': 'lunar'});
+    });
+
+    testWidgets('an event with none stays without one', (tester) async {
+      final c = await _pump(tester);
+      await openEdit(tester, 'Cũng thời A');
+      expect(find.byKey(const ValueKey('anniversary-day')), findsNothing);
+      await save(tester);
+      expect(c.read(contentDraftProvider).requireValue.eventById('a2')!.containsKey('anniversary'),
+          isFalse);
+    });
+
+    testWidgets('ticking the box and entering a lunar date adds it; unticking removes it',
+        (tester) async {
+      final c = await _pump(tester);
+      await openEdit(tester, 'Cũng thời A');
+      final box = find.text('Remembered on a day of the year (Hôm nay)');
+      await tester.ensureVisible(box);
+      await tester.tap(box);
+      await tester.pumpAndSettle();
+
+      await tester.enterText(find.byKey(const ValueKey('anniversary-day')), '10');
+      await tester.tap(find.text('Lunar'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const ValueKey('anniversary-month')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('3').last);
+      await tester.pumpAndSettle();
+      await save(tester);
+      expect(c.read(contentDraftProvider).requireValue.eventById('a2')!['anniversary'],
+          {'month': 3, 'day': 10, 'calendar': 'lunar'});
+
+      await openEdit(tester, 'Cũng thời A');
+      final again = find.text('Remembered on a day of the year (Hôm nay)');
+      await tester.ensureVisible(again);
+      await tester.tap(again);
+      await tester.pumpAndSettle();
+      await save(tester);
+      expect(c.read(contentDraftProvider).requireValue.eventById('a2')!.containsKey('anniversary'),
+          isFalse);
+    });
+  });
 }

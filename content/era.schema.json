@@ -209,6 +209,49 @@
         }
       }
     },
+    "anniversary": {
+      "description": "A day of the year: solar, or lunar in the Vietnamese calendar (UTC+7). A lunar date means a regular month, never a leap month, so its day is at most 30.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "month",
+        "day",
+        "calendar"
+      ],
+      "properties": {
+        "month": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12
+        },
+        "day": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 31
+        },
+        "calendar": {
+          "type": "string",
+          "enum": [
+            "solar",
+            "lunar"
+          ]
+        }
+      },
+      "if": {
+        "properties": {
+          "calendar": {
+            "const": "lunar"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "day": {
+            "maximum": 30
+          }
+        }
+      }
+    },
     "yearRef": {
       "type": "object",
       "additionalProperties": false,
@@ -332,6 +375,10 @@
         },
         "year": {
           "$ref": "#/$defs/yearRef"
+        },
+        "anniversary": {
+          "description": "The day of the year this event is remembered on, for the app's \"Hôm nay\" (on this day). Optional.",
+          "$ref": "#/$defs/anniversary"
         },
         "title": {
           "$ref": "#/$defs/localizedText"

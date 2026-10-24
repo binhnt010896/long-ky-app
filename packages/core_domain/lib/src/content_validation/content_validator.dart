@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:json_schema/json_schema.dart';
 
+import '../anniversary.dart';
 import '../event_inlining.dart';
 import '../json_util.dart' show ContentFormatException;
 
@@ -331,6 +332,10 @@ abstract final class ContentValidator {
         } else {
           eventIdOwner[id] = name;
         }
+        final badAnniversary = _anniversaryProblem(e);
+        if (badAnniversary != null) {
+          eventErrors.add('event "$id": $badAnniversary');
+        }
         orders.add(e['order'] as int);
         for (final rel in (e['relatedEventIds'] as List? ?? const <dynamic>[])) {
           if (rel == id) {
@@ -376,6 +381,8 @@ abstract final class ContentValidator {
           problems.add('needs a dated year (year.value)');
         }
         if (e['hero'] == null) problems.add('needs a hero image');
+        final badAnniversary = _anniversaryProblem(e);
+        if (badAnniversary != null) problems.add(badAnniversary);
         // Any registry person will do: a person on no roster is standalone
         // and has a page of their own (Cycle R).
         final unknownFigures = <String>{
@@ -466,5 +473,21 @@ abstract final class ContentValidator {
       eventCount: eventsById?.length ?? 0,
       standaloneEventCount: standaloneCount,
     );
+  }
+}
+
+/// Why an event's `anniversary` is unusable, or null when it is absent or fine.
+/// The schema bounds the ranges; this adds what it cannot (31 April, 30
+/// February), by running the same parse the app does — so a date that passes
+/// here can never make a phone reject the content pack.
+String? _anniversaryProblem(Map<String, dynamic> event) {
+  final raw = event['anniversary'];
+  if (raw == null) return null;
+  if (raw is! Map<String, dynamic>) return 'anniversary is not an object';
+  try {
+    Anniversary.fromJson(raw);
+    return null;
+  } on ContentFormatException catch (e) {
+    return 'anniversary: ${e.message}';
   }
 }

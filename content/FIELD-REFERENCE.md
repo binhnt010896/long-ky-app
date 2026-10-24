@@ -40,6 +40,7 @@ required with full diacritics; English (`en`) is an optional toggle.**
 | `order` | int ≥ 0 | ✓ | Authoritative sequence in the era. |
 | `kind` | `legend` \| `semi-historical` \| `historical` | ✓ | How strongly the UI asserts the claim. |
 | `year` | `{ display, value?, approximate? }` | ✓ | `value` null for legend; `approximate` = circa (≈). |
+| `anniversary` | `{ month, day, calendar }` | — | The day of the year the app's "Hôm nay" shows this event on. `calendar` is `solar` or `lunar` (Vietnamese lunar calendar, UTC+7; a regular month only, so lunar `day` ≤ 30). Days a month lacks (31/4, 30/2) are rejected. Most pre-modern dates in the chronicles are lunar. Old app builds ignore the key. |
 | `title`, `summary` | LocalizedText | ✓ | `summary` is the one-line timeline subtitle. |
 | `body` | LocalizedText | — | Long-form detail text. |
 | `pullQuote` | `{ text, attribution? }` | — | The italic chronicle quote. |

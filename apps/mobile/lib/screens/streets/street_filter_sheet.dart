@@ -10,6 +10,7 @@ Future<Set<StreetBucket>?> showStreetFilterSheet(
   required Set<StreetBucket> hidden,
   required int Function(Set<StreetBucket> hidden) visibleCount,
   required Lang lang,
+  ({int found, int total})? discovered,
 }) {
   return showModalBottomSheet<Set<StreetBucket>>(
     context: context,
@@ -24,6 +25,7 @@ Future<Set<StreetBucket>?> showStreetFilterSheet(
       initialHidden: hidden,
       visibleCount: visibleCount,
       lang: lang,
+      discovered: discovered,
     ),
   );
 }
@@ -36,6 +38,7 @@ class StreetFilterSheet extends StatefulWidget {
     required this.initialHidden,
     required this.visibleCount,
     required this.lang,
+    this.discovered,
     super.key,
   });
 
@@ -43,6 +46,10 @@ class StreetFilterSheet extends StatefulWidget {
   final Set<StreetBucket> initialHidden;
   final int Function(Set<StreetBucket> hidden) visibleCount;
   final Lang lang;
+
+  /// How many of the mapped streets the reader has discovered (opened a page
+  /// for), for one quiet line under the title. Null leaves the line out.
+  final ({int found, int total})? discovered;
 
   @override
   State<StreetFilterSheet> createState() => _StreetFilterSheetState();
@@ -103,6 +110,20 @@ class _StreetFilterSheetState extends State<StreetFilterSheet> {
                 _en ? 'Filter by period' : 'Lọc theo thời kỳ',
                 style: VSType.title.copyWith(fontSize: 17),
               ),
+              if (widget.discovered case final d?) ...<Widget>[
+                const SizedBox(height: VSSpacing.xs),
+                Text(
+                  key: const Key('street-discovered-count'),
+                  d.found == 0
+                      ? (_en
+                          ? 'Read about a person or event to light up their street'
+                          : 'Đọc về một nhân vật hay sự kiện để thắp sáng con đường của họ')
+                      : (_en
+                          ? '${d.found} of ${d.total} streets lit'
+                          : 'Đã thắp sáng ${d.found}/${d.total} con đường'),
+                  style: VSType.caption.copyWith(color: VSColors.inkMuted),
+                ),
+              ],
               const SizedBox(height: VSSpacing.xs),
               Row(
                 children: <Widget>[

@@ -27,10 +27,14 @@ import 'package:viet_su/screens/streets/street_landmarks.dart';
 import 'package:viet_su/screens/streets/street_map_screen.dart';
 import 'package:viet_su/screens/streets/street_map_warmer.dart';
 import 'package:viet_su/screens/streets/street_reverse_chip.dart';
+import 'package:viet_su/state/narration_controller.dart';
 import 'package:viet_su/state/providers.dart';
 import 'package:viet_su/state/tour_store.dart';
+import 'package:viet_su/state/visit_store.dart';
 import 'package:viet_su/telemetry/route_telemetry.dart';
 import 'package:viet_su/telemetry/telemetry.dart';
+
+import 'memory_stores.dart';
 
 
 class _Collect implements vtr.Logger {
@@ -156,9 +160,13 @@ Future<(GoRouter, _Events)> _pump(
   String location, {
   StreetDataSource source = const _FakeSource(),
   _TourStore? tour,
+  Set<String> visited = const <String>{},
 }) async {
   final telemetry = _Events();
   final container = ProviderContainer(overrides: [
+    visitStoreProvider.overrideWithValue(
+        MemoryVisitStore(VisitData(visited: visited, backfilled: true))),
+    narrationStoreProvider.overrideWithValue(MemoryNarrationStore()),
     // Every test but the tour's own has "seen" the tour already.
     streetTourStoreProvider.overrideWithValue(tour ?? _TourStore()),
     contentRepositoryProvider.overrideWithValue(ContentRepository(DiskContentSource(Directory('../../content')))),
@@ -943,5 +951,134 @@ void main() {
       ),
     );
     expect((typed.center.dy - field.center.dy).abs(), lessThanOrEqualTo(1.0));
+  });
+
+  // --- Discovered streets (Cycle S, D-3) ---------------------------------
+
+  group('discovered streets', () {
+    /// The polylines drawn in the discovered tone (the resting and selected
+    /// layers use other colours and widths).
+    List<Polyline> discoveredLines(WidgetTester tester) => [
+          for (final layer
+              in tester.widgetList<PolylineLayer>(find.byType(PolylineLayer)))
+            for (final p in layer.polylines)
+              if (p.color == VSColors.gold && p.strokeWidth == 3.2) p,
+        ];
+
+    testWidgets('a reader who has opened nothing sees only the resting tone',
+        (tester) async {
+      await _pump(tester, '/duong-pho');
+      expect(discoveredLines(tester), isEmpty);
+    });
+
+    testWidgets('a street whose person was opened is drawn in the brighter tone',
+        (tester) async {
+      await _pump(tester, '/duong-pho', visited: {VisitKey.person('le-loi')});
+      final lines = discoveredLines(tester);
+      expect(lines, hasLength(1));
+      // Lê Lợi runs west–east at 10.80 N; Bạch Đằng (not discovered) does not.
+      expect(lines.single.points.map((p) => p.latitude), everyElement(10.80));
+    });
+
+    testWidgets('an event or era target discovers its street too', (tester) async {
+      await _pump(tester, '/duong-pho',
+          visited: {VisitKey.event('bach-dang-1288')});
+      expect(discoveredLines(tester), hasLength(1));
+    });
+
+    testWidgets('a street the filter hides is not drawn as discovered',
+        (tester) async {
+      await _pump(tester, '/duong-pho', visited: {VisitKey.person('le-loi')});
+      expect(discoveredLines(tester), hasLength(1));
+      // Hide every period but none of Lê Lợi's: use the sheet's "Clear".
+      await tester.tap(find.byKey(const Key('street-filter')));
+      await _settle(tester);
+      await tester.tap(find.byKey(const Key('street-filter-none')));
+      await tester.pump();
+      // Nothing left to show: Apply is disabled, so the layer cannot change by
+      // accident; the sheet's own count is what this checks.
+      expect(find.text('Xem 0 đường'), findsOneWidget);
+    });
+
+    testWidgets('the filter sheet counts the lit streets', (tester) async {
+      await _pump(tester, '/duong-pho', visited: {VisitKey.person('le-loi')});
+      await tester.tap(find.byKey(const Key('street-filter')));
+      await _settle(tester);
+      expect(find.byKey(const Key('street-discovered-count')), findsOneWidget);
+      // Two approved streets are mapped; one is lit.
+      expect(find.text('Đã thắp sáng 1/2 con đường'), findsOneWidget);
+    });
+
+    testWidgets('with nothing lit, the sheet says how to light one',
+        (tester) async {
+      await _pump(tester, '/duong-pho');
+      await tester.tap(find.byKey(const Key('street-filter')));
+      await _settle(tester);
+      expect(find.textContaining('thắp sáng con đường của họ'), findsOneWidget);
+    });
+
+    testWidgets('the reverse chip says a street was just lit, once',
+        (tester) async {
+      final container = ProviderContainer(overrides: [
+        streetDataSourceProvider.overrideWithValue(const _FakeSource()),
+      ]);
+      addTearDown(container.dispose);
+      Widget page() => UncontrolledProviderScope(
+            container: container,
+            child: MaterialApp(
+              theme: VSTheme.build(),
+              home: const Scaffold(
+                body: StreetReverseChip(
+                    type: StreetTargetType.person, id: 'le-loi'),
+              ),
+            ),
+          );
+      await tester.pumpWidget(page());
+      await tester.pump();
+      await tester.pump();
+      expect(find.byKey(const Key('street-lit-message')), findsNothing);
+      expect(find.textContaining('Một con đường'), findsOneWidget);
+
+      // Opening this page lit Lê Lợi.
+      container.read(newlyLitProvider.notifier).state =
+          NewlyLit(VisitKey.person('le-loi'), const [_le]);
+      await tester.pump();
+      await tester.pump();
+      expect(find.text('Vừa thắp sáng: đường Lê Lợi'), findsOneWidget);
+      // The signal is spent, so no other page repeats it.
+      expect(container.read(newlyLitProvider), isNull);
+
+      // Another visit to the page (a fresh page state) is back to the plain chip.
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpWidget(page());
+      await tester.pump();
+      await tester.pump();
+      expect(find.byKey(const Key('street-lit-message')), findsNothing);
+      expect(find.textContaining('Một con đường'), findsOneWidget);
+    });
+
+    testWidgets('a signal for another page is ignored', (tester) async {
+      final container = ProviderContainer(overrides: [
+        streetDataSourceProvider.overrideWithValue(const _FakeSource()),
+      ]);
+      addTearDown(container.dispose);
+      await tester.pumpWidget(UncontrolledProviderScope(
+        container: container,
+        child: MaterialApp(
+          theme: VSTheme.build(),
+          home: const Scaffold(
+            body: StreetReverseChip(type: StreetTargetType.person, id: 'le-loi'),
+          ),
+        ),
+      ));
+      await tester.pump();
+      container.read(newlyLitProvider.notifier).state =
+          NewlyLit(VisitKey.person('someone-else'), const [_bach]);
+      await tester.pump();
+      await tester.pump();
+      expect(find.byKey(const Key('street-lit-message')), findsNothing);
+      // Not this page's signal: it is left for the page it belongs to.
+      expect(container.read(newlyLitProvider), isNotNull);
+    });
   });
 }

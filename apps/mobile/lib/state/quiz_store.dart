@@ -28,17 +28,54 @@ class BestScore {
   }
 }
 
-/// Câu đố's whole remembered state: the best score per scope, plus which
-/// calendar day's "Câu đố hôm nay" was last completed (so its card can show a
-/// ✓ without needing to re-run the quiz). No streaks, no history beyond this —
-/// see the delicate-UI rule.
+/// How the first attempt of one day's "Câu đố hôm nay" went: one mark per
+/// question, in order. This is what the share card shows — a replay never
+/// changes it, so everyone's shared grid is their first try.
+class DailyFirst {
+  const DailyFirst({required this.date, required this.marks});
+
+  /// `yyyy-mm-dd` of that day.
+  final String date;
+
+  /// True for a right answer, in question order.
+  final List<bool> marks;
+
+  int get score => marks.where((m) => m).length;
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'date': date,
+        'marks': marks,
+      };
+
+  static DailyFirst? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) return null;
+    final date = json['date'];
+    final marks = json['marks'];
+    if (date is! String || marks is! List || marks.isEmpty) return null;
+    if (!marks.every((m) => m is bool)) return null;
+    return DailyFirst(date: date, marks: List<bool>.unmodifiable(marks.cast<bool>()));
+  }
+}
+
+/// Câu đố's whole remembered state: the best score per scope, which calendar
+/// day's "Câu đố hôm nay" was last completed (so its card can show a ✓ without
+/// needing to re-run the quiz), and how that day's first attempt went (for the
+/// share card). No streaks, no history beyond this — see the delicate-UI rule.
 class QuizProgress {
-  const QuizProgress({this.bests = const <String, BestScore>{}, this.dailyDoneDate});
+  const QuizProgress({
+    this.bests = const <String, BestScore>{},
+    this.dailyDoneDate,
+    this.dailyFirst,
+  });
 
   final Map<String, BestScore> bests;
 
   /// `yyyy-mm-dd` of the last completed daily quiz, or null.
   final String? dailyDoneDate;
+
+  /// The first attempt of the last day the daily quiz was completed, or null
+  /// (never played, or last completed before this was recorded).
+  final DailyFirst? dailyFirst;
 
   static const QuizProgress empty = QuizProgress();
 
@@ -46,18 +83,30 @@ class QuizProgress {
 
   bool isDailyDoneOn(DateTime day) => dailyDoneDate == _dateKey(day);
 
+  /// [day]'s first daily attempt, or null if it isn't known.
+  DailyFirst? dailyFirstOn(DateTime day) =>
+      dailyFirst?.date == _dateKey(day) ? dailyFirst : null;
+
+  /// [marks] are the per-question results of this run. They are kept only when
+  /// this is the first completed daily run of [markDailyDoneOn]'s day — a
+  /// replay, or a day already completed before marks were recorded, leaves
+  /// [dailyFirst] alone.
   QuizProgress withResult(String modeKey, int score, int total,
-      {DateTime? markDailyDoneOn}) {
+      {DateTime? markDailyDoneOn, List<bool>? marks}) {
     final current = bests[modeKey];
     final improved = current == null || score > current.score;
+    final today = markDailyDoneOn == null ? null : _dateKey(markDailyDoneOn);
+    final isFirstOfDay =
+        today != null && marks != null && dailyDoneDate != today;
     return QuizProgress(
       bests: <String, BestScore>{
         ...bests,
         if (improved) modeKey: BestScore(score: score, total: total),
       },
-      dailyDoneDate: markDailyDoneOn != null
-          ? _dateKey(markDailyDoneOn)
-          : dailyDoneDate,
+      dailyDoneDate: today ?? dailyDoneDate,
+      dailyFirst: isFirstOfDay
+          ? DailyFirst(date: today, marks: List<bool>.unmodifiable(marks))
+          : dailyFirst,
     );
   }
 }
@@ -81,12 +130,14 @@ abstract class QuizStore {
 
   /// Records a finished quiz's result, keeping the better of the old and new
   /// best for [modeKey]. Pass [dailyOn] when this run was "Câu đố hôm nay",
-  /// so that day's card can show its ✓.
+  /// so that day's card can show its ✓, and [marks] (one per question) so the
+  /// day's first attempt can be shared.
   Future<QuizProgress> recordResult({
     required String modeKey,
     required int score,
     required int total,
     DateTime? dailyOn,
+    List<bool>? marks,
   });
 }
 
@@ -123,6 +174,7 @@ class FileQuizStore implements QuizStore {
       return _cached = QuizProgress(
         bests: bests,
         dailyDoneDate: dailyDoneDate is String ? dailyDoneDate : null,
+        dailyFirst: DailyFirst.fromJson(raw['dailyFirst']),
       );
     } catch (e, s) {
       // A corrupted or unreadable file is not worth failing the quiz over.
@@ -137,10 +189,11 @@ class FileQuizStore implements QuizStore {
     required int score,
     required int total,
     DateTime? dailyOn,
+    List<bool>? marks,
   }) async {
     final current = await load();
     final updated = current.withResult(modeKey, score, total,
-        markDailyDoneOn: dailyOn);
+        markDailyDoneOn: dailyOn, marks: marks);
     _cached = updated;
     try {
       final file = await _storeFile();
@@ -152,6 +205,8 @@ class FileQuizStore implements QuizStore {
           },
           if (updated.dailyDoneDate != null)
             'dailyDoneDate': updated.dailyDoneDate,
+          if (updated.dailyFirst != null)
+            'dailyFirst': updated.dailyFirst!.toJson(),
         }));
         await tmp.rename(file.path);
       }
