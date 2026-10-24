@@ -11,7 +11,8 @@ below. Cycle S (PR #4) is merged into `main`, so T builds directly on it.
 
 Earlier specs: Q `84d5ed8`, R `a150c78`, S `28e5f1e` (each `<sha>:EXECUTION.md`).
 
-> Naming: this cycle's parts are **H-0 … H-9** ("hidden"). `S0`–`S5` name the
+> Naming: this cycle's parts are **H-B** (the baseline fix, first) and
+> **H-0 … H-9** ("hidden"). `S0`–`S5` name the
 > street-map speed plan and `D-0`–`D-4` name Cycle S.
 
 ## Audit of the previous plan
@@ -91,17 +92,8 @@ Read this first. It is everything a fresh session needs that is not in the code.
 - CI (`content-check`) runs only the content checks and the core_domain
   tests, so **the mobile and admin suites must be run by hand.**
 
-**The baseline is not fully green. Know these before starting:**
-- **Three mobile tests fail on `main` already**, since `0e23341` (the Hoàng Sa
-  / Trường Sa content):
-  - `bundled_content_test.dart` expects 10 standalone events (there are now
-    12);
-  - two `era_screens_test.dart` "Global Timeline" tests expect "38 kỷ nguyên ·
-    247 sự kiện" (now 249).
-  - These are hard-coded counts, not bugs in the app. Fix them to read the
-    counts from the content, the way `9386302` did for admin, in their own
-    commit before Cycle T's work.
-- **Known warnings, not errors:** `apps/mobile/pubspec.yaml` lists
+**The baseline is not fully green.** Three mobile tests fail on `main`; fix
+them first (**H-B** below). **Known warnings, not errors:** `apps/mobile/pubspec.yaml` lists
   `assets/content/chao-co/`, which does not exist. `tool/gen_media_manifest.dart`
   has 3 lint infos.
 
@@ -248,6 +240,39 @@ The reasoning for each, as it was offered:
   A revealed portrait keeps its frameless look.
 - **The character page lists the events the person appears in.** So a "which
   event" question can always be answered from the page the reader is on.
+
+## H-B — Baseline: fix the three count tests (do first, own commit)
+
+**Why.** Three mobile tests have failed on `main` since `0e23341` (Hoàng Sa /
+Trường Sa content). They hard-code content counts, and the content grew. The
+app is right; the tests are stale. Fix this first so every later failure in
+Cycle T is Cycle T's own. CI does not run the mobile suite, which is why it
+slipped through.
+
+| Test | Line | Expects | Content now has |
+|---|---|---|---|
+| `apps/mobile/test/bundled_content_test.dart` "the standalone events (listed by no era) load from the registry" | 34 | `hasLength(10)` | 12 standalone events |
+| `apps/mobile/test/era_screens_test.dart` "Global Timeline threads every era and its events into one chronology" | 1060 | `'38 kỷ nguyên · 247 sự kiện'` | 249 events |
+| `apps/mobile/test/era_screens_test.dart` "Global Timeline clearing the filter restores the full timeline" | 1141 | the same text | 249 events |
+
+**How.** Derive the numbers from the content files, the way `9386302` did for
+admin ("stop hard-coding the real content's event counts"). Don't just bump
+10 → 12 and 247 → 249: the next content pack would break them again.
+- **Standalone count:** `standaloneEventIds(eraJsons, allEventIds)` from
+  `core_domain` (`event_inlining.dart`), over `content/eras/*.json` and the ids
+  in `content/events.json`.
+  - Keep the two `contains(...)` checks; they test real behaviour.
+- **Timeline header:** the screen shows
+  `'$eraCount kỷ nguyên · $eventCount sự kiện'`
+  (`global_timeline_screen.dart:358`).
+  - `eraCount` is the eras in `content/index.json`.
+  - `eventCount` is every era's events plus the standalone events
+    (`global_timeline_screen.dart:56`): today 237 + 12 = 249.
+  - Build the expected string from those, in one helper both tests share.
+
+**Done when.** The full mobile suite passes on Flutter 3.44.9: 369 tests at
+`c839c75` (366 passing + these 3). Commit it alone:
+`test(mobile): read content counts instead of hard-coding them`.
 
 ## H-0 — Art (Higgsfield; ~3 images plus re-rolls)
 
