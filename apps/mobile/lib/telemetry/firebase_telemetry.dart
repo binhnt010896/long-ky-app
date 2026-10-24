@@ -42,4 +42,9 @@ class FirebaseTelemetry implements Telemetry {
     await _analytics.setAnalyticsCollectionEnabled(enabled);
     await _crashlytics.setCrashlyticsCollectionEnabled(enabled);
   }
+
+  /// Not sent to Firebase: GA4's numbers stay exactly as they were for the
+  /// release that compares them with PostHog's.
+  @override
+  Future<void> setCommonProperty(String key, Object value) async {}
 }

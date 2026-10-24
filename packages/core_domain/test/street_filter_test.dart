@@ -178,6 +178,13 @@ void main() {
           periodIds: {'nguyen'},
         );
 
+    test('the reserved "other" period is fine and files under Other', () {
+      expect(
+        run([{'type': 'person', 'id': 'p', 'era': '', 'period': 'other'}]),
+        isEmpty,
+      );
+    });
+
     test('a standalone person with a known period is fine', () {
       expect(
         run([{'type': 'person', 'id': 'p', 'era': '', 'period': 'nguyen'}]),

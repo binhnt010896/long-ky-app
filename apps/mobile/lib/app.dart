@@ -22,6 +22,9 @@ class VietSuApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final tier = ref.watch(tierProvider);
+    // Keeps `lang` / `content_version` on every event — see providers.dart.
+    // Before the observer below, so the first screen view carries them too.
+    ref.watch(telemetryCommonPropertiesProvider);
     // Instantiates the screen-view listener for the app's lifetime; also
     // ensures a router exists before we read it below.
     ref.watch(routeTelemetryObserverProvider);

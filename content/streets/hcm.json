@@ -983,6 +983,20 @@
       "reason": "exact"
     },
     {
+      "id": "hoang-sa",
+      "name": "Hoàng Sa",
+      "targets": [
+        {
+          "type": "event",
+          "id": "hoang-sa",
+          "era": "",
+          "period": "other"
+        }
+      ],
+      "status": "approved",
+      "reason": "manual"
+    },
+    {
       "id": "hoang-van-thai",
       "name": "Hoàng Văn Thái",
       "targets": [
@@ -3785,6 +3799,20 @@
       ],
       "status": "approved",
       "reason": "exact"
+    },
+    {
+      "id": "truong-sa",
+      "name": "Trường Sa",
+      "targets": [
+        {
+          "type": "event",
+          "id": "truong-sa",
+          "era": "",
+          "period": "other"
+        }
+      ],
+      "status": "approved",
+      "reason": "manual"
     },
     {
       "id": "tue-tinh",

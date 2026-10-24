@@ -7,7 +7,7 @@
 
 ## Tiếng Việt
 
-**Cập nhật lần cuối: 13/10/2026**
+**Cập nhật lần cuối: 23/10/2026**
 
 Long Ký ("ứng dụng") là ứng dụng đọc sử Việt do một cá nhân phát triển. Chúng
 tôi coi trọng quyền riêng tư của bạn. Chính sách này giải thích Long Ký thu
@@ -65,15 +65,21 @@ Có câu hỏi về quyền riêng tư? Liên hệ: **help@long-ky.com**
 
 ### 8. Thống kê sử dụng ẩn danh và báo lỗi
 
-Long Ký dùng Firebase Analytics và Firebase Crashlytics (của Google) để biết
-trang nào được xem nhiều và phát hiện lỗi/sự cố. Hai công cụ này ghi nhận:
-màn hình bạn xem, các thao tác trong ứng dụng (ví dụ: chơi Câu đố, mở Chào
-cờ, kéo bản đồ, mở mục ủng hộ), model máy và phiên bản hệ điều hành, quốc
-gia ước tính, và một mã định danh thiết bị ngẫu nhiên do Firebase tạo ra —
-không gắn với tên, email hay bất kỳ tài khoản nào của bạn. Khi ứng dụng gặp
-lỗi, thông tin về lỗi đó (không kèm nội dung bạn đang xem hay nhập) cũng
-được gửi để giúp sửa lỗi. Dữ liệu này do Google xử lý theo
-[Chính sách quyền riêng tư của Google](https://policies.google.com/privacy).
+Long Ký dùng Firebase Analytics, Firebase Crashlytics (của Google) và
+PostHog để biết trang nào được đọc nhiều, người đọc dừng lại ở mỗi trang bao
+lâu, và để phát hiện lỗi/sự cố. Các công cụ này ghi nhận: màn hình bạn xem
+và thời gian mỗi màn hình được mở, bạn cuộn trang sự kiện xuống đến đâu, các
+thao tác trong ứng dụng (ví dụ: chơi Câu đố, mở Chào cờ, nghe thuyết minh,
+kéo bản đồ, mở mục ủng hộ), ngôn ngữ đọc và phiên bản nội dung, model máy và
+phiên bản hệ điều hành, quốc gia ước tính, và một mã định danh thiết bị ngẫu
+nhiên do Firebase và PostHog tạo ra — không gắn với tên, email hay bất kỳ
+tài khoản nào của bạn. Ứng dụng không ghi hình hay quay lại màn hình của
+bạn. Khi ứng dụng gặp lỗi, thông tin về lỗi đó (không kèm nội dung bạn đang
+xem hay nhập) cũng được gửi để giúp sửa lỗi. Dữ liệu của Firebase do Google
+xử lý theo
+[Chính sách quyền riêng tư của Google](https://policies.google.com/privacy);
+dữ liệu của PostHog được lưu trên máy chủ của PostHog tại Hoa Kỳ và xử lý
+theo [Chính sách quyền riêng tư của PostHog](https://posthog.com/privacy).
 
 Bạn có thể tắt tính năng này bất cứ lúc nào tại **Sảnh → Về Long Ký →
 "Gửi thống kê ẩn danh"**. Mặc định tính năng này đang bật.
@@ -90,7 +96,7 @@ email này để sửa nội dung và trả lời bạn; ứng dụng không t�
 
 ## English
 
-**Last updated: October 13, 2026**
+**Last updated: October 23, 2026**
 
 Long Ký ("the app") is a Vietnamese-history reading app built by an
 independent developer. This policy explains what Long Ký collects — and,
@@ -147,15 +153,20 @@ Questions about privacy? Contact: **help@long-ky.com**
 ### 8. Anonymous usage statistics and crash reporting
 
 Long Ký uses Firebase Analytics and Firebase Crashlytics (both Google
-services) to see which pages get read and to catch crashes and errors.
-These record: which screens you view, in-app actions (e.g. playing Câu đố,
-opening Chào cờ, dragging the territory atlas, opening the tip sheet), your
-device model and OS version, an estimated country, and a random device
-identifier that Firebase generates — never your name, email, or any account
-of yours. When the app hits an error, information about that error (not the
+services) and PostHog to see which pages get read, how long readers stay on
+each, and to catch crashes and errors. These record: which screens you view
+and how long each stays open, how far down an event page you scroll, in-app
+actions (e.g. playing Câu đố, opening Chào cờ, listening to a narration,
+dragging the territory atlas, opening the tip sheet), your reading language
+and content version, your device model and OS version, an estimated country,
+and a random device identifier that Firebase and PostHog generate — never
+your name, email, or any account of yours. The app never records your
+screen. When the app hits an error, information about that error (not the
 content you were viewing or entering) is also sent, to help fix it. Google
-processes this data under its own
-[Privacy Policy](https://policies.google.com/privacy).
+processes the Firebase data under its own
+[Privacy Policy](https://policies.google.com/privacy); PostHog stores its
+data on its servers in the United States and processes it under its own
+[Privacy Policy](https://posthog.com/privacy).
 
 You can turn this off at any time under **Sảnh → Về Long Ký → "Share
 anonymous usage stats"**. It is on by default.

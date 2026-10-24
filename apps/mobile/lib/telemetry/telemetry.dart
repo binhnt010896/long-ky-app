@@ -30,6 +30,11 @@ abstract class Telemetry {
   /// Turns collection on/off at runtime — wired to the Về Long Ký switch.
   /// Applies to both Analytics and Crashlytics collection.
   Future<void> setEnabled(bool enabled);
+
+  /// Attaches [key] = [value] to every later screen view and event — the
+  /// reading language and the content-pack version (see app.dart), so any
+  /// insight can be split by them. Calling it again replaces the value.
+  Future<void> setCommonProperty(String key, Object value);
 }
 
 /// Errors that are normal operation, not faults. The street map's tile loader
@@ -62,6 +67,9 @@ class NoopTelemetry implements Telemetry {
 
   @override
   Future<void> setEnabled(bool enabled) async {}
+
+  @override
+  Future<void> setCommonProperty(String key, Object value) async {}
 }
 
 /// Picks the real implementation only where it can actually run: a release
