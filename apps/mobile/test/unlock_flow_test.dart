@@ -147,14 +147,16 @@ void main() {
     testWidgets('event page: hero is a mystery with a prompt; open shows none',
         (tester) async {
       await _pump(tester, _eventRoute, ExperienceTier.reduced);
-      expect(find.byType(MysteryArt), findsOneWidget);
+      // (A leader in the figure strip may be hidden too, so count the hero by
+      // its own tap target.)
+      expect(find.byType(MysteryArt), findsWidgets);
       expect(find.byKey(const ValueKey<String>('unlock-prompt')), findsOneWidget);
       expect(find.byKey(const ValueKey<String>('art-gate-tap')), findsOneWidget);
 
       await _pump(tester, _eventRoute, ExperienceTier.reduced,
           data: UnlockData(
               migrated: true, installSeed: 5, unlocked: {_eventKey}));
-      expect(find.byType(MysteryArt), findsNothing);
+      expect(find.byKey(const ValueKey<String>('art-gate-tap')), findsNothing);
       expect(find.byKey(const ValueKey<String>('unlock-prompt')), findsNothing);
     });
 
@@ -239,7 +241,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 800));
       await tester.pump(const Duration(milliseconds: 100));
       expect(find.byKey(const ValueKey<String>('reveal-caption')), findsNothing);
-      expect(find.byType(MysteryArt), findsNothing);
+      expect(find.byKey(const ValueKey<String>('unlock-prompt')), findsNothing);
       expect(tester.takeException(), isNull);
     });
 

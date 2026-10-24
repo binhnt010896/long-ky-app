@@ -1,3 +1,4 @@
+import '../character.dart';
 import '../era.dart';
 import '../today_pick.dart';
 import 'stable_hash.dart';
@@ -12,27 +13,50 @@ bool hasHiddenArt(Era era) {
   return start != null && start < kHiddenArtBeforeYear;
 }
 
+/// Rulers whose epithet does not say so ("Cháu nối nghiệp", "Lê Ngọa Triều"…).
+const Set<String> kRulerIds = <String>{
+  'kinh-duong-vuong',
+  'lac-long-quan',
+  'trieu-van-de',
+  'le-hoan',
+  'le-long-dinh',
+};
+
+final RegExp _rulerEpithet = RegExp(
+    r'Vua|Chúa|Hoàng đế|Nữ hoàng|Vương|Thủ lĩnh|Lãnh tụ|Thái Tổ|Thánh Tông|Bố Cái');
+
+/// Whether [c] is a king or leader: an era's first roster person ([isLead]), a
+/// ruler by epithet (Vua, Chúa, Hoàng đế, …Vương, Thủ lĩnh), or one of
+/// [kRulerIds]. Their portraits are always hidden.
+bool isRuler(Character c, {bool isLead = false}) =>
+    isLead ||
+    kRulerIds.contains(c.id) ||
+    _rulerEpithet.hasMatch(c.epithet?.vi ?? '');
+
 /// The [VisitKey]s (person and event) whose art starts hidden.
 ///
-/// Fixed by the content, the same for every reader: in each in-scope era, half
-/// of the roster and half of the events (rounded down), chosen by a stable
-/// hash of the id. An era's first roster person and first event are never
-/// hidden, so its hub always opens on a face and a picture. A person on two
-/// rosters is decided once, by id.
+/// Fixed by the content, the same for every reader. Every king or leader
+/// ([isRuler]) is hidden; on top of that, in each in-scope era the roster is
+/// hidden up to half (rounded down), and half of the events, chosen by a
+/// stable hash of the id. An era's first event is never hidden, so its hub
+/// always opens on a picture. A person on two rosters is decided once, by id.
 Set<String> hiddenArtKeys(Iterable<Era> eras) {
   final inScope = [for (final e in eras) if (hasHiddenArt(e)) e];
 
-  // The era leads are protected up front, so a later era can't hide an
-  // earlier era's lead person.
+  // The first event of each era is protected up front.
   final protected = <String>{
-    for (final era in inScope) ...[
-      if (era.characters.isNotEmpty) VisitKey.person(era.characters.first.id),
+    for (final era in inScope)
       if (era.events.isNotEmpty) VisitKey.event(era.events.first.id),
-    ],
   };
 
-  final hidden = <String>{};
-  final decided = <String>{};
+  // Every king and leader is hidden, wherever they sit.
+  final hidden = <String>{
+    for (final era in inScope)
+      for (var i = 0; i < era.characters.length; i++)
+        if (isRuler(era.characters[i], isLead: i == 0))
+          VisitKey.person(era.characters[i].id),
+  };
+  final decided = <String>{...hidden};
 
   void decide(List<String> keys) {
     final target = keys.length ~/ 2;

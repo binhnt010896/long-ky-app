@@ -43,23 +43,51 @@ void main() {
       expect(eras.where((e) => !hasHiddenArt(e)).first.slug, 'can-vuong');
     });
 
-    test('never hides an era lead, and hides about half of the rest', () {
+    test('hides every king and leader, and the rest down to half', () {
       for (final era in inScope) {
-        if (era.characters.isNotEmpty) {
-          expect(hidden, isNot(contains(VisitKey.person(era.characters.first.id))),
-              reason: '${era.slug} lead person');
+        for (var i = 0; i < era.characters.length; i++) {
+          final c = era.characters[i];
+          if (isRuler(c, isLead: i == 0)) {
+            expect(hidden, contains(VisitKey.person(c.id)),
+                reason: '${era.slug}: ${c.id} is a ruler');
+          }
         }
+        // The era's lead is always hidden.
+        if (era.characters.isNotEmpty) {
+          expect(hidden, contains(VisitKey.person(era.characters.first.id)),
+              reason: '${era.slug} lead');
+        }
+        // The first event is never hidden; half the events are.
         if (era.events.isNotEmpty) {
           expect(hidden, isNot(contains(VisitKey.event(era.events.first.id))),
               reason: '${era.slug} lead event');
         }
         final ev = era.events.where((e) => hidden.contains(VisitKey.event(e.id)));
         expect(ev.length, era.events.length ~/ 2, reason: '${era.slug} events');
+        // People: at least half, and more only to fit the rulers.
+        final rulers = [
+          for (var i = 0; i < era.characters.length; i++)
+            if (isRuler(era.characters[i], isLead: i == 0)) era.characters[i],
+        ];
         final pe =
             era.characters.where((c) => hidden.contains(VisitKey.person(c.id)));
-        expect(pe.length, lessThanOrEqualTo(era.characters.length ~/ 2),
+        expect(pe.length, greaterThanOrEqualTo(rulers.length));
+        expect(pe.length, greaterThanOrEqualTo(era.characters.length ~/ 2),
             reason: '${era.slug} people');
       }
+    });
+
+    test('recognises rulers by epithet and by id', () {
+      Character c(String id, String? ep) => Character(
+          id: id,
+          name: LocalizedText(vi: id),
+          epithet: ep == null ? null : LocalizedText(vi: ep));
+      expect(isRuler(c('a', 'Vua Âu Lạc')), isTrue);
+      expect(isRuler(c('b', 'Trưng Nữ Vương')), isTrue);
+      expect(isRuler(c('c', 'Hoàng đế thứ ba nhà Nguyễn')), isTrue);
+      expect(isRuler(c('d', 'Thái úy phá Tống')), isFalse);
+      expect(isRuler(c('trieu-van-de', 'Cháu nối nghiệp')), isTrue);
+      expect(isRuler(c('e', 'Tướng chế nỏ'), isLead: true), isTrue);
     });
 
     test('hides nothing outside the scope', () {
