@@ -4,10 +4,10 @@
 > **EXECUTION** (build it). This file is **rewritten in full** every planning
 > cycle and describes only the *current* target.
 
-**Status: Cycle T is PLANNED (2026-10-24), not started.** Nothing is built.
-**Waiting on the user:** the decisions in "Decide before building", then the
-go-ahead. **Depends on Cycle S** (PR #4, open, not merged): T reuses its visit
-store and its daily reminder, so PR #4 merges first.
+**Status: Cycle T is PLANNED and LOCKED (2026-10-24), ready to execute.**
+Nothing is built. The user accepted every recommendation in "Decisions"
+below. Cycle S (PR #4) is merged into `main`, so T builds directly on it.
+**Start with "Executing in a new session"** below.
 
 Earlier specs: Q `84d5ed8`, R `a150c78`, S `28e5f1e` (each `<sha>:EXECUTION.md`).
 
@@ -16,7 +16,7 @@ Earlier specs: Q `84d5ed8`, R `a150c78`, S `28e5f1e` (each `<sha>:EXECUTION.md`)
 
 ## Audit of the previous plan
 
-Cycle S (D-0 to D-3) is built and in PR #4: share the daily quiz, "Hôm nay"
+Cycle S (D-0 to D-3) is built and merged (PR #4): share the daily quiz, "Hôm nay"
 with an opt-in reminder, and a street map that fills in. Everything that was
 waiting on the user is still waiting (see `28e5f1e:EXECUTION.md`):
 1. The phone check on Android and iOS. The native changes were never built.
@@ -55,7 +55,96 @@ Cycle T adds a streak because the user asked for one. Two things follow:
 
 The streak applies only here. The quiz screen's own modes stay as they are.
 
-## Decide before building
+## Executing in a new session
+
+Read this first. It is everything a fresh session needs that is not in the code.
+
+**The toolchain is not in the container.** Install Flutter **3.44.9** (Dart
+3.12.2, the repo's floor: `pubspec.lock` says `flutter: ">=3.44.0"`).
+- The 1.5 GB download is often cut off by the proxy, so resume it in a loop
+  and check its sha256:
+  ```bash
+  mkdir -p /opt/fl && cd /opt/fl
+  F=flutter_linux_3.44.9-stable.tar.xz
+  U=https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/$F
+  for i in $(seq 1 40); do curl -sS -C - --retry 3 -o $F $U && break; sleep 3; done
+  echo "a9120fa4a01048bdef438ddc3a2d4b7389662ea98a95db86eeaf10382bc4efcb  $F" | sha256sum -c
+  tar xf $F
+  git config --global --add safe.directory /opt/fl/flutter
+  export PATH=/opt/fl/flutter/bin:$PATH FLUTTER_ALLOW_ROOT=1
+  ```
+  Running this in the background and waiting for it took about 5 minutes.
+- **Do not use a newer Flutter to write `pubspec.lock`.** 3.47 bumps six
+  SDK-pinned packages (`matcher`, `meta`, `test`, `test_api`, `test_core`,
+  `vector_math`) and picks `xml`/`petitparser` versions that need Dart 3.13.
+  Check after any dependency change:
+  `dart pub get --enforce-lockfile` on 3.44.9 must leave the lock unchanged.
+  Any new dependency must also resolve on Dart 3.12.
+
+**Checks, the same as Cycle S:**
+- `dart analyze --fatal-infos .` in each package.
+- `flutter test` in `packages/core_domain`, `packages/core_content`,
+  `apps/mobile` and `apps/admin`.
+- From the repo root: `dart run tool/validate_content.dart`,
+  `dart run tool/format_content.dart --check` and
+  `node --test tool/event_inline.test.mjs`.
+- CI (`content-check`) runs only the content checks and the core_domain
+  tests, so **the mobile and admin suites must be run by hand.**
+
+**The baseline is not fully green. Know these before starting:**
+- **Three mobile tests fail on `main` already**, since `0e23341` (the Hoàng Sa
+  / Trường Sa content):
+  - `bundled_content_test.dart` expects 10 standalone events (there are now
+    12);
+  - two `era_screens_test.dart` "Global Timeline" tests expect "38 kỷ nguyên ·
+    247 sự kiện" (now 249).
+  - These are hard-coded counts, not bugs in the app. Fix them to read the
+    counts from the content, the way `9386302` did for admin, in their own
+    commit before Cycle T's work.
+- **Known warnings, not errors:** `apps/mobile/pubspec.yaml` lists
+  `assets/content/chao-co/`, which does not exist. `tool/gen_media_manifest.dart`
+  has 3 lint infos.
+
+**Art.**
+- The content images are git-ignored, so they are not in a fresh checkout.
+  Fetch from the CDN with a user agent (a bare client gets 403):
+  `curl -A "Mozilla/5.0" https://media.binh-nt.dev/media/<key>`, where the
+  key comes from `content/media-manifest.json`.
+- Measured 2026-10-24:
+  - avatars are 2048 × 2048;
+  - full bodies are 1696 × 2528 (about 2:3);
+  - **event heroes are mixed, mostly 3:2 landscape** (2528 × 1696, one 1600 ×
+    1073) with some portrait (1122 × 1402). The hero box is 356 px tall,
+    full width, `BoxFit.cover`, top-centre.
+- **H-0 is therefore a 3:2 hero placeholder** with everything that matters,
+  the "?" area included, in the centre, so any crop keeps it.
+- Higgsfield needs its connector in the session. If it is not connected, build
+  H-1 to H-9 with a plain coded placeholder and add the art last.
+
+**Commits and branches.**
+- Work on a branch, never on `main`.
+- One commit per part (H-0 … H-9), plus the baseline fix first.
+- Open a PR when it is built and give the PR link.
+
+**The rule change.** The streak deliberately overrides the "no streaks, no
+nags" rule (see below). The user is updating their local CLAUDE.md. If a
+session still sees that rule, this file's locked decision wins for Cycle T.
+
+## Decisions (locked 2026-10-24: every recommendation accepted)
+
+In short:
+1. Hide a fixed half, chosen by stable hash; the era's first person and first
+   event are never hidden.
+2. Pre-unlock pages the reader already opened.
+3. The daily gift is a tap on a Home chip and a Sảnh card, never a pop-up.
+4. 3 quiz unlocks a day.
+5. A missed day resets the streak; one freeze earned per 7 days, at most 2.
+6. A bonus unlock at 7, 30 and 100 days.
+7. The page quiz is inline, not a modal.
+8. The "?" is drawn in code; Higgsfield makes the frame and silhouette only.
+9. Only the image is hidden.
+
+The reasoning for each, as it was offered:
 
 1. **Which half is hidden.** I recommend **fixed by the content**, the same for
    every reader:
@@ -169,7 +258,7 @@ They then work offline, and old builds never see them.
 |---|---|---|
 | `assets/mystery/avatar.png` | 1:1, ≥ 1024 px | avatar tiles |
 | `assets/mystery/full.png` | 2:3, ≥ 1024 × 1536 | the character page's full body |
-| `assets/mystery/hero.png` | the heroes' aspect (**measure a local hero at execution**: the CDN returned 403 to a direct fetch) | the event hero |
+| `assets/mystery/hero.png` | **3:2**, ≥ 2528 × 1696, centred so a `cover` crop at any width keeps it (heroes are mostly 3:2, some 4:5) | the event hero |
 
 - **The brief:**
   - Lacquer-painting style matching the app (deep lacquer red-black, gold
@@ -342,7 +431,7 @@ baseline there.
 - **Ship:**
   - **App release only.** No content change, assets bundled.
   - **Old builds** see no change.
-  - **Order:** merge PR #4, then build T.
+  - **Order:** PR #4 is merged; fix the three baseline test counts first, then T.
 - **On a phone:**
   - first launch for a new reader, and for one with history (pre-unlock);
   - the gift and its animation;
