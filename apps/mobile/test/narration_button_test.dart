@@ -108,6 +108,46 @@ void main() {
     expect(find.text('Tự phát lời kể?'), findsNothing);
   });
 
+  testWidgets('asks once when an earlier page is still in the route stack',
+      (tester) async {
+    final store = _MemStore();
+    final player = _FakePlayer();
+    final nav = GlobalKey<NavigatorState>();
+    await tester.pumpWidget(ProviderScope(
+      overrides: [
+        narrationStoreProvider.overrideWithValue(store),
+        narrationPlayerProvider.overrideWithValue(player),
+        telemetryProvider.overrideWithValue(_Events()),
+        narrationManifestLoaderProvider.overrideWithValue(
+            () async => {'eras/ngo-quyen': 'v1', 'people/ngo-quyen': 'v1'}),
+      ],
+      child: MaterialApp(
+        navigatorKey: nav,
+        home: const Scaffold(
+          body: NarrationButton(kind: NarrationKind.era, id: 'ngo-quyen'),
+        ),
+      ),
+    ));
+    await tester.pump();
+    await tester.pump();
+    nav.currentState!.push(MaterialPageRoute<void>(
+      builder: (_) => const Scaffold(
+        body: NarrationButton(kind: NarrationKind.person, id: 'ngo-quyen'),
+      ),
+    ));
+    await tester.pumpAndSettle();
+    expect(find.byIcon(Icons.pause), findsOneWidget);
+
+    await tester.tap(find.byKey(const Key('narration-button')));
+    await tester.pumpAndSettle();
+    expect(find.text('Tự phát lời kể?'), findsOneWidget);
+
+    await tester.tap(find.text('Giữ'));
+    await tester.pumpAndSettle();
+    expect(find.text('Tự phát lời kể?'), findsNothing);
+    expect(store.prefs.popupAsked, isTrue);
+  });
+
   testWidgets('hides itself in English', (tester) async {
     final player = _FakePlayer();
     await tester.pumpWidget(ProviderScope(

@@ -98,9 +98,11 @@ class _NarrationButtonState extends ConsumerState<NarrationButton> {
         _leave(_key);
       }
     });
+    // Pages lower in the route stack keep their buttons mounted; only the one
+    // for the current page asks, or the reader gets a dialog per page.
     ref.listen<bool>(narrationProvider.select((s) => s.askPending),
         (prev, ask) {
-      if (ask) _askKeepAutoplay();
+      if (ask && ref.read(narrationProvider).key == _key) _askKeepAutoplay();
     });
     final s = ref.watch(narrationProvider);
     if (ref.watch(langProvider) != Lang.vi || s.key != _key || s.failed) {
