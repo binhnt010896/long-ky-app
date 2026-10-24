@@ -97,6 +97,8 @@ flutter:
   assets:
     # Brand assets (Long Ký logo / seal).
     - assets/brand/
+    # Cycle T: the placeholders shown where art is still hidden.
+    - assets/mystery/
     # Canonical content lives at repo-root content/; assets/content is a
     # symlink to it. Era MEDIA (images/video) is served from the R2 CDN and
     # published with tool/sync_media.sh — see content_assets.dart — so only
