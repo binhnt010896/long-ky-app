@@ -1,8 +1,10 @@
+import 'dart:convert';
+
 import 'package:core_domain/core_domain.dart';
 import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:http/http.dart' as http;
 import 'package:ui_kit/ui_kit.dart';
 
 import '../screens/sanh/about_screen.dart' show kAppVersion;
@@ -11,8 +13,9 @@ import '../state/providers.dart';
 import '../telemetry/telemetry.dart';
 import '../widgets/circle_icon_button.dart';
 
-/// Where reader feedback goes — the "Báo sai sót" sheet and the disclaimer
-/// page both use it, so changing the inbox is this one line plus a release.
+/// The inbox for reader feedback. The disclaimer page shows it as a contact
+/// address; the "Báo sai sót" sheet never uses it — reports go through
+/// [kFeedbackApiUrl], whose server holds the destination.
 const String kFeedbackEmail = 'help@long-ky.com';
 
 /// What the reader says looks wrong.
@@ -94,16 +97,31 @@ String feedbackBody({
   ].join('\n');
 }
 
-/// A `mailto:` link. Spaces are encoded as `%20`, not the `+` that
-/// [Uri.queryParameters] would use, which mail apps show literally.
-Uri feedbackMailto({required String subject, required String body}) {
-  return Uri(
-    scheme: 'mailto',
-    path: kFeedbackEmail,
-    query: 'subject=${Uri.encodeComponent(subject)}'
-        '&body=${Uri.encodeComponent(body)}',
-  );
-}
+/// Where reports are posted. `services/feedback_api` emails them from
+/// admin@long-ky.com to [kFeedbackEmail], so the reader never supplies an
+/// address. Override per build with `--dart-define=FEEDBACK_API_URL=https://…`.
+const String kFeedbackApiUrl = String.fromEnvironment(
+  'FEEDBACK_API_URL',
+  defaultValue: 'https://feedback.long-ky.com/feedback',
+);
+
+/// Posts one report; true once the server has sent it. A seam so tests never
+/// touch the network.
+final feedbackSenderProvider =
+    Provider<Future<bool> Function(String subject, String body)>(
+        (ref) => (subject, body) async {
+              final res = await http
+                  .post(
+                    Uri.parse(kFeedbackApiUrl),
+                    headers: const <String, String>{
+                      'Content-Type': 'application/json',
+                    },
+                    body: jsonEncode(
+                        <String, String>{'subject': subject, 'body': body}),
+                  )
+                  .timeout(const Duration(seconds: 15));
+              return res.statusCode >= 200 && res.statusCode < 300;
+            });
 
 /// The quiet "Báo sai sót" button for a detail page's top bar.
 class FeedbackButton extends ConsumerWidget {
@@ -148,8 +166,8 @@ Future<void> showFeedbackSheet(
   );
 }
 
-/// Pick what looks wrong, add an optional note, and send it as an email
-/// draft from the reader's own mail app. Nothing is stored or sent by us.
+/// Pick what looks wrong, add an optional note, and send it. The report is
+/// emailed by our server, so the reader needs no mail app and gives no address.
 class FeedbackSheet extends ConsumerStatefulWidget {
   const FeedbackSheet({required this.target, super.key});
 
@@ -163,8 +181,10 @@ class _FeedbackSheetState extends ConsumerState<FeedbackSheet> {
   final TextEditingController _note = TextEditingController();
   FeedbackKind? _kind;
 
-  /// The prepared message, shown once the mail app failed to open.
-  String? _fallback;
+  bool _sending = false;
+
+  /// The last send failed; the form stays so the reader can try again.
+  bool _failed = false;
 
   @override
   void dispose() {
@@ -184,16 +204,30 @@ class _FeedbackSheetState extends ConsumerState<FeedbackSheet> {
     final subject = feedbackSubject(widget.target);
     final body = feedbackBody(
         target: widget.target, ctx: ctx, kind: kind, note: _note.text);
-    var opened = false;
+    setState(() {
+      _sending = true;
+      _failed = false;
+    });
+    var sent = false;
     try {
-      opened = await ref.read(urlOpenerProvider)(
-          feedbackMailto(subject: subject, body: body));
+      sent = await ref.read(feedbackSenderProvider)(subject, body);
     } catch (_) {}
     if (!mounted) return;
-    if (opened) {
+    if (sent) {
+      ref.read(telemetryProvider).event('feedback_sent', <String, Object>{
+        'type': widget.target.type,
+        'id': widget.target.id,
+      });
+      ScaffoldMessenger.maybeOf(context)?.showSnackBar(SnackBar(
+        content: Text(
+            lang == Lang.en ? 'Thanks, report sent' : 'Đã gửi, cảm ơn bạn'),
+      ));
       Navigator.of(context).pop();
     } else {
-      setState(() => _fallback = '$subject\n\n$body');
+      setState(() {
+        _sending = false;
+        _failed = true;
+      });
     }
   }
 
@@ -201,7 +235,6 @@ class _FeedbackSheetState extends ConsumerState<FeedbackSheet> {
   Widget build(BuildContext context) {
     final lang = ref.watch(langProvider);
     final en = lang == Lang.en;
-    final fallback = _fallback;
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.only(
@@ -211,9 +244,7 @@ class _FeedbackSheetState extends ConsumerState<FeedbackSheet> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: fallback == null
-                ? _form(lang, en)
-                : _fallbackView(fallback, en),
+            children: _form(lang, en),
           ),
         ),
       ),
@@ -271,71 +302,36 @@ class _FeedbackSheetState extends ConsumerState<FeedbackSheet> {
           ),
         ),
       ),
+      if (_failed) ...<Widget>[
+        const SizedBox(height: VSSpacing.sm),
+        Text(
+          key: const Key('feedback-error'),
+          en
+              ? "Couldn't send. Check your connection and try again."
+              : 'Không gửi được. Hãy kiểm tra kết nối và thử lại.',
+          style: VSType.bodySmall.copyWith(color: VSColors.inkMuted),
+        ),
+      ],
       const SizedBox(height: VSSpacing.sm),
       Align(
         alignment: Alignment.centerRight,
         child: TextButton.icon(
           key: const Key('feedback-send'),
-          onPressed: _kind == null ? null : () => _send(lang),
-          icon: Icon(Icons.mail_outline,
+          onPressed: _kind == null || _sending ? null : () => _send(lang),
+          icon: Icon(Icons.send_outlined,
               size: 18,
-              color: _kind == null ? VSColors.inkFaint : VSColors.goldBright),
+              color: _kind == null || _sending
+                  ? VSColors.inkFaint
+                  : VSColors.goldBright),
           label: Text(
-            en ? 'Send email' : 'Gửi email',
+            _sending
+                ? (en ? 'Sending…' : 'Đang gửi…')
+                : (en ? 'Send' : 'Gửi'),
             style: VSType.label.copyWith(
-              color: _kind == null ? VSColors.inkFaint : VSColors.goldBright,
+              color: _kind == null || _sending
+                  ? VSColors.inkFaint
+                  : VSColors.goldBright,
             ),
-          ),
-        ),
-      ),
-    ];
-  }
-
-  List<Widget> _fallbackView(String message, bool en) {
-    return <Widget>[
-      Text(
-        en ? 'No mail app opened' : 'Không mở được ứng dụng email',
-        style: VSType.title.copyWith(color: VSColors.goldBright, fontSize: 18),
-      ),
-      const SizedBox(height: VSSpacing.sm),
-      Text(
-        en
-            ? 'Copy the message below and email it to:'
-            : 'Hãy sao chép nội dung dưới đây và gửi email tới:',
-        style: VSType.bodySmall,
-      ),
-      const SizedBox(height: VSSpacing.xs),
-      SelectableText(
-        kFeedbackEmail,
-        style: VSType.body.copyWith(color: VSColors.goldBright),
-      ),
-      const SizedBox(height: VSSpacing.md),
-      Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(VSSpacing.md),
-        decoration: BoxDecoration(
-          borderRadius: VSRadii.cardAll,
-          border: Border.all(color: VSColors.goldBorder),
-        ),
-        child: SelectableText(message, style: VSType.bodySmall),
-      ),
-      const SizedBox(height: VSSpacing.sm),
-      Align(
-        alignment: Alignment.centerRight,
-        child: TextButton.icon(
-          key: const Key('feedback-copy'),
-          onPressed: () async {
-            final messenger = ScaffoldMessenger.maybeOf(context);
-            await Clipboard.setData(
-                ClipboardData(text: 'To: $kFeedbackEmail\n$message'));
-            messenger?.showSnackBar(SnackBar(
-              content: Text(en ? 'Copied' : 'Đã sao chép'),
-            ));
-          },
-          icon: const Icon(Icons.copy, size: 18, color: VSColors.goldBright),
-          label: Text(
-            en ? 'Copy' : 'Sao chép',
-            style: VSType.label.copyWith(color: VSColors.goldBright),
           ),
         ),
       ),

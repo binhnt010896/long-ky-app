@@ -53,10 +53,13 @@ void showReminderRefused(BuildContext context, bool en) {
 /// Offers the daily reminder **once**, whatever the answer — never again
 /// (the switch in Sảnh stays). Called after the first finished daily quiz and
 /// after the first time the reader opens "Hôm nay", never at launch.
-Future<void> maybeOfferReminder(BuildContext context, WidgetRef ref) async {
+Future<void> maybeOfferReminder(BuildContext context, WidgetRef ref,
+    {bool again = false}) async {
   if (ref.read(reminderSchedulerProvider) is NoopReminderScheduler) return;
   final prefs = await ref.read(todayPrefsProvider.future);
-  if (prefs.asked || prefs.reminderOn || !context.mounted) return;
+  // [again]: the periodic re-offer (every 5th gift) ignores the one-time flag,
+  // but never asks a reader who already has the reminder on.
+  if ((prefs.asked && !again) || prefs.reminderOn || !context.mounted) return;
   // Marked before it is shown, so an interruption can't make it ask twice.
   await ref.read(todayPrefsProvider.notifier).markAsked();
   if (!context.mounted) return;

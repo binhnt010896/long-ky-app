@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../screens/today/reminder_sheet.dart';
 import '../../state/providers.dart';
 import '../../state/unlock_store.dart';
 import '../../theme/content_assets.dart';
@@ -71,8 +72,10 @@ final unlockedArtProvider = FutureProvider.family<UnlockedArt?, String>((
 });
 
 /// Opens today's gift sheet: the gift to open, or — once opened — what it was.
-Future<void> showGiftSheet(BuildContext context) {
-  return showModalBottomSheet<void>(
+Future<void> showGiftSheet(BuildContext context, WidgetRef ref) async {
+  final before = (await ref.read(unlockProvider.future)).giftClaims;
+  if (!context.mounted) return;
+  await showModalBottomSheet<void>(
     context: context,
     isScrollControlled: true,
     backgroundColor: VSColors.lacquerRaised,
@@ -81,6 +84,11 @@ Future<void> showGiftSheet(BuildContext context) {
     ),
     builder: (_) => const _GiftSheet(),
   );
+  // Every 5th gift opened, offer the daily reminder again if it is still off.
+  final after = ref.read(unlockProvider).valueOrNull?.giftClaims ?? before;
+  if (after > before && after % kGiftReminderEvery == 0 && context.mounted) {
+    await maybeOfferReminder(context, ref, again: true);
+  }
 }
 
 class _GiftSheet extends ConsumerStatefulWidget {
@@ -119,7 +127,13 @@ class _GiftSheetState extends ConsumerState<_GiftSheet> {
     final art = key == null
         ? null
         : ref.watch(unlockedArtProvider(key)).valueOrNull;
-    final progress = ref.watch(unlockProgressProvider);
+    // Counted here from the same data, not read from unlockProgressProvider:
+    // that one is derived, and reading it first from inside the sheet's build
+    // would notify the cards underneath mid-build.
+    final hiddenKeys = ref.watch(hiddenArtProvider);
+    final progress = UnlockProgress(
+        data == null ? 0 : hiddenKeys.where(data.unlocked.contains).length,
+        hiddenKeys.length);
     final streak = data?.streak;
     // A lost streak is told once: remember it for this sheet, then clear it.
     if (!_lostChecked && data != null && (justOpened || openedToday)) {
@@ -423,7 +437,7 @@ class _GiftChipState extends ConsumerState<GiftChip>
     return GestureDetector(
       key: const ValueKey<String>('home-gift-chip'),
       behavior: HitTestBehavior.opaque,
-      onTap: () => showGiftSheet(context),
+      onTap: () => showGiftSheet(context, ref),
       child: AnimatedBuilder(
         animation: _glow,
         builder: (context, child) => Container(
@@ -523,7 +537,7 @@ class _GiftCardState extends ConsumerState<GiftCard> {
           children: <Widget>[
             GestureDetector(
               behavior: HitTestBehavior.opaque,
-              onTap: () => showGiftSheet(context),
+              onTap: () => showGiftSheet(context, ref),
               child: Row(
                 children: <Widget>[
                   Expanded(

@@ -17,6 +17,10 @@ import 'visit_store.dart';
 /// everything and the daily gift would stop mattering.
 const int kQuizUnlocksPerDay = 3;
 
+/// Every this many gifts opened, the daily reminder is offered again while it
+/// is off.
+const int kGiftReminderEvery = 5;
+
 /// Everything the unlock game remembers, on this device only.
 class UnlockData {
   const UnlockData({
@@ -29,6 +33,7 @@ class UnlockData {
     this.migrated = false,
     this.installSeed = 0,
     this.lostStreak = 0,
+    this.giftClaims = 0,
   });
 
   /// [VisitKey]s whose art has been opened.
@@ -53,6 +58,10 @@ class UnlockData {
   /// A streak just lost and not yet told to the reader (0 = nothing to say).
   final int lostStreak;
 
+  /// How many daily gifts have been opened, ever. Every [kGiftReminderEvery]th
+  /// one offers the daily reminder again, if it is still off.
+  final int giftClaims;
+
   bool giftOpenedOn(DateTime day) => giftDate == dayKey(day);
 
   int quizUnlocksOn(DateTime day) => quizDay == dayKey(day) ? quizCount : 0;
@@ -67,6 +76,7 @@ class UnlockData {
     bool? migrated,
     int? installSeed,
     int? lostStreak,
+    int? giftClaims,
   }) =>
       UnlockData(
         unlocked: unlocked ?? this.unlocked,
@@ -78,6 +88,7 @@ class UnlockData {
         migrated: migrated ?? this.migrated,
         installSeed: installSeed ?? this.installSeed,
         lostStreak: lostStreak ?? this.lostStreak,
+        giftClaims: giftClaims ?? this.giftClaims,
       );
 
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -95,6 +106,7 @@ class UnlockData {
         'migrated': migrated,
         'installSeed': installSeed,
         'lostStreak': lostStreak,
+        'giftClaims': giftClaims,
       };
 
   /// Anything unreadable falls back to the default for that field.
@@ -122,6 +134,7 @@ class UnlockData {
       migrated: raw['migrated'] == true,
       installSeed: nonNeg(raw['installSeed']),
       lostStreak: nonNeg(raw['lostStreak']),
+      giftClaims: nonNeg(raw['giftClaims']),
     );
   }
 }
@@ -302,6 +315,7 @@ class UnlockNotifier extends AsyncNotifier<UnlockData> {
     d = counted.copyWith(
       giftDate: dayKey(now),
       giftKey: key,
+      giftClaims: d.giftClaims + 1,
       unlocked: key == null ? null : <String>{...d.unlocked, key},
     );
     final bonus = _applyMilestone(adv, d);

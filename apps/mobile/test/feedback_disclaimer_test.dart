@@ -6,7 +6,6 @@ import 'package:core_content/testing.dart';
 import 'package:core_domain/core_domain.dart';
 import 'package:experience/experience.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -85,9 +84,12 @@ class _Store implements TelemetrySettingsStore {
 }
 
 class _Harness {
-  _Harness(this.router, this.opened, this.telemetry);
+  _Harness(this.router, this.opened, this.sent, this.telemetry);
   final GoRouter router;
   final List<Uri> opened;
+
+  /// The (subject, body) of every report posted to the feedback server.
+  final List<(String, String)> sent;
   final _Events telemetry;
   /// The top page's location — a `push` leaves the configuration's uri alone.
   String get location =>
@@ -95,8 +97,9 @@ class _Harness {
 }
 
 Future<_Harness> _pump(WidgetTester tester, String location,
-    {Lang lang = Lang.vi, bool opens = true}) async {
+    {Lang lang = Lang.vi, bool opens = true, bool delivers = true}) async {
   final opened = <Uri>[];
+  final sent = <(String, String)>[];
   final telemetry = _Events();
   final container = ProviderContainer(overrides: [
     contentRepositoryProvider.overrideWithValue(ContentRepository(_Content())),
@@ -107,6 +110,10 @@ Future<_Harness> _pump(WidgetTester tester, String location,
     urlOpenerProvider.overrideWithValue((uri) async {
       opened.add(uri);
       return opens;
+    }),
+    feedbackSenderProvider.overrideWithValue((subject, body) async {
+      sent.add((subject, body));
+      return delivers;
     }),
   ]);
   addTearDown(container.dispose);
@@ -120,7 +127,7 @@ Future<_Harness> _pump(WidgetTester tester, String location,
   ));
   router.go(location);
   await _settle(tester);
-  return _Harness(router, opened, telemetry);
+  return _Harness(router, opened, sent, telemetry);
 }
 
 /// Each async hop (redirect, content futures) needs its own frame.
@@ -149,7 +156,7 @@ void main() {
     view.devicePixelRatio = 1.0;
   });
 
-  group('the mailto draft', () {
+  group('the report text', () {
     const target = FeedbackTarget(
       type: 'event',
       id: 'tran-hung-dao',
@@ -173,24 +180,6 @@ void main() {
       expect(body, contains('Bản nội dung: 7'));
       expect(body, contains('Ứng dụng: 1.1.2 (android)'));
       expect(body, contains('Ngôn ngữ: vi'));
-    });
-
-    test('Vietnamese, spaces, & and newlines survive the encoding', () {
-      final subject = feedbackSubject(target);
-      final body = feedbackBody(target: target, ctx: ctx, kind: FeedbackKind.text);
-      final uri = feedbackMailto(subject: subject, body: body);
-      final raw = uri.toString();
-      expect(raw, startsWith('mailto:$kFeedbackEmail?subject='));
-      // `+` would show literally in mail apps; `&` inside a value would split it.
-      expect(raw, isNot(contains('+')));
-      expect(raw, contains('%20'));
-      expect(raw, contains('%26'));
-      final parts = Map<String, String>.fromEntries(uri.query.split('&').map((p) {
-        final i = p.indexOf('=');
-        return MapEntry(p.substring(0, i), Uri.decodeComponent(p.substring(i + 1)));
-      }));
-      expect(parts['subject'], subject);
-      expect(parts['body'], body);
     });
 
     test('kFeedbackEmail is the one address', () {
@@ -219,24 +208,25 @@ void main() {
     }
   });
 
-  testWidgets('sending opens a mail draft with the page details', (tester) async {
+  testWidgets('sending posts the report with the page details', (tester) async {
     final h = await _pump(tester, '/su-kien/$_aloneEvent');
     await tester.tap(find.byKey(FeedbackButton.buttonKey));
     await _settle(tester);
     expect(h.telemetry.events.single.$2,
         <String, Object>{'type': 'event', 'id': _aloneEvent});
     await _fillAndSend(tester);
-    final uri = h.opened.single;
-    expect(uri.scheme, 'mailto');
-    expect(uri.path, kFeedbackEmail);
-    final decoded = Uri.decodeComponent(uri.query);
-    expect(decoded, contains('Báo sai sót: Sự kiện riêng (event $_aloneEvent)'));
-    expect(decoded, contains('Sai ở đâu: Nội dung'));
-    expect(decoded, contains('Ghi chú: Sai năm'));
-    expect(decoded, contains('Trang: /su-kien/$_aloneEvent'));
-    expect(decoded, contains('Bản nội dung: 42'));
-    // The sheet closes once the mail app has it.
+    final (subject, body) = h.sent.single;
+    expect(subject, '[Long Ký] Báo sai sót: Sự kiện riêng (event $_aloneEvent)');
+    expect(body, contains('Sai ở đâu: Nội dung'));
+    expect(body, contains('Ghi chú: Sai năm'));
+    expect(body, contains('Trang: /su-kien/$_aloneEvent'));
+    expect(body, contains('Bản nội dung: 42'));
+    // Never the reader's own mail app.
+    expect(h.opened, isEmpty);
+    // The sheet closes once the server has it, and says thanks.
     expect(find.byType(FeedbackSheet), findsNothing);
+    expect(find.text('Đã gửi, cảm ơn bạn'), findsOneWidget);
+    expect(h.telemetry.events.map((e) => e.$1), contains('feedback_sent'));
   });
 
   testWidgets('Send waits for a choice', (tester) async {
@@ -245,33 +235,22 @@ void main() {
     await _settle(tester);
     await tester.tap(find.byKey(const Key('feedback-send')));
     await _settle(tester);
-    expect(h.opened, isEmpty);
+    expect(h.sent, isEmpty);
   });
 
-  testWidgets('with no mail app, show the address and a Copy button',
+  testWidgets('a failed send keeps the form and lets the reader retry',
       (tester) async {
-    String? copied;
-    tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
-        SystemChannels.platform, (call) async {
-      if (call.method == 'Clipboard.setData') {
-        copied = (call.arguments as Map)['text'] as String;
-      }
-      return null;
-    });
-    addTearDown(() => tester.binding.defaultBinaryMessenger
-        .setMockMethodCallHandler(SystemChannels.platform, null));
-
-    await _pump(tester, '/nhan-vat/$_alonePerson', opens: false);
+    final h = await _pump(tester, '/nhan-vat/$_alonePerson', delivers: false);
     await tester.tap(find.byKey(FeedbackButton.buttonKey));
     await _settle(tester);
     await _fillAndSend(tester);
     expect(find.byType(FeedbackSheet), findsOneWidget);
-    expect(find.text(kFeedbackEmail), findsOneWidget);
-    await tester.tap(find.byKey(const Key('feedback-copy')));
-    await tester.pump();
-    expect(copied, startsWith('To: $kFeedbackEmail'));
-    expect(copied, contains('(person $_alonePerson)'));
-    expect(copied, contains('Ghi chú: Sai năm'));
+    expect(find.byKey(const Key('feedback-error')), findsOneWidget);
+    expect(find.text('Sai năm'), findsOneWidget);
+    expect(h.telemetry.events.map((e) => e.$1), isNot(contains('feedback_sent')));
+    await tester.tap(find.byKey(const Key('feedback-send')));
+    await _settle(tester);
+    expect(h.sent, hasLength(2));
   });
 
   testWidgets('a swipe in the era pager reports the event on screen',

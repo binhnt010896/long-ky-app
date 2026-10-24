@@ -348,6 +348,41 @@ void main() {
       expect(find.text('🔥 Chuỗi 3 ngày'), findsOneWidget);
     });
 
+    testWidgets('every 5th gift offers the reminder again, only while it is off',
+        (tester) async {
+      Future<void> claimFifth() async {
+        await tester.tap(find.text('Một bức ảnh đang chờ'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byKey(const ValueKey<String>('gift-open')));
+        await tester.pump();
+        await tester.pump(const Duration(seconds: 1));
+        await tester.pumpAndSettle();
+        // Close the gift sheet.
+        await tester.tapAt(const Offset(195, 40));
+        await tester.pumpAndSettle();
+      }
+
+      final day = DateTime(2026, 10, 24, 9);
+      const fourth = UnlockData(migrated: true, installSeed: 5, giftClaims: 4);
+      await _pump(tester, '/sanh', ExperienceTier.reduced,
+          now: day, data: fourth);
+      await claimFifth();
+      expect(find.byKey(const ValueKey<String>('reminder-sheet-time')),
+          findsOneWidget);
+      await tester.tapAt(const Offset(195, 40));
+      await tester.pumpAndSettle();
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpAndSettle();
+
+      // Not the 5th claim: no offer.
+      await _pump(tester, '/sanh', ExperienceTier.reduced,
+          now: day,
+          data: const UnlockData(migrated: true, installSeed: 5, giftClaims: 2));
+      await claimFifth();
+      expect(find.byKey(const ValueKey<String>('reminder-sheet-time')),
+          findsNothing);
+    });
+
     testWidgets('a lost streak is said once, calmly', (tester) async {
       final day = DateTime(2026, 10, 24, 9);
       final c = await _pump(tester, '/sanh', ExperienceTier.reduced,
