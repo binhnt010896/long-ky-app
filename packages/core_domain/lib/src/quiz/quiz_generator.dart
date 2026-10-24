@@ -5,6 +5,8 @@ import '../era.dart';
 import '../history_event.dart';
 import '../localized_text.dart';
 import '../people.dart';
+import '../today_pick.dart' show VisitKey;
+import '../unlock/stable_hash.dart';
 import 'question.dart';
 
 /// The scope a quiz draws its questions from.
@@ -425,6 +427,162 @@ class QuizGenerator {
     }
     return out;
   }
+
+  // ---- one question about one page ----------------------------------------
+
+  /// One question about the person or event named by [visitKey] (a
+  /// [VisitKey.person] or [VisitKey.event]), for the unlock quiz on its page.
+  /// Seeded by the key alone, so a revisit asks the same question. Null for
+  /// any other key, an unknown id, or an item too thin to ask about fairly.
+  McqQuestion? questionFor(String visitKey) {
+    final rng = Random(stableHash(visitKey));
+    if (visitKey.startsWith('event:')) {
+      final id = visitKey.substring('event:'.length);
+      final ee = _findEvent(id);
+      if (ee == null) return null;
+      final global = _allEvents();
+      final scope = <_EE>[ee];
+      final options = <Question>[
+        ..._buildYear(scope, global, rng),
+        ..._buildWho(scope, rng),
+        ..._buildQuote(scope, global, rng),
+        ..._buildEra(scope, rng),
+      ];
+      if (options.isEmpty) return null;
+      return options[rng.nextInt(options.length)] as McqQuestion;
+    }
+    if (visitKey.startsWith('person:')) {
+      final id = visitKey.substring('person:'.length);
+      final options = <McqQuestion>[
+        ?_personEventQuestion(id, rng),
+        ?_personEraQuestion(id, rng),
+        ?_epithetQuestion(id, rng),
+      ];
+      if (options.isEmpty) return null;
+      return options[rng.nextInt(options.length)];
+    }
+    return null;
+  }
+
+  _EE? _findEvent(String id) {
+    for (final era in eras) {
+      for (final e in era.events) {
+        if (e.id == id) return (era, e);
+      }
+    }
+    return null;
+  }
+
+  /// The era whose roster holds [id] and the events of it they appear in —
+  /// the first roster that has at least one, so the question has a source.
+  (Era, Character, List<HistoryEvent>)? _personHome(String id) {
+    for (final era in eras) {
+      final c = era.figureById(id);
+      if (c == null) continue;
+      final events = era.eventsWithFigure(id);
+      if (events.isNotEmpty) return (era, c, events);
+    }
+    return null;
+  }
+
+  McqQuestion? _personEventQuestion(String id, Random rng) {
+    final home = _personHome(id);
+    if (home == null) return null;
+    final (era, c, events) = home;
+    final correct = events[rng.nextInt(events.length)];
+    final mine = <String>{for (final e in events) e.id};
+    // Other eras first: an event of the same era is too easy to guess by name.
+    final distractors = _pickFarObjects<_EE>(
+      correct: (era, correct),
+      preferred: [
+        for (final e in eras)
+          if (e.slug != era.slug)
+            for (final ev in e.events)
+              if (!mine.contains(ev.id)) (e, ev),
+      ],
+      fallback: [
+        for (final ev in era.events)
+          if (!mine.contains(ev.id)) (era, ev),
+      ],
+      idOf: (e) => e.$2.id,
+      rng: rng,
+      need: 3,
+    );
+    if (distractors.length < 3) return null;
+    final options = <_EE>[...distractors, (era, correct)]..shuffle(rng);
+    return McqQuestion(
+      type: QuestionType.personEvent,
+      prompt: _l(
+        '${c.name.vi} gắn với sự kiện nào?',
+        'Which event is ${c.name.en ?? c.name.vi} tied to?',
+      ),
+      options: <LocalizedText>[for (final o in options) o.$2.title],
+      correctIndex: options.indexWhere((o) => o.$2.id == correct.id),
+      source: _sourceOf((era, correct)),
+    );
+  }
+
+  McqQuestion? _personEraQuestion(String id, Random rng) {
+    final home = _personHome(id);
+    if (home == null) return null;
+    final (era, c, events) = home;
+    final samePeriod =
+        eras.where((e) => e.slug != era.slug && e.period == era.period);
+    final distractors = _pickFarObjects<Era>(
+      correct: era,
+      preferred: samePeriod,
+      fallback: eras.where((e) => e.slug != era.slug),
+      idOf: (e) => e.slug,
+      rng: rng,
+      need: 3,
+    );
+    if (distractors.length < 3) return null;
+    final options = <Era>[...distractors, era]..shuffle(rng);
+    return McqQuestion(
+      type: QuestionType.personEra,
+      prompt: _l(
+        '${c.name.vi} sống vào thời nào?',
+        'In which era did ${c.name.en ?? c.name.vi} live?',
+      ),
+      options: <LocalizedText>[for (final e in options) e.title],
+      correctIndex: options.indexWhere((e) => e.slug == era.slug),
+      source: _sourceOf((era, events.first)),
+    );
+  }
+
+  McqQuestion? _epithetQuestion(String id, Random rng) {
+    final home = _personHome(id);
+    if (home == null) return null;
+    final (era, c, events) = home;
+    final epithet = c.epithet;
+    if (epithet == null) return null;
+    final distractors = _pickFarObjects<Character>(
+      correct: c,
+      preferred: era.characters.where(_askable),
+      fallback: [
+        for (final e in eras)
+          for (final o in e.characters)
+            if (_askable(o)) o,
+      ],
+      idOf: (o) => o.id,
+      rng: rng,
+      need: 3,
+    );
+    if (distractors.length < 3) return null;
+    final options = <Character>[...distractors, c]..shuffle(rng);
+    return McqQuestion(
+      type: QuestionType.epithet,
+      prompt: _l(
+        'Ai được gọi là «${epithet.vi}»?',
+        'Who is called "${epithet.en ?? epithet.vi}"?',
+      ),
+      options: <LocalizedText>[for (final o in options) o.name],
+      correctIndex: options.indexWhere((o) => o.id == c.id),
+      source: _sourceOf((era, events.first)),
+    );
+  }
+
+  bool _askable(Character c) => !excludedLeaderIds.contains(c.id);
 
   // ---- shared helpers -----------------------------------------------------
 

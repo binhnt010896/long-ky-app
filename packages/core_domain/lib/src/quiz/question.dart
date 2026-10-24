@@ -3,10 +3,15 @@ import 'package:meta/meta.dart';
 import '../citation.dart';
 import '../localized_text.dart';
 
-/// The five question shapes Câu đố can generate. Every question is built from
+/// The question shapes Câu đố can generate. Every question is built from
 /// content already published in `content/` — no question text is hand-written,
 /// so every answer traces back to a real event and its citation.
-enum QuestionType { year, who, quote, order, era }
+///
+/// The last three are about one person and only come from
+/// `QuizGenerator.questionFor` (the unlock quiz on a hidden portrait):
+/// [personEvent] "which event", [personEra] "which era" and [epithet] "who is
+/// called …".
+enum QuestionType { year, who, quote, order, era, personEvent, personEra, epithet }
 
 /// Where a generated question points back to, for the "Đọc sự kiện" link and
 /// the visible citation shown after answering.

@@ -30,4 +30,8 @@ export 'src/street_map/street_matcher.dart';
 export 'src/street_map/street_name.dart';
 export 'src/street_map/street_validator.dart';
 export 'src/today_pick.dart';
+export 'src/unlock/daily_gift.dart';
+export 'src/unlock/hidden_art.dart';
+export 'src/unlock/stable_hash.dart';
+export 'src/unlock/streak.dart';
 export 'src/year.dart';
