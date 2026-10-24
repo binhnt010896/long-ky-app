@@ -8,6 +8,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 import '../../state/media_prefetch.dart';
 import '../../state/providers.dart';
+import '../../state/unlock_store.dart';
 import '../../theme/era_palette_mapping.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
@@ -239,6 +240,7 @@ class _HubBody extends StatelessWidget {
               _ChronicleCard(source: era.primarySource, lang: lang),
               if (era.characters.isNotEmpty) ...<Widget>[
                 const SizedBox(height: VSSpacing.xl),
+                _EraUnlockHeader(slug: era.slug),
                 EventFigures(figures: era.characters, slug: era.slug, lang: lang),
               ],
               const SizedBox(height: VSSpacing.xxl),
@@ -410,6 +412,39 @@ class _QuizLink extends StatelessWidget {
         lang == Lang.vi
             ? 'Thử sức kỷ nguyên này ›'
             : 'Test yourself on this era ›',
+        style: VSType.caption.copyWith(color: VSColors.goldBright),
+      ),
+    );
+  }
+}
+
+/// "3/6 chân dung · 2/6 tranh sự kiện": how much of this era's hidden art is
+/// open. Nothing for an era whose art is not hidden (the photographed ones).
+class _EraUnlockHeader extends ConsumerWidget {
+  const _EraUnlockHeader({required this.slug});
+
+  final String slug;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final p = ref.watch(eraUnlockProgressProvider(slug));
+    if (p == null) return const SizedBox.shrink();
+    final en = ref.watch(langProvider) == Lang.en;
+    final parts = <String>[
+      if (p.peopleTotal > 0)
+        en
+            ? '${p.peopleOpened}/${p.peopleTotal} portraits'
+            : '${p.peopleOpened}/${p.peopleTotal} chân dung',
+      if (p.eventsTotal > 0)
+        en
+            ? '${p.eventsOpened}/${p.eventsTotal} event pictures'
+            : '${p.eventsOpened}/${p.eventsTotal} tranh sự kiện',
+    ];
+    return Padding(
+      padding: const EdgeInsets.only(bottom: VSSpacing.sm),
+      child: Text(
+        parts.join(' · '),
+        key: const ValueKey<String>('era-unlock-header'),
         style: VSType.caption.copyWith(color: VSColors.goldBright),
       ),
     );

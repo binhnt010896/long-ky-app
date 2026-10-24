@@ -174,9 +174,9 @@ void main() {
       final en = buildReminderEntries(
           context: ctx, now: DateTime(2026, 10, 23, 7, 0), minutes: 480, lang: Lang.en);
       final pick = ctx.viewFor(DateTime(2026, 10, 23))!;
-      expect(vi.first.body, pick.title.vi);
+      expect(vi.first.body, '${pick.title.vi} · Quà hôm nay đang chờ bạn');
       expect(vi.first.title, todayKicker(pick.item, Lang.vi));
-      expect(en.first.body, pick.title.en);
+      expect(en.first.body, "${pick.title.en} · Today's gift is waiting");
       expect(en.first.title, todayKicker(pick.item, Lang.en));
     });
 

@@ -60,7 +60,8 @@ class DailyFirst {
 /// Câu đố's whole remembered state: the best score per scope, which calendar
 /// day's "Câu đố hôm nay" was last completed (so its card can show a ✓ without
 /// needing to re-run the quiz), and how that day's first attempt went (for the
-/// share card). No streaks, no history beyond this — see the delicate-UI rule.
+/// share card). No history beyond this. The app's one streak lives in the unlock feature
+/// (unlock_store.dart), by the user's decision of 2026-10-24.
 class QuizProgress {
   const QuizProgress({
     this.bests = const <String, BestScore>{},

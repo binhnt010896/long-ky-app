@@ -19,6 +19,7 @@ import '../../widgets/circle_icon_button.dart';
 import '../../widgets/flag_mark.dart';
 import '../../widgets/lang_toggle.dart';
 import '../../widgets/seal_button.dart';
+import '../../widgets/unlock/daily_gift.dart';
 import '../../widgets/tea_cups_icon.dart';
 import '../chao_co/chao_co_screen.dart';
 import '../home/widgets/particle_field.dart';
@@ -268,6 +269,7 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
                   _rise(i++, const _BrandLockup()),
                   const SizedBox(height: VSSpacing.xxl),
                   _rise(i++, const TodayCard()),
+                  _rise(i++, const GiftCard()),
                   _rise(i++, _ChaoCoCard(en: en)),
                   const SizedBox(height: VSSpacing.lg),
                   _rise(i++, _StreetsCard(en: en)),

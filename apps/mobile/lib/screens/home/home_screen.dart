@@ -14,6 +14,7 @@ import '../../telemetry/telemetry.dart';
 import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/seal_button.dart';
+import '../../widgets/unlock/daily_gift.dart';
 import 'widgets/era_scene_view.dart';
 import 'widgets/home_coachmarks.dart';
 
@@ -468,6 +469,13 @@ class _DynastyChrome extends ConsumerWidget {
                 ),
               ),
             ],
+          ),
+          const Align(
+            alignment: Alignment.centerRight,
+            child: Padding(
+              padding: EdgeInsets.only(top: VSSpacing.sm),
+              child: GiftChip(),
+            ),
           ),
         ],
       ),

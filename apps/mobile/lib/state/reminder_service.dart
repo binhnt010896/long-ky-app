@@ -10,6 +10,7 @@ import '../telemetry/telemetry.dart';
 import 'providers.dart';
 import 'today_provider.dart';
 import 'today_store.dart';
+import 'unlock_store.dart';
 
 /// How many days ahead the reminder is scheduled. Small on purpose: iOS keeps
 /// only 64 pending notifications per app, and the schedule is rebuilt on every
@@ -66,7 +67,7 @@ List<ReminderEntry> buildReminderEntries({
       id: at.year * 10000 + at.month * 100 + at.day,
       at: at,
       title: todayKicker(view.item, lang),
-      body: view.title.resolve(lang),
+      body: '${view.title.resolve(lang)} · ${lang == Lang.en ? "Today's gift is waiting" : 'Quà hôm nay đang chờ bạn'}',
     ));
   }
   return entries;
@@ -210,6 +211,8 @@ final reminderSchedulerProvider = Provider<ReminderScheduler>((ref) {
 /// Completes when the reader comes back from the page.
 Future<void> openToday(WidgetRef ref, {required String source}) {
   ref.read(todayPrefsProvider.notifier).markOpened(DateTime.now());
+  // With nothing left to unlock, opening "Hôm nay" is what keeps the streak.
+  ref.read(unlockProvider.notifier).countToday();
   _logOpen(ref.read(telemetryProvider), source);
   return ref.read(routerProvider).push<void>('/hom-nay');
 }

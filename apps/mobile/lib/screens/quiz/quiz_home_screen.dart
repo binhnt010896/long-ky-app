@@ -12,8 +12,9 @@ import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
 
 /// Câu đố's landing screen: three ways to play, each remembering its own
-/// best score. No streaks, badges or leaderboards — just "have you played
-/// today" and "what's your best" (the delicate-UI rule).
+/// best score. No badges or leaderboards — just "have you played today" and
+/// "what's your best". The quiz modes keep no streak: the one streak lives in
+/// the unlock feature (the daily gift), by the user's decision of 2026-10-24.
 class QuizHomeScreen extends ConsumerWidget {
   const QuizHomeScreen({super.key});
 
