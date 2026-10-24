@@ -7,7 +7,7 @@
 
 ## Tiếng Việt
 
-**Cập nhật lần cuối: 23/10/2026**
+**Cập nhật lần cuối: 24/10/2026**
 
 Long Ký ("ứng dụng") là ứng dụng đọc sử Việt do một cá nhân phát triển. Chúng
 tôi coi trọng quyền riêng tư của bạn. Chính sách này giải thích Long Ký thu
@@ -45,7 +45,9 @@ cảm ơn.
 Ứng dụng lưu một số dữ liệu nhỏ ngay trên máy của bạn (không gửi lên máy chủ
 nào của chúng tôi): gói nội dung đã tải để dùng khi không có mạng, và điểm
 số/tiến trình Câu đố (điểm tốt nhất theo từng chế độ, và ngày bạn đã hoàn
-thành câu đố hôm nay). Dữ liệu này chỉ tồn tại trên thiết bị của bạn; xoá
+thành câu đố hôm nay), những trang bạn đã mở, và tiến trình mở khóa hình ảnh
+(những hình đã mở, quà hằng ngày, chuỗi ngày và số lượt mở khóa trong ngày).
+Dữ liệu này chỉ tồn tại trên thiết bị của bạn; xoá
 ứng dụng sẽ xoá luôn dữ liệu này.
 
 ### 5. Không dành riêng cho trẻ em, nhưng phù hợp mọi lứa tuổi
@@ -70,7 +72,8 @@ PostHog để biết trang nào được đọc nhiều, người đọc dừng 
 lâu, và để phát hiện lỗi/sự cố. Các công cụ này ghi nhận: màn hình bạn xem
 và thời gian mỗi màn hình được mở, bạn cuộn trang sự kiện xuống đến đâu, các
 thao tác trong ứng dụng (ví dụ: chơi Câu đố, mở Chào cờ, nghe thuyết minh,
-kéo bản đồ, mở mục ủng hộ), ngôn ngữ đọc và phiên bản nội dung, model máy và
+kéo bản đồ, mở mục ủng hộ, mở quà hằng ngày hoặc mở khóa một hình ảnh, giữ
+hay mất chuỗi ngày), ngôn ngữ đọc và phiên bản nội dung, model máy và
 phiên bản hệ điều hành, quốc gia ước tính, và một mã định danh thiết bị ngẫu
 nhiên do Firebase và PostHog tạo ra — không gắn với tên, email hay bất kỳ
 tài khoản nào của bạn. Ứng dụng không ghi hình hay quay lại màn hình của
@@ -92,11 +95,21 @@ những gì có trong bản nháp (trang đang xem, phiên bản ứng dụng v�
 ngôn ngữ, cùng ghi chú của bạn) kèm địa chỉ email của bạn. Chúng tôi chỉ dùng
 email này để sửa nội dung và trả lời bạn; ứng dụng không tự lưu hay gửi gì.
 
+### 10. Nhắc nhở hằng ngày (thông báo)
+
+Nếu bạn đồng ý, Long Ký có thể nhắc bạn mỗi ngày một trang sử, kèm lời nhắc
+quà hằng ngày. Ứng dụng chỉ hỏi sau khi bạn đã dùng một thời gian, và hỏi
+lại, nhẹ nhàng, sau mỗi 5 lần bạn mở quà nếu bạn chưa bật. Đây là thông báo
+cục bộ do chính điện thoại của bạn lên lịch: không dùng thông báo đẩy từ máy
+chủ, không gửi gì ra ngoài, và ứng dụng chỉ xin quyền thông báo của hệ điều
+hành sau khi bạn chọn bật. Bạn có thể tắt bất cứ lúc nào tại **Sảnh** hoặc
+trong phần Cài đặt của điện thoại.
+
 ---
 
 ## English
 
-**Last updated: October 23, 2026**
+**Last updated: October 24, 2026**
 
 Long Ký ("the app") is a Vietnamese-history reading app built by an
 independent developer. This policy explains what Long Ký collects — and,
@@ -133,7 +146,9 @@ transaction's outcome (succeeded/failed) to show a thank-you message.
 The app stores a small amount of data on your own device only (never sent
 to any server we run): a downloaded content pack for offline use, and your
 quiz progress (best score per mode, and whether you've completed today's
-quiz). This data lives only on your device; uninstalling the app removes it.
+quiz), the pages you have opened, and your picture-unlock progress (which
+pictures are open, the daily gift, your streak and today's unlock count). This
+data lives only on your device; uninstalling the app removes it.
 
 ### 5. Not directed at children, but suitable for all ages
 
@@ -157,7 +172,8 @@ services) and PostHog to see which pages get read, how long readers stay on
 each, and to catch crashes and errors. These record: which screens you view
 and how long each stays open, how far down an event page you scroll, in-app
 actions (e.g. playing Câu đố, opening Chào cờ, listening to a narration,
-dragging the territory atlas, opening the tip sheet), your reading language
+dragging the territory atlas, opening the tip sheet, opening the daily gift
+or unlocking a picture, keeping or losing a streak), your reading language
 and content version, your device model and OS version, an estimated country,
 and a random device identifier that Firebase and PostHog generate — never
 your name, email, or any account of yours. The app never records your
@@ -179,3 +195,13 @@ yourself, and contains only what the draft shows (the page, the app and
 content versions, the language, and your note) plus your email address. We
 use it only to fix the content and to reply to you; the app itself stores
 and sends nothing.
+
+### 10. Daily reminders (notifications)
+
+If you agree, Long Ký can remind you once a day with a page of history and a
+note that your daily gift is waiting. The app asks only after you have used it
+for a while, and gently asks again after every 5th gift you open if the
+reminder is still off. These are local notifications scheduled by your own
+phone: no server push, nothing is sent anywhere, and the app asks for the
+system's notification permission only after you choose to turn it on. You can
+turn it off at any time in the **Sảnh** or in your phone's Settings.

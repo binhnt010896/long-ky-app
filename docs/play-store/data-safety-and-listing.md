@@ -14,7 +14,8 @@ the app has changed since this was drafted.
 - **Data collected:**
   - **App activity → App interactions** (screens viewed and how long each
     stays open, how far an event page is scrolled, in-app actions such as
-    Câu đố/Chào cờ/atlas/narration/tip usage) — Purpose: **Analytics**.
+    Câu đố/Chào cờ/atlas/narration/tip usage, and the daily gift, picture
+    unlocks and streak events) — Purpose: **Analytics**.
     Optional (the in-app switch, default on).
   - **App info and performance → Crash logs, Diagnostics** — Purpose:
     **Analytics, App functionality**. Optional (same switch).
@@ -30,6 +31,12 @@ the app has changed since this was drafted.
   if the form asks about them explicitly, note "processed by Google Play
   Billing for purchases; standard CDN server logs for content delivery, not
   linked to identity."
+- **Notifications (Cycle T):** the optional daily reminder uses *local*
+  notifications scheduled on the device (no FCM/push, no server). The
+  `POST_NOTIFICATIONS` permission is requested at runtime only after the
+  reader opts in. Nothing about it is collected or shared, so no extra Data
+  safety row is needed. Unlock progress and the streak live in `unlocks.json`
+  on the device only.
 - **Is all user data encrypted in transit?** **Yes.**
 - **Does your app allow users to request data deletion?** The in-app switch
   stops collection going forward; Firebase's and PostHog's instance
