@@ -291,6 +291,19 @@ void main() {
           overrides: <Override>[langProvider.overrideWith((ref) => Lang.en)]);
       expect(find.text('EXPLORE'), findsOneWidget);
     });
+
+    testWidgets('KHÁM PHÁ clears an Android 3-button navigation bar',
+        (tester) async {
+      // 48 logical px at the test view's 3.0 device pixel ratio.
+      tester.view.padding = const FakeViewPadding(bottom: 144);
+      addTearDown(tester.view.resetPadding);
+      await _pumpHub(tester, _twoDynasties());
+
+      final screenHeight =
+          tester.view.physicalSize.height / tester.view.devicePixelRatio;
+      expect(tester.getBottomLeft(find.text('KHÁM PHÁ')).dy,
+          lessThanOrEqualTo(screenHeight - 48));
+    });
   });
 
   group('period rail (Cycle J)', () {

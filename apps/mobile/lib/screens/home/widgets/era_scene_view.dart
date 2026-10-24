@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:core_domain/core_domain.dart';
 import 'package:flutter/foundation.dart' show ValueListenable;
 import 'package:flutter/material.dart';
@@ -5,6 +7,12 @@ import 'package:ui_kit/ui_kit.dart';
 
 import '../../era/widgets/era_scene_backdrop.dart';
 import '../../../theme/era_palette_mapping.dart';
+
+/// Bottom inset of Home's bottom-center cluster (era strip + explore
+/// affordance): 40px, raised when the system navigation bar would cover it
+/// (Android 3-button nav draws over the edge-to-edge app).
+double homeBottomInset(BuildContext context) =>
+    math.max(40, MediaQuery.paddingOf(context).bottom + VSSpacing.md);
 
 /// One full-bleed era page in the Home stack: the shared parallax backdrop plus
 /// the home hero copy (bottom-left). Works at every tier.
@@ -82,10 +90,11 @@ class _EraHero extends StatelessWidget {
       alignment: Alignment.bottomLeft,
       child: Padding(
         // Bottom inset clears the era-position strip and explore affordance
-        // (home_screen.dart's _DynastyPage, anchored bottom-center with its own
-        // 40px inset) so the subtitle never sits under the gold indicator at
-        // phone height.
-        padding: const EdgeInsets.fromLTRB(VSSpacing.xxl, 0, 56, 160),
+        // (home_screen.dart's _DynastyPage, anchored bottom-center at
+        // [homeBottomInset]) so the subtitle never sits under the gold
+        // indicator at phone height.
+        padding: EdgeInsets.fromLTRB(
+            VSSpacing.xxl, 0, 56, 120 + homeBottomInset(context)),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,

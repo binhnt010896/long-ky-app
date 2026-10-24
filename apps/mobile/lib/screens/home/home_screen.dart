@@ -332,7 +332,7 @@ class _DynastyPageState extends State<_DynastyPage> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Padding(
-            padding: const EdgeInsets.only(bottom: 40),
+            padding: EdgeInsets.only(bottom: homeBottomInset(context)),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
