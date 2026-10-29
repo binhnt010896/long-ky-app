@@ -98,14 +98,15 @@
             <figcaption>{{final.scan}}</figcaption>
           </figure>
           <div class="get__links">
-            <a class="store" href="/get/" aria-label="{{final.play}} — {{final.playSub}}">
+            <a class="store" href="{{final.iosBetaUrl}}" target="_blank" rel="noopener" aria-label="{{final.ios}} — {{final.iosSub}}">
+              {{{iconApple}}}
+              <span><small>{{final.iosSub}}</small>{{final.ios}}</span>
+            </a>
+            <!-- Without JS the link still works: it opens a mail to help@. -->
+            <a class="store" href="mailto:help@long-ky.com?subject={{tester.mailSubject}}" data-tester-open aria-haspopup="dialog" aria-label="{{final.play}} — {{final.playSub}}">
               {{{iconPlay}}}
               <span><small>{{final.playSub}}</small>{{final.play}}</span>
             </a>
-            <div class="store store--soon" role="group" aria-label="{{final.ios}} — {{final.iosSub}}">
-              {{{iconApple}}}
-              <span><small>{{final.iosSub}}</small>{{final.ios}}</span>
-            </div>
           </div>
         </div>
 
@@ -119,6 +120,27 @@
     <p><a href="{{privacyPath}}">{{footer.privacy}}</a> · <a href="mailto:help@long-ky.com">help@long-ky.com</a></p>
     <p class="foot__ai">{{footer.ai}}</p>
   </footer>
+
+  <dialog class="tester" data-tester aria-labelledby="tester-title">
+    <form class="tester__form" method="dialog" data-api="{{{testerApi}}}" data-lang="{{lang}}" data-sending="{{tester.sending}}" data-invalid="{{tester.invalid}}" data-error="{{tester.error}}" novalidate>
+      <button class="tester__x" type="button" data-tester-close aria-label="{{tester.close}}">{{{iconX}}}</button>
+      <span class="tester__icon">{{{iconPlay}}}</span>
+      <h2 class="tester__title" id="tester-title">{{tester.title}}</h2>
+      <div class="tester__ask">
+        <p>{{tester.body}}</p>
+        <label class="tester__label" for="tester-email">{{tester.label}}</label>
+        <input class="tester__input" id="tester-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" maxlength="254" placeholder="{{tester.placeholder}}" required aria-describedby="tester-msg">
+        <!-- Honeypot: hidden from people, filled by bots. -->
+        <input class="tester__hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="tester__msg" id="tester-msg" data-tester-msg role="status" aria-live="polite">{{tester.note}}</p>
+        <button class="btn tester__send" type="submit" data-tester-send>{{tester.send}}</button>
+      </div>
+      <div class="tester__done" hidden>
+        <p>{{tester.done}}</p>
+        <button class="btn" type="button" data-tester-close>{{tester.close}}</button>
+      </div>
+    </form>
+  </dialog>
 
   <div class="dock" data-dock hidden>
     <a class="btn" href="#download">{{download}}</a>

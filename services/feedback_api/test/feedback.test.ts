@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import { type Env, MAX_BODY, createApp } from '../src/index';
+import { type Env, createApp } from '../src/index';
+import { MAX_BODY, MAX_EMAIL } from '../src/report';
 
 const env = {
   RESEND_API_KEY: 're_test',
@@ -13,9 +14,9 @@ const good = {
   body: 'Sai ở đâu: Nội dung\nGhi chú: Sai năm',
 };
 
-function post(app: ReturnType<typeof createApp>, payload: unknown, e: Env = env) {
+function post(app: ReturnType<typeof createApp>, payload: unknown, e: Env = env, path = '/feedback') {
   return app.request(
-    '/feedback',
+    path,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -101,5 +102,63 @@ describe('POST /feedback', () => {
   it('allows any origin (the web build posts cross-origin)', async () => {
     const res = await post(createApp(vi.fn()), good);
     expect(res.headers.get('access-control-allow-origin')).toBe('*');
+  });
+});
+
+describe('POST /tester', () => {
+  const ask = { email: 'reader@gmail.com', lang: 'en' };
+  const postTester = (app: ReturnType<typeof createApp>, payload: unknown, e: Env = env) =>
+    post(app, payload, e, '/tester');
+
+  it('emails help@ with the visitor as reply_to', async () => {
+    const fetchMock = vi
+      .spyOn(globalThis, 'fetch')
+      .mockResolvedValue(new Response('{"id":"x"}', { status: 200 }));
+    const res = await postTester(createApp(), { ...ask, email: '  reader@gmail.com ' });
+    expect(res.status).toBe(200);
+    const sent = JSON.parse(fetchMock.mock.calls[0]![1]!.body as string);
+    expect(sent.from).toBe('admin@long-ky.com');
+    expect(sent.to).toEqual(['help@long-ky.com']);
+    expect(sent.reply_to).toBe('reader@gmail.com');
+    expect(sent.subject).toBe('[Long Ký] Closed testing (Android): reader@gmail.com');
+    expect(sent.text).toContain('Email: reader@gmail.com');
+    expect(sent.text).toContain('Page language: en');
+    fetchMock.mockRestore();
+  });
+
+  it.each([
+    ['not JSON', 'nope'],
+    ['no email', { lang: 'vi' }],
+    ['not an address', { email: 'reader' }],
+    ['header injection', { email: 'a@b.co\r\nBcc: x@y.z' }],
+    ['two addresses', { email: 'a@b.co, c@d.co' }],
+    ['too long', { email: `${'x'.repeat(MAX_EMAIL)}@b.co` }],
+  ])('400 for %s, and sends nothing', async (_name, payload) => {
+    const send = vi.fn();
+    const res = await postTester(createApp(send), payload);
+    expect(res.status).toBe(400);
+    expect(send).not.toHaveBeenCalled();
+  });
+
+  it('says ok to a filled honeypot but sends nothing', async () => {
+    const send = vi.fn();
+    const res = await postTester(createApp(send), { ...ask, website: 'http://spam' });
+    expect(res.status).toBe(200);
+    expect(send).not.toHaveBeenCalled();
+  });
+
+  it('429 when rate limited', async () => {
+    const send = vi.fn();
+    const limited = { ...env, RATE_LIMITER: { limit: async () => ({ success: false }) } } as Env;
+    const res = await postTester(createApp(send), ask, limited);
+    expect(res.status).toBe(429);
+    expect(send).not.toHaveBeenCalled();
+  });
+
+  it('502 when the mail relay fails', async () => {
+    const send = vi.fn().mockRejectedValue(new Error('boom'));
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    const res = await postTester(createApp(send), ask);
+    expect(res.status).toBe(502);
   });
 });

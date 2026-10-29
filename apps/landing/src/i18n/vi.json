@@ -37,9 +37,10 @@
     "scan": "Quét bằng điện thoại",
     "scanAria": "Mã QR tải Long Ký",
     "play": "Google Play",
-    "playSub": "Sắp ra mắt",
+    "playSub": "Thử nghiệm kín",
     "ios": "App Store",
-    "iosSub": "Sắp ra mắt",
+    "iosSub": "Thử nghiệm công khai · TestFlight",
+    "iosBetaUrl": "https://testflight.apple.com/join/h8mbDKKk",
     "support": "Cần giúp đỡ, hoặc thấy một chỗ sai?",
     "supportCta": "help@long-ky.com"
   },
@@ -65,5 +66,19 @@
     "description": "Long Ký không thu thập dữ liệu cá nhân. Chính sách này giải thích ứng dụng thu thập gì, và quan trọng hơn, không thu thập gì."
   },
   "privacyPath": "/privacy/",
-  "altPrivacyPath": "/en/privacy/"
+  "altPrivacyPath": "/en/privacy/",
+  "tester": {
+    "title": "Tham gia thử nghiệm kín trên Android",
+    "body": "Hiện Google Play chỉ cho người được mời cài Long Ký. Hãy để lại email tài khoản Google trên điện thoại của bạn: chúng tôi sẽ thêm bạn vào danh sách và gửi lại đường dẫn tải.",
+    "label": "Email tài khoản Google",
+    "placeholder": "ban@gmail.com",
+    "note": "Email chỉ dùng để thêm bạn vào thử nghiệm và trả lời bạn.",
+    "send": "Gửi",
+    "sending": "Đang gửi…",
+    "invalid": "Email này có vẻ chưa đúng.",
+    "error": "Chưa gửi được. Hãy thử lại, hoặc viết cho help@long-ky.com.",
+    "done": "Đã gửi. Chúng tôi sẽ email cho bạn ngay khi thêm bạn vào danh sách, thường trong vòng một ngày.",
+    "close": "Đóng",
+    "mailSubject": "Long%20K%C3%BD%20-%20Th%E1%BB%AD%20nghi%E1%BB%87m%20k%C3%ADn%20Android"
+  }
 }

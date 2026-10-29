@@ -1,6 +1,8 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 
+import { type Mail, SUBJECT_PREFIX, parseReport, parseTesterRequest } from './report';
+
 /** Everything the Worker reads from wrangler.toml. */
 export interface Env {
   /** Resend API key — the one secret; `wrangler secret put RESEND_API_KEY`. */
@@ -11,15 +13,11 @@ export interface Env {
   RATE_LIMITER?: { limit(opts: { key: string }): Promise<{ success: boolean }> };
 }
 
-export const MAX_SUBJECT = 200;
-export const MAX_BODY = 4000;
-const SUBJECT_PREFIX = '[Long Ký] ';
+export type Sender = (env: Env, mail: Mail) => Promise<void>;
 
-export type Sender = (env: Env, report: { subject: string; body: string }) => Promise<void>;
-
-/** Plain text from FEEDBACK_FROM to FEEDBACK_TO. No reply_to: the reader
- * never gives us an address, and nothing here asks for one. */
-const sendViaResend: Sender = async (env, { subject, body }) => {
+/** Plain text from FEEDBACK_FROM to FEEDBACK_TO. App reports carry no
+ * reply_to: the reader never gives us an address, and nothing asks for one. */
+const sendViaResend: Sender = async (env, { subject, body, replyTo }) => {
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
@@ -31,28 +29,11 @@ const sendViaResend: Sender = async (env, { subject, body }) => {
       to: [env.FEEDBACK_TO],
       subject,
       text: body,
+      ...(replyTo ? { reply_to: replyTo } : {}),
     }),
   });
   if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
 };
-
-/** The report, if [json] is one; otherwise why not. */
-export function parseReport(
-  json: unknown,
-): { subject: string; body: string } | { error: string } {
-  if (typeof json !== 'object' || json === null) return { error: 'expected a JSON object' };
-  const { subject, body } = json as Record<string, unknown>;
-  if (typeof subject !== 'string' || typeof body !== 'string') {
-    return { error: 'subject and body must be strings' };
-  }
-  // A header value: one line only, or a sender could inject headers.
-  if (/[\r\n]/.test(subject)) return { error: 'subject must be a single line' };
-  if (!subject.startsWith(SUBJECT_PREFIX) || subject.length > MAX_SUBJECT) {
-    return { error: 'invalid subject' };
-  }
-  if (body.trim().length === 0 || body.length > MAX_BODY) return { error: 'invalid body' };
-  return { subject, body };
-}
 
 export function createApp(send: Sender = sendViaResend) {
   const app = new Hono<{ Bindings: Env }>();
@@ -76,6 +57,40 @@ export function createApp(send: Sender = sendViaResend) {
       await send(c.env, report);
     } catch (e) {
       console.error('feedback send failed', e);
+      return c.json({ error: 'could not send' }, 502);
+    }
+    return c.json({ ok: true });
+  });
+
+  // Landing page "Google Play · Closed Testing": the visitor leaves the email
+  // of their Google account, help@ adds it to the Play test list by hand and
+  // replies (reply_to is the visitor).
+  app.post('/tester', async (c) => {
+    if (c.env.RATE_LIMITER) {
+      const key = c.req.header('CF-Connecting-IP') ?? 'unknown';
+      const { success } = await c.env.RATE_LIMITER.limit({ key });
+      if (!success) return c.json({ error: 'too many requests, try again later' }, 429);
+    }
+
+    const json = await c.req.json().catch(() => null);
+    const req = parseTesterRequest(json);
+    if ('error' in req) return c.json({ error: req.error }, 400);
+    if (req.bot) return c.json({ ok: true });
+
+    try {
+      await send(c.env, {
+        subject: `${SUBJECT_PREFIX}Closed testing (Android): ${req.email}`,
+        body: [
+          'Please add this Google account to the Play closed test, then reply.',
+          '',
+          `Email: ${req.email}`,
+          `Page language: ${req.lang}`,
+          `Sent: ${new Date().toISOString()}`,
+        ].join('\n'),
+        replyTo: req.email,
+      });
+    } catch (e) {
+      console.error('tester send failed', e);
       return c.json({ error: 'could not send' }, 502);
     }
     return c.json({ ok: true });

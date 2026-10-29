@@ -3,7 +3,8 @@
 A tiny public Cloudflare Worker. The app's "Báo sai sót" sheet posts a
 report here and the Worker emails it through Resend **from `admin@long-ky.com` to
 `help@long-ky.com`**, so a reader never has to type an address or open a mail
-app. Nothing about the reader is collected: no Reply-To, no account, no email.
+app. Nothing about the reader is collected: no Reply-To, no account, no email
+(the one exception is `/tester` below, where the visitor types their address).
 
 `POST /feedback` with `{"subject": "[Long Ký] …", "body": "…"}`
 
@@ -13,6 +14,13 @@ app. Nothing about the reader is collected: no Reply-To, no account, no email.
 | 400 | Not a valid report (not JSON, subject without the `[Long Ký] ` prefix or with a line break, empty or over-long body). |
 | 429 | Over the per-IP rate limit (5 a minute). |
 | 502 | Resend refused — the app lets the reader retry. |
+
+`POST /tester` with `{"email": "…@gmail.com", "lang": "vi"|"en"}` — the
+landing page's "Google Play · Closed Testing" dialog. Same admin@ → help@
+mail, subject `[Long Ký] Closed testing (Android): <email>`, and **Reply-To
+is the visitor**, so adding them to the Play test list and hitting Reply is
+the whole job. Same statuses as above (400 = not one plain address). A
+filled `website` field is a bot: 200, nothing sent.
 
 ## One-time setup
 

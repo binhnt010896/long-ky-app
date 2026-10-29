@@ -207,6 +207,53 @@
     Promise.race([everything, new Promise((r) => setTimeout(r, MAX_WAIT))]).then(() => setTimeout(hide, 250));
   }
 
+  // --- Google Play closed test: ask for an email, mail it to help@ ---
+  // Without this script (or <dialog>) the button stays a plain mailto: link.
+  const tester = $('[data-tester]');
+  const form = tester && $('form', tester);
+  if (form && typeof tester.showModal === 'function') {
+    const d = form.dataset;
+    const input = form.elements.email;
+    const msg = $('[data-tester-msg]', form);
+    const send = $('[data-tester-send]', form);
+    const ask = $('.tester__ask', form), done = $('.tester__done', form);
+    const note = msg.textContent, sendLabel = send.textContent;
+    // kind: 'invalid' (the address) or 'error' (the network); none = the hint.
+    const say = (text, kind) => {
+      msg.textContent = text;
+      msg.classList.toggle('is-bad', !!kind);
+      input.setAttribute('aria-invalid', kind === 'invalid' ? 'true' : 'false');
+    };
+
+    $$('[data-tester-open]').forEach((a) => a.addEventListener('click', (e) => {
+      e.preventDefault();
+      ask.hidden = false; done.hidden = true; say(note);
+      tester.showModal();
+      input.focus();
+    }));
+    $$('[data-tester-close]', tester).forEach((b) => b.addEventListener('click', () => tester.close()));
+    tester.addEventListener('click', (e) => { if (e.target === tester) tester.close(); });   // the backdrop
+    input.addEventListener('input', () => { if (msg.classList.contains('is-bad')) say(note); });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = input.value.trim();
+      if (!input.checkValidity() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say(d.invalid, 'invalid'); input.focus(); return; }
+      send.disabled = true; send.textContent = d.sending;
+      try {
+        const res = await fetch(d.api, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, lang: d.lang, website: form.elements.website.value }),
+        });
+        if (res.status === 400) { say(d.invalid, 'invalid'); input.focus(); }
+        else if (!res.ok) throw new Error(res.status);
+        else { form.reset(); ask.hidden = true; done.hidden = false; $('button', done).focus(); }
+      } catch (_) { say(d.error, 'error'); }
+      send.disabled = false; send.textContent = sendLabel;
+    });
+  }
+
   addEventListener('resize', schedule);
   schedule();
 })();

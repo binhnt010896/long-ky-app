@@ -37,9 +37,10 @@
     "scan": "Scan with your phone",
     "scanAria": "QR code to get Long Ký",
     "play": "Google Play",
-    "playSub": "Coming soon",
+    "playSub": "Closed Testing",
     "ios": "App Store",
-    "iosSub": "Coming soon",
+    "iosSub": "Public beta · TestFlight",
+    "iosBetaUrl": "https://testflight.apple.com/join/h8mbDKKk",
     "support": "Need help, or spotted a mistake?",
     "supportCta": "help@long-ky.com"
   },
@@ -65,5 +66,19 @@
     "description": "Long Ký collects no personal data. This policy explains what the app collects and, more importantly, what it does not."
   },
   "privacyPath": "/en/privacy/",
-  "altPrivacyPath": "/privacy/"
+  "altPrivacyPath": "/privacy/",
+  "tester": {
+    "title": "Join the Android closed test",
+    "body": "For now Google Play only lets invited testers install Long Ký. Leave the email of the Google account on your phone: we will add you to the test and write back with the download link.",
+    "label": "Google account email",
+    "placeholder": "you@gmail.com",
+    "note": "Used only to add you to the test and reply to you.",
+    "send": "Send",
+    "sending": "Sending…",
+    "invalid": "That does not look like an email address.",
+    "error": "Could not send. Please try again, or write to help@long-ky.com.",
+    "done": "Sent. We will email you as soon as you are on the list, usually within a day.",
+    "close": "Close",
+    "mailSubject": "Long%20K%C3%BD%20-%20Android%20closed%20testing"
+  }
 }

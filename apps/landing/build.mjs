@@ -16,6 +16,9 @@ const src = join(here, 'src');
 const dist = join(here, 'dist');
 const ORIGIN = process.env.SITE_ORIGIN || 'https://long-ky.com';
 const GET_URL = `${ORIGIN}/get`;
+// The closed-test dialog posts here: services/feedback_api mails help@ with
+// the visitor as Reply-To.
+const TESTER_API = process.env.TESTER_API_URL || 'https://long-ky-feedback-api.binhnt-010896.workers.dev/tester';
 
 const read = (p) => readFileSync(p, 'utf8');
 const json = (p) => JSON.parse(read(p));
@@ -165,6 +168,7 @@ async function build() {
       ...t, origin: ORIGIN, altLang: other, css: `/${cssName}`, js: `/${jsName}`,
       layers: layersHtml, railHtml: rail, finalStats, jsonld,
       iconPlay: icon('google-play-logo'), iconUp: icon('arrow-up'), iconApple: icon('apple-logo'),
+      iconX: icon('x'), testerApi: TESTER_API,
       heroVideo: usedVideos.includes('dragon.mp4') ? '<video muted playsinline preload="none" data-scrub data-src="/assets/video/dragon.mp4" data-from="0" data-to="5" tabindex="-1" aria-hidden="true"></video>' : '',
       qr: qr.replace('<svg', '<svg aria-hidden="true" focusable="false"'),
       finalYear: lang === 'en' ? '2879 BCE' : '2879 TCN',

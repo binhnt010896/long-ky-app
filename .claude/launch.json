@@ -27,6 +27,24 @@
         "cd apps/landing && node build.mjs --serve"
       ],
       "port": 3030
+    },
+    {
+      "name": "feedback_api",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd services/feedback_api && npx wrangler dev --port 8787"
+      ],
+      "port": 8787
+    },
+    {
+      "name": "landing_local_api",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd apps/landing && TESTER_API_URL=http://localhost:8787/tester node build.mjs --serve"
+      ],
+      "port": 3030
     }
   ]
 }
