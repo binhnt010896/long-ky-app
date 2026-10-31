@@ -158,7 +158,7 @@ async function build() {
 
     const jsonld = JSON.stringify({
       '@context': 'https://schema.org', '@type': 'MobileApplication',
-      name: 'Long Ký', applicationCategory: 'EducationalApplication', operatingSystem: 'Android',
+      name: 'Long Ký', applicationCategory: 'EducationalApplication', operatingSystem: 'iOS, Android',
       description: t.meta.description, inLanguage: ['vi', 'en'], url: `${ORIGIN}${t.path}`,
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
       author: { '@type': 'Organization', name: 'Long Ký', email: 'help@long-ky.com' },

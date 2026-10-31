@@ -10,12 +10,19 @@
   <link rel="stylesheet" href="{{{css}}}">
 </head>
 <body class="soon">
+  <script>
+    // iPhone / iPad: straight to the App Store. Everyone else sees this page.
+    if (/iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+      location.replace('{{final.iosUrl}}');
+    }
+  </script>
   <main class="soon__box">
     <img src="/assets/img/seal-256.webp" width="96" height="96" alt="">
     <h1>{{get.title}}</h1>
     <p>{{get.body}}</p>
     <p>{{get.mail}} <a href="mailto:help@long-ky.com">help@long-ky.com</a></p>
-    <p><a class="btn" href="{{path}}">{{get.back}}</a></p>
+    <p><a class="btn" href="{{final.iosUrl}}">{{get.ios}}</a></p>
+    <p><a href="{{path}}">{{get.back}}</a></p>
   </main>
 </body>
 </html>

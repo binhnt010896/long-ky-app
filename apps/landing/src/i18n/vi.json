@@ -39,8 +39,8 @@
     "play": "Google Play",
     "playSub": "Thử nghiệm kín",
     "ios": "App Store",
-    "iosSub": "Thử nghiệm công khai · TestFlight",
-    "iosBetaUrl": "https://testflight.apple.com/join/h8mbDKKk",
+    "iosSub": "Tải trên",
+    "iosUrl": "https://apps.apple.com/us/app/long-k%C3%BD/id6821866573",
     "support": "Cần giúp đỡ, hoặc thấy một chỗ sai?",
     "supportCta": "help@long-ky.com"
   },
@@ -50,8 +50,9 @@
     "rights": "© 2026 Long Ký"
   },
   "get": {
-    "title": "Long Ký sắp có trên Google Play và App Store",
-    "body": "Long Ký đang trong giai đoạn thử nghiệm kín. Khi ứng dụng lên cửa hàng, mã QR này sẽ đưa bạn thẳng đến trang tải.",
+    "title": "Long Ký đã có trên App Store",
+    "body": "Long Ký đã có trên App Store cho iPhone và iPad. Bản Android đang thử nghiệm kín và sắp có trên Google Play.",
+    "ios": "Tải trên App Store",
     "back": "Về trang chủ",
     "mail": "Muốn được báo khi ra mắt? Viết cho chúng tôi:"
   },
