@@ -54,8 +54,10 @@ final standaloneEventsProvider = FutureProvider<List<HistoryEvent>>((ref) {
 
 /// The event with [id] and, if it sits in an era, that era — or null when no
 /// such event exists. Drives `/su-kien/:id`.
-final eventLocationProvider =
-    FutureProvider.family<EventLocation?, String>((ref, id) {
+final eventLocationProvider = FutureProvider.family<EventLocation?, String>((
+  ref,
+  id,
+) {
   return ref.watch(contentRepositoryProvider).findEvent(id);
 });
 
@@ -112,6 +114,18 @@ final homeTourFromVersionProvider = StateProvider<int>((ref) => 0);
 /// "new" dot. main.dart overrides the initial value with the persisted one.
 final sanhVisitedProvider = StateProvider<bool>((ref) => false);
 
+/// Home chrome buttons that wear a red "unseen" dot until first tapped.
+abstract final class HomeChromeButton {
+  static const String timeline = 'timeline';
+  static const String streets = 'streets';
+}
+
+/// Ids from [HomeChromeButton] the reader has already tapped. main.dart
+/// overrides the initial value with the persisted one.
+final seenChromeProvider = StateProvider<Set<String>>(
+  (ref) => const <String>{},
+);
+
 /// True once the brand splash has fully faded — the Home tour waits for it so
 /// it never plays underneath the splash.
 final splashDoneProvider = StateProvider<bool>((ref) => false);
@@ -125,19 +139,22 @@ final splashDoneProvider = StateProvider<bool>((ref) => false);
 /// [hubDynastyIndexProvider] is the active dynasty (vertical) page;
 /// [hubEraIndexProvider] maps a period id to its active era (horizontal) page.
 final hubDynastyIndexProvider = StateProvider<int>((ref) => 0);
-final hubEraIndexProvider =
-    StateProvider<Map<String, int>>((ref) => <String, int>{});
+final hubEraIndexProvider = StateProvider<Map<String, int>>(
+  (ref) => <String, int>{},
+);
 
 /// The "Gửi thống kê ẩn danh" store — see telemetry/telemetry_settings.dart.
-final telemetrySettingsStoreProvider =
-    Provider<TelemetrySettingsStore>((ref) => FileTelemetrySettingsStore());
+final telemetrySettingsStoreProvider = Provider<TelemetrySettingsStore>(
+  (ref) => FileTelemetrySettingsStore(),
+);
 
 /// Whether analytics/crash collection is enabled — default **on**, no
 /// first-run prompt. The Về Long Ký switch reads and writes this; main.dart
 /// applies it to [Telemetry] on startup and whenever it changes.
 final telemetryEnabledProvider =
     AsyncNotifierProvider<TelemetryEnabledNotifier, bool>(
-        TelemetryEnabledNotifier.new);
+      TelemetryEnabledNotifier.new,
+    );
 
 class TelemetryEnabledNotifier extends AsyncNotifier<bool> {
   @override
@@ -156,23 +173,32 @@ class TelemetryEnabledNotifier extends AsyncNotifier<bool> {
 /// lifetime, like routeTelemetryObserverProvider.
 final telemetryCommonPropertiesProvider = Provider<void>((ref) {
   final telemetry = ref.watch(telemetryProvider);
-  ref.listen<Lang>(langProvider,
-      (_, lang) => telemetry.setCommonProperty('lang', lang.name),
-      fireImmediately: true);
-  ref.listen<int>(activeContentVersionProvider,
-      (_, version) => telemetry.setCommonProperty('content_version', version),
-      fireImmediately: true);
+  ref.listen<Lang>(
+    langProvider,
+    (_, lang) => telemetry.setCommonProperty('lang', lang.name),
+    fireImmediately: true,
+  );
+  ref.listen<int>(
+    activeContentVersionProvider,
+    (_, version) => telemetry.setCommonProperty('content_version', version),
+    fireImmediately: true,
+  );
 });
 
 /// Opens a web address in the phone's browser. A seam so tests never launch
 /// anything; returns false when nothing could open it.
 final urlOpenerProvider = Provider<Future<bool> Function(Uri)>(
-    (ref) => (uri) => launchUrl(uri, mode: LaunchMode.externalApplication));
+  (ref) =>
+      (uri) => launchUrl(uri, mode: LaunchMode.externalApplication),
+);
 
 /// Opens the system share sheet with plain [text]. A seam so tests never open
 /// one. [origin] anchors the sheet on an iPad (it needs a source rectangle).
-final shareTextProvider = Provider<Future<void> Function(String text, Rect? origin)>(
-    (ref) => (text, origin) async {
-          await SharePlus.instance
-              .share(ShareParams(text: text, sharePositionOrigin: origin));
-        });
+final shareTextProvider =
+    Provider<Future<void> Function(String text, Rect? origin)>(
+      (ref) => (text, origin) async {
+        await SharePlus.instance.share(
+          ShareParams(text: text, sharePositionOrigin: origin),
+        );
+      },
+    );

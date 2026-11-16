@@ -88,6 +88,7 @@ Future<void> main() async {
   final tourVersion = await onboarding.homeTourVersion();
   final tourSeen = tourVersion >= kHomeTourVersion;
   final sanhVisited = await onboarding.sanhVisited();
+  final seenChrome = await onboarding.seenChrome();
 
   await ContentMedia.load();
 
@@ -112,6 +113,7 @@ Future<void> main() async {
       homeTourSeenProvider.overrideWith((ref) => tourSeen),
       homeTourFromVersionProvider.overrideWith((ref) => tourVersion),
       sanhVisitedProvider.overrideWith((ref) => sanhVisited),
+      seenChromeProvider.overrideWith((ref) => seenChrome),
       // The exact instance whose error handlers are already wired above, and
       // whose enabled-state main.dart just applied — telemetryEnabledProvider
       // independently reloads the same on-disk setting for its own state.

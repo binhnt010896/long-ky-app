@@ -2,6 +2,8 @@ import 'package:core_domain/core_domain.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import 'new_dot.dart';
+
 /// The Long Ký seal as a small square button — the door into the Sảnh. Square
 /// on purpose, so it reads as the brand beside the round icon buttons.
 class SealButton extends StatelessWidget {
@@ -22,7 +24,7 @@ class SealButton extends StatelessWidget {
   /// and stays on-screen in both languages.
   final Lang lang;
 
-  /// A small gold dot on the corner: something new is behind this door.
+  /// A small red dot on the corner: something new is behind this door.
   final bool showNew;
 
   @override
@@ -61,19 +63,10 @@ class SealButton extends StatelessWidget {
               ),
             ),
             if (showNew)
-              Positioned(
+              const Positioned(
                 top: -3,
                 right: -3,
-                child: Container(
-                  key: const ValueKey<String>('seal-new-dot'),
-                  width: 10,
-                  height: 10,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: VSColors.goldBright,
-                    border: Border.all(color: VSColors.lacquer, width: 1.5),
-                  ),
-                ),
+                child: NewDot(key: ValueKey<String>('seal-new-dot')),
               ),
           ],
         ),

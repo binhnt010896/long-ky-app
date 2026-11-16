@@ -64,4 +64,14 @@ void main() {
     await FileOnboardingStore().resetHomeTour();
     expect(await FileOnboardingStore().sanhVisited(), isTrue);
   });
+
+  test('seen chrome buttons persist across store instances', () async {
+    _mockPathProvider(TestWidgetsFlutterBinding.instance);
+    expect(await FileOnboardingStore().seenChrome(), isEmpty);
+    await FileOnboardingStore().markChromeSeen('timeline');
+    await FileOnboardingStore().markChromeSeen('timeline');
+    await FileOnboardingStore().markChromeSeen('streets');
+    expect(await FileOnboardingStore().seenChrome(),
+        <String>{'timeline', 'streets'});
+  });
 }

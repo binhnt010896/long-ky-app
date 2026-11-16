@@ -124,6 +124,11 @@ class _FakeOnboardingStore implements OnboardingStore {
   Future<bool> sanhVisited() async => sanh;
   @override
   Future<void> markSanhVisited() async => sanh = true;
+  final Set<String> chrome = <String>{};
+  @override
+  Future<Set<String>> seenChrome() async => <String>{...chrome};
+  @override
+  Future<void> markChromeSeen(String id) async => chrome.add(id);
 }
 
 class _FakeLangStore implements LangStore {
@@ -454,6 +459,36 @@ void main() {
     testWidgets('no dot once the Sảnh has been visited', (tester) async {
       await _pumpTour(tester, seen: true, sanhVisited: true);
       expect(find.byKey(const ValueKey<String>('seal-new-dot')), findsNothing);
+    });
+
+    testWidgets('timeline and streets buttons wear a red dot until tapped',
+        (tester) async {
+      final (container, store) = await _pumpTour(tester, seen: true);
+      const timelineDot = ValueKey<String>('timeline-new-dot');
+      const streetsDot = ValueKey<String>('streets-new-dot');
+      expect(find.byKey(timelineDot), findsOneWidget);
+      expect(find.byKey(streetsDot), findsOneWidget);
+
+      // No router in this harness, so the push throws after the dot is
+      // cleared; swallow that and assert only on the seen-state.
+      await tester.tap(find.byKey(const ValueKey<String>('home-streets-button')));
+      tester.takeException();
+      await tester.pump();
+      expect(find.byKey(streetsDot), findsNothing);
+      expect(find.byKey(timelineDot), findsOneWidget);
+      expect(container.read(seenChromeProvider),
+          contains(HomeChromeButton.streets));
+      expect(store.chrome, contains(HomeChromeButton.streets));
+    });
+
+    testWidgets('tapping the seal clears its dot', (tester) async {
+      final (container, store) = await _pumpTour(tester, seen: true);
+      await tester.tap(find.byKey(const ValueKey<String>('home-sanh-seal')));
+      tester.takeException();
+      await tester.pump();
+      expect(find.byKey(const ValueKey<String>('seal-new-dot')), findsNothing);
+      expect(container.read(sanhVisitedProvider), isTrue);
+      expect(store.sanh, isTrue);
     });
   });
 }

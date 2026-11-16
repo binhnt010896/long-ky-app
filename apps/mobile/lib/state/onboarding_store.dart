@@ -31,6 +31,11 @@ abstract class OnboardingStore {
   /// dot, since the street map lives behind it.
   Future<bool> sanhVisited();
   Future<void> markSanhVisited();
+
+  /// Ids of Home chrome buttons the reader has tapped at least once (see
+  /// `HomeChromeButton`); an id missing here wears a red "unseen" dot.
+  Future<Set<String>> seenChrome();
+  Future<void> markChromeSeen(String id);
 }
 
 class FileOnboardingStore implements OnboardingStore {
@@ -95,4 +100,20 @@ class FileOnboardingStore implements OnboardingStore {
   @override
   Future<void> markSanhVisited() async =>
       _write(<String, dynamic>{...await _read(), 'sanhVisited': true});
+
+  @override
+  Future<Set<String>> seenChrome() async {
+    final v = (await _read())['seenChrome'];
+    return v is List ? v.whereType<String>().toSet() : <String>{};
+  }
+
+  @override
+  Future<void> markChromeSeen(String id) async {
+    final seen = await seenChrome();
+    if (!seen.add(id)) return;
+    await _write(<String, dynamic>{
+      ...await _read(),
+      'seenChrome': seen.toList()..sort(),
+    });
+  }
 }

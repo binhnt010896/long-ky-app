@@ -72,6 +72,10 @@ abstract final class VSColors {
   /// Gold glow colour for shadows around lit nodes and the spine.
   static const Color goldGlow = Color(0xB3E6C877); // goldBright @ 0.7
 
+  /// Notification red — the "unseen" dot on chrome buttons. Deliberately off
+  /// palette so it reads as a badge, not decoration.
+  static const Color notice = Color(0xFFE5484D);
+
   /// Parse a `#RRGGBB` (or `RRGGBB`) hex string into an opaque [Color].
   static Color fromHex(String hex) {
     var v = hex.trim();

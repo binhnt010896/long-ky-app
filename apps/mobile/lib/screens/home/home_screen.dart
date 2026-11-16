@@ -403,9 +403,18 @@ class _DynastyChrome extends ConsumerWidget {
   final GlobalKey sealKey;
   final GlobalKey streetsKey;
 
+  /// Clears a chrome button's red "unseen" dot, now and across launches.
+  static void _markSeen(WidgetRef ref, String id) {
+    final seen = ref.read(seenChromeProvider);
+    if (seen.contains(id)) return;
+    ref.read(seenChromeProvider.notifier).state = <String>{...seen, id};
+    ref.read(onboardingStoreProvider).markChromeSeen(id);
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final accent = VSColors.fromHex(period.accent);
+    final seen = ref.watch(seenChromeProvider);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: VSSpacing.screenEdge)
           .add(const EdgeInsets.only(top: 12)),
@@ -445,7 +454,12 @@ class _DynastyChrome extends ConsumerWidget {
                 child: CircleIconButton(
                   icon: Icons.timeline_rounded,
                   size: 34,
-                  onTap: () => context.push('/timeline'),
+                  showNew: !seen.contains(HomeChromeButton.timeline),
+                  newDotKey: const ValueKey<String>('timeline-new-dot'),
+                  onTap: () {
+                    _markSeen(ref, HomeChromeButton.timeline);
+                    context.push('/timeline');
+                  },
                 ),
               ),
               const SizedBox(width: VSSpacing.sm),
@@ -455,7 +469,12 @@ class _DynastyChrome extends ConsumerWidget {
                   key: const ValueKey<String>('home-streets-button'),
                   icon: Icons.signpost_outlined,
                   size: 34,
-                  onTap: () => context.push('/duong-pho'),
+                  showNew: !seen.contains(HomeChromeButton.streets),
+                  newDotKey: const ValueKey<String>('streets-new-dot'),
+                  onTap: () {
+                    _markSeen(ref, HomeChromeButton.streets);
+                    context.push('/duong-pho');
+                  },
                 ),
               ),
               const SizedBox(width: VSSpacing.sm),
@@ -465,7 +484,15 @@ class _DynastyChrome extends ConsumerWidget {
                   key: const ValueKey<String>('home-sanh-seal'),
                   lang: lang,
                   showNew: !ref.watch(sanhVisitedProvider),
-                  onTap: () => context.push('/sanh'),
+                  onTap: () {
+                    // Clear the dot on tap; SanhScreen also clears it when the
+                    // hall is opened from anywhere else.
+                    if (!ref.read(sanhVisitedProvider)) {
+                      ref.read(sanhVisitedProvider.notifier).state = true;
+                      ref.read(onboardingStoreProvider).markSanhVisited();
+                    }
+                    context.push('/sanh');
+                  },
                 ),
               ),
             ],
