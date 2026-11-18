@@ -5,6 +5,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 import '../state/narration_controller.dart';
 import '../state/providers.dart';
+import 'pressable.dart';
 
 /// The play/pause chrome button for a page's spoken narration, with a progress
 /// ring. Putting it on a page is what makes that page narrated: it registers
@@ -109,13 +110,12 @@ class _NarrationButtonState extends ConsumerState<NarrationButton> {
       return const SizedBox.shrink();
     }
     const size = 34.0;
-    return Semantics(
-      button: true,
-      label: s.playing ? 'Tạm dừng lời kể' : 'Nghe lời kể',
-      child: GestureDetector(
-        key: const Key('narration-button'),
-        behavior: HitTestBehavior.opaque,
-        onTap: _ctl.toggle,
+    return Pressable(
+      key: const Key('narration-button'),
+      semanticLabel: s.playing ? 'Tạm dừng lời kể' : 'Nghe lời kể',
+      minSize: kMinTapTarget,
+      onTap: _ctl.toggle,
+      child: ExcludeSemantics(
         child: SizedBox(
           width: size,
           height: size,

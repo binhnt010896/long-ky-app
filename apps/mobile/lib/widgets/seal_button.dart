@@ -1,6 +1,7 @@
 import 'package:core_domain/core_domain.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
+import 'pressable.dart';
 
 import 'new_dot.dart';
 
@@ -29,12 +30,16 @@ class SealButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
-      button: true,
-      label: lang == Lang.en ? 'Long Ký hall' : 'Sảnh Long Ký',
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: onTap,
+    return Pressable(
+      semanticLabel: switch ((lang == Lang.en, showNew)) {
+        (true, true) => 'Long Ký hall, new',
+        (true, false) => 'Long Ký hall',
+        (false, true) => 'Sảnh Long Ký, mới',
+        (false, false) => 'Sảnh Long Ký',
+      },
+      minSize: kMinTapTarget,
+      onTap: onTap,
+      child: ExcludeSemantics(
         child: Stack(
           clipBehavior: Clip.none,
           children: <Widget>[

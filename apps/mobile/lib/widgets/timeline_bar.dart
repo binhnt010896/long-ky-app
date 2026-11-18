@@ -109,7 +109,7 @@ class TimelineBar extends StatelessWidget {
                         _label(years[i]),
                         textAlign: TextAlign.center,
                         style: VSType.caption.copyWith(
-                          fontSize: 8.5,
+                          fontSize: 10,
                           color: i == selIdx ? VSColors.gold : VSColors.inkMuted,
                           fontWeight:
                               i == selIdx ? FontWeight.w700 : FontWeight.w400,

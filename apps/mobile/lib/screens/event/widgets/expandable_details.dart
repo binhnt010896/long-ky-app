@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../../telemetry/reading_depth.dart';
+import '../../../widgets/pressable.dart';
 
 /// A "read more" control that reveals the fuller chronicle account for an event.
 class ExpandableDetails extends StatefulWidget {
@@ -32,14 +33,15 @@ class _ExpandableDetailsState extends State<ExpandableDetails> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        GestureDetector(
-          behavior: HitTestBehavior.opaque,
+        Pressable(
           onTap: () {
             setState(() => _open = !_open);
             if (_open) const DetailsOpenedNotification().dispatch(context);
           },
+          minSize: kMinTapTarget,
+          alignment: Alignment.centerLeft,
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: VSSpacing.xs),
+            padding: const EdgeInsets.only(right: VSSpacing.md),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -79,7 +81,7 @@ class _ExpandableDetailsState extends State<ExpandableDetails> {
                       padding: const EdgeInsets.only(left: VSSpacing.md),
                       child: Text(
                         widget.details.resolve(widget.lang),
-                        style: VSType.body.copyWith(color: VSColors.inkBody),
+                        style: VSType.reading,
                       ),
                     ),
                   ),

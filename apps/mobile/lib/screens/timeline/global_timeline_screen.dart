@@ -5,18 +5,28 @@ import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../state/providers.dart';
+import '../../state/visit_store.dart';
 import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
+import '../../widgets/pressable.dart';
+import '../era/widgets/timeline_event_card.dart' show ReadMark;
 import 'standalone_placement.dart';
+import '../../widgets/load_error_view.dart';
 
 /// Global Timeline — every era's events threaded onto one continuous chronology,
 /// so the whole sweep of Việt history reads as a single line. Era chapters break
 /// the spine; each event and era is a tap into its detail. A keyword field
 /// filters the spine to the matching events (diacritic-insensitive, so "bach
-/// dang" finds "Bạch Đằng"). VI primary, EN toggle.
+/// dang" finds "Bạch Đằng") and lists the people it matches above them; a row
+/// of dynasty chips narrows the unfiltered spine to one period. Events the
+/// reader has opened carry a "read" tick. VI primary, EN toggle.
 class GlobalTimelineScreen extends ConsumerStatefulWidget {
-  const GlobalTimelineScreen({super.key});
+  const GlobalTimelineScreen({this.focusSearch = false, super.key});
+
+  /// Opens with the keyboard up in the search field (`/timeline?search=1`,
+  /// the Sảnh's "Tìm kiếm" row).
+  final bool focusSearch;
 
   @override
   ConsumerState<GlobalTimelineScreen> createState() =>
@@ -26,6 +36,9 @@ class GlobalTimelineScreen extends ConsumerStatefulWidget {
 class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
   final TextEditingController _controller = TextEditingController();
   String _query = '';
+
+  /// The dynasty the spine is narrowed to (a period id), or null for all.
+  String? _period;
 
   @override
   void dispose() {
@@ -42,6 +55,9 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
     final standalone =
         ref.watch(standaloneEventsProvider).valueOrNull ?? const <HistoryEvent>[];
     final people = ref.watch(peopleProvider).valueOrNull;
+    final visited =
+        ref.watch(visitedProvider).valueOrNull ?? const <String>{};
+    bool isRead(HistoryEvent e) => visited.contains(VisitKey.event(e.id));
 
     return Scaffold(
       backgroundColor: VSColors.lacquer,
@@ -51,7 +67,10 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
           loading: () => const Center(
             child: CircularProgressIndicator(color: VSColors.gold),
           ),
-          error: (e, _) => Center(child: Text('$e', style: VSType.bodySmall)),
+          error: (e, _) => LoadErrorView(
+          error: e,
+          onRetry: () => ref.invalidate(erasProvider),
+        ),
           data: (eras) {
             final totalEvents = eras.fold<int>(
                   0,
@@ -67,8 +86,15 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
             final filtering = query.isNotEmpty;
             final matches = <_EraMatch>[];
             final standaloneMatches = <HistoryEvent>[];
+            final peopleMatches = <Character>[];
             var resultCount = 0;
             if (filtering) {
+              // People first: a name should reach the person's own page, not
+              // only the events they appear in.
+              for (final c in people?.byId.values ?? const <Character>[]) {
+                if (_personHaystack(c).contains(query)) peopleMatches.add(c);
+              }
+              resultCount += peopleMatches.length;
               for (final event in standalone) {
                 if (_eventHaystack(null, event, people).contains(query)) {
                   standaloneMatches.add(event);
@@ -91,6 +117,16 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
               }
             }
 
+            // The dynasties that actually hold eras, in order — the chip row.
+            final periodChips = <Period>[
+              for (final p in periods?.ordered ?? const <Period>[])
+                if (eras.any((e) => e.period == p.id)) p,
+            ];
+            final shown = <int>[
+              for (var ei = 0; ei < eras.length; ei++)
+                if (_period == null || eras[ei].period == _period) ei,
+            ];
+
             return CustomScrollView(
               slivers: <Widget>[
                 // Floats back into view as soon as you scroll up (not only at
@@ -111,8 +147,7 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
                     child: Row(
                       children: <Widget>[
                         Builder(
-                          builder: (context) => CircleIconButton(
-                            icon: Icons.arrow_back,
+                          builder: (context) => CircleIconButton.back(
                             onTap: () => context.canPop()
                                 ? context.pop()
                                 : context.go('/'),
@@ -122,11 +157,13 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
                         Builder(
                           builder: (context) => CircleIconButton(
                             icon: Icons.map_outlined,
+                            labelVi: 'Bản đồ lãnh thổ',
+                            labelEn: 'Territory atlas',
                             onTap: () => context.push('/map'),
                           ),
                         ),
-                        const SizedBox(width: VSSpacing.sm),
-                        const LangToggle(),
+                        const SizedBox(width: VSSpacing.xxs),
+                        const LangToggle(compact: true),
                       ],
                     ),
                   ),
@@ -140,19 +177,23 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
                         eventCount: totalEvents,
                         lang: lang,
                         controller: _controller,
+                        autofocus: widget.focusSearch,
                         filtering: filtering,
                         resultCount: resultCount,
+                        periods: periodChips,
+                        period: _period,
+                        onPeriod: (id) => setState(() => _period = id),
                         onChanged: (v) => setState(() => _query = v),
                         onClear: () {
                           _controller.clear();
                           setState(() => _query = '');
                         },
                       ),
-                      if (!filtering)
+                      if (!filtering && _period == null)
                         for (final event in placed.beforeFirst)
-                          _standaloneEntry(context, event, lang),
+                          _standaloneEntry(context, event, lang, isRead(event)),
                       if (!filtering)
-                        for (var ei = 0; ei < eras.length; ei++) ...<Widget>[
+                        for (final ei in shown) ...<Widget>[
                           if (ei == 0 || eras[ei].period != eras[ei - 1].period)
                             _PeriodHeader(
                               period: eras[ei].period == null
@@ -163,23 +204,43 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
                           _EraChapter(
                             era: eras[ei],
                             lang: lang,
-                            isFirst: ei == 0,
+                            isFirst: ei == shown.first,
                             onTap: () => context.push('/era/${eras[ei].slug}'),
                           ),
                           for (final event in eras[ei].events)
                             _EventEntry(
                               event: event,
                               lang: lang,
+                              read: isRead(event),
                               onTap: () => context.push(
                                 '/era/${eras[ei].slug}/event/${event.id}',
                               ),
                             ),
                           for (final event in placed.afterEra[ei] ?? const <HistoryEvent>[])
-                            _standaloneEntry(context, event, lang),
+                            _standaloneEntry(context, event, lang, isRead(event)),
                         ]
-                      else if (matches.isEmpty && standaloneMatches.isEmpty)
+                      else if (matches.isEmpty &&
+                          standaloneMatches.isEmpty &&
+                          peopleMatches.isEmpty)
                         _EmptyResults(lang: lang, query: _query.trim())
-                      else
+                      else ...<Widget>[
+                        if (peopleMatches.isNotEmpty) ...<Widget>[
+                          _ResultsLabel(
+                            label: lang == Lang.vi ? 'NHÂN VẬT' : 'PEOPLE',
+                          ),
+                          for (final c in peopleMatches)
+                            _PersonEntry(
+                              person: c,
+                              lang: lang,
+                              // The router sends a rostered person on to their
+                              // home era's page; a standalone one opens here.
+                              onTap: () => context.push('/nhan-vat/${c.id}'),
+                            ),
+                          if (matches.isNotEmpty || standaloneMatches.isNotEmpty)
+                            _ResultsLabel(
+                              label: lang == Lang.vi ? 'SỰ KIỆN' : 'EVENTS',
+                            ),
+                        ],
                         for (var mi = 0; mi < matches.length; mi++) ...<Widget>[
                           if (mi == 0 ||
                               matches[mi].era.period !=
@@ -201,14 +262,16 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
                             _EventEntry(
                               event: event,
                               lang: lang,
+                              read: isRead(event),
                               onTap: () => context.push(
                                 '/era/${matches[mi].era.slug}/event/${event.id}',
                               ),
                             ),
                         ],
+                      ],
                       if (filtering)
                         for (final event in standaloneMatches)
-                          _standaloneEntry(context, event, lang),
+                          _standaloneEntry(context, event, lang, isRead(event)),
                       if (!filtering || matches.isNotEmpty || standaloneMatches.isNotEmpty)
                         const _EndCap(),
                     ]),
@@ -224,11 +287,13 @@ class _GlobalTimelineScreenState extends ConsumerState<GlobalTimelineScreen> {
 }
 
 /// One standalone event's node — opens `/su-kien/:id`.
-Widget _standaloneEntry(BuildContext context, HistoryEvent event, Lang lang) =>
+Widget _standaloneEntry(
+        BuildContext context, HistoryEvent event, Lang lang, bool read) =>
     _EventEntry(
       event: event,
       lang: lang,
       standalone: true,
+      read: read,
       onTap: () => context.push('/su-kien/${event.id}'),
     );
 
@@ -270,6 +335,14 @@ String _eraHaystack(Era era, PeriodRegistry? periods) {
     ].join(' '),
   );
 }
+
+/// Searchable key for one person: name and epithet, both languages.
+String _personHaystack(Character c) => _foldSearch(<String>[
+      c.name.vi,
+      c.name.en ?? '',
+      c.epithet?.vi ?? '',
+      c.epithet?.en ?? '',
+    ].join(' '));
 
 /// Searchable key for one event: its title, summary, displayed year and the
 /// names/epithets of the figures who appear in it (both languages).
@@ -331,8 +404,12 @@ class _HeaderBody extends StatelessWidget {
     required this.eventCount,
     required this.lang,
     required this.controller,
+    required this.autofocus,
     required this.filtering,
     required this.resultCount,
+    required this.periods,
+    required this.period,
+    required this.onPeriod,
     required this.onChanged,
     required this.onClear,
   });
@@ -341,8 +418,14 @@ class _HeaderBody extends StatelessWidget {
   final int eventCount;
   final Lang lang;
   final TextEditingController controller;
+  final bool autofocus;
   final bool filtering;
   final int resultCount;
+
+  /// The dynasty chips, and which one (a period id) the spine is narrowed to.
+  final List<Period> periods;
+  final String? period;
+  final ValueChanged<String?> onPeriod;
   final ValueChanged<String> onChanged;
   final VoidCallback onClear;
 
@@ -372,7 +455,7 @@ class _HeaderBody extends StatelessWidget {
             style: VSType.overline.copyWith(
               color: VSColors.goldBright,
               letterSpacing: VSType.track(0.3, 10),
-              fontSize: 10,
+              fontSize: 11,
             ),
           ),
           const SizedBox(height: VSSpacing.sm),
@@ -390,11 +473,161 @@ class _HeaderBody extends StatelessWidget {
           _SearchField(
             controller: controller,
             lang: lang,
+            autofocus: autofocus,
             filtering: filtering,
             onChanged: onChanged,
             onClear: onClear,
           ),
+          // Jump to a dynasty: 237 events is a long way to scroll. Hidden
+          // while searching (a query already narrows the spine).
+          if (!filtering && periods.length > 1) ...<Widget>[
+            const SizedBox(height: VSSpacing.xs),
+            SizedBox(
+              height: kMinTapTarget,
+              child: ListView(
+                key: const ValueKey<String>('timeline-period-chips'),
+                scrollDirection: Axis.horizontal,
+                // Bleed to the screen edges so chips scroll under them.
+                clipBehavior: Clip.none,
+                children: <Widget>[
+                  _PeriodChip(
+                    label: lang == Lang.vi ? 'Tất cả' : 'All',
+                    selected: period == null,
+                    onTap: () => onPeriod(null),
+                  ),
+                  for (final p in periods)
+                    _PeriodChip(
+                      label: p.title.resolve(lang),
+                      selected: period == p.id,
+                      onTap: () => onPeriod(period == p.id ? null : p.id),
+                    ),
+                ],
+              ),
+            ),
+          ],
         ],
+      ),
+    );
+  }
+}
+
+/// One dynasty in the jump row — a pill that lights when the spine is narrowed
+/// to it.
+class _PeriodChip extends StatelessWidget {
+  const _PeriodChip({
+    required this.label,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: VSSpacing.xs),
+      child: Pressable(
+        onTap: onTap,
+        haptic: true,
+        selected: selected,
+        minSize: kMinTapTarget,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          decoration: BoxDecoration(
+            color: selected ? VSColors.goldWash : null,
+            borderRadius: VSRadii.pillAll,
+            border: Border.all(
+              color: selected ? VSColors.goldBright : VSColors.goldBorder,
+            ),
+          ),
+          child: Text(
+            label,
+            maxLines: 1,
+            style: VSType.caption.copyWith(
+              color: selected ? VSColors.goldBright : VSColors.inkSecondary,
+              fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// A section label over a group of search results ("NHÂN VẬT", "SỰ KIỆN").
+class _ResultsLabel extends StatelessWidget {
+  const _ResultsLabel({required this.label});
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(
+          VSSpacing.xl, VSSpacing.lg, VSSpacing.xl, VSSpacing.xs),
+      child: Text(label,
+          style: VSType.overline.copyWith(color: VSColors.goldBright)),
+    );
+  }
+}
+
+/// One person in the search results — opens their page.
+class _PersonEntry extends StatelessWidget {
+  const _PersonEntry({
+    required this.person,
+    required this.lang,
+    required this.onTap,
+  });
+
+  final Character person;
+  final Lang lang;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final epithet = person.epithet?.resolve(lang);
+    return Pressable(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(
+            VSSpacing.xl, VSSpacing.sm, VSSpacing.xl, VSSpacing.sm),
+        child: Row(
+          children: <Widget>[
+            Container(
+              width: 36,
+              height: 36,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: VSColors.goldBorder),
+              ),
+              child: const Icon(Icons.person_outline,
+                  size: 18, color: VSColors.gold),
+            ),
+            const SizedBox(width: VSSpacing.md),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    person.name.resolve(lang),
+                    style: VSType.cardTitle.copyWith(fontSize: 15),
+                  ),
+                  if (epithet != null && epithet.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 2),
+                      child: Text(
+                        epithet,
+                        style: VSType.caption.copyWith(color: VSColors.gold),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+            const SizedBox(width: VSSpacing.sm),
+            const Icon(Icons.arrow_forward, size: 15, color: VSColors.inkMuted),
+          ],
+        ),
       ),
     );
   }
@@ -406,6 +639,7 @@ class _SearchField extends StatelessWidget {
   const _SearchField({
     required this.controller,
     required this.lang,
+    required this.autofocus,
     required this.filtering,
     required this.onChanged,
     required this.onClear,
@@ -413,6 +647,7 @@ class _SearchField extends StatelessWidget {
 
   final TextEditingController controller;
   final Lang lang;
+  final bool autofocus;
   final bool filtering;
   final ValueChanged<String> onChanged;
   final VoidCallback onClear;
@@ -428,7 +663,7 @@ class _SearchField extends StatelessWidget {
         borderRadius: VSRadii.cardAll,
         border: Border.all(color: VSColors.goldBorder),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: VSSpacing.md),
+      padding: const EdgeInsets.only(left: VSSpacing.md),
       child: Row(
         children: <Widget>[
           const Icon(Icons.search, size: 18, color: VSColors.gold),
@@ -436,6 +671,7 @@ class _SearchField extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: controller,
+              autofocus: autofocus,
               onChanged: onChanged,
               textInputAction: TextInputAction.search,
               cursorColor: VSColors.gold,
@@ -455,14 +691,15 @@ class _SearchField extends StatelessWidget {
             ),
           ),
           if (filtering)
-            GestureDetector(
-              behavior: HitTestBehavior.opaque,
+            Pressable(
+              key: const ValueKey<String>('timeline-search-clear'),
               onTap: onClear,
-              child: const Padding(
-                padding: EdgeInsets.only(left: VSSpacing.sm),
-                child: Icon(Icons.close, size: 18, color: VSColors.inkMuted),
-              ),
-            ),
+              minSize: kMinTapTarget,
+              semanticLabel: lang == Lang.vi ? 'Xoá từ khoá' : 'Clear search',
+              child: const Icon(Icons.close, size: 18, color: VSColors.inkMuted),
+            )
+          else
+            const SizedBox(width: VSSpacing.md),
         ],
       ),
     );
@@ -480,8 +717,8 @@ class _EmptyResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final msg = lang == Lang.vi
-        ? 'Không tìm thấy sự kiện nào cho “$query”.'
-        : 'No events found for “$query”.';
+        ? 'Không tìm thấy sự kiện hay nhân vật nào cho “$query”.'
+        : 'No events or people found for “$query”.';
     return Padding(
       padding: const EdgeInsets.fromLTRB(
         VSSpacing.xl,
@@ -592,7 +829,7 @@ class _PeriodHeader extends StatelessWidget {
                     style: VSType.overline.copyWith(
                       color: accent,
                       letterSpacing: VSType.track(0.3, 10),
-                      fontSize: 10,
+                      fontSize: 11,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -729,8 +966,7 @@ class _EraChapter extends StatelessWidget {
             lineFromTop: !isFirst,
           ),
           Expanded(
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
+            child: Pressable(
               onTap: onTap,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(
@@ -757,7 +993,7 @@ class _EraChapter extends StatelessWidget {
                             style: VSType.overline.copyWith(
                               color: VSColors.goldBright,
                               letterSpacing: VSType.track(0.3, 10),
-                              fontSize: 10,
+                              fontSize: 11,
                             ),
                           ),
                         ],
@@ -769,7 +1005,7 @@ class _EraChapter extends StatelessWidget {
                       style: VSType.overline.copyWith(
                         color: accent,
                         letterSpacing: VSType.track(0.28, 10),
-                        fontSize: 10,
+                        fontSize: 11,
                       ),
                     ),
                     const SizedBox(height: 4),
@@ -814,11 +1050,15 @@ class _EventEntry extends StatelessWidget {
     required this.lang,
     required this.onTap,
     this.standalone = false,
+    this.read = false,
   });
 
   final HistoryEvent event;
   final Lang lang;
   final VoidCallback onTap;
+
+  /// The reader has opened this event: brighter node, and a tick by the arrow.
+  final bool read;
 
   /// A standalone event (no era), marked "Sự kiện riêng" under its year.
   final bool standalone;
@@ -829,10 +1069,13 @@ class _EventEntry extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          const _Spine(nodeColor: VSColors.gold, nodeSize: 9, nodeTop: 16),
+          _Spine(
+            nodeColor: read ? VSColors.goldBright : VSColors.gold,
+            nodeSize: 9,
+            nodeTop: 16,
+          ),
           Expanded(
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
+            child: Pressable(
               onTap: onTap,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(
@@ -869,7 +1112,7 @@ class _EventEntry extends StatelessWidget {
                                 style: VSType.caption.copyWith(
                                   color: VSColors.inkMuted,
                                   letterSpacing: VSType.track(0.14, 10),
-                                  fontSize: 10,
+                                  fontSize: 11,
                                 ),
                               ),
                             ),
@@ -877,6 +1120,10 @@ class _EventEntry extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: VSSpacing.sm),
+                    if (read) ...<Widget>[
+                      ReadMark(lang: lang, showLabel: false),
+                      const SizedBox(width: VSSpacing.xs),
+                    ],
                     const Icon(
                       Icons.arrow_forward,
                       size: 15,

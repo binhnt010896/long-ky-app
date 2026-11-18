@@ -129,6 +129,10 @@ class _FakeOnboardingStore implements OnboardingStore {
   Future<Set<String>> seenChrome() async => <String>{...chrome};
   @override
   Future<void> markChromeSeen(String id) async => chrome.add(id);
+  @override
+  Future<int> swipeHintCount() async => 0;
+  @override
+  Future<void> markSwipeHintShown() async {}
 }
 
 class _FakeLangStore implements LangStore {
@@ -286,18 +290,25 @@ void main() {
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('EXPLORE reads KHÁM PHÁ in Vietnamese, EXPLORE in English',
+    testWidgets(
+        'the next-dynasty affordance names where it leads, in both languages',
         (tester) async {
       await _pumpHub(tester, _twoDynasties(),
           overrides: <Override>[langProvider.overrideWith((ref) => Lang.vi)]);
-      expect(find.text('KHÁM PHÁ'), findsOneWidget);
+      expect(find.text('TIẾP THEO · NHÀ TRIỆU'), findsOneWidget);
+      // The old label said "explore" but led to the next period.
+      expect(find.text('KHÁM PHÁ'), findsNothing);
+      // Entering an era has its own visible cue.
+      expect(find.text('Bước vào'), findsWidgets);
 
       await _pumpHub(tester, _twoDynasties(),
           overrides: <Override>[langProvider.overrideWith((ref) => Lang.en)]);
-      expect(find.text('EXPLORE'), findsOneWidget);
+      expect(find.textContaining('NEXT · '), findsOneWidget);
+      expect(find.text('Step in'), findsWidgets);
     });
 
-    testWidgets('KHÁM PHÁ clears an Android 3-button navigation bar',
+    testWidgets(
+        'the next-dynasty affordance clears an Android 3-button navigation bar',
         (tester) async {
       // 48 logical px at the test view's 3.0 device pixel ratio.
       tester.view.padding = const FakeViewPadding(bottom: 144);
@@ -306,27 +317,33 @@ void main() {
 
       final screenHeight =
           tester.view.physicalSize.height / tester.view.devicePixelRatio;
-      expect(tester.getBottomLeft(find.text('KHÁM PHÁ')).dy,
+      expect(
+          tester
+              .getBottomLeft(
+                  find.byKey(const ValueKey<String>('home-next-period')))
+              .dy,
           lessThanOrEqualTo(screenHeight - 48));
     });
   });
 
   group('period rail (Cycle J)', () {
     testWidgets(
-        'KHÁM PHÁ animates to the next period and disappears on the last',
+        'the next-dynasty affordance animates to the next period and '
+        'disappears on the last',
         (tester) async {
+      const next = ValueKey<String>('home-next-period');
       await _pumpHub(tester, _twoDynasties());
       expect(find.text('Hồng Bàng – Âu Lạc'), findsWidgets);
       // Two dynasties, so the affordance shows on the first.
-      expect(find.text('KHÁM PHÁ'), findsOneWidget);
+      expect(find.byKey(next), findsOneWidget);
 
-      await tester.tap(find.text('KHÁM PHÁ'));
+      await tester.tap(find.byKey(next));
       await tester.pumpAndSettle();
 
       expect(find.text('Nhà Triệu'), findsWidgets);
       expect(find.text('Hồng Bàng – Âu Lạc'), findsNothing);
       // On the last period, the affordance is gone.
-      expect(find.text('KHÁM PHÁ'), findsNothing);
+      expect(find.byKey(next), findsNothing);
       expect(tester.takeException(), isNull);
     });
 

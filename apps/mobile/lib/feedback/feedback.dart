@@ -141,6 +141,8 @@ class FeedbackButton extends ConsumerWidget {
       child: CircleIconButton(
         key: buttonKey,
         icon: Icons.outlined_flag,
+        labelVi: 'Báo sai sót',
+        labelEn: 'Report a mistake',
         onTap: () => showFeedbackSheet(context, ref, target),
       ),
     );

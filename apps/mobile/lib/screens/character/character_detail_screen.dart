@@ -17,6 +17,8 @@ import '../../state/narration_controller.dart';
 import '../../widgets/tilted_backdrop.dart';
 import '../../widgets/unlock/art_gate.dart';
 import '../../widgets/unlock/mystery_art.dart';
+import '../../widgets/load_error_view.dart';
+import '../../widgets/pressable.dart';
 
 /// Character Detail — a figure's portrait, chronicle-grounded biography, and the
 /// events in the era where they appear. Reached by tapping a figure avatar.
@@ -41,7 +43,10 @@ class CharacterDetailScreen extends ConsumerWidget {
         loading: () => const Center(
           child: CircularProgressIndicator(color: VSColors.gold),
         ),
-        error: (e, _) => Center(child: Text('$e', style: VSType.bodySmall)),
+        error: (e, _) => LoadErrorView(
+          error: e,
+          onRetry: () => ref.invalidate(eraProvider(slug)),
+        ),
         data: (era) {
           final figure = era.figureById(figureId);
           if (figure == null) {
@@ -88,8 +93,7 @@ class CharacterDetailScreen extends ConsumerWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        CircleIconButton(
-                          icon: Icons.arrow_back,
+                        CircleIconButton.back(
                           onTap: () => context.pop(),
                         ),
                         Row(
@@ -99,7 +103,6 @@ class CharacterDetailScreen extends ConsumerWidget {
                               kind: NarrationKind.person,
                               id: figure.id,
                             ),
-                            const SizedBox(width: VSSpacing.sm),
                             FeedbackButton(
                               target: FeedbackTarget(
                                 type: 'person',
@@ -108,8 +111,8 @@ class CharacterDetailScreen extends ConsumerWidget {
                                 route: '/era/$slug/figure/${figure.id}',
                               ),
                             ),
-                            const SizedBox(width: VSSpacing.md),
-                            const LangToggle(),
+                            const SizedBox(width: VSSpacing.xxs),
+                            const LangToggle(compact: true),
                           ],
                         ),
                       ],
@@ -256,10 +259,7 @@ class _FigureSheet extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               if (figure.bio != null)
-                Text(
-                  figure.bio!.resolve(lang),
-                  style: VSType.body.copyWith(color: VSColors.inkBody),
-                ),
+                Text(figure.bio!.resolve(lang), style: VSType.reading),
               if (appearances.isNotEmpty) ...<Widget>[
                 const SizedBox(height: VSSpacing.xl),
                 FigureSectionHeader(
@@ -334,7 +334,7 @@ class FigureSectionHeader extends StatelessWidget {
           style: VSType.overline.copyWith(
             color: VSColors.goldBright,
             letterSpacing: VSType.track(0.34, 10),
-            fontSize: 10,
+            fontSize: 11,
           ),
         ),
         const SizedBox(width: VSSpacing.sm),
@@ -367,8 +367,7 @@ class FigureAppearanceRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return Pressable(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(

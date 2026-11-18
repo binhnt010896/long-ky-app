@@ -7,8 +7,10 @@ import 'package:go_router/go_router.dart';
 import 'package:ui_kit/ui_kit.dart';
 
 import '../../state/providers.dart';
+import '../../state/visit_store.dart';
 import '../../theme/era_palette_mapping.dart';
 import '../../widgets/circle_icon_button.dart';
+import '../../widgets/load_error_view.dart';
 import '../../widgets/tilted_backdrop.dart';
 import 'widgets/timeline_event_card.dart';
 
@@ -55,6 +57,12 @@ class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
   Widget build(BuildContext context) {
     final eraAsync = ref.watch(eraProvider(widget.slug));
     final lang = ref.watch(langProvider);
+    final visited =
+        ref.watch(visitedProvider).valueOrNull ?? const <String>{};
+    // Only the first screenful rises in one after another; rows that scroll
+    // into view later appear at once (a growing per-index delay would leave
+    // row 15 blank for a second). None of it under reduce-motion.
+    final still = MediaQuery.of(context).disableAnimations;
 
     return Scaffold(
       backgroundColor: VSColors.lacquer,
@@ -62,8 +70,14 @@ class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
         loading: () => const Center(
           child: CircularProgressIndicator(color: VSColors.gold),
         ),
-        error: (e, _) => Center(child: Text('$e', style: VSType.bodySmall)),
+        error: (e, _) => LoadErrorView(
+          error: e,
+          onRetry: () => ref.invalidate(eraProvider(widget.slug)),
+        ),
         data: (era) {
+          final readCount = era.events
+              .where((e) => visited.contains(VisitKey.event(e.id)))
+              .length;
           return TiltedBackdrop(
             era: era,
             palette: paletteForEra(era),
@@ -81,6 +95,7 @@ class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
                   _Header(
                       era: era,
                       lang: lang,
+                      readCount: readCount,
                       // Fall back to the era hub when there is nothing to pop
                       // (e.g. arrived here via a stack-replacing `go`).
                       onBack: () => context.canPop()
@@ -94,26 +109,30 @@ class _EraTimelineScreenState extends ConsumerState<EraTimelineScreen> {
                       itemCount: era.events.length,
                       itemBuilder: (context, i) {
                         final event = era.events[i];
-                        return TimelineEventCard(
+                        final card = TimelineEventCard(
                           event: event,
                           // Uniform, calm rows: no scroll-tracked highlight. The
                           // spine stays fully lit as one continuous thread.
                           active: false,
                           lit: true,
+                          read: visited.contains(VisitKey.event(event.id)),
                           lang: lang,
                           onTap: () => context.push(
                               '/era/${era.slug}/event/${event.id}'),
-                        )
+                        );
+                        if (still) return card;
+                        final delay = (i < 6 ? i * 70 : 0).ms;
+                        return card
                             .animate()
                             .fadeIn(
                                 duration: 320.ms,
-                                delay: (i * 70).ms,
+                                delay: delay,
                                 curve: Curves.easeOut)
                             .slideY(
                                 begin: 0.12,
                                 end: 0,
                                 duration: 380.ms,
-                                delay: (i * 70).ms,
+                                delay: delay,
                                 curve: Curves.easeOutCubic);
                       },
                     ),
@@ -170,22 +189,32 @@ class _ProgressBar extends StatelessWidget {
 }
 
 class _Header extends StatelessWidget {
-  const _Header({required this.era, required this.lang, required this.onBack});
+  const _Header({
+    required this.era,
+    required this.lang,
+    required this.readCount,
+    required this.onBack,
+  });
 
   final Era era;
   final Lang lang;
+
+  /// How many of this era's events the reader has opened.
+  final int readCount;
   final VoidCallback onBack;
 
   @override
   Widget build(BuildContext context) {
     final overline = lang == Lang.vi ? 'DÒNG SỰ KIỆN' : 'THE EVENTS';
     return Padding(
-      padding: const EdgeInsets.fromLTRB(
-          VSSpacing.screenEdge, VSSpacing.md, VSSpacing.screenEdge, VSSpacing.md),
+      // The back ring sits 5px inside its 44px tap box; pull the row left by
+      // as much so the ring still lines up with the screen edge.
+      padding: const EdgeInsets.fromLTRB(VSSpacing.screenEdge - 5,
+          VSSpacing.sm, VSSpacing.screenEdge, VSSpacing.sm),
       child: Row(
         children: <Widget>[
-          CircleIconButton(icon: Icons.arrow_back, onTap: onBack, size: 34),
-          const SizedBox(width: VSSpacing.sm + 2),
+          CircleIconButton.back(onTap: onBack, size: 34),
+          const SizedBox(width: VSSpacing.xs),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -194,7 +223,7 @@ class _Header extends StatelessWidget {
                   overline,
                   style: VSType.overline.copyWith(
                     letterSpacing: VSType.track(0.3, 10),
-                    fontSize: 10,
+                    fontSize: 11,
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -208,6 +237,16 @@ class _Header extends StatelessWidget {
               ],
             ),
           ),
+          if (readCount > 0) ...<Widget>[
+            const SizedBox(width: VSSpacing.sm),
+            Text(
+              lang == Lang.vi
+                  ? 'Đã đọc $readCount/${era.events.length}'
+                  : '$readCount/${era.events.length} read',
+              key: const ValueKey<String>('era-timeline-read-count'),
+              style: VSType.caption.copyWith(color: VSColors.gold),
+            ),
+          ],
         ],
       ),
     );

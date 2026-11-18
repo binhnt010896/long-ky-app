@@ -10,6 +10,7 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../telemetry/telemetry.dart';
 import '../../theme/content_assets.dart';
 import '../../widgets/circle_icon_button.dart';
+import '../../widgets/pressable.dart';
 
 /// One karaoke line: the second into the anthem at which it becomes current.
 class AnthemLine {
@@ -192,8 +193,7 @@ class _ChaoCoScreenState extends ConsumerState<ChaoCoScreen> {
               child: Row(
                 children: <Widget>[
                   Builder(
-                    builder: (context) => CircleIconButton(
-                      icon: Icons.arrow_back,
+                    builder: (context) => CircleIconButton.back(
                       onTap: () =>
                           context.canPop() ? context.pop() : context.go('/'),
                     ),
@@ -206,7 +206,7 @@ class _ChaoCoScreenState extends ConsumerState<ChaoCoScreen> {
                           style: VSType.overline.copyWith(
                             color: VSColors.goldBright,
                             letterSpacing: VSType.track(0.3, 10),
-                            fontSize: 10,
+                            fontSize: 11,
                           )),
                       const SizedBox(height: 2),
                       Text('Tiến quân ca',
@@ -379,7 +379,7 @@ class _CtrlButton extends StatelessWidget {
     final size = big ? 64.0 : 48.0;
     return Opacity(
       opacity: enabled ? 1 : 0.4,
-      child: GestureDetector(
+      child: Pressable(
         onTap: enabled ? () => onTap() : null,
         child: Container(
           width: size,

@@ -8,6 +8,7 @@ import '../../state/unlock_store.dart';
 import 'mystery_art.dart';
 import 'unlock_quiz_sheet.dart';
 import 'unlock_reveal.dart';
+import '../pressable.dart';
 
 /// Stands in front of one picture. While the art for [visitKey] is hidden it
 /// shows the mystery placeholder (with a "Mở khóa" affordance when
@@ -137,9 +138,8 @@ class UnlockAffordance extends ConsumerWidget {
     if (!ref.watch(artHiddenProvider(visitKey))) return const SizedBox.shrink();
     final en = ref.watch(langProvider) == Lang.en;
     if (ref.watch(quizCapReachedProvider)) return const SizedBox.shrink();
-    return GestureDetector(
+    return Pressable(
       key: const ValueKey<String>('art-gate-tap'),
-      behavior: HitTestBehavior.opaque,
       onTap: () => showUnlockQuizSheet(context, ref, visitKey),
       child: Align(
         alignment: alignment,
@@ -191,10 +191,10 @@ class UnlockPrompt extends ConsumerWidget {
             ? 'Answer one question to unlock the picture ›'
             : 'Trả lời một câu để mở khóa ảnh ›');
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: VSSpacing.sm),
-      child: GestureDetector(
+      padding: const EdgeInsets.symmetric(vertical: VSSpacing.xxs),
+      child: Pressable(
         key: const ValueKey<String>('unlock-prompt'),
-        behavior: HitTestBehavior.opaque,
+        minSize: kMinTapTarget,
         onTap: capped ? null : () => showUnlockQuizSheet(context, ref, visitKey),
         child: Column(
           children: <Widget>[

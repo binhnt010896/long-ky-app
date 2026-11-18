@@ -1157,6 +1157,10 @@ void main() {
       // Unaccented query still folds to match accented content.
       await tester.enterText(find.byType(TextField), 'bach dang');
       await tester.pumpAndSettle();
+      // People come first, then the events (scrolled to: they sit lower now).
+      expect(find.text('Trần Bạch Đằng'), findsOneWidget);
+      await tester.scrollUntilVisible(find.text('Chiến thắng Bạch Đằng'), 200,
+          scrollable: find.byType(Scrollable).first);
 
       expect(find.text('Chiến thắng Bạch Đằng'), findsWidgets);
       expect(find.text('Kinh Dương Vương lập nước'), findsNothing);
@@ -1404,6 +1408,18 @@ void main() {
 
       // Collapsed: fuller account not shown yet.
       expect(find.textContaining('bắc giáp hồ Động Đình'), findsNothing);
+      // Below the fold at the reading text size: bring it on screen first.
+      await tester.scrollUntilVisible(find.text('ĐỌC THÊM'), 200,
+          // The page's own vertical list (it holds a horizontal strip too).
+          scrollable: find
+              .descendant(
+                  of: find.byType(ListView).first,
+                  matching: find.byType(Scrollable))
+              .first);
+      // Mid-screen, clear of the top bar's back button.
+      await Scrollable.ensureVisible(tester.element(find.text('ĐỌC THÊM')),
+          alignment: 0.5);
+      await tester.pumpAndSettle();
       await tester.tap(find.text('ĐỌC THÊM'));
       await tester.pumpAndSettle();
       expect(find.textContaining('bắc giáp hồ Động Đình'), findsOneWidget);
@@ -1446,7 +1462,6 @@ void main() {
       expect(find.text('Long Ký'), findsOneWidget);
       expect(find.text('Chào cờ'), findsOneWidget);
       expect(find.text('Niên biểu'), findsOneWidget);
-      expect(find.text('Bản đồ lãnh thổ'), findsOneWidget);
       // The streets are a picture card now, not a directory row.
       expect(find.byKey(const ValueKey<String>('sanh-streets-card')),
           findsOneWidget);

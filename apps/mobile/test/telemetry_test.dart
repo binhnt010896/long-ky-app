@@ -492,6 +492,18 @@ void main() {
       final telemetry = _FakeTelemetry();
       final router = await _pumpAt(tester, path, telemetry);
 
+      // Below the fold at the reading text size: bring it on screen first.
+      await tester.scrollUntilVisible(find.text('ĐỌC THÊM'), 200,
+          // The page's own vertical list (it holds a horizontal strip too).
+          scrollable: find
+              .descendant(
+                  of: find.byType(ListView).first,
+                  matching: find.byType(Scrollable))
+              .first);
+      // Mid-screen, clear of the top bar's back button.
+      await Scrollable.ensureVisible(tester.element(find.text('ĐỌC THÊM')),
+          alignment: 0.5);
+      await tester.pumpAndSettle();
       await tester.tap(find.text('ĐỌC THÊM'));
       await tester.pumpAndSettle();
       await tester.drag(find.byType(ListView).first, const Offset(0, -5000));

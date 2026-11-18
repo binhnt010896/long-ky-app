@@ -15,6 +15,7 @@ import '../../widgets/lang_toggle.dart';
 import '../../widgets/narration_button.dart';
 import '../../state/narration_controller.dart';
 import 'event_detail_screen.dart' show EventBody;
+import '../../widgets/load_error_view.dart';
 
 /// A standalone event — one that no era lists (Cycle N). The same body,
 /// pull-quote, figures and citation as an in-era event, but no era scene: a
@@ -44,7 +45,10 @@ class StandaloneEventScreen extends ConsumerWidget {
         loading: () => const Center(
           child: CircularProgressIndicator(color: VSColors.gold),
         ),
-        error: (e, _) => Center(child: Text('$e', style: VSType.bodySmall)),
+        error: (e, _) => LoadErrorView(
+          error: e,
+          onRetry: () => ref.invalidate(eventLocationProvider(eventId)),
+        ),
         data: (found) {
           if (found == null) return _NotFound(lang: lang);
           final event = found.event;
@@ -99,8 +103,7 @@ class _TopBar extends StatelessWidget {
           .add(const EdgeInsets.only(top: VSSpacing.xs)),
       child: Row(
         children: <Widget>[
-          CircleIconButton(
-            icon: Icons.arrow_back,
+          CircleIconButton.back(
             onTap: () => context.canPop() ? context.pop() : context.go('/'),
           ),
           // Flexible: this label is wider than the era page's "03 / 12", and on
@@ -125,7 +128,6 @@ class _TopBar extends StatelessWidget {
           ),
           const SizedBox(width: VSSpacing.md),
           NarrationButton(kind: NarrationKind.event, id: event.id),
-          const SizedBox(width: VSSpacing.sm),
           FeedbackButton(
             target: FeedbackTarget(
               type: 'event',
@@ -134,8 +136,8 @@ class _TopBar extends StatelessWidget {
               route: '/su-kien/${event.id}',
             ),
           ),
-          const SizedBox(width: VSSpacing.md),
-          const LangToggle(),
+          const SizedBox(width: VSSpacing.xxs),
+          const LangToggle(compact: true),
         ],
       ),
     );
@@ -240,8 +242,7 @@ class _NotFound extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(VSSpacing.xl),
-            child: CircleIconButton(
-              icon: Icons.arrow_back,
+            child: CircleIconButton.back(
               onTap: () => context.canPop() ? context.pop() : context.go('/'),
             ),
           ),

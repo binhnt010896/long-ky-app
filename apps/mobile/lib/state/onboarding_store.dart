@@ -12,6 +12,10 @@ import 'package:path_provider/path_provider.dart';
 /// 1 — welcome, eras, rail, timeline, Sảnh. 2 — the street map.
 const int kHomeTourVersion = 2;
 
+/// How many times the event page's "swipe to browse" hint is shown before it
+/// stays away for good.
+const int kSwipeHintShows = 3;
+
 /// Remembers whether the reader has already been through the first-run Home
 /// tour, and whether they have opened the Sảnh since it grew the street map.
 /// Mirrors `FileLangStore`'s on-disk pattern. On web it lives in memory only,
@@ -36,6 +40,10 @@ abstract class OnboardingStore {
   /// `HomeChromeButton`); an id missing here wears a red "unseen" dot.
   Future<Set<String>> seenChrome();
   Future<void> markChromeSeen(String id);
+
+  /// How many times the event page's swipe hint has been shown.
+  Future<int> swipeHintCount();
+  Future<void> markSwipeHintShown();
 }
 
 class FileOnboardingStore implements OnboardingStore {
@@ -116,4 +124,38 @@ class FileOnboardingStore implements OnboardingStore {
       'seenChrome': seen.toList()..sort(),
     });
   }
+
+  @override
+  Future<int> swipeHintCount() async {
+    final v = (await _read())['swipeHint'];
+    return v is int ? v : 0;
+  }
+
+  @override
+  Future<void> markSwipeHintShown() async => _write(<String, dynamic>{
+        ...await _read(),
+        'swipeHint': await swipeHintCount() + 1,
+      });
+
+  /// The one-time carry-over into [seenChrome] for readers who had the app
+  /// before the red dots existed: someone who has already opened the street
+  /// map ([streetMapOpened]) doesn't need a dot nudging them towards it. Runs
+  /// once per install (a flag in the file), so after that only a tap on the
+  /// button clears its dot. Returns the seen set, carried over or not.
+  Future<Set<String>> carryOverChrome({required bool streetMapOpened}) async {
+    final data = await _read();
+    if (data['chromeCarriedOver'] == true) return seenChrome();
+    final seen = await seenChrome();
+    if (streetMapOpened) seen.add(kStreetsChromeId);
+    await _write(<String, dynamic>{
+      ...data,
+      'seenChrome': seen.toList()..sort(),
+      'chromeCarriedOver': true,
+    });
+    return seen;
+  }
 }
+
+/// The street-map button's id in [OnboardingStore.seenChrome] — the same value
+/// as `HomeChromeButton.streets` (kept here so the store needs no providers).
+const String kStreetsChromeId = 'streets';

@@ -10,6 +10,7 @@ import '../../state/unlock_store.dart';
 import '../../theme/content_assets.dart';
 import 'mystery_art.dart';
 import 'unlock_reveal.dart';
+import '../pressable.dart';
 
 /// What the gift (or a milestone bonus) opened, resolved from the content.
 class UnlockedArt {
@@ -234,9 +235,8 @@ class _GiftSheetState extends ConsumerState<_GiftSheet> {
           if (_result?.bonusKey != null)
             _BonusLine(keyName: _result!.bonusKey!, lang: lang),
           const SizedBox(height: VSSpacing.lg),
-          GestureDetector(
+          Pressable(
             key: const ValueKey<String>('gift-view-page'),
-            behavior: HitTestBehavior.opaque,
             onTap: () {
               final router = GoRouter.of(context);
               Navigator.of(context).pop();
@@ -323,9 +323,8 @@ class _Closed extends StatelessWidget {
           style: VSType.headline,
         ),
         const SizedBox(height: VSSpacing.lg),
-        GestureDetector(
+        Pressable(
           key: const ValueKey<String>('gift-open'),
-          behavior: HitTestBehavior.opaque,
           onTap: busy ? null : onOpen,
           child: Container(
             height: 52,
@@ -434,9 +433,8 @@ class _GiftChipState extends ConsumerState<GiftChip>
               ? '🔥 ${data.streak.current}-day streak'
               : '🔥 Chuỗi ${data.streak.current} ngày')
         : (en ? '🎁 Today\'s gift' : '🎁 Quà hôm nay');
-    return GestureDetector(
+    return Pressable(
       key: const ValueKey<String>('home-gift-chip'),
-      behavior: HitTestBehavior.opaque,
       onTap: () => showGiftSheet(context, ref),
       child: AnimatedBuilder(
         animation: _glow,
@@ -535,8 +533,7 @@ class _GiftCardState extends ConsumerState<GiftCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            GestureDetector(
-              behavior: HitTestBehavior.opaque,
+            Pressable(
               onTap: () => showGiftSheet(context, ref),
               child: Row(
                 children: <Widget>[
@@ -578,9 +575,8 @@ class _GiftCardState extends ConsumerState<GiftCard> {
                 ],
               ),
             ),
-            GestureDetector(
+            Pressable(
               key: const ValueKey<String>('gift-card-expand'),
-              behavior: HitTestBehavior.opaque,
               onTap: () => setState(() => _expanded = !_expanded),
               child: Padding(
                 padding: const EdgeInsets.only(top: VSSpacing.sm),

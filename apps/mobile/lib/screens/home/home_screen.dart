@@ -17,10 +17,14 @@ import '../../widgets/seal_button.dart';
 import '../../widgets/unlock/daily_gift.dart';
 import 'widgets/era_scene_view.dart';
 import 'widgets/home_coachmarks.dart';
+import '../../state/visit_store.dart';
+import '../../widgets/load_error_view.dart';
+import '../../widgets/pressable.dart';
 
 /// Home — the dynasty hub. Two axes: swipe **vertically** to move between
 /// dynasties (periods), and **horizontally** to move between the eras within the
-/// current dynasty. Tap an era (or the explore affordance) to enter it.
+/// current dynasty. Tap an era (its "step in" pill marks it as tappable) to
+/// enter it; the arrow at the foot of the page leads to the next dynasty.
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
@@ -98,7 +102,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         // above the position strip; its height varies, so a band will do.
         return Rect.fromLTRB(
           VSSpacing.xxl - 8,
-          size.height - 360,
+          size.height - 410,
           size.width - 40,
           size.height - 150,
         );
@@ -146,7 +150,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       backgroundColor: VSColors.lacquer,
       body: dynastiesAsync.when(
         loading: () => const _LacquerBackdrop(child: _CenterSpinner()),
-        error: (e, _) => _LacquerBackdrop(child: _ErrorView(message: '$e')),
+        error: (e, _) => LoadErrorView(
+          error: e,
+          showBack: false,
+          onRetry: () => ref.invalidate(dynastiesProvider),
+        ),
         data: (dynasties) {
           if (dynasties.isEmpty) {
             return _LacquerBackdrop(
@@ -202,7 +210,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       ref.read(hubEraIndexProvider.notifier).state = next;
                     },
                     onEraSettled: (era) => _onEraSettled(era, periodId),
-                    // The explore affordance is a shortcut past the last period.
+                    // The next-dynasty affordance: absent on the last one.
+                    nextPeriod: i < dynasties.length - 1
+                        ? dynasties[i + 1].period
+                        : null,
                     onExploreNext:
                         i < dynasties.length - 1 ? _openNextPeriod : null,
                   );
@@ -259,6 +270,7 @@ class _DynastyPage extends StatefulWidget {
     required this.initialEraIndex,
     required this.onEraChanged,
     required this.onEraSettled,
+    required this.nextPeriod,
     required this.onExploreNext,
   });
 
@@ -276,8 +288,11 @@ class _DynastyPage extends StatefulWidget {
   /// on an era — drives the `era_card_view` telemetry event.
   final ValueChanged<Era> onEraSettled;
 
-  /// Animates Home to the next period. Null on the last period, which hides
-  /// the explore affordance entirely.
+  /// The dynasty after this one — named on the next-dynasty affordance. Null
+  /// on the last, which hides the affordance entirely.
+  final Period? nextPeriod;
+
+  /// Animates Home to [nextPeriod].
   final VoidCallback? onExploreNext;
 
   @override
@@ -318,13 +333,21 @@ class _DynastyPageState extends State<_DynastyPage> {
           },
           itemBuilder: (context, i) {
             final era = eras[i];
-            return GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () => widget.onOpenEra(era),
-              child: EraSceneView(
-                era: era,
-                pointer: widget.pointer,
-                lang: widget.lang,
+            // The whole scene opens the era (no press dimming: the same
+            // surface is swiped in both directions).
+            return Semantics(
+              button: true,
+              label: widget.lang == Lang.en
+                  ? 'Open ${era.title.resolve(widget.lang)}'
+                  : 'Mở ${era.title.resolve(widget.lang)}',
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () => widget.onOpenEra(era),
+                child: EraSceneView(
+                  era: era,
+                  pointer: widget.pointer,
+                  lang: widget.lang,
+                ),
               ),
             );
           },
@@ -340,8 +363,9 @@ class _DynastyPageState extends State<_DynastyPage> {
                   _EraStrip(count: eras.length, active: _eraIndex),
                   const SizedBox(height: VSSpacing.lg),
                 ],
-                if (widget.onExploreNext != null)
-                  _ExploreAffordance(
+                if (widget.onExploreNext != null && widget.nextPeriod != null)
+                  _NextPeriodAffordance(
+                    next: widget.nextPeriod!,
                     lang: widget.lang,
                     onTap: widget.onExploreNext!,
                   ),
@@ -385,6 +409,62 @@ class _ErrorView extends StatelessWidget {
       );
 }
 
+/// "Đọc tiếp · (event title)" — one tap back to the event the reader last had open.
+/// Nothing until they have opened one (or if it has since left the content).
+class _ContinueChip extends ConsumerWidget {
+  const _ContinueChip({required this.lang});
+
+  final Lang lang;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Loads the visit file (and with it the last-read event) if nothing has yet.
+    ref.watch(visitedProvider);
+    final last = ref.watch(lastReadProvider);
+    final eras = ref.watch(erasProvider).valueOrNull;
+    if (last == null || eras == null) return const SizedBox.shrink();
+    HistoryEvent? event;
+    for (final era in eras) {
+      if (era.slug != last.eraSlug) continue;
+      for (final e in era.events) {
+        if (e.id == last.eventId) event = e;
+      }
+    }
+    if (event == null) return const SizedBox.shrink();
+    return Pressable(
+      key: const ValueKey<String>('home-continue-chip'),
+      onTap: () => context.push(last.route),
+      minSize: kMinTapTarget,
+      alignment: Alignment.centerLeft,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+        decoration: BoxDecoration(
+          color: VSColors.lacquer.withValues(alpha: 0.6),
+          borderRadius: VSRadii.pillAll,
+          border: Border.all(color: VSColors.goldBorder),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            const Icon(Icons.bookmark_outline,
+                size: 15, color: VSColors.goldBright),
+            const SizedBox(width: 6),
+            Flexible(
+              child: Text(
+                '${lang == Lang.en ? 'Continue' : 'Đọc tiếp'} · '
+                '${event.title.resolve(lang)}',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: VSType.caption.copyWith(color: VSColors.inkSecondary),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 /// Top chrome for the dynasty hub: the current dynasty's crest, name and span on
 /// the left; the global-timeline entry and the Long Ký seal (the Sảnh) on the
 /// right.
@@ -416,13 +496,14 @@ class _DynastyChrome extends ConsumerWidget {
     final accent = VSColors.fromHex(period.accent);
     final seen = ref.watch(seenChromeProvider);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: VSSpacing.screenEdge)
-          .add(const EdgeInsets.only(top: 12)),
+      // The buttons' rings sit 5px inside their 44px tap boxes: the right inset
+      // is pulled in by as much so the seal still lines up with the edge.
+      padding: const EdgeInsets.fromLTRB(
+          VSSpacing.screenEdge, 12, VSSpacing.screenEdge - 5, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               _DynastyCrest(period: period, accent: accent),
               const SizedBox(width: VSSpacing.md),
@@ -441,18 +522,22 @@ class _DynastyChrome extends ConsumerWidget {
                       period.yearRange.display.resolve(lang),
                       style: VSType.caption.copyWith(
                         color: VSColors.gold,
-                        fontSize: 10.5,
+                        fontSize: 11,
                         letterSpacing: VSType.track(0.14, 11),
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(width: VSSpacing.sm),
+              // No gaps between the three: each 34px ring already sits in a
+              // 44px tap box, which spaces them 10px apart.
+              const SizedBox(width: VSSpacing.xxs),
               KeyedSubtree(
                 key: timelineKey,
                 child: CircleIconButton(
                   icon: Icons.timeline_rounded,
+                  labelVi: 'Niên biểu và tìm kiếm',
+                  labelEn: 'Timeline and search',
                   size: 34,
                   showNew: !seen.contains(HomeChromeButton.timeline),
                   newDotKey: const ValueKey<String>('timeline-new-dot'),
@@ -462,12 +547,13 @@ class _DynastyChrome extends ConsumerWidget {
                   },
                 ),
               ),
-              const SizedBox(width: VSSpacing.sm),
               KeyedSubtree(
                 key: streetsKey,
                 child: CircleIconButton(
                   key: const ValueKey<String>('home-streets-button'),
                   icon: Icons.signpost_outlined,
+                  labelVi: 'Đường phố mang tên sử',
+                  labelEn: 'Streets named for history',
                   size: 34,
                   showNew: !seen.contains(HomeChromeButton.streets),
                   newDotKey: const ValueKey<String>('streets-new-dot'),
@@ -477,7 +563,6 @@ class _DynastyChrome extends ConsumerWidget {
                   },
                 ),
               ),
-              const SizedBox(width: VSSpacing.sm),
               KeyedSubtree(
                 key: sealKey,
                 child: SealButton(
@@ -497,11 +582,14 @@ class _DynastyChrome extends ConsumerWidget {
               ),
             ],
           ),
-          const Align(
-            alignment: Alignment.centerRight,
-            child: Padding(
-              padding: EdgeInsets.only(top: VSSpacing.sm),
-              child: GiftChip(),
+          Padding(
+            padding: const EdgeInsets.only(top: VSSpacing.xxs, right: 5),
+            child: Row(
+              children: <Widget>[
+                Flexible(child: _ContinueChip(lang: lang)),
+                const Spacer(),
+                const GiftChip(),
+              ],
             ),
           ),
         ],
@@ -803,7 +891,7 @@ class _PeriodBubble extends StatelessWidget {
                   Text(
                     period.yearRange.display.resolve(lang),
                     style: VSType.caption.copyWith(
-                        color: VSColors.gold, fontSize: 10.5),
+                        color: VSColors.gold, fontSize: 11),
                   ),
                 ],
               ),
@@ -830,8 +918,8 @@ class _EraStrip extends StatelessWidget {
         for (var i = 0; i < count; i++) ...<Widget>[
           if (i == active)
             Container(
-              width: 20,
-              height: 5,
+              width: 22,
+              height: 6,
               decoration: const BoxDecoration(
                 gradient: VSColors.goldSheen,
                 borderRadius: BorderRadius.all(Radius.circular(3)),
@@ -839,8 +927,8 @@ class _EraStrip extends StatelessWidget {
             )
           else
             Container(
-              width: 5,
-              height: 5,
+              width: 6,
+              height: 6,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: VSColors.inkPrimary.withValues(alpha: 0.35),
@@ -853,43 +941,63 @@ class _EraStrip extends StatelessWidget {
   }
 }
 
-/// The bottom-of-page "next period" affordance. Absent on the last period
-/// (see `onExploreNext` on [_DynastyPage]) — there is nothing further to go to.
-class _ExploreAffordance extends StatelessWidget {
-  const _ExploreAffordance({required this.lang, required this.onTap});
+/// The bottom-of-page way on to the next dynasty: an up arrow (the direction
+/// to swipe) over that dynasty's name, so the label says where it leads.
+/// Absent on the last period (see `onExploreNext` on [_DynastyPage]).
+class _NextPeriodAffordance extends StatelessWidget {
+  const _NextPeriodAffordance({
+    required this.next,
+    required this.lang,
+    required this.onTap,
+  });
+
+  final Period next;
   final Lang lang;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    final title = next.title.resolve(lang);
+    return Pressable(
+      key: const ValueKey<String>('home-next-period'),
       onTap: onTap,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Container(
-            width: 42,
-            height: 42,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: VSColors.gold.withValues(alpha: 0.55)),
+      semanticLabel: lang == Lang.en
+          ? 'Next dynasty: $title'
+          : 'Triều đại tiếp theo: $title',
+      child: ExcludeSemantics(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border:
+                    Border.all(color: VSColors.gold.withValues(alpha: 0.55)),
+              ),
+              child: const Center(
+                child: Icon(Icons.keyboard_arrow_up,
+                    size: 22, color: VSColors.goldBright),
+              ),
             ),
-            child: const Center(
-              child: Icon(Icons.keyboard_arrow_up,
-                  size: 20, color: VSColors.goldBright),
+            const SizedBox(height: VSSpacing.sm),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 260),
+              child: Text(
+                '${lang == Lang.en ? 'NEXT' : 'TIẾP THEO'} · '
+                '${title.toUpperCase()}',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: VSType.caption.copyWith(
+                  letterSpacing: VSType.track(0.2, 11),
+                  fontSize: 11,
+                  color: VSColors.inkPrimary.withValues(alpha: 0.7),
+                ),
+              ),
             ),
-          ),
-          const SizedBox(height: VSSpacing.sm),
-          Text(
-            lang == Lang.en ? 'EXPLORE' : 'KHÁM PHÁ',
-            style: VSType.caption.copyWith(
-              letterSpacing: VSType.track(0.24, 11),
-              fontSize: 11,
-              color: VSColors.inkPrimary.withValues(alpha: 0.55),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

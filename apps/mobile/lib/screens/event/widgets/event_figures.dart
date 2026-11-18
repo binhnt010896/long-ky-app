@@ -6,6 +6,7 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../../theme/content_assets.dart';
 import '../../../widgets/figure_bust.dart';
 import '../../../widgets/portrait_placeholder.dart';
+import '../../../widgets/pressable.dart';
 import '../../../widgets/unlock/art_gate.dart';
 import '../../../widgets/unlock/mystery_art.dart';
 
@@ -46,7 +47,7 @@ class EventFigures extends StatelessWidget {
               style: VSType.overline.copyWith(
                 color: VSColors.goldBright,
                 letterSpacing: VSType.track(0.34, 10),
-                fontSize: 10,
+                fontSize: 11,
               ),
             ),
             const SizedBox(width: VSSpacing.sm),
@@ -64,7 +65,14 @@ class EventFigures extends StatelessWidget {
         ),
         const SizedBox(height: VSSpacing.md),
         SizedBox(
-          height: 172,
+          // Portrait + gap + one line each of name and epithet, measured at
+          // the reader's text size so large text is never clipped.
+          height: 124 +
+              VSSpacing.sm +
+              MediaQuery.textScalerOf(context).scale(14) * 1.2 +
+              1 +
+              MediaQuery.textScalerOf(context).scale(12) * 1.4 +
+              6,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             padding: EdgeInsets.zero,
@@ -106,8 +114,7 @@ class _FigureTile extends StatelessWidget {
     final avatar = character.avatar;
     final avatarPath = avatar?.flagship ?? avatar?.reduced;
     final sheetPath = character.portrait?.flagship ?? character.portrait?.reduced;
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return Pressable(
       onTap: onTap,
       child: SizedBox(
         width: 116,

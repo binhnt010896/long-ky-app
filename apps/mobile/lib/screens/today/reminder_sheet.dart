@@ -7,6 +7,7 @@ import '../../state/providers.dart';
 import '../../state/reminder_service.dart';
 import '../../state/today_store.dart';
 import '../../telemetry/telemetry.dart';
+import '../../widgets/pressable.dart';
 
 /// "08:00" for [minutes] after midnight.
 String reminderTimeLabel(int minutes) =>
@@ -114,9 +115,8 @@ class _ReminderSheetState extends ConsumerState<ReminderSheet> {
               style: VSType.bodySmall.copyWith(color: VSColors.inkBody),
             ),
             const SizedBox(height: VSSpacing.lg),
-            GestureDetector(
+            Pressable(
               key: const ValueKey<String>('reminder-sheet-time'),
-              behavior: HitTestBehavior.opaque,
               onTap: () async {
                 final picked = await pickReminderTime(context, _minutes);
                 if (picked != null && mounted) setState(() => _minutes = picked);
@@ -133,9 +133,8 @@ class _ReminderSheetState extends ConsumerState<ReminderSheet> {
               ),
             ),
             const SizedBox(height: VSSpacing.xl),
-            GestureDetector(
+            Pressable(
               key: const ValueKey<String>('reminder-sheet-yes'),
-              behavior: HitTestBehavior.opaque,
               onTap: () => Navigator.of(context).pop(_minutes),
               child: Container(
                 height: 48,

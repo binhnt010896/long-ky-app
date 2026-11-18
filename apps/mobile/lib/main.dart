@@ -13,6 +13,8 @@ import 'state/content_sync.dart';
 import 'state/lang_store.dart';
 import 'state/onboarding_store.dart';
 import 'state/providers.dart';
+import 'state/text_size_store.dart';
+import 'state/tour_store.dart';
 import 'telemetry/composite_telemetry.dart';
 import 'telemetry/firebase_telemetry.dart';
 import 'telemetry/posthog_options.dart';
@@ -83,12 +85,23 @@ Future<void> main() async {
   // The reader's saved VI/EN choice, applied before the first frame so Home
   // never flashes Vietnamese before switching to a saved English choice.
   final savedLang = await FileLangStore().load();
+  // Same for the reader's text size: the first frame is already at their size.
+  final savedTextSize = await FileTextSizeStore().load();
 
   final onboarding = FileOnboardingStore();
   final tourVersion = await onboarding.homeTourVersion();
   final tourSeen = tourVersion >= kHomeTourVersion;
   final sanhVisited = await onboarding.sanhVisited();
-  final seenChrome = await onboarding.seenChrome();
+  // Readers who already found the street map before the red dots existed
+  // don't get one on its button (once per install; see carryOverChrome).
+  final seenChrome = await onboarding.carryOverChrome(
+    streetMapOpened: await FileTourStore(
+          fileName: 'street_tour.json',
+          version: kStreetTourVersion,
+        ).seenVersion() >
+        0,
+  );
+  final swipeHintCount = await onboarding.swipeHintCount();
 
   await ContentMedia.load();
 
@@ -110,10 +123,14 @@ Future<void> main() async {
       contentRepositoryProvider.overrideWithValue(ContentRepository(ota)),
       activeContentVersionProvider.overrideWith((ref) => activeVersion),
       langProvider.overrideWith((ref) => savedLang),
+      textSizeProvider.overrideWith((ref) => savedTextSize),
       homeTourSeenProvider.overrideWith((ref) => tourSeen),
       homeTourFromVersionProvider.overrideWith((ref) => tourVersion),
       sanhVisitedProvider.overrideWith((ref) => sanhVisited),
       seenChromeProvider.overrideWith((ref) => seenChrome),
+      swipeHintCountProvider.overrideWith((ref) => swipeHintCount),
+      // The same instance main() just read from, so its cache is shared.
+      onboardingStoreProvider.overrideWithValue(onboarding),
       // The exact instance whose error handlers are already wired above, and
       // whose enabled-state main.dart just applied — telemetryEnabledProvider
       // independently reloads the same on-disk setting for its own state.

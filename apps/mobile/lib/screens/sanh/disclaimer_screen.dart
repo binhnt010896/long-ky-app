@@ -8,6 +8,7 @@ import '../../feedback/feedback.dart';
 import '../../state/providers.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
+import '../../widgets/pressable.dart';
 
 /// The disclaimer page's route.
 const String kDisclaimerRoute = '/luu-y';
@@ -80,14 +81,13 @@ class DisclaimerScreen extends ConsumerWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                CircleIconButton(
-                  icon: Icons.arrow_back,
+                CircleIconButton.back(
                   size: 34,
                   onTap: () =>
                       context.canPop() ? context.pop() : context.go('/sanh'),
                 ),
                 const Spacer(),
-                const LangToggle(),
+                const LangToggle(compact: true),
               ],
             ),
             const SizedBox(height: VSSpacing.xl),
@@ -170,9 +170,8 @@ class DisclaimerInfoButton extends ConsumerWidget {
       button: true,
       label: en ? DisclaimerScreen.titleEn : DisclaimerScreen.titleVi,
       excludeSemantics: true,
-      child: GestureDetector(
+      child: Pressable(
         key: buttonKey,
-        behavior: HitTestBehavior.opaque,
         onTap: () => context.push(kDisclaimerRoute),
         // Padding widens the tap target well past the 14px glyph.
         child: const Padding(

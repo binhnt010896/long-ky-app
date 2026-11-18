@@ -8,6 +8,7 @@ import '../../state/reminder_service.dart';
 import '../../state/today_provider.dart';
 import '../../state/today_store.dart';
 import 'reminder_sheet.dart';
+import '../../widgets/pressable.dart';
 
 /// "Hôm nay" at the top of the Sảnh: one figure or event for today, new every
 /// day — an anniversary when there is one, otherwise the day's turn in the
@@ -29,9 +30,8 @@ class TodayCard extends ConsumerWidget {
 
     return Padding(
       padding: const EdgeInsets.only(bottom: VSSpacing.lg),
-      child: GestureDetector(
+      child: Pressable(
         key: const ValueKey<String>('sanh-today-card'),
-        behavior: HitTestBehavior.opaque,
         onTap: () async {
           await openToday(ref, source: 'sanh');
           // Back from the page: the one moment to offer the reminder.

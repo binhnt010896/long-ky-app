@@ -140,6 +140,8 @@ class _EraHero extends StatelessWidget {
                 style: VSType.subtitleItalic,
               ),
             ),
+            const SizedBox(height: VSSpacing.lg),
+            _EnterCue(lang: lang),
           ],
         ),
       ),
@@ -169,6 +171,44 @@ class _FlagshipBadge extends StatelessWidget {
           const SizedBox(width: 6),
           Text(lang == Lang.en ? 'PEAK' : 'ĐỈNH CAO', style: VSType.kicker),
         ],
+      ),
+    );
+  }
+}
+
+/// The visible "this opens" cue under the hero copy. Purely a signpost: the
+/// whole scene is the tap target (see home_screen.dart's `_DynastyPage`), so
+/// this takes no taps of its own.
+class _EnterCue extends StatelessWidget {
+  const _EnterCue({required this.lang});
+  final Lang lang;
+
+  @override
+  Widget build(BuildContext context) {
+    return ExcludeSemantics(
+      child: Container(
+        key: const ValueKey<String>('home-enter-cue'),
+        padding: const EdgeInsets.fromLTRB(16, 9, 12, 9),
+        decoration: BoxDecoration(
+          color: VSColors.lacquer.withValues(alpha: 0.45),
+          borderRadius: VSRadii.pillAll,
+          border: Border.all(color: VSColors.gold.withValues(alpha: 0.6)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(
+              lang == Lang.en ? 'Step in' : 'Bước vào',
+              style: VSType.label.copyWith(
+                color: VSColors.inkPrimary,
+                letterSpacing: VSType.track(0.1, 13),
+              ),
+            ),
+            const SizedBox(width: VSSpacing.xs),
+            const Icon(Icons.arrow_forward,
+                size: 15, color: VSColors.goldBright),
+          ],
+        ),
       ),
     );
   }

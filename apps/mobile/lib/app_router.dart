@@ -29,7 +29,8 @@ import 'telemetry/telemetry.dart';
 /// App routes.
 ///  - `/`                       Home — the vertical era stack.
 ///  - `/timeline`               Global Timeline — every era's events in order
-///                              (pushed from Home's corner affordance).
+///                              (pushed from Home's corner affordance);
+///                              `?search=1` opens it in the search field.
 ///  - `/sanh`                   Sảnh — the hall behind the Long Ký seal.
 ///  - `/sanh/gioi-thieu`        Về Long Ký — sources, images, version.
 ///  - `/luu-y`                  Lưu ý về hình ảnh & nội dung — how the images
@@ -55,7 +56,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/timeline',
-        builder: (context, state) => const GlobalTimelineScreen(),
+        builder: (context, state) => GlobalTimelineScreen(
+          focusSearch: state.uri.queryParameters['search'] == '1',
+        ),
       ),
       // Territory atlas — the map across history. Optional ?year= snaps to the
       // nearest snapshot (e.g. from an era's date).
@@ -257,8 +260,17 @@ final routeTelemetryObserverProvider = Provider<RouteTelemetryObserver>((ref) {
 /// map's discovered streets — see visit_store.dart. Kept alive like the
 /// telemetry observer.
 final visitRecorderProvider = Provider<VisitRecorder>((ref) {
-  final recorder = VisitRecorder(ref.watch(routerProvider), (key) {
-    ref.read(visitedProvider.notifier).record(key).catchError(
+  final router = ref.watch(routerProvider);
+  final recorder = VisitRecorder(router, (key) {
+    ref
+        .read(visitedProvider.notifier)
+        .record(
+          key,
+          // An in-era event is also where the reader left off.
+          reading:
+              lastReadForUri(router.routerDelegate.currentConfiguration.uri),
+        )
+        .catchError(
           (Object e, StackTrace s) =>
               reportNonFatal(e, s, reason: 'VisitRecorder.record'),
         );

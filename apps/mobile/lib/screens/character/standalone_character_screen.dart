@@ -13,6 +13,7 @@ import '../../widgets/narration_button.dart';
 import '../../state/narration_controller.dart';
 import '../../widgets/portrait_placeholder.dart';
 import '../streets/street_reverse_chip.dart';
+import '../../widgets/load_error_view.dart';
 import 'character_detail_screen.dart'
     show FigureAppearanceRow, FigureSectionHeader;
 
@@ -41,7 +42,10 @@ class StandaloneCharacterScreen extends ConsumerWidget {
         loading: () => const Center(
           child: CircularProgressIndicator(color: VSColors.gold),
         ),
-        error: (e, _) => Center(child: Text('$e', style: VSType.bodySmall)),
+        error: (e, _) => LoadErrorView(
+          error: e,
+          onRetry: () => ref.invalidate(peopleProvider),
+        ),
         data: (registry) {
           final figure = registry[figureId];
           if (figure == null) return _NotFound(lang: lang);
@@ -63,10 +67,8 @@ class StandaloneCharacterScreen extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         if (figure.bio != null)
-                          Text(
-                            figure.bio!.resolve(lang),
-                            style: VSType.body.copyWith(color: VSColors.inkBody),
-                          ),
+                          Text(figure.bio!.resolve(lang),
+                              style: VSType.reading),
                         if (appearances.isNotEmpty) ...<Widget>[
                           const SizedBox(height: VSSpacing.xl),
                           FigureSectionHeader(
@@ -113,8 +115,7 @@ class _TopBar extends StatelessWidget {
           .add(const EdgeInsets.only(top: VSSpacing.xs)),
       child: Row(
         children: <Widget>[
-          CircleIconButton(
-            icon: Icons.arrow_back,
+          CircleIconButton.back(
             onTap: () => context.canPop() ? context.pop() : context.go('/'),
           ),
           Expanded(
@@ -137,7 +138,6 @@ class _TopBar extends StatelessWidget {
           ),
           const SizedBox(width: VSSpacing.md),
           NarrationButton(kind: NarrationKind.person, id: figure.id),
-          const SizedBox(width: VSSpacing.sm),
           FeedbackButton(
             target: FeedbackTarget(
               type: 'person',
@@ -146,8 +146,8 @@ class _TopBar extends StatelessWidget {
               route: '/nhan-vat/${figure.id}',
             ),
           ),
-          const SizedBox(width: VSSpacing.md),
-          const LangToggle(),
+          const SizedBox(width: VSSpacing.xxs),
+          const LangToggle(compact: true),
         ],
       ),
     );
@@ -248,8 +248,7 @@ class _NotFound extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(VSSpacing.xl),
-            child: CircleIconButton(
-              icon: Icons.arrow_back,
+            child: CircleIconButton.back(
               onTap: () => context.canPop() ? context.pop() : context.go('/'),
             ),
           ),

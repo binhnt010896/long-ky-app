@@ -9,10 +9,13 @@ import 'package:ui_kit/ui_kit.dart';
 import '../../state/media_prefetch.dart';
 import '../../state/providers.dart';
 import '../../state/unlock_store.dart';
+import '../../state/visit_store.dart';
 import '../../theme/era_palette_mapping.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
+import '../../widgets/load_error_view.dart';
 import '../../widgets/narration_button.dart';
+import '../../widgets/pressable.dart';
 import '../../state/narration_controller.dart';
 import '../../widgets/tilted_backdrop.dart';
 import '../event/widgets/event_figures.dart';
@@ -45,7 +48,10 @@ class EraHubScreen extends ConsumerWidget {
         loading: () => const Center(
           child: CircularProgressIndicator(color: VSColors.gold),
         ),
-        error: (e, _) => Center(child: Text('$e', style: VSType.bodySmall)),
+        error: (e, _) => LoadErrorView(
+          error: e,
+          onRetry: () => ref.invalidate(eraProvider(slug)),
+        ),
         data: (era) => TiltedBackdrop(
           era: era,
           palette: paletteForEra(era),
@@ -83,8 +89,7 @@ class EraHubScreen extends ConsumerWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      CircleIconButton(
-                        icon: Icons.arrow_back,
+                      CircleIconButton.back(
                         // Up-navigate to the era list (Home) when there is
                         // nothing to pop — e.g. after arriving here via a
                         // stack-replacing `go` from event detail / timeline.
@@ -97,13 +102,14 @@ class EraHubScreen extends ConsumerWidget {
                             kind: NarrationKind.era,
                             id: era.slug,
                           ),
-                          const SizedBox(width: VSSpacing.sm),
                           CircleIconButton(
                             icon: Icons.map_outlined,
+                            labelVi: 'Bản đồ lãnh thổ thời kỳ này',
+                            labelEn: 'Territory map for this era',
                             onTap: () => context.push('/map?era=${era.slug}'),
                           ),
-                          const SizedBox(width: VSSpacing.sm),
-                          const LangToggle(),
+                          const SizedBox(width: VSSpacing.xxs),
+                          const LangToggle(compact: true),
                         ],
                       ),
                     ],
@@ -247,10 +253,7 @@ class _HubBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               if (era.overview != null) ...<Widget>[
-                Text(
-                  era.overview!.resolve(lang),
-                  style: VSType.body.copyWith(color: VSColors.inkBody),
-                ),
+                Text(era.overview!.resolve(lang), style: VSType.reading),
                 const SizedBox(height: VSSpacing.xl),
               ],
               _ChronicleCard(source: era.primarySource, lang: lang),
@@ -271,7 +274,8 @@ class _HubBody extends StatelessWidget {
                         color: VSColors.inkFaint,
                       ),
                     ),
-                    const SizedBox(height: VSSpacing.md),
+                    _ReadProgress(era: era, lang: lang),
+                    const SizedBox(height: VSSpacing.xs),
                     _QuizLink(eraSlug: era.slug, lang: lang),
                   ],
                 ),
@@ -321,7 +325,7 @@ class _ChronicleCard extends StatelessWidget {
                   style: VSType.overline.copyWith(
                     color: VSColors.goldBright,
                     letterSpacing: VSType.track(0.34, 10),
-                    fontSize: 10,
+                    fontSize: 11,
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -382,12 +386,12 @@ class _ExploreDock extends StatelessWidget {
         Padding(
           padding: EdgeInsets.fromLTRB(VSSpacing.xl, VSSpacing.huge,
               VSSpacing.xl, _dockBottomInset(context)),
-          child: GestureDetector(
+          child: Pressable(
             key: const ValueKey<String>('era-hub-explore'),
-            behavior: HitTestBehavior.opaque,
             onTap: onTap,
             child: Container(
-              height: _explorePillHeight,
+              // At least the pill's height; taller when large text needs it.
+              constraints: const BoxConstraints(minHeight: _explorePillHeight),
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 // The in-sheet pill's gold wash, flattened onto lacquer so it
@@ -445,8 +449,8 @@ class _QuizLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return Pressable(
+      minSize: kMinTapTarget,
       onTap: () {
         final seed = Random().nextInt(1 << 31);
         context.push('/sanh/cau-do/choi?mode=era&era=$eraSlug&seed=$seed');
@@ -456,6 +460,52 @@ class _QuizLink extends StatelessWidget {
             ? 'Thử sức kỷ nguyên này ›'
             : 'Test yourself on this era ›',
         style: VSType.caption.copyWith(color: VSColors.goldBright),
+      ),
+    );
+  }
+}
+
+/// "Đã đọc 3/7 sự kiện" over a thin gold bar — how far into this era's events
+/// the reader is. Nothing until they have opened one.
+class _ReadProgress extends ConsumerWidget {
+  const _ReadProgress({required this.era, required this.lang});
+
+  final Era era;
+  final Lang lang;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final visited =
+        ref.watch(visitedProvider).valueOrNull ?? const <String>{};
+    final total = era.events.length;
+    final read =
+        era.events.where((e) => visited.contains(VisitKey.event(e.id))).length;
+    if (read == 0 || total == 0) return const SizedBox(height: VSSpacing.sm);
+    return Padding(
+      key: const ValueKey<String>('era-read-progress'),
+      padding: const EdgeInsets.only(top: VSSpacing.md, bottom: VSSpacing.xs),
+      child: Column(
+        children: <Widget>[
+          Text(
+            lang == Lang.vi
+                ? 'Đã đọc $read/$total sự kiện'
+                : '$read of $total events read',
+            style: VSType.caption.copyWith(color: VSColors.gold),
+          ),
+          const SizedBox(height: VSSpacing.xs),
+          SizedBox(
+            width: 120,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(2),
+              child: LinearProgressIndicator(
+                value: read / total,
+                minHeight: 3,
+                color: VSColors.goldBright,
+                backgroundColor: VSColors.inkHairline,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

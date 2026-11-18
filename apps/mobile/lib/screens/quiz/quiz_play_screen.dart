@@ -13,6 +13,7 @@ import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
 import '../today/reminder_sheet.dart';
+import '../../widgets/pressable.dart';
 
 int _countFor(QuizMode mode) => switch (mode) {
       QuizMode.daily => 5,
@@ -258,8 +259,7 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
                   horizontal: VSSpacing.xl, vertical: VSSpacing.sm),
               child: Row(
                 children: <Widget>[
-                  CircleIconButton(
-                    icon: Icons.close,
+                  CircleIconButton.close(
                     onTap: () => context.canPop()
                         ? context.pop()
                         : context.go('/sanh/cau-do'),
@@ -273,7 +273,7 @@ class _QuizPlayScreenState extends ConsumerState<QuizPlayScreen> {
                       style: VSType.caption.copyWith(color: VSColors.inkMuted),
                     ),
                   const Spacer(),
-                  const LangToggle(),
+                  const LangToggle(compact: true),
                 ],
               ),
             ),
@@ -477,8 +477,7 @@ class _OptionTile extends StatelessWidget {
         fill = null;
         textColor = VSColors.inkFaint;
     }
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return Pressable(
       onTap: onTap,
       child: Container(
         width: double.infinity,
@@ -544,8 +543,9 @@ class _FeedbackPanel extends ConsumerWidget {
                 .join(' · '),
             style: VSType.caption.copyWith(color: VSColors.goldBright),
           ),
-          const SizedBox(height: VSSpacing.sm),
-          GestureDetector(
+          Pressable(
+            minSize: kMinTapTarget,
+            alignment: Alignment.centerLeft,
             onTap: () {
               ref.read(telemetryProvider).event('source_link_open', <String, Object>{
                 if (source.eraSlug.isNotEmpty) 'era_slug': source.eraSlug,
@@ -572,8 +572,7 @@ class _NextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return Pressable(
       onTap: onTap,
       child: Container(
         height: 52,
@@ -703,8 +702,7 @@ class _OrderTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return Pressable(
       onTap: answered ? null : onTap,
       child: Container(
         width: double.infinity,
@@ -808,9 +806,8 @@ class _ResultView extends StatelessWidget {
           ],
           if (shareFirst != null) ...<Widget>[
             Builder(
-              builder: (context) => GestureDetector(
+              builder: (context) => Pressable(
                 key: const ValueKey<String>('quiz-share'),
-                behavior: HitTestBehavior.opaque,
                 onTap: () {
                   final box = context.findRenderObject() as RenderBox?;
                   onShare(box == null
@@ -860,8 +857,7 @@ class _ResultView extends StatelessWidget {
             ],
             const SizedBox(height: VSSpacing.md),
           ],
-          GestureDetector(
-            behavior: HitTestBehavior.opaque,
+          Pressable(
             onTap: onPlayAgain,
             child: Container(
               height: 52,
@@ -911,8 +907,7 @@ class _MissedRow extends StatelessWidget {
           q.items.first.eventId,
         ),
     };
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return Pressable(
       onTap: () => GoRouter.of(context).push(_eventRoute(eraSlug, eventId)),
       child: Container(
         padding: const EdgeInsets.symmetric(

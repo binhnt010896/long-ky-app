@@ -184,8 +184,7 @@ class _TerritoryMapDemoScreenState
                   child: Row(
                     children: <Widget>[
                       Builder(
-                        builder: (context) => CircleIconButton(
-                          icon: Icons.arrow_back,
+                        builder: (context) => CircleIconButton.back(
                           onTap: () => context.canPop()
                               ? context.pop()
                               : context.go('/'),

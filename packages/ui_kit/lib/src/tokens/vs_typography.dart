@@ -107,8 +107,14 @@ abstract final class VSType {
 
   // --- Body & UI (Be Vietnam Pro) -------------------------------------------
 
-  /// Reading body (14px, generous 1.72 leading).
+  /// UI body (14px, generous 1.72 leading) — dialogs, options, short copy.
   static TextStyle get body => _body(14, height: 1.72, color: VSColors.inkBody);
+
+  /// Long-form reading text (16px) — an event's account, a figure's
+  /// biography, an era's overview. Larger and a step brighter than [body]:
+  /// these are the paragraphs the reader actually sits with.
+  static TextStyle get reading =>
+      _body(16, height: 1.7, color: VSColors.inkSecondary);
 
   /// Secondary body / card supporting line (12.5px).
   static TextStyle get bodySmall =>
@@ -126,9 +132,9 @@ abstract final class VSType {
         color: VSColors.goldBright,
       );
 
-  /// Overline / section label — gold, uppercase (10.5px/.32em).
+  /// Overline / section label — gold, uppercase (11px/.32em).
   static TextStyle get overline => _body(
-        10.5,
+        11,
         weight: FontWeight.w500,
         emTracking: 0.32,
         color: VSColors.gold,
@@ -142,13 +148,13 @@ abstract final class VSType {
         color: VSColors.gold,
       );
 
-  /// Monospaced provenance caption on illustrations (10.5px).
+  /// Monospaced provenance caption on illustrations (11px).
   static TextStyle get provenance => const TextStyle(
         fontFamily: familyBody,
         package: fontPackage,
-        fontSize: 10.5,
+        fontSize: 11,
         height: 1.3,
-        letterSpacing: 1.05, // 0.1em × 10.5
+        letterSpacing: 1.1, // 0.1em × 11
         color: VSColors.inkMuted,
       );
 

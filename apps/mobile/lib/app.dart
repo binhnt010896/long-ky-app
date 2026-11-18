@@ -9,6 +9,7 @@ import 'screens/splash/splash_gate.dart';
 import 'state/firestore_content_sync.dart';
 import 'state/providers.dart';
 import 'state/reminder_service.dart';
+import 'state/text_size_store.dart';
 import 'state/unlock_store.dart';
 import 'widgets/max_width_frame.dart';
 
@@ -55,10 +56,32 @@ class VietSuApp extends ConsumerWidget {
         theme: VSTheme.build(era: VSEraPalette.hongBangVanLang),
         routerConfig: ref.watch(routerProvider),
         // The Long Ký brand splash overlays the app on launch, then fades.
-        builder: (context, child) => MaxWidthFrame(
-          child: SplashGate(child: child ?? const SizedBox.shrink()),
+        builder: (context, child) => _ReaderTextScale(
+          child: MaxWidthFrame(
+            child: SplashGate(child: child ?? const SizedBox.shrink()),
+          ),
         ),
       ),
+    );
+  }
+}
+
+/// Applies the reader's text size on top of the phone's own setting, held to
+/// [kMaxTextScale] so the largest accessibility sizes enlarge the app without
+/// breaking its chrome.
+class _ReaderTextScale extends ConsumerWidget {
+  const _ReaderTextScale({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final mq = MediaQuery.of(context);
+    final scale = effectiveTextScale(
+        mq.textScaler.scale(100) / 100, ref.watch(textSizeProvider));
+    return MediaQuery(
+      data: mq.copyWith(textScaler: TextScaler.linear(scale)),
+      child: child,
     );
   }
 }

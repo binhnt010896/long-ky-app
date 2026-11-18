@@ -17,12 +17,37 @@ import 'narration_controller.dart';
 /// nothing about it is sent anywhere. Progress that only ever grows — a missed
 /// day takes nothing away.
 class VisitData {
-  const VisitData({this.visited = const <String>{}, this.backfilled = false});
+  const VisitData({
+    this.visited = const <String>{},
+    this.backfilled = false,
+    this.lastRead,
+  });
 
   final Set<String> visited;
 
   /// The one-time import from narration history has been done.
   final bool backfilled;
+
+  /// The in-era event the reader had open most recently, for Home's
+  /// "continue reading" chip. Null until one has been opened.
+  final LastRead? lastRead;
+}
+
+/// An in-era event, as the place the reader left off.
+class LastRead {
+  const LastRead({required this.eraSlug, required this.eventId});
+
+  final String eraSlug;
+  final String eventId;
+
+  String get route => '/era/$eraSlug/event/$eventId';
+
+  @override
+  bool operator ==(Object other) =>
+      other is LastRead && other.eraSlug == eraSlug && other.eventId == eventId;
+
+  @override
+  int get hashCode => Object.hash(eraSlug, eventId);
 }
 
 /// The visit persistence seam — file-backed in the app, in-memory in tests.
@@ -52,9 +77,16 @@ class FileVisitStore implements VisitStore {
       final raw = jsonDecode(await file.readAsString());
       if (raw is! Map<String, dynamic>) return _cached = const VisitData();
       final visited = raw['visited'];
+      final last = raw['last'];
       return _cached = VisitData(
         visited: visited is List ? visited.whereType<String>().toSet() : <String>{},
         backfilled: raw['backfilled'] == true,
+        lastRead: last is Map && last['era'] is String && last['event'] is String
+            ? LastRead(
+                eraSlug: last['era'] as String,
+                eventId: last['event'] as String,
+              )
+            : null,
       );
     } catch (e, s) {
       // Unreadable file: start over rather than fail the map.
@@ -73,6 +105,8 @@ class FileVisitStore implements VisitStore {
       await tmp.writeAsString(jsonEncode(<String, dynamic>{
         'visited': data.visited.toList()..sort(),
         'backfilled': data.backfilled,
+        if (data.lastRead case final last?)
+          'last': <String, String>{'era': last.eraSlug, 'event': last.eventId},
       }));
       await tmp.rename(file.path);
     } catch (e, s) {
@@ -110,6 +144,15 @@ String? visitKeyForUri(Uri uri) {
   }
 }
 
+/// The in-era event a location shows (`/era/:slug/event/:id`), or null for any
+/// other page. Pure.
+LastRead? lastReadForUri(Uri uri) {
+  final s = uri.pathSegments;
+  return s.length == 4 && s[0] == 'era' && s[2] == 'event'
+      ? LastRead(eraSlug: s[1], eventId: s[3])
+      : null;
+}
+
 /// A narration key (`eras/<slug>`, `people/<id>`, `events/<id>`) as a
 /// [VisitKey]. Playing a page's narration means the page was opened, so
 /// existing readers start with the streets they have already earned.
@@ -139,11 +182,21 @@ class NewlyLit {
 
 final newlyLitProvider = StateProvider<NewlyLit?>((ref) => null);
 
+/// Where the reader left off — the last in-era event they had open. Filled by
+/// [VisitedNotifier] (from disk when it loads, then on every event opened).
+final lastReadProvider = StateProvider<LastRead?>((ref) => null);
+
 class VisitedNotifier extends AsyncNotifier<Set<String>> {
+  LastRead? _lastRead;
+
   @override
   Future<Set<String>> build() async {
     final store = ref.watch(visitStoreProvider);
     var data = await store.load();
+    _lastRead = data.lastRead;
+    if (data.lastRead != null) {
+      ref.read(lastReadProvider.notifier).state = data.lastRead;
+    }
     if (!data.backfilled) {
       final heard =
           (await ref.read(narrationStoreProvider).load()).heard;
@@ -154,6 +207,7 @@ class VisitedNotifier extends AsyncNotifier<Set<String>> {
             if (visitKeyFromNarrationKey(k) case final v?) v,
         },
         backfilled: true,
+        lastRead: data.lastRead,
       );
       await store.save(data);
     }
@@ -161,16 +215,24 @@ class VisitedNotifier extends AsyncNotifier<Set<String>> {
   }
 
   /// Records a visit. When it lights streets that were dark, publishes them on
-  /// [newlyLitProvider].
-  Future<void> record(String key) async {
+  /// [newlyLitProvider]. [reading] is the in-era event the visit is for, if it
+  /// is one: it becomes the place the reader left off ([lastReadProvider]),
+  /// whether or not the event had been opened before.
+  Future<void> record(String key, {LastRead? reading}) async {
     // The latest state, so two quick navigations can't both start from a stale set.
     final visited = state.valueOrNull ?? await future;
-    if (visited.contains(key)) return;
-    final next = <String>{...visited, key};
-    state = AsyncData(next);
-    await ref
-        .read(visitStoreProvider)
-        .save(VisitData(visited: next, backfilled: true));
+    final isNew = !visited.contains(key);
+    final moved = reading != null && reading != _lastRead;
+    if (!isNew && !moved) return;
+    final next = isNew ? <String>{...visited, key} : visited;
+    if (moved) {
+      _lastRead = reading;
+      ref.read(lastReadProvider.notifier).state = reading;
+    }
+    if (isNew) state = AsyncData(next);
+    await ref.read(visitStoreProvider).save(
+        VisitData(visited: next, backfilled: true, lastRead: _lastRead));
+    if (!isNew) return;
     final mapping = await ref.read(streetMappingProvider.future).catchError(
           (Object _) => null,
         );

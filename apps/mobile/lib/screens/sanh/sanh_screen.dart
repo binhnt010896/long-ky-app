@@ -12,12 +12,14 @@ import '../../state/content_sync.dart';
 import '../../state/narration_controller.dart';
 import '../../state/providers.dart';
 import '../../state/reminder_service.dart';
+import '../../state/text_size_store.dart';
 import '../../state/today_store.dart';
 import '../../state/tip_store.dart';
 import '../../telemetry/telemetry.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/flag_mark.dart';
 import '../../widgets/lang_toggle.dart';
+import '../../widgets/pressable.dart';
 import '../../widgets/seal_button.dart';
 import '../../widgets/unlock/daily_gift.dart';
 import '../../widgets/tea_cups_icon.dart';
@@ -47,6 +49,14 @@ class _SanhItem {
 }
 
 const List<_SanhItem> _items = <_SanhItem>[
+  _SanhItem(
+    icon: Icons.search,
+    titleVi: 'Tìm kiếm',
+    titleEn: 'Search',
+    subtitleVi: 'Sự kiện, nhân vật, triều đại',
+    subtitleEn: 'Events, people, dynasties',
+    route: '/timeline?search=1',
+  ),
   _SanhItem(
     icon: Icons.timeline_rounded,
     titleVi: 'Niên biểu',
@@ -90,8 +100,9 @@ const List<_SanhItem> _items = <_SanhItem>[
 ];
 
 /// The Sảnh — the hall behind the Long Ký seal: a lacquer panel holding the
-/// features that live outside the eras (Chào cờ first), the directory, and the
-/// "một chén trà" tip.
+/// features that live outside the eras (Chào cờ first), the directory of
+/// places to go ("Khám phá"), the reader's settings ("Cài đặt": language, text
+/// size, narration, the daily reminder), and the "một chén trà" tip.
 class SanhScreen extends ConsumerStatefulWidget {
   const SanhScreen({super.key});
 
@@ -255,10 +266,8 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
                 children: <Widget>[
                   Row(
                     children: <Widget>[
-                      const LangToggle(),
                       const Spacer(),
-                      CircleIconButton(
-                        icon: Icons.close,
+                      CircleIconButton.close(
                         size: 34,
                         onTap: () =>
                             context.canPop() ? context.pop() : context.go('/'),
@@ -282,6 +291,17 @@ class _SanhScreenState extends ConsumerState<SanhScreen>
                   Container(height: 1, color: VSColors.goldBorder),
                   for (final item in _items)
                     _rise(i++, _DirectoryRow(item: item, en: en)),
+                  // Settings are their own group: these rows change something
+                  // here, where the ones above go somewhere.
+                  const SizedBox(height: VSSpacing.xxl),
+                  _rise(
+                    i++,
+                    Text(en ? 'SETTINGS' : 'CÀI ĐẶT', style: VSType.overline),
+                  ),
+                  const SizedBox(height: VSSpacing.xs),
+                  Container(height: 1, color: VSColors.goldBorder),
+                  _rise(i++, _LanguageRow(en: en)),
+                  _rise(i++, _TextSizeRow(en: en)),
                   _rise(i++, _NarrationRow(en: en)),
                   _rise(i++, _ReminderRow(en: en)),
                   if (offers.isNotEmpty) ...<Widget>[
@@ -470,6 +490,14 @@ class _BrandLockup extends StatelessWidget {
   }
 }
 
+/// A picture card's height at the reader's text size: its copy is pinned to
+/// the bottom edge, so larger text needs a taller card or it climbs into the
+/// badge at the top.
+double _cardHeight(BuildContext context, double base) {
+  final scale = MediaQuery.textScalerOf(context).scale(100) / 100;
+  return base * (scale > 1 ? scale : 1);
+}
+
 /// The Sảnh's feature card: Chào cờ, the daily flag salute.
 class _ChaoCoCard extends StatelessWidget {
   const _ChaoCoCard({required this.en});
@@ -477,12 +505,12 @@ class _ChaoCoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return Pressable(
       key: const ValueKey<String>('sanh-chao-co-card'),
-      behavior: HitTestBehavior.opaque,
+      pressedOpacity: 0.8,
       onTap: () => context.push('/chao-co'),
       child: Container(
-        height: 168,
+        height: _cardHeight(context, 168),
         decoration: BoxDecoration(
           borderRadius: VSRadii.cardAll,
           border: Border.all(color: VSColors.goldBorder),
@@ -579,12 +607,12 @@ class _StreetsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return Pressable(
       key: const ValueKey<String>('sanh-streets-card'),
-      behavior: HitTestBehavior.opaque,
+      pressedOpacity: 0.8,
       onTap: () => context.push('/duong-pho'),
       child: Container(
-        height: 132,
+        height: _cardHeight(context, 132),
         decoration: BoxDecoration(
           borderRadius: VSRadii.cardAll,
           border: Border.all(color: VSColors.goldBorder),
@@ -713,6 +741,130 @@ class _DirectoryRow extends StatelessWidget {
       trailing: Icon(Icons.chevron_right,
           color: VSColors.gold.withValues(alpha: 0.7)),
       onTap: () => context.push(item.route),
+    );
+  }
+}
+
+/// The reading language — the one place it is set as a preference (the top
+/// bars carry a compact switch for flipping it mid-read).
+class _LanguageRow extends ConsumerWidget {
+  const _LanguageRow({required this.en});
+  final bool en;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return _SanhRow(
+      key: const ValueKey<String>('sanh-language-row'),
+      icon: Icons.translate_rounded,
+      title: en ? 'Language' : 'Ngôn ngữ',
+      subtitle: en ? 'Reading in English' : 'Đang đọc bằng tiếng Việt',
+      // The row announces and flips the language itself.
+      trailing: const ExcludeSemantics(child: LangToggle()),
+      onTap: () {
+        final next = en ? Lang.vi : Lang.en;
+        ref.read(langProvider.notifier).state = next;
+        ref.read(langStoreProvider).save(next);
+      },
+    );
+  }
+}
+
+/// The reader's text size, on top of the phone's own setting: three steps,
+/// applied to the whole app at once.
+class _TextSizeRow extends ConsumerWidget {
+  const _TextSizeRow({required this.en});
+  final bool en;
+
+  static String _name(ReaderTextSize size, bool en) => switch (size) {
+        ReaderTextSize.standard => en ? 'Standard' : 'Chuẩn',
+        ReaderTextSize.large => en ? 'Large' : 'Lớn',
+        ReaderTextSize.larger => en ? 'Larger' : 'Lớn hơn',
+      };
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final size = ref.watch(textSizeProvider);
+    void set(ReaderTextSize next) {
+      ref.read(textSizeProvider.notifier).state = next;
+      ref.read(textSizeStoreProvider).save(next);
+    }
+
+    const sizes = ReaderTextSize.values;
+    return _SanhRow(
+      key: const ValueKey<String>('sanh-text-size-row'),
+      icon: Icons.format_size,
+      title: en ? 'Text size' : 'Cỡ chữ',
+      subtitle: _name(size, en),
+      trailing: _TextSizeSegments(size: size, en: en, onPick: set),
+      // The row itself steps to the next size (and wraps), like the switches.
+      onTap: () => set(sizes[(size.index + 1) % sizes.length]),
+    );
+  }
+}
+
+/// The three "A"s — the visual picker. Hidden from a screen reader, which
+/// steps through the sizes with the row itself.
+class _TextSizeSegments extends StatelessWidget {
+  const _TextSizeSegments({
+    required this.size,
+    required this.en,
+    required this.onPick,
+  });
+
+  final ReaderTextSize size;
+  final bool en;
+  final ValueChanged<ReaderTextSize> onPick;
+
+  @override
+  Widget build(BuildContext context) {
+    const sizes = ReaderTextSize.values;
+    void set(ReaderTextSize next) => onPick(next);
+    return ExcludeSemantics(
+      child: Container(
+        padding: const EdgeInsets.all(3),
+        decoration: BoxDecoration(
+          color: VSColors.lacquer.withValues(alpha: 0.55),
+          borderRadius: const BorderRadius.all(VSRadii.chip),
+          border: Border.all(color: VSColors.gold.withValues(alpha: 0.35)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            for (final option in sizes)
+              Pressable(
+                key: ValueKey<String>('sanh-text-size-${option.name}'),
+                onTap: () => set(option),
+                haptic: true,
+                selected: option == size,
+                semanticLabel: _TextSizeRow._name(option, en),
+                child: AnimatedContainer(
+                  duration: VSMotion.control,
+                  width: 38,
+                  height: 38,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    gradient: option == size ? VSColors.goldSheen : null,
+                    borderRadius: const BorderRadius.all(Radius.circular(18)),
+                  ),
+                  // A fixed glyph per step (never scaled itself): the three
+                  // "A"s are the legend for the sizes, not text to enlarge.
+                  child: ExcludeSemantics(
+                    child: Text(
+                      'A',
+                      textScaler: TextScaler.noScaling,
+                      style: VSType.cardTitle.copyWith(
+                        fontSize: 13 + 3.0 * option.index,
+                        color: option == size
+                            ? VSColors.lacquerRaised
+                            : VSColors.inkMuted,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -910,8 +1062,7 @@ class _TipSizeRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return Pressable(
       onTap: onTap,
       child: Container(
         constraints: const BoxConstraints(minHeight: 60),
@@ -960,8 +1111,7 @@ class _SanhRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const rule = BorderSide(color: VSColors.goldBorder);
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return Pressable(
       onTap: onTap,
       child: Container(
         constraints: const BoxConstraints(minHeight: 64),

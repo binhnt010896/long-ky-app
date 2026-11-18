@@ -152,14 +152,13 @@ class AboutScreen extends ConsumerWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                CircleIconButton(
-                  icon: Icons.arrow_back,
+                CircleIconButton.back(
                   size: 34,
                   onTap: () =>
                       context.canPop() ? context.pop() : context.go('/sanh'),
                 ),
                 const Spacer(),
-                const LangToggle(),
+                const LangToggle(compact: true),
               ],
             ),
             const SizedBox(height: VSSpacing.xl),

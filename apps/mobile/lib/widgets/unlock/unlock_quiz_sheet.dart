@@ -7,6 +7,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 import '../../state/providers.dart';
 import '../../state/unlock_store.dart';
+import '../pressable.dart';
 
 /// The one question asked about a hidden person or event, or null when the
 /// content can't make a fair one. Built from the same published content as the
@@ -182,9 +183,8 @@ class _UnlockQuizSheetState extends ConsumerState<_UnlockQuizSheet>
                         ),
                       ),
                       const SizedBox(height: VSSpacing.lg),
-                      GestureDetector(
+                      Pressable(
                         key: const ValueKey<String>('unlock-continue'),
-                        behavior: HitTestBehavior.opaque,
                         onTap: () => context.pop(),
                         child: Container(
                           height: 52,
@@ -227,8 +227,7 @@ class _Option extends StatelessWidget {
     };
     return Padding(
       padding: const EdgeInsets.only(bottom: VSSpacing.sm),
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
+      child: Pressable(
         onTap: state == _S.idle ? onTap : null,
         child: Container(
           width: double.infinity,

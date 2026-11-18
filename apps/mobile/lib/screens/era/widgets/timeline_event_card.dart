@@ -2,6 +2,8 @@ import 'package:core_domain/core_domain.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+import '../../../widgets/pressable.dart';
+
 /// One event row on the era timeline: a node on the gold spine plus the card.
 ///
 /// [active] is the event currently at the reading position (elevated, gold
@@ -14,6 +16,7 @@ class TimelineEventCard extends StatelessWidget {
     required this.lit,
     required this.lang,
     required this.onTap,
+    this.read = false,
     super.key,
   });
 
@@ -23,9 +26,13 @@ class TimelineEventCard extends StatelessWidget {
   final Lang lang;
   final VoidCallback onTap;
 
+  /// The reader has opened this event before: its node fills in gold and the
+  /// card carries a small "read" tick, so a long list shows what is left.
+  final bool read;
+
   @override
   Widget build(BuildContext context) {
-    final nodeSize = active ? 12.0 : 7.0;
+    final nodeSize = active ? 12.0 : (read ? 9.0 : 7.0);
     return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -57,7 +64,7 @@ class TimelineEventCard extends StatelessWidget {
                     height: nodeSize,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: active
+                      color: active || read
                           ? VSColors.goldBright
                           : (lit
                               ? VSColors.gold.withValues(alpha: 0.6)
@@ -77,8 +84,7 @@ class TimelineEventCard extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
+            child: Pressable(
               onTap: onTap,
               child: AnimatedContainer(
                 duration: VSMotion.control,
@@ -107,14 +113,22 @@ class TimelineEventCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      event.year.display.resolve(lang),
-                      style: VSType.caption.copyWith(
-                        color: VSColors.gold,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: VSType.track(0.14, 11),
-                        fontSize: 11,
-                      ),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Text(
+                            event.year.display.resolve(lang),
+                            style: VSType.caption.copyWith(
+                              color: VSColors.gold,
+                              fontWeight: FontWeight.w500,
+                              letterSpacing: VSType.track(0.14, 11),
+                              fontSize: 11,
+                            ),
+                          ),
+                        ),
+                        if (read)
+                          ReadMark(lang: lang),
+                      ],
                     ),
                     const SizedBox(height: VSSpacing.xs),
                     Text(event.title.resolve(lang), style: VSType.cardTitle),
@@ -128,6 +142,41 @@ class TimelineEventCard extends StatelessWidget {
               ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The small "read" tick beside an event the reader has already opened. An
+/// icon plus the word, so it never rests on colour alone.
+class ReadMark extends StatelessWidget {
+  const ReadMark({required this.lang, this.showLabel = true, super.key});
+
+  final Lang lang;
+  final bool showLabel;
+
+  @override
+  Widget build(BuildContext context) {
+    final label = lang == Lang.vi ? 'Đã đọc' : 'Read';
+    return Semantics(
+      label: label,
+      excludeSemantics: true,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          const Icon(Icons.check_circle, size: 13, color: VSColors.gold),
+          if (showLabel) ...<Widget>[
+            const SizedBox(width: 4),
+            Text(
+              label,
+              style: VSType.caption.copyWith(
+                color: VSColors.gold,
+                fontSize: 11,
+                letterSpacing: VSType.track(0.06, 11),
+              ),
+            ),
+          ],
         ],
       ),
     );

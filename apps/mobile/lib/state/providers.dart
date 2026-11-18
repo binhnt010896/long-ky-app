@@ -117,7 +117,7 @@ final sanhVisitedProvider = StateProvider<bool>((ref) => false);
 /// Home chrome buttons that wear a red "unseen" dot until first tapped.
 abstract final class HomeChromeButton {
   static const String timeline = 'timeline';
-  static const String streets = 'streets';
+  static const String streets = kStreetsChromeId;
 }
 
 /// Ids from [HomeChromeButton] the reader has already tapped. main.dart
@@ -125,6 +125,11 @@ abstract final class HomeChromeButton {
 final seenChromeProvider = StateProvider<Set<String>>(
   (ref) => const <String>{},
 );
+
+/// How many times the event page's swipe hint has been shown (it stops after
+/// `kSwipeHintShows`). main.dart overrides the initial value with the
+/// persisted one.
+final swipeHintCountProvider = StateProvider<int>((ref) => 0);
 
 /// True once the brand splash has fully faded — the Home tour waits for it so
 /// it never plays underneath the splash.

@@ -74,4 +74,35 @@ void main() {
     expect(await FileOnboardingStore().seenChrome(),
         <String>{'timeline', 'streets'});
   });
+
+  test('a reader who opened the street map before the dots skips its dot',
+      () async {
+    _mockPathProvider(TestWidgetsFlutterBinding.instance);
+    expect(
+        await FileOnboardingStore().carryOverChrome(streetMapOpened: true),
+        <String>{kStreetsChromeId});
+    expect(await FileOnboardingStore().seenChrome(), <String>{kStreetsChromeId});
+  });
+
+  test('the carry-over runs once: later street-map visits leave the dot',
+      () async {
+    _mockPathProvider(TestWidgetsFlutterBinding.instance);
+    // First launch on this version: the street map had never been opened.
+    expect(await FileOnboardingStore().carryOverChrome(streetMapOpened: false),
+        isEmpty);
+    // Opened later (through the Sảnh, say): only a tap on the button counts.
+    expect(await FileOnboardingStore().carryOverChrome(streetMapOpened: true),
+        isEmpty);
+    // A tap still clears it.
+    await FileOnboardingStore().markChromeSeen(kStreetsChromeId);
+    expect(await FileOnboardingStore().carryOverChrome(streetMapOpened: true),
+        <String>{kStreetsChromeId});
+  });
+
+  test('the carry-over keeps buttons already tapped', () async {
+    _mockPathProvider(TestWidgetsFlutterBinding.instance);
+    await FileOnboardingStore().markChromeSeen('timeline');
+    expect(await FileOnboardingStore().carryOverChrome(streetMapOpened: true),
+        <String>{'timeline', kStreetsChromeId});
+  });
 }

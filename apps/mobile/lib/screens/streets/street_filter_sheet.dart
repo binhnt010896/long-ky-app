@@ -1,6 +1,7 @@
 import 'package:core_domain/core_domain.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/ui_kit.dart';
+import '../../widgets/pressable.dart';
 
 /// Opens the street filter and returns the buckets the reader left switched
 /// off (empty = show everything), or null when the sheet was dismissed.
@@ -274,8 +275,7 @@ class _ApplyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final on = onTap != null;
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return Pressable(
       onTap: onTap,
       child: Container(
         height: 48,

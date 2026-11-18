@@ -21,6 +21,8 @@ import 'street_data.dart';
 import 'street_filter_sheet.dart';
 import 'street_landmarks.dart';
 import 'street_perf.dart';
+import '../../widgets/load_error_view.dart';
+import '../../widgets/pressable.dart';
 
 /// Minimum zoom of the street map. Together with the camera constraint it
 /// keeps the open sea and the island chains out of frame (sovereignty guard).
@@ -480,7 +482,7 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: VSType.caption.copyWith(
-                      fontSize: 10.5,
+                      fontSize: 11,
                       color: VSColors.inkMuted,
                     ),
                   ),
@@ -498,8 +500,7 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    CircleIconButton(
-                      icon: Icons.arrow_back,
+                    CircleIconButton.back(
                       onTap: () => context.pop(),
                     ),
                     Expanded(
@@ -520,7 +521,7 @@ class _StreetMapScreenState extends ConsumerState<StreetMapScreen> {
                         ),
                       ),
                     ),
-                    const LangToggle(),
+                    const LangToggle(compact: true),
                   ],
                 ),
                 const SizedBox(height: VSSpacing.sm),
@@ -609,9 +610,8 @@ class _FilterButton extends StatelessWidget {
     return Semantics(
       button: true,
       label: lang == Lang.vi ? 'Bộ lọc' : 'Filter',
-      child: GestureDetector(
+      child: Pressable(
         key: const Key('street-filter'),
-        behavior: HitTestBehavior.opaque,
         onTap: onTap,
         child: SizedBox(
           width: 48,
@@ -733,36 +733,17 @@ class _Search extends StatelessWidget {
 
 /// Shown when the street data isn't there (mapping/boundary/geometry missing
 /// or the geometry couldn't be fetched). Never an unbounded map.
-class _Unavailable extends StatelessWidget {
+class _Unavailable extends ConsumerWidget {
   const _Unavailable({required this.lang});
   final Lang lang;
 
   @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Stack(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(VSSpacing.md),
-            child: CircleIconButton(
-              icon: Icons.arrow_back,
-              onTap: () => context.pop(),
-            ),
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(VSSpacing.xl),
-              child: Text(
-                lang == Lang.vi
-                    ? 'Bản đồ đường phố chưa sẵn sàng. Vui lòng thử lại khi có mạng.'
-                    : 'The street map isn\'t ready yet. Please try again when online.',
-                textAlign: TextAlign.center,
-                style: VSType.bodySmall,
-              ),
-            ),
-          ),
-        ],
-      ),
+  Widget build(BuildContext context, WidgetRef ref) {
+    return LoadErrorView(
+      messageVi: 'Bản đồ đường phố chưa sẵn sàng.',
+      messageEn: 'The street map isn’t ready yet.',
+      // The data may simply not have been downloadable a moment ago.
+      onRetry: () => ref.invalidate(streetMapDataProvider),
     );
   }
 }

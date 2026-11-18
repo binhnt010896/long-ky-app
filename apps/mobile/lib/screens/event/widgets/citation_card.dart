@@ -42,7 +42,7 @@ class CitationCard extends StatelessWidget {
                   color: VSColors.goldBright,
                   fontWeight: FontWeight.w600,
                   letterSpacing: VSType.track(0.36, 10),
-                  fontSize: 10,
+                  fontSize: 11,
                 ),
               ),
               const SizedBox(width: VSSpacing.sm),

@@ -10,6 +10,7 @@ import '../../state/providers.dart';
 import '../../state/quiz_store.dart';
 import '../../widgets/circle_icon_button.dart';
 import '../../widgets/lang_toggle.dart';
+import '../../widgets/pressable.dart';
 
 /// Câu đố's landing screen: three ways to play, each remembering its own
 /// best score. No badges or leaderboards — just "have you played today" and
@@ -37,13 +38,12 @@ class QuizHomeScreen extends ConsumerWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                CircleIconButton(
-                  icon: Icons.arrow_back,
+                CircleIconButton.back(
                   onTap: () =>
                       context.canPop() ? context.pop() : context.go('/sanh'),
                 ),
                 const Spacer(),
-                const LangToggle(),
+                const LangToggle(compact: true),
               ],
             ),
             const SizedBox(height: VSSpacing.xl),
@@ -148,8 +148,7 @@ class _ModeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
+    return Pressable(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(VSSpacing.lg),
